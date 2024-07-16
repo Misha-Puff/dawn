@@ -13,7 +13,8 @@
   padding-top: 3rem;
   position: absolute;
   right: 0;
-  top: 100%;
+  top: 65%;
+  z-index: 999999;
 }
 
 .shopify-section-header-sticky .mega-menu__content {
