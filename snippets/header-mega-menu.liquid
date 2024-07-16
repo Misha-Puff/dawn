@@ -16,13 +16,15 @@
                 id="HeaderMenu-{{ link.handle }}"
                 class="header__menu-item list-menu__item link focus-inset"
               >
-                <span
-                  {%- if link.child_active %}
-                    class="header__active-menu-item"
-                  {% endif %}
-                >
-                  {{- link.title | escape -}}
-                </span>
+                <a class="header__menu-item" style="padding: 0;" href="{{ link.url }}" title="{{ link.title }}">
+                  <span
+                    {%- if link.child_active %}
+                      class="header__active-menu-item"
+                    {% endif %}
+                  >
+                    {{- link.title | escape -}}
+                  </span>
+                </a>
                 {% render 'icon-caret' %}
               </summary>
               <div
@@ -92,3 +94,45 @@
     {%- endfor -%}
   </ul>
 </nav>
+
+<script>
+  let items = document.querySelectorAll('.mega-menu');
+  let header = document.querySelector('header');
+  let currentItemIndex;
+
+  items.forEach((item, itemIndex) => {
+    const content = item.querySelector('.mega-menu__content');
+
+    item.addEventListener('mouseover', () => {
+      if (
+        (currentItemIndex === 0 && currentItemIndex !== itemIndex) ||
+        (currentItemIndex && currentItemIndex !== itemIndex)
+      ) {
+        items[currentItemIndex].removeAttribute('open');
+      }
+
+      currentItemIndex = itemIndex;
+      item.setAttribute('open', true);
+    });
+
+    item.addEventListener('mouseleave', (event) => {
+      let close = true;
+
+      const closeTimeout = setTimeout(() => {
+        if (close) item.removeAttribute('open');
+      }, 500);
+
+      content.addEventListener('mouseover', () => {
+        close = false;
+      });
+
+      item.addEventListener('mouseover', () => {
+        clearTimeout(closeTimeout);
+      });
+    });
+
+    content.addEventListener('mouseleave', () => {
+      item.removeAttribute('open');
+    });
+  });
+</script>
