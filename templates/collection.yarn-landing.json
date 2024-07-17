@@ -74,11 +74,42 @@
         "show_text_below": false,
         "accessibility_info": ""
       }
+    },
+    "rich_text_GwmPKU": {
+      "type": "rich-text",
+      "blocks": {
+        "button_qerj7n": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop RWS Yarn",
+            "button_link": "shopify:\/\/collections\/rws-yarn-skeins",
+            "button_style_secondary": true,
+            "button_label_2": "Shop Limited Yarn",
+            "button_link_2": "shopify:\/\/collections\/limited-yarn-skeins",
+            "button_style_secondary_2": true,
+            "button_label_3": "Shop Knitting Patterns",
+            "button_link_3": "shopify:\/\/collections\/knitting-patterns",
+            "button_style_secondary_3": true
+          }
+        }
+      },
+      "block_order": [
+        "button_qerj7n"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "banner",
     "product-grid",
-    "slideshow_TnMf9a"
+    "slideshow_TnMf9a",
+    "rich_text_GwmPKU"
   ]
 }
