@@ -238,9 +238,12 @@
     box-shadow: none;
   }
 
-  .banner:not(.banner--mobile-bottom) .button--secondary {
-    --alpha-button-background: 0;
-  }
+  /* 
+    Removed so secondary buttons have a background color
+    .banner:not(.banner--mobile-bottom) .button--secondary {
+      --alpha-button-background: 0;
+    } 
+  */
 
   .banner--stacked:not(.banner--mobile-bottom):not(.banner--adapt) .banner__content {
     position: absolute;
