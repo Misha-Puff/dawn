@@ -11,6 +11,7 @@
   "sections": {
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
@@ -19,23 +20,144 @@
     },
     "product-grid": {
       "type": "main-collection-product-grid",
+      "disabled": true,
       "settings": {
         "products_per_page": 16,
         "columns_desktop": 4,
+        "color_scheme": "",
         "image_ratio": "adapt",
+        "image_shape": "default",
         "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
+        "quick_add": "none",
         "enable_filtering": true,
+        "filter_type": "horizontal",
         "enable_sorting": true,
         "columns_mobile": "2",
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "slideshow_aFcKQi": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_FWThEf": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SP24_Leader_Adult_4.11.24_3.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "Shop All",
+            "link": "shopify:\/\/collections\/adult-all",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_FWThEf"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "adapt_image",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "multicolumn_8DQLJ3": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_BCxWxb": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SP24_Leaders_LG_Adult_LP_Lookbook.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Spring Lookbook",
+            "link": "shopify:\/\/blogs\/journal\/adult-spring-24"
+          }
+        },
+        "column_dVCGVj": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_6.20.24_Sale_5.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Last Chance Sale",
+            "link": "shopify:\/\/collections\/adult-fa23-wi23-sale"
+          }
+        }
+      },
+      "block_order": [
+        "column_BCxWxb",
+        "column_dVCGVj"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_ngVXDX": {
+      "type": "image-banner",
+      "blocks": {
+        "buttons_678d4j": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Journal",
+            "button_link_1": "shopify:\/\/blogs\/journal",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "buttons_678d4j"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/MP_SP24_Adult_LP_Journal.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
     }
   },
   "order": [
     "banner",
-    "product-grid"
+    "product-grid",
+    "slideshow_aFcKQi",
+    "multicolumn_8DQLJ3",
+    "image_banner_ngVXDX"
   ]
 }
