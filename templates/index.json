@@ -137,12 +137,69 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "multicolumn_GbjXUE": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_WCJg47": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/SP24JournalTemplate_Website_3.29.24_Mob_fc40404c-3058-47e5-8f33-0d1c8f410cb4.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Shop Swim",
+            "link": "shopify:\/\/collections\/child-swim"
+          }
+        },
+        "column_rLVYmc": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_Baby_5.13.24_2_Mob_6d18c1f6-bde7-4481-aa7c-bf1dccc57bba.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Shop Baby",
+            "link": "shopify:\/\/collections\/baby-summer-24"
+          }
+        },
+        "column_prW6et": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SP24_Leaders_LG_Adult_LP_All_9a96e30b-39e4-4c02-8ea3-e5e6bd9cea06.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Shop Adult",
+            "link": "shopify:\/\/collections\/adult-all"
+          }
+        }
+      },
+      "block_order": [
+        "column_WCJg47",
+        "column_rLVYmc",
+        "column_prW6et"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "multicolumn",
     "slideshow_t7VikK",
     "featured_collection_YrgjwD",
-    "multicolumn_peYxH9"
+    "multicolumn_peYxH9",
+    "multicolumn_GbjXUE"
   ]
 }
