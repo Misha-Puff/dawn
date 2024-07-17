@@ -119,12 +119,69 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "multicolumn_HbcHgm": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_9wJreE": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_BestSell_5.13.24_1_Mob.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Best Sellers",
+            "link": "shopify:\/\/collections\/child-best-sellers"
+          }
+        },
+        "column_cbb8R9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_Tops_6.27.24.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Tops",
+            "link": "shopify:\/\/collections\/child-tops"
+          }
+        },
+        "column_4dtYhK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_7.3.24_Mob_2.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Camp Edit",
+            "link": "shopify:\/\/collections\/child-summer-camp-edit"
+          }
+        }
+      },
+      "block_order": [
+        "column_9wJreE",
+        "column_cbb8R9",
+        "column_4dtYhK"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "banner",
     "product-grid",
     "slideshow_8wUhXX",
-    "multicolumn_gfwpxD"
+    "multicolumn_gfwpxD",
+    "multicolumn_HbcHgm"
   ]
 }
