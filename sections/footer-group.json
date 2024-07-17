@@ -14,32 +14,32 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "footer-0": {
+        "link_list_ig4Pfh": {
           "type": "link_list",
           "settings": {
-            "heading": "Quick links",
-            "menu": "footer"
+            "heading": "Discover",
+            "menu": "footer-discover"
           }
         },
-        "footer-1": {
+        "link_list_aLt4Tp": {
           "type": "link_list",
           "settings": {
-            "heading": "Info",
-            "menu": "footer"
+            "heading": "About Us",
+            "menu": "about-us-footer"
           }
         },
-        "footer-2": {
-          "type": "text",
+        "link_list_QFEtTw": {
+          "type": "link_list",
           "settings": {
-            "heading": "Our mission",
-            "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
+            "heading": "Customer Service",
+            "menu": "customer-service-footer"
           }
         }
       },
       "block_order": [
-        "footer-0",
-        "footer-1",
-        "footer-2"
+        "link_list_ig4Pfh",
+        "link_list_aLt4Tp",
+        "link_list_QFEtTw"
       ],
       "settings": {
         "color_scheme": "scheme-1",
