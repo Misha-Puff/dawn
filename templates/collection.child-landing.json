@@ -74,11 +74,57 @@
         "show_text_below": false,
         "accessibility_info": ""
       }
+    },
+    "multicolumn_gfwpxD": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_dQmUh8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Look_92_3457_HeatWave_Site.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Heat Wave Edit",
+            "link": "shopify:\/\/collections\/child-heat-wave-edit"
+          }
+        },
+        "column_iBFc39": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_LastChanceSale.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Last Chance Sale",
+            "link": "shopify:\/\/collections\/child-baby-fa23-wi23-sale"
+          }
+        }
+      },
+      "block_order": [
+        "column_dQmUh8",
+        "column_iBFc39"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "banner",
     "product-grid",
-    "slideshow_8wUhXX"
+    "slideshow_8wUhXX",
+    "multicolumn_gfwpxD"
   ]
 }
