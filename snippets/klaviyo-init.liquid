@@ -1,0 +1,10 @@
+<script>
+  if ('{{ customer.email }}' !== '') {
+    klaviyo.push([
+      'identify',
+      {
+        $email: '{{ customer.email }}',
+      },
+    ]);
+  }
+</script>
