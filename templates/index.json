@@ -28,9 +28,64 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "slideshow_t7VikK": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_mkRtae": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_7.3.24_1.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "SHOP SUMMER",
+            "link": "shopify:\/\/collections\/child-summer-24",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-2",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_pkm8zL": {
+          "type": "slide",
+          "settings": {
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_mkRtae",
+        "slide_pkm8zL"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "dots",
+        "auto_rotate": false,
+        "change_slides_speed": 3,
+        "image_behavior": "none",
+        "show_text_below": false,
+        "accessibility_info": ""
+      }
     }
   },
   "order": [
-    "multicolumn"
+    "multicolumn",
+    "slideshow_t7VikK"
   ]
 }
