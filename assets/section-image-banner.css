@@ -367,9 +367,12 @@
     box-shadow: none;
   }
 
-  .banner--desktop-transparent .button--secondary {
-    --alpha-button-background: 0;
-  }
+  /*
+    Removed so secondary buttons have a background color
+    .banner--desktop-transparent .button--secondary {
+      --alpha-button-background: 0;
+    }
+  */
 
   .banner--desktop-transparent .content-container:after {
     display: none;
