@@ -92,11 +92,57 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "multicolumn_peYxH9": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_3igURh": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_7.3.24_Mob_3.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Shop Sale",
+            "link": "shopify:\/\/collections\/child-sale"
+          }
+        },
+        "column_iAT4GA": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_7.3.24_Mob_2.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Camp Edit",
+            "link": "shopify:\/\/collections\/child-summer-camp-edit"
+          }
+        }
+      },
+      "block_order": [
+        "column_3igURh",
+        "column_iAT4GA"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "multicolumn",
     "slideshow_t7VikK",
-    "featured_collection_YrgjwD"
+    "featured_collection_YrgjwD",
+    "multicolumn_peYxH9"
   ]
 }
