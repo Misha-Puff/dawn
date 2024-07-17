@@ -1,0 +1,68 @@
+<script>
+  const initGorgiasChatPromise = window.GorgiasChat
+    ? window.GorgiasChat.init()
+    : new Promise((resolve) => {
+        window.addEventListener('gorgias-widget-loaded', () => {
+          resolve();
+        });
+      });
+
+  initGorgiasChatPromise.then(async () => {
+    const sspDict = {
+      reasonForgotToUseDiscount: 'I forgot to apply my store credit',
+    };
+
+    const timer = setInterval(() => {
+      const chatButtonDocument = document.querySelector('#gorgias-chat-container')?.querySelector('#chat-button')
+        ?.contentWindow.document;
+
+      const chatButtonHead = chatButtonDocument.querySelector('head');
+
+      if (!chatButtonHead || ![...chatButtonHead?.children].some((x) => x.getAttribute('data-emotion'))) {
+        return;
+      }
+
+      clearInterval(timer);
+
+      const chatButton = chatButtonDocument.querySelector('button');
+
+      const backgroundDiv = document.createElement('div');
+
+      backgroundDiv.classList.add('button-background');
+
+      const buttonStyle = document.createElement('style');
+
+      buttonStyle.textContent = `
+        button {
+          background: none !important;
+          box-shadow: none !important;
+          height: 20px !important;
+          max-width: 25px !important;
+          transition: none !important;
+          padding: 10px 16px !important;
+        }
+
+        button div {
+          width: 28px !important;
+          height: 28px !important;
+          left: 13px !important;
+        }
+
+        button span {
+          display: none !important;
+        }
+
+        .button-background {
+          background-color: white !important;
+          min-width: 20px !important;
+          height: 5px !important;
+        }
+      `;
+
+      chatButtonHead.appendChild(buttonStyle);
+      chatButton.appendChild(backgroundDiv);
+    }, 50);
+
+    GorgiasChat.updateSSPTexts(sspDict);
+  });
+</script>
