@@ -23,7 +23,7 @@ product-info {
   .product__column-sticky {
     display: block;
     position: sticky;
-    top: 3rem;
+    top: 162px;
     z-index: 2;
   }
 
@@ -541,6 +541,13 @@ a.product__text {
   .product__modal-opener:hover .product__media-icon,
   .product__modal-opener:focus .product__media-icon {
     opacity: 1;
+  }
+
+  .product__column-sticky {
+    display: block;
+    position: sticky;
+    top: 235px;
+    z-index: 2;
   }
 }
 
