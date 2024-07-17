@@ -54,8 +54,23 @@
                 {{ block.settings.text }}
               </div>
             {%- when 'button' -%}
+              {% liquid
+                assign num_buttons = 0
+
+                if block.settings.button_label
+                  assign num_buttons = num_buttons | plus: 1
+                endif
+
+                if block.settings.button_label2
+                  assign num_buttons = num_buttons | plus: 1
+                endif
+
+                if block.settings.button_label3
+                  assign num_buttons = num_buttons | plus: 1
+                endif
+              %}
               <div
-                class="rich-text__buttons{% if block.settings.button_label != blank and block.settings.button_label_2 != blank %} rich-text__buttons--multiple{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                class="rich-text__buttons{% if num_buttons > 1 %} rich-text__buttons--multiple{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
@@ -84,6 +99,18 @@
                     class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}"
                   >
                     {{- block.settings.button_label_2 | escape -}}
+                  </a>
+                {%- endif -%}
+                {%- if block.settings.button_label_3 != blank -%}
+                  <a
+                    {% if block.settings.button_link_3 == blank %}
+                      role="link" aria-disabled="true"
+                    {% else %}
+                      href="{{ block.settings.button_link_3 }}"
+                    {% endif %}
+                    class="button{% if block.settings.button_style_secondary_3 %} button--secondary{% else %} button--primary{% endif %}"
+                  >
+                    {{- block.settings.button_label_3 | escape -}}
                   </a>
                 {%- endif -%}
               </div>
@@ -324,6 +351,23 @@
           "id": "button_style_secondary_2",
           "default": false,
           "label": "t:sections.rich-text.blocks.buttons.settings.button_style_secondary_2.label"
+        },
+        {
+          "type": "text",
+          "id": "button_label_3",
+          "label": "t:sections.rich-text.blocks.buttons.settings.button_label_3.label",
+          "info": "t:sections.rich-text.blocks.buttons.settings.button_label_3.info"
+        },
+        {
+          "type": "url",
+          "id": "button_link_3",
+          "label": "t:sections.rich-text.blocks.buttons.settings.button_link_3.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary_3",
+          "default": false,
+          "label": "t:sections.rich-text.blocks.buttons.settings.button_style_secondary_3.label"
         }
       ]
     }
