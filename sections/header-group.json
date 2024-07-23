@@ -63,7 +63,7 @@
         "logo_position": "top-center",
         "menu": "dawn-nav-1",
         "menu_type_desktop": "mega",
-        "sticky_header_type": "always",
+        "sticky_header_type": "reduce-logo-size",
         "show_line_separator": false,
         "color_scheme": "scheme-1",
         "menu_color_scheme": "",
