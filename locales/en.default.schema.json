@@ -2416,6 +2416,19 @@
             "label": "Large"
           }
         },
+        "image_ratio": {
+          "label": "Image ratio",
+          "options__1": {
+            "label": "Adapt to image"
+          },
+          "options__2": {
+            "label": "Portrait"
+          },
+          "options__3": {
+            "label": "Square"
+          },
+          "info": "Determines the aspect ratio for all product images."
+        },
         "image_zoom": {
           "label": "Image zoom",
           "info": "Click and hover defaults to open lightbox on mobile.",
