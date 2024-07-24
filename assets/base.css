@@ -3566,3 +3566,12 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+/* Custom */
+.is-flex {
+  display: flex;
+}
+
+.is-flex-wrap {
+  flex-wrap: wrap;
+}
