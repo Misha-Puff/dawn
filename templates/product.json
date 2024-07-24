@@ -41,6 +41,15 @@
           "settings": {
           }
         },
+        "collapsible_tab_JNhcga": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "KEY FEATURES",
+            "icon": "none",
+            "content": "<p>{{ product.metafields.product_page.key_features | metafield_tag }}<\/p>",
+            "page": ""
+          }
+        },
         "collapsible-row-0": {
           "type": "collapsible_tab",
           "settings": {
@@ -75,6 +84,7 @@
         "variant_picker",
         "buy_buttons",
         "description",
+        "collapsible_tab_JNhcga",
         "collapsible-row-0",
         "collapsible-row-1",
         "collapsible-row-2"
@@ -85,6 +95,7 @@
         "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
+        "image_ratio": "portrait",
         "gallery_layout": "stacked",
         "media_position": "left",
         "image_zoom": "lightbox",
