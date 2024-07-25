@@ -4,9 +4,8 @@
 
 .mega-menu__content {
   background-color: rgb(var(--color-background));
-  border-left: 0;
+  border: 0;
   border-radius: 0;
-  border-right: 0;
   left: 0;
   overflow-y: auto;
   padding-bottom: 3rem;
@@ -19,10 +18,6 @@
 
 .shopify-section-header-sticky .mega-menu__content {
   max-height: calc(100vh - var(--header-bottom-position-desktop, 20rem) - 4rem);
-}
-
-.header-wrapper--border-bottom .mega-menu__content {
-  border-top: 0;
 }
 
 .js .mega-menu__content {
