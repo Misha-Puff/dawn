@@ -9,7 +9,7 @@
     assign output = input   
   endif
 
-  assign output = output | strip
+  assign output = output | strip | escape
 
   echo output
--%}
+-%} 
