@@ -3597,3 +3597,11 @@ details-disclosure > details {
     left: 0;
   }
 }
+
+.product__title h1 {
+  font-size: 14px;
+}
+
+product-recommendations h2.h1 {
+  font-size: 15px;
+}
