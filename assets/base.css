@@ -3612,4 +3612,5 @@ product-recommendations h2.h1 {
 
 .product-card-wrapper .card__information .price {
   font-size: 14px;
+  margin-top: 0 !important;
 }
