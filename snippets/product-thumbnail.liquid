@@ -58,6 +58,9 @@
     assign ratio = media.aspect_ratio
     assign preview_ratio = media.preview_image.aspect_ratio
   endif
+
+  assign filename = media | replace: 'files', 'products'
+  assign model_note = product.metafields.product_page.model_notes.value[filename]
 %}
 <div
   class="product-media-container media-type-{{ media.media_type }} media-fit-{{ media_fit }} global-media-settings gradient{% if constrain_to_viewport %} constrain-height{% endif %}"
@@ -168,5 +171,8 @@
     {%- else -%}
       </deferred-media>
     {%- endif -%}
+  {%- endif -%}
+  {%- if model_note != null -%}
+    <p class="model-note">{{ model_note }}</p>
   {%- endif -%}
 </div>

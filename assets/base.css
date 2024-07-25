@@ -3575,3 +3575,25 @@ details-disclosure > details {
 .is-flex-wrap {
   flex-wrap: wrap;
 }
+
+.model-note {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 2px;
+  margin: 0;
+  opacity: 0;
+  background-color: #fff;
+  font-size: 1rem;
+}
+
+.product-media-container:hover .model-note {
+  opacity: 1;
+}
+
+@media screen and (max-width: 749px) {
+  .model-note {
+    opacity: 1;
+    left: 0;
+  }
+}
