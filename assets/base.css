@@ -3605,3 +3605,11 @@ details-disclosure > details {
 product-recommendations h2.h1 {
   font-size: 15px;
 }
+
+.collection-hero__title {
+  font-size: 14px;
+}
+
+.product-card-wrapper .card__information .price {
+  font-size: 14px;
+}
