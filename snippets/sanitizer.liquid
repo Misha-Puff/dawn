@@ -1,0 +1,15 @@
+{%- liquid
+  if input contains 'Adult -'
+    assign output = input | remove: 'Adult -' 
+  elsif input contains 'Child -'
+    assign output = input | remove: 'Child -' 
+  elsif input contains 'Baby -'
+    assign output = input | remove: 'Baby -' 
+  else
+    assign output = input   
+  endif
+
+  assign output = output | strip
+
+  echo output
+-%}
