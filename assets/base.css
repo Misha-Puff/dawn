@@ -3618,3 +3618,7 @@ product-recommendations h2.h1 {
 .active-facets__button-inner {
   border-radius: 0 !important;
 }
+
+.mobile-facets__open-label, .facet-filters__label {
+  text-transform: uppercase;
+}
