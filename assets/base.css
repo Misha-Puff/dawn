@@ -3619,6 +3619,6 @@ product-recommendations h2.h1 {
   border-radius: 0 !important;
 }
 
-.mobile-facets__open-label, .facet-filters__label {
+.mobile-facets__open-label, .facet-filters__label, .header__menu-item, .mega-menu__link--level-2{
   text-transform: uppercase;
 }
