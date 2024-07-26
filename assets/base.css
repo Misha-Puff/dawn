@@ -3633,3 +3633,7 @@ product-recommendations h2.h1 {
     display: none !important;
   }
 }
+
+localization-form {
+  text-align: center;
+}
