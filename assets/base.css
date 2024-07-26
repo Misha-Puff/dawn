@@ -3675,3 +3675,8 @@ localization-form {
 .product-popup-modal__content-info h1 {
   margin-bottom: 10px;
 }
+
+.final-sale {
+  margin-top: 0;
+  font-size: 12px;
+}

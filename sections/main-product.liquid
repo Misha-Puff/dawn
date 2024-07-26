@@ -116,6 +116,11 @@
                     show_badges: true,
                     price_class: 'price--large'
                   -%}
+                  {% if product.selected_or_first_available_variant.compare_at_price
+                      > product.selected_or_first_available_variant.price
+                  %}
+                    {% render 'final-sale' %}
+                  {% endif %}
                 </div>
                 {%- if product.quantity_price_breaks_configured? -%}
                   <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
