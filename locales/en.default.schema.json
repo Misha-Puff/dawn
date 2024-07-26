@@ -816,7 +816,7 @@
           "info": "To display a rating, add a product rating app. [Learn more](https:\/\/help.shopify.com\/manual\/online-store\/themes\/theme-structure\/theme-features#featured-collection-show-product-rating)"
         },
         "show_variants": {
-          "label": "Show variant availability",
+          "label": "Show variant availability"
         },
         "enable_quick_buy": {
           "label": "Enable quick add button",
