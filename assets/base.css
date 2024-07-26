@@ -3622,3 +3622,14 @@ product-recommendations h2.h1 {
 .mobile-facets__open-label, .facet-filters__label, .header__menu-item, .mega-menu__link--level-2{
   text-transform: uppercase;
 }
+
+@media only screen and (max-width: 989px) {
+  .is-hidden-mobile-only {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 990px) {
+  .is-hidden-desktop-only {
+    display: none !important;
+  }
+}
