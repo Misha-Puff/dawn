@@ -3628,6 +3628,7 @@ product-recommendations h2.h1 {
     display: none !important;
   }
 }
+
 @media only screen and (min-width: 990px) {
   .is-hidden-desktop-only {
     display: none !important;
@@ -3637,3 +3638,37 @@ product-recommendations h2.h1 {
 localization-form {
   text-align: center;
 }
+
+.is-justify-center {
+  justify-content: center;
+}
+
+.variant-availability {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 0.7rem;
+}
+
+@media only screen and (min-width: 990px) {
+  .variant-availability {
+    opacity: 0;
+  }
+}
+
+@media only screen and (min-width: 990px) {
+  .product-card-wrapper:hover .variant-availability {
+    opacity: 1;
+  }
+}
+
+.variant-availability span {
+  font-size: 12px;
+  margin: 0 4px;
+}
+
+.variant-availability .unavailable {
+  opacity: 0.3;
+  text-decoration: line-through;
+}
+
