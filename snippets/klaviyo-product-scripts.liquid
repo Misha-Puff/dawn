@@ -1,0 +1,63 @@
+<script>
+  const tags = [{%- for tag in product.tags -%}'{{tag}}',{%- endfor -%}];
+
+  let category = null;
+  let classification = null;
+  let subClassification = null;
+
+  tags.forEach((tag) => {
+    if(tag.includes('Category: ')){
+      category = tag.split('Category: ')[1];
+    } else if(tag.includes('Sub-Classification: ')){
+      subClassification = tag.split('Sub-Classification: ')[1];
+    } else if(tag.includes('Classification: ')){
+      classification = tag.split('Classification: ')[1];
+    }
+  });
+
+  const product = {
+    'Name': {{ product.title | json }},
+    'ProductID': {{ product.id | json }},
+    'Categories': {{ product.collections | map: 'title' | json }},
+    'ImageURL': "https:{{ product.featured_image.src | image_url: 'grande' }}",
+    'URL': "{{ shop.secure_url }}{{ product.url }}",
+    'Brand': {{ product.vendor | json }},
+    'Price': {{ product.price | money | json }},
+    'Description': {{ product.description | remove: 'Description' | strip_html | truncatewords: 20 | json }},
+    'CompareAtPrice': {{ product.compare_at_price_max | money | json }},
+    'Tag': tags,
+    'Category': category,
+    'Classification': classification,
+    'subClassification': subClassification
+  };
+
+  klaviyo.identify({
+    'Intent: Category': category,
+    'Intent: Classification': classification,
+    'Intent: Sub-Classification': subClassification,
+  });
+
+  klaviyo.push(['track', 'Viewed Product', product]);
+
+  klaviyo.push(['trackViewedItem', {
+    'Title': product.Name,
+    'ItemId': product.ProductID,
+    'Categories': product.Categories,
+    'Description': product.description,
+    'ImageUrl': product.ImageURL,
+    'Url': product.URL,
+    'Metadata': {
+      'Brand': product.Brand,
+      'Price': product.Price,
+      'CompareAtPrice': product.CompareAtPrice
+    }
+  }]);
+
+  const atcBtn = document.querySelector('button.product-form__submit');
+
+  if(atcBtn){
+    atcBtn.addEventListener('click', () => {
+      klaviyo.push(['track', 'Added to Cart', product]);
+    });
+  }
+</script>
