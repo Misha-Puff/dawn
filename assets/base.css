@@ -3672,3 +3672,6 @@ localization-form {
   text-decoration: line-through;
 }
 
+.product-popup-modal__content-info h1 {
+  margin-bottom: 10px;
+}

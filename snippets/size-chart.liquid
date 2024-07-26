@@ -1,0 +1,46 @@
+{% if product.metafields.product_page.json_size_chart != blank %}
+  {% assign size_chart = product.metafields.product_page.json_size_chart.value %}
+  {% assign sizes = size_chart.sizes | split: ',' %}
+  {% assign measurements = size_chart.measurements %}
+  <div class="size-chart" id="size-chart{{ product_id }}">
+    <table>
+      <tbody>
+        <tr>
+          <th></th>
+          <th></th>
+          {% for size in sizes %}
+            <th>{{ size }}</th>
+          {% endfor %}
+        </tr>
+        {% for measurement in measurements %}
+          {% assign label = measurement.label %}
+          {% assign cms = measurement.cm | split: ',' %}
+          {% assign ins = measurement.in | split: ',' %}
+
+          <tr>
+            <td rowspan="2">{{ label }}</td>
+            <td>CM</td>
+            {% for cm in cms %}
+              <td>{{ cm }}</td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <td>IN</td>
+            {% for inch in ins %}
+              <td>{{ inch }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% elsif product.metafields.product_page.size_chart != blank %}
+  <div class="size-chart" id="size-chart{{ product_id }}">
+    <div class="size-chart-wrap content container {% if settings.table_styles_enabled %} table is-striped is-bordered {% endif %}">
+      <div class="one-whole column">
+        <div class="feature_divider"></div>
+        {{ product.metafields.product_page.size_chart }}
+      </div>
+    </div>
+  </div>
+{% endif %}
