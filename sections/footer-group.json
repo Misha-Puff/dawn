@@ -34,17 +34,22 @@
             "heading": "Customer Service",
             "menu": "customer-service-footer"
           }
+        },
+        "newsletter_Y8mDBK": {
+          "type": "newsletter",
+          "settings": {
+            "newsletter_heading": "Subscribe to our emails"
+          }
         }
       },
       "block_order": [
         "link_list_ig4Pfh",
         "link_list_aLt4Tp",
-        "link_list_QFEtTw"
+        "link_list_QFEtTw",
+        "newsletter_Y8mDBK"
       ],
       "settings": {
         "color_scheme": "scheme-1",
-        "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
         "enable_follow_on_shop": false,
         "show_social": false,
         "enable_country_selector": true,
