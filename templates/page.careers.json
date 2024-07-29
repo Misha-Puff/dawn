@@ -15,9 +15,19 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "custom_liquid_NAqAQN": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"one-whole column\">\n        {% for career in shop.metafields.airtable.careers.value %}\n          <div class=\"career-block\">\n            <h3>{{ career.Title }}<\/h3>\n            <p>{{ career.Description }}<\/p>\n            <a href=\"{{ career.Link }}\" class=\"button button--secondary\">Apply Now<\/a>\n          <\/div>\n        {% endfor %}\n      <\/div>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "custom_liquid_NAqAQN"
   ]
 }
