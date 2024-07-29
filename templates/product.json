@@ -34,6 +34,14 @@
             "swatch_shape": "none"
           }
         },
+        "inventory_PfG9Nk": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "uppercase",
+            "inventory_threshold": 6,
+            "show_inventory_quantity": false
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -88,6 +96,7 @@
         "rating_fBYWfr",
         "price",
         "variant_picker",
+        "inventory_PfG9Nk",
         "buy_buttons",
         "description",
         "collapsible_tab_JNhcga",
