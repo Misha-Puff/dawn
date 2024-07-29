@@ -34,8 +34,55 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .editorial-content img {
+    max-width: 100%;
+  }
 {%- endstyle -%}
 
+{% for block in section.blocks %}
+  {% assign desktop_width = 100.0
+    | divided_by: section.settings.columns_desktop
+    | times: block.settings.width
+    | round: 2
+  %}
+
+  {% if block.settings.width == '3' %}
+    {% assign mobile_width = 100.0 | divided_by: section.settings.columns_mobile | times: 2 | round: 2 %}
+  {% else %}
+    {% assign mobile_width = 100.0
+      | divided_by: section.settings.columns_mobile
+      | times: block.settings.width
+      | round: 2
+    %}
+  {% endif %}
+
+  {% style %}
+    @media screen and (min-width: 990px) {
+      .editorial-content.block--{{ block.id }}:not(.width-3) {
+        width: calc({{desktop_width}}% - var(--grid-desktop-horizontal-spacing) / 2);
+        max-width: calc({{desktop_width}}% - var(--grid-desktop-horizontal-spacing) / 2);
+      }
+
+      .editorial-content.block--{{ block.id }}.width-1 {
+        width: calc({{desktop_width}}% - var(--grid-desktop-horizontal-spacing) / 2 - 5px);
+        max-width: calc({{desktop_width}}% - var(--grid-desktop-horizontal-spacing) / 2 - 5px);
+      }
+    }
+
+    @media screen and (max-width: 989px) {
+      .editorial-content.block--{{ block.id }} {
+        width: calc({{mobile_width}}% - var(--grid-mobile-horizontal-spacing) / 2);
+        max-width: calc({{mobile_width}}% - var(--grid-mobile-horizontal-spacing) / 2);
+      }
+
+      .editorial-content.block--{{ block.id }}.width-1 {
+        width: calc({{mobile_width}}% - var(--grid-mobile-horizontal-spacing) / 2 - 5px);
+        max-width: calc({{mobile_width}}% - var(--grid-mobile-horizontal-spacing) / 2 - 5px);
+      }
+    }
+  {% endstyle %}
+{% endfor %}
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
   {%- paginate collection.products by section.settings.products_per_page -%}
     {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
@@ -151,11 +198,42 @@
               "
             >
               {% assign skip_card_product_styles = false %}
+              {% assign curr_grid_index = 0 %}
               {%- for product in collection.products -%}
                 {% assign lazy_load = false %}
                 {%- if forloop.index > 2 -%}
                   {%- assign lazy_load = true -%}
                 {%- endif -%}
+
+                {% for block in section.blocks %}
+                  {% if block.settings.image != null %}
+                    {% assign grid_index = block.settings.grid_index %}
+                    {% if grid_index > 48 %}
+                      {% assign grid_index = 48 %}
+                    {% elsif grid_index < 0 %}
+                      {% assign grid_index = 0 %}
+                    {% endif %}
+                    {% if curr_grid_index == grid_index %}
+                      {% if block.settings.link %}
+                        <a href="{{ block.settings.link }}">
+                      {% endif %}
+                      <div class="editorial-content block--{{ block.id }} width-{{ block.settings.width }}">
+                        {{
+                          block.settings.image
+                          | image_url: width: 5760
+                          | image_tag: width: block.settings.image.width
+                        }}
+                      </div>
+                      {% if block.settings.link %}
+                        </a>
+                      {% endif %}
+                      {% assign curr_grid_index = curr_grid_index | plus: block.settings.width %}
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+
+                {% assign curr_grid_index = curr_grid_index | plus: 1 %}
+
                 <li
                   class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                   {% if settings.animations_reveal_on_scroll %}
@@ -416,6 +494,52 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Editorial Content",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "width",
+          "options": [
+            {
+              "value": "1",
+              "label": "One Card"
+            },
+            {
+              "value": "2",
+              "label": "Two Cards"
+            },
+            {
+              "value": "3",
+              "label": "Three Cards"
+            }
+          ],
+          "default": "1",
+          "label": "Width",
+          "info": "How many product cards worth of width to take up"
+        },
+        {
+          "type": "number",
+          "id": "grid_index",
+          "default": 0,
+          "label": "Grid Position",
+          "info": "The index of the grid where the content will be rendered. (Starts at 0)"
+        }
+      ]
     }
   ]
 }
