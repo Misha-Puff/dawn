@@ -1,0 +1,57 @@
+{% unless localization.country.iso_code == 'US' %}
+  {% case localization.country.iso_code %}
+    {% when 'AE',
+      'AT',
+      'AU',
+      'BE',
+      'CH',
+      'CZ',
+      'DE',
+      'DK',
+      'ES',
+      'FR',
+      'GB',
+      'GR',
+      'HK',
+      'IE',
+      'IL',
+      'IT',
+      'JP',
+      'MX',
+      'MY',
+      'NL',
+      'NO',
+      'NZ',
+      'PL',
+      'QA',
+      'SA',
+      'SE',
+      'SG'
+    %}
+      <p class="globale">Duty and Tax Inclusive</p>
+    {% when 'BG',
+      'CN',
+      'CY',
+      'EE',
+      'FI',
+      'HR',
+      'HU',
+      'KR',
+      'LT',
+      'LU',
+      'LV',
+      'MT',
+      'PT',
+      'RO',
+      'ROW',
+      'SI',
+      'SK',
+      'TW'
+    %}
+      <p class="globale">Duty and Tax Optional</p>
+    {% when 'BR' %}
+      <p class="globale">Duty and Tax Paid at checkout</p>
+    {% else %}
+      <p class="globale">Duty Inclusive & Tax at Checkout</p>
+  {% endcase %}
+{% endunless %}
