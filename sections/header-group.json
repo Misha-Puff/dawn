@@ -41,6 +41,7 @@
       "blocks": {
         "wishlist_king_wishlist_link_block_Ayjpbm": {
           "type": "shopify:\/\/apps\/wishlist-king\/blocks\/wishlist-link-block\/194f5011-a43c-4b22-b12e-eaf20dc4506a",
+          "disabled": true,
           "settings": {
             "icon_color": "#000000",
             "icon_size": 22,
