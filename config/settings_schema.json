@@ -1265,6 +1265,24 @@
         "id": "sold_out_badge_color_scheme",
         "label": "t:settings_schema.badges.settings.sold_out_badge_color_scheme.label",
         "default": "scheme-3"
+      },
+      {
+        "type": "color_scheme",
+        "id": "rws_badge_color_scheme",
+        "label": "RWS badge color scheme",
+        "default": "scheme-3"
+      },
+      {
+        "type": "color_scheme",
+        "id": "coming_soon_badge_color_scheme",
+        "label": "Coming Soon badge color scheme",
+        "default": "scheme-3"
+      },
+      {
+        "type": "color_scheme",
+        "id": "mto_badge_color_scheme",
+        "label": "MTO badge color scheme",
+        "default": "scheme-3"
       }
     ]
   },

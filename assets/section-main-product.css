@@ -279,9 +279,9 @@ a.product__text {
   margin-bottom: 0.5rem;
 }
 
-.product .price--sold-out .price__badge-sale {
+/* .product .price--sold-out .price__badge-sale {
   display: none;
-}
+} */
 
 @media screen and (min-width: 750px) {
   .product__info-container {

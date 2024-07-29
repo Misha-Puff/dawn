@@ -128,9 +128,25 @@
         {{ 'products.product.on_sale' | t }}
       </span>
 
-      <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
-        {{ 'products.product.sold_out' | t }}
-      </span>
+      {% unless product.tags contains 'Badge-Coming Soon' %}
+        <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
+          {{ 'products.product.sold_out' | t }}
+        </span>
+      {% endunless %}
+
+      {% if product.tags contains 'RWS' %}
+        <span class="badge price__badge-rws color-{{ settings.rws_badge_color_scheme }}">RWS</span>
+      {% endif %}
+
+      {% if product.tags contains 'made-to-order' %}
+        <span class="badge price__badge-mto color-{{ settings.mto_badge_color_scheme }}">MTO</span>
+      {% endif %}
+
+      {% if product.tags contains 'Badge-Coming Soon' %}
+        <span class="badge price__badge-coming-soon color-{{ settings.coming_soon_badge_color_scheme }}">
+          Coming Soon
+        </span>
+      {% endif %}
     {%- endif -%}
   </div>
 {% endunless %}
