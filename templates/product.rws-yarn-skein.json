@@ -51,6 +51,33 @@
           "type": "description",
           "settings": {
           }
+        },
+        "text_tYPffQ": {
+          "type": "text",
+          "settings": {
+            "text": "<strong>What is RWS?<\/strong>",
+            "text_style": "body"
+          }
+        },
+        "text_qRiyjp": {
+          "type": "text",
+          "settings": {
+            "text": "Since earlier this year, all of our new Studio Misha & Puff yarns been certified by the Responsible Wool Standard (RWS), which ensures that ranches, farms, transporters, and everyone along the production chain meet a stringent standard of care for their animals. When you sit down to knit with RWS wool yarn, you can be confident that the sheep who provided you with their winter woolies have been treated with the quality care and respect they deserve.",
+            "text_style": "body"
+          }
+        },
+        "icon_with_text_i3r4y9": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "vertical",
+            "icon_1": "none",
+            "image_1": "shopify:\/\/shop_images\/RWS_BLUE_CERT_NUM_1.png",
+            "heading_1": "_",
+            "icon_2": "none",
+            "heading_2": "",
+            "icon_3": "none",
+            "heading_3": ""
+          }
         }
       },
       "block_order": [
@@ -60,7 +87,14 @@
         "inventory_PfG9Nk",
         "quantity_selector_qaKBkM",
         "buy_buttons",
-        "description"
+        "description",
+        "text_tYPffQ",
+        "text_qRiyjp",
+        "icon_with_text_i3r4y9"
+      ],
+      "custom_css": [
+        ".icon-with-text {--icon-size: 100px;}",
+        ".icon-with-text__item span {display: none !important;}"
       ],
       "settings": {
         "enable_sticky_info": true,
