@@ -204,10 +204,9 @@ if (!customElements.get('product-info')) {
           const inventoryStatusEl = html.querySelector('.product__inventory');
 
           if (inventoryStatusEl !== null) {
-            let mishaAndPuff = inventoryStatusEl.querySelector('[data-misha-and-puff]')?.innerHTML;
             const innerEl = inventoryStatusEl.querySelector('.inner');
             const outerEl = inventoryStatusEl.querySelector('.outer');
-
+            let mishaAndPuff = inventoryStatusEl.querySelector('[data-misha-and-puff]')?.innerHTML;
             mishaAndPuff = JSON.parse(atob(mishaAndPuff));
 
             const quantity = mishaAndPuff[variant.id];
@@ -215,11 +214,7 @@ if (!customElements.get('product-info')) {
             const inStockMsg = mishaAndPuff['in-stock'];
             const lowStockMsg = mishaAndPuff['low-stock'];
             const noStockMsg = mishaAndPuff['no-stock'];
-            console.log('threshold', threshold);
-            console.log('quantity', quantity);
-            console.log(inStockMsg);
-            console.log(lowStockMsg);
-            console.log(noStockMsg);
+
             if (quantity === 0) {
               outerEl.style.fill = 'rgb(200,200,200, 0.3)';
               innerEl.style.fill = 'rgb(200,200,200)';
