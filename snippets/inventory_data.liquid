@@ -1,0 +1,14 @@
+{% capture inventory %}
+  {
+    "in-stock": "{{- 'products.product.inventory_in_stock' | t -}}",
+    "low-stock": "{{- 'products.product.inventory_low_stock' | t -}}",
+    "no-stock": "{{- 'products.product.inventory_out_of_stock' | t -}}",
+    "threshold": {{ threshold }},
+    {% for variant in product.variants %}
+      "{{ variant.id }}": {{ variant.inventory_quantity }}{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  }
+{% endcapture %}
+<script type="application/json" data-misha-and-puff>
+  {{ inventory | base64_encode }}
+</script>

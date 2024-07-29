@@ -201,6 +201,40 @@ if (!customElements.get('product-info')) {
             window.variantStrings.soldOut
           );
 
+          const inventoryStatusEl = html.querySelector('.product__inventory');
+
+          if (inventoryStatusEl !== null) {
+            let mishaAndPuff = inventoryStatusEl.querySelector('[data-misha-and-puff]')?.innerHTML;
+            const innerEl = inventoryStatusEl.querySelector('.inner');
+            const outerEl = inventoryStatusEl.querySelector('.outer');
+
+            mishaAndPuff = JSON.parse(atob(mishaAndPuff));
+
+            const quantity = mishaAndPuff[variant.id];
+            const threshold = mishaAndPuff['threshold'];
+            const inStockMsg = mishaAndPuff['in-stock'];
+            const lowStockMsg = mishaAndPuff['low-stock'];
+            const noStockMsg = mishaAndPuff['no-stock'];
+            console.log('threshold', threshold);
+            console.log('quantity', quantity);
+            console.log(inStockMsg);
+            console.log(lowStockMsg);
+            console.log(noStockMsg);
+            if (quantity === 0) {
+              outerEl.style.fill = 'rgb(200,200,200, 0.3)';
+              innerEl.style.fill = 'rgb(200,200,200)';
+              inventoryStatusEl.innerHTML = noStockMsg;
+            } else if (quantity <= threshold) {
+              outerEl.style.fill = 'rgb(238,148,65, 0.3)';
+              innerEl.style.fill = 'rgb(238,148,65)';
+              inventoryStatusEl.innerHTML = lowStockMsg;
+            } else {
+              outerEl.style.fill = 'rgb(62,214,96, 0.3)';
+              innerEl.style.fill = 'rgb(62,214,96)';
+              inventoryStatusEl.innerHTML = inStockMsg;
+            }
+          }
+
           publish(PUB_SUB_EVENTS.variantChange, {
             data: {
               sectionId: this.sectionId,
