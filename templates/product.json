@@ -51,7 +51,7 @@
           "settings": {
             "heading": "KEY FEATURES",
             "icon": "none",
-            "content": "<p>{{ product.metafields.product_page.key_features | metafield_tag }}<\/p>",
+            "content": "{% if product.metafields.product_page.key_features %}<p>{{ product.metafields.product_page.key_features | metafield_tag }}<\/p>\n{% endif %}",
             "page": ""
           }
         },
@@ -60,7 +60,7 @@
           "settings": {
             "heading": "MATERIALS AND CARE",
             "icon": "none",
-            "content": "<p>{{ product.metafields.product_page.material_description.value }}<\/p><p>{{ product.metafields.product_page.country_description.value }}<\/p>",
+            "content": "{% if product.metafields.product_page.material_description %}\n      <p>{{ product.metafields.product_page.material_description | metafield_tag }}<\/p>\n    {% endif %}{% if product.metafields.product_page.country_description %}\n      <p>{{ product.metafields.product_page.country_description | metafield_tag }}<\/p>\n    {% endif %}",
             "page": ""
           }
         },
@@ -69,7 +69,7 @@
           "settings": {
             "heading": "SIZE GUIDE",
             "icon": "none",
-            "content": "<modal-opener class=\"product-popup-modal__opener quick-add-hidden\" data-modal=\"#PopupModal-{{ block.id }}\" {{ block.shopify_attributes }}>\n<button id=\"ProductPopup-{{ block.id }}\" class=\"product-popup-modal__button link\" type=\"button\" aria-haspopup=\"dialog\">\nProduct Measurements\n<\/button>\n<\/modal-opener>\n<modal-dialog id=\"PopupModal-{{ block.id }}\" class=\"product-popup-modal\" {{ block.shopify_attributes }}>\n<div role=\"dialog\" aria-label=\"Product Measurements\" aria-modal=\"true\" class=\"product-popup-modal__content\" tabindex=\"-1\">\n<button id=\"ModalClose-{{ block.id }}\" type=\"button\" class=\"product-popup-modal__toggle\" aria-label=\"{{ 'accessibility.close' | t }}\">\n{% render 'icon-close' %}<\/button>\n<div class=\"product-popup-modal__content-info\">\n<h1 class=\"h2\">\nProduct Measurements\n<\/h1>\n{% render 'size-chart' %}\n<\/div>\n<\/div>\n<\/modal-dialog>",
+            "content": "{% if product.metafields.product_page.json_size_chart or product.metafields.product_page.size_chart %}<modal-opener class=\"product-popup-modal__opener quick-add-hidden\" data-modal=\"#PopupModal-{{ block.id }}\" {{ block.shopify_attributes }}>\n<button id=\"ProductPopup-{{ block.id }}\" class=\"product-popup-modal__button link\" type=\"button\" aria-haspopup=\"dialog\">\nProduct Measurements\n<\/button>\n<\/modal-opener>\n<modal-dialog id=\"PopupModal-{{ block.id }}\" class=\"product-popup-modal\" {{ block.shopify_attributes }}>\n<div role=\"dialog\" aria-label=\"Product Measurements\" aria-modal=\"true\" class=\"product-popup-modal__content\" tabindex=\"-1\">\n<button id=\"ModalClose-{{ block.id }}\" type=\"button\" class=\"product-popup-modal__toggle\" aria-label=\"{{ 'accessibility.close' | t }}\">\n{% render 'icon-close' %}<\/button>\n<div class=\"product-popup-modal__content-info\">\n<h1 class=\"h2\">\nProduct Measurements\n<\/h1>\n{% render 'size-chart' %}\n<\/div>\n<\/div>\n<\/modal-dialog>\n{% endif %}",
             "page": ""
           }
         },
