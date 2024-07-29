@@ -51,6 +51,20 @@
           "type": "description",
           "settings": {
           }
+        },
+        "text_GCGqn4": {
+          "type": "text",
+          "settings": {
+            "text": "This yarn is made from production overages.",
+            "text_style": "body"
+          }
+        },
+        "text_3RRpf3": {
+          "type": "text",
+          "settings": {
+            "text": "Check out our knitting patterns <a href=\"\/collections\/knitting-patterns\" title=\"Knitting Patterns\">here<\/a>.",
+            "text_style": "body"
+          }
         }
       },
       "block_order": [
@@ -60,7 +74,9 @@
         "inventory_PfG9Nk",
         "quantity_selector_qaKBkM",
         "buy_buttons",
-        "description"
+        "description",
+        "text_GCGqn4",
+        "text_3RRpf3"
       ],
       "settings": {
         "enable_sticky_info": true,
