@@ -3680,3 +3680,7 @@ localization-form {
   margin-top: 0;
   font-size: 12px;
 }
+
+.localization-form__select:after {
+  display: none !important;
+}

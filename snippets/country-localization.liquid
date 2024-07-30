@@ -33,11 +33,7 @@
     aria-controls="{{ localPosition }}-country-results"
     aria-describedby="{{ localPosition }}Label"
   >
-    <span>
-      {{- localization.country.name }} |
-      {{ localization.country.currency.iso_code }}
-      {{ localization.country.currency.symbol -}}
-    </span>
+    <span> Ship to: {{ localization.country.name }} </span>
     {% render 'icon-caret' %}
   </button>
   <div class="disclosure__list-wrapper country-selector" hidden>

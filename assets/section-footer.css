@@ -48,6 +48,7 @@
 .footer__content-bottom-wrapper {
   display: flex;
   width: 100%;
+  align-items: baseline;
 }
 
 @media screen and (max-width: 749px) {
