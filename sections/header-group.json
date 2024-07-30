@@ -38,28 +38,6 @@
     },
     "header": {
       "type": "header",
-      "blocks": {
-        "wishlist_king_wishlist_link_block_Ayjpbm": {
-          "type": "shopify:\/\/apps\/wishlist-king\/blocks\/wishlist-link-block\/194f5011-a43c-4b22-b12e-eaf20dc4506a",
-          "disabled": true,
-          "settings": {
-            "icon_color": "#000000",
-            "icon_size": 22,
-            "icon_stroke_width": 1,
-            "counter_style": "solid_accent_1",
-            "counter_mode": "always_show",
-            "counter_position": "bottom-end",
-            "counter_offset_vertical": 5,
-            "counter_offset_horizontal": 0,
-            "counter_size": 17,
-            "counter_font_size": 9,
-            "counter_border_width": 0
-          }
-        }
-      },
-      "block_order": [
-        "wishlist_king_wishlist_link_block_Ayjpbm"
-      ],
       "settings": {
         "logo_position": "top-center",
         "menu": "dawn-nav-1",
