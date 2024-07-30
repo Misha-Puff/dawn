@@ -34,6 +34,11 @@
             "swatch_shape": "none"
           }
         },
+        "uploadery_app_block_UnRL3M": {
+          "type": "shopify:\/\/apps\/uploadery\/blocks\/app-block\/5253cb5d-9d0f-47bd-a1aa-51cb83bf6de3",
+          "settings": {
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -52,6 +57,7 @@
         "rating_fBYWfr",
         "price",
         "variant_picker",
+        "uploadery_app_block_UnRL3M",
         "buy_buttons",
         "description"
       ],
