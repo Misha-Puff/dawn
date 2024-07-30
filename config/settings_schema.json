@@ -1282,7 +1282,7 @@
         "type": "color_scheme",
         "id": "mto_badge_color_scheme",
         "label": "MTO badge color scheme",
-        "default": "scheme-3"
+        "default": "scheme-2"
       }
     ]
   },
