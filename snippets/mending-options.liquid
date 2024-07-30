@@ -1,0 +1,86 @@
+{% assign colors = shop.metafields.airtable.yarncolors.value %}
+
+<div class="mending-options">
+  <div class="multicolumn-list contains-content-container grid grid--1-col-tablet-down grid--2-col-desktop">
+    <div class="field grid__item">
+      <input
+        required
+        id="garment-name"
+        class="field__input"
+        type="text"
+        name="properties[Garment Name]"
+        placeholder="Garment Name"
+      >
+      <label class="field__label" for="garment-name">Garment Name*</label>
+    </div>
+
+    <div class="field grid__item">
+      <input
+        required
+        id="yarn-color"
+        class="field__input"
+        type="text"
+        name="properties[Garment Color]"
+        placeholder="Garment Color"
+      >
+      <label class="field__label" for="yarn-color">Garment Color*</label>
+    </div>
+  </div>
+
+  <div class="multicolumn-list contains-content-container grid grid--1-col-tablet-down grid--2-col-desktop">
+    <div class="grid__item">
+      <label for="material-select" class="form__label">Material Type*</label>
+      <div class="select">
+        <select
+          required
+          id="material-select"
+          class="select__select"
+          name="properties[Material]"
+        >
+          <option value="" disabled selected>Select material...</option>
+          <option value="Wool">Wool</option>
+          <option value="Cotton">Cotton</option>
+        </select>
+        {% render 'icon-caret' %}
+      </div>
+    </div>
+
+    <div class="grid__item">
+      <label for="repair-color-select" class="form__label">Repair Color*</label>
+      <div class="select">
+        <select
+          required
+          id="repair-color-select"
+          class="select__select"
+          name="properties[Repair Color]"
+        >
+          <option value="default" selected>Choose closest match for me</option>
+          {% for color in colors %}
+            <option value="{{color.Name}}">{{ color.Name }}</option>
+          {% endfor %}
+        </select>
+        {% render 'icon-caret' %}
+      </div>
+    </div>
+  </div>
+
+  <div id="uploadery-container grid"></div>
+
+  <div>
+    <input required id="moth-free" class="checkbox" type="checkbox" value="true">
+    <label for="moth-free">I confirm this item has no moth damage</label>
+  </div>
+
+  <div>
+    <input required id="terms" class="checkbox" type="checkbox" value="1">
+    <label for="terms"
+      >I agree to the
+      <a class="link is-underlined" href="/pages/repairs-terms-and-conditions">Terms & Conditions</a></label
+    >
+  </div>
+
+  <div>
+    <input required id="hand-knit" class="checkbox" type="checkbox" value="1">
+    <label for="hand-knit">I confirm this is a hand knit item</label>
+  </div>
+</div>

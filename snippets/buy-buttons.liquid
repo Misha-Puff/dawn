@@ -44,20 +44,17 @@
         <span class="product-form__error-message"></span>
       </div>
 
-      {%- form 'product',
-        product,
-        id: product_form_id,
-        class: 'form',
-        novalidate: 'novalidate',
-        data-type: 'add-to-cart-form'
-      -%}
+      {%- form 'product', product, id: product_form_id, class: 'form', data-type: 'add-to-cart-form' -%}
+        {% if product.type == 'Repair' %}
+          {% render 'mending-options' %}
+        {% endif %}
         <input
           type="hidden"
           name="id"
           value="{{ product.selected_or_first_available_variant.id }}"
           {% if product.selected_or_first_available_variant.available == false
             or quantity_rule_soldout
-            or product.selected_or_first_available_variant == nil
+            or product.selected_or_first_available_variant == null
           %}
             disabled
           {% endif %}
@@ -85,13 +82,13 @@
             class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
             {% if product.selected_or_first_available_variant.available == false
               or quantity_rule_soldout
-              or product.selected_or_first_available_variant == nil
+              or product.selected_or_first_available_variant == null
             %}
               disabled
             {% endif %}
           >
             <span>
-              {%- if product.selected_or_first_available_variant == nil -%}
+              {%- if product.selected_or_first_available_variant == null -%}
                 {{ 'products.product.unavailable' | t }}
               {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
                 {{ 'products.product.sold_out' | t }}
