@@ -27,6 +27,11 @@
           "settings": {
           }
         },
+        "uploadery_app_block_d3pwWF": {
+          "type": "shopify:\/\/apps\/uploadery\/blocks\/app-block\/5253cb5d-9d0f-47bd-a1aa-51cb83bf6de3",
+          "settings": {
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -51,6 +56,7 @@
         "title",
         "rating_fBYWfr",
         "price",
+        "uploadery_app_block_d3pwWF",
         "variant_picker",
         "buy_buttons",
         "description"
