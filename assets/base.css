@@ -3724,3 +3724,11 @@ localization-form {
 #bis-form .form-status.error {
   display: none;
 }
+
+.header__search {
+  display: inline-block !important;
+}
+
+.header__icon--account {
+  display: flex !important;
+}
