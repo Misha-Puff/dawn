@@ -150,61 +150,63 @@
                   {%- endform -%}
                 </div>
               {%- when 'inventory' -%}
-                <p
-                  class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
-                  {{ block.shopify_attributes }}
-                  id="Inventory-{{ section.id }}"
-                  role="status"
-                >
-                  {%- if product.selected_or_first_available_variant.inventory_management == 'shopify' -%}
-                    {% render 'inventory_data', threshold: block.settings.inventory_threshold %}
-                    {%- if product.selected_or_first_available_variant.inventory_quantity > 0 -%}
-                      {%- if product.selected_or_first_available_variant.inventory_quantity
-                          <= block.settings.inventory_threshold
-                      -%}
-                        <svg width="15" height="15" aria-hidden="true">
-                          <circle class="outer" cx="7.5" cy="7.5" r="7.5" fill="rgb(238,148,65, 0.3)"/>
-                          <circle class="inner" cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(238,148,65)"/>
-                        </svg>
-                        {%- if block.settings.show_inventory_quantity -%}
-                          {{-
-                            'products.product.inventory_low_stock_show_count'
-                            | t: quantity: product.selected_or_first_available_variant.inventory_quantity
-                          -}}
+                {% unless product.tags contains 'Badge-Coming Soon' %}
+                  <p
+                    class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
+                    {{ block.shopify_attributes }}
+                    id="Inventory-{{ section.id }}"
+                    role="status"
+                  >
+                    {%- if product.selected_or_first_available_variant.inventory_management == 'shopify' -%}
+                      {% render 'inventory_data', threshold: block.settings.inventory_threshold %}
+                      {%- if product.selected_or_first_available_variant.inventory_quantity > 0 -%}
+                        {%- if product.selected_or_first_available_variant.inventory_quantity
+                            <= block.settings.inventory_threshold
+                        -%}
+                          <svg width="15" height="15" aria-hidden="true">
+                            <circle class="outer" cx="7.5" cy="7.5" r="7.5" fill="rgb(238,148,65, 0.3)"/>
+                            <circle class="inner" cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(238,148,65)"/>
+                          </svg>
+                          {%- if block.settings.show_inventory_quantity -%}
+                            {{-
+                              'products.product.inventory_low_stock_show_count'
+                              | t: quantity: product.selected_or_first_available_variant.inventory_quantity
+                            -}}
+                          {%- else -%}
+                            {{- 'products.product.inventory_low_stock' | t -}}
+                          {%- endif -%}
                         {%- else -%}
-                          {{- 'products.product.inventory_low_stock' | t -}}
+                          <svg width="15" height="15" aria-hidden="true">
+                            <circle class="outer" cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
+                            <circle class="inner" cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>
+                          </svg>
+                          {%- if block.settings.show_inventory_quantity -%}
+                            {{-
+                              'products.product.inventory_in_stock_show_count'
+                              | t: quantity: product.selected_or_first_available_variant.inventory_quantity
+                            -}}
+                          {%- else -%}
+                            {{- 'products.product.inventory_in_stock' | t -}}
+                          {%- endif -%}
                         {%- endif -%}
                       {%- else -%}
-                        <svg width="15" height="15" aria-hidden="true">
-                          <circle class="outer" cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
-                          <circle class="inner" cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>
-                        </svg>
-                        {%- if block.settings.show_inventory_quantity -%}
-                          {{-
-                            'products.product.inventory_in_stock_show_count'
-                            | t: quantity: product.selected_or_first_available_variant.inventory_quantity
-                          -}}
+                        {%- if product.selected_or_first_available_variant.inventory_policy == 'continue' -%}
+                          <svg width="15" height="15" aria-hidden="true">
+                            <circle class="outer" cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
+                            <circle class="inner" cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>
+                          </svg>
+                          {{- 'products.product.inventory_out_of_stock_continue_selling' | t -}}
                         {%- else -%}
-                          {{- 'products.product.inventory_in_stock' | t -}}
+                          <svg width="15" height="15" aria-hidden="true">
+                            <circle class="outer" cx="7.5" cy="7.5" r="7.5" fill="rgb(200,200,200, 0.3)"/>
+                            <circle class="inner" cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(200,200,200)"/>
+                          </svg>
+                          {{- 'products.product.inventory_out_of_stock' | t -}}
                         {%- endif -%}
-                      {%- endif -%}
-                    {%- else -%}
-                      {%- if product.selected_or_first_available_variant.inventory_policy == 'continue' -%}
-                        <svg width="15" height="15" aria-hidden="true">
-                          <circle class="outer" cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
-                          <circle class="inner" cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>
-                        </svg>
-                        {{- 'products.product.inventory_out_of_stock_continue_selling' | t -}}
-                      {%- else -%}
-                        <svg width="15" height="15" aria-hidden="true">
-                          <circle class="outer" cx="7.5" cy="7.5" r="7.5" fill="rgb(200,200,200, 0.3)"/>
-                          <circle class="inner" cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(200,200,200)"/>
-                        </svg>
-                        {{- 'products.product.inventory_out_of_stock' | t -}}
                       {%- endif -%}
                     {%- endif -%}
-                  {%- endif -%}
-                </p>
+                  </p>
+                {% endunless %}
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
@@ -476,13 +478,16 @@
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
-                {%- render 'buy-buttons',
-                  block: block,
-                  product: product,
-                  product_form_id: product_form_id,
-                  section_id: section.id,
-                  show_pickup_availability: true
-                -%}
+                {% unless product.tags contains 'Badge-Coming Soon' %}
+                  {%- render 'buy-buttons',
+                    block: block,
+                    product: product,
+                    product_form_id: product_form_id,
+                    section_id: section.id,
+                    show_pickup_availability: true
+                  -%}
+                {% endunless %}
+
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
                   <div class="rating-wrapper">
@@ -668,6 +673,8 @@
                 </product-recommendations>
               {%- when 'icon-with-text' -%}
                 {% render 'icon-with-text', block: block %}
+              {%- when 'bis_form' -%}
+                {% render 'klaviyo-bis-form' %}
             {%- endcase -%}
           {%- endfor -%}
           <a href="{{ product.url }}" class="link product__view-details animate-arrow">
@@ -2084,6 +2091,11 @@
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
         }
       ]
+    },
+    {
+      "type": "bis_form",
+      "name": "BIS Form",
+      "limit": 1
     }
   ],
   "settings": [

@@ -1,0 +1,131 @@
+{% liquid
+  assign show_bis = false
+  unless product.selected_or_first_available_variant
+    assign show_bis = true
+  endunless
+%}
+<div
+  id="bis-form-wrapper"
+  class="color-{{ section.settings.color_scheme }} gradient{% unless show_bis %} hidden{% endunless %}"
+>
+  <h3 class="title {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    Be the first to know
+  </h3>
+  <h4 class="subtitle subtitle--small{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    Get in-stock alerts
+  </h4>
+
+  {%- liquid
+    assign contact_form_class = 'isolate'
+    if settings.animations_reveal_on_scroll
+      assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
+    endif
+  -%}
+  <form id="bis-form" class="{{ contact_form_class }}">
+    <h2 class="form-status success form-status-list form__message" tabindex="-1" autofocus>
+      {% render 'icon-success' %}
+      Thanks! We will notify you when this product becomes available!
+    </h2>
+    <div class="form__message">
+      <h2 class="form-status error caption-large text-body" role="alert" tabindex="-1" autofocus>
+        {% render 'icon-error' %}
+        Uh oh! It looks like something went wrong. Please try again later.
+      </h2>
+    </div>
+    <div class="form__fields">
+      <div class="field">
+        <input
+          autocomplete="email"
+          type="email"
+          id="bis-email"
+          class="field__input"
+          spellcheck="false"
+          autocapitalize="off"
+          value="{% if customer %}{{ customer.email }}{% endif %}"
+          aria-required="true"
+          placeholder="{% if customer %}{{ customer.email }}{% else %}Email{% endif %}"
+          required
+        >
+        <label class="field__label" for="bis-email">
+          Email
+          <span aria-hidden="true">*</span></label
+        >
+      </div>
+      <button class="button" id="submit-btn">
+        Notify Me
+        {%- render 'loading-spinner' -%}
+      </button>
+    </div>
+  </form>
+</div>
+<script>
+  const bisForm = document.querySelector('#bis-form');
+
+  if (bisForm) {
+    bisForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const bisForm = document.querySelector('#bis-form');
+      const variantID = document.querySelector('.product-variant-id').value;
+
+      const email = bisForm.querySelector('#bis-email').value;
+      const submitBtn = bisForm.querySelector('#submit-btn');
+      const successMessage = bisForm.querySelector('#bis-form .success');
+      const errorMessage = bisForm.querySelector('#bis-form .success');
+      const spinner = submitBtn.querySelector('#bis-form .loading__spinner');
+
+      spinner.classList.remove('hidden');
+      successMessage.style.display = 'none';
+      errorMessage.style.display = 'none';
+
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+          accept: 'application/json',
+          'Content-Type': 'application/json',
+          revision: '2024-07-15',
+        },
+        body: JSON.stringify({
+          data: {
+            type: 'back-in-stock-subscription',
+            attributes: {
+              profile: {
+                data: {
+                  type: 'profile',
+                  attributes: {
+                    email,
+                  },
+                },
+              },
+              channels: ['EMAIL'],
+            },
+            relationships: {
+              variant: {
+                data: {
+                  type: 'catalog-variant',
+                  id: `$shopify:::$default:::${variantID}`,
+                },
+              },
+            },
+          },
+        }),
+      };
+
+      submitBtn.classList.add('loading');
+
+      fetch('https://a.klaviyo.com/client/back-in-stock-subscriptions?company_id=H9eAyC', requestOptions)
+        .then((data) => {
+          spinner.classList.add('hidden');
+          submitBtn.classList.remove('loading');
+
+          successMessage.style.display = 'block';
+        })
+        .catch((error) => {
+          spinner.classList.add('hidden');
+          submitBtn.classList.remove('loading');
+
+          errorMessage.style.display = 'block';
+        });
+    });
+  }
+</script>

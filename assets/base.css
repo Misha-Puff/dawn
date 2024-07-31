@@ -3697,3 +3697,30 @@ localization-form {
 [for="Filter-filter.v.availability-mobile-2"] {
   display: none;
 }
+
+#bis-form-wrapper {
+  max-width: 44rem;
+  padding: 2rem;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.2)
+}
+
+#bis-form-wrapper .title {
+  margin: 0;
+}
+
+#bis-form .form__fields {
+  display: flex;
+}
+
+#bis-form .field {
+  margin: 0;
+}
+
+#bis-form .button {
+  min-width: fit-content;
+}
+
+#bis-form .form-status.success,
+#bis-form .form-status.error {
+  display: none;
+}

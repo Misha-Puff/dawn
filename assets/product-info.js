@@ -202,6 +202,7 @@ if (!customElements.get('product-info')) {
           );
 
           const inventoryStatusEl = html.querySelector('.product__inventory');
+          const bisForm = document.querySelector('#bis-form-wrapper');
 
           if (inventoryStatusEl !== null) {
             const innerEl = inventoryStatusEl.querySelector('.inner');
@@ -227,6 +228,14 @@ if (!customElements.get('product-info')) {
               outerEl.style.fill = 'rgb(62,214,96, 0.3)';
               innerEl.style.fill = 'rgb(62,214,96)';
               inventoryStatusEl.innerHTML = inStockMsg;
+            }
+
+            if (bisForm !== null) {
+              if (quantity === 0 && bisForm.classList.contains('hidden')) {
+                bisForm.classList.remove('hidden');
+              } else if (!bisForm.classList.contains('hidden')) {
+                bisForm.classList.add('hidden');
+              }
             }
           }
 
