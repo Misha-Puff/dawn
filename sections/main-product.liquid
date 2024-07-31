@@ -42,6 +42,10 @@
       margin-bottom: 1.5rem;
       max-width: 44rem;
     }
+
+    .sibling-link {
+      display: inline-block;
+    }
   {%- endstyle -%}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
@@ -886,7 +890,39 @@
             }
           ],
           "default": "button",
-          "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
+          "label": "Default Style"
+        },
+        {
+          "type": "select",
+          "id": "color_picker_type",
+          "options": [
+            {
+              "value": "dropdown",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__1.label"
+            },
+            {
+              "value": "button",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__2.label"
+            }
+          ],
+          "default": "button",
+          "label": "Color Style"
+        },
+        {
+          "type": "select",
+          "id": "size_picker_type",
+          "options": [
+            {
+              "value": "dropdown",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__1.label"
+            },
+            {
+              "value": "button",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__2.label"
+            }
+          ],
+          "default": "dropdown",
+          "label": "Size Style"
         },
         {
           "id": "swatch_shape",
@@ -907,7 +943,7 @@
               "label": "t:sections.main-product.blocks.variant_picker.settings.swatch_shape.options__3.label"
             }
           ],
-          "default": "circle"
+          "default": "square"
         }
       ]
     },

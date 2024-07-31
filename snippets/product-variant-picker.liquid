@@ -17,10 +17,17 @@
     {%- for option in product.options_with_values -%}
       {%- liquid
         assign swatch_count = option.values | map: 'swatch' | compact | size
-        assign picker_type = block.settings.picker_type
+
+        if option.name == 'Color'
+          assign picker_type = block.settings.color_picker_type
+        elsif option.name == 'Size'
+          assign picker_type = block.settings.size_picker_type
+        else
+          assign picker_type = block.settings.picker_type
+        endif
 
         if swatch_count > 0 and block.settings.swatch_shape != 'none'
-          if block.settings.picker_type == 'dropdown'
+          if block.settings.color_picker_type == 'dropdown'
             assign picker_type = 'swatch_dropdown'
           else
             assign picker_type = 'swatch'
@@ -85,6 +92,8 @@
       {%- endif -%}
     {%- endfor -%}
 
-    <script type="application/json" data-selected-variant>{{ product.selected_or_first_available_variant | json }}</script>
+    <script type="application/json" data-selected-variant>
+      {{ product.selected_or_first_available_variant | json }}
+    </script>
   </variant-selects>
 {%- endunless -%}
