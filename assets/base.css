@@ -3684,3 +3684,7 @@ localization-form {
 .localization-form__select:after {
   display: none !important;
 }
+
+.button {
+  text-transform: uppercase;
+}
