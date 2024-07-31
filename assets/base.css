@@ -3688,3 +3688,7 @@ localization-form {
 .button {
   text-transform: uppercase;
 }
+
+.article-template__title {
+  font-size: 20px;
+}
