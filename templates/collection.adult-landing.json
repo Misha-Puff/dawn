@@ -30,6 +30,7 @@
         "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
+        "show_variants": true,
         "quick_add": "none",
         "enable_filtering": true,
         "filter_type": "horizontal",
@@ -66,7 +67,7 @@
       ],
       "settings": {
         "layout": "full_bleed",
-        "slide_height": "adapt_image",
+        "slide_height": "large",
         "slider_visual": "counter",
         "auto_rotate": false,
         "change_slides_speed": 5,
