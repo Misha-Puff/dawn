@@ -67,7 +67,7 @@
   margin-bottom: 1.5rem;
   padding-left: 1rem;
   text-align: left;
-  min-height: calc(4rem + var(--inputs-border-width) * 2);
+  /* min-height: calc(4rem + var(--inputs-border-width) * 2); */
   min-width: calc(7rem + var(--inputs-border-width) * 2);
 }
 
@@ -116,7 +116,7 @@
   align-items: center;
   cursor: pointer;
   display: flex;
-  height: 4rem;
+  /* height: 4rem; */
   padding: 0 1.5rem 0 1.5rem;
   font-size: 1.3rem;
   background-color: transparent;
