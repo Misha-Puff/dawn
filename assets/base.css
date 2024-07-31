@@ -3646,7 +3646,6 @@ localization-form {
 .variant-availability {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   margin-bottom: 0.7rem;
 }
 
