@@ -3690,5 +3690,6 @@ localization-form {
 }
 
 .article-template__title {
+  text-align: center;
   font-size: 20px;
 }
