@@ -126,8 +126,8 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 
 @media screen and (min-width: 990px) {
   .header:not(.drawer-menu).page-width {
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding-left: 1.9rem;
+    padding-right: 1.9rem;
   }
 
   .page-width--narrow {
@@ -3764,4 +3764,8 @@ localization-form {
   .scrolled-past-header .header--top-center .header__inline-menu {
     margin-left: 0;
   }
+}
+
+.scrolled-past-header .mega-menu__content {
+  top: 71%;
 }
