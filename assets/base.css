@@ -3693,3 +3693,7 @@ localization-form {
   text-align: center;
   font-size: 20px;
 }
+
+[for="Filter-filter.v.availability-mobile-2"] {
+  display: none;
+}
