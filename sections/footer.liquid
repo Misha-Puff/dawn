@@ -75,7 +75,7 @@
             endif
           -%}
           <div
-            class="footer__blocks-wrapper grid grid--1-col grid--2-col grid--4-col-tablet {{ footer_grid_class }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            class="footer__blocks-wrapper grid grid--4-col-desktop grid--1-col-tablet-down {{ footer_grid_class }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
             {% if settings.animations_reveal_on_scroll %}
               data-cascade
             {% endif %}
@@ -102,7 +102,7 @@
                     </div>
                   {%- when 'link_list' -%}
                     {%- if block.settings.menu != blank -%}
-                      <div class="accordion footer-accordion" {{ block.shopify_attributes }}>
+                      <div class="accordion footer-accordion is-hidden-desktop-only" {{ block.shopify_attributes }}>
                         <details id="Details-{{ block.id }}-{{ section.id }}">
                           <summary>
                             <div class="summary__title">
@@ -124,6 +124,21 @@
                           </div>
                         </details>
                       </div>
+                      <h2 class="footer-block__heading inline-richtext is-hidden-mobile-only">
+                        {{- block.settings.heading -}}
+                      </h2>
+                      <ul class="footer-block__details-content list-unstyled is-hidden-mobile-only">
+                        {%- for link in block.settings.menu.links -%}
+                          <li>
+                            <a
+                              href="{{ link.url }}"
+                              class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
+                            >
+                              {{ link.title | escape }}
+                            </a>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
                     {%- endif -%}
                   {%- when 'brand_information' -%}
                     <div class="footer-block__brand-info">
