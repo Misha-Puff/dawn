@@ -3769,3 +3769,7 @@ localization-form {
 .footer-block.grid__item .list-menu__item {
   padding: 0;
 }
+
+.multicolumn-card__image-wrapper {
+  margin: 0 !important;
+}
