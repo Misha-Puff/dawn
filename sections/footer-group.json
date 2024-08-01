@@ -14,25 +14,25 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "link_list_ig4Pfh": {
+        "link_list_zM7T3B": {
           "type": "link_list",
           "settings": {
             "heading": "Discover",
-            "menu": "footer-discover"
+            "menu": "dawn-footer-discover"
           }
         },
-        "link_list_aLt4Tp": {
+        "link_list_ntWG9g": {
           "type": "link_list",
           "settings": {
-            "heading": "About Us",
-            "menu": "about-us-footer"
+            "heading": "IMPACT",
+            "menu": "dawn-footer-impact"
           }
         },
-        "link_list_QFEtTw": {
+        "link_list_KjjBzU": {
           "type": "link_list",
           "settings": {
-            "heading": "Customer Service",
-            "menu": "customer-service-footer"
+            "heading": "Support",
+            "menu": "dawn-footer-support"
           }
         },
         "newsletter_Y8mDBK": {
@@ -43,9 +43,9 @@
         }
       },
       "block_order": [
-        "link_list_ig4Pfh",
-        "link_list_aLt4Tp",
-        "link_list_QFEtTw",
+        "link_list_zM7T3B",
+        "link_list_ntWG9g",
+        "link_list_KjjBzU",
         "newsletter_Y8mDBK"
       ],
       "settings": {
