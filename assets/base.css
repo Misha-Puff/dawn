@@ -3729,10 +3729,6 @@ localization-form {
   display: inline-block !important;
 }
 
-.header__icon--account {
-  display: flex !important;
-}
-
 @media screen and (min-width: 990px) {
   .scrolled-past-header .header--top-center:not(.header--has-menu) {
     grid-template-areas:
