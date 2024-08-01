@@ -30,6 +30,7 @@
         "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
+        "show_variants": true,
         "quick_add": "none",
         "enable_filtering": true,
         "filter_type": "horizontal",
@@ -117,7 +118,7 @@
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 0
       }
     },
     "multicolumn_HbcHgm": {
@@ -172,8 +173,8 @@
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 16,
+        "padding_bottom": 16
       }
     },
     "image_banner_pmtDmp": {
@@ -197,12 +198,13 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/MP_SU24_Leader_Journal_6.18.24.jpg",
         "image_overlay_opacity": 0,
-        "image_height": "large",
+        "image_height": "adapt",
         "desktop_content_position": "middle-center",
         "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
+        "mobile_image": "shopify:\/\/shop_images\/MP_SU24_Leader_Journal_6.18.24_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": false
