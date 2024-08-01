@@ -19,6 +19,7 @@
     },
     "product-grid": {
       "type": "main-collection-product-grid",
+      "disabled": true,
       "settings": {
         "products_per_page": 36,
         "columns_desktop": 3,
@@ -28,6 +29,7 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "show_variants": true,
         "quick_add": "none",
         "enable_filtering": true,
         "filter_type": "drawer",
@@ -36,10 +38,197 @@
         "padding_top": 0,
         "padding_bottom": 36
       }
+    },
+    "rich_text_Qzf3YT": {
+      "type": "rich-text",
+      "blocks": {
+        "text_MDgMVV": {
+          "type": "text",
+          "settings": {
+            "text": "<h4>MADE-TO-ORDER PROGRAM<\/h4><p>Our most recent MTO program has reached capacity and is now <strong>closed<\/strong>.<br\/>Check your order status and sign up to be notified for future MTO collections below.<br\/><br\/>Our Made-to-Order program is an initiative that we are very proud of — and at the heart of why we do what we do. This program introduces the ability to custom shop some of your favorite Misha & Puff styles in a limited small-batch capsule outside of our seasonal collections, while delivering on our promise to support our knitting community year-round.<\/p>"
+          }
+        },
+        "button_9DxNK6": {
+          "type": "button",
+          "settings": {
+            "button_label": "MADE-TO-ORDER STATUS",
+            "button_link": "shopify:\/\/pages\/made-to-order-status-updates",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "text_MDgMVV",
+        "button_9DxNK6"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "custom_liquid_bKixf9": {
+      "type": "custom-liquid",
+      "custom_css": [
+        "div {display: flex; justify-content: center;}"
+      ],
+      "settings": {
+        "custom_liquid": "<script>function triggerMTOForm(){window._klOnsite = window._klOnsite || [];\nwindow._klOnsite.push(['openForm', 'WbmkqK']);}<\/script>\n<button class=\"button button--secondary\" onclick=\"triggerMTOForm();\">Get MTO Alerts<\/button>",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_Jak7Gh": {
+      "type": "rich-text",
+      "blocks": {
+        "text_jhkXDN": {
+          "type": "text",
+          "settings": {
+            "text": "<h4>WHAT TO EXPECT<\/h4><p>Every piece we create blends craftsmanship, heritage, and quality and each of our treasured partners provides unique contributions that amplify our appreciation of time-honored processes. Supporting handmade means supporting the local communities behind these crafts. Learn more about our sustainability efforts and our incredible artisanal knitting partners.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_jhkXDN"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "multicolumn_mePegM": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_bNVh4e": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p><strong>OPEN\/CLOSED<\/strong><\/p><p>Ordering is open when our knitting partners have extra capacity<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_7GxhG4": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p><strong>SELECT COLORS<\/strong><\/p><p>Each run offers beloved archival colors, repurposing our stock of excess or rejected yarns<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_hjKR7q": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p><strong>LIMITED CAPACITY<\/strong><\/p><p>Handcrafted pieces and limited yarns mean a scarce supply and limited production capacity<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_rA7bPF": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p><strong>LEAD TIMES<\/strong><\/p><p>Our repurposed yarn colors may be in stock or require custom dyeing, leading to a 3-5 month lead time<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_bNVh4e",
+        "column_7GxhG4",
+        "column_hjKR7q",
+        "column_rA7bPF"
+      ],
+      "custom_css": [
+        ".multicolumn-list__item {text-align: center;}"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_C8LYdm": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_xC7h88": {
+          "type": "heading",
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "text_9RUQPf": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+          }
+        },
+        "button_czyjwV": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_xC7h88",
+        "text_9RUQPf",
+        "button_czyjwV"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "banner",
-    "product-grid"
+    "product-grid",
+    "rich_text_Qzf3YT",
+    "custom_liquid_bKixf9",
+    "rich_text_Jak7Gh",
+    "multicolumn_mePegM",
+    "rich_text_C8LYdm"
   ]
 }
