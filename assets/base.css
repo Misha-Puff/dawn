@@ -3777,3 +3777,8 @@ localization-form {
 .scrolled-past-header  .header__icons .header__search {
   display: inline-block;
 }
+
+.card__heading {
+  font-size: 12px;
+  line-height: 20px;
+}
