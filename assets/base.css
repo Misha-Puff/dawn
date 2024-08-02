@@ -3791,3 +3791,7 @@ localization-form {
   margin-top: 7px !important;
   font-size: 14px !important;
 }
+
+.newsletter-form button {
+  margin-top: 20px
+}

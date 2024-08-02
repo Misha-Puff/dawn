@@ -266,15 +266,6 @@
                                 <label class="field__label" for="NewsletterForm--{{ section.id }}--{{ block.id }}">
                                   {{ 'newsletter.label' | t }}
                                 </label>
-                                <button
-                                  type="submit"
-                                  class="newsletter-form__button field__button"
-                                  name="commit"
-                                  id="Subscribe"
-                                  aria-label="{{ 'newsletter.button_label' | t }}"
-                                >
-                                  {% render 'icon-arrow' %}
-                                </button>
                               </div>
                               {%- if form.errors -%}
                                 <small class="newsletter-form__message form__message" id="ContactFooter-error">
@@ -284,6 +275,17 @@
                                 </small>
                               {%- endif -%}
                             </div>
+                            <button
+                              type="submit"
+                              class="button button--secondary"
+                              name="commit"
+                              id="Subscribe"
+                              aria-label="{{ 'newsletter.button_label' | t }}"
+                            >
+                              Subscribe
+                              {% comment %} {% render 'icon-arrow' %} {% endcomment %}
+                            </button>
+
                             {%- if form.posted_successfully? -%}
                               <h3
                                 class="newsletter-form__message newsletter-form__message--success form__message"
