@@ -2765,14 +2765,14 @@ details[open] > .header__submenu {
 .header__menu-item {
   padding: 1.2rem;
   text-decoration: none;
-  color: rgba(var(--color-foreground), 0.75);
+  color: rgba(var(--color-foreground));
 }
 
 .header__menu-item:hover {
   color: rgb(var(--color-foreground));
 }
 
-.header__menu-item span {
+/* .header__menu-item span {
   transition: text-decoration var(--duration-short) ease;
 }
 
@@ -2787,7 +2787,7 @@ details[open] > .header__menu-item {
 
 details[open]:hover > .header__menu-item {
   text-decoration-thickness: 0.2rem;
-}
+} */
 
 details[open] > .header__menu-item .icon-caret {
   transform: rotate(180deg);
@@ -3815,4 +3815,12 @@ localization-form {
 
 html {
   -webkit-font-smoothing: antialiased
+}
+
+
+.header__menu-item:hover,
+.header__menu-item:hover.mega-menu__link--level-2 link,
+details[open] > .header__menu-item span,
+.mega-menu__link .mega-menu__link--level-2 link {
+  color: rgb(var(--color-foreground), 0.85);
 }
