@@ -3812,3 +3812,7 @@ localization-form {
   font-size: 13px !important;
   color: rgb(var(--color-foreground));
 }
+
+html {
+  -webkit-font-smoothing: antialiased
+}
