@@ -121,7 +121,7 @@
         "image_ratio": "portrait",
         "gallery_layout": "columns",
         "media_position": "left",
-        "image_zoom": "none",
+        "image_zoom": "hover",
         "mobile_thumbnails": "hide",
         "hide_variants": true,
         "enable_video_looping": false,
