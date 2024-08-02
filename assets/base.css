@@ -3800,3 +3800,8 @@ localization-form {
 .footer-block__heading {
   font-size: 14px !important;
 }
+
+.footer-block .footer-block__details-content .list-menu__item {
+  font-size: 12px;
+  line-height: 20px;
+}
