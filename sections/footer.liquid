@@ -368,7 +368,8 @@
       {%- endif -%}
       <div class="footer__copyright caption grid__item">
         <small class="copyright__content"
-          >&copy; {{ 'now' | date: '%Y' }} &mdash; {{ shop.name | link_to: routes.root_url -}}
+          >&copy; {{ 'now' | date: '%Y' }}
+          {{ shop.name | link_to: routes.root_url -}}
         </small>
         {%- if section.settings.show_policy -%}
           <ul class="policies list-unstyled">

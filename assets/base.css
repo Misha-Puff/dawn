@@ -3806,3 +3806,9 @@ localization-form {
   font-size: 12px;
   line-height: 20px;
 }
+
+.footer__content-bottom-wrapper .grid__item,
+.copyright__content {
+  font-size: 13px !important;
+  color: rgb(var(--color-foreground));
+}
