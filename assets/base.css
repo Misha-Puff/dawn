@@ -3795,3 +3795,8 @@ localization-form {
 .newsletter-form button {
   margin-top: 20px
 }
+
+.footer-accordion .accordion__title,
+.footer-block__heading {
+  font-size: 14px !important;
+}
