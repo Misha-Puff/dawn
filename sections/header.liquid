@@ -94,6 +94,13 @@
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
+    
+  }
+  
+  @media screen and (max-width: 989px) {
+    .header__heading-logo-wrapper {
+      max-width: {{ settings.mobile_logo_width }}px;
+    }
   }
 {%- endstyle -%}
 
