@@ -2210,15 +2210,15 @@ input[type='checkbox'] {
 .announcement-bar__link {
   display: flex;
   width: 100%;
-  text-decoration: none;
+  text-decoration: underline;
   height: 100%;
   justify-content: center;
   align-items: center;
 }
 
-.announcement-bar__link:hover {
+/* .announcement-bar__link:hover {
   text-decoration: underline;
-}
+} */
 
 .announcement-bar__link .icon-arrow {
   display: inline-block;
