@@ -3830,12 +3830,17 @@ details[open] > .header__menu-item span,
   .header.header--mobile-left {
     padding: 0 10px;
   }
-
-  .header__icon {
-    /* width: fit-content */
-  }
 }
 
 .left-icons-wrapper {
   display: flex;
+}
+
+.footer__content-bottom-wrapper a:hover:not(.link),
+.footer__content-bottom-wrapper .link {
+  text-decoration: none;
+}
+
+.footer__content-bottom-wrapper a.link:hover {
+  text-decoration: underline;
 }
