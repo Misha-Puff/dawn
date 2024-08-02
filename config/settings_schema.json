@@ -173,6 +173,16 @@
       },
       {
         "type": "range",
+        "id": "page_width_padding",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "default": 0,
+        "unit": "px",
+        "label": "Page width padding"
+      },
+      {
+        "type": "range",
         "id": "spacing_sections",
         "min": 0,
         "max": 100,
