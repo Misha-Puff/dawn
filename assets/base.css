@@ -3725,10 +3725,6 @@ localization-form {
   display: none;
 }
 
-.header__search {
-  display: inline-block !important;
-}
-
 @media screen and (min-width: 990px) {
   .scrolled-past-header .header--top-center:not(.header--has-menu) {
     grid-template-areas:
@@ -3772,4 +3768,12 @@ localization-form {
 
 .multicolumn-card__image-wrapper {
   margin: 0 !important;
+}
+
+.scrolled-past-header .header__search {
+  display: none;
+}
+
+.scrolled-past-header  .header__icons .header__search {
+  display: inline-block;
 }
