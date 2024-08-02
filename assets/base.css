@@ -3782,3 +3782,12 @@ localization-form {
   font-size: 12px;
   line-height: 20px;
 }
+
+.multicolumn-card__info {
+  padding-left: 0 !important;
+}
+
+.multicolumn-card__info .link {
+  margin-top: 7px !important;
+  font-size: 14px !important;
+}
