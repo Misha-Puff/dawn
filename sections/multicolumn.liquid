@@ -138,8 +138,8 @@
                     {% endif %}
                   >
                     {{- block.settings.link_label | escape -}}
-                    <span class="icon-wrap">&nbsp;{% render 'icon-arrow' %}</span></a
-                  >
+                    {% comment %} <span class="icon-wrap">&nbsp;{% render 'icon-arrow' %}</span> {% endcomment %}
+                  </a>
                 {%- endif -%}
               </div>
               {% if block.settings.link %}
