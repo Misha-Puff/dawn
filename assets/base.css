@@ -3826,6 +3826,14 @@ details[open] > .header__menu-item span,
   .left-icons-wrapper .header__search {
     display: inline-flex;
   }
+
+  .header.header--mobile-left {
+    padding: 0 10px;
+  }
+
+  .header__icon {
+    /* width: fit-content */
+  }
 }
 
 .left-icons-wrapper {
