@@ -3799,6 +3799,7 @@ localization-form {
 .footer-accordion .accordion__title,
 .footer-block__heading {
   font-size: 14px !important;
+  margin-bottom: 10px !important;
 }
 
 .footer-block .footer-block__details-content .list-menu__item {
