@@ -3863,7 +3863,17 @@ details[open] > .header__menu-item span,
     height: 4rem;
   }
 }
+
 .product__info-container .accordion__content,
 .product__description {
   font-size: 14px;
+}
+
+.header .header__icons .header__icon {
+  width: auto;
+}
+
+.header__icon.header__icon--search, 
+.header__icon.header__icon--account {
+  margin-right: 1rem;
 }
