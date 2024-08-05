@@ -38,6 +38,16 @@
   .editorial-content img {
     max-width: 100%;
   }
+
+  @media screen and (max-width: 989px) {
+    .collection {
+      padding: 0;
+    }
+
+    .card__content {
+      padding: 0 var(--page-width-padding) !important;
+    }
+  }
 {%- endstyle -%}
 
 {% for block in section.blocks %}
