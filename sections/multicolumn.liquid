@@ -13,6 +13,80 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .multicolumn.content-overlay.content--top-left .multicolumn-card__info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 !important;
+  }
+
+  .multicolumn.content-overlay.content--top-center .multicolumn-card__info {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 0 !important;
+  }
+
+  .multicolumn.content-overlay.content--top-right .multicolumn-card__info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 !important;
+  }
+
+  .multicolumn.content-overlay.content--middle-left .multicolumn-card__info {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    padding: 0 !important;
+  }
+
+  .multicolumn.content-overlay.content--middle-center .multicolumn-card__info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 !important;
+  }
+
+  .multicolumn.content-overlay.content--middle-right .multicolumn-card__info {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+    padding: 0 !important;
+  }
+
+  .multicolumn.content-overlay.content--bottom-left .multicolumn-card__info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0 !important;
+  }
+
+  .multicolumn.content-overlay.content--bottom-center .multicolumn-card__info {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 0 !important;
+  }
+
+  .multicolumn.content-overlay.content--bottom-right .multicolumn-card__info {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 !important;
+  }
+
+
+  .content-overlay .multicolumn-card__info .button {
+    width: max-content;
+    margin-top: 0 !important;
+  }
 {%- endstyle -%}
 
 {%- liquid
@@ -23,7 +97,7 @@
   endif
 -%}
 
-<div class="multicolumn color-{{ section.settings.color_scheme }} gradient{% unless section.settings.background_style == 'none' and settings.text_boxes_border_thickness > 0 or settings.text_boxes_shadow_opacity > 0 %} background-{{ section.settings.background_style }}{% endunless %}{% if section.settings.title == blank %} no-heading{% endif %}">
+<div class="multicolumn color-{{ section.settings.color_scheme }} gradient{% unless section.settings.background_style == 'none' and settings.text_boxes_border_thickness > 0 or settings.text_boxes_shadow_opacity > 0 %} background-{{ section.settings.background_style }}{% endunless %}{% if section.settings.title == blank %} no-heading{% endif %}{% if section.settings.enable_overlay %} content-overlay content--{{section.settings.content_position}}{% endif %}">
   <div
     class="page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
     {% if settings.animations_reveal_on_scroll %}
@@ -130,7 +204,7 @@
                 {%- endif -%}
                 {%- if block.settings.link_label != blank -%}
                   <a
-                    class="link animate-arrow"
+                    class="{% if section.settings.enable_overlay %}button button--secondary{% else %}link animate-arrow{% endif %}"
                     {% if block.settings.link == blank %}
                       role="link" aria-disabled="true"
                     {% else %}
@@ -236,6 +310,55 @@
       ],
       "default": "h1",
       "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_overlay",
+      "label": "Enable overlay"
+    },
+    {
+      "type": "select",
+      "id": "content_position",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__1.label"
+        },
+        {
+          "value": "top-center",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__2.label"
+        },
+        {
+          "value": "top-right",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__3.label"
+        },
+        {
+          "value": "middle-left",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__4.label"
+        },
+        {
+          "value": "middle-center",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__5.label"
+        },
+        {
+          "value": "middle-right",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__6.label"
+        },
+        {
+          "value": "bottom-left",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__7.label"
+        },
+        {
+          "value": "bottom-center",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__8.label"
+        },
+        {
+          "value": "bottom-right",
+          "label": "t:sections.image-banner.settings.desktop_content_position.options__9.label"
+        }
+      ],
+      "default": "middle-center",
+      "label": "Content position"
     },
     {
       "type": "select",
