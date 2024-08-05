@@ -3595,8 +3595,8 @@ details-disclosure > details {
 
 @media screen and (max-width: 749px) {
   .model-note {
+    position: initial;
     opacity: 1;
-    left: 0;
   }
 }
 
@@ -3853,4 +3853,8 @@ details[open] > .header__menu-item span,
 
 .menu-drawer__inner-submenu .icon-caret {
   right: calc(1.5rem + 20px)
+}
+
+.product-media-container {
+  border: 0;
 }
