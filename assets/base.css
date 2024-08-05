@@ -3853,12 +3853,13 @@ details[open] > .header__menu-item span,
   height: 100%;
 }
 @media screen and (max-width: 989px) {
-  .header__icon.header__icon--cart,
+  .header__icon.header__icon--cart {
+    width: auto;
+    height: auto;
+  }
   .header__icon.header__icon--cart .icon {
     width: 4rem;
     height: 4rem;
   }
 }
-.header__icon--account {
-  margin-right: 10px;
-}
+
