@@ -14,18 +14,17 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "announcement-bar-0": {
+        "announcement_egLqPG": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
-            "link": ""
+            "text": "Fall Collection — Coming Soon | View Lookbook",
+            "link": "shopify:\/\/blogs\/journal\/child-fall-24"
           }
         }
       },
       "block_order": [
-        "announcement-bar-0"
+        "announcement_egLqPG"
       ],
-      "disabled": true,
       "settings": {
         "color_scheme": "",
         "show_line_separator": true,
