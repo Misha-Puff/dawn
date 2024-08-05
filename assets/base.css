@@ -2491,7 +2491,6 @@ input[type='checkbox'] {
   display: flex;
   grid-area: icons;
   justify-self: end;
-  padding-right: 0.8rem;
 }
 
 .header__icons .shopify-app-block {
@@ -3852,4 +3851,14 @@ details[open] > .header__menu-item span,
 
 .product__media-item {
   height: 100%;
+}
+@media screen and (max-width: 989px) {
+  .header__icon.header__icon--cart,
+  .header__icon.header__icon--cart .icon {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+.header__icon--account {
+  margin-right: 10px;
 }
