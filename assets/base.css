@@ -3645,7 +3645,7 @@ localization-form {
 }
 
 .variant-availability {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   margin-bottom: 0.7rem;
   opacity: 0;
@@ -3653,6 +3653,7 @@ localization-form {
 
 @media only screen and (min-width: 990px) {
   .product-card-wrapper:hover .variant-availability {
+    display: flex;
     opacity: 1;
   }
 }
