@@ -107,6 +107,8 @@
       "settings": {
         "title": "",
         "heading_size": "h1",
+        "enable_overlay": false,
+        "content_position": "middle-center",
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 2,
@@ -117,7 +119,7 @@
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 36,
+        "padding_top": 20,
         "padding_bottom": 0
       }
     },
@@ -163,6 +165,8 @@
       "settings": {
         "title": "",
         "heading_size": "h1",
+        "enable_overlay": false,
+        "content_position": "middle-center",
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 3,
@@ -173,8 +177,8 @@
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 16,
-        "padding_bottom": 16
+        "padding_top": 24,
+        "padding_bottom": 0
       }
     },
     "image_banner_pmtDmp": {
