@@ -3862,4 +3862,7 @@ details[open] > .header__menu-item span,
     height: 4rem;
   }
 }
-
+.product__info-container .accordion__content,
+.product__description {
+  font-size: 14px;
+}
