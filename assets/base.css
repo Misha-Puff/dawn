@@ -2395,7 +2395,7 @@ input[type='checkbox'] {
   }
 
   .header:not(.header--middle-left, .header--middle-center) .header__inline-menu {
-    margin-top: 1.05rem;
+    margin-top: 2rem;
   }
 }
 
@@ -3748,7 +3748,7 @@ localization-form {
   }
 
   .scrolled-past-header .header:not(.header--top-center, .header--middle-center) .header__inline-menu {
-    margin-top: 1.05rem;
+    margin-top: 2rem;
   }
 
   .scrolled-past-header .header--top-center .header__heading-link {
@@ -3826,10 +3826,6 @@ details[open] > .header__menu-item span,
 
   .left-icons-wrapper .header__search {
     display: inline-flex;
-  }
-
-  .header.header--mobile-left {
-    padding: 0 10px;
   }
 }
 
