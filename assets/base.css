@@ -3806,7 +3806,6 @@ html {
   -webkit-font-smoothing: antialiased
 }
 
-
 .header__menu-item:hover,
 .header__menu-item:hover.mega-menu__link--level-2 link,
 details[open] > .header__menu-item span,
@@ -3853,6 +3852,7 @@ details[open] > .header__menu-item span,
 .product__media-item {
   height: 100%;
 }
+
 @media screen and (max-width: 989px) {
   .header__icon.header__icon--cart,
   .header__icon.header__icon--search {
