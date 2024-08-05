@@ -46,6 +46,14 @@
     .sibling-link {
       display: inline-block;
     }
+
+    {% assign judgeme_badge = product.metafields.judgeme.badge | downcase %}
+
+    {% if judgeme_badge contains 'no reviews' %}
+      #judgeme_product_reviews {
+        display: none !important;
+      }
+    {% endif %}
   {%- endstyle -%}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
