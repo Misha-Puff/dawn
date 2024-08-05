@@ -15,6 +15,8 @@
       "settings": {
         "title": "",
         "heading_size": "h1",
+        "enable_overlay": false,
+        "content_position": "middle-center",
         "image_width": "third",
         "image_ratio": "adapt",
         "columns_desktop": 3,
@@ -27,44 +29,6 @@
         "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
-      }
-    },
-    "slideshow_t7VikK": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_mkRtae": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_7.22.24_1.jpg",
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "SHOP SUMMER",
-            "link": "shopify:\/\/collections\/child-summer-24",
-            "button_style_secondary": true,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-1",
-            "mobile_image": "shopify:\/\/shop_images\/MP_SU24_Leader_7.22.24_1_Mob.jpg",
-            "text_alignment_mobile": "center"
-          }
-        }
-      },
-      "block_order": [
-        "slide_mkRtae"
-      ],
-      "disabled": true,
-      "settings": {
-        "layout": "full_bleed",
-        "slide_height": "large",
-        "slider_visual": "counter",
-        "auto_rotate": false,
-        "change_slides_speed": 3,
-        "image_behavior": "none",
-        "show_text_below": false,
-        "accessibility_info": ""
       }
     },
     "image_banner_bz8jb3": {
@@ -178,6 +142,8 @@
       "settings": {
         "title": "",
         "heading_size": "h1",
+        "enable_overlay": false,
+        "content_position": "middle-center",
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 2,
@@ -188,7 +154,7 @@
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 36,
+        "padding_top": 20,
         "padding_bottom": 28
       }
     },
@@ -234,6 +200,8 @@
       "settings": {
         "title": "",
         "heading_size": "h1",
+        "enable_overlay": false,
+        "content_position": "middle-center",
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 3,
@@ -247,14 +215,52 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "slideshow_t7VikK": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_mkRtae": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_7.22.24_1.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "SHOP SUMMER",
+            "link": "shopify:\/\/collections\/child-summer-24",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "mobile_image": "shopify:\/\/shop_images\/MP_SU24_Leader_7.22.24_1_Mob.jpg",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_mkRtae"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "large",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 3,
+        "image_behavior": "none",
+        "show_text_below": false,
+        "accessibility_info": ""
+      }
     }
   },
   "order": [
     "multicolumn",
-    "slideshow_t7VikK",
     "image_banner_bz8jb3",
     "featured_collection_YrgjwD",
     "multicolumn_peYxH9",
-    "multicolumn_GbjXUE"
+    "multicolumn_GbjXUE",
+    "slideshow_t7VikK"
   ]
 }
