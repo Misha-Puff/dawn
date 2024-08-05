@@ -2790,7 +2790,8 @@ details[open]:hover > .header__menu-item {
   text-decoration-thickness: 0.2rem;
 } */
 
-details[open] > .header__menu-item .icon-caret {
+details[open] > .header__menu-item .icon-caret,
+details[open] > .menu-drawer__menu-item .icon-caret {
   transform: rotate(180deg);
 }
 
@@ -3843,4 +3844,13 @@ details[open] > .header__menu-item span,
 
 .footer__content-bottom-wrapper a.link:hover {
   text-decoration: underline;
+}
+
+.menu-drawer__inner-submenu,
+.menu-drawer__submenu {
+  margin-left: 20px;
+}
+
+.menu-drawer__inner-submenu .icon-caret {
+  right: calc(1.5rem + 20px)
 }
