@@ -3858,3 +3858,7 @@ details[open] > .header__menu-item span,
 .product-media-container {
   border: 0;
 }
+
+.product__media-item {
+  height: 100%;
+}
