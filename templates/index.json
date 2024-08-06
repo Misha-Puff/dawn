@@ -120,18 +120,18 @@
             "image": "shopify:\/\/shop_images\/fa24_leadlook_Prev_b7d8e1d9-ba4d-40ba-a86a-e83a6f458764.jpg",
             "title": "",
             "text": "",
-            "link_label": "Fall Lookbook",
+            "link_label": "Fall Lookbook —",
             "link": "https:\/\/shop.misha-and-puff.com\/blogs\/journal\/child-fall-24"
           }
         },
         "column_iAT4GA": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_7.3.24_Mob_2.jpg",
+            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_Child_BestSeller_5.24.24.jpg",
             "title": "",
             "text": "",
-            "link_label": "Camp Edit",
-            "link": "shopify:\/\/collections\/child-summer-camp-edit"
+            "link_label": "Shop Summer —",
+            "link": "shopify:\/\/collections\/child-summer-24"
           }
         }
       },
@@ -161,28 +161,29 @@
     "multicolumn_GbjXUE": {
       "type": "multicolumn",
       "blocks": {
-        "column_WCJg47": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/SP24JournalTemplate_Website_3.29.24_Mob_fc40404c-3058-47e5-8f33-0d1c8f410cb4.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Shop Swim",
-            "link": "shopify:\/\/collections\/child-swim"
-          }
-        },
         "column_rLVYmc": {
           "type": "column",
           "settings": {
             "image": "shopify:\/\/shop_images\/MP_SU24_Leader_Baby_5.13.24_2_Mob_6d18c1f6-bde7-4481-aa7c-bf1dccc57bba.jpg",
             "title": "",
             "text": "",
-            "link_label": "Shop Baby",
+            "link_label": "Shop Baby —",
             "link": "shopify:\/\/collections\/baby-summer-24"
+          }
+        },
+        "column_WCJg47": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SP24_Leader_Child_4.11.24_Mob_4.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Sale —",
+            "link": "shopify:\/\/collections\/child-sale"
           }
         },
         "column_prW6et": {
           "type": "column",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/MP_SP24_Leaders_LG_Adult_LP_All_9a96e30b-39e4-4c02-8ea3-e5e6bd9cea06.jpg",
             "title": "",
@@ -193,8 +194,8 @@
         }
       },
       "block_order": [
-        "column_WCJg47",
         "column_rLVYmc",
+        "column_WCJg47",
         "column_prW6et"
       ],
       "settings": {
@@ -204,7 +205,7 @@
         "content_position": "middle-center",
         "image_width": "full",
         "image_ratio": "adapt",
-        "columns_desktop": 3,
+        "columns_desktop": 2,
         "column_alignment": "left",
         "background_style": "none",
         "button_label": "",

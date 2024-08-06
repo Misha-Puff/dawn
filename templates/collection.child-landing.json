@@ -40,24 +40,76 @@
         "padding_bottom": 36
       }
     },
+    "image_banner_pHe7YH": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_gLE39z": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "h1"
+          }
+        },
+        "text_iqachQ": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_MbErHB": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Preview FAll",
+            "button_link_1": "shopify:\/\/collections\/child-fall-24-preview",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_gLE39z",
+        "text_iqachQ",
+        "buttons_MbErHB"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.6.24_2.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_Mob_8.6.24_2.jpg",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
     "slideshow_8wUhXX": {
       "type": "slideshow",
       "blocks": {
         "slide_t3KrGM": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_5.31.24.jpg",
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.6.24_2.jpg",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
-            "button_label": "Shop Summer",
-            "link": "shopify:\/\/collections\/child-summer-24",
+            "button_label": "Preview fall",
+            "link": "shopify:\/\/collections\/child-fall-24-preview",
             "button_style_secondary": true,
             "box_align": "middle-center",
             "show_text_box": false,
             "text_alignment": "center",
             "image_overlay_opacity": 0,
             "color_scheme": "scheme-1",
+            "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_Mob_8.6.24_2.jpg",
             "text_alignment_mobile": "center"
           }
         }
@@ -65,6 +117,7 @@
       "block_order": [
         "slide_t3KrGM"
       ],
+      "disabled": true,
       "settings": {
         "layout": "full_bleed",
         "slide_height": "large",
@@ -218,6 +271,7 @@
   "order": [
     "banner",
     "product-grid",
+    "image_banner_pHe7YH",
     "slideshow_8wUhXX",
     "multicolumn_gfwpxD",
     "multicolumn_HbcHgm",
