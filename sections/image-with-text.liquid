@@ -12,6 +12,14 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  {% if template contains 'product' and section.settings.show_section_tag != '' %}
+    {% unless product.tags contains section.settings.show_section_tag %}
+      .section-{{ section.id }}-padding {
+        display: none;
+      }
+    {% endunless %}
+  {% endif %}
 {%- endstyle -%}
 
 {%- liquid
@@ -356,6 +364,12 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "text",
+      "id": "show_section_tag",
+      "label": "Show section tag",
+      "info": "If this section is added to a product page with the specified tag, the section will be shown. Otherwise, it will be hidden"
     }
   ],
   "blocks": [

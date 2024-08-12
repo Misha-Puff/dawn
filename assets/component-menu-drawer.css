@@ -58,9 +58,9 @@ details[open].menu-opening > .menu-drawer__submenu {
   visibility: visible;
 }
 
-.js .menu-drawer__navigation .submenu-open {
-  visibility: hidden; /* hide menus from screen readers when hidden by submenu */
-}
+/* .js .menu-drawer__navigation .submenu-open {
+  visibility: hidden;
+} */
 
 @media screen and (min-width: 750px) {
   .menu-drawer {
@@ -121,9 +121,9 @@ details[open].menu-opening > .menu-drawer__submenu {
   background-color: rgba(var(--color-foreground), 0.08);
 }
 
-.js .menu-drawer__menu-item .icon-caret {
+/* .js .menu-drawer__menu-item .icon-caret {
   display: none;
-}
+} */
 
 .menu-drawer__menu-item > .icon-arrow {
   position: absolute;
@@ -133,15 +133,15 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .js .menu-drawer__submenu {
-  position: absolute;
+  position: static;
   top: 0;
   width: 100%;
   bottom: 0;
   left: 0;
   background-color: rgb(var(--color-background));
   z-index: 1;
-  transform: translateX(100%);
-  visibility: hidden;
+  /* transform: translateX(100%); */
+  visibility: visible;
 }
 
 .js .menu-drawer__submenu .menu-drawer__submenu {

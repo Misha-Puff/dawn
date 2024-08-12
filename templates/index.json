@@ -15,6 +15,8 @@
       "settings": {
         "title": "",
         "heading_size": "h1",
+        "enable_overlay": false,
+        "content_position": "middle-center",
         "image_width": "third",
         "image_ratio": "adapt",
         "columns_desktop": 3,
@@ -29,48 +31,23 @@
         "padding_bottom": 36
       }
     },
-    "slideshow_t7VikK": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_mkRtae": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_7.22.24_1.jpg",
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "SHOP SUMMER",
-            "link": "shopify:\/\/collections\/child-summer-24",
-            "button_style_secondary": true,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-1",
-            "text_alignment_mobile": "center"
-          }
-        }
-      },
-      "block_order": [
-        "slide_mkRtae"
-      ],
-      "disabled": true,
-      "settings": {
-        "layout": "full_bleed",
-        "slide_height": "large",
-        "slider_visual": "counter",
-        "auto_rotate": false,
-        "change_slides_speed": 3,
-        "image_behavior": "none",
-        "show_text_below": false,
-        "accessibility_info": ""
-      }
-    },
     "image_banner_bz8jb3": {
       "type": "image-banner",
       "blocks": {
+        "buttons_CGGLqp": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "PREVIEW FALL",
+            "button_link_1": "shopify:\/\/collections\/child-fall-24-preview",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
         "heading_egMwVJ": {
           "type": "heading",
+          "disabled": true,
           "settings": {
             "heading": "",
             "heading_size": "h1"
@@ -83,27 +60,15 @@
             "text": "Give customers details about the banner image(s) or content on the template.",
             "text_style": "body"
           }
-        },
-        "buttons_CGGLqp": {
-          "type": "buttons",
-          "disabled": true,
-          "settings": {
-            "button_label_1": "Button label",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "Button label",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
         }
       },
       "block_order": [
+        "buttons_CGGLqp",
         "heading_egMwVJ",
-        "text_TdBLTR",
-        "buttons_CGGLqp"
+        "text_TdBLTR"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/MP_SU24_Leader_7.22.24_1.jpg",
+        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.6.24_1_43d6fd4d-534e-4a35-beee-9993a1719938.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -111,7 +76,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify:\/\/shop_images\/MP_SU24_Leader_7.22.24_1_Mob.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_Mob_8.6.24_1_db6b00ee-5567-4b41-8c9a-240adade969d.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
@@ -152,21 +117,21 @@
         "column_3igURh": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_7.3.24_Mob_3.jpg",
+            "image": "shopify:\/\/shop_images\/fa24_leadlook_Prev_b7d8e1d9-ba4d-40ba-a86a-e83a6f458764.jpg",
             "title": "",
             "text": "",
-            "link_label": "Shop Sale",
-            "link": "shopify:\/\/collections\/child-sale"
+            "link_label": "Fall Lookbook —",
+            "link": "https:\/\/shop.misha-and-puff.com\/blogs\/journal\/child-fall-24"
           }
         },
         "column_iAT4GA": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_7.3.24_Mob_2.jpg",
+            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_Child_BestSeller_5.24.24.jpg",
             "title": "",
             "text": "",
-            "link_label": "Camp Edit",
-            "link": "shopify:\/\/collections\/child-summer-camp-edit"
+            "link_label": "Shop Summer —",
+            "link": "shopify:\/\/collections\/child-summer-24"
           }
         }
       },
@@ -177,6 +142,8 @@
       "settings": {
         "title": "",
         "heading_size": "h1",
+        "enable_overlay": false,
+        "content_position": "middle-center",
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 2,
@@ -187,35 +154,36 @@
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 36,
+        "padding_top": 20,
         "padding_bottom": 28
       }
     },
     "multicolumn_GbjXUE": {
       "type": "multicolumn",
       "blocks": {
-        "column_WCJg47": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/SP24JournalTemplate_Website_3.29.24_Mob_fc40404c-3058-47e5-8f33-0d1c8f410cb4.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Shop Swim",
-            "link": "shopify:\/\/collections\/child-swim"
-          }
-        },
         "column_rLVYmc": {
           "type": "column",
           "settings": {
             "image": "shopify:\/\/shop_images\/MP_SU24_Leader_Baby_5.13.24_2_Mob_6d18c1f6-bde7-4481-aa7c-bf1dccc57bba.jpg",
             "title": "",
             "text": "",
-            "link_label": "Shop Baby",
+            "link_label": "Shop Baby —",
             "link": "shopify:\/\/collections\/baby-summer-24"
+          }
+        },
+        "column_WCJg47": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SP24_Leader_Child_4.11.24_Mob_4.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Sale —",
+            "link": "shopify:\/\/collections\/child-sale"
           }
         },
         "column_prW6et": {
           "type": "column",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/MP_SP24_Leaders_LG_Adult_LP_All_9a96e30b-39e4-4c02-8ea3-e5e6bd9cea06.jpg",
             "title": "",
@@ -226,16 +194,18 @@
         }
       },
       "block_order": [
-        "column_WCJg47",
         "column_rLVYmc",
+        "column_WCJg47",
         "column_prW6et"
       ],
       "settings": {
         "title": "",
         "heading_size": "h1",
+        "enable_overlay": false,
+        "content_position": "middle-center",
         "image_width": "full",
         "image_ratio": "adapt",
-        "columns_desktop": 3,
+        "columns_desktop": 2,
         "column_alignment": "left",
         "background_style": "none",
         "button_label": "",
@@ -246,14 +216,52 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "slideshow_t7VikK": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_mkRtae": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_7.22.24_1.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "SHOP SUMMER",
+            "link": "shopify:\/\/collections\/child-summer-24",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "mobile_image": "shopify:\/\/shop_images\/MP_SU24_Leader_7.22.24_1_Mob.jpg",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_mkRtae"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "large",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 3,
+        "image_behavior": "none",
+        "show_text_below": false,
+        "accessibility_info": ""
+      }
     }
   },
   "order": [
     "multicolumn",
-    "slideshow_t7VikK",
     "image_banner_bz8jb3",
     "featured_collection_YrgjwD",
     "multicolumn_peYxH9",
-    "multicolumn_GbjXUE"
+    "multicolumn_GbjXUE",
+    "slideshow_t7VikK"
   ]
 }

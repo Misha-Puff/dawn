@@ -79,7 +79,7 @@
 .page-width {
   max-width: var(--page-width);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 var(--page-width-padding);
 }
 
 body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
@@ -101,9 +101,9 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 }
 
 @media screen and (min-width: 750px) {
-  .page-width {
-    padding: 0 5rem;
-  }
+  /* .page-width {
+    padding: 0 20px;
+  } */
 
   .header.page-width,
   .utility-bar__grid.page-width {
@@ -2210,15 +2210,15 @@ input[type='checkbox'] {
 .announcement-bar__link {
   display: flex;
   width: 100%;
-  text-decoration: none;
+  text-decoration: underline;
   height: 100%;
   justify-content: center;
   align-items: center;
 }
 
-.announcement-bar__link:hover {
+/* .announcement-bar__link:hover {
   text-decoration: underline;
-}
+} */
 
 .announcement-bar__link .icon-arrow {
   display: inline-block;
@@ -2395,7 +2395,7 @@ input[type='checkbox'] {
   }
 
   .header:not(.header--middle-left, .header--middle-center) .header__inline-menu {
-    margin-top: 1.05rem;
+    margin-top: 2rem;
   }
 }
 
@@ -2420,7 +2420,7 @@ input[type='checkbox'] {
 
 .header__heading-link {
   display: inline-block;
-  padding: 0.75rem;
+  padding: 0 0.75rem;
   text-decoration: none;
   word-break: break-word;
 }
@@ -2491,7 +2491,6 @@ input[type='checkbox'] {
   display: flex;
   grid-area: icons;
   justify-self: end;
-  padding-right: 0.8rem;
 }
 
 .header__icons .shopify-app-block {
@@ -2563,9 +2562,9 @@ account-icon {
 }
 
 /* Search */
-menu-drawer + .header__search {
+/* menu-drawer + .header__search {
   display: none;
-}
+} */
 
 .header > .header__search {
   grid-area: left-icons;
@@ -2604,7 +2603,8 @@ menu-drawer + .header__search {
   }
 
   .header:not(.header--top-center) > .header__search,
-  .header--top-center * > .header__search {
+  /* .header--top-center * > .header__search, */
+  .header .left-icons-wrapper {
     display: none;
   }
 }
@@ -2763,16 +2763,16 @@ details[open] > .header__submenu {
 }
 
 .header__menu-item {
-  padding: 1.2rem;
+  padding: 0 1.2rem;
   text-decoration: none;
-  color: rgba(var(--color-foreground), 0.75);
+  color: rgba(var(--color-foreground));
 }
 
 .header__menu-item:hover {
   color: rgb(var(--color-foreground));
 }
 
-.header__menu-item span {
+/* .header__menu-item span {
   transition: text-decoration var(--duration-short) ease;
 }
 
@@ -2787,9 +2787,10 @@ details[open] > .header__menu-item {
 
 details[open]:hover > .header__menu-item {
   text-decoration-thickness: 0.2rem;
-}
+} */
 
-details[open] > .header__menu-item .icon-caret {
+details[open] > .header__menu-item .icon-caret,
+details[open] > .menu-drawer__menu-item .icon-caret {
   transform: rotate(180deg);
 }
 
@@ -3593,8 +3594,8 @@ details-disclosure > details {
 
 @media screen and (max-width: 749px) {
   .model-note {
+    position: initial;
     opacity: 1;
-    left: 0;
   }
 }
 
@@ -3644,19 +3645,15 @@ localization-form {
 }
 
 .variant-availability {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   margin-bottom: 0.7rem;
-}
-
-@media only screen and (min-width: 990px) {
-  .variant-availability {
-    opacity: 0;
-  }
+  opacity: 0;
 }
 
 @media only screen and (min-width: 990px) {
   .product-card-wrapper:hover .variant-availability {
+    display: flex;
     opacity: 1;
   }
 }
@@ -3746,7 +3743,7 @@ localization-form {
   }
 
   .scrolled-past-header .header:not(.header--top-center, .header--middle-center) .header__inline-menu {
-    margin-top: 1.05rem;
+    margin-top: 2rem;
   }
 
   .scrolled-past-header .header--top-center .header__heading-link {
@@ -3758,10 +3755,6 @@ localization-form {
   }
 }
 
-.scrolled-past-header .mega-menu__content {
-  top: 71%;
-}
-
 .footer-block.grid__item .list-menu__item {
   padding: 0;
 }
@@ -3770,10 +3763,113 @@ localization-form {
   margin: 0 !important;
 }
 
-.scrolled-past-header .header__search {
-  display: none;
+.card__heading {
+  font-size: 12px;
+  line-height: 20px;
 }
 
-.scrolled-past-header  .header__icons .header__search {
-  display: inline-block;
+.multicolumn-card__info {
+  padding-left: 0 !important;
+}
+
+.multicolumn-card__info .link {
+  margin-top: 7px !important;
+  font-size: 14px !important;
+}
+
+.newsletter-form button {
+  margin-top: 20px
+}
+
+.footer-accordion .accordion__title,
+.footer-block__heading {
+  font-size: 14px !important;
+  margin-bottom: 10px !important;
+}
+
+.footer-block .footer-block__details-content .list-menu__item {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.footer__content-bottom-wrapper .grid__item,
+.copyright__content {
+  font-size: 13px !important;
+  color: rgb(var(--color-foreground));
+}
+
+html {
+  -webkit-font-smoothing: antialiased
+}
+
+.header__menu-item:hover,
+.header__menu-item:hover.mega-menu__link--level-2 link,
+details[open] > .header__menu-item span,
+.mega-menu__link .mega-menu__link--level-2 link {
+  color: rgb(var(--color-foreground), 0.85);
+}
+
+@media screen and (max-width: 989px) {
+  .header__icons .header__search {
+    display: none;
+  }
+
+  .left-icons-wrapper .header__search {
+    display: inline-flex;
+  }
+}
+
+.left-icons-wrapper {
+  display: flex;
+}
+
+.footer__content-bottom-wrapper a:hover:not(.link),
+.footer__content-bottom-wrapper .link {
+  text-decoration: none;
+}
+
+.footer__content-bottom-wrapper a.link:hover {
+  text-decoration: underline;
+}
+
+.menu-drawer__inner-submenu,
+.menu-drawer__submenu {
+  margin-left: 20px;
+}
+
+.menu-drawer__inner-submenu .icon-caret {
+  right: calc(1.5rem + 20px)
+}
+
+.product-media-container {
+  border: 0;
+}
+
+.product__media-item {
+  height: 100%;
+}
+
+@media screen and (max-width: 989px) {
+  .header__icon.header__icon--cart,
+  .header__icon.header__icon--search {
+    width: auto;
+  }
+  .header__icon.header__icon--cart .icon {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+.product__info-container .accordion__content,
+.product__description {
+  font-size: 14px;
+}
+
+.header .header__icons .header__icon {
+  width: auto;
+}
+
+.header__icon.header__icon--search, 
+.header__icon.header__icon--account {
+  margin-right: 1rem;
 }

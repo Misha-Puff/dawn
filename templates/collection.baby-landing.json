@@ -65,6 +65,7 @@
       "block_order": [
         "slide_HpM3QY"
       ],
+      "disabled": true,
       "settings": {
         "layout": "full_bleed",
         "slide_height": "large",
@@ -76,27 +77,78 @@
         "accessibility_info": ""
       }
     },
+    "image_banner_mnqyLG": {
+      "type": "image-banner",
+      "blocks": {
+        "buttons_QFyVkf": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "preview fall",
+            "button_link_1": "shopify:\/\/collections\/baby-fall-24",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "heading_8Wxr38": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "h1"
+          }
+        },
+        "text_KVmVrL": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "buttons_QFyVkf",
+        "heading_8Wxr38",
+        "text_KVmVrL"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_Baby_8.6.24_1.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_MobBaby_8.6.24_1.jpg",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
     "multicolumn_BdmKMm": {
       "type": "multicolumn",
       "blocks": {
         "column_Hgag6H": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_Baby_5.7.24_Mob_70d95a4f-d95d-4d0c-a2bd-5ee193714c84.jpg",
+            "image": "shopify:\/\/shop_images\/fa24_leadlook_Prev_b7d8e1d9-ba4d-40ba-a86a-e83a6f458764.jpg",
             "title": "",
             "text": "",
-            "link_label": "Shop Summer",
-            "link": "shopify:\/\/collections\/baby-summer-24"
+            "link_label": "Fall Lookbook —",
+            "link": "shopify:\/\/blogs\/journal\/child-fall-24"
           }
         },
         "column_VnhYKW": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/LastChance_Baby.jpg",
+            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_Baby_5.7.24_Mob_a37def83-46df-4475-8352-2d91fbbac6e3.jpg",
             "title": "",
             "text": "",
-            "link_label": "Last Chance Sale",
-            "link": "shopify:\/\/collections\/child-baby-fa23-wi23-sale"
+            "link_label": "Shop Summer —",
+            "link": "shopify:\/\/collections\/baby-summer-24"
           }
         }
       },
@@ -107,6 +159,8 @@
       "settings": {
         "title": "",
         "heading_size": "h1",
+        "enable_overlay": false,
+        "content_position": "middle-center",
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 2,
@@ -117,8 +171,55 @@
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 20,
+        "padding_bottom": 28
+      }
+    },
+    "multicolumn_LgdJCJ": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_tWnn68": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/misha-and-puff-layette-22-ipswich-44copy.webp",
+            "title": "",
+            "text": "",
+            "link_label": "Layette —",
+            "link": "shopify:\/\/collections\/layette-24-old"
+          }
+        },
+        "column_PdhU4a": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SP24_Leader_Baby_4.11.24_Mob.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Sale —",
+            "link": "shopify:\/\/collections\/baby-sale"
+          }
+        }
+      },
+      "block_order": [
+        "column_tWnn68",
+        "column_PdhU4a"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "enable_overlay": false,
+        "content_position": "middle-center",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 28
       }
     },
     "image_banner_jcHbpF": {
@@ -158,7 +259,9 @@
     "banner",
     "product-grid",
     "slideshow_YByHak",
+    "image_banner_mnqyLG",
     "multicolumn_BdmKMm",
+    "multicolumn_LgdJCJ",
     "image_banner_jcHbpF"
   ]
 }

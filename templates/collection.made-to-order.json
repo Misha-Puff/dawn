@@ -52,7 +52,7 @@
           "type": "button",
           "settings": {
             "button_label": "MADE-TO-ORDER STATUS",
-            "button_link": "shopify:\/\/pages\/made-to-order-status-updates",
+            "button_link": "shopify:\/\/pages\/mto-status",
             "button_style_secondary": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -162,6 +162,8 @@
       "settings": {
         "title": "",
         "heading_size": "h1",
+        "enable_overlay": false,
+        "content_position": "middle-center",
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 4,
@@ -225,7 +227,8 @@
         "image_behavior": "none",
         "mobile_content_alignment": "left",
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "show_section_tag": ""
       }
     },
     "image_with_text_CUU9Yz": {
@@ -255,7 +258,8 @@
         "image_behavior": "none",
         "mobile_content_alignment": "left",
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "show_section_tag": ""
       }
     },
     "image_with_text_Apz3UU": {
@@ -285,7 +289,8 @@
         "image_behavior": "none",
         "mobile_content_alignment": "left",
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "show_section_tag": ""
       }
     },
     "rich_text_CV66KV": {
