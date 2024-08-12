@@ -3879,7 +3879,9 @@ details[open] > .header__menu-item span,
   justify-content: center;
 }
 
-.grid--4-col-desktop .footer-block.grid__item {
-  width: calc(20% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
-  max-width: calc(20% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+@media screen and (min-width: 990px) {
+  .grid--4-col-desktop .footer-block.grid__item {
+    width: calc(20% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+    max-width: calc(20% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+  }
 }
