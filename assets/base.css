@@ -3873,3 +3873,13 @@ details[open] > .header__menu-item span,
 .header__icon.header__icon--account {
   margin-right: 1rem;
 }
+
+.footer__blocks-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.grid--4-col-desktop .footer-block.grid__item {
+  width: calc(20% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+  max-width: calc(20% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+}
