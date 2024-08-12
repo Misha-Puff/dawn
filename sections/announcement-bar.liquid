@@ -34,23 +34,9 @@
         {{ block.shopify_attributes }}
       >
         {%- if section.blocks.first.settings.text != blank -%}
-          {%- if section.blocks.first.settings.link != blank -%}
-            <a
-              href="{{ section.blocks.first.settings.link }}"
-              class="announcement-bar__link link link--text focus-inset animate-arrow"
-            >
-          {%- endif -%}
-          <p class="announcement-bar__message h5">
-            <span>{{ section.blocks.first.settings.text | escape }}</span>
-            {% comment %}
-              {%- if section.blocks.first.settings.link != blank -%}
-                {% render 'icon-arrow' %}
-              {%- endif -%}
-            {% endcomment %}
-          </p>
-          {%- if section.blocks.first.settings.link != blank -%}
-            </a>
-          {%- endif -%}
+          <div class="announcement-bar__message h5">
+            {{ section.blocks.first.settings.text }}
+          </div>
         {%- endif -%}
       </div>
     {%- elsif section.blocks.size > 1 -%}
@@ -95,23 +81,11 @@
                   {{ block.shopify_attributes }}
                 >
                   {%- if block.settings.text != blank -%}
-                    {%- if block.settings.link != blank -%}
-                      <a
-                        href="{{ block.settings.link }}"
-                        class="announcement-bar__link link link--text focus-inset animate-arrow"
-                      >
-                    {%- endif -%}
                     <p class="announcement-bar__message h5">
-                      <span>{{ block.settings.text | escape }}</span>
-                      {% comment %}
-                        {%- if block.settings.link != blank -%}
-                          {% render 'icon-arrow' %}
-                        {%- endif -%}
-                      {% endcomment %}
+                      <div class="announcement-bar__message h5">
+                        {{ block.settings.text }}
+                      </div>
                     </p>
-                    {%- if block.settings.link != blank -%}
-                      </a>
-                    {%- endif -%}
                   {%- endif -%}
                 </div>
               </div>
@@ -245,15 +219,10 @@
       "name": "t:sections.announcement-bar.blocks.announcement.name",
       "settings": [
         {
-          "type": "text",
+          "type": "richtext",
           "id": "text",
           "default": "t:sections.announcement-bar.blocks.announcement.settings.text.default",
           "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
-        },
-        {
-          "type": "url",
-          "id": "link",
-          "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
         }
       ]
     }

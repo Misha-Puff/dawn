@@ -482,7 +482,8 @@ h6:empty {
 }
 
 .link,
-.customer a {
+.customer a,
+.announcement-bar__message a {
   cursor: pointer;
   display: inline-block;
   border: none;
@@ -3884,4 +3885,8 @@ details[open] > .header__menu-item span,
     width: calc(20% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
     max-width: calc(20% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
   }
+}
+
+.announcement-bar__message p {
+  margin: 0;
 }
