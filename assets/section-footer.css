@@ -173,7 +173,7 @@
 }
 
 .footer-block__newsletter {
-  text-align: center;
+  /* text-align: center; */
   flex-grow: 1;
 }
 
