@@ -84,7 +84,7 @@
         "media_size": "medium",
         "constrain_to_viewport": false,
         "media_fit": "contain",
-        "image_ratio": "portrait",
+        "image_ratio": "adapt",
         "gallery_layout": "stacked",
         "media_position": "left",
         "image_zoom": "lightbox",
