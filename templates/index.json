@@ -9,28 +9,6 @@
 */
 {
   "sections": {
-    "multicolumn": {
-      "type": "multicolumn",
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "enable_overlay": false,
-        "content_position": "middle-center",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "image_banner_bz8jb3": {
       "type": "image-banner",
       "blocks": {
@@ -68,7 +46,7 @@
         "text_TdBLTR"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.6.24_1_43d6fd4d-534e-4a35-beee-9993a1719938.jpg",
+        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.8.24_1.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -76,7 +54,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_Mob_8.6.24_1_db6b00ee-5567-4b41-8c9a-240adade969d.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_Mob_8.8.24_1.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
@@ -117,21 +95,21 @@
         "column_3igURh": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/fa24_leadlook_Prev_b7d8e1d9-ba4d-40ba-a86a-e83a6f458764.jpg",
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_Mob_8.6.24.jpg",
             "title": "",
             "text": "",
-            "link_label": "Fall Lookbook —",
-            "link": "https:\/\/shop.misha-and-puff.com\/blogs\/journal\/child-fall-24"
+            "link_label": "Shop Denim —",
+            "link": "shopify:\/\/collections\/child-fall-denim-collection"
           }
         },
         "column_iAT4GA": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_Child_BestSeller_5.24.24.jpg",
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_Mob_Baby_8.8.24_1.jpg",
             "title": "",
             "text": "",
-            "link_label": "Shop Summer —",
-            "link": "shopify:\/\/collections\/child-summer-24"
+            "link_label": "Shop Baby —",
+            "link": "shopify:\/\/collections\/baby-fall-24"
           }
         }
       },
@@ -164,57 +142,136 @@
         "column_rLVYmc": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_Baby_5.13.24_2_Mob_6d18c1f6-bde7-4481-aa7c-bf1dccc57bba.jpg",
+            "image": "shopify:\/\/shop_images\/Turtleneck_-_Red_Flame_01.jpg",
             "title": "",
             "text": "",
-            "link_label": "Shop Baby —",
-            "link": "shopify:\/\/collections\/baby-summer-24"
+            "link_label": "TOPS",
+            "link": "shopify:\/\/collections\/child-tops"
           }
         },
         "column_WCJg47": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SP24_Leader_Child_4.11.24_Mob_4.jpg",
+            "image": "shopify:\/\/shop_images\/MP_8.8.24_sweaters.jpg",
             "title": "",
             "text": "",
-            "link_label": "Sale —",
-            "link": "shopify:\/\/collections\/child-sale"
+            "link_label": "SWEATERS",
+            "link": "shopify:\/\/collections\/child-sweaters-cardigans"
           }
         },
         "column_prW6et": {
           "type": "column",
-          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SP24_Leaders_LG_Adult_LP_All_9a96e30b-39e4-4c02-8ea3-e5e6bd9cea06.jpg",
+            "image": "shopify:\/\/shop_images\/Prudence_Dress_-_Mango_Peace_Jacquard_01.jpg",
             "title": "",
             "text": "",
-            "link_label": "Shop Adult",
-            "link": "shopify:\/\/collections\/adult-all"
+            "link_label": "dresses",
+            "link": "shopify:\/\/collections\/child-dresses"
+          }
+        },
+        "column_8kQCT9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_8.8.24_bottoms_6967209a-85cf-4d45-9178-ffa1b54d59ab.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "bottoms",
+            "link": "shopify:\/\/collections\/child-bottoms"
           }
         }
       },
       "block_order": [
         "column_rLVYmc",
         "column_WCJg47",
-        "column_prW6et"
+        "column_prW6et",
+        "column_8kQCT9"
       ],
       "settings": {
         "title": "",
         "heading_size": "h1",
-        "enable_overlay": false,
+        "enable_overlay": true,
         "content_position": "middle-center",
         "image_width": "full",
         "image_ratio": "adapt",
-        "columns_desktop": 2,
+        "columns_desktop": 4,
         "column_alignment": "left",
         "background_style": "none",
         "button_label": "",
         "button_link": "",
         "color_scheme": "",
-        "columns_mobile": "1",
+        "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 0,
         "padding_bottom": 0
+      }
+    },
+    "multicolumn": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_Yt8wiE": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/fa24_leadlook_Prev_b7d8e1d9-ba4d-40ba-a86a-e83a6f458764.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "fall lookbook",
+            "link": "shopify:\/\/blogs\/journal\/child-fall-24"
+          }
+        },
+        "column_caihwR": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/vQrqYDt-O3mRyz8prk03_5enbY8RiNPYzlkR_Lm5kxQ.webp",
+            "title": "",
+            "text": "",
+            "link_label": "sale",
+            "link": "shopify:\/\/collections\/child-sale"
+          }
+        },
+        "column_HqmX9h": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_Baby_5.13.24_2_Mob_6d18c1f6-bde7-4481-aa7c-bf1dccc57bba.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "baby sale",
+            "link": "shopify:\/\/collections\/baby-sale"
+          }
+        },
+        "column_HNbpBL": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/xoTV_JdFiEtZkYYKuEz5tQ3ol-DyYtAoAbYHbg5HKgc.webp",
+            "title": "",
+            "text": "",
+            "link_label": "best sellers",
+            "link": "shopify:\/\/collections\/child-best-sellers"
+          }
+        }
+      },
+      "block_order": [
+        "column_Yt8wiE",
+        "column_caihwR",
+        "column_HqmX9h",
+        "column_HNbpBL"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "enable_overlay": true,
+        "content_position": "middle-center",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 20,
+        "padding_bottom": 36
       }
     },
     "slideshow_t7VikK": {
@@ -257,11 +314,11 @@
     }
   },
   "order": [
-    "multicolumn",
     "image_banner_bz8jb3",
     "featured_collection_YrgjwD",
     "multicolumn_peYxH9",
     "multicolumn_GbjXUE",
+    "multicolumn",
     "slideshow_t7VikK"
   ]
 }
