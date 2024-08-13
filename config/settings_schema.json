@@ -258,6 +258,30 @@
     "settings": [
       {
         "type": "header",
+        "content": "Padding"
+      },
+      {
+        "type": "range",
+        "id": "button_vertical_padding",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Vertical Padding",
+        "default": 2
+      },
+      {
+        "type": "range",
+        "id": "button_horizontal_padding",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Horizontal Padding",
+        "default": 2
+      },
+      {
+        "type": "header",
         "content": "t:settings_schema.global.settings.header__border.content"
       },
       {
