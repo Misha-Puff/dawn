@@ -3890,3 +3890,11 @@ details[open] > .header__menu-item span,
 .announcement-bar__message p {
   margin: 0;
 }
+
+.shopify-policy__title {
+  text-align: left !important;
+}
+
+.shopify-policy__title h1 {
+  text-transform: uppercase !important;
+}
