@@ -207,6 +207,39 @@
         "padding_bottom": 20
       }
     },
+    "image_banner_pmtDmp": {
+      "type": "image-banner",
+      "blocks": {
+        "buttons_mwJpBJ": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Journal",
+            "button_link_1": "shopify:\/\/blogs\/journal",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "buttons_mwJpBJ"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/MP_SU24_Leader_Journal_6.18.24.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_image": "shopify:\/\/shop_images\/MP_SU24_Leader_Journal_6.18.24_Mob.jpg",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
     "slideshow_8wUhXX": {
       "type": "slideshow",
       "blocks": {
@@ -244,39 +277,6 @@
         "show_text_below": false,
         "accessibility_info": ""
       }
-    },
-    "image_banner_pmtDmp": {
-      "type": "image-banner",
-      "blocks": {
-        "buttons_mwJpBJ": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Journal",
-            "button_link_1": "shopify:\/\/blogs\/journal",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "buttons_mwJpBJ"
-      ],
-      "settings": {
-        "image": "shopify:\/\/shop_images\/MP_SU24_Leader_Journal_6.18.24.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_image": "shopify:\/\/shop_images\/MP_SU24_Leader_Journal_6.18.24_Mob.jpg",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": false
-      }
     }
   },
   "order": [
@@ -285,7 +285,7 @@
     "image_banner_pHe7YH",
     "multicolumn_gfwpxD",
     "multicolumn_HbcHgm",
-    "slideshow_8wUhXX",
-    "image_banner_pmtDmp"
+    "image_banner_pmtDmp",
+    "slideshow_8wUhXX"
   ]
 }
