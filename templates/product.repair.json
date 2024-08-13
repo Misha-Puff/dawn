@@ -31,6 +31,8 @@
           "type": "variant_picker",
           "settings": {
             "picker_type": "dropdown",
+            "color_picker_type": "button",
+            "size_picker_type": "dropdown",
             "swatch_shape": "none"
           }
         },
@@ -59,7 +61,7 @@
         "enable_sticky_info": true,
         "color_scheme": "",
         "media_size": "medium",
-        "constrain_to_viewport": true,
+        "constrain_to_viewport": false,
         "media_fit": "contain",
         "image_ratio": "portrait",
         "gallery_layout": "stacked",
