@@ -135,7 +135,7 @@
         "text_mRz8Ek": {
           "type": "text",
           "settings": {
-            "text": "<p>Something something Denim<\/p>",
+            "text": "<p><strong>INTRODUCING THE DENIM COLLECTION<\/strong><\/p><p>Handcrafted in Japan by skilled artisans, we use the highest quality Japanese denim and time-honored techniques, upholding responsible manufacturing methods that honor both people and the environment. Each piece is meticulously crafted, undergoing nearly 100 steps to produce one garment.<\/p><p>All of our denim is 100% cotton, with thoughtful touches, like contrast topstitching, hand-tacked embroidery instead of rivets to optimize softness, and adjustable waistbands and straps for long-wear and the perfect fit.<\/p><p>Designed for comfort and made for long wear — this denim can be worn often, worn in, and passed down.<\/p>",
             "text_style": "body"
           }
         }
@@ -144,6 +144,7 @@
         "text_mRz8Ek"
       ],
       "settings": {
+        "image": "shopify:\/\/shop_images\/mp_fall24_look_2_30_copy_AboutDenim.jpg",
         "height": "adapt",
         "desktop_image_width": "small",
         "layout": "text_first",
@@ -153,9 +154,10 @@
         "section_color_scheme": "",
         "color_scheme": "",
         "image_behavior": "none",
+        "mobile_image": "shopify:\/\/shop_images\/mp_fall24_look_2_30_copy_AboutDenim.jpg",
         "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36,
+        "padding_top": 56,
+        "padding_bottom": 32,
         "show_section_tag": "denim"
       }
     },
