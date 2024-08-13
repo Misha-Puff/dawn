@@ -116,7 +116,7 @@
         "enable_sticky_info": true,
         "color_scheme": "",
         "media_size": "large",
-        "constrain_to_viewport": true,
+        "constrain_to_viewport": false,
         "media_fit": "contain",
         "image_ratio": "adapt",
         "gallery_layout": "columns",
