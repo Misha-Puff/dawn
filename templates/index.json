@@ -15,8 +15,8 @@
         "buttons_CGGLqp": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "PREVIEW FALL",
-            "button_link_1": "shopify:\/\/collections\/child-fall-24-preview",
+            "button_label_1": "SHOP FALL",
+            "button_link_1": "shopify:\/\/collections\/child-fall-24",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -133,7 +133,7 @@
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 20,
-        "padding_bottom": 28
+        "padding_bottom": 16
       }
     },
     "multicolumn_GbjXUE": {

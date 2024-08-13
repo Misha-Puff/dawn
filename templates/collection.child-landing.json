@@ -43,6 +43,17 @@
     "image_banner_pHe7YH": {
       "type": "image-banner",
       "blocks": {
+        "buttons_MbErHB": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP FALL",
+            "button_link_1": "shopify:\/\/collections\/child-fall-24",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
         "heading_gLE39z": {
           "type": "heading",
           "disabled": true,
@@ -58,26 +69,15 @@
             "text": "Give customers details about the banner image(s) or content on the template.",
             "text_style": "body"
           }
-        },
-        "buttons_MbErHB": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Preview FAll",
-            "button_link_1": "shopify:\/\/collections\/child-fall-24-preview",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
         }
       },
       "block_order": [
+        "buttons_MbErHB",
         "heading_gLE39z",
-        "text_iqachQ",
-        "buttons_MbErHB"
+        "text_iqachQ"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.6.24_2.jpg",
+        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.8.24_Yellow.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -85,10 +85,10 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_Mob_8.6.24_2.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_Mob_Child_8.8.24.jpg",
         "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
+        "stack_images_on_mobile": false,
+        "show_text_below": false
       }
     },
     "multicolumn_gfwpxD": {
@@ -100,7 +100,7 @@
             "image": "shopify:\/\/shop_images\/MP_FA24_Leader_Mob_8.6.24.jpg",
             "title": "",
             "text": "",
-            "link_label": "Preview Denim —",
+            "link_label": "Shop Denim —",
             "link": "shopify:\/\/collections\/child-fall-denim-collection"
           }
         },
@@ -135,7 +135,7 @@
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 20,
-        "padding_bottom": 28
+        "padding_bottom": 16
       }
     },
     "multicolumn_HbcHgm": {
@@ -144,57 +144,67 @@
         "column_9wJreE": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/SU24_Preview_ViewtheLookbook_Mob.jpg",
+            "image": "shopify:\/\/shop_images\/Original_Popcorn_Sweater_-_Pink_Lilac_01.jpg",
             "title": "",
             "text": "",
-            "link_label": "Shop Summer —",
-            "link": "shopify:\/\/collections\/child-summer-24"
+            "link_label": "SWEATERS",
+            "link": "shopify:\/\/collections\/child-sweaters-cardigans"
           }
         },
         "column_cbb8R9": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SP24_Leader_Child_4.11.24_Mob_4.jpg",
+            "image": "shopify:\/\/shop_images\/sKD766Xv7Pv_4F9uR0gpPS7VUIOIVIN_IAZ5kxmH5ko.webp",
             "title": "",
             "text": "",
-            "link_label": "Sale —",
-            "link": "shopify:\/\/collections\/child-sale"
+            "link_label": "dresses",
+            "link": "shopify:\/\/collections\/child-dresses"
           }
         },
         "column_4dtYhK": {
           "type": "column",
-          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_7.3.24_Mob_2.jpg",
+            "image": "shopify:\/\/shop_images\/Turtleneck_-_Sprig_01.jpg",
             "title": "",
             "text": "",
-            "link_label": "Camp Edit",
-            "link": "shopify:\/\/collections\/child-summer-camp-edit"
+            "link_label": "TOPS",
+            "link": "shopify:\/\/collections\/child-tops"
+          }
+        },
+        "column_fqtCKn": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Utility_Jeans_-_Sage_Denim_01.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "bottoms",
+            "link": "shopify:\/\/collections\/child-bottoms"
           }
         }
       },
       "block_order": [
         "column_9wJreE",
         "column_cbb8R9",
-        "column_4dtYhK"
+        "column_4dtYhK",
+        "column_fqtCKn"
       ],
       "settings": {
         "title": "",
         "heading_size": "h1",
-        "enable_overlay": false,
+        "enable_overlay": true,
         "content_position": "middle-center",
         "image_width": "full",
         "image_ratio": "adapt",
-        "columns_desktop": 2,
+        "columns_desktop": 4,
         "column_alignment": "left",
         "background_style": "none",
         "button_label": "",
         "button_link": "",
         "color_scheme": "",
-        "columns_mobile": "1",
+        "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 0,
-        "padding_bottom": 28
+        "padding_bottom": 20
       }
     },
     "slideshow_8wUhXX": {

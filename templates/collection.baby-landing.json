@@ -83,7 +83,7 @@
         "buttons_QFyVkf": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "preview fall",
+            "button_label_1": "SHOP FALL",
             "button_link_1": "shopify:\/\/collections\/baby-fall-24",
             "button_style_secondary_1": true,
             "button_label_2": "",
@@ -114,7 +114,7 @@
         "text_KVmVrL"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_Baby_8.6.24_1.jpg",
+        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.8.24_Baby_1.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -122,10 +122,79 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_MobBaby_8.6.24_1.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_Mob_Baby_8.8.24_1_155fc294-650d-4876-944d-9207235410e8.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": true
+      }
+    },
+    "multicolumn_ftgmXy": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_qBk9pF": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Original_Popcorn_Sweater_Baby_-_Pink_Lilac_01.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "SWEATERS",
+            "link": "shopify:\/\/collections\/baby-sweaters-cardigans"
+          }
+        },
+        "column_WjaK8r": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/6Ea0HHZ_-rVgWXVI1WjIWXTrZjofhCVecM--FwcQdaM.webp",
+            "title": "",
+            "text": "",
+            "link_label": "TOPS",
+            "link": "shopify:\/\/collections\/baby-tops"
+          }
+        },
+        "column_xan3Nm": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Skating_Pond_Skirt_Baby_-_String_01.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "bottoms",
+            "link": "shopify:\/\/collections\/baby-bottoms"
+          }
+        },
+        "column_VJfiC4": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Paloma_Onesie_-_Rose_Gold_01.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "one-pieces",
+            "link": "shopify:\/\/collections\/baby-one-piece"
+          }
+        }
+      },
+      "block_order": [
+        "column_qBk9pF",
+        "column_WjaK8r",
+        "column_xan3Nm",
+        "column_VJfiC4"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "enable_overlay": true,
+        "content_position": "middle-center",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "multicolumn_BdmKMm": {
@@ -260,6 +329,7 @@
     "product-grid",
     "slideshow_YByHak",
     "image_banner_mnqyLG",
+    "multicolumn_ftgmXy",
     "multicolumn_BdmKMm",
     "multicolumn_LgdJCJ",
     "image_banner_jcHbpF"
