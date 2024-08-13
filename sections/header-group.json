@@ -17,7 +17,7 @@
         "announcement_egLqPG": {
           "type": "announcement",
           "settings": {
-            "text": "<p>Fall Collection — Coming Soon | <a href=\"\/blogs\/journal\/child-fall-24\" title=\"Child Fall 24\">View Lookbook<\/a><\/p>"
+            "richtext": "<p>Fall Collection — Coming Soon | <a href=\"\/blogs\/journal\/child-fall-24\" title=\"Child Fall 24\">View Lookbook<\/a><\/p>"
           }
         }
       },
