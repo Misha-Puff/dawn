@@ -187,14 +187,14 @@
         "image_ratio": "adapt",
         "columns_desktop": 4,
         "column_alignment": "left",
-        "background_style": "primary",
+        "background_style": "none",
         "button_label": "",
         "button_link": "",
         "color_scheme": "",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 20,
+        "padding_bottom": 20
       }
     },
     "multicolumn_BdmKMm": {
@@ -213,11 +213,11 @@
         "column_VnhYKW": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_Baby_5.7.24_Mob_a37def83-46df-4475-8352-2d91fbbac6e3.jpg",
+            "image": "shopify:\/\/shop_images\/misha-and-puff-layette-22-ipswich-44copy.webp",
             "title": "",
             "text": "",
-            "link_label": "Shop Summer —",
-            "link": "shopify:\/\/collections\/baby-summer-24"
+            "link_label": "Shop Layette —",
+            "link": "shopify:\/\/collections\/layette-24-old"
           }
         }
       },
@@ -272,6 +272,7 @@
         "column_tWnn68",
         "column_PdhU4a"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h1",
