@@ -3877,7 +3877,7 @@ details[open] > .header__menu-item span,
 
 .footer__blocks-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 @media screen and (min-width: 990px) {
