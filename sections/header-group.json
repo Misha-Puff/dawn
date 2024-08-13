@@ -17,8 +17,7 @@
         "announcement_egLqPG": {
           "type": "announcement",
           "settings": {
-            "text": "Fall Collection — Coming Soon | View Lookbook",
-            "link": "shopify:\/\/blogs\/journal\/child-fall-24"
+            "text": "<p>Fall Collection — Coming Soon | <a href=\"\/blogs\/journal\/child-fall-24\" title=\"Child Fall 24\">View Lookbook<\/a><\/p>"
           }
         }
       },
