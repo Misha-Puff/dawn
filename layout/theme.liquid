@@ -1,6 +1,6 @@
-{%- comment %}<locksmith:1501>{% endcomment -%}
-  {%- include 'locksmith' -%}
-{%- comment %}</locksmith:1501>{% endcomment -%}
+{%- comment %}<locksmith:1501>{%- endcomment %}
+{%- include 'locksmith' -%}
+{%- comment %}</locksmith:1501>{%- endcomment %}
 
 {% include 'shogun-content-handler' %}
 <!doctype html>
@@ -35,10 +35,11 @@
     </title>
 
     {% if page_description %}
-      {%- comment %}<locksmith:15ae>{% endcomment -%}
-        {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
-        {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-      {%- comment %}</locksmith:15ae>{% endcomment -%}
+      {%- comment %}<locksmith:15ae>{%- endcomment %}
+      {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture -%}
+      {%- if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+      {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
+      {%- comment %}</locksmith:15ae>{%- endcomment %}
     {% endif %}
 
     {% render 'meta-tags' %}
@@ -140,6 +141,7 @@
         --page-width: {{ settings.page_width | divided_by: 10 }}rem;
         --page-width-margin: {% if settings.page_width == '1600' %}2{% else %}0{% endif %}rem;
         --page-width-padding: {{ settings.page_width_padding }}px;
+        --mobile-page-width-padding: {{ settings.mobile_page_width_padding }}px;
 
         --product-card-image-padding: {{ settings.card_image_padding | divided_by: 10.0 }}rem;
         --product-card-corner-radius: {{ settings.card_corner_radius | divided_by: 10.0 }}rem;

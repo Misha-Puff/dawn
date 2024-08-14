@@ -3899,3 +3899,9 @@ details[open] > .header__menu-item span,
 .shopify-policy__title h1 {
   text-transform: uppercase !important;
 }
+
+@media screen and (max-width: 989px) {
+  .page-width {
+    padding: 0 var(--mobile-page-width-padding);
+  }
+}
