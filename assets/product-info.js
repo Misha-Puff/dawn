@@ -233,7 +233,7 @@ if (!customElements.get('product-info')) {
             if (bisForm !== null) {
               if (quantity === 0 && bisForm.classList.contains('hidden')) {
                 bisForm.classList.remove('hidden');
-              } else if (!bisForm.classList.contains('hidden')) {
+              } else if (quantity !== 0 && !bisForm.classList.contains('hidden')) {
                 bisForm.classList.add('hidden');
               }
             }

@@ -1,6 +1,6 @@
 {% liquid
   assign show_bis = false
-  unless product.selected_or_first_available_variant
+  unless product.selected_or_first_available_variant.available
     assign show_bis = true
   endunless
 %}
