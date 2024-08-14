@@ -3905,3 +3905,7 @@ details[open] > .header__menu-item span,
     padding: 0 var(--mobile-page-width-padding);
   }
 }
+
+.page-width-full {
+  padding: 0;
+}
