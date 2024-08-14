@@ -95,6 +95,21 @@
   if section.settings.swipe_on_mobile and section.blocks.size > columns_mobile_int
     assign show_mobile_slider = true
   endif
+
+  assign link_type = 'link'
+  assign button_type = ''
+
+  if section.settings.enable_overlay
+    if section.settings.link_type == 'button'
+      assign link_type = 'button'
+
+      if section.settings.button_type == 'primary'
+        assign button_type = 'button--primary'
+      else
+        assign button_type = 'button--secondary'
+      endif
+    endif
+  endif
 -%}
 
 <div class="multicolumn color-{{ section.settings.color_scheme }} gradient{% unless section.settings.background_style == 'none' and settings.text_boxes_border_thickness > 0 or settings.text_boxes_shadow_opacity > 0 %} background-{{ section.settings.background_style }}{% endunless %}{% if section.settings.title == blank %} no-heading{% endif %}{% if section.settings.enable_overlay %} content-overlay content--{{section.settings.content_position}}{% endif %}">
@@ -204,7 +219,7 @@
                 {%- endif -%}
                 {%- if block.settings.link_label != blank -%}
                   <a
-                    class="{% if section.settings.enable_overlay %}button button--secondary{% else %}link animate-arrow{% endif %}"
+                    class="{% if link_type == 'button' %}button {{button_type}}{% else %}link animate-arrow{% endif %}"
                     {% if block.settings.link == blank %}
                       role="link" aria-disabled="true"
                     {% else %}
@@ -359,6 +374,38 @@
       ],
       "default": "middle-center",
       "label": "Content position"
+    },
+    {
+      "type": "select",
+      "id": "link_type",
+      "options": [
+        {
+          "value": "link",
+          "label": "Link"
+        },
+        {
+          "value": "button",
+          "label": "Button"
+        }
+      ],
+      "default": "link",
+      "label": "Link Type"
+    },
+    {
+      "type": "select",
+      "id": "button_type",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        }
+      ],
+      "default": "primary",
+      "label": "Button Type"
     },
     {
       "type": "select",
