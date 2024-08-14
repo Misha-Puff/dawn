@@ -1,8 +1,13 @@
+{%- comment %}<locksmith:1501>{% endcomment -%}
+  {%- include 'locksmith' -%}
+{%- comment %}</locksmith:1501>{% endcomment -%}
+
 {% include 'shogun-content-handler' %}
 <!doctype html>
 {% render 'signature' %}
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
+    {{ locksmith_initializations }}
     <!-- Start of Shoplift scripts -->
     {% render 'shoplift' %}
     <!-- End of Shoplift scripts -->
@@ -30,7 +35,10 @@
     </title>
 
     {% if page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
+      {%- comment %}<locksmith:15ae>{% endcomment -%}
+        {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+        {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
+      {%- comment %}</locksmith:15ae>{% endcomment -%}
     {% endif %}
 
     {% render 'meta-tags' %}
