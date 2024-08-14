@@ -87,6 +87,20 @@
     width: max-content;
     margin-top: 0 !important;
   }
+
+  {% if section.settings.enable_custom_spacing %}
+    .section-{{ section.id }}-padding .grid {
+      column-gap: {{ section.settings.horizontal_spacing_mobile }}px;
+      row-gap: {{ section.settings.vertical_spacing_mobile }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding .grid {
+        column-gap: {{ section.settings.horizontal_spacing_desktop }}px;
+        row-gap: {{ section.settings.vertical_spacing_desktop }}px;
+      }
+    }
+  {% endif %}
 {%- endstyle -%}
 
 {%- liquid
@@ -406,6 +420,51 @@
       ],
       "default": "primary",
       "label": "Button Type"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_custom_spacing",
+      "label": "Enable Custom Spacing"
+    },
+    {
+      "type": "range",
+      "id": "horizontal_spacing_desktop",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 20,
+      "unit": "px",
+      "label": "Desktop Horizontal Spacing"
+    },
+    {
+      "type": "range",
+      "id": "vertical_spacing_desktop",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 20,
+      "unit": "px",
+      "label": "Desktop Verical Spacing"
+    },
+    {
+      "type": "range",
+      "id": "horizontal_spacing_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 10,
+      "unit": "px",
+      "label": "Mobile Horizontal Spacing"
+    },
+    {
+      "type": "range",
+      "id": "vertical_spacing_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 10,
+      "unit": "px",
+      "label": "Mobile Verical Spacing"
     },
     {
       "type": "select",
