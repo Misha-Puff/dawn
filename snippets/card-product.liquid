@@ -120,7 +120,10 @@
                 class="full-unstyled-link"
                 aria-labelledby="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }} NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
               >
-                {{ card_product.title | escape }} - {{ card_product.selected_or_first_available_variant.option1 }}
+                {{ card_product.title | escape -}}
+                {%- if card_product.options[0] == 'Color' %}
+                  - {{ card_product.selected_or_first_available_variant.options[0] -}}
+                {%- endif %}
               </a>
             </h3>
           </div>
@@ -182,7 +185,10 @@
               class="full-unstyled-link"
               aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
             >
-              {{ card_product.title | escape }} - {{ card_product.selected_or_first_available_variant.option1 }}
+              {{ card_product.title | escape -}}
+              {%- if card_product.options[0] == 'Color' %}
+                - {{ card_product.selected_or_first_available_variant.options[0] -}}
+              {%- endif %}
             </a>
           </h3>
           <div class="card-information">
