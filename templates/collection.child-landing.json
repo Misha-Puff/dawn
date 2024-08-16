@@ -293,15 +293,39 @@
         "show_text_below": false,
         "accessibility_info": ""
       }
+    },
+    "shogun-above": {
+      "type": "shogun-above",
+      "settings": {
+      }
+    },
+    "shogun-below": {
+      "type": "shogun-below",
+      "settings": {
+      }
+    },
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {
+      }
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {
+      }
     }
   },
   "order": [
+    "shogun-helper",
+    "shogun-above",
     "banner",
     "product-grid",
     "image_banner_pHe7YH",
     "multicolumn_gfwpxD",
     "multicolumn_HbcHgm",
     "image_banner_pmtDmp",
-    "slideshow_8wUhXX"
+    "slideshow_8wUhXX",
+    "shogun-below",
+    "shogun-optimizer"
   ]
 }
