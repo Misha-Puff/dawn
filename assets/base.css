@@ -2395,9 +2395,9 @@ input[type='checkbox'] {
     grid-template-columns: 1fr auto 1fr;
   }
 
-  .header:not(.header--middle-left, .header--middle-center) .header__inline-menu {
+  /* .header:not(.header--middle-left, .header--middle-center) .header__inline-menu {
     margin-top: 2rem;
-  }
+  } */
 }
 
 .header *[tabindex='-1']:focus {
