@@ -185,6 +185,12 @@
         "content_position": "middle-center",
         "link_type": "button",
         "button_type": "secondary",
+        "enable_full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 4,
@@ -195,8 +201,10 @@
         "color_scheme": "",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 32,
-        "padding_bottom": 0
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
       }
     },
     "multicolumn_BdmKMm": {
@@ -234,6 +242,12 @@
         "content_position": "middle-center",
         "link_type": "link",
         "button_type": "primary",
+        "enable_full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 30,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 2,
@@ -244,8 +258,10 @@
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 32,
-        "padding_bottom": 0
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
       }
     },
     "multicolumn_LgdJCJ": {
@@ -284,6 +300,12 @@
         "content_position": "middle-center",
         "link_type": "link",
         "button_type": "primary",
+        "enable_full_width": false,
+        "enable_custom_spacing": false,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 2,
@@ -294,8 +316,10 @@
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 0,
-        "padding_bottom": 28
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
       }
     },
     "image_banner_jcHbpF": {

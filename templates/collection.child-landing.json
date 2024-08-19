@@ -9,6 +9,16 @@
 */
 {
   "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {
+      }
+    },
+    "shogun-above": {
+      "type": "shogun-above",
+      "settings": {
+      }
+    },
     "banner": {
       "type": "main-collection-banner",
       "disabled": true,
@@ -77,7 +87,7 @@
         "text_iqachQ"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.14.24.jpg",
+        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.19.24_2.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -85,7 +95,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.14.24_Mob.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.19.24_Mob_2.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
@@ -127,8 +137,8 @@
         "link_type": "link",
         "button_type": "primary",
         "enable_full_width": false,
-        "enable_custom_spacing": false,
-        "horizontal_spacing_desktop": 20,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 30,
         "vertical_spacing_desktop": 20,
         "horizontal_spacing_mobile": 10,
         "vertical_spacing_mobile": 10,
@@ -142,8 +152,10 @@
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 32,
-        "padding_bottom": 16
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
       }
     },
     "multicolumn_HbcHgm": {
@@ -219,8 +231,10 @@
         "color_scheme": "",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 0,
-        "padding_bottom": 32
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
       }
     },
     "image_banner_pmtDmp": {
@@ -294,18 +308,8 @@
         "accessibility_info": ""
       }
     },
-    "shogun-above": {
-      "type": "shogun-above",
-      "settings": {
-      }
-    },
     "shogun-below": {
       "type": "shogun-below",
-      "settings": {
-      }
-    },
-    "shogun-helper": {
-      "type": "shogun-helper",
       "settings": {
       }
     },
