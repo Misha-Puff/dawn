@@ -92,30 +92,30 @@
     "multicolumn_peYxH9": {
       "type": "multicolumn",
       "blocks": {
-        "column_3igURh": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_Mob_8.6.24.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Shop Denim —",
-            "link": "shopify:\/\/collections\/child-fall-denim-collection"
-          }
-        },
         "column_iAT4GA": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_Mob_Baby_8.8.24_1.jpg",
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.19.24_Baby.jpg",
             "title": "",
             "text": "",
             "link_label": "Shop Baby —",
             "link": "shopify:\/\/collections\/baby-fall-24"
           }
+        },
+        "column_3igURh": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.19.24_Denim.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Shop Denim —",
+            "link": "shopify:\/\/collections\/child-fall-denim-collection"
+          }
         }
       },
       "block_order": [
-        "column_3igURh",
-        "column_iAT4GA"
+        "column_iAT4GA",
+        "column_3igURh"
       ],
       "settings": {
         "title": "",
@@ -149,16 +149,6 @@
     "multicolumn_4t4Ubf": {
       "type": "multicolumn",
       "blocks": {
-        "column_VkmJ9N": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SaleALL_8.20.24.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Further Reductions up to 40% off —",
-            "link": "shopify:\/\/collections\/child-sale"
-          }
-        },
         "column_mcCDRB": {
           "type": "column",
           "settings": {
@@ -168,11 +158,21 @@
             "link_label": "Back to School Edit —",
             "link": "shopify:\/\/collections\/child-fall-collection-back-to-school"
           }
+        },
+        "column_VkmJ9N": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SaleALL_8.20.24.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Further Reductions up to 40% off —",
+            "link": "shopify:\/\/collections\/child-sale"
+          }
         }
       },
       "block_order": [
-        "column_VkmJ9N",
-        "column_mcCDRB"
+        "column_mcCDRB",
+        "column_VkmJ9N"
       ],
       "settings": {
         "title": "",
@@ -216,26 +216,6 @@
             "link": "shopify:\/\/collections\/child-tops"
           }
         },
-        "column_WCJg47": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/MP_8.8.24_sweaters.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "SWEATERS",
-            "link": "shopify:\/\/collections\/child-sweaters-cardigans"
-          }
-        },
-        "column_prW6et": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Prudence_Dress_-_Mango_Peace_Jacquard_01.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "dresses",
-            "link": "shopify:\/\/collections\/child-dresses"
-          }
-        },
         "column_8kQCT9": {
           "type": "column",
           "settings": {
@@ -245,13 +225,33 @@
             "link_label": "bottoms",
             "link": "shopify:\/\/collections\/child-bottoms"
           }
+        },
+        "column_WCJg47": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/AQlkLs15NTKdESEh9ITFYnAWwqgNw5GYgmPyHRvrVSw.webp",
+            "title": "",
+            "text": "",
+            "link_label": "baby sale",
+            "link": "shopify:\/\/collections\/baby-sale"
+          }
+        },
+        "column_prW6et": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ScoutTop-String_01.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "BEST SELLERS",
+            "link": "shopify:\/\/collections\/child-best-sellers"
+          }
         }
       },
       "block_order": [
         "column_rLVYmc",
+        "column_8kQCT9",
         "column_WCJg47",
-        "column_prW6et",
-        "column_8kQCT9"
+        "column_prW6et"
       ],
       "settings": {
         "title": "",
@@ -332,6 +332,7 @@
         "column_HqmX9h",
         "column_HNbpBL"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h1",
