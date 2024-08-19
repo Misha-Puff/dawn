@@ -107,7 +107,7 @@
         "column_dQmUh8": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.19.24_Denim.jpg",
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_Mob_8.6.24.jpg",
             "title": "",
             "text": "",
             "link_label": "Shop Denim —",
@@ -117,11 +117,11 @@
         "column_iBFc39": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/fa24_leadlook_Prev_b7d8e1d9-ba4d-40ba-a86a-e83a6f458764.jpg",
+            "image": "shopify:\/\/shop_images\/MP_SaleALL_8.20.24.jpg",
             "title": "",
             "text": "",
-            "link_label": "Fall Lookbook —",
-            "link": "shopify:\/\/blogs\/journal\/child-fall-24"
+            "link_label": "Sale \/ Further Markdowns up to 40% off —",
+            "link": "shopify:\/\/collections\/child-sale"
           }
         }
       },
