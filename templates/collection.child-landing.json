@@ -153,9 +153,9 @@
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "desktop_padding_top": 30,
-        "desktop_padding_bottom": 30,
+        "desktop_padding_bottom": 20,
         "mobile_padding_top": 30,
-        "mobile_padding_bottom": 30
+        "mobile_padding_bottom": 20
       }
     },
     "multicolumn_pC9LLV": {
@@ -210,9 +210,9 @@
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "desktop_padding_top": 0,
-        "desktop_padding_bottom": 30,
+        "desktop_padding_bottom": 20,
         "mobile_padding_top": 0,
-        "mobile_padding_bottom": 30
+        "mobile_padding_bottom": 20
       }
     },
     "multicolumn_HbcHgm": {
