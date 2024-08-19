@@ -124,8 +124,8 @@
         "image_behavior": "none",
         "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_Mob_Baby_8.8.24_1_155fc294-650d-4876-944d-9207235410e8.jpg",
         "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
+        "stack_images_on_mobile": false,
+        "show_text_below": false
       }
     },
     "multicolumn_ftgmXy": {
@@ -204,7 +204,7 @@
         "desktop_padding_top": 30,
         "desktop_padding_bottom": 0,
         "mobile_padding_top": 30,
-        "mobile_padding_bottom": 30
+        "mobile_padding_bottom": 0
       }
     },
     "multicolumn_BdmKMm": {
