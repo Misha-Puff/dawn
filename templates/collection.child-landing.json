@@ -107,7 +107,7 @@
         "column_dQmUh8": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_Mob_8.6.24.jpg",
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.19.24_Denim.jpg",
             "title": "",
             "text": "",
             "link_label": "Shop Denim —",
@@ -155,6 +155,63 @@
         "desktop_padding_top": 30,
         "desktop_padding_bottom": 30,
         "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
+      }
+    },
+    "multicolumn_pC9LLV": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_4RGfWt": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.19.24_BestSell.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Best Sellers —",
+            "link": "shopify:\/\/collections\/child-best-sellers"
+          }
+        },
+        "column_RkFMtr": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/fa24_leadlook_Prev_b7d8e1d9-ba4d-40ba-a86a-e83a6f458764.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Fall Lookbook —",
+            "link": "shopify:\/\/blogs\/journal\/child-fall-24"
+          }
+        }
+      },
+      "block_order": [
+        "column_4RGfWt",
+        "column_RkFMtr"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "enable_overlay": false,
+        "content_position": "middle-center",
+        "link_type": "link",
+        "button_type": "primary",
+        "enable_full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 30,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 0,
         "mobile_padding_bottom": 30
       }
     },
@@ -326,6 +383,7 @@
     "product-grid",
     "image_banner_pHe7YH",
     "multicolumn_gfwpxD",
+    "multicolumn_pC9LLV",
     "multicolumn_HbcHgm",
     "image_banner_pmtDmp",
     "slideshow_8wUhXX",
