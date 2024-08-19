@@ -204,7 +204,7 @@
         "link_type": "button",
         "button_type": "secondary",
         "enable_full_width": false,
-        "enable_custom_spacing": true,
+        "enable_custom_spacing": false,
         "horizontal_spacing_desktop": 30,
         "vertical_spacing_desktop": 20,
         "horizontal_spacing_mobile": 30,
