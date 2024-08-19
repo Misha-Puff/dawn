@@ -3917,3 +3917,8 @@ details[open] > .header__menu-item span,
 .product__text.inline-richtext {
   font-size: 14px;
 }
+
+.announcement-bar__message p, 
+.announcement-bar__message p a {
+  font-size: 14px;
+}
