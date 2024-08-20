@@ -4,6 +4,15 @@
     assign show_bis = true
   endunless
 %}
+
+{% if product.tags contains 'limited-edition' %}
+  {% style %}
+    #bis-form-wrapper {
+      display: none;
+    }
+  {% endstyle %}
+{% endif %}
+
 <div
   id="bis-form-wrapper"
   class="color-{{ section.settings.color_scheme }} gradient{% unless show_bis %} hidden{% endunless %}"
