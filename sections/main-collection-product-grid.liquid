@@ -224,19 +224,19 @@
                       {% assign grid_index = 0 %}
                     {% endif %}
                     {% if curr_grid_index == grid_index %}
-                      {% if block.settings.link %}
-                        <a href="{{ block.settings.link }}">
-                      {% endif %}
                       <div class="editorial-content block--{{ block.id }} width-{{ block.settings.width }}">
+                        {% if block.settings.link %}
+                          <a href="{{ block.settings.link }}">
+                        {% endif %}
                         {{
                           block.settings.image
                           | image_url: width: 5760
                           | image_tag: width: block.settings.image.width
                         }}
+                        {% if block.settings.link %}
+                          </a>
+                        {% endif %}
                       </div>
-                      {% if block.settings.link %}
-                        </a>
-                      {% endif %}
                       {% assign curr_grid_index = curr_grid_index | plus: block.settings.width %}
                     {% endif %}
                   {% endif %}
