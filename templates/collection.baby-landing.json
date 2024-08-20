@@ -203,7 +203,7 @@
         "swipe_on_mobile": false,
         "desktop_padding_top": 30,
         "desktop_padding_bottom": 0,
-        "mobile_padding_top": 30,
+        "mobile_padding_top": 20,
         "mobile_padding_bottom": 0
       }
     },
@@ -260,7 +260,7 @@
         "swipe_on_mobile": false,
         "desktop_padding_top": 30,
         "desktop_padding_bottom": 30,
-        "mobile_padding_top": 30,
+        "mobile_padding_top": 20,
         "mobile_padding_bottom": 30
       }
     },
