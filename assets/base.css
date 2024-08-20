@@ -3922,3 +3922,7 @@ details[open] > .header__menu-item span,
 .announcement-bar__message p a {
   font-size: 14px;
 }
+
+.mega-menu__link:not(.mega-menu__link--level-2) {
+  font-size: 13px;
+}
