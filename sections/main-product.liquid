@@ -128,10 +128,10 @@
               {%- when 'price' -%}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                   {%- render 'price', product: product, use_variant: true, show_badges: true -%}
-                  {% if product.selected_or_first_available_variant.compare_at_price
-                      > product.selected_or_first_available_variant.price
-                  %}
-                    {% render 'globale-message' %}
+
+                  {% render 'globale-message' %}
+
+                  {% if product.tags contains 'no-returns' %}
                     {% render 'final-sale' %}
                   {% endif %}
                 </div>
