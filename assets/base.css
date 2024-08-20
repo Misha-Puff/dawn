@@ -3926,3 +3926,8 @@ details[open] > .header__menu-item span,
 .mega-menu__link:not(.mega-menu__link--level-2) {
   font-size: 13px;
 }
+
+.scrolled-past-header .mega-menu__list {
+  justify-content: left;
+  margin-left: 20rem;
+}
