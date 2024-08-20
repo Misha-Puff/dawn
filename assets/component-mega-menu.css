@@ -16,6 +16,10 @@
   z-index: 999999;
 }
 
+.scrolled-past-header .mega-menu__content {
+  top: calc(100% - 32px);
+}
+
 .shopify-section-header-sticky .mega-menu__content {
   max-height: calc(100vh - var(--header-bottom-position-desktop, 20rem) - 4rem);
 }
