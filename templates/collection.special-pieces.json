@@ -30,6 +30,9 @@
     },
     "page_HfqPbD": {
       "type": "page",
+      "custom_css": [
+        "h1.collection-hero__title {display: none !important;}"
+      ],
       "settings": {
         "page": "one-of-a-kind",
         "heading_size": "h2",
