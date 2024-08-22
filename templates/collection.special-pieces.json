@@ -31,7 +31,7 @@
     "page_HfqPbD": {
       "type": "page",
       "custom_css": [
-        "h1.collection-hero__title {display: none !important;}"
+        "h2 {display: none !important;}"
       ],
       "settings": {
         "page": "one-of-a-kind",
