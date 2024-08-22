@@ -128,7 +128,11 @@
         "button_link": "",
         "color_scheme": "",
         "columns_mobile": "1",
-        "swipe_on_mobile": false
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
       }
     },
     "featured_collection_JqiqGp": {
@@ -195,22 +199,24 @@
     "image_banner_8Dbi6e": {
       "type": "image-banner",
       "blocks": {
-        "heading_8rkKyc": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image banner",
-            "heading_size": "h1"
-          }
-        },
         "text_yfJCR4": {
           "type": "text",
           "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text": "COMING SOON",
             "text_style": "body"
+          }
+        },
+        "heading_8rkKyc": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "h2"
           }
         },
         "buttons_8b9zaW": {
           "type": "buttons",
+          "disabled": true,
           "settings": {
             "button_label_1": "Button label",
             "button_link_1": "",
@@ -222,22 +228,23 @@
         }
       },
       "block_order": [
-        "heading_8rkKyc",
         "text_yfJCR4",
+        "heading_8rkKyc",
         "buttons_8b9zaW"
       ],
-      "disabled": true,
       "settings": {
+        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.22.24_Adult_08ebd86b-c6f3-40fb-85f9-5c8bdd723e39.jpg",
         "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "desktop_content_position": "middle-center",
-        "show_text_box": true,
+        "image_height": "adapt",
+        "desktop_content_position": "bottom-center",
+        "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
+        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.22.24_Adult_Mob_0390befd-66b3-486f-8195-9137aca74989.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
-        "show_text_below": true
+        "show_text_below": false
       }
     }
   },
