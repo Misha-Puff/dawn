@@ -21,10 +21,21 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
         "color_scheme": "scheme-1"
+      }
+    },
+    "page_HfqPbD": {
+      "type": "page",
+      "settings": {
+        "page": "one-of-a-kind",
+        "heading_size": "h2",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "product-grid": {
@@ -63,6 +74,7 @@
     "shogun-helper",
     "shogun-above",
     "banner",
+    "page_HfqPbD",
     "product-grid",
     "shogun-below",
     "shogun-optimizer"
