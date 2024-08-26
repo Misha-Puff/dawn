@@ -1,10 +1,12 @@
 {% assign locksmith_initializations = '' %}
-
+{% # theme-check-disable DeprecatedTag %}
 {%- comment %}<locksmith:e83f>{%- endcomment %}
 {%- include 'locksmith' -%}
 {%- comment %}</locksmith:e83f>{%- endcomment %}
-
+{% # theme-check-enable DeprecatedTag %}
+{% # theme-check-disable DeprecatedTag %}
 {% include 'shogun-content-handler' %}
+{% # theme-check-enable DeprecatedTag %}
 <!doctype html>
 {% render 'signature' %}
 <html class="js" lang="{{ request.locale.iso_code }}">
@@ -319,8 +321,11 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+    {% # theme-check-disable RemoteAsset %}
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DLJ3XBN6Q9"></script>
+    {% # theme-check-enable RemoteAsset %}
+
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -414,6 +419,8 @@
     {% render 'clarity' %}
 
     {% render 'gorgias-init' %}
+    {% # theme-check-disable RemoteAsset %}
+
     <!-- Gorgias Chat Widget Start -->
     <script
       defer="defer"
@@ -421,6 +428,7 @@
       src="https://config.gorgias.chat/bundle-loader/01GYCC2HKEFNC8EAS95H0C1H6V"
     ></script>
     <!-- Gorgias Chat Widget End -->
+    {% # theme-check-enable RemoteAsset %}
 
     <!-- ACCESSIBILITYSPARK START -->
     {% render 'accessibility-spark-widget' %}
