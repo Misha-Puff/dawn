@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "shogun-helper": {
@@ -90,6 +99,85 @@
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
+      }
+    },
+    "multicolumn_HbcHgm": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_9wJreE": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Original_Popcorn_Sweater_-_Pink_Lilac_01.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "SWEATERS",
+            "link": "shopify:\/\/collections\/child-sweaters-cardigans"
+          }
+        },
+        "column_cbb8R9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/sKD766Xv7Pv_4F9uR0gpPS7VUIOIVIN_IAZ5kxmH5ko.webp",
+            "title": "",
+            "text": "",
+            "link_label": "dresses",
+            "link": "shopify:\/\/collections\/child-dresses"
+          }
+        },
+        "column_4dtYhK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Turtleneck_-_Sprig_01.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "TOPS",
+            "link": "shopify:\/\/collections\/child-tops"
+          }
+        },
+        "column_fqtCKn": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Utility_Jeans_-_Sage_Denim_01.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "bottoms",
+            "link": "shopify:\/\/collections\/child-bottoms"
+          }
+        }
+      },
+      "block_order": [
+        "column_9wJreE",
+        "column_cbb8R9",
+        "column_4dtYhK",
+        "column_fqtCKn"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "enable_overlay": true,
+        "content_position": "middle-center",
+        "link_type": "button",
+        "button_type": "secondary",
+        "enable_full_width": true,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 10,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 0,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 0
       }
     },
     "multicolumn_gfwpxD": {
@@ -206,85 +294,6 @@
         "mobile_padding_bottom": 20
       }
     },
-    "multicolumn_HbcHgm": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_9wJreE": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Original_Popcorn_Sweater_-_Pink_Lilac_01.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "SWEATERS",
-            "link": "shopify:\/\/collections\/child-sweaters-cardigans"
-          }
-        },
-        "column_cbb8R9": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/sKD766Xv7Pv_4F9uR0gpPS7VUIOIVIN_IAZ5kxmH5ko.webp",
-            "title": "",
-            "text": "",
-            "link_label": "dresses",
-            "link": "shopify:\/\/collections\/child-dresses"
-          }
-        },
-        "column_4dtYhK": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Turtleneck_-_Sprig_01.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "TOPS",
-            "link": "shopify:\/\/collections\/child-tops"
-          }
-        },
-        "column_fqtCKn": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Utility_Jeans_-_Sage_Denim_01.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "bottoms",
-            "link": "shopify:\/\/collections\/child-bottoms"
-          }
-        }
-      },
-      "block_order": [
-        "column_9wJreE",
-        "column_cbb8R9",
-        "column_4dtYhK",
-        "column_fqtCKn"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "enable_overlay": true,
-        "content_position": "middle-center",
-        "link_type": "button",
-        "button_type": "secondary",
-        "enable_full_width": true,
-        "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 10,
-        "vertical_spacing_desktop": 20,
-        "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 10,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 4,
-        "column_alignment": "left",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "desktop_padding_top": 0,
-        "desktop_padding_bottom": 30,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 30
-      }
-    },
     "image_banner_pmtDmp": {
       "type": "image-banner",
       "blocks": {
@@ -303,6 +312,7 @@
       "block_order": [
         "buttons_mwJpBJ"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify:\/\/shop_images\/MP_SU24_Leader_Journal_6.18.24.jpg",
         "image_overlay_opacity": 0,
@@ -373,9 +383,9 @@
     "banner",
     "product-grid",
     "image_banner_pHe7YH",
+    "multicolumn_HbcHgm",
     "multicolumn_gfwpxD",
     "multicolumn_pC9LLV",
-    "multicolumn_HbcHgm",
     "image_banner_pmtDmp",
     "slideshow_8wUhXX",
     "shogun-below",
