@@ -1,6 +1,8 @@
-{%- comment %}<locksmith:e83f>{% endcomment -%}
-  {%- include 'locksmith' -%}
-{%- comment %}</locksmith:e83f>{% endcomment -%}
+{% assign locksmith_initializations = '' %}
+
+{%- comment %}<locksmith:e83f>{%- endcomment %}
+{%- include 'locksmith' -%}
+{%- comment %}</locksmith:e83f>{%- endcomment %}
 
 {% include 'shogun-content-handler' %}
 <!doctype html>
@@ -35,10 +37,11 @@
     </title>
 
     {% if page_description %}
-      {%- comment %}<locksmith:7574>{% endcomment -%}
-        {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
-        {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-      {%- comment %}</locksmith:7574>{% endcomment -%}
+      {%- comment %}<locksmith:7574>{%- endcomment %}
+      {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture -%}
+      {%- if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+      {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
+      {%- comment %}</locksmith:7574>{%- endcomment %}
     {% endif %}
 
     {% render 'meta-tags' %}
