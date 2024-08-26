@@ -597,10 +597,13 @@
                                 {% endif %}
                               >
                                 <ul class="list-unstyled" role="list">
-                                  {%- for product in recommendations.products
+                                  {%-
+                                    for product in recommendations.products
                                     limit: block.settings.products_per_page
-                                    offset: continue
-                                  -%}
+                                    {% comment
+                                  %}
+                                    offset: continue {% endcomment %}
+                                    -%}
                                     <li>
                                       {%- if block.settings.enable_quick_add -%}
                                         {% assign quick_add = 'standard' %}
@@ -738,13 +741,13 @@
     {%- endif -%}
 
     {% comment %}
-    {%- liquid
-      if product.selected_or_first_available_variant.featured_media
-        assign seo_media = product.selected_or_first_available_variant.featured_media
-      else
-        assign seo_media = product.featured_media
-      endif
-    -%}
+      {%- liquid
+        if product.selected_or_first_available_variant.featured_media
+          assign seo_media = product.selected_or_first_available_variant.featured_media
+        else
+          assign seo_media = product.featured_media
+        endif
+      -%}
     {% endcomment %}
 
     <script type="application/ld+json">
