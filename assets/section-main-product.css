@@ -863,9 +863,9 @@ a.product__text {
   text-decoration-thickness: 0.2rem;
 }
 
-.product-popup-modal__content-info {
+/* .product-popup-modal__content-info {
   padding-right: 4.4rem;
-}
+} */
 
 .product-popup-modal__content-info > * {
   height: auto;

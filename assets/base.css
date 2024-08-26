@@ -413,11 +413,13 @@ blockquote {
 }
 
 table:not([class]) {
+  display: block;
   table-layout: fixed;
   border-collapse: collapse;
   font-size: 1.4rem;
   border-style: hidden;
   box-shadow: 0 0 0 0.1rem rgba(var(--color-foreground), 0.2);
+  overflow-x: auto;
   /* draws the table border  */
 }
 
