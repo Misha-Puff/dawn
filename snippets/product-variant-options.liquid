@@ -144,10 +144,12 @@
   {%- endcapture -%}
 
     {%- if picker_type == 'swatch' -%}
+      {% # theme-check-disable UnusedAssign %}
       {%- capture help_text -%}
-      <span class="visually-hidden">{{ value | escape }}</span>
-      {{ label_unavailable }}
-    {%- endcapture -%}
+        <span class="visually-hidden">{{ value | escape }}</span>
+        {{ label_unavailable }}
+      {%- endcapture -%}
+      {% # theme-check-enable UnusedAssign %}
       {%
         render 'swatch-input',
         id: input_id,

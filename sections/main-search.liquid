@@ -269,7 +269,7 @@
                   >
                     {%- case item.object_type -%}
                       {%- when 'product' -%}
-                        {%- capture product_settings -%}{%- if section.settings.product_show_vendor -%}vendor,{%- endif -%}title,price{%- endcapture -%}
+                        {% comment %} {%- capture product_settings -%}{%- if section.settings.product_show_vendor -%}vendor,{%- endif -%}title,price{%- endcapture -%} {% endcomment %}
                         {% render 'card-product',
                           card_product: item,
                           media_aspect_ratio: section.settings.image_ratio,
