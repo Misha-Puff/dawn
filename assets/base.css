@@ -2407,6 +2407,7 @@ input[type='checkbox'] {
 .header__heading {
   margin: 0;
   line-height: 0;
+  z-index: 999999;
 }
 
 .header > .header__heading-link {
@@ -2424,7 +2425,6 @@ input[type='checkbox'] {
   padding: 0 0.75rem;
   text-decoration: none;
   word-break: break-word;
-  z-index: 999999;
 }
 
 .header__heading-link:hover .h2 {
@@ -2493,6 +2493,7 @@ input[type='checkbox'] {
   display: flex;
   grid-area: icons;
   justify-self: end;
+  z-index: 999999;
 }
 
 .header__icons .shopify-app-block {
