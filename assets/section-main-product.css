@@ -850,7 +850,7 @@ a.product__text {
 }
 
 .product-popup-modal__button {
-  font-size: 14px;
+  /* font-size: 13px; */
   padding-right: 1.3rem;
   padding-left: 0;
   min-height: 4.4rem;
