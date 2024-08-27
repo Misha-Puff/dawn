@@ -12,6 +12,11 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .section-{{ section.id }}-padding .rich-text__blocks {
+    padding-left: {{ section.settings.padding_left }}px;
+    padding-right: {{ section.settings.padding_right }}px;
+  }
 {%- endstyle -%}
 
 <div class="isolate{% unless section.settings.full_width %} page-width{% endunless %}">
@@ -43,8 +48,13 @@
                 {{ block.settings.caption | escape }}
               </p>
             {%- when 'text' -%}
+              {% style %}
+                .block-{{ block.id }} {
+                  line-height: {{ block.settings.line_height }}px;
+                }
+              {% endstyle %}
               <div
-                class="rich-text__text rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                class="rich-text__text rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} small block-{{ block.id }}"
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
@@ -206,6 +216,26 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 52
+    },
+    {
+      "type": "range",
+      "id": "padding_left",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Left Padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_right",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "label": "Right Padding",
+      "default": 0
     }
   ],
   "blocks": [
@@ -309,6 +339,16 @@
           "id": "text",
           "default": "t:sections.rich-text.blocks.text.settings.text.default",
           "label": "t:sections.rich-text.blocks.text.settings.text.label"
+        },
+        {
+          "type": "range",
+          "id": "line_height",
+          "min": 20,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "label": "Line Height",
+          "default": 24
         }
       ]
     },
