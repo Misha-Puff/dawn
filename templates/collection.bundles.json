@@ -27,6 +27,54 @@
         "color_scheme": "scheme-1"
       }
     },
+    "rich_text_ktUm4x": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_gmiUk4": {
+          "type": "heading",
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "text_3j6ExY": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>",
+            "line_height": 24
+          }
+        },
+        "button_W3Vt9T": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_gmiUk4",
+        "text_3j6ExY",
+        "button_W3Vt9T"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_left": 0,
+        "padding_right": 0
+      }
+    },
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
@@ -63,6 +111,7 @@
     "shogun-helper",
     "shogun-above",
     "banner",
+    "rich_text_ktUm4x",
     "product-grid",
     "shogun-below",
     "shogun-optimizer"
