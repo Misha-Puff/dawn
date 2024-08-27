@@ -3866,11 +3866,6 @@ details[open] > .header__menu-item span,
   }
 }
 
-.product__info-container .accordion__content,
-.product__description {
-  font-size: 14px;
-}
-
 .header .header__icons .header__icon {
   width: auto;
 }

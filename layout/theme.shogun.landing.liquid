@@ -1,12 +1,11 @@
 {% assign locksmith_initializations = '' %}
-{% # theme-check-disable DeprecatedTag %}
+
 {%- comment %}<locksmith:4feb>{%- endcomment %}
-{%- include 'locksmith' -%}
+{%- render 'locksmith' -%}
 {%- comment %}</locksmith:4feb>{%- endcomment %}
-{% # theme-check-enable DeprecatedTag %}
-{% # theme-check-disable DeprecatedTag %}
-{% include 'shogun-content-handler' %}
-{% # theme-check-enable DeprecatedTag %}
+
+{% render 'shogun-content-handler' %}
+
 <!doctype html>
 {% render 'signature' %}
 <html class="js" lang="{{ request.locale.iso_code }}">
