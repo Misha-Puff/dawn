@@ -1,10 +1,10 @@
 {% assign locksmith_initializations = '' %}
 
 {%- comment %}<locksmith:4feb>{%- endcomment %}
-{%- render 'locksmith' -%}
+{%- include 'locksmith' -%}
 {%- comment %}</locksmith:4feb>{%- endcomment %}
 
-{% render 'shogun-content-handler' %}
+{% include 'shogun-content-handler' %}
 
 <!doctype html>
 {% render 'signature' %}
