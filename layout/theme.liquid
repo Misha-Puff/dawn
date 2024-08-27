@@ -1,8 +1,9 @@
+{%- comment %}<locksmith:8cfd>{% endcomment -%}
+  {%- include 'locksmith' -%}
+{%- comment %}</locksmith:8cfd>{% endcomment -%}
+
 {% assign locksmith_initializations = '' %}
 {% # theme-check-disable DeprecatedTag %}
-{%- comment %}<locksmith:e83f>{%- endcomment %}
-{%- include 'locksmith' -%}
-{%- comment %}</locksmith:e83f>{%- endcomment %}
 {% # theme-check-enable DeprecatedTag %}
 {% # theme-check-disable DeprecatedTag %}
 {% include 'shogun-content-handler' %}
@@ -39,11 +40,10 @@
     </title>
 
     {% if page_description %}
-      {%- comment %}<locksmith:7574>{%- endcomment %}
-      {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture -%}
-      {%- if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
-      {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-      {%- comment %}</locksmith:7574>{%- endcomment %}
+      {%- comment %}<locksmith:8ab0>{% endcomment -%}
+        {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+        {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
+      {%- comment %}</locksmith:8ab0>{% endcomment -%}
     {% endif %}
 
     {% render 'meta-tags' %}
