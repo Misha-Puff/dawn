@@ -21,10 +21,60 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
         "color_scheme": "scheme-1"
+      }
+    },
+    "rich_text_K3HMmx": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_CygjRy": {
+          "type": "heading",
+          "settings": {
+            "heading": "Mystery Bundles",
+            "heading_size": "h2"
+          }
+        },
+        "text_BbpNBn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Introducing Mystery Bundles, an exclusive selection of Child styles at a very special price.<\/p><p>Each bundle contains five (5) surprise pieces that could include past season favorites, samples, and seconds. Every Mystery Bundle is thoughtfully curated and guaranteed to include at least one knit (either wool or cotton) and one accessory. These bundles feature a versatile mix of seasons and styles.<\/p><p>Mystery Bundles are available in two categories:<br\/><strong>Girl<\/strong> — Includes at least one skirt, ruffle style, pink piece, or dress<br\/><strong>Unisex<\/strong> — Does not include any of the styles listed in the “Girls” category<\/p>",
+            "line_height": 20
+          }
+        },
+        "button_YNhfEz": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_CygjRy",
+        "text_BbpNBn",
+        "button_YNhfEz"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 40,
+        "padding_left": 0,
+        "padding_right": 0
       }
     },
     "product-grid": {
@@ -63,6 +113,7 @@
     "shogun-helper",
     "shogun-above",
     "banner",
+    "rich_text_K3HMmx",
     "product-grid",
     "shogun-below",
     "shogun-optimizer"
