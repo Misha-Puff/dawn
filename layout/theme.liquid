@@ -1,13 +1,11 @@
+{% assign locksmith_initializations = '' %}
+
 {%- comment %}<locksmith:8cfd>{%- endcomment %}
 {%- include 'locksmith' -%}
 {%- comment %}</locksmith:8cfd>{%- endcomment %}
 
-{% assign locksmith_initializations = '' %}
-{% # theme-check-disable DeprecatedTag %}
-{% # theme-check-enable DeprecatedTag %}
-{% # theme-check-disable DeprecatedTag %}
 {% include 'shogun-content-handler' %}
-{% # theme-check-enable DeprecatedTag %}
+
 <!doctype html>
 {% render 'signature' %}
 <html class="js" lang="{{ request.locale.iso_code }}">
