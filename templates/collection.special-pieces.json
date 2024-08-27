@@ -73,8 +73,8 @@
         "full_width": true,
         "padding_top": 52,
         "padding_bottom": 40,
-        "padding_left": 0,
-        "padding_right": 0
+        "padding_left": 100,
+        "padding_right": 100
       }
     },
     "page_HfqPbD": {
