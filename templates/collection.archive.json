@@ -82,6 +82,7 @@
       "blocks": {
         "image_P9aHGr": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/MP_MysteryBundle_Aug24_2.jpg",
             "link": "",
@@ -121,6 +122,47 @@
       "type": "shogun-optimizer",
       "settings": {
       }
+    },
+    "collage_A9NkjF": {
+      "type": "collage",
+      "blocks": {
+        "image_8aT63x": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_MysteryBundle_Aug24_2.jpg"
+          }
+        },
+        "product_4yV3fF": {
+          "type": "product",
+          "settings": {
+            "product": "girl-mystery-bundle",
+            "second_image": false
+          }
+        },
+        "product_gAWnee": {
+          "type": "product",
+          "settings": {
+            "product": "unisex-mystery-bundle",
+            "second_image": false
+          }
+        }
+      },
+      "block_order": [
+        "image_8aT63x",
+        "product_4yV3fF",
+        "product_gAWnee"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "desktop_layout": "left",
+        "mobile_layout": "column",
+        "card_styles": "product-card-wrapper",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -130,6 +172,7 @@
     "rich_text_K3HMmx",
     "product-grid",
     "shogun-below",
-    "shogun-optimizer"
+    "shogun-optimizer",
+    "collage_A9NkjF"
   ]
 }
