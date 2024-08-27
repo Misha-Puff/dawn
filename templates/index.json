@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "image_banner_bz8jb3": {
@@ -37,7 +46,7 @@
         "text_TdBLTR"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.19.24_1.jpg",
+        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.29.24_1.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -45,7 +54,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.19.24_Mob_1.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.29.24_1_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
@@ -86,7 +95,7 @@
         "column_iAT4GA": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.19.24_Baby.jpg",
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.29.24_Mob_BabyHP.jpg",
             "title": "",
             "text": "",
             "link_label": "Shop Baby —",
@@ -96,11 +105,11 @@
         "column_3igURh": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.19.24_Denim.jpg",
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.29.24_Sale_Mob.jpg",
             "title": "",
             "text": "",
-            "link_label": "Shop Denim —",
-            "link": "shopify:\/\/collections\/child-fall-denim-collection"
+            "link_label": "Shop Sale —",
+            "link": "shopify:\/\/collections\/child-sale"
           }
         }
       },
@@ -165,6 +174,7 @@
         "column_mcCDRB",
         "column_VkmJ9N"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h1",
@@ -200,7 +210,7 @@
         "column_rLVYmc": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Turtleneck_-_Red_Flame_01.jpg",
+            "image": "shopify:\/\/shop_images\/MP_FA24_Tops.jpg",
             "title": "",
             "text": "",
             "link_label": "TOPS",
@@ -210,7 +220,7 @@
         "column_8kQCT9": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_8.8.24_bottoms_6967209a-85cf-4d45-9178-ffa1b54d59ab.jpg",
+            "image": "shopify:\/\/shop_images\/SailorPant-SprigTrellis_01.webp",
             "title": "",
             "text": "",
             "link_label": "bottoms",
