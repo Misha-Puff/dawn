@@ -114,7 +114,7 @@
         "text_KVmVrL"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.8.24_Baby_1.jpg",
+        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.29.24_Baby_1.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -247,7 +247,7 @@
         "horizontal_spacing_desktop": 30,
         "vertical_spacing_desktop": 20,
         "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 10,
+        "vertical_spacing_mobile": 0,
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 2,
@@ -261,7 +261,7 @@
         "desktop_padding_top": 30,
         "desktop_padding_bottom": 30,
         "mobile_padding_top": 20,
-        "mobile_padding_bottom": 20
+        "mobile_padding_bottom": 0
       }
     },
     "multicolumn_LgdJCJ": {

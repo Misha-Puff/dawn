@@ -87,7 +87,7 @@
         "text_iqachQ"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.19.24_2.jpg",
+        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.29.24_3.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -95,7 +95,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.19.24_Mob_2.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.29.24_3_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
@@ -186,15 +186,26 @@
         "column_dQmUh8": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_Mob_8.6.24.jpg",
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.29.24_BTSEdit_17cd6799-1a55-442f-97d5-8067cd9e055d.jpg",
             "title": "",
             "text": "",
-            "link_label": "Shop Denim —",
-            "link": "shopify:\/\/collections\/child-fall-denim-collection"
+            "link_label": "Back to School Edit —",
+            "link": "shopify:\/\/collections\/child-fall-collection-back-to-school"
+          }
+        },
+        "column_RwiwcK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.29.24_HandKnit.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "New Hand Knits —",
+            "link": "shopify:\/\/collections\/child-hand-knit"
           }
         },
         "column_iBFc39": {
           "type": "column",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/MP_SaleALL_8.20.24.jpg",
             "title": "",
@@ -206,6 +217,7 @@
       },
       "block_order": [
         "column_dQmUh8",
+        "column_RwiwcK",
         "column_iBFc39"
       ],
       "settings": {
@@ -220,7 +232,7 @@
         "horizontal_spacing_desktop": 30,
         "vertical_spacing_desktop": 20,
         "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 10,
+        "vertical_spacing_mobile": 0,
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 2,
@@ -232,9 +244,9 @@
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "desktop_padding_top": 30,
-        "desktop_padding_bottom": 20,
+        "desktop_padding_bottom": 30,
         "mobile_padding_top": 20,
-        "mobile_padding_bottom": 10
+        "mobile_padding_bottom": 0
       }
     },
     "multicolumn_pC9LLV": {
@@ -265,6 +277,7 @@
         "column_4RGfWt",
         "column_RkFMtr"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h1",
