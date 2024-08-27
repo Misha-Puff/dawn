@@ -79,6 +79,20 @@
     },
     "product-grid": {
       "type": "main-collection-product-grid",
+      "blocks": {
+        "image_P9aHGr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_MysteryBundle_Aug24_2.jpg",
+            "link": "",
+            "width": "1",
+            "grid_index": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_P9aHGr"
+      ],
       "settings": {
         "products_per_page": 48,
         "columns_desktop": 3,
