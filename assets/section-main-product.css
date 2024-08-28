@@ -1288,6 +1288,7 @@ a.product__text {
   position: relative;
   width: 100%;
   max-width: calc(100% - calc(var(--media-border-width) * 2));
+  border: 0;
 }
 
 .product-media-container.constrain-height {
@@ -1482,4 +1483,71 @@ a.product__text {
   .recipient-form > input[type='checkbox']:checked + label .icon-checkmark {
     border: none;
   }
+}
+
+.model-note {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 2px;
+  margin: 0;
+  opacity: 0;
+  background-color: #fff;
+  font-size: 1rem;
+}
+
+.product-media-container:hover .model-note {
+  opacity: 1;
+}
+
+@media screen and (max-width: 749px) {
+  .model-note {
+    position: initial;
+    opacity: 1;
+    padding: 0 var(--page-width-padding)
+  }
+}
+
+.product__title h1 {
+  font-size: 14px;
+}
+
+.product-popup-modal__content-info h1 {
+  margin-bottom: 10px;
+}
+
+.final-sale, .globale {
+  margin-top: 0;
+  font-size: 12px;
+}
+
+#bis-form-wrapper {
+  max-width: 44rem;
+  padding: 2rem;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.2)
+}
+
+#bis-form-wrapper .title {
+  margin: 0;
+}
+
+#bis-form .form__fields {
+  display: flex;
+}
+
+#bis-form .field {
+  margin: 0;
+}
+
+#bis-form .button {
+  min-width: fit-content;
+}
+
+#bis-form .form-status.success,
+#bis-form .form-status.error {
+  display: none;
+}
+
+.product__text.inline-richtext {
+  font-size: 14px;
 }

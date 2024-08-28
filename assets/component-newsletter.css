@@ -69,3 +69,7 @@
 .newsletter-form__button .icon {
   width: 1.5rem;
 }
+
+.newsletter-form button {
+  margin-top: 20px
+}

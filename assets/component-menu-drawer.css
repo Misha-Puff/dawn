@@ -239,3 +239,12 @@ details[open].menu-opening > .menu-drawer__submenu {
     transition: none !important;
   }
 }
+
+.menu-drawer__inner-submenu,
+.menu-drawer__submenu {
+  margin-left: 20px;
+}
+
+.menu-drawer__inner-submenu .icon-caret {
+  right: calc(1.5rem + 20px)
+}

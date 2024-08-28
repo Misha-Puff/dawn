@@ -85,3 +85,7 @@
 .mega-menu__list--condensed .mega-menu__link {
   font-weight: normal;
 }
+
+.mega-menu__link:not(.mega-menu__link--level-2) {
+  font-size: 13px;
+}

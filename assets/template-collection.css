@@ -97,3 +97,48 @@
 .collection__view-all a:not(.link) {
   margin-top: 1rem;
 }
+
+.collection-hero__title {
+  font-size: 14px;
+}
+
+.product-card-wrapper .card__information .price {
+  font-size: 13px;
+  margin-top: 0 !important;
+}
+
+.active-facets__button-inner {
+  border-radius: 0 !important;
+}
+
+.mobile-facets__open-label, .facet-filters__label, .header__menu-item, .mega-menu__link--level-2{
+  text-transform: uppercase;
+}
+
+.variant-availability {
+  display: none;
+  flex-wrap: wrap;
+  margin-bottom: 0.7rem;
+  opacity: 0;
+}
+
+@media only screen and (min-width: 990px) {
+  .product-card-wrapper:hover .variant-availability {
+    display: flex;
+    opacity: 1;
+  }
+}
+
+.variant-availability span {
+  font-size: 12px;
+  margin: 0 4px;
+}
+
+.variant-availability .unavailable {
+  opacity: 0.3;
+  text-decoration: line-through;
+}
+
+[for="Filter-filter.v.availability-mobile-2"] {
+  display: none;
+}

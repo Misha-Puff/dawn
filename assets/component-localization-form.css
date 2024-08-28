@@ -441,3 +441,8 @@
 .menu-drawer__localization + .list-social {
   margin-top: 1rem;
 }
+
+.localization-form__select:after, 
+.localization-form__select:before {
+  display: none !important;
+}

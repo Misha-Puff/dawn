@@ -231,3 +231,16 @@
     display: list-item;
   }
 }
+
+.multicolumn-card__info {
+  padding-left: 0 !important;
+}
+
+.multicolumn-card__info .link {
+  margin-top: 7px !important;
+  font-size: 14px !important;
+}
+
+.multicolumn-card__image-wrapper {
+  margin: 0 !important;
+}
