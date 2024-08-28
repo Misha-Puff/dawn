@@ -82,6 +82,7 @@
       "blocks": {
         "image_P9aHGr": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/MP_MysteryBundle_Aug24_2.jpg",
             "link": "",
