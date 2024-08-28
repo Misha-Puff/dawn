@@ -2419,7 +2419,13 @@ input[type='checkbox'] {
 .header__heading-link {
   grid-area: heading;
   justify-self: center;
-  z-index: 999999;
+}
+
+@media screen and (min-width: 990px) {
+  .header__heading,
+  .header__heading-link {
+    z-index: 999999;
+  }
 }
 
 .header__heading-link {
@@ -2495,7 +2501,11 @@ input[type='checkbox'] {
   display: flex;
   grid-area: icons;
   justify-self: end;
-  z-index: 999999;
+}
+@media screen and (min-width: 990px) {
+  .header__icons {
+    z-index: 999999;
+  }
 }
 
 .header__icons .shopify-app-block {
