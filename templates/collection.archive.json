@@ -82,12 +82,13 @@
       "blocks": {
         "image_P9aHGr": {
           "type": "image",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/MP_MysteryBundle_Aug24_2.jpg",
             "link": "",
-            "width": "1",
-            "grid_index": 0
+            "row_start": 1,
+            "row_span": 2,
+            "col_start": 1,
+            "col_span": 2
           }
         }
       },
@@ -96,7 +97,7 @@
       ],
       "settings": {
         "products_per_page": 48,
-        "columns_desktop": 2,
+        "columns_desktop": 3,
         "color_scheme": "",
         "image_ratio": "adapt",
         "image_shape": "default",
@@ -122,47 +123,6 @@
       "type": "shogun-optimizer",
       "settings": {
       }
-    },
-    "collage_A9NkjF": {
-      "type": "collage",
-      "blocks": {
-        "image_8aT63x": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/MP_MysteryBundle_Aug24_2.jpg"
-          }
-        },
-        "product_4yV3fF": {
-          "type": "product",
-          "settings": {
-            "product": "girl-mystery-bundle",
-            "second_image": false
-          }
-        },
-        "product_gAWnee": {
-          "type": "product",
-          "settings": {
-            "product": "unisex-mystery-bundle",
-            "second_image": false
-          }
-        }
-      },
-      "block_order": [
-        "image_8aT63x",
-        "product_4yV3fF",
-        "product_gAWnee"
-      ],
-      "disabled": true,
-      "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "desktop_layout": "left",
-        "mobile_layout": "column",
-        "card_styles": "product-card-wrapper",
-        "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
@@ -172,7 +132,6 @@
     "rich_text_K3HMmx",
     "product-grid",
     "shogun-below",
-    "shogun-optimizer",
-    "collage_A9NkjF"
+    "shogun-optimizer"
   ]
 }
