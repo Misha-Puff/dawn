@@ -174,7 +174,11 @@
           <div class="variant-availability">
             {% for variant in card_product.variants %}
               <span class="{% unless variant.available %} unavailable{% endunless %}">
-                {{ variant.option2 }}
+                {% if variant.option2 %}
+                  {{ variant.option2 }}
+                {% else %}
+                  {{ variant.option1 }}
+                {% endif %}
               </span>
             {% endfor %}
           </div>
