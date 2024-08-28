@@ -595,3 +595,35 @@
     clip-path: polygon(var(--shape--blob-5));
   }
 }
+
+.card__inner {
+  overflow: hidden;
+}
+
+.variant-availability {
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100%);
+  width: 100%;
+  transition: transform var(--duration-default);
+  background-color: rgba(var(--color-background),.6);
+  padding: 1rem;
+  text-align: center;
+}
+
+@media only screen and (min-width: 990px) {
+  .card-wrapper:hover .variant-availability  {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform var(--duration-default);
+  }
+}
+.variant-availability span {
+  font-size: 12px;
+  margin: 0 4px;
+}
+
+.variant-availability .unavailable {
+  opacity: 0.3;
+  text-decoration: line-through;
+}

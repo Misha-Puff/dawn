@@ -170,6 +170,15 @@
             {%- endif -%}
           </div>
         </div>
+        {% if section.settings.show_variants %}
+          <div class="variant-availability">
+            {% for variant in card_product.variants %}
+              <span class="{% unless variant.available %} unavailable{% endunless %}">
+                {{ variant.option2 }}
+              </span>
+            {% endfor %}
+          </div>
+        {% endif %}
       </div>
       <div class="card__content">
         <div class="card__information">
@@ -317,15 +326,6 @@
                 </quantity-popover>
               {% endif %}
             {%- endif -%}
-            {% if section.settings.show_variants %}
-              <div class="variant-availability">
-                {% for variant in card_product.variants %}
-                  <span class="{% unless variant.available %} unavailable{% endunless %}">
-                    {{ variant.option2 }}
-                  </span>
-                {% endfor %}
-              </div>
-            {% endif %}
           </div>
         </div>
         {% assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id %}
