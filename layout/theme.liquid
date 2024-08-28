@@ -397,6 +397,11 @@
         recipientFormCollapsed: `{{ 'recipient.form.collapsed' | t }}`,
         countrySelectorSearchCount: `{{ 'localization.country_results_count' | t: count: '[count]' }}`,
       };
+
+      window.customVars = {
+        freeShippingThresholdOverrideEnabled: {% if settings.cart_free_shipping_override != nil %}true{% else %}false{% endif %},
+        freeShippingThreshold: {{ settings.cart_free_shipping_override }}
+      }
     </script>
 
     {%- if settings.predictive_search_enabled -%}
