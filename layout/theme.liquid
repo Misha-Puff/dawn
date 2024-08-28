@@ -1,6 +1,6 @@
-{%- comment %}<locksmith:0418>{% endcomment -%}
-  {%- include 'locksmith' -%}
-{%- comment %}</locksmith:0418>{% endcomment -%}
+{%- comment %}<locksmith:0418>{%- endcomment %}
+{%- include 'locksmith' -%}
+{%- comment %}</locksmith:0418>{%- endcomment %}
 
 {% assign locksmith_initializations = '' %}
 
@@ -38,10 +38,11 @@
     </title>
 
     {% if page_description %}
-      {%- comment %}<locksmith:4845>{% endcomment -%}
-        {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
-        {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-      {%- comment %}</locksmith:4845>{% endcomment -%}
+      {%- comment %}<locksmith:4845>{%- endcomment %}
+      {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture -%}
+      {%- if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+      {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
+      {%- comment %}</locksmith:4845>{%- endcomment %}
     {% endif %}
 
     {% render 'meta-tags' %}
@@ -395,6 +396,16 @@
         recipientFormExpanded: `{{ 'recipient.form.expanded' | t }}`,
         recipientFormCollapsed: `{{ 'recipient.form.collapsed' | t }}`,
         countrySelectorSearchCount: `{{ 'localization.country_results_count' | t: count: '[count]' }}`,
+      };
+
+      window.customVars = {
+        {% if settings.cart_free_shipping_override != nil %}
+          freeShippingThresholdOverrideEnabled: true,
+          freeShippingThreshold: {{ settings.cart_free_shipping_override }}
+        {% else %}
+          freeShippingThresholdOverrideEnabled: false,
+          freeShippingThreshold: null
+        {% endif %}
       };
     </script>
 
