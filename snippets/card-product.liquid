@@ -171,17 +171,22 @@
           </div>
         </div>
         {% if section.settings.show_variants %}
-          <div class="variant-availability">
-            {% for variant in card_product.variants %}
-              <span class="{% unless variant.available %} unavailable{% endunless %}">
-                {% if variant.option2 %}
-                  {{ variant.option2 }}
-                {% else %}
-                  {{ variant.option1 }}
-                {% endif %}
-              </span>
-            {% endfor %}
-          </div>
+          {% unless card_product.type == 'Yarn Skein'
+            or card_product.type == 'Pattern'
+            or card_product.type == 'Repair'
+          %}
+            <div class="variant-availability">
+              {% for variant in card_product.variants %}
+                <span class="{% unless variant.available %} unavailable{% endunless %}">
+                  {% if variant.option2 %}
+                    {{ variant.option2 }}
+                  {% else %}
+                    {{ variant.option1 }}
+                  {% endif %}
+                </span>
+              {% endfor %}
+            </div>
+          {% endunless %}
         {% endif %}
       </div>
       <div class="card__content">
