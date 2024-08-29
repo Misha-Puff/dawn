@@ -70,12 +70,23 @@
   }
 
   {% for block in section.blocks %}
+  @media screen and (min-width: 990px) {
     .block--{{ block.id }} {
-      grid-column-start: {{ block.settings.col_start | at_least: 1 | at_most: section.settings.columns_desktop }};
-      grid-column-end: span {{ block.settings.col_span | at_least: 1 | at_most: section.settings.columns_desktop }};
-      grid-row-start: {{ block.settings.row_start | at_least: 1  }};
-      grid-row-end: span {{ block.settings.row_span | at_least: 1  }};
+      grid-column-start: {{ block.settings.col_start_desktop }};
+      grid-column-end: span {{ block.settings.col_span_desktop }};
+      grid-row-start: {{ block.settings.row_start_desktop }};
+      grid-row-end: span {{ block.settings.row_span_desktop }};
     }
+  }
+
+  @media screen and (max-width: 989px) {
+    .block--{{ block.id }} {
+      grid-column-start: {{ block.settings.col_start_mobile }};
+      grid-column-end: span {{ block.settings.col_span_mobile }};
+      grid-row-start: {{ block.settings.row_start_mobile }};
+      grid-row-end: span {{ block.settings.row_span_mobile }};
+    }
+  }
   {% endfor %}
 {%- endstyle -%}
 
@@ -497,8 +508,12 @@
           "label": "Link"
         },
         {
+          "type": "header",
+          "content": "Desktop"
+        },
+        {
           "type": "range",
-          "id": "row_start",
+          "id": "row_start_desktop",
           "min": 1,
           "max": 16,
           "step": 1,
@@ -507,7 +522,7 @@
         },
         {
           "type": "range",
-          "id": "row_span",
+          "id": "row_span_desktop",
           "min": 1,
           "max": 3,
           "step": 1,
@@ -516,7 +531,7 @@
         },
         {
           "type": "range",
-          "id": "col_start",
+          "id": "col_start_desktop",
           "min": 1,
           "max": 3,
           "step": 1,
@@ -525,11 +540,65 @@
         },
         {
           "type": "range",
-          "id": "col_span",
+          "id": "col_span_desktop",
           "min": 1,
           "max": 3,
           "step": 1,
           "default": 1,
+          "label": "Column Span"
+        },
+        {
+          "type": "header",
+          "content": "Mobile"
+        },
+        {
+          "type": "range",
+          "id": "row_start_mobile",
+          "min": 1,
+          "max": 24,
+          "step": 1,
+          "default": 1,
+          "label": "Starting Row"
+        },
+        {
+          "type": "range",
+          "id": "row_span_mobile",
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "default": 1,
+          "label": "Row Span"
+        },
+        {
+          "type": "select",
+          "id": "col_start_mobile",
+          "options": [
+            {
+              "value": "1",
+              "label": "1"
+            },
+            {
+              "value": "2",
+              "label": "2"
+            }
+          ],
+          "default": "1",
+          "label": "Starting Column"
+        },
+        {
+          "type": "select",
+          "id": "col_span_mobile",
+          "options": [
+            {
+              "value": "1",
+              "label": "1"
+            },
+            {
+              "value": "2",
+              "label": "2"
+            }
+          ],
+          "default": "1",
           "label": "Column Span"
         }
       ]
