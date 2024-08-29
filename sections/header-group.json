@@ -37,7 +37,7 @@
     "header": {
       "type": "header",
       "custom_css": [
-        ".header__menu-item [title=\"Archive\"] {color: red;}"
+        "#HeaderMenu-archive {color: red;}"
       ],
       "settings": {
         "logo_position": "top-center",
