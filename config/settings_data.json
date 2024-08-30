@@ -16,6 +16,7 @@
     "heading_scale": 100,
     "type_body_font": "neue_haas_unica_n4",
     "body_scale": 100,
+    "enable_sticky_bar": true,
     "page_width": 1600,
     "page_width_padding": 30,
     "mobile_page_width_padding": 20,
