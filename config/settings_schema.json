@@ -162,6 +162,12 @@
     "name": "t:settings_schema.layout.name",
     "settings": [
       {
+        "type": "checkbox",
+        "id": "enable_sticky_bar",
+        "default": false,
+        "label": "Enable sticky announcement bar"
+      },
+      {
         "type": "range",
         "id": "page_width",
         "min": 1000,

@@ -2078,7 +2078,12 @@ input[type='checkbox'] {
 
 /* utility-bar */
 .utility-bar {
-  height: 100%;
+  height: 40px;
+}
+
+.announcement-bar-section.sticky-bar {
+  position: sticky;
+  top: 0;
 }
 
 .utility-bar--bottom-border {

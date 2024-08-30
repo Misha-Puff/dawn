@@ -108,6 +108,12 @@
       max-width: {{ settings.mobile_logo_width }}px;
     }
   }
+
+  {% if settings.enable_sticky_bar %}
+    .shopify-section-header-sticky {
+      top: 40px;
+    }
+  {% endif %}
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>

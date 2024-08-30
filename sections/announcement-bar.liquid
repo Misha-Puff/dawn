@@ -141,7 +141,11 @@
     </div>
   </div>
 </div>
-
+{% if settings.enable_sticky_bar %}
+  <script>
+    document.querySelector('.announcement-bar-section').classList.add('sticky-bar');
+  </script>
+{% endif %}
 {% schema %}
 {
   "name": "t:sections.announcement-bar.name",
