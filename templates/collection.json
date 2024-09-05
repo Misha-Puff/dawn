@@ -32,6 +32,7 @@
       "blocks": {
         "image_f8UJrh": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
@@ -47,6 +48,7 @@
         },
         "image_gkgQFt": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
