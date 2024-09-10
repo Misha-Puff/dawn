@@ -77,6 +77,85 @@
         "padding_right": 0
       }
     },
+    "multicolumn_GxfwzA": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_RtMfii": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Scout_Top_-_Pink_Lilac_01_420d3ac7-69dc-4e1e-9a52-bdc295953100.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "TOPS",
+            "link": "shopify:\/\/collections\/child-tops"
+          }
+        },
+        "column_HHt4f8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Izzy_Pant_-_Nut_Brown_Peace_Jacquard_01_93b9cd7b-97f7-4274-8353-53a0c58be518.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "BOTTOMS",
+            "link": "shopify:\/\/collections\/child-bottoms"
+          }
+        },
+        "column_LJRLEz": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Swing_Set_Dress_-_Ink_Groovy_Paisley_01_12bad4eb-014f-462e-8136-7fff99addc51.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "DRESSES",
+            "link": "shopify:\/\/collections\/child-dresses"
+          }
+        },
+        "column_r66WBe": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Original_Popcorn_Sweater_-_Rose_Gold_01_9664572f-8395-4989-aaee-3d2a70253c70.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "SWEATERS",
+            "link": "shopify:\/\/collections\/child-sweaters-cardigans"
+          }
+        }
+      },
+      "block_order": [
+        "column_RtMfii",
+        "column_HHt4f8",
+        "column_LJRLEz",
+        "column_r66WBe"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "enable_overlay": true,
+        "content_position": "middle-center",
+        "link_type": "button",
+        "button_type": "secondary",
+        "enable_full_width": true,
+        "enable_custom_spacing": false,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
     "product-grid": {
       "type": "main-collection-product-grid",
       "blocks": {
@@ -152,6 +231,7 @@
     "shogun-above",
     "banner",
     "rich_text_xUAAN9",
+    "multicolumn_GxfwzA",
     "product-grid",
     "shogun-below",
     "shogun-optimizer"
