@@ -135,8 +135,8 @@
         "link_type": "button",
         "button_type": "secondary",
         "enable_full_width": true,
-        "enable_custom_spacing": false,
-        "horizontal_spacing_desktop": 20,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 10,
         "vertical_spacing_desktop": 20,
         "horizontal_spacing_mobile": 10,
         "vertical_spacing_mobile": 10,
@@ -150,9 +150,9 @@
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "desktop_padding_top": 0,
+        "desktop_padding_top": 30,
         "desktop_padding_bottom": 0,
-        "mobile_padding_top": 0,
+        "mobile_padding_top": 20,
         "mobile_padding_bottom": 0
       }
     },
