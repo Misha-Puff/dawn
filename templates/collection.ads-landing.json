@@ -218,11 +218,11 @@
     "featured_collection_6trWkR": {
       "type": "featured-collection",
       "settings": {
-        "title": "Fall's Best Sellers",
+        "title": "",
         "heading_size": "h2",
-        "description": "",
+        "description": "<p>Fall's Best Sellers<\/p>",
         "show_description": false,
-        "description_style": "body",
+        "description_style": "uppercase",
         "collection": "child-best-sellers",
         "products_to_show": 5,
         "columns_desktop": 5,
