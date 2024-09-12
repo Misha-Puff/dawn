@@ -130,7 +130,7 @@
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
-    "cart_free_shipping_override": 75,
+    "cart_free_shipping_override": 0,
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
