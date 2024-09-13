@@ -87,7 +87,7 @@
         "text_iqachQ"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.29.24_3.jpg",
+        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.13.24_2.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -95,7 +95,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.29.24_3_Mob.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.13.24_2_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
@@ -186,11 +186,11 @@
         "column_dQmUh8": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.29.24_BTSEdit_17cd6799-1a55-442f-97d5-8067cd9e055d.jpg",
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.13.24_3_BoyEdit2.jpg",
             "title": "",
             "text": "",
-            "link_label": "Back to School Edit —",
-            "link": "shopify:\/\/collections\/child-fall-collection-back-to-school"
+            "link_label": "Boy Edit —",
+            "link": "shopify:\/\/collections\/child-fall-collection-boy-edit"
           }
         },
         "column_RwiwcK": {
