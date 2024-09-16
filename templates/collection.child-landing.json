@@ -101,6 +101,75 @@
         "show_text_below": false
       }
     },
+    "multicolumn_gfwpxD": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_RwiwcK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.17.4_2_Mob.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Preview Fall Part 2 —",
+            "link": "shopify:\/\/collections\/child-fall-24-drop-2"
+          }
+        },
+        "column_dQmUh8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.13.24_3_BoyEdit2.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Boy Edit —",
+            "link": "shopify:\/\/collections\/child-fall-collection-boy-edit"
+          }
+        },
+        "column_iBFc39": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SaleALL_8.20.24.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Sale \/ Further Markdowns up to 40% off —",
+            "link": "shopify:\/\/collections\/child-sale"
+          }
+        }
+      },
+      "block_order": [
+        "column_RwiwcK",
+        "column_dQmUh8",
+        "column_iBFc39"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "enable_overlay": false,
+        "content_position": "middle-center",
+        "link_type": "link",
+        "button_type": "primary",
+        "enable_full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 30,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 0,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 20,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 0
+      }
+    },
     "multicolumn_HbcHgm": {
       "type": "multicolumn",
       "blocks": {
@@ -174,78 +243,9 @@
         "color_scheme": "",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 0,
-        "mobile_padding_top": 20,
-        "mobile_padding_bottom": 0
-      }
-    },
-    "multicolumn_gfwpxD": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_dQmUh8": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.13.24_3_BoyEdit2.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Boy Edit —",
-            "link": "shopify:\/\/collections\/child-fall-collection-boy-edit"
-          }
-        },
-        "column_RwiwcK": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.29.24_HandKnit.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "New Hand Knits —",
-            "link": "shopify:\/\/collections\/child-hand-knit"
-          }
-        },
-        "column_iBFc39": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SaleALL_8.20.24.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Sale \/ Further Markdowns up to 40% off —",
-            "link": "shopify:\/\/collections\/child-sale"
-          }
-        }
-      },
-      "block_order": [
-        "column_dQmUh8",
-        "column_RwiwcK",
-        "column_iBFc39"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "enable_overlay": false,
-        "content_position": "middle-center",
-        "link_type": "link",
-        "button_type": "primary",
-        "enable_full_width": false,
-        "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 30,
-        "vertical_spacing_desktop": 20,
-        "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 0,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 2,
-        "column_alignment": "left",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "desktop_padding_top": 30,
+        "desktop_padding_top": 0,
         "desktop_padding_bottom": 30,
-        "mobile_padding_top": 20,
+        "mobile_padding_top": 0,
         "mobile_padding_bottom": 0
       }
     },
@@ -396,8 +396,8 @@
     "banner",
     "product-grid",
     "image_banner_pHe7YH",
-    "multicolumn_HbcHgm",
     "multicolumn_gfwpxD",
+    "multicolumn_HbcHgm",
     "multicolumn_pC9LLV",
     "image_banner_pmtDmp",
     "slideshow_8wUhXX",
