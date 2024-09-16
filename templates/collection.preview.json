@@ -21,10 +21,67 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
         "color_scheme": "scheme-1"
+      }
+    },
+    "featured_collection_Nf9ban": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Kids",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "child-fall-24-drop-2-preview",
+        "products_to_show": 25,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_collection_aKRY9c": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Baby",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "baby-fall-24-drop-2-preview",
+        "products_to_show": 24,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "product-grid": {
@@ -67,6 +124,7 @@
         "image_f8UJrh",
         "image_gkgQFt"
       ],
+      "disabled": true,
       "settings": {
         "products_per_page": 48,
         "columns_desktop": 3,
@@ -101,6 +159,8 @@
     "shogun-helper",
     "shogun-above",
     "banner",
+    "featured_collection_Nf9ban",
+    "featured_collection_aKRY9c",
     "product-grid",
     "shogun-below",
     "shogun-optimizer"
