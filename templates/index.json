@@ -60,35 +60,6 @@
         "show_text_below": false
       }
     },
-    "featured_collection_YrgjwD": {
-      "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "child-summer-24",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": false,
-        "view_all_style": "link",
-        "enable_desktop_slider": false,
-        "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "multicolumn_peYxH9": {
       "type": "multicolumn",
       "blocks": {
@@ -144,6 +115,34 @@
         "desktop_padding_bottom": 20,
         "mobile_padding_top": 20,
         "mobile_padding_bottom": 0
+      }
+    },
+    "featured_collection_YrgjwD": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "child-best-sellers",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": true,
+        "show_view_all": false,
+        "view_all_style": "link",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 20,
+        "padding_bottom": 0
       }
     },
     "multicolumn_4t4Ubf": {
@@ -404,8 +403,8 @@
   },
   "order": [
     "image_banner_bz8jb3",
-    "featured_collection_YrgjwD",
     "multicolumn_peYxH9",
+    "featured_collection_YrgjwD",
     "multicolumn_4t4Ubf",
     "multicolumn_GbjXUE",
     "multicolumn",
