@@ -73,6 +73,10 @@
 <div
   id="Banner-{{ section.id }}-desktop"
   class="banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.stack_images_on_mobile and section.settings.image != blank and section.settings.image_2 != blank %} banner--stacked{% endif %}{% if section.settings.image_height == 'adapt' and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} is-hidden-mobile-only"
+  {% if section.settings.banner_link %}
+    onclick="location.href='{{ section.settings.banner_link }}';"
+    style="cursor: pointer;"
+  {% endif %}
 >
   {%- if section.settings.image != blank -%}
     <div class="banner__media media{% if section.settings.image == blank and section.settings.image_2 == blank %} placeholder{% endif %}{% if section.settings.image_2 != blank %} banner__media-half{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} is-hidden_mobile_only">
@@ -249,6 +253,10 @@
 <div
   id="Banner-{{ section.id }}-mobile"
   class="banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.stack_images_on_mobile and section.settings.mobile_image != blank and section.settings.mobile_image_2 != blank %} banner--stacked{% endif %}{% if section.settings.image_height == 'adapt' and section.settings.mobile_image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} is-hidden-desktop-only"
+  {% if section.settings.banner_link %}
+    onclick="location.href='{{ section.settings.banner_link }}';"
+    style="cursor: pointer;"
+  {% endif %}
 >
   {%- if section.settings.mobile_image != blank -%}
     <div class="banner__media media{% if section.settings.mobile_image == blank and section.settings.mobile_image_2 == blank %} placeholder{% endif %}{% if section.settings.mobile_image_2 != blank %} banner__media-half{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
@@ -376,6 +384,11 @@
       "type": "image_picker",
       "id": "image_2",
       "label": "t:sections.image-banner.settings.image_2.label"
+    },
+    {
+      "type": "url",
+      "id": "banner_link",
+      "label": "Banner Link"
     },
     {
       "type": "range",
