@@ -31,8 +31,8 @@
     "featured_collection_Nf9ban": {
       "type": "featured-collection",
       "settings": {
-        "title": "Kids",
-        "heading_size": "h1",
+        "title": "Child Preview",
+        "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
@@ -59,8 +59,8 @@
     "featured_collection_aKRY9c": {
       "type": "featured-collection",
       "settings": {
-        "title": "Baby",
-        "heading_size": "h1",
+        "title": "Baby Preview",
+        "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
