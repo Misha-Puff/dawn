@@ -119,6 +119,7 @@
     },
     "featured_collection_YrgjwD": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h2",
