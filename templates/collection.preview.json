@@ -28,6 +28,54 @@
         "color_scheme": "scheme-1"
       }
     },
+    "rich_text_n8yiAy": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_cw4QqC": {
+          "type": "heading",
+          "settings": {
+            "heading": "Fall Collection Part 2",
+            "heading_size": "h2"
+          }
+        },
+        "text_aDVaDa": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The Fall Collection is an ode to the eclectic styles of decades past — blending influences from counterculture to preppy, inspired by the spirited fashion of late ’70s California and early ’80s New York City.<\/p><p>Part 2 brings even more pieces that celebrate craft and quirk with vibrant pattern mixing and easy-to-layer looks — dynamic prints, signature styles, cozy Merino wool knits, bold graphics, plenty of Baby styles, and fresh new arrivals.<\/p><p>Part 2 of the Fall Collection launches <a href=\"https:\/\/calendar.google.com\/event?action=TEMPLATE&tmeid=N3MxY2JsczIwb2h2Mjd0ZjE0NWsxaTdxdGcgY18wNjMycDQ1cDgyNzk2OXI2YWE0MmJ0ZWFza0Bn&tmsrc=c_0632p45p827969r6aa42bteask%40group.calendar.google.com\" target=\"_blank\" title=\"https:\/\/calendar.google.com\/event?action=TEMPLATE&tmeid=N3MxY2JsczIwb2h2Mjd0ZjE0NWsxaTdxdGcgY18wNjMycDQ1cDgyNzk2OXI2YWE0MmJ0ZWFza0Bn&tmsrc=c_0632p45p827969r6aa42bteask%40group.calendar.google.com\">Thursday, September 19 at 11 am ET<\/a>.<br\/><br\/><\/p>",
+            "line_height": 20
+          }
+        },
+        "button_J6VEqX": {
+          "type": "button",
+          "settings": {
+            "button_label": "VIEW LOOKBOOK",
+            "button_link": "shopify:\/\/blogs\/journal\/fa-24-2",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_cw4QqC",
+        "text_aDVaDa",
+        "button_J6VEqX"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 40,
+        "padding_left": 100,
+        "padding_right": 100
+      }
+    },
     "featured_collection_Nf9ban": {
       "type": "featured-collection",
       "settings": {
@@ -159,6 +207,7 @@
     "shogun-helper",
     "shogun-above",
     "banner",
+    "rich_text_n8yiAy",
     "featured_collection_Nf9ban",
     "featured_collection_aKRY9c",
     "product-grid",
