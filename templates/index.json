@@ -46,7 +46,6 @@
         "text_TdBLTR"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.13.24_1.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -105,11 +104,11 @@
         "column_3igURh": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.29.24_Sale_Mob.jpg",
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.13.24_1_Mob.jpg",
             "title": "",
             "text": "",
-            "link_label": "Shop Sale —",
-            "link": "shopify:\/\/collections\/child-sale"
+            "link_label": "Shop Fall —",
+            "link": "shopify:\/\/collections\/child-fall-24"
           }
         }
       },
