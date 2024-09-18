@@ -46,7 +46,7 @@
         "text_TdBLTR"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.17.4_1.jpg",
+        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.19.24_HP.jpg",
         "banner_link": "shopify:\/\/collections\/preview",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -55,7 +55,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.17.4_2_Mob.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.19.24_HP_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
