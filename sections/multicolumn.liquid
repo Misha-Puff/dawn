@@ -132,13 +132,16 @@
       }
     }
 
-    .colored-link {
-      color: {{ section.settings.link_color }};
-    }
+    {% for block in section.blocks %}
+      .Block-{{ block.id }} .colored-link {
+        color: {{ section.settings.link_color }};
+      }
 
-    .styled-link {
-      text-decoration: {{ section.settings.link_style }} !important;
-    }
+      .Block-{{ block.id }} .styled-link {
+        text-decoration: {{ section.settings.link_style }} !important;
+      }
+    {% endfor %}
+
   {% endif %}
 {%- endstyle -%}
 
@@ -210,7 +213,7 @@
 
           <li
             id="Slide-{{ section.id }}-{{ forloop.index }}"
-            class="multicolumn-list__item grid__item{% if section.settings.swipe_on_mobile %} slider__slide{% endif %}{% if section.settings.column_alignment == 'center' %} center{% endif %}{{ empty_column }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            class="Block-{{ block.id }} multicolumn-list__item grid__item{% if section.settings.swipe_on_mobile %} slider__slide{% endif %}{% if section.settings.column_alignment == 'center' %} center{% endif %}{{ empty_column }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
             {{ block.shopify_attributes }}
             {% if settings.animations_reveal_on_scroll %}
               data-cascade
