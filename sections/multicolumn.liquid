@@ -131,6 +131,14 @@
         width: calc(50% - {{ section.settings.horizontal_spacing_mobile }}px / 2);
       }
     }
+
+    .colored-link {
+      color: {{ section.settings.link_color }};
+    }
+
+    .styled-link {
+      text-decoration: {{ section.settings.link_style }} !important;
+    }
   {% endif %}
 {%- endstyle -%}
 
@@ -264,7 +272,7 @@
                 {%- endif -%}
                 {%- if block.settings.link_label != blank -%}
                   <a
-                    class="{% if link_type == 'button' %}button {{button_type}}{% else %}link animate-arrow{% endif %}"
+                    class="{% if link_type == 'button' %}button {{ button_type }}{% else %}link colored-link styled-link animate-arrow{% endif %}"
                     {% if block.settings.link == blank %}
                       role="link" aria-disabled="true"
                     {% else %}
@@ -435,6 +443,28 @@
       ],
       "default": "link",
       "label": "Link Type"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link color",
+      "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "link_style",
+      "label": "Link style",
+      "options": [
+        {
+          "value": "underline",
+          "label": "Underline"
+        },
+        {
+          "value": "none",
+          "label": "None"
+        }
+      ],
+      "default": "none"
     },
     {
       "type": "select",
