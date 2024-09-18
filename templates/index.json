@@ -46,6 +46,7 @@
         "text_TdBLTR"
       ],
       "settings": {
+        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.17.4_1.jpg",
         "banner_link": "shopify:\/\/collections\/preview",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
