@@ -108,21 +108,21 @@
         "column_RwiwcK": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.17.4_2_Mob.jpg",
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.19.24_LB.jpg",
             "title": "",
             "text": "",
-            "link_label": "Preview Fall Part 2 —",
-            "link": "shopify:\/\/collections\/preview"
+            "link_label": "Fall Lookbook —",
+            "link": "shopify:\/\/blogs\/journal\/fa-24-2"
           }
         },
         "column_dQmUh8": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.6.24_1_Mob_bc358f99-20a1-4e80-95d6-0eb82327a30b.jpg",
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_Mob_8.6.24_2.jpg",
             "title": "",
             "text": "",
-            "link_label": "Boy Edit —",
-            "link": "shopify:\/\/collections\/child-fall-collection-boy-edit"
+            "link_label": "Denim Collection —",
+            "link": "shopify:\/\/collections\/child-fall-denim-collection"
           }
         },
         "column_iBFc39": {
@@ -169,6 +169,36 @@
         "desktop_padding_bottom": 20,
         "mobile_padding_top": 20,
         "mobile_padding_bottom": 0
+      }
+    },
+    "featured_collection_Arnewb": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_alignment": "left",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "child-fall-24",
+        "products_to_show": 5,
+        "columns_desktop": 4,
+        "full_width": true,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "multicolumn_HbcHgm": {
@@ -399,6 +429,7 @@
     "product-grid",
     "image_banner_pHe7YH",
     "multicolumn_gfwpxD",
+    "featured_collection_Arnewb",
     "multicolumn_HbcHgm",
     "multicolumn_pC9LLV",
     "image_banner_pmtDmp",
