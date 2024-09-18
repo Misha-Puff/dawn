@@ -214,16 +214,6 @@
             "link": "shopify:\/\/collections\/child-sweaters-cardigans"
           }
         },
-        "column_cbb8R9": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Pattie_Dress_-_Yonder_Scribble_1_Dresses.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "DRESSES",
-            "link": "shopify:\/\/collections\/child-dresses"
-          }
-        },
         "column_4dtYhK": {
           "type": "column",
           "settings": {
@@ -243,13 +233,65 @@
             "link_label": "BOTTOMS",
             "link": "shopify:\/\/collections\/child-bottoms"
           }
+        },
+        "column_cbb8R9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Pattie_Dress_-_Yonder_Scribble_1_Dresses.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "DRESSES",
+            "link": "shopify:\/\/collections\/child-dresses"
+          }
+        },
+        "column_pW4ht9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Parlor_Chevron_Collar_-_Ink_1_Accs.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "ACCESSORIES",
+            "link": "shopify:\/\/collections\/child-accessories"
+          }
+        },
+        "column_bNHwHc": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Snowdrop_Lodge_Coat_-_Fig_1_Jackets.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "JACKETS",
+            "link": "shopify:\/\/collections\/child-jackets"
+          }
+        },
+        "column_cx3PxC": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_7bKmgw": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
         }
       },
       "block_order": [
         "column_9wJreE",
-        "column_cbb8R9",
         "column_4dtYhK",
-        "column_fqtCKn"
+        "column_fqtCKn",
+        "column_cbb8R9",
+        "column_pW4ht9",
+        "column_bNHwHc",
+        "column_cx3PxC",
+        "column_7bKmgw"
       ],
       "settings": {
         "title": "",
