@@ -218,13 +218,54 @@
             "link_label": "ACCESSORIES",
             "link": "shopify:\/\/collections\/child-accessories"
           }
+        },
+        "column_JLMAqm": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Ingrid_Dress_-_Ink_Playground_1_DRESS.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "DRESSES",
+            "link": "shopify:\/\/collections\/child-dresses"
+          }
+        },
+        "column_HnbifQ": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_YhVwUE": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_PTttra": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
         }
       },
       "block_order": [
         "column_rLVYmc",
         "column_8kQCT9",
         "column_WCJg47",
-        "column_prW6et"
+        "column_prW6et",
+        "column_JLMAqm",
+        "column_HnbifQ",
+        "column_YhVwUE",
+        "column_PTttra"
       ],
       "settings": {
         "title": "",
