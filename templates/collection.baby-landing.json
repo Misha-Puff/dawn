@@ -114,7 +114,6 @@
         "text_KVmVrL"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.17.4_Baby_2.jpg",
         "banner_link": "shopify:\/\/collections\/preview",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -127,63 +126,6 @@
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
-      }
-    },
-    "multicolumn_BdmKMm": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_Hgag6H": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.17.4_Baby_1_8fd278a5-171b-4774-9b84-592db352359b.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Shop Fall —",
-            "link": "shopify:\/\/collections\/baby-fall-24"
-          }
-        },
-        "column_VnhYKW": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/misha-and-puff-layette-22-ipswich-44copy.webp",
-            "title": "",
-            "text": "",
-            "link_label": "Shop Layette —",
-            "link": "shopify:\/\/collections\/layette-24-old"
-          }
-        }
-      },
-      "block_order": [
-        "column_Hgag6H",
-        "column_VnhYKW"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "enable_overlay": false,
-        "content_position": "middle-center",
-        "link_type": "link",
-        "button_type": "primary",
-        "enable_full_width": false,
-        "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 30,
-        "vertical_spacing_desktop": 20,
-        "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 0,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 2,
-        "column_alignment": "left",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 0,
-        "mobile_padding_top": 20,
-        "mobile_padding_bottom": 0
       }
     },
     "multicolumn_ftgmXy": {
@@ -258,6 +200,62 @@
         "button_link": "",
         "color_scheme": "",
         "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 0,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "multicolumn_BdmKMm": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_Hgag6H": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "Shop Fall —",
+            "link": "shopify:\/\/collections\/baby-fall-24"
+          }
+        },
+        "column_VnhYKW": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/misha-and-puff-layette-22-ipswich-44copy.webp",
+            "title": "",
+            "text": "",
+            "link_label": "Shop Layette —",
+            "link": "shopify:\/\/collections\/layette-24-old"
+          }
+        }
+      },
+      "block_order": [
+        "column_Hgag6H",
+        "column_VnhYKW"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "enable_overlay": false,
+        "content_position": "middle-center",
+        "link_type": "link",
+        "button_type": "primary",
+        "enable_full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 30,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 0,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
         "swipe_on_mobile": false,
         "desktop_padding_top": 30,
         "desktop_padding_bottom": 0,
@@ -363,8 +361,8 @@
     "product-grid",
     "slideshow_YByHak",
     "image_banner_mnqyLG",
-    "multicolumn_BdmKMm",
     "multicolumn_ftgmXy",
+    "multicolumn_BdmKMm",
     "multicolumn_LgdJCJ",
     "image_banner_jcHbpF"
   ]

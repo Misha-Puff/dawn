@@ -87,7 +87,6 @@
         "text_iqachQ"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.13.24_1_7787f0d0-a6a4-400e-aced-809823be87ed.jpg",
         "banner_link": "shopify:\/\/collections\/child-fall-24",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -100,75 +99,6 @@
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
-      }
-    },
-    "multicolumn_gfwpxD": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_RwiwcK": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.17.4_2_Mob.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Preview Fall Part 2 —",
-            "link": "shopify:\/\/collections\/preview"
-          }
-        },
-        "column_dQmUh8": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.6.24_1_Mob_bc358f99-20a1-4e80-95d6-0eb82327a30b.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Boy Edit —",
-            "link": "shopify:\/\/collections\/child-fall-collection-boy-edit"
-          }
-        },
-        "column_iBFc39": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SaleALL_8.20.24.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Sale \/ Further Markdowns up to 40% off —",
-            "link": "shopify:\/\/collections\/child-sale"
-          }
-        }
-      },
-      "block_order": [
-        "column_RwiwcK",
-        "column_dQmUh8",
-        "column_iBFc39"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "enable_overlay": false,
-        "content_position": "middle-center",
-        "link_type": "link",
-        "button_type": "primary",
-        "enable_full_width": false,
-        "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 30,
-        "vertical_spacing_desktop": 20,
-        "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 0,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 2,
-        "column_alignment": "left",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 20,
-        "mobile_padding_top": 20,
-        "mobile_padding_bottom": 0
       }
     },
     "multicolumn_HbcHgm": {
@@ -244,9 +174,78 @@
         "color_scheme": "",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "desktop_padding_top": 0,
-        "desktop_padding_bottom": 30,
-        "mobile_padding_top": 0,
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 0,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "multicolumn_gfwpxD": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_RwiwcK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.17.4_2_Mob.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Preview Fall Part 2 —",
+            "link": "shopify:\/\/collections\/preview"
+          }
+        },
+        "column_dQmUh8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.6.24_1_Mob_bc358f99-20a1-4e80-95d6-0eb82327a30b.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Boy Edit —",
+            "link": "shopify:\/\/collections\/child-fall-collection-boy-edit"
+          }
+        },
+        "column_iBFc39": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SaleALL_8.20.24.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Sale \/ Further Markdowns up to 40% off —",
+            "link": "shopify:\/\/collections\/child-sale"
+          }
+        }
+      },
+      "block_order": [
+        "column_RwiwcK",
+        "column_dQmUh8",
+        "column_iBFc39"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "enable_overlay": false,
+        "content_position": "middle-center",
+        "link_type": "link",
+        "button_type": "primary",
+        "enable_full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 30,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 0,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 20,
+        "mobile_padding_top": 20,
         "mobile_padding_bottom": 0
       }
     },
@@ -398,8 +397,8 @@
     "banner",
     "product-grid",
     "image_banner_pHe7YH",
-    "multicolumn_gfwpxD",
     "multicolumn_HbcHgm",
+    "multicolumn_gfwpxD",
     "multicolumn_pC9LLV",
     "image_banner_pmtDmp",
     "slideshow_8wUhXX",
