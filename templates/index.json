@@ -245,8 +245,8 @@
             "image": "shopify:\/\/shop_images\/Cate_Capelet_-_Ocean_Space_Dye_1_Accs.jpg",
             "title": "",
             "text": "",
-            "link_label": "",
-            "link": ""
+            "link_label": "ACCESSORIES",
+            "link": "shopify:\/\/collections\/child-accessories"
           }
         },
         "column_PTttra": {
@@ -255,8 +255,8 @@
             "image": "shopify:\/\/shop_images\/Alphabet_Market_Coat_-_Sprig_1_JACKETS.jpg",
             "title": "",
             "text": "",
-            "link_label": "",
-            "link": ""
+            "link_label": "JACKETS",
+            "link": "shopify:\/\/collections\/child-jackets"
           }
         }
       },
