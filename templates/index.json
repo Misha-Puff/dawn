@@ -67,7 +67,7 @@
         "column_iAT4GA": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.17.4_Baby_1_8fd278a5-171b-4774-9b84-592db352359b.jpg",
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.19.24_Baby2.jpg",
             "title": "",
             "text": "",
             "link_label": "Shop Baby —",
@@ -77,10 +77,11 @@
         "column_3igURh": {
           "type": "column",
           "settings": {
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.19.24_BS.jpg",
             "title": "",
             "text": "",
-            "link_label": "Shop Fall —",
-            "link": "shopify:\/\/collections\/child-fall-24"
+            "link_label": "Best Sellers —",
+            "link": "shopify:\/\/collections\/child-best-sellers"
           }
         }
       },
