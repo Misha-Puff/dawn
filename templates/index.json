@@ -250,7 +250,7 @@
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "desktop_padding_top": 0,
-        "desktop_padding_bottom": 30,
+        "desktop_padding_bottom": 0,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 0
       }
