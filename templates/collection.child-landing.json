@@ -227,7 +227,7 @@
         "column_fqtCKn": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Kingston_Pant_-_Atlantic_Zigzag_Jacquard_1_Bottoms.jpg",
+            "image": "shopify:\/\/shop_images\/Zuzu_Pant_-_Berry_Lattice_1_Bottoms.jpg",
             "title": "",
             "text": "",
             "link_label": "BOTTOMS",
@@ -247,7 +247,7 @@
         "column_pW4ht9": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Parlor_Chevron_Collar_-_Ink_1_Accs.jpg",
+            "image": "shopify:\/\/shop_images\/Cate_Capelet_-_Ocean_Space_Dye_1_Accs.jpg",
             "title": "",
             "text": "",
             "link_label": "ACCESSORIES",
@@ -267,19 +267,21 @@
         "column_cx3PxC": {
           "type": "column",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Simone_Overall_-_Atlantic_Zigzag_Jacquard_1_ONEPIECE.jpg",
             "title": "",
             "text": "",
-            "link_label": "",
+            "link_label": "ONE-PIECES",
             "link": ""
           }
         },
         "column_7bKmgw": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
+            "image": "shopify:\/\/shop_images\/Snail_Clip_Set_-_Fox_1_Hair.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "HAIR",
+            "link": "shopify:\/\/collections\/child-hair-accessories"
           }
         }
       },
