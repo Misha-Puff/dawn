@@ -46,7 +46,6 @@
         "text_TdBLTR"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.17.4_2.jpg",
         "banner_link": "shopify:\/\/collections\/preview",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -64,16 +63,6 @@
     "multicolumn_peYxH9": {
       "type": "multicolumn",
       "blocks": {
-        "column_3igURh": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.13.24_1_Mob.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Shop Fall —",
-            "link": "shopify:\/\/collections\/child-fall-24"
-          }
-        },
         "column_iAT4GA": {
           "type": "column",
           "settings": {
@@ -83,11 +72,20 @@
             "link_label": "Shop Baby —",
             "link": "shopify:\/\/collections\/baby-fall-24"
           }
+        },
+        "column_3igURh": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "Shop Fall —",
+            "link": "shopify:\/\/collections\/child-fall-24"
+          }
         }
       },
       "block_order": [
-        "column_3igURh",
-        "column_iAT4GA"
+        "column_iAT4GA",
+        "column_3igURh"
       ],
       "settings": {
         "title": "",
@@ -232,7 +230,6 @@
         "column_WCJg47": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_BestSell.jpg",
             "title": "",
             "text": "",
             "link_label": "Best Sellers",
@@ -242,7 +239,6 @@
         "column_prW6et": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/K9QKMud1Wx00nZO8sevMXfZVGFlwl7XVhcbOJpasqU.webp",
             "title": "",
             "text": "",
             "link_label": "Baby Sale",
