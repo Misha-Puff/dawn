@@ -192,7 +192,7 @@
         "column_qBk9pF": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Original_Popcorn_Sweater_Baby_-_Pink_Lilac_01.jpg",
+            "image": "shopify:\/\/shop_images\/Hooded_Popcorn_Cardigan_-_Iris_Confetti_1_Baby_Sweaters.jpg",
             "title": "",
             "text": "",
             "link_label": "SWEATERS",
@@ -212,21 +212,31 @@
         "column_xan3Nm": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Skating_Pond_Skirt_Baby_-_String_01.jpg",
+            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.19.24_Baby_Bottoms.jpg",
             "title": "",
             "text": "",
-            "link_label": "bottoms",
+            "link_label": "BOTTOMS",
             "link": "shopify:\/\/collections\/baby-bottoms"
           }
         },
         "column_VJfiC4": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Paloma_Onesie_-_Rose_Gold_01.jpg",
+            "image": "shopify:\/\/shop_images\/Rib_Longies_-_Ink_1_OnePieces.jpg",
             "title": "",
             "text": "",
-            "link_label": "one-pieces",
+            "link_label": "ONE-PIECES",
             "link": "shopify:\/\/collections\/baby-one-piece"
+          }
+        },
+        "column_PjhVYH": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Sledding_Hood_-_Yonder_1_Accs_1d3d74a9-e8c3-487e-8807-f8a596e89ca8.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "ACCESSORIES",
+            "link": "shopify:\/\/collections\/baby-accessories"
           }
         }
       },
@@ -234,14 +244,15 @@
         "column_qBk9pF",
         "column_WjaK8r",
         "column_xan3Nm",
-        "column_VJfiC4"
+        "column_VJfiC4",
+        "column_PjhVYH"
       ],
       "settings": {
         "title": "",
         "heading_size": "h1",
         "enable_overlay": true,
         "content_position": "middle-center",
-        "link_type": "button",
+        "link_type": "link",
         "button_type": "secondary",
         "enable_full_width": true,
         "enable_custom_spacing": true,
@@ -251,7 +262,7 @@
         "vertical_spacing_mobile": 6,
         "image_width": "full",
         "image_ratio": "adapt",
-        "columns_desktop": 4,
+        "columns_desktop": 5,
         "column_alignment": "left",
         "background_style": "none",
         "button_label": "",
