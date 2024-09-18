@@ -212,7 +212,7 @@
         "column_rLVYmc": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Tops_3909c701-8e97-485c-b5be-2388cd83eb4d.jpg",
+            "image": "shopify:\/\/shop_images\/Long_Sleeve_Vintage_Henley_-_Yonder_Scribble_1_Tops.jpg",
             "title": "",
             "text": "",
             "link_label": "TOPS",
@@ -222,29 +222,31 @@
         "column_8kQCT9": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_bottoms.jpg",
+            "image": "shopify:\/\/shop_images\/Cable_Skating_Skirt_-_Iris_Confetti_Bottoms.jpg",
             "title": "",
             "text": "",
-            "link_label": "bottoms",
+            "link_label": "BOTTOMS",
             "link": "shopify:\/\/collections\/child-bottoms"
           }
         },
         "column_WCJg47": {
           "type": "column",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Folk_Art_Sweater_-_Ocean_Space_Dye_1_Sweaters.jpg",
             "title": "",
             "text": "",
-            "link_label": "Best Sellers",
-            "link": "shopify:\/\/collections\/child-best-sellers"
+            "link_label": "SWEATERS",
+            "link": "shopify:\/\/collections\/child-sweaters-cardigans"
           }
         },
         "column_prW6et": {
           "type": "column",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Log_Cabin_Legwarmer_-_Citron_1_Accs2_f780bd07-61d5-41b1-9a48-325681ef97c1.jpg",
             "title": "",
             "text": "",
-            "link_label": "Baby Sale",
-            "link": "shopify:\/\/collections\/baby-sale"
+            "link_label": "ACCESSORIES",
+            "link": "shopify:\/\/collections\/child-accessories"
           }
         }
       },
@@ -256,17 +258,17 @@
       ],
       "settings": {
         "title": "",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "enable_overlay": true,
         "content_position": "middle-center",
-        "link_type": "button",
+        "link_type": "link",
         "button_type": "secondary",
         "enable_full_width": true,
         "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 10,
-        "vertical_spacing_desktop": 10,
-        "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 10,
+        "horizontal_spacing_desktop": 6,
+        "vertical_spacing_desktop": 6,
+        "horizontal_spacing_mobile": 6,
+        "vertical_spacing_mobile": 6,
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 4,
