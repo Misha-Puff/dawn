@@ -232,17 +232,19 @@
         "column_HnbifQ": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
+            "image": "shopify:\/\/shop_images\/Simone_Overall_-_Atlantic_Zigzag_Jacquard_1_ONEPIECE.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "ONE-PIECES",
+            "link": "shopify:\/\/collections\/child-one-piece"
           }
         },
         "column_YhVwUE": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "image": "shopify:\/\/shop_images\/Cate_Capelet_-_Ocean_Space_Dye_1_Accs.jpg",
+            "title": "",
+            "text": "",
             "link_label": "",
             "link": ""
           }
@@ -250,8 +252,9 @@
         "column_PTttra": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "image": "shopify:\/\/shop_images\/Alphabet_Market_Coat_-_Sprig_1_JACKETS.jpg",
+            "title": "",
+            "text": "",
             "link_label": "",
             "link": ""
           }
