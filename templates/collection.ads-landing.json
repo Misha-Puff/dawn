@@ -173,10 +173,20 @@
     "multicolumn_GxfwzA": {
       "type": "multicolumn",
       "blocks": {
+        "column_BnEQk6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Utility_Jeans_-_Sage_Denim_01.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "DENIM",
+            "link": "shopify://collections/child-fall-denim-collection"
+          }
+        },
         "column_RtMfii": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/Scout_Top_-_Pink_Lilac_01_420d3ac7-69dc-4e1e-9a52-bdc295953100.jpg",
+            "image": "shopify://shop_images/Monroe_Tunic_-_Mango_Playground_1_Tops.jpg",
             "title": "",
             "text": "",
             "link_label": "TOPS",
@@ -196,7 +206,7 @@
         "column_LJRLEz": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/Swing_Set_Dress_-_Ink_Groovy_Paisley_01_12bad4eb-014f-462e-8136-7fff99addc51.jpg",
+            "image": "shopify://shop_images/Ingrid_Dress_-_Ink_Playground_1_DRESS.jpg",
             "title": "",
             "text": "",
             "link_label": "DRESSES",
@@ -206,7 +216,7 @@
         "column_r66WBe": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/Original_Popcorn_Sweater_-_Rose_Gold_01_9664572f-8395-4989-aaee-3d2a70253c70.jpg",
+            "image": "shopify://shop_images/Homage_Sweater_-_Sprig_1_Sweaters.jpg",
             "title": "",
             "text": "",
             "link_label": "SWEATERS",
@@ -216,7 +226,7 @@
         "column_PpdRg4": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/HighTopVelcroSneaker-RoseGoldGroovyPaisley_02_6eba706a-4794-40b4-829a-5606516b9e84.jpg",
+            "image": "shopify://shop_images/Cate_Capelet_-_Ocean_Space_Dye_1_Accs.jpg",
             "title": "",
             "text": "",
             "link_label": "ACCESSORIES",
@@ -226,7 +236,7 @@
         "column_cRDGKE": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/SnapOverall-YonderLattice_01_f5ce07bc-e3bd-4c2c-9f35-8382eac0f4ec.jpg",
+            "image": "shopify://shop_images/Scout_Onesie_-_Yonder_Scribble_1_4x5_e82150b4-d146-4c29-99f4-9a3f84fa2379.jpg",
             "title": "",
             "text": "",
             "link_label": "SHOP BABY",
@@ -242,36 +252,26 @@
             "link_label": "SALE",
             "link": "shopify://collections/child-sale"
           }
-        },
-        "column_BnEQk6": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/MP_SP24_Baby_LP_Menu_Onesies.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "BABY SALE",
-            "link": "shopify://collections/baby-sale"
-          }
         }
       },
       "block_order": [
+        "column_BnEQk6",
         "column_RtMfii",
         "column_HHt4f8",
         "column_LJRLEz",
         "column_r66WBe",
         "column_PpdRg4",
         "column_cRDGKE",
-        "column_TmHkaL",
-        "column_BnEQk6"
+        "column_TmHkaL"
       ],
       "settings": {
         "title": "",
         "heading_size": "h2",
         "enable_overlay": true,
         "content_position": "middle-center",
-        "link_type": "button",
-        "link_color": "#000000",
-        "link_style": "none",
+        "link_type": "link",
+        "link_color": "#ffffff",
+        "link_style": "underline",
         "button_type": "secondary",
         "enable_full_width": true,
         "enable_custom_spacing": true,
