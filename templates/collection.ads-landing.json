@@ -34,14 +34,14 @@
         "heading_VqNLPe": {
           "type": "heading",
           "settings": {
-            "heading": "Back to School with the Fall Collection",
+            "heading": "The Fall Collection",
             "heading_size": "h2"
           }
         },
         "text_PcCPhK": {
           "type": "text",
           "settings": {
-            "text": "<p>Must-have pieces for the new school year are here! Discover our curated Fall Collection, featuring soft Pima cotton, Japanese denim, and cozy layers designed for all-day durability.<\/p>",
+            "text": "<p>Must-have pieces for fall — Explore our curated Fall Collection, featuring dynamic prints, cozy Merino wool knits, hand-crocheted heirlooms, soft Pima cotton, Japanese denim, and more. </p>",
             "line_height": 20
           }
         },
@@ -73,8 +73,8 @@
         "full_width": true,
         "padding_top": 28,
         "padding_bottom": 40,
-        "padding_left": 0,
-        "padding_right": 0
+        "padding_left": 48,
+        "padding_right": 48
       }
     },
     "product-grid": {
@@ -84,7 +84,7 @@
           "type": "image",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
+            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
             "row_start_desktop": 1,
             "row_span_desktop": 1,
@@ -100,7 +100,7 @@
           "type": "image",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_TransitionalLayers_3.jpg",
+            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
             "row_start_desktop": 6,
             "row_span_desktop": 1,
@@ -140,14 +140,20 @@
       "type": "featured-collection",
       "settings": {
         "title": "",
+        "heading_alignment": "left",
         "heading_size": "h2",
-        "description": "<p>Fall's Best Sellers<\/p>",
+        "description": "<p>Fall's Best Sellers</p>",
         "show_description": false,
         "description_style": "uppercase",
         "collection": "child-best-sellers",
         "products_to_show": 5,
         "columns_desktop": 5,
         "full_width": true,
+        "enable_custom_spacing": false,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
         "show_view_all": true,
         "view_all_style": "link",
         "enable_desktop_slider": true,
@@ -170,81 +176,81 @@
         "column_RtMfii": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Scout_Top_-_Pink_Lilac_01_420d3ac7-69dc-4e1e-9a52-bdc295953100.jpg",
+            "image": "shopify://shop_images/Scout_Top_-_Pink_Lilac_01_420d3ac7-69dc-4e1e-9a52-bdc295953100.jpg",
             "title": "",
             "text": "",
             "link_label": "TOPS",
-            "link": "shopify:\/\/collections\/child-tops"
+            "link": "shopify://collections/child-tops"
           }
         },
         "column_HHt4f8": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Izzy_Pant_-_Nut_Brown_Peace_Jacquard_01_93b9cd7b-97f7-4274-8353-53a0c58be518.jpg",
+            "image": "shopify://shop_images/Izzy_Pant_-_Nut_Brown_Peace_Jacquard_01_93b9cd7b-97f7-4274-8353-53a0c58be518.jpg",
             "title": "",
             "text": "",
             "link_label": "BOTTOMS",
-            "link": "shopify:\/\/collections\/child-bottoms"
+            "link": "shopify://collections/child-bottoms"
           }
         },
         "column_LJRLEz": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Swing_Set_Dress_-_Ink_Groovy_Paisley_01_12bad4eb-014f-462e-8136-7fff99addc51.jpg",
+            "image": "shopify://shop_images/Swing_Set_Dress_-_Ink_Groovy_Paisley_01_12bad4eb-014f-462e-8136-7fff99addc51.jpg",
             "title": "",
             "text": "",
             "link_label": "DRESSES",
-            "link": "shopify:\/\/collections\/child-dresses"
+            "link": "shopify://collections/child-dresses"
           }
         },
         "column_r66WBe": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Original_Popcorn_Sweater_-_Rose_Gold_01_9664572f-8395-4989-aaee-3d2a70253c70.jpg",
+            "image": "shopify://shop_images/Original_Popcorn_Sweater_-_Rose_Gold_01_9664572f-8395-4989-aaee-3d2a70253c70.jpg",
             "title": "",
             "text": "",
             "link_label": "SWEATERS",
-            "link": "shopify:\/\/collections\/child-sweaters-cardigans"
+            "link": "shopify://collections/child-sweaters-cardigans"
           }
         },
         "column_PpdRg4": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/HighTopVelcroSneaker-RoseGoldGroovyPaisley_02_6eba706a-4794-40b4-829a-5606516b9e84.jpg",
+            "image": "shopify://shop_images/HighTopVelcroSneaker-RoseGoldGroovyPaisley_02_6eba706a-4794-40b4-829a-5606516b9e84.jpg",
             "title": "",
             "text": "",
             "link_label": "ACCESSORIES",
-            "link": "shopify:\/\/collections\/child-accessories"
+            "link": "shopify://collections/child-accessories"
           }
         },
         "column_cRDGKE": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/SnapOverall-YonderLattice_01_f5ce07bc-e3bd-4c2c-9f35-8382eac0f4ec.jpg",
+            "image": "shopify://shop_images/SnapOverall-YonderLattice_01_f5ce07bc-e3bd-4c2c-9f35-8382eac0f4ec.jpg",
             "title": "",
             "text": "",
             "link_label": "SHOP BABY",
-            "link": "shopify:\/\/collections\/baby-fall-24"
+            "link": "shopify://collections/baby-fall-24"
           }
         },
         "column_TmHkaL": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/TkCpoYDN4TjvOq9CV3q-weXYN1zbw_v5x4BMSV7VKP8_9a7ad0ed-c537-4de7-b15e-2171f90983f4.jpg",
+            "image": "shopify://shop_images/TkCpoYDN4TjvOq9CV3q-weXYN1zbw_v5x4BMSV7VKP8_9a7ad0ed-c537-4de7-b15e-2171f90983f4.jpg",
             "title": "",
             "text": "",
             "link_label": "SALE",
-            "link": "shopify:\/\/collections\/child-sale"
+            "link": "shopify://collections/child-sale"
           }
         },
         "column_BnEQk6": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SP24_Baby_LP_Menu_Onesies.jpg",
+            "image": "shopify://shop_images/MP_SP24_Baby_LP_Menu_Onesies.jpg",
             "title": "",
             "text": "",
             "link_label": "BABY SALE",
-            "link": "shopify:\/\/collections\/baby-sale"
+            "link": "shopify://collections/baby-sale"
           }
         }
       },
@@ -264,6 +270,8 @@
         "enable_overlay": true,
         "content_position": "middle-center",
         "link_type": "button",
+        "link_color": "#000000",
+        "link_style": "none",
         "button_type": "secondary",
         "enable_full_width": true,
         "enable_custom_spacing": true,
