@@ -40,7 +40,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.<\/p>",
+            "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.</p>",
             "line_height": 20
           }
         },
@@ -84,7 +84,7 @@
           "type": "image",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
+            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
             "row_start_desktop": 1,
             "row_span_desktop": 1,
@@ -100,7 +100,7 @@
           "type": "image",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_TransitionalLayers_3.jpg",
+            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
             "row_start_desktop": 6,
             "row_span_desktop": 1,
@@ -126,8 +126,7 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        
-        "quick_add": "none",
+        "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "drawer",
         "enable_sorting": true,
