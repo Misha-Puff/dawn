@@ -31,6 +31,16 @@ if (!customElements.get('quick-add-modal')) {
             const responseHTML = new DOMParser().parseFromString(responseText, 'text/html');
             const productElement = responseHTML.querySelector('product-info');
 
+            const productForm = productElement.querySelector('.product-form .form');
+
+            const quickshopAttributionInput = document.createElement('input');
+
+            quickshopAttributionInput.setAttribute('type', 'hidden');
+            quickshopAttributionInput.setAttribute('name', 'properties[_quickshop]');
+            quickshopAttributionInput.setAttribute('value', 'true');
+
+            productForm.prepend(quickshopAttributionInput);
+
             this.preprocessHTML(productElement);
             HTMLUpdateUtility.setInnerHTML(this.modalContent, productElement.outerHTML);
 

@@ -63,10 +63,10 @@
 }
 
 /* Needed for gradient continuity with or without animation, the transform scopes the gradient to its container which happens already when animation are turned on */
-.card--card.gradient,
+/* .card--card.gradient,
 .card__inner.gradient {
   transform: perspective(0);
-}
+} */
 
 /* Needed for gradient continuity with or without animation so that transparent PNG images come up as we would expect */
 .card__inner.color-scheme-1 {
@@ -600,24 +600,29 @@
   overflow: hidden;
 }
 
-.variant-availability {
+.popup-overlay {
   position: absolute;
   bottom: 0;
   transform: translateY(100%);
   width: 100%;
+  z-index:2;
   transition: transform var(--duration-default);
-  background-color: rgba(var(--color-background),.6);
-  padding: 1rem;
+  padding: 1rem 1rem 2rem;
   text-align: center;
 }
 
+.popup-overlay.background {
+  background-color: rgba(var(--color-background),.6);
+}
+
 @media only screen and (min-width: 990px) {
-  .card-wrapper:hover .variant-availability  {
+  .card-wrapper:hover .popup-overlay  {
     opacity: 1;
     transform: translateY(0);
     transition: transform var(--duration-default);
   }
 }
+
 .variant-availability span {
   font-size: 12px;
   margin: 0 4px;
@@ -626,4 +631,5 @@
 .variant-availability .unavailable {
   opacity: 0.3;
   text-decoration: line-through;
+  cursor: default;
 }
