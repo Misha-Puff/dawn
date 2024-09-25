@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "banner": {
@@ -20,7 +29,6 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        
         "quick_add": "none",
         "enable_filtering": true,
         "filter_type": "drawer",
@@ -36,14 +44,14 @@
         "text_MDgMVV": {
           "type": "text",
           "settings": {
-            "text": "<h4>MADE-TO-ORDER PROGRAM<\/h4><p>Our most recent MTO program has reached capacity and is now <strong>closed<\/strong>.<br\/>Check your order status and sign up to be notified for future MTO collections below.<br\/><br\/>Our Made-to-Order program is an initiative that we are very proud of — and at the heart of why we do what we do. This program introduces the ability to custom shop some of your favorite Misha & Puff styles in a limited small-batch capsule outside of our seasonal collections, while delivering on our promise to support our knitting community year-round.<\/p>"
+            "text": "<h4>MADE-TO-ORDER PROGRAM</h4><p>Our most recent MTO program has reached capacity and is now <strong>closed</strong>.<br/>Check your order status and sign up to be notified for future MTO collections below.<br/><br/>Our Made-to-Order program is an initiative that we are very proud of — and at the heart of why we do what we do. This program introduces the ability to custom shop some of your favorite Misha & Puff styles in a limited small-batch capsule outside of our seasonal collections, while delivering on our promise to support our knitting community year-round.</p>"
           }
         },
         "button_9DxNK6": {
           "type": "button",
           "settings": {
             "button_label": "MADE-TO-ORDER STATUS",
-            "button_link": "shopify:\/\/pages\/mto-status",
+            "button_link": "shopify://pages/mto-status",
             "button_style_secondary": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -73,7 +81,7 @@
         "div {display: flex; justify-content: center;}"
       ],
       "settings": {
-        "custom_liquid": "<script>function triggerMTOForm(){window._klOnsite = window._klOnsite || [];\nwindow._klOnsite.push(['openForm', 'WbmkqK']);}<\/script>\n<button class=\"button button--secondary\" onclick=\"triggerMTOForm();\">Get MTO Alerts<\/button>",
+        "custom_liquid": "<script>function triggerMTOForm(){window._klOnsite = window._klOnsite || [];\nwindow._klOnsite.push(['openForm', 'WbmkqK']);}</script>\n<button class=\"button button--secondary\" onclick=\"triggerMTOForm();\">Get MTO Alerts</button>",
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 52
@@ -85,7 +93,7 @@
         "text_jhkXDN": {
           "type": "text",
           "settings": {
-            "text": "<h4>WHAT TO EXPECT<\/h4><p>Every piece we create blends craftsmanship, heritage, and quality and each of our treasured partners provides unique contributions that amplify our appreciation of time-honored processes. Supporting handmade means supporting the local communities behind these crafts. Learn more about our sustainability efforts and our incredible artisanal knitting partners.<\/p>"
+            "text": "<h4>WHAT TO EXPECT</h4><p>Every piece we create blends craftsmanship, heritage, and quality and each of our treasured partners provides unique contributions that amplify our appreciation of time-honored processes. Supporting handmade means supporting the local communities behind these crafts. Learn more about our sustainability efforts and our incredible artisanal knitting partners.</p>"
           }
         }
       },
@@ -108,7 +116,7 @@
           "type": "column",
           "settings": {
             "title": "",
-            "text": "<p><strong>OPEN\/CLOSED<\/strong><\/p><p>Ordering is open when our knitting partners have extra capacity<\/p>",
+            "text": "<p><strong>OPEN/CLOSED</strong></p><p>Ordering is open when our knitting partners have extra capacity</p>",
             "link_label": "",
             "link": ""
           }
@@ -117,7 +125,7 @@
           "type": "column",
           "settings": {
             "title": "",
-            "text": "<p><strong>SELECT COLORS<\/strong><\/p><p>Each run offers beloved archival colors, repurposing our stock of excess or rejected yarns<\/p>",
+            "text": "<p><strong>SELECT COLORS</strong></p><p>Each run offers beloved archival colors, repurposing our stock of excess or rejected yarns</p>",
             "link_label": "",
             "link": ""
           }
@@ -126,7 +134,7 @@
           "type": "column",
           "settings": {
             "title": "",
-            "text": "<p><strong>LIMITED CAPACITY<\/strong><\/p><p>Handcrafted pieces and limited yarns mean a scarce supply and limited production capacity<\/p>",
+            "text": "<p><strong>LIMITED CAPACITY</strong></p><p>Handcrafted pieces and limited yarns mean a scarce supply and limited production capacity</p>",
             "link_label": "",
             "link": ""
           }
@@ -135,7 +143,7 @@
           "type": "column",
           "settings": {
             "title": "",
-            "text": "<p><strong>LEAD TIMES<\/strong><\/p><p>Our repurposed yarn colors may be in stock or require custom dyeing, leading to a 3-5 month lead time<\/p>",
+            "text": "<p><strong>LEAD TIMES</strong></p><p>Our repurposed yarn colors may be in stock or require custom dyeing, leading to a 3-5 month lead time</p>",
             "link_label": "",
             "link": ""
           }
@@ -164,9 +172,7 @@
         "button_link": "",
         "color_scheme": "",
         "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "swipe_on_mobile": false
       }
     },
     "rich_text_C8LYdm": {
@@ -175,7 +181,7 @@
         "text_9RUQPf": {
           "type": "text",
           "settings": {
-            "text": "<h4>FROM US TO YOU — ABOUT MTO<\/h4><p>Our Made-to-Order (MTO) collections are small-batch capsules that run periodically based on yarn resources and knitting capacity. Each collection introduces beloved archival colors in our popular styles, delivering on our community promise of:<\/p>"
+            "text": "<h4>FROM US TO YOU — ABOUT MTO</h4><p>Our Made-to-Order (MTO) collections are small-batch capsules that run periodically based on yarn resources and knitting capacity. Each collection introduces beloved archival colors in our popular styles, delivering on our community promise of:</p>"
           }
         }
       },
@@ -197,7 +203,7 @@
         "text_anCRBG": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>BUILDING BONDS THROUGH ETHICAL FIBERS<\/strong><\/p><p>Our MTO program helps support our knitting partners access to steady work and income on an ongoing basis beyond our seasonal collections. <\/p><p><a href=\"\/pages\/our-knitting-partners\" target=\"_blank\" title=\"Our Story - Our Knitting Partners\"><span style=\"text-decoration:underline\">Learn more<\/span><\/a> about how we empower women via our knitting cooperatives.<\/p>",
+            "text": "<p><strong>BUILDING BONDS THROUGH ETHICAL FIBERS</strong></p><p>Our MTO program helps support our knitting partners access to steady work and income on an ongoing basis beyond our seasonal collections. </p><p><a href=\"/pages/our-knitting-partners\" target=\"_blank\" title=\"Our Story - Our Knitting Partners\"><span style=\"text-decoration:underline\">Learn more</span></a> about how we empower women via our knitting cooperatives.</p>",
             "text_style": "body"
           }
         }
@@ -206,7 +212,7 @@
         "text_anCRBG"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/About_the_Knitting_Cooperatives_4_1224x_2x.progressive_6716fe07-03e3-4739-b489-af6667833a89.jpg",
+        "image": "shopify://shop_images/About_the_Knitting_Cooperatives_4_1224x_2x.progressive_6716fe07-03e3-4739-b489-af6667833a89.jpg",
         "height": "small",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -228,7 +234,7 @@
         "text_e6kabt": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>BEING A SUSTAINABLE PARTNER BY REDUCING YARN WASTE<\/strong><\/p><p>Each MTO collection features our hand-dyed yarn colors that were either made in excess, are rejected dye lots (aka unique, one-of-a-kind colors), or highly coveted archival colors frequently requested by our customers. Throughout the year, we will periodically “open” a new MTO collection, using the available colors for that limited time. <\/p><p><a href=\"\/pages\/our-hand-dyed-yarn-partner\" target=\"_blank\" title=\"Our Story - Our Hand-Dyed Yarn Partner\">Learn more<\/a> about our hand dyed yarn.<\/p>",
+            "text": "<p><strong>BEING A SUSTAINABLE PARTNER BY REDUCING YARN WASTE</strong></p><p>Each MTO collection features our hand-dyed yarn colors that were either made in excess, are rejected dye lots (aka unique, one-of-a-kind colors), or highly coveted archival colors frequently requested by our customers. Throughout the year, we will periodically “open” a new MTO collection, using the available colors for that limited time. </p><p><a href=\"/pages/our-hand-dyed-yarn-partner\" target=\"_blank\" title=\"Our Story - Our Hand-Dyed Yarn Partner\">Learn more</a> about our hand dyed yarn.</p>",
             "text_style": "body"
           }
         }
@@ -237,7 +243,7 @@
         "text_e6kabt"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/M_P_Peru_M_P_Peru_M14A4390.jpg",
+        "image": "shopify://shop_images/M_P_Peru_M_P_Peru_M14A4390.jpg",
         "height": "small",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -259,7 +265,7 @@
         "text_6NnWyP": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>LISTENING TO THE NEEDS OF OUR LOYAL CUSTOMERS<\/strong><\/p><p>We hear you! In response to frequent requests for specific colors, we will bring some back as a part of these limited MTO collections. This is your chance to access your favorite Popcorn Sweater, Skating Pond Skirt, and more. <\/p>",
+            "text": "<p><strong>LISTENING TO THE NEEDS OF OUR LOYAL CUSTOMERS</strong></p><p>We hear you! In response to frequent requests for specific colors, we will bring some back as a part of these limited MTO collections. This is your chance to access your favorite Popcorn Sweater, Skating Pond Skirt, and more. </p>",
             "text_style": "body"
           }
         }
@@ -268,7 +274,7 @@
         "text_6NnWyP"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/About_Machine_Knitting_Slide_8_1224x_2x.progressive_2a01a703-7424-45d3-9ee0-b50aa8a8ec57.jpg",
+        "image": "shopify://shop_images/About_Machine_Knitting_Slide_8_1224x_2x.progressive_2a01a703-7424-45d3-9ee0-b50aa8a8ec57.jpg",
         "height": "small",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -290,7 +296,7 @@
         "text_FcLH8w": {
           "type": "text",
           "settings": {
-            "text": "<p>If you have more questions, please check out our <a href=\"https:\/\/help.misha-and-puff.com\/en-US\" target=\"_blank\" title=\"https:\/\/help.misha-and-puff.com\/en-US\">Support Portal<\/a> our FAQs <a href=\"https:\/\/help.misha-and-puff.com\/en-US\/articles\/made-to-order-14398\" target=\"_blank\" title=\"https:\/\/help.misha-and-puff.com\/en-US\/articles\/made-to-order-14398\">here<\/a><\/p>"
+            "text": "<p>If you have more questions, please check out our <a href=\"https://help.misha-and-puff.com/en-US\" target=\"_blank\" title=\"https://help.misha-and-puff.com/en-US\">Support Portal</a> our FAQs <a href=\"https://help.misha-and-puff.com/en-US/articles/made-to-order-14398\" target=\"_blank\" title=\"https://help.misha-and-puff.com/en-US/articles/made-to-order-14398\">here</a></p>"
           }
         }
       },
