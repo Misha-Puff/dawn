@@ -9,9 +9,9 @@
 */
 {
   "current": {
-    "logo": "shopify:\/\/shop_images\/Misha_Puff_logo_black_dba3a1ed-aa97-46df-bc49-ca989a9edc6f.jpg",
+    "logo": "shopify://shop_images/Misha_Puff_logo_black_dba3a1ed-aa97-46df-bc49-ca989a9edc6f.jpg",
     "logo_width": 250,
-    "favicon": "shopify:\/\/shop_images\/spark.jpg",
+    "favicon": "shopify://shop_images/spark.jpg",
     "type_header_font": "neue_haas_unica_n4",
     "heading_scale": 100,
     "type_body_font": "neue_haas_unica_n4",
@@ -157,25 +157,25 @@
     ],
     "blocks": {
       "10641372206048101839": {
-        "type": "shopify:\/\/apps\/rebuy-personalization-engine\/blocks\/rebuy-global-embed\/a26ae9b9-933b-40bf-bbc6-bf1220bbc4dc",
+        "type": "shopify://apps/rebuy-personalization-engine/blocks/rebuy-global-embed/a26ae9b9-933b-40bf-bbc6-bf1220bbc4dc",
         "disabled": false,
         "settings": {
         }
       },
       "13650390699542216616": {
-        "type": "shopify:\/\/apps\/accessibility-spark-ada-wcag\/blocks\/widget\/36895fac-ec38-47a0-807c-7397daa6ec4e",
+        "type": "shopify://apps/accessibility-spark-ada-wcag/blocks/widget/36895fac-ec38-47a0-807c-7397daa6ec4e",
         "disabled": false,
         "settings": {
         }
       },
       "855628211100114053": {
-        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
         "disabled": false,
         "settings": {
         }
       },
       "14197025361042770389": {
-        "type": "shopify:\/\/apps\/wishlist-king\/blocks\/app-settings-main\/194f5011-a43c-4b22-b12e-eaf20dc4506a",
+        "type": "shopify://apps/wishlist-king/blocks/app-settings-main/194f5011-a43c-4b22-b12e-eaf20dc4506a",
         "disabled": false,
         "settings": {
           "theme_preset": "dawn",
@@ -199,12 +199,12 @@
           "font_text_scale": 100,
           "access_mode": "UNRESTRICTED",
           "wishlist_mode": "PRODUCT",
-          "wishlist_path": "\/apps\/wishlist",
+          "wishlist_path": "/apps/wishlist",
           "money_show_currency_code": true
         }
       },
       "4139971114690857691": {
-        "type": "shopify:\/\/apps\/wishlist-king\/blocks\/wishlist-button-collection\/194f5011-a43c-4b22-b12e-eaf20dc4506a",
+        "type": "shopify://apps/wishlist-king/blocks/wishlist-button-collection/194f5011-a43c-4b22-b12e-eaf20dc4506a",
         "disabled": false,
         "settings": {
           "button_style": "plain_accent_1",
@@ -224,18 +224,18 @@
         }
       },
       "13655089695959051254": {
-        "type": "shopify:\/\/apps\/wishlist-king\/blocks\/code-access\/194f5011-a43c-4b22-b12e-eaf20dc4506a",
+        "type": "shopify://apps/wishlist-king/blocks/code-access/194f5011-a43c-4b22-b12e-eaf20dc4506a",
         "disabled": false,
         "settings": {
           "version": "main"
         }
       },
       "6680288666557934739": {
-        "type": "shopify:\/\/apps\/wishlist-king\/blocks\/wishlist-page\/194f5011-a43c-4b22-b12e-eaf20dc4506a",
+        "type": "shopify://apps/wishlist-king/blocks/wishlist-page/194f5011-a43c-4b22-b12e-eaf20dc4506a",
         "disabled": false,
         "settings": {
           "column_width": "md",
-          "wishlist_empty_link": "shopify:\/\/collections\/all",
+          "wishlist_empty_link": "shopify://collections/all",
           "page_max_width": 1200,
           "page_padding_top": 30,
           "page_padding_bottom": 80,
@@ -248,7 +248,7 @@
           "cta_button": "add_to_cart",
           "cta_button_style": "solid_accent_1",
           "alignment": "center",
-          "image_aspect_ratio": "1\/1",
+          "image_aspect_ratio": "1/1",
           "image_object_fit": "cover",
           "show_vendor": false,
           "show_product_title": true,
@@ -257,19 +257,19 @@
         }
       },
       "15685250022964305326": {
-        "type": "shopify:\/\/apps\/elevar-conversion-tracking\/blocks\/dataLayerEmbed\/bc30ab68-b15c-4311-811f-8ef485877ad6",
+        "type": "shopify://apps/elevar-conversion-tracking/blocks/dataLayerEmbed/bc30ab68-b15c-4311-811f-8ef485877ad6",
         "disabled": false,
         "settings": {
         }
       },
       "14060646107696862457": {
-        "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
         "settings": {
         }
       },
       "10384935893930344104": {
-        "type": "shopify:\/\/apps\/seoant-redirects\/blocks\/brokenlink-404\/cc7b1996-e567-42d0-8862-356092041863",
+        "type": "shopify://apps/seoant-redirects/blocks/brokenlink-404/cc7b1996-e567-42d0-8862-356092041863",
         "disabled": false,
         "settings": {
         }
