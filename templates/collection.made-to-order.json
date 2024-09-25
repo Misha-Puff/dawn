@@ -21,7 +21,7 @@
         "show_vendor": false,
         "show_rating": false,
         
-        "quick_add": "none",
+        "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "drawer",
         "enable_sorting": true,
