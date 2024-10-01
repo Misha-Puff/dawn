@@ -283,7 +283,8 @@ quick-add-modal .product:not(.featured-product) .product__view-details {
 }
 
 quick-add-modal .quick-add-hidden,
-quick-add-modal .product__modal-opener:not(.product__modal-opener--image) {
+quick-add-modal .product__modal-opener:not(.product__modal-opener--image),
+quick-add-modal .product__media-item:not(:first-child) {
   display: none !important;
 }
 
@@ -323,9 +324,9 @@ quick-add-modal .product__column-sticky {
     width: 100%;
   }
 
-  /* quick-add-modal .thumbnail-slider .thumbnail-list.slider--tablet-up {
+  quick-add-modal .thumbnail-slider .thumbnail-list.slider--tablet-up {
     display: none;
-  } */
+  }
 }
 
 quick-add-modal .page-width {

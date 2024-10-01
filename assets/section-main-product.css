@@ -990,9 +990,9 @@ a.product__text {
     scroll-padding-left: 0.5rem;
   }
 
-  /* .product__media-wrapper .slider-mobile-gutter .slider-button {
+  .product__media-wrapper .slider-mobile-gutter .slider-button {
     display: none;
-  } */
+  }
 
   .thumbnail-list.slider--tablet-up .thumbnail-list__item.slider__slide {
     width: calc(25% - 0.8rem);
