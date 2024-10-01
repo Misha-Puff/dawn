@@ -8,6 +8,7 @@
 
 {%- unless section.settings.quick_add == 'none' -%}
   {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 {%- endunless -%}
 
 {%- if section.settings.quick_add == 'standard' -%}
