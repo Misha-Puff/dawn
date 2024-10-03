@@ -21,6 +21,7 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
@@ -66,6 +67,55 @@
         "button_Yh3Xhh"
       ],
       "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 40,
+        "padding_left": 100,
+        "padding_right": 100
+      }
+    },
+    "rich_text_LEpxBm": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_VttUip": {
+          "type": "heading",
+          "settings": {
+            "heading": "Brooklyn Bestsellers",
+            "heading_size": "h2"
+          }
+        },
+        "text_iPTCQc": {
+          "type": "text",
+          "settings": {
+            "text": "<p>See what's trending in Brooklyn. Discover bestsellers from our <a href=\"/pages/brooklyn-store\" target=\"_blank\" title=\"Misha & Puff’s Brooklyn Store\">Brooklyn boutique</a>.</p>",
+            "line_height": 20
+          }
+        },
+        "button_yiXLqi": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_VttUip",
+        "text_iPTCQc",
+        "button_yiXLqi"
+      ],
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -151,6 +201,7 @@
     "shogun-above",
     "banner",
     "rich_text_YJeCaw",
+    "rich_text_LEpxBm",
     "product-grid",
     "shogun-below",
     "shogun-optimizer"
