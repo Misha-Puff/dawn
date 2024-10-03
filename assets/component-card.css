@@ -623,6 +623,10 @@
   }
 }
 
+.variant-availability {
+  margin-top: 0 !important;
+}
+
 .variant-availability span {
   font-size: 12px;
   margin-right: 4px;
