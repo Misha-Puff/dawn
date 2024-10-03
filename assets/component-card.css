@@ -625,7 +625,7 @@
 
 .variant-availability span {
   font-size: 12px;
-  margin: 0 4px;
+  margin-right: 4px;
 }
 
 .variant-availability .unavailable {
