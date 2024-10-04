@@ -1,8 +1,9 @@
 .quick-add {
-  position: relative;
-  grid-row-start: 4;
-  margin: 0 0 1rem;
-  z-index: 1;
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  right: 0;
+  margin: 1rem;
 }
 
 .card--card .quick-add {
@@ -353,11 +354,14 @@ quick-add-modal .product-form__buttons {
   max-width: initial;
 }
 
-/* .quick-add__submit {
-  padding: 0.8rem;
-  min-width: 100%;
-  box-sizing: border-box;
-} */
+.quick-add__submit {
+  padding: 1rem;
+}
+
+.quick-add__submit svg {
+  width: 1rem;
+  pointer-events: none;
+}
 
 
 quick-add-modal .product-media-container.constrain-height {

@@ -2,6 +2,10 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
+{% if section.settings.enable_swatches %}
+  {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
 {% if section.settings.image_shape == 'blob' %}
   {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
@@ -89,6 +93,34 @@
       }
     }
   {% endfor %}
+
+  {% if section.settings.enable_swatches %}
+    #variant-selects-{{ section.id }} {
+      position: relative;
+      z-index: 3;
+      margin-top: 0 !important;
+    }
+
+    #variant-selects-{{ section.id }} fieldset {
+      align-items: center;
+    }
+
+    #variant-selects-{{ section.id }} .product-form__input {
+      flex: 0 0 100%;
+      padding: 0;
+      margin: 0 0 1.2rem 0;
+      min-width: fit-content;
+      border: none;
+    }
+
+    #variant-selects-{{ section.id }} .product-form__input .form__label {
+      padding-left: 0;
+    }
+
+    #variant-selects-{{ section.id }} .product-form__input .select {
+      max-width: 100%;
+    }
+  {% endif %}
 {%- endstyle -%}
 
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
@@ -384,6 +416,18 @@
       "default": false,
       "label": "t:sections.main-collection-product-grid.settings.show_rating.label",
       "info": "t:sections.main-collection-product-grid.settings.show_rating.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_overlay",
+      "default": false,
+      "label": "Enable Hover Overlay"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_swatches",
+      "default": false,
+      "label": "Enable Product Swatches"
     },
     {
       "type": "select",
