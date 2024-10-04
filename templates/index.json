@@ -16,7 +16,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NEW FALL",
-            "button_link_1": "shopify:\/\/collections\/child-fall-24",
+            "button_link_1": "shopify://collections/child-fall-24",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -46,8 +46,8 @@
         "text_TdBLTR"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.19.24_HP.jpg",
-        "banner_link": "shopify:\/\/collections\/child-fall-24",
+        "image": "shopify://shop_images/MP_FA24_Leader_10.4.24_1.jpg",
+        "banner_link": "shopify://collections/child-fall-24",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -55,7 +55,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.19.24_HP_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_FA24_Leader_10.4.24._Mob1.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
@@ -67,21 +67,21 @@
         "column_iAT4GA": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.19.24_Baby2.jpg",
+            "image": "shopify://shop_images/MP_FA24_Leader_10.4.24._Baby_Mob.jpg",
             "title": "",
             "text": "",
             "link_label": "Shop Baby —",
-            "link": "shopify:\/\/collections\/baby-fall-24"
+            "link": "shopify://collections/baby-fall-24"
           }
         },
         "column_3igURh": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.19.24_BS.jpg",
+            "image": "shopify://shop_images/MP_FA24_Leader_10.4.24_BS_Mob_e541ee7d-a790-4287-b4b7-32e6c0ec63a7.jpg",
             "title": "",
             "text": "",
             "link_label": "Best Sellers —",
-            "link": "shopify:\/\/collections\/child-best-sellers"
+            "link": "shopify://collections/child-best-sellers"
           }
         }
       },
@@ -126,21 +126,21 @@
         "column_mcCDRB": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Insta_Post_8.14.24_1.jpg",
+            "image": "shopify://shop_images/Insta_Post_8.14.24_1.jpg",
             "title": "",
             "text": "",
             "link_label": "Back to School Edit —",
-            "link": "shopify:\/\/collections\/child-fall-collection-back-to-school"
+            "link": "shopify://collections/child-fall-collection-back-to-school"
           }
         },
         "column_VkmJ9N": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SaleALL_8.20.24.jpg",
+            "image": "shopify://shop_images/MP_SaleALL_8.20.24.jpg",
             "title": "",
             "text": "",
-            "link_label": "Sale \/ Further Markdowns up to 40% off —",
-            "link": "shopify:\/\/collections\/child-sale"
+            "link_label": "Sale / Further Markdowns up to 40% off —",
+            "link": "shopify://collections/child-sale"
           }
         }
       },
@@ -186,81 +186,81 @@
         "column_rLVYmc": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Long_Sleeve_Vintage_Henley_-_Yonder_Scribble_1_Tops.jpg",
+            "image": "shopify://shop_images/Long_Sleeve_Vintage_Henley_-_Yonder_Scribble_1_Tops.jpg",
             "title": "",
             "text": "",
             "link_label": "TOPS",
-            "link": "shopify:\/\/collections\/child-tops"
+            "link": "shopify://collections/child-tops"
           }
         },
         "column_8kQCT9": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Cable_Skating_Skirt_-_Iris_Confetti_Bottoms.jpg",
+            "image": "shopify://shop_images/Cable_Skating_Skirt_-_Iris_Confetti_Bottoms.jpg",
             "title": "",
             "text": "",
             "link_label": "BOTTOMS",
-            "link": "shopify:\/\/collections\/child-bottoms"
+            "link": "shopify://collections/child-bottoms"
           }
         },
         "column_WCJg47": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Folk_Art_Sweater_-_Ocean_Space_Dye_1_Sweaters.jpg",
+            "image": "shopify://shop_images/Folk_Art_Sweater_-_Ocean_Space_Dye_1_Sweaters.jpg",
             "title": "",
             "text": "",
             "link_label": "SWEATERS",
-            "link": "shopify:\/\/collections\/child-sweaters-cardigans"
+            "link": "shopify://collections/child-sweaters-cardigans"
           }
         },
         "column_prW6et": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Log_Cabin_Legwarmer_-_Citron_1_Accs2_f780bd07-61d5-41b1-9a48-325681ef97c1.jpg",
+            "image": "shopify://shop_images/Log_Cabin_Legwarmer_-_Citron_1_Accs2_f780bd07-61d5-41b1-9a48-325681ef97c1.jpg",
             "title": "",
             "text": "",
             "link_label": "ACCESSORIES",
-            "link": "shopify:\/\/collections\/child-accessories"
+            "link": "shopify://collections/child-accessories"
           }
         },
         "column_JLMAqm": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Ingrid_Dress_-_Ink_Playground_1_DRESS.jpg",
+            "image": "shopify://shop_images/Ingrid_Dress_-_Ink_Playground_1_DRESS.jpg",
             "title": "",
             "text": "",
             "link_label": "DRESSES",
-            "link": "shopify:\/\/collections\/child-dresses"
+            "link": "shopify://collections/child-dresses"
           }
         },
         "column_HnbifQ": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Simone_Overall_-_Atlantic_Zigzag_Jacquard_1_ONEPIECE.jpg",
+            "image": "shopify://shop_images/Simone_Overall_-_Atlantic_Zigzag_Jacquard_1_ONEPIECE.jpg",
             "title": "",
             "text": "",
             "link_label": "ONE-PIECES",
-            "link": "shopify:\/\/collections\/child-one-piece"
+            "link": "shopify://collections/child-one-piece"
           }
         },
         "column_YhVwUE": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Cate_Capelet_-_Ocean_Space_Dye_1_Accs.jpg",
+            "image": "shopify://shop_images/Cate_Capelet_-_Ocean_Space_Dye_1_Accs.jpg",
             "title": "",
             "text": "",
             "link_label": "ACCESSORIES",
-            "link": "shopify:\/\/collections\/child-accessories"
+            "link": "shopify://collections/child-accessories"
           }
         },
         "column_PTttra": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Alphabet_Market_Coat_-_Sprig_1_JACKETS.jpg",
+            "image": "shopify://shop_images/Alphabet_Market_Coat_-_Sprig_1_JACKETS.jpg",
             "title": "",
             "text": "",
             "link_label": "JACKETS",
-            "link": "shopify:\/\/collections\/child-jackets"
+            "link": "shopify://collections/child-jackets"
           }
         }
       },
@@ -319,6 +319,11 @@
         "products_to_show": 4,
         "columns_desktop": 4,
         "full_width": true,
+        "enable_custom_spacing": false,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
         "show_view_all": false,
         "view_all_style": "link",
         "enable_desktop_slider": false,
@@ -341,41 +346,41 @@
         "column_Yt8wiE": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/fa24_leadlook_Prev_b7d8e1d9-ba4d-40ba-a86a-e83a6f458764.jpg",
+            "image": "shopify://shop_images/fa24_leadlook_Prev_b7d8e1d9-ba4d-40ba-a86a-e83a6f458764.jpg",
             "title": "",
             "text": "",
             "link_label": "fall lookbook",
-            "link": "shopify:\/\/blogs\/journal\/child-fall-24"
+            "link": "shopify://blogs/journal/child-fall-24"
           }
         },
         "column_caihwR": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/vQrqYDt-O3mRyz8prk03_5enbY8RiNPYzlkR_Lm5kxQ.webp",
+            "image": "shopify://shop_images/vQrqYDt-O3mRyz8prk03_5enbY8RiNPYzlkR_Lm5kxQ.webp",
             "title": "",
             "text": "",
             "link_label": "sale",
-            "link": "shopify:\/\/collections\/child-sale"
+            "link": "shopify://collections/child-sale"
           }
         },
         "column_HqmX9h": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_Baby_5.13.24_2_Mob_6d18c1f6-bde7-4481-aa7c-bf1dccc57bba.jpg",
+            "image": "shopify://shop_images/MP_SU24_Leader_Baby_5.13.24_2_Mob_6d18c1f6-bde7-4481-aa7c-bf1dccc57bba.jpg",
             "title": "",
             "text": "",
             "link_label": "baby sale",
-            "link": "shopify:\/\/collections\/baby-sale"
+            "link": "shopify://collections/baby-sale"
           }
         },
         "column_HNbpBL": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/xoTV_JdFiEtZkYYKuEz5tQ3ol-DyYtAoAbYHbg5HKgc.webp",
+            "image": "shopify://shop_images/xoTV_JdFiEtZkYYKuEz5tQ3ol-DyYtAoAbYHbg5HKgc.webp",
             "title": "",
             "text": "",
             "link_label": "best sellers",
-            "link": "shopify:\/\/collections\/child-best-sellers"
+            "link": "shopify://collections/child-best-sellers"
           }
         }
       },
@@ -423,19 +428,19 @@
         "slide_mkRtae": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_7.22.24_1.jpg",
+            "image": "shopify://shop_images/MP_SU24_Leader_7.22.24_1.jpg",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
             "button_label": "SHOP SUMMER",
-            "link": "shopify:\/\/collections\/child-summer-24",
+            "link": "shopify://collections/child-summer-24",
             "button_style_secondary": true,
             "box_align": "middle-center",
             "show_text_box": false,
             "text_alignment": "center",
             "image_overlay_opacity": 0,
             "color_scheme": "scheme-1",
-            "mobile_image": "shopify:\/\/shop_images\/MP_SU24_Leader_7.22.24_1_Mob.jpg",
+            "mobile_image": "shopify://shop_images/MP_SU24_Leader_7.22.24_1_Mob.jpg",
             "text_alignment_mobile": "center"
           }
         }

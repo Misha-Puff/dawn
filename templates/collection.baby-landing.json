@@ -30,7 +30,6 @@
         "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
-        
         "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "horizontal",
@@ -46,12 +45,12 @@
         "slide_HpM3QY": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SU24_Leader_Baby_6.18.24.jpg",
+            "image": "shopify://shop_images/MP_SU24_Leader_Baby_6.18.24.jpg",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
             "button_label": "Shop Layette",
-            "link": "shopify:\/\/collections\/layette-24",
+            "link": "shopify://collections/layette-24",
             "button_style_secondary": true,
             "box_align": "middle-center",
             "show_text_box": false,
@@ -84,7 +83,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NEW FALL",
-            "button_link_1": "shopify:\/\/collections\/baby-fall-24",
+            "button_link_1": "shopify://collections/baby-fall-24",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -114,8 +113,8 @@
         "text_KVmVrL"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.19.24_Baby_10bde7cd-f2ba-472d-8445-351a1dc96cf5.jpg",
-        "banner_link": "shopify:\/\/collections\/preview",
+        "image": "shopify://shop_images/MP_FA24_Leader_10.4.24_Baby.jpg",
+        "banner_link": "shopify://collections/preview",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -123,7 +122,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.18.24_Baby_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_FA24_Leader_10.4.24_Baby_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
@@ -135,21 +134,21 @@
         "column_Hgag6H": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_F24_LOOK_13_0517_LB.jpg",
+            "image": "shopify://shop_images/MP_F24_LOOK_13_0517_LB.jpg",
             "title": "",
             "text": "",
             "link_label": "Fall Part 2 Lookbook —",
-            "link": "shopify:\/\/blogs\/journal\/fa-24-2"
+            "link": "shopify://blogs/journal/fa-24-2"
           }
         },
         "column_VnhYKW": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.19.24_Layette.jpg",
+            "image": "shopify://shop_images/MP_FA24_Leader_9.19.24_Layette.jpg",
             "title": "",
             "text": "",
             "link_label": "Shop Layette —",
-            "link": "shopify:\/\/collections\/layette-24-old"
+            "link": "shopify://collections/layette-24-old"
           }
         }
       },
@@ -194,51 +193,51 @@
         "column_qBk9pF": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Hooded_Popcorn_Cardigan_-_Iris_Confetti_1_Baby_Sweaters.jpg",
+            "image": "shopify://shop_images/Hooded_Popcorn_Cardigan_-_Iris_Confetti_1_Baby_Sweaters.jpg",
             "title": "",
             "text": "",
             "link_label": "SWEATERS",
-            "link": "shopify:\/\/collections\/baby-sweaters-cardigans"
+            "link": "shopify://collections/baby-sweaters-cardigans"
           }
         },
         "column_WjaK8r": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/6Ea0HHZ_-rVgWXVI1WjIWXTrZjofhCVecM--FwcQdaM.webp",
+            "image": "shopify://shop_images/6Ea0HHZ_-rVgWXVI1WjIWXTrZjofhCVecM--FwcQdaM.webp",
             "title": "",
             "text": "",
             "link_label": "TOPS",
-            "link": "shopify:\/\/collections\/baby-tops"
+            "link": "shopify://collections/baby-tops"
           }
         },
         "column_xan3Nm": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_9.19.24_Baby_Bottoms.jpg",
+            "image": "shopify://shop_images/MP_FA24_Leader_9.19.24_Baby_Bottoms.jpg",
             "title": "",
             "text": "",
             "link_label": "BOTTOMS",
-            "link": "shopify:\/\/collections\/baby-bottoms"
+            "link": "shopify://collections/baby-bottoms"
           }
         },
         "column_VJfiC4": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rib_Longies_-_Ink_1_OnePieces.jpg",
+            "image": "shopify://shop_images/Rib_Longies_-_Ink_1_OnePieces.jpg",
             "title": "",
             "text": "",
             "link_label": "ONE-PIECES",
-            "link": "shopify:\/\/collections\/baby-one-piece"
+            "link": "shopify://collections/baby-one-piece"
           }
         },
         "column_PjhVYH": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Sledding_Hood_-_Yonder_1_Accs_1d3d74a9-e8c3-487e-8807-f8a596e89ca8.jpg",
+            "image": "shopify://shop_images/Sledding_Hood_-_Yonder_1_Accs_1d3d74a9-e8c3-487e-8807-f8a596e89ca8.jpg",
             "title": "",
             "text": "",
             "link_label": "ACCESSORIES",
-            "link": "shopify:\/\/collections\/baby-accessories"
+            "link": "shopify://collections/baby-accessories"
           }
         }
       },
@@ -286,21 +285,21 @@
         "column_tWnn68": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/misha-and-puff-layette-22-ipswich-44copy.webp",
+            "image": "shopify://shop_images/misha-and-puff-layette-22-ipswich-44copy.webp",
             "title": "",
             "text": "",
             "link_label": "Layette —",
-            "link": "shopify:\/\/collections\/layette-24-old"
+            "link": "shopify://collections/layette-24-old"
           }
         },
         "column_PdhU4a": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SP24_Leader_Baby_4.11.24_Mob.jpg",
+            "image": "shopify://shop_images/MP_SP24_Leader_Baby_4.11.24_Mob.jpg",
             "title": "",
             "text": "",
             "link_label": "Sale —",
-            "link": "shopify:\/\/collections\/baby-sale"
+            "link": "shopify://collections/baby-sale"
           }
         }
       },
@@ -347,7 +346,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "Journal",
-            "button_link_1": "shopify:\/\/blogs\/journal",
+            "button_link_1": "shopify://blogs/journal",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -360,7 +359,7 @@
       ],
       "disabled": true,
       "settings": {
-        "image": "shopify:\/\/shop_images\/MP_SU24_Leader_Baby_Journal_5.7.24.jpg",
+        "image": "shopify://shop_images/MP_SU24_Leader_Baby_Journal_5.7.24.jpg",
         "banner_link": "",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
