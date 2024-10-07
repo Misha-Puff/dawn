@@ -16,7 +16,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NEW FALL",
-            "button_link_1": "shopify://collections/child-fall-24",
+            "button_link_1": "shopify://collections/child-fall-24-simplified",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -47,7 +47,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/MP_FA24_Leader_10.4.24_1.jpg",
-        "banner_link": "shopify://collections/child-fall-24",
+        "banner_link": "shopify://collections/child-fall-24-simplified",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -71,7 +71,7 @@
             "title": "",
             "text": "",
             "link_label": "Shop Baby —",
-            "link": "shopify://collections/baby-fall-24"
+            "link": "shopify://collections/baby-fall-24-simplified"
           }
         },
         "column_3igURh": {
