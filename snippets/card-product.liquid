@@ -446,9 +446,11 @@
               aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
             >
               {{ card_product.title | escape -}}
-              {%- if card_product.options[0] == 'Color' %}
-                - {{ card_product.selected_or_first_available_variant.options[0] -}}
-              {%- endif %}
+              {% unless section.settings.enable_swatches %}
+                {%- if card_product.options[0] == 'Color' %}
+                  - {{ card_product.selected_or_first_available_variant.options[0] -}}
+                {%- endif %}
+              {% endunless %}
             </a>
           </h3>
           <div class="card-information">
