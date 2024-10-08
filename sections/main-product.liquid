@@ -54,6 +54,12 @@
         display: none !important;
       }
     {% endif %}
+
+    {% if product.has_only_default_variant %}
+      #variant-selects-{{ section.id }} {
+        display: none
+      }
+    {% endif %}
   {%- endstyle -%}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
