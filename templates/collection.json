@@ -21,11 +21,60 @@
     },
     "banner": {
       "type": "main-collection-banner",
-      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
         "color_scheme": "scheme-1"
+      }
+    },
+    "rich_text_YJeCaw": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_LbXhKd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Limited Yarn",
+            "heading_size": "h2"
+          }
+        },
+        "text_PGqAmF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.</p>",
+            "line_height": 20
+          }
+        },
+        "button_Yh3Xhh": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_LbXhKd",
+        "text_PGqAmF",
+        "button_Yh3Xhh"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 40,
+        "padding_left": 100,
+        "padding_right": 100
       }
     },
     "product-grid": {
@@ -77,8 +126,6 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "enable_overlay": false,
-        "enable_swatches": false,
         "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "drawer",
@@ -97,61 +144,13 @@
       "type": "shogun-optimizer",
       "settings": {
       }
-    },
-    "rich_text_HVW4xp": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_mcYeiz": {
-          "type": "heading",
-          "settings": {
-            "heading": "Knitting Patterns",
-            "heading_size": "h2"
-          }
-        },
-        "text_wy9thj": {
-          "type": "text",
-          "settings": {
-            "text": "<p>This lovingly curated collection of knitting patterns from our archives brings you the essentials and signature pieces from our early collections. These patterns are road maps to your own unique creation, letting you customize size, color, and embrace the magic of the creative process.</p>",
-            "line_height": 20
-          }
-        },
-        "button_9UYG9A": {
-          "type": "button",
-          "settings": {
-            "button_label": "shop yarn",
-            "button_link": "shopify://collections/rws-yarn-skeins",
-            "button_style_secondary": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "button_label_3": "",
-            "button_link_3": "",
-            "button_style_secondary_3": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_mcYeiz",
-        "text_wy9thj",
-        "button_9UYG9A"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
-        "padding_left": 100,
-        "padding_right": 100
-      }
     }
   },
   "order": [
     "shogun-helper",
     "shogun-above",
     "banner",
-    "rich_text_HVW4xp",
+    "rich_text_YJeCaw",
     "product-grid",
     "shogun-below",
     "shogun-optimizer"
