@@ -21,36 +21,36 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
         "color_scheme": "scheme-1"
       }
     },
-    "rich_text_YJeCaw": {
+    "rich_text_g7XWbT": {
       "type": "rich-text",
       "blocks": {
-        "heading_LbXhKd": {
+        "heading_jRxF9T": {
           "type": "heading",
           "settings": {
-            "heading": "Limited Yarn",
+            "heading": "Knitting Patterns",
             "heading_size": "h2"
           }
         },
-        "text_PGqAmF": {
+        "text_QeRMap": {
           "type": "text",
           "settings": {
-            "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.</p>",
+            "text": "<p>This lovingly curated collection of knitting patterns from our archives brings you the essentials and signature pieces from our early collections. These patterns are road maps to your own unique creation, letting you customize size, color, and embrace the magic of the creative process.</p>",
             "line_height": 20
           }
         },
-        "button_Yh3Xhh": {
+        "button_zKjgA7": {
           "type": "button",
-          "disabled": true,
           "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
+            "button_label": "shop yarn",
+            "button_link": "shopify://collections/rws-yarn-skeins",
+            "button_style_secondary": true,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false,
@@ -61,11 +61,10 @@
         }
       },
       "block_order": [
-        "heading_LbXhKd",
-        "text_PGqAmF",
-        "button_Yh3Xhh"
+        "heading_jRxF9T",
+        "text_QeRMap",
+        "button_zKjgA7"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -152,7 +151,7 @@
     "shogun-helper",
     "shogun-above",
     "banner",
-    "rich_text_YJeCaw",
+    "rich_text_g7XWbT",
     "product-grid",
     "shogun-below",
     "shogun-optimizer"
