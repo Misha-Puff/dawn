@@ -21,30 +21,31 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
         "color_scheme": "scheme-1"
       }
     },
-    "rich_text_YJeCaw": {
+    "rich_text_YyAWtR": {
       "type": "rich-text",
       "blocks": {
-        "heading_LbXhKd": {
+        "heading_Tb93ja": {
           "type": "heading",
           "settings": {
-            "heading": "Limited Yarn",
+            "heading": "Mending Services",
             "heading_size": "h2"
           }
         },
-        "text_PGqAmF": {
+        "text_pgUK9t": {
           "type": "text",
           "settings": {
-            "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.</p>",
+            "text": "<p>Our garments are made to last, but we know life happens. That’s why we created a repair program to help your item live on. Extending its life instead of buying new reduces its carbon footprint by 82%—something to wear and feel great about.</p><p></p>",
             "line_height": 20
           }
         },
-        "button_Yh3Xhh": {
+        "button_kyEBKP": {
           "type": "button",
           "disabled": true,
           "settings": {
@@ -61,11 +62,10 @@
         }
       },
       "block_order": [
-        "heading_LbXhKd",
-        "text_PGqAmF",
-        "button_Yh3Xhh"
+        "heading_Tb93ja",
+        "text_pgUK9t",
+        "button_kyEBKP"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -152,7 +152,7 @@
     "shogun-helper",
     "shogun-above",
     "banner",
-    "rich_text_YJeCaw",
+    "rich_text_YyAWtR",
     "product-grid",
     "shogun-below",
     "shogun-optimizer"
