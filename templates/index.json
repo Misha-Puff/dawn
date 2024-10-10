@@ -64,6 +64,16 @@
     "multicolumn_peYxH9": {
       "type": "multicolumn",
       "blocks": {
+        "column_3igURh": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_FA24_Leader_10.11.24_Adult.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Shop Adult —",
+            "link": "shopify://collections/fall-24-adult-part-i"
+          }
+        },
         "column_iAT4GA": {
           "type": "column",
           "settings": {
@@ -73,21 +83,11 @@
             "link_label": "Shop Baby —",
             "link": "shopify://collections/baby-fall-24"
           }
-        },
-        "column_3igURh": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/MP_FA24_Leader_10.4.24_BS_Mob_e541ee7d-a790-4287-b4b7-32e6c0ec63a7.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Best Sellers —",
-            "link": "shopify://collections/child-best-sellers"
-          }
         }
       },
       "block_order": [
-        "column_iAT4GA",
-        "column_3igURh"
+        "column_3igURh",
+        "column_iAT4GA"
       ],
       "settings": {
         "title": "",
