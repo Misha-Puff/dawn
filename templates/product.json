@@ -66,7 +66,7 @@
           "settings": {
             "heading": "KEY FEATURES",
             "icon": "none",
-            "content": "{% if product.metafields.product_page.key_features %}<p>{{ product.metafields.product_page.key_features | metafield_tag }}<\/p>\n{% endif %}",
+            "content": "{% if product.metafields.product_page.key_features %}<p>{{ product.metafields.product_page.key_features | metafield_tag }}</p>\n{% endif %}",
             "page": ""
           }
         },
@@ -75,7 +75,7 @@
           "settings": {
             "heading": "MATERIALS AND CARE",
             "icon": "none",
-            "content": "{%- if product.metafields.product_page.material_description -%}\n  <p>{{ product.metafields.product_page.material_description | metafield_tag }}<\/p>\n{%- endif -%}\n{%- if product.metafields.product_page.country_description -%}\n  <p>{{ product.metafields.product_page.country_description | metafield_tag }}<\/p>\n{%- endif -%}\n{%- if product.metafields.product_page.care_instructions -%}\n  <p>{{ product.metafields.product_page.care_instructions | metafield_tag }}<\/p>\n{%- endif -%}",
+            "content": "{%- if product.metafields.product_page.material_description -%}\n  <p>{{ product.metafields.product_page.material_description | metafield_tag }}</p>\n{%- endif -%}\n{%- if product.metafields.product_page.country_description -%}\n  <p>{{ product.metafields.product_page.country_description | metafield_tag }}</p>\n{%- endif -%}\n{%- if product.metafields.product_page.care_instructions -%}\n  <p>{{ product.metafields.product_page.care_instructions | metafield_tag }}</p>\n{%- endif -%}",
             "page": ""
           }
         },
@@ -84,7 +84,7 @@
           "settings": {
             "heading": "SIZE GUIDE",
             "icon": "none",
-            "content": "{% if product.metafields.product_page.json_size_chart or product.metafields.product_page.size_chart %}<modal-opener class=\"product-popup-modal__opener quick-add-hidden\" data-modal=\"#PopupModal-{{ block.id }}\" {{ block.shopify_attributes }}>\n<button id=\"ProductPopup-{{ block.id }}\" class=\"product-popup-modal__button link\" type=\"button\" aria-haspopup=\"dialog\">\nProduct Measurements\n<\/button>\n<\/modal-opener>\n<modal-dialog id=\"PopupModal-{{ block.id }}\" class=\"product-popup-modal\" {{ block.shopify_attributes }}>\n<div role=\"dialog\" aria-label=\"Product Measurements\" aria-modal=\"true\" class=\"product-popup-modal__content\" tabindex=\"-1\">\n<button id=\"ModalClose-{{ block.id }}\" type=\"button\" class=\"product-popup-modal__toggle\" aria-label=\"{{ 'accessibility.close' | t }}\">\n{% render 'icon-close' %}<\/button>\n<div class=\"product-popup-modal__content-info\">\n<h1 class=\"h2\">\nProduct Measurements\n<\/h1>\n{% render 'size-chart' %}\n<\/div>\n<\/div>\n<\/modal-dialog>\n{% endif %}",
+            "content": "{% if product.metafields.product_page.json_size_chart or product.metafields.product_page.size_chart %}<modal-opener class=\"product-popup-modal__opener quick-add-hidden\" data-modal=\"#PopupModal-{{ block.id }}\" {{ block.shopify_attributes }}>\n<button id=\"ProductPopup-{{ block.id }}\" class=\"product-popup-modal__button link\" type=\"button\" aria-haspopup=\"dialog\">\nProduct Measurements\n</button>\n</modal-opener>\n<modal-dialog id=\"PopupModal-{{ block.id }}\" class=\"product-popup-modal\" {{ block.shopify_attributes }}>\n<div role=\"dialog\" aria-label=\"Product Measurements\" aria-modal=\"true\" class=\"product-popup-modal__content\" tabindex=\"-1\">\n<button id=\"ModalClose-{{ block.id }}\" type=\"button\" class=\"product-popup-modal__toggle\" aria-label=\"{{ 'accessibility.close' | t }}\">\n{% render 'icon-close' %}</button>\n<div class=\"product-popup-modal__content-info\">\n<h1 class=\"h2\">\nProduct Measurements\n</h1>\n{% render 'size-chart' %}\n</div>\n</div>\n</modal-dialog>\n{% endif %}",
             "page": ""
           }
         },
@@ -135,7 +135,7 @@
         "text_mRz8Ek": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>INTRODUCING THE DENIM COLLECTION<\/strong><\/p><p>Handcrafted in Japan by skilled artisans, we use the highest quality Japanese denim and time-honored techniques, upholding responsible manufacturing methods that honor both people and the environment. Each piece is meticulously crafted, undergoing nearly 100 steps to produce one garment.<\/p><p>All of our denim is 100% cotton, with thoughtful touches, like contrast topstitching, hand-tacked embroidery instead of rivets to optimize softness, and adjustable waistbands and straps for long-wear and the perfect fit.<\/p><p>Designed for comfort and made for long wear — this denim can be worn often, worn in, and passed down.<\/p>",
+            "text": "<p><strong>INTRODUCING THE DENIM COLLECTION</strong></p><p>Handcrafted in Japan by skilled artisans, we use the highest quality Japanese denim and time-honored techniques, upholding responsible manufacturing methods that honor both people and the environment. Each piece is meticulously crafted, undergoing nearly 100 steps to produce one garment.</p><p>All of our denim is 100% cotton, with thoughtful touches, like contrast topstitching, hand-tacked embroidery instead of rivets to optimize softness, and adjustable waistbands and straps for long-wear and the perfect fit.</p><p>Designed for comfort and made for long wear — this denim can be worn often, worn in, and passed down.</p>",
             "text_style": "body"
           }
         }
@@ -144,7 +144,7 @@
         "text_mRz8Ek"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/mp_fall24_look_2_30_copy_AboutDenim.jpg",
+        "image": "shopify://shop_images/mp_fall24_look_2_30_copy_AboutDenim.jpg",
         "height": "adapt",
         "desktop_image_width": "small",
         "layout": "text_first",
@@ -154,7 +154,7 @@
         "section_color_scheme": "",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify:\/\/shop_images\/mp_fall24_look_2_30_copy_AboutDenim.jpg",
+        "mobile_image": "shopify://shop_images/mp_fall24_look_2_30_copy_AboutDenim.jpg",
         "mobile_content_alignment": "left",
         "padding_top": 56,
         "padding_bottom": 32,
@@ -167,7 +167,7 @@
         "text_Eqkbw6": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>INFINITE VARIATIONS — THE MAGIC OF HAND-DYE<\/strong><\/p><p>Our hand-dyed Superwash Merino wool is sustainably and ethically crafted by skilled artisans in Peru using premium natural fibers and low-impact dyes. This yarn is truly special, with each strand unique due to the hand-dye process, introducing subtle nuances to every garment. The hand-dyed variation and natural patterns the yarn creates when knit mean no two garments are the same, and that’s exactly why we love it. With this process, we embrace unpredictability and celebrate the presence of the hand.<\/p><p>For those reasons, we can’t guarantee that the Space Dye garment you receive will have a pattern close to those pictured, but it will truly be a one-of-a-kind heirloom.<\/p>",
+            "text": "<p><strong>INFINITE VARIATIONS — THE MAGIC OF HAND-DYE</strong></p><p>Our hand-dyed Superwash Merino wool is sustainably and ethically crafted by skilled artisans in Peru using premium natural fibers and low-impact dyes. This yarn is truly special, with each strand unique due to the hand-dye process, introducing subtle nuances to every garment. The hand-dyed variation and natural patterns the yarn creates when knit mean no two garments are the same, and that’s exactly why we love it. With this process, we embrace unpredictability and celebrate the presence of the hand.</p><p>For those reasons, we can’t guarantee that the Space Dye garment you receive will have a pattern close to those pictured, but it will truly be a one-of-a-kind heirloom.</p>",
             "text_style": "body"
           }
         }
@@ -176,7 +176,7 @@
         "text_Eqkbw6"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/bluestack_web.jpg",
+        "image": "shopify://shop_images/bluestack_web.jpg",
         "height": "adapt",
         "desktop_image_width": "small",
         "layout": "text_first",
@@ -186,11 +186,11 @@
         "section_color_scheme": "",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify:\/\/shop_images\/bluestack_web.jpg",
+        "mobile_image": "shopify://shop_images/bluestack_web.jpg",
         "mobile_content_alignment": "left",
         "padding_top": 56,
         "padding_bottom": 32,
-        "show_section_tag": "space-dye"
+        "show_section_tag": "ocean-space-dye"
       }
     },
     "complete_the_look_wXixew": {
@@ -236,7 +236,7 @@
       "type": "apps",
       "blocks": {
         "judge_me_reviews_review_widget_k9GUKa": {
-          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
           }
         }
