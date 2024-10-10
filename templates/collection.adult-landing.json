@@ -142,11 +142,11 @@
         "collection": "fall-24-adult-part-i",
         "products_to_show": 3,
         "columns_desktop": 3,
-        "full_width": false,
+        "full_width": true,
         "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 6,
+        "horizontal_spacing_desktop": 10,
         "vertical_spacing_desktop": 6,
-        "horizontal_spacing_mobile": 10,
+        "horizontal_spacing_mobile": 6,
         "vertical_spacing_mobile": 10,
         "show_view_all": false,
         "view_all_style": "link",
@@ -159,9 +159,11 @@
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 0,
-        "padding_bottom": 28
+        "swipe_on_mobile": true,
+        "padding_top": 12,
+        "padding_bottom": 28,
+        "padding_left": 0,
+        "padding_right": 0
       }
     },
     "multicolumn_8DQLJ3": {
