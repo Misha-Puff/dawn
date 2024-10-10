@@ -115,7 +115,7 @@
         "buttons_8b9zaW"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_FA24_Leader_10.11.24_Adult_LP.jpg",
+        "image": "shopify://shop_images/MP_FA24_Leader_10.11.24_Adult_LP_5e4ee7a3-0d11-48b9-8817-fae26f88f6df.jpg",
         "banner_link": "",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -124,7 +124,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_FA24_Leader_10.11.24_Adult_LP_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_FA24_Leader_10.11.24_Adult_LP_Mob_98b05190-7a51-4483-9375-723c81ea8ff3.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": false
