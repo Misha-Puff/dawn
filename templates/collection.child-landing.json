@@ -40,6 +40,8 @@
         "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
+        "enable_overlay": false,
+        "enable_swatches": false,
         "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "horizontal",
@@ -56,7 +58,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NEW FALL",
-            "button_link_1": "shopify://collections/child-fall-24",
+            "button_link_1": "shopify://collections/child-fall-24-simplified",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -87,7 +89,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/MP_FA24_Leader_10.4.24_2.jpg",
-        "banner_link": "shopify://collections/child-fall-24",
+        "banner_link": "shopify://collections/child-fall-24-simplified",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
