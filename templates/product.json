@@ -208,6 +208,7 @@
         "text_Dh6Hb4"
       ],
       "settings": {
+        "image": "shopify://shop_images/fig_variation_web.jpg",
         "height": "adapt",
         "desktop_image_width": "small",
         "layout": "text_first",
