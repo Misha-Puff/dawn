@@ -132,6 +132,7 @@
     },
     "featured_collection_JqiqGp": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_alignment": "left",
@@ -145,7 +146,7 @@
         "full_width": true,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 10,
-        "vertical_spacing_desktop": 6,
+        "vertical_spacing_desktop": 10,
         "horizontal_spacing_mobile": 6,
         "vertical_spacing_mobile": 10,
         "show_view_all": false,
@@ -162,8 +163,8 @@
         "swipe_on_mobile": true,
         "padding_top": 12,
         "padding_bottom": 28,
-        "padding_left": 0,
-        "padding_right": 0
+        "padding_left": 16,
+        "padding_right": 16
       }
     },
     "multicolumn_8DQLJ3": {
@@ -172,21 +173,21 @@
         "column_BCxWxb": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_SP24_Leaders_LG_Adult_LP_Lookbook.jpg",
+            "image": "shopify://shop_images/MP_FA24_Leader_10.11.24_Adult_LB.jpg",
             "title": "",
             "text": "",
-            "link_label": "Spring Lookbook",
-            "link": "shopify://blogs/journal/adult-spring-24"
+            "link_label": "Fall Lookbook —",
+            "link": "https://shop.misha-and-puff.com/blogs/journal/adult-fall-24"
           }
         },
         "column_dVCGVj": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_SU24_Leader_6.20.24_Sale_5.jpg",
+            "image": "shopify://shop_images/MP_FA24_Leader_10.11.24_Adult_New.jpg",
             "title": "",
             "text": "",
-            "link_label": "Last Chance Sale",
-            "link": "shopify://collections/adult-fa23-wi23-sale"
+            "link_label": "New Arrivals —",
+            "link": "shopify://collections/fall-24-adult-part-i"
           }
         }
       },
@@ -194,7 +195,6 @@
         "column_BCxWxb",
         "column_dVCGVj"
       ],
-      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h1",
@@ -205,11 +205,11 @@
         "link_style": "none",
         "button_type": "primary",
         "enable_full_width": false,
-        "enable_custom_spacing": false,
-        "horizontal_spacing_desktop": 20,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 30,
         "vertical_spacing_desktop": 20,
         "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 10,
+        "vertical_spacing_mobile": 0,
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 2,
