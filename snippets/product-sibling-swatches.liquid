@@ -1,68 +1,71 @@
-<variant-selects
-  id="variant-selects-{{ section.id }}"
-  data-section="{{ section.id }}"
->
-  <fieldset class="js product-form__input product-form__input--swatch">
-    {%- liquid
-      assign option = product.options_by_name.Color
-      assign siblings = product.metafields.product_page.style_siblings.value
-      assign max_swatches = 3
-      assign curr_swatches = 0
-      assign total_swatches = 0
+{%- liquid
+  assign option = product.options_by_name.Color
+  assign siblings = product.metafields.product_page.style_siblings.value
+  assign max_swatches = 3
+  assign curr_swatches = 0
+  assign total_swatches = 0
 
-      for sibling in siblings
-        assign total_swatches = total_swatches | plus: 1
-      endfor
-    -%}
-    {%- for sibling in siblings -%}
-      {% liquid
-        unless sibling.available
-          continue
-        endunless
+  for sibling in siblings
+    assign total_swatches = total_swatches | plus: 1
+  endfor
+-%}
 
-        assign curr_swatches = curr_swatches | plus: 1
+{% unless total_swatches == 1 %}
+  <variant-selects
+    id="variant-selects-{{ section.id }}"
+    data-section="{{ section.id }}"
+  >
+    <fieldset class="js product-form__input product-form__input--swatch">
+      {%- for sibling in siblings -%}
+        {% liquid
+          unless sibling.available
+            continue
+          endunless
 
-        if curr_swatches > max_swatches
-          break
-        endif
+          assign curr_swatches = curr_swatches | plus: 1
 
-        assign value = sibling.options_by_name.color.values[0]
-      %}
+          if curr_swatches > max_swatches
+            break
+          endif
 
-      {%- capture input_name -%}
-        {{ option.name }}-{{ option.position }}
-      {%- endcapture -%}
-
-      {%- capture label_unavailable -%}
-        <span class="visually-hidden label-unavailable">
-          {{- 'products.product.variant_sold_out_or_unavailable' | t -}}
-        </span>
-      {%- endcapture -%}
-
-      {%- capture help_text -%}
-        <span class="visually-hidden">{{ value | escape }}</span>
-        {{ label_unavailable }}
-      {%- endcapture -%}
-
-      <a href="{{ sibling.url }}">
-        {%
-          render 'swatch-input',
-          id: input_id,
-          name: input_name,
-          value: value | escape,
-          swatch: value.swatch,
-          product_form_id: product_form_id,
-          checked: false,
-          visually_disabled: false,
-          shape: 'square',
-          help_text: help_text,
-          additional_props: input_dataset
+          assign value = sibling.options_by_name.color.values[0]
         %}
-      </a>
-    {%- endfor -%}
 
-    {% if curr_swatches > max_swatches %}
-      + {{ total_swatches | minus: max_swatches }}
-    {% endif %}
-  </fieldset>
-</variant-selects>
+        {%- capture input_name -%}
+          {{ option.name }}-{{ option.position }}
+        {%- endcapture -%}
+
+        {%- capture label_unavailable -%}
+          <span class="visually-hidden label-unavailable">
+            {{- 'products.product.variant_sold_out_or_unavailable' | t -}}
+          </span>
+        {%- endcapture -%}
+
+        {%- capture help_text -%}
+          <span class="visually-hidden">{{ value | escape }}</span>
+          {{ label_unavailable }}
+        {%- endcapture -%}
+
+        <a href="{{ sibling.url }}">
+          {%
+            render 'swatch-input',
+            id: input_id,
+            name: input_name,
+            value: value | escape,
+            swatch: value.swatch,
+            product_form_id: product_form_id,
+            checked: false,
+            visually_disabled: false,
+            shape: 'square',
+            help_text: help_text,
+            additional_props: input_dataset
+          %}
+        </a>
+      {%- endfor -%}
+
+      {% if curr_swatches > max_swatches %}
+        + {{ total_swatches | minus: max_swatches }}
+      {% endif %}
+    </fieldset>
+  </variant-selects>
+{% endunless %}
