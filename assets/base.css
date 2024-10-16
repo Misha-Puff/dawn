@@ -1215,7 +1215,7 @@ button.shopify-payment-button__button--unbranded {
   padding: var(--button-vertical-padding) var(--button-horizontal-padding);
   cursor: pointer;
   font: inherit;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   text-decoration: none;
   color: rgb(var(--color-button-text));
   transition: box-shadow var(--duration-short) ease;
@@ -1302,7 +1302,7 @@ button.shopify-payment-button__button--unbranded {
 .button-label,
 .shopify-challenge__button,
 .customer button {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   letter-spacing: 0.1rem;
   line-height: calc(1 + 0.2 / var(--font-body-scale));
 }
