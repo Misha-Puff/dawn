@@ -135,6 +135,10 @@ quick-add-modal .slider.slider--mobile .slider__slide,
   scroll-snap-align: center;
 }
 
+quick-add-modal .slider--mobile + .slider-buttons {
+  display: flex;
+}
+
 @media screen and (min-width: 990px) {
   .slider-component-desktop.page-width {
     max-width: none;
@@ -320,7 +324,7 @@ quick-add-modal .slider.slider--mobile .slider__slide,
   justify-content: center;
 }
 
-/* 
+
 @media screen and (min-width: 990px) {
   .slider:not(.slider--everywhere):not(.slider--desktop) + .slider-buttons {
     display: none;
@@ -337,7 +341,7 @@ quick-add-modal .slider.slider--mobile .slider__slide,
   .slider--mobile + .slider-buttons {
     display: none;
   }
-} */
+}
 
 .slider-button {
   color: rgba(var(--color-foreground), 0.75);
