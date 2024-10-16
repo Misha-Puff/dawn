@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "shogun-helper": {
@@ -58,7 +58,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NEW FALL",
-            "button_link_1": "shopify://collections/child-fall-24-simplified",
+            "button_link_1": "shopify://collections/child-fall-24-simplified-2",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -89,7 +89,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/MP_FA24_Leader_10.11.24_1.jpg",
-        "banner_link": "shopify://collections/child-fall-24-simplified",
+        "banner_link": "shopify://collections/child-fall-24-simplified-2",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -206,7 +206,9 @@
         "columns_mobile": "2",
         "swipe_on_mobile": true,
         "padding_top": 0,
-        "padding_bottom": 0
+        "padding_bottom": 0,
+        "padding_left": 36,
+        "padding_right": 36
       }
     },
     "multicolumn_HbcHgm": {
