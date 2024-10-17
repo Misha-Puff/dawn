@@ -512,9 +512,9 @@
         "columns_mobile": "2",
         "swipe_on_mobile": true,
         "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_left": 36,
-        "padding_right": 36
+        "padding_bottom": 0,
+        "padding_left": 20,
+        "padding_right": 20
       }
     }
   },
