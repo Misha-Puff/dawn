@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "banner": {
@@ -84,7 +84,7 @@
         "buttons_QFyVkf": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "SHOP NEW FALL",
+            "button_label_1": "SHOP  FALL",
             "button_link_1": "shopify://collections/baby-fall-24-simplified",
             "button_style_secondary_1": true,
             "button_label_2": "",
@@ -97,7 +97,9 @@
           "disabled": true,
           "settings": {
             "heading": "Image banner",
-            "heading_size": "h1"
+            "desktop_heading_size": "h1",
+            "mobile_heading_size": "h1",
+            "heading_color": "#000000"
           }
         },
         "text_KVmVrL": {
@@ -139,7 +141,7 @@
             "image": "shopify://shop_images/MP_F24_LOOK_13_0517_LB.jpg",
             "title": "",
             "text": "",
-            "link_label": "Fall Part 2 Lookbook —",
+            "link_label": "View the Lookbook",
             "link": "shopify://blogs/journal/fa-24-2"
           }
         },
@@ -149,7 +151,7 @@
             "image": "shopify://shop_images/MP_FA24_Leader_9.19.24_Layette.jpg",
             "title": "",
             "text": "",
-            "link_label": "Shop Layette —",
+            "link_label": "Shop Layette",
             "link": "shopify://collections/layette-24-old"
           }
         }
@@ -161,18 +163,18 @@
       "settings": {
         "title": "",
         "heading_size": "h1",
-        "enable_overlay": false,
-        "content_position": "middle-center",
+        "enable_overlay": true,
+        "content_position": "bottom-left",
         "link_type": "link",
-        "link_color": "#000000",
-        "link_style": "none",
+        "link_color": "#ffffff",
+        "link_style": "underline",
         "button_type": "primary",
         "enable_full_width": false,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 30,
         "vertical_spacing_desktop": 20,
         "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 0,
+        "vertical_spacing_mobile": 20,
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 2,
@@ -184,7 +186,7 @@
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "desktop_padding_top": 30,
-        "desktop_padding_bottom": 20,
+        "desktop_padding_bottom": 30,
         "mobile_padding_top": 20,
         "mobile_padding_bottom": 0
       }
@@ -228,12 +230,13 @@
             "image": "shopify://shop_images/Rib_Longies_-_Ink_1_OnePieces.jpg",
             "title": "",
             "text": "",
-            "link_label": "ONE-PIECES",
+            "link_label": "ONESIES",
             "link": "shopify://collections/baby-one-piece"
           }
         },
         "column_PjhVYH": {
           "type": "column",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Sledding_Hood_-_Yonder_1_Accs_1d3d74a9-e8c3-487e-8807-f8a596e89ca8.jpg",
             "title": "",
@@ -267,7 +270,7 @@
         "vertical_spacing_mobile": 6,
         "image_width": "full",
         "image_ratio": "adapt",
-        "columns_desktop": 5,
+        "columns_desktop": 4,
         "column_alignment": "left",
         "background_style": "none",
         "button_label": "",
