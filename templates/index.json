@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "image_banner_bz8jb3": {
@@ -67,10 +67,10 @@
         "column_3igURh": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_FA24_Leader_10.11.24_Adult.jpg",
+            "image": "shopify://shop_images/MP_FA24_Leader_10.17.24_Adult_Mob.jpg",
             "title": "",
             "text": "",
-            "link_label": "Shop Adult —",
+            "link_label": "ADULT NEW ARRIVALS",
             "link": "shopify://collections/fall-24-adult-part-i"
           }
         },
@@ -80,7 +80,7 @@
             "image": "shopify://shop_images/MP_FA24_Leader_10.4.24._Baby_Mob.jpg",
             "title": "",
             "text": "",
-            "link_label": "Shop Baby —",
+            "link_label": "SHOP BABY",
             "link": "shopify://collections/baby-fall-24"
           }
         }
@@ -91,19 +91,19 @@
       ],
       "settings": {
         "title": "",
-        "heading_size": "h1",
-        "enable_overlay": false,
-        "content_position": "middle-center",
+        "heading_size": "h2",
+        "enable_overlay": true,
+        "content_position": "bottom-left",
         "link_type": "link",
-        "link_color": "#000000",
-        "link_style": "none",
+        "link_color": "#ffffff",
+        "link_style": "underline",
         "button_type": "primary",
         "enable_full_width": false,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 30,
         "vertical_spacing_desktop": 20,
         "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 0,
+        "vertical_spacing_mobile": 20,
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 2,
@@ -115,9 +115,9 @@
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "desktop_padding_top": 30,
-        "desktop_padding_bottom": 20,
+        "desktop_padding_bottom": 30,
         "mobile_padding_top": 20,
-        "mobile_padding_bottom": 0
+        "mobile_padding_bottom": 20
       }
     },
     "multicolumn_4t4Ubf": {
@@ -337,7 +337,9 @@
         "columns_mobile": "2",
         "swipe_on_mobile": true,
         "padding_top": 20,
-        "padding_bottom": 0
+        "padding_bottom": 0,
+        "padding_left": 36,
+        "padding_right": 36
       }
     },
     "multicolumn": {
