@@ -16,7 +16,9 @@
           "type": "heading",
           "settings": {
             "heading": "SWEATERS TO LIVE IN",
-            "heading_size": "h2"
+            "desktop_heading_size": "h2",
+            "mobile_heading_size": "h2",
+            "heading_color": "#ffffff"
           }
         },
         "buttons_CGGLqp": {
@@ -69,7 +71,7 @@
             "image": "shopify://shop_images/MP_FA24_Leader_10.17.24_Adult_Mob.jpg",
             "title": "",
             "text": "",
-            "link_label": "ADULT NEW ARRIVALS",
+            "link_label": "New Adult",
             "link": "shopify://collections/fall-24-adult-part-i"
           }
         },
@@ -79,7 +81,7 @@
             "image": "shopify://shop_images/MP_FA24_Leader_10.17.24_Baby.jpg",
             "title": "",
             "text": "",
-            "link_label": "SHOP BABY",
+            "link_label": "Shop Baby",
             "link": "shopify://collections/baby-fall-24"
           }
         }
