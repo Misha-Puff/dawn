@@ -12,23 +12,22 @@
     "image_banner_bz8jb3": {
       "type": "image-banner",
       "blocks": {
+        "heading_egMwVJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "SWEATERS TO LIVE IN",
+            "heading_size": "h2"
+          }
+        },
         "buttons_CGGLqp": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "SHOP NEW FALL",
+            "button_label_1": "SHOP FALL",
             "button_link_1": "shopify://collections/child-fall-24-simplified",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false
-          }
-        },
-        "heading_egMwVJ": {
-          "type": "heading",
-          "disabled": true,
-          "settings": {
-            "heading": "",
-            "heading_size": "h1"
           }
         },
         "text_TdBLTR": {
@@ -41,12 +40,12 @@
         }
       },
       "block_order": [
-        "buttons_CGGLqp",
         "heading_egMwVJ",
+        "buttons_CGGLqp",
         "text_TdBLTR"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_FA24_Leader_10.11.24_2.jpg",
+        "image": "shopify://shop_images/MP_FA24_Leader_10.17.24_Lead.jpg",
         "banner_link": "shopify://collections/child-fall-24",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -77,7 +76,7 @@
         "column_iAT4GA": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_FA24_Leader_10.4.24._Baby_Mob.jpg",
+            "image": "shopify://shop_images/MP_FA24_Leader_10.17.24_Baby.jpg",
             "title": "",
             "text": "",
             "link_label": "SHOP BABY",
