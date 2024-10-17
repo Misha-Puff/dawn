@@ -200,7 +200,7 @@
         "description": "<p>BEST SELLERS</p>",
         "show_description": false,
         "description_style": "body",
-        "collection": "adult-new",
+        "collection": "fall-24-adult-part-ii",
         "products_to_show": 4,
         "columns_desktop": 4,
         "full_width": true,
