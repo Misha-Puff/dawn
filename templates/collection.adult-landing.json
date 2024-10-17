@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "banner": {
@@ -94,7 +94,9 @@
           "disabled": true,
           "settings": {
             "heading": "Image banner",
-            "heading_size": "h2"
+            "desktop_heading_size": "h1",
+            "mobile_heading_size": "h1",
+            "heading_color": "#000000"
           }
         },
         "buttons_8b9zaW": {
@@ -115,7 +117,7 @@
         "buttons_8b9zaW"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_FA24_Leader_10.11.24_Adult_LP_5e4ee7a3-0d11-48b9-8817-fae26f88f6df.jpg",
+        "image": "shopify://shop_images/MP_FA24_Leader_10.17.24_Adult.jpg",
         "banner_link": "",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -124,7 +126,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_FA24_Leader_10.11.24_Adult_LP_Mob_98b05190-7a51-4483-9375-723c81ea8ff3.jpg",
+        "mobile_image": "shopify://shop_images/MP_FA24_Leader_10.17.24_Adult_Mob_f5157f05-a16a-44ce-9b6e-2df85edb43fe.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": false
@@ -161,10 +163,14 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": true,
-        "padding_top": 12,
-        "padding_bottom": 28,
-        "padding_left": 16,
-        "padding_right": 16
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 36,
+        "desktop_padding_left": 36,
+        "desktop_padding_right": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36,
+        "mobile_padding_left": 36,
+        "mobile_padding_right": 36
       }
     },
     "multicolumn_8DQLJ3": {
