@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "banner": {
@@ -94,14 +94,16 @@
           "disabled": true,
           "settings": {
             "heading": "Image banner",
-            "heading_size": "h2"
+            "desktop_heading_size": "h1",
+            "mobile_heading_size": "h1",
+            "heading_color": "#000000"
           }
         },
         "buttons_8b9zaW": {
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP FALL",
-            "button_link_1": "shopify://collections/fall-24-adult-part-i",
+            "button_link_1": "shopify://collections/adult-fall-24",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -115,8 +117,8 @@
         "buttons_8b9zaW"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_FA24_Leader_10.11.24_Adult_LP_5e4ee7a3-0d11-48b9-8817-fae26f88f6df.jpg",
-        "banner_link": "",
+        "image": "shopify://shop_images/MP_FA24_Leader_10.17.24_Adult.jpg",
+        "banner_link": "shopify://collections/adult-fall-24",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -124,47 +126,10 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_FA24_Leader_10.11.24_Adult_LP_Mob_98b05190-7a51-4483-9375-723c81ea8ff3.jpg",
+        "mobile_image": "shopify://shop_images/MP_FA24_Leader_10.17.24_Adult_Mob_f5157f05-a16a-44ce-9b6e-2df85edb43fe.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": false
-      }
-    },
-    "featured_collection_JqiqGp": {
-      "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "heading_alignment": "left",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "fall-24-adult-part-i",
-        "products_to_show": 3,
-        "columns_desktop": 3,
-        "full_width": true,
-        "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 10,
-        "vertical_spacing_desktop": 10,
-        "horizontal_spacing_mobile": 6,
-        "vertical_spacing_mobile": 10,
-        "show_view_all": false,
-        "view_all_style": "link",
-        "enable_desktop_slider": false,
-        "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 12,
-        "padding_bottom": 28,
-        "padding_left": 16,
-        "padding_right": 16
       }
     },
     "multicolumn_8DQLJ3": {
@@ -176,7 +141,7 @@
             "image": "shopify://shop_images/MP_FA24_Leader_10.11.24_Adult_LB.jpg",
             "title": "",
             "text": "",
-            "link_label": "Fall Lookbook —",
+            "link_label": "Fall Lookbook",
             "link": "https://shop.misha-and-puff.com/blogs/journal/adult-fall-24"
           }
         },
@@ -186,8 +151,8 @@
             "image": "shopify://shop_images/MP_FA24_Leader_10.11.24_Adult_New.jpg",
             "title": "",
             "text": "",
-            "link_label": "New Arrivals —",
-            "link": "shopify://collections/fall-24-adult-part-i"
+            "link_label": "New Arrivals",
+            "link": "shopify://collections/adult-fall-24"
           }
         }
       },
@@ -198,18 +163,18 @@
       "settings": {
         "title": "",
         "heading_size": "h1",
-        "enable_overlay": false,
-        "content_position": "middle-center",
+        "enable_overlay": true,
+        "content_position": "bottom-left",
         "link_type": "link",
-        "link_color": "#000000",
-        "link_style": "none",
+        "link_color": "#ffffff",
+        "link_style": "underline",
         "button_type": "primary",
         "enable_full_width": false,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 30,
         "vertical_spacing_desktop": 20,
         "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 0,
+        "vertical_spacing_mobile": 20,
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 2,
@@ -222,8 +187,48 @@
         "swipe_on_mobile": false,
         "desktop_padding_top": 30,
         "desktop_padding_bottom": 30,
-        "mobile_padding_top": 30,
-        "mobile_padding_bottom": 30
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "featured_collection_JqiqGp": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "",
+        "heading_alignment": "left",
+        "heading_size": "h2",
+        "description": "<p>BEST SELLERS</p>",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "adult-best-sellers",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": true,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 30,
+        "vertical_spacing_desktop": 0,
+        "horizontal_spacing_mobile": 18,
+        "vertical_spacing_mobile": 0,
+        "show_view_all": false,
+        "view_all_style": "link",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "desktop_padding_top": 16,
+        "desktop_padding_bottom": 28,
+        "desktop_padding_left": 32,
+        "desktop_padding_right": 32,
+        "mobile_padding_top": 44,
+        "mobile_padding_bottom": 20,
+        "mobile_padding_left": 4,
+        "mobile_padding_right": 4
       }
     },
     "image_banner_ngVXDX": {
@@ -266,8 +271,8 @@
     "product-grid",
     "slideshow_aFcKQi",
     "image_banner_8Dbi6e",
-    "featured_collection_JqiqGp",
     "multicolumn_8DQLJ3",
+    "featured_collection_JqiqGp",
     "image_banner_ngVXDX"
   ]
 }

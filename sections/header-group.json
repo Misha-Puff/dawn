@@ -16,8 +16,9 @@
       "blocks": {
         "announcement_egLqPG": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
-            "text": "<p>8/30-9/2 FREE SHIPPING on orders $75+<a href=\"/pages/ld-24-free-ship\" target=\"_blank\" title=\"8/30-9/2 — Free Shipping on Orders $75+\">*</a></p>"
+            "text": "<p>Limited Time Only — Free Shipping on Orders $x or more</p>"
           }
         }
       },
