@@ -103,7 +103,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP FALL",
-            "button_link_1": "shopify://collections/fall-24-adult-part-i",
+            "button_link_1": "shopify://collections/adult-fall-24",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -118,7 +118,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/MP_FA24_Leader_10.17.24_Adult.jpg",
-        "banner_link": "",
+        "banner_link": "shopify://collections/adult-fall-24",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -152,7 +152,7 @@
             "title": "",
             "text": "",
             "link_label": "New Arrivals",
-            "link": "shopify://collections/fall-24-adult-part-i"
+            "link": "shopify://collections/adult-fall-24"
           }
         }
       },
