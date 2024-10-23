@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -17,14 +17,13 @@
         "announcement_egLqPG": {
           "type": "announcement",
           "settings": {
-            "text": "<p>8\/30-9\/2 FREE SHIPPING on orders $75+<a href=\"\/pages\/ld-24-free-ship\" target=\"_blank\" title=\"8\/30-9\/2 — Free Shipping on Orders $75+\">*<\/a><\/p>"
+            "text": "<p>Boo!</p>"
           }
         }
       },
       "block_order": [
         "announcement_egLqPG"
       ],
-      "disabled": true,
       "settings": {
         "color_scheme": "",
         "show_line_separator": false,
