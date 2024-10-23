@@ -111,11 +111,26 @@
             "col_start_mobile": "1",
             "col_span_mobile": "1"
           }
+        },
+        "image_4MiTkW": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "row_start_desktop": 1,
+            "row_span_desktop": 1,
+            "col_start_desktop": 1,
+            "col_span_desktop": 1,
+            "row_start_mobile": 1,
+            "row_span_mobile": 1,
+            "col_start_mobile": "1",
+            "col_span_mobile": "1"
+          }
         }
       },
       "block_order": [
         "image_f8UJrh",
-        "image_gkgQFt"
+        "image_gkgQFt",
+        "image_4MiTkW"
       ],
       "settings": {
         "products_per_page": 48,
