@@ -36,9 +36,9 @@
         "button_3k6igj": {
           "type": "button",
           "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
+            "button_label": "SHOP PIMA",
+            "button_link": "https://shop.misha-and-puff.com/collections/child-pima-staples",
+            "button_style_secondary": true,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false,
@@ -58,10 +58,10 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 40,
+        "padding_top": 0,
         "padding_bottom": 52,
-        "padding_left": 0,
-        "padding_right": 0
+        "padding_left": 52,
+        "padding_right": 52
       }
     }
   },
