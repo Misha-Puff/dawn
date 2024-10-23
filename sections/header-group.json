@@ -16,7 +16,6 @@
       "blocks": {
         "announcement_egLqPG": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
             "text": "<p>Limited Time Only — 20% Off select <a href=\"https://shop.misha-and-puff.com/collections/child-pima-staples\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/collections/child-pima-staples\">Fall Pima cotton</a> styles, online & in stores<a href=\"/pages/promo-terms\" target=\"_blank\" title=\"Promo Terms\">*</a></p>"
           }
@@ -27,6 +26,8 @@
       ],
       "settings": {
         "color_scheme": "",
+        "desktop_height": 40,
+        "mobile_height": 40,
         "show_line_separator": false,
         "show_social": false,
         "auto_rotate": true,
