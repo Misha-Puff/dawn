@@ -17,7 +17,7 @@
         "announcement_egLqPG": {
           "type": "announcement",
           "settings": {
-            "text": "<p>Boo!</p>"
+            "text": "<p><a href=\"/pages/promo-terms\" title=\"Promo Terms\">Boo!</a></p>"
           }
         }
       },
