@@ -19,19 +19,18 @@
     },
     "featured_collection_7f9W8H": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
-        "title": "1",
-        "heading_alignment": "left",
-        "heading_size": "h1",
-        "description": "",
+        "title": "",
+        "heading_alignment": "center",
+        "heading_size": "h2",
+        "description": "<p>LOOK 1</p>",
         "show_description": false,
         "description_style": "body",
         "collection": "shop-the-look-1",
         "products_to_show": 4,
         "columns_desktop": 4,
-        "full_width": false,
-        "enable_custom_spacing": false,
+        "full_width": true,
+        "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 20,
         "vertical_spacing_desktop": 20,
         "horizontal_spacing_mobile": 10,
@@ -60,7 +59,6 @@
     },
     "featured_collection_TKaEra": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
         "title": "2",
         "heading_alignment": "left",
@@ -101,7 +99,6 @@
     },
     "featured_collection_iKcwFJ": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
         "title": "3",
         "heading_alignment": "left",
@@ -142,7 +139,6 @@
     },
     "featured_collection_LTKmP3": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
         "title": "4",
         "heading_alignment": "left",
@@ -183,7 +179,6 @@
     },
     "featured_collection_8wPkDy": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
         "title": "5",
         "heading_alignment": "left",
@@ -191,7 +186,7 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "",
+        "collection": "shop-the-look-5",
         "products_to_show": 4,
         "columns_desktop": 4,
         "full_width": false,
@@ -222,9 +217,47 @@
         "mobile_padding_right": 36
       }
     },
+    "collage_KMKgfH": {
+      "type": "collage",
+      "blocks": {
+        "image_Cch4if": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/MP_F24_Look_32_1335_stl.jpg"
+          }
+        },
+        "product_4m49hB": {
+          "type": "product",
+          "settings": {
+            "product": "fa24-child-crochet-trim-puff-top-iris-confetti",
+            "second_image": false
+          }
+        },
+        "collection_Uczkm7": {
+          "type": "collection",
+          "settings": {
+            "collection": "child-annas-picks-shop-the-look"
+          }
+        }
+      },
+      "block_order": [
+        "image_Cch4if",
+        "product_4m49hB",
+        "collection_Uczkm7"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h2",
+        "desktop_layout": "left",
+        "mobile_layout": "column",
+        "card_styles": "product-card-wrapper",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_collection_qQACf4": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
         "title": "6",
         "heading_alignment": "left",
@@ -265,7 +298,6 @@
     },
     "featured_collection_TWixhV": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
         "title": "7",
         "heading_alignment": "left",
@@ -306,7 +338,6 @@
     },
     "featured_collection_y4E8xQ": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
         "title": "8",
         "heading_alignment": "left",
@@ -347,7 +378,6 @@
     },
     "featured_collection_8TYWrQ": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
         "title": "9",
         "heading_alignment": "left",
@@ -394,6 +424,7 @@
     "featured_collection_iKcwFJ",
     "featured_collection_LTKmP3",
     "featured_collection_8wPkDy",
+    "collage_KMKgfH",
     "featured_collection_qQACf4",
     "featured_collection_TWixhV",
     "featured_collection_y4E8xQ",
