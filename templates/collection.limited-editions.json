@@ -21,102 +21,16 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
         "color_scheme": "scheme-1"
       }
     },
-    "rich_text_YJeCaw": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_LbXhKd": {
-          "type": "heading",
-          "settings": {
-            "heading": "Limited Yarn",
-            "heading_size": "h2"
-          }
-        },
-        "text_PGqAmF": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.</p>",
-            "line_height": 20
-          }
-        },
-        "button_Yh3Xhh": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "button_label_3": "",
-            "button_link_3": "",
-            "button_style_secondary_3": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_LbXhKd",
-        "text_PGqAmF",
-        "button_Yh3Xhh"
-      ],
-      "disabled": true,
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
-        "padding_left": 100,
-        "padding_right": 100
-      }
-    },
     "product-grid": {
       "type": "main-collection-product-grid",
-      "blocks": {
-        "image_f8UJrh": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
-            "link": "",
-            "row_start_desktop": 1,
-            "row_span_desktop": 1,
-            "col_start_desktop": 1,
-            "col_span_desktop": 2,
-            "row_start_mobile": 1,
-            "row_span_mobile": 1,
-            "col_start_mobile": "1",
-            "col_span_mobile": "2"
-          }
-        },
-        "image_gkgQFt": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
-            "link": "",
-            "row_start_desktop": 6,
-            "row_span_desktop": 1,
-            "col_start_desktop": 1,
-            "col_span_desktop": 3,
-            "row_start_mobile": 1,
-            "row_span_mobile": 1,
-            "col_start_mobile": "1",
-            "col_span_mobile": "1"
-          }
-        }
-      },
-      "block_order": [
-        "image_f8UJrh",
-        "image_gkgQFt"
-      ],
+      "disabled": true,
       "settings": {
         "products_per_page": 48,
         "columns_desktop": 3,
@@ -126,6 +40,8 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "enable_overlay": false,
+        "enable_swatches": false,
         "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "drawer",
@@ -144,15 +60,164 @@
       "type": "shogun-optimizer",
       "settings": {
       }
+    },
+    "rich_text_PN3G9P": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_bcz6NH": {
+          "type": "heading",
+          "settings": {
+            "heading": "Limited Edition",
+            "heading_size": "h2"
+          }
+        },
+        "text_WG9MBh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent semper orci ut nulla auctor, eu vulputate neque pretium. Etiam luctus arcu urna. Suspendisse consequat tortor ante, non vulputate magna pretium at. Fusce feugiat ultricies metus. Proin id nibh mattis dolor feugiat sagittis iaculis nec erat. Donec consequat eget risus sed mattis. Mauris nibh ante, dictum ut faucibus sollicitudin, imperdiet congue nunc. Integer lobortis dapibus ex. Curabitur varius gravida urna, vitae tincidunt est vehicula et.</p>",
+            "line_height": 24
+          }
+        }
+      },
+      "block_order": [
+        "heading_bcz6NH",
+        "text_WG9MBh"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0
+      }
+    },
+    "featured_collection_cFKWUL": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "",
+        "heading_alignment": "left",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "",
+        "products_to_show": 25,
+        "columns_desktop": 4,
+        "full_width": true,
+        "enable_custom_spacing": false,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 36,
+        "desktop_padding_left": 36,
+        "desktop_padding_right": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36,
+        "mobile_padding_left": 36,
+        "mobile_padding_right": 36
+      }
+    },
+    "rich_text_pTCyyJ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_FEPBf9": {
+          "type": "heading",
+          "settings": {
+            "heading": "Fuchsia",
+            "heading_size": "h2"
+          }
+        },
+        "text_x8NmaN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>When creating our Made-to-Order capsules, we often produce a small surplus. This allows us to make the most of the materials ordered and minimize waste, while also providing a buffer for any unexpected customer needs. Occasionally, these extras become available in limited quantities for those who may have missed out during the initial release.</p>",
+            "line_height": 24
+          }
+        }
+      },
+      "block_order": [
+        "heading_FEPBf9",
+        "text_x8NmaN"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0
+      }
+    },
+    "featured_collection_e7EjDV": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "",
+        "heading_alignment": "left",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "bonus-additions",
+        "products_to_show": 25,
+        "columns_desktop": 4,
+        "full_width": true,
+        "enable_custom_spacing": false,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 36,
+        "desktop_padding_left": 36,
+        "desktop_padding_right": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36,
+        "mobile_padding_left": 36,
+        "mobile_padding_right": 36
+      }
     }
   },
   "order": [
     "shogun-helper",
     "shogun-above",
     "banner",
-    "rich_text_YJeCaw",
     "product-grid",
     "shogun-below",
-    "shogun-optimizer"
+    "shogun-optimizer",
+    "rich_text_PN3G9P",
+    "featured_collection_cFKWUL",
+    "rich_text_pTCyyJ",
+    "featured_collection_e7EjDV"
   ]
 }
