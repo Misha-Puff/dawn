@@ -73,8 +73,9 @@
         },
         "text_WG9MBh": {
           "type": "text",
+          "disabled": true,
           "settings": {
-            "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent semper orci ut nulla auctor, eu vulputate neque pretium. Etiam luctus arcu urna. Suspendisse consequat tortor ante, non vulputate magna pretium at. Fusce feugiat ultricies metus. Proin id nibh mattis dolor feugiat sagittis iaculis nec erat. Donec consequat eget risus sed mattis. Mauris nibh ante, dictum ut faucibus sollicitudin, imperdiet congue nunc. Integer lobortis dapibus ex. Curabitur varius gravida urna, vitae tincidunt est vehicula et.</p>",
+            "text": "",
             "line_height": 24
           }
         }
@@ -148,7 +149,7 @@
           "type": "text",
           "settings": {
             "text": "<p>When creating our Made-to-Order capsules, we often produce a small surplus. This allows us to make the most of the materials ordered and minimize waste, while also providing a buffer for any unexpected customer needs. Occasionally, these extras become available in limited quantities for those who may have missed out during the initial release.</p>",
-            "line_height": 24
+            "line_height": 20
           }
         }
       },
