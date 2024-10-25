@@ -35,14 +35,29 @@
         "text_cX87LG": {
           "type": "text",
           "settings": {
-            "text": "<p>Shop a curated selection of Fall favorites, <br/>personally chosen and styled by Misha & Puff <br/>Founder and Creative Director, Anna. </p>",
+            "text": "<p>Shop a curated selection of Fall favorites, <br/>personally chosen and styled by Misha & Puff <br/>Founder and Creative Director, Anna. <br/></p>",
             "line_height": 20
+          }
+        },
+        "button_XxXxVF": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP ALL LOOKS",
+            "button_link": "https://shop.misha-and-puff.com/collections/child-annas-picks-shop-the-look",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
           }
         }
       },
       "block_order": [
         "heading_UQXejA",
-        "text_cX87LG"
+        "text_cX87LG",
+        "button_XxXxVF"
       ],
       "settings": {
         "desktop_content_position": "center",
