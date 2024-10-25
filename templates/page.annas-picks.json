@@ -106,7 +106,7 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 56,
+        "padding_top": 60,
         "padding_bottom": 56,
         "padding_left": 0,
         "padding_right": 0
@@ -115,6 +115,56 @@
     "shogun_custom_671bf04a8e4cc2bff5a8e0fd_6mymJ8": {
       "type": "shogun-custom-671bf04a8e4cc2bff5a8e0fd",
       "settings": {
+      }
+    },
+    "rich_text_JYijFC": {
+      "type": "rich-text",
+      "blocks": {
+        "text_BTbJaR": {
+          "type": "text",
+          "settings": {
+            "text": "<p>LOOK 1</p>",
+            "line_height": 20
+          }
+        },
+        "heading_NDdXfR": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "button_axkt9z": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "text_BTbJaR",
+        "heading_NDdXfR",
+        "button_axkt9z"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 24,
+        "padding_left": 0,
+        "padding_right": 0
       }
     },
     "featured_collection_7f9W8H": {
@@ -523,6 +573,7 @@
     "featured_collection_kAKBxM",
     "shogun_custom_671bca78cd064f1e7fc4dd01_kegy7g",
     "rich_text_NJRViN",
+    "rich_text_JYijFC",
     "shogun_custom_671bf04a8e4cc2bff5a8e0fd_6mymJ8",
     "featured_collection_7f9W8H",
     "featured_collection_TKaEra",
