@@ -17,9 +17,59 @@
         "padding_bottom": 28
       }
     },
-    "shogun_custom_671bca78cd064f1e7fc4dd01_kegy7g": {
-      "type": "shogun-custom-671bca78cd064f1e7fc4dd01",
+    "image_banner_4Qfi43": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_mTLz7R": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Image banner",
+            "desktop_heading_size": "h1",
+            "mobile_heading_size": "h1",
+            "heading_color": "#000000"
+          }
+        },
+        "text_aRwzNT": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_N98UAz": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_mTLz7R",
+        "text_aRwzNT",
+        "buttons_N98UAz"
+      ],
       "settings": {
+        "image": "shopify://shop_images/annaspickwebleader.jpg",
+        "banner_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_image": "shopify://shop_images/annaspicksleader.jpg",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
       }
     },
     "rich_text_NJRViN": {
@@ -604,7 +654,7 @@
   },
   "order": [
     "main",
-    "shogun_custom_671bca78cd064f1e7fc4dd01_kegy7g",
+    "image_banner_4Qfi43",
     "rich_text_NJRViN",
     "rich_text_JYijFC",
     "shogun_custom_671bf04a8e4cc2bff5a8e0fd_6mymJ8",
