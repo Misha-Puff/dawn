@@ -547,6 +547,7 @@
     },
     "featured_collection_y4E8xQ": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_alignment": "center",
