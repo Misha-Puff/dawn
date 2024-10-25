@@ -107,9 +107,14 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 56,
-        "padding_bottom": 0,
+        "padding_bottom": 56,
         "padding_left": 0,
         "padding_right": 0
+      }
+    },
+    "shogun_custom_671bf04a8e4cc2bff5a8e0fd_6mymJ8": {
+      "type": "shogun-custom-671bf04a8e4cc2bff5a8e0fd",
+      "settings": {
       }
     },
     "featured_collection_7f9W8H": {
@@ -518,6 +523,7 @@
     "featured_collection_kAKBxM",
     "shogun_custom_671bca78cd064f1e7fc4dd01_kegy7g",
     "rich_text_NJRViN",
+    "shogun_custom_671bf04a8e4cc2bff5a8e0fd_6mymJ8",
     "featured_collection_7f9W8H",
     "featured_collection_TKaEra",
     "featured_collection_iKcwFJ",
