@@ -112,16 +112,12 @@
         "padding_right": 0
       }
     },
-    "shogun_custom_671bf04a8e4cc2bff5a8e0fd_6mymJ8": {
-      "type": "shogun-custom-671bf04a8e4cc2bff5a8e0fd",
-      "settings": {
-      }
-    },
     "rich_text_JYijFC": {
       "type": "rich-text",
       "blocks": {
         "text_BTbJaR": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>LOOK 1</p>",
             "line_height": 20
@@ -129,10 +125,9 @@
         },
         "heading_NDdXfR": {
           "type": "heading",
-          "disabled": true,
           "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
+            "heading": "LOOK 1",
+            "heading_size": "h2"
           }
         },
         "button_axkt9z": {
@@ -165,6 +160,11 @@
         "padding_bottom": 24,
         "padding_left": 0,
         "padding_right": 0
+      }
+    },
+    "shogun_custom_671bf04a8e4cc2bff5a8e0fd_6mymJ8": {
+      "type": "shogun-custom-671bf04a8e4cc2bff5a8e0fd",
+      "settings": {
       }
     },
     "featured_collection_7f9W8H": {
@@ -204,7 +204,62 @@
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 24,
         "mobile_padding_left": 0,
-        "mobile_padding_right": 4
+        "mobile_padding_right": 0
+      }
+    },
+    "rich_text_YthNPg": {
+      "type": "rich-text",
+      "blocks": {
+        "text_4z8bNp": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>LOOK 2</p>",
+            "line_height": 20
+          }
+        },
+        "heading_TAj73p": {
+          "type": "heading",
+          "settings": {
+            "heading": "LOOK 2",
+            "heading_size": "h2"
+          }
+        },
+        "button_PHADtG": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "text_4z8bNp",
+        "heading_TAj73p",
+        "button_PHADtG"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 24,
+        "padding_left": 0,
+        "padding_right": 0
+      }
+    },
+    "shogun_custom_671bfa51cff2ac4ddeb3bffe_UyAzkf": {
+      "type": "shogun-custom-671bfa51cff2ac4ddeb3bffe",
+      "settings": {
       }
     },
     "featured_collection_TKaEra": {
@@ -213,7 +268,7 @@
         "title": "",
         "heading_alignment": "center",
         "heading_size": "h2",
-        "description": "<p>LOOK TWO</p>",
+        "description": "",
         "show_description": false,
         "description_style": "body",
         "collection": "shop-the-look-2",
@@ -235,16 +290,16 @@
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "standard",
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "swipe_on_mobile": true,
-        "desktop_padding_top": 0,
+        "desktop_padding_top": 24,
         "desktop_padding_bottom": 24,
         "desktop_padding_left": 32,
         "desktop_padding_right": 32,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 24,
-        "mobile_padding_left": 4,
-        "mobile_padding_right": 4
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
       }
     },
     "featured_collection_iKcwFJ": {
@@ -576,6 +631,8 @@
     "rich_text_JYijFC",
     "shogun_custom_671bf04a8e4cc2bff5a8e0fd_6mymJ8",
     "featured_collection_7f9W8H",
+    "rich_text_YthNPg",
+    "shogun_custom_671bfa51cff2ac4ddeb3bffe_UyAzkf",
     "featured_collection_TKaEra",
     "featured_collection_iKcwFJ",
     "featured_collection_LTKmP3",
