@@ -352,6 +352,11 @@
         "padding_right": 0
       }
     },
+    "shogun_custom_671bfc5750ddf6cbd0b3aa3b_9tzDJk": {
+      "type": "shogun-custom-671bfc5750ddf6cbd0b3aa3b",
+      "settings": {
+      }
+    },
     "featured_collection_iKcwFJ": {
       "type": "featured-collection",
       "settings": {
@@ -380,16 +385,16 @@
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "standard",
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "swipe_on_mobile": true,
-        "desktop_padding_top": 0,
-        "desktop_padding_bottom": 24,
-        "desktop_padding_left": 32,
-        "desktop_padding_right": 32,
+        "desktop_padding_top": 24,
+        "desktop_padding_bottom": 32,
+        "desktop_padding_left": 20,
+        "desktop_padding_right": 20,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 24,
-        "mobile_padding_left": 4,
-        "mobile_padding_right": 4
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
       }
     },
     "featured_collection_LTKmP3": {
@@ -645,6 +650,7 @@
     "shogun_custom_671bfa51cff2ac4ddeb3bffe_UyAzkf",
     "featured_collection_TKaEra",
     "rich_text_Wz4ph3",
+    "shogun_custom_671bfc5750ddf6cbd0b3aa3b_9tzDJk",
     "featured_collection_iKcwFJ",
     "featured_collection_LTKmP3",
     "featured_collection_8wPkDy",
