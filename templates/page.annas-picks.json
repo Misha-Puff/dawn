@@ -19,6 +19,7 @@
     },
     "featured_collection_kAKBxM": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Anna's Picks",
         "heading_alignment": "center",
@@ -27,7 +28,7 @@
         "show_description": false,
         "description_style": "body",
         "collection": "child-annas-picks-shop-the-look",
-        "products_to_show": 9,
+        "products_to_show": 2,
         "columns_desktop": 3,
         "full_width": true,
         "enable_custom_spacing": true,
