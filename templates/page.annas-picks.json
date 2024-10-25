@@ -198,9 +198,9 @@
         "columns_mobile": "1",
         "swipe_on_mobile": true,
         "desktop_padding_top": 24,
-        "desktop_padding_bottom": 24,
-        "desktop_padding_left": 32,
-        "desktop_padding_right": 32,
+        "desktop_padding_bottom": 32,
+        "desktop_padding_left": 20,
+        "desktop_padding_right": 20,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 24,
         "mobile_padding_left": 0,
@@ -293,13 +293,63 @@
         "columns_mobile": "1",
         "swipe_on_mobile": true,
         "desktop_padding_top": 24,
-        "desktop_padding_bottom": 24,
-        "desktop_padding_left": 32,
-        "desktop_padding_right": 32,
+        "desktop_padding_bottom": 32,
+        "desktop_padding_left": 20,
+        "desktop_padding_right": 20,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 24,
         "mobile_padding_left": 0,
         "mobile_padding_right": 0
+      }
+    },
+    "rich_text_Wz4ph3": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_H4DDMP": {
+          "type": "heading",
+          "settings": {
+            "heading": "LOOK 3",
+            "heading_size": "h2"
+          }
+        },
+        "text_yXEAN7": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+            "line_height": 24
+          }
+        },
+        "button_rQ7fPD": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_H4DDMP",
+        "text_yXEAN7",
+        "button_rQ7fPD"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 52,
+        "padding_left": 0,
+        "padding_right": 0
       }
     },
     "featured_collection_iKcwFJ": {
@@ -308,7 +358,7 @@
         "title": "",
         "heading_alignment": "center",
         "heading_size": "h2",
-        "description": "<p>LOOK 3</p>",
+        "description": "",
         "show_description": false,
         "description_style": "body",
         "collection": "shop-the-look-3",
@@ -420,46 +470,6 @@
         "mobile_padding_bottom": 24,
         "mobile_padding_left": 4,
         "mobile_padding_right": 4
-      }
-    },
-    "collage_KMKgfH": {
-      "type": "collage",
-      "blocks": {
-        "image_Cch4if": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/MP_F24_Look_32_1335_stl.jpg"
-          }
-        },
-        "product_4m49hB": {
-          "type": "product",
-          "settings": {
-            "product": "fa24-child-crochet-trim-puff-top-iris-confetti",
-            "second_image": false
-          }
-        },
-        "collection_Uczkm7": {
-          "type": "collection",
-          "settings": {
-            "collection": "child-annas-picks-shop-the-look"
-          }
-        }
-      },
-      "block_order": [
-        "image_Cch4if",
-        "product_4m49hB",
-        "collection_Uczkm7"
-      ],
-      "disabled": true,
-      "settings": {
-        "heading": "",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "column",
-        "card_styles": "product-card-wrapper",
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     },
     "featured_collection_qQACf4": {
@@ -634,10 +644,10 @@
     "rich_text_YthNPg",
     "shogun_custom_671bfa51cff2ac4ddeb3bffe_UyAzkf",
     "featured_collection_TKaEra",
+    "rich_text_Wz4ph3",
     "featured_collection_iKcwFJ",
     "featured_collection_LTKmP3",
     "featured_collection_8wPkDy",
-    "collage_KMKgfH",
     "featured_collection_qQACf4",
     "featured_collection_TWixhV",
     "featured_collection_y4E8xQ",
