@@ -550,7 +550,7 @@
       "settings": {
         "title": "",
         "heading_alignment": "center",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
