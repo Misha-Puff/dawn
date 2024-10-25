@@ -584,7 +584,57 @@
         "mobile_padding_top": 20,
         "mobile_padding_bottom": 24,
         "mobile_padding_left": 0,
-        "mobile_padding_right": 4
+        "mobile_padding_right": 0
+      }
+    },
+    "rich_text_WDqVQ7": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_NJRBNr": {
+          "type": "heading",
+          "settings": {
+            "heading": "LOOK 6",
+            "heading_size": "h2"
+          }
+        },
+        "text_Ldfgm8": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+            "line_height": 24
+          }
+        },
+        "button_FF4KRV": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_NJRBNr",
+        "text_Ldfgm8",
+        "button_FF4KRV"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_left": 0,
+        "padding_right": 0
       }
     },
     "featured_collection_qQACf4": {
@@ -593,7 +643,7 @@
         "title": "",
         "heading_alignment": "center",
         "heading_size": "h2",
-        "description": "<p>LOOK 6</p>",
+        "description": "",
         "show_description": false,
         "description_style": "body",
         "collection": "shop-the-look-6",
@@ -768,6 +818,7 @@
     "rich_text_bpg6Mx",
     "shogun_custom_671c060f50ddf6cbd0b65943_iByKVN",
     "featured_collection_8wPkDy",
+    "rich_text_WDqVQ7",
     "featured_collection_qQACf4",
     "featured_collection_TWixhV",
     "featured_collection_y4E8xQ",
