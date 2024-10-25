@@ -38,27 +38,11 @@
             "text": "<p>Shop a curated selection of Fall favorites, <br/>personally chosen and styled by Misha & Puff <br/>Founder and Creative Director, Anna. </p>",
             "line_height": 20
           }
-        },
-        "button_wMDjaT": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button_label": "",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "button_label_3": "",
-            "button_link_3": "",
-            "button_style_secondary_3": false
-          }
         }
       },
       "block_order": [
         "heading_UQXejA",
-        "text_cX87LG",
-        "button_wMDjaT"
+        "text_cX87LG"
       ],
       "settings": {
         "desktop_content_position": "center",
@@ -74,41 +58,16 @@
     "rich_text_JYijFC": {
       "type": "rich-text",
       "blocks": {
-        "text_BTbJaR": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "<p>LOOK 1</p>",
-            "line_height": 20
-          }
-        },
         "heading_NDdXfR": {
           "type": "heading",
           "settings": {
             "heading": "LOOK 1",
             "heading_size": "h2"
           }
-        },
-        "button_axkt9z": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "button_label_3": "",
-            "button_link_3": "",
-            "button_style_secondary_3": false
-          }
         }
       },
       "block_order": [
-        "text_BTbJaR",
-        "heading_NDdXfR",
-        "button_axkt9z"
+        "heading_NDdXfR"
       ],
       "settings": {
         "desktop_content_position": "center",
@@ -169,41 +128,16 @@
     "rich_text_YthNPg": {
       "type": "rich-text",
       "blocks": {
-        "text_4z8bNp": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "<p>LOOK 2</p>",
-            "line_height": 20
-          }
-        },
         "heading_TAj73p": {
           "type": "heading",
           "settings": {
             "heading": "LOOK 2",
             "heading_size": "h2"
           }
-        },
-        "button_PHADtG": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "button_label_3": "",
-            "button_link_3": "",
-            "button_style_secondary_3": false
-          }
         }
       },
       "block_order": [
-        "text_4z8bNp",
-        "heading_TAj73p",
-        "button_PHADtG"
+        "heading_TAj73p"
       ],
       "settings": {
         "desktop_content_position": "center",
@@ -270,35 +204,10 @@
             "heading": "LOOK 3",
             "heading_size": "h2"
           }
-        },
-        "text_yXEAN7": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
-            "line_height": 24
-          }
-        },
-        "button_rQ7fPD": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "button_label_3": "",
-            "button_link_3": "",
-            "button_style_secondary_3": false
-          }
         }
       },
       "block_order": [
-        "heading_H4DDMP",
-        "text_yXEAN7",
-        "button_rQ7fPD"
+        "heading_H4DDMP"
       ],
       "settings": {
         "desktop_content_position": "center",
@@ -365,35 +274,10 @@
             "heading": "LOOK 4",
             "heading_size": "h2"
           }
-        },
-        "text_a4nq44": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
-            "line_height": 24
-          }
-        },
-        "button_HPtiwt": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "button_label_3": "",
-            "button_link_3": "",
-            "button_style_secondary_3": false
-          }
         }
       },
       "block_order": [
-        "heading_PtgqMK",
-        "text_a4nq44",
-        "button_HPtiwt"
+        "heading_PtgqMK"
       ],
       "settings": {
         "desktop_content_position": "center",
@@ -460,35 +344,10 @@
             "heading": "LOOK 5",
             "heading_size": "h2"
           }
-        },
-        "text_8tb9aL": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
-            "line_height": 24
-          }
-        },
-        "button_bCye6T": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "button_label_3": "",
-            "button_link_3": "",
-            "button_style_secondary_3": false
-          }
         }
       },
       "block_order": [
-        "heading_RWaLN6",
-        "text_8tb9aL",
-        "button_bCye6T"
+        "heading_RWaLN6"
       ],
       "settings": {
         "desktop_content_position": "center",
@@ -555,35 +414,10 @@
             "heading": "LOOK 6",
             "heading_size": "h2"
           }
-        },
-        "text_Ldfgm8": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
-            "line_height": 24
-          }
-        },
-        "button_FF4KRV": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "button_label_3": "",
-            "button_link_3": "",
-            "button_style_secondary_3": false
-          }
         }
       },
       "block_order": [
-        "heading_NJRBNr",
-        "text_Ldfgm8",
-        "button_FF4KRV"
+        "heading_NJRBNr"
       ],
       "settings": {
         "desktop_content_position": "center",
@@ -641,6 +475,31 @@
         "mobile_padding_right": 0
       }
     },
+    "rich_text_8hwKEe": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_eN9QkY": {
+          "type": "heading",
+          "settings": {
+            "heading": "LOOK 7",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_eN9QkY"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 24,
+        "padding_left": 0,
+        "padding_right": 0
+      }
+    },
     "featured_collection_TWixhV": {
       "type": "featured-collection",
       "settings": {
@@ -687,47 +546,7 @@
         "title": "",
         "heading_alignment": "center",
         "heading_size": "h1",
-        "description": "<p>LOOK 8</p>",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "shop-the-look-8",
-        "products_to_show": 20,
-        "columns_desktop": 3,
-        "full_width": true,
-        "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 14,
-        "vertical_spacing_desktop": 0,
-        "horizontal_spacing_mobile": 8,
-        "vertical_spacing_mobile": 0,
-        "show_view_all": false,
-        "view_all_style": "solid",
-        "enable_desktop_slider": true,
-        "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "standard",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "desktop_padding_top": 0,
-        "desktop_padding_bottom": 24,
-        "desktop_padding_left": 32,
-        "desktop_padding_right": 32,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 24,
-        "mobile_padding_left": 4,
-        "mobile_padding_right": 4
-      }
-    },
-    "featured_collection_8TYWrQ": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "",
-        "heading_alignment": "center",
-        "heading_size": "h1",
-        "description": "<p>LOOK 9</p>",
+        "description": "",
         "show_description": false,
         "description_style": "body",
         "collection": "shop-the-look-9",
@@ -749,66 +568,16 @@
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "standard",
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "swipe_on_mobile": true,
-        "desktop_padding_top": 0,
-        "desktop_padding_bottom": 24,
-        "desktop_padding_left": 32,
-        "desktop_padding_right": 32,
-        "mobile_padding_top": 0,
+        "desktop_padding_top": 24,
+        "desktop_padding_bottom": 32,
+        "desktop_padding_left": 20,
+        "desktop_padding_right": 20,
+        "mobile_padding_top": 20,
         "mobile_padding_bottom": 24,
-        "mobile_padding_left": 4,
-        "mobile_padding_right": 4
-      }
-    },
-    "rich_text_8hwKEe": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_eN9QkY": {
-          "type": "heading",
-          "settings": {
-            "heading": "LOOK 7",
-            "heading_size": "h2"
-          }
-        },
-        "text_xhciJb": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
-            "line_height": 24
-          }
-        },
-        "button_ehaCpT": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "button_label_3": "",
-            "button_link_3": "",
-            "button_style_secondary_3": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_eN9QkY",
-        "text_xhciJb",
-        "button_ehaCpT"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 0,
-        "padding_bottom": 24,
-        "padding_left": 0,
-        "padding_right": 0
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
       }
     }
   },
@@ -836,7 +605,6 @@
     "featured_collection_qQACf4",
     "rich_text_8hwKEe",
     "featured_collection_TWixhV",
-    "featured_collection_y4E8xQ",
-    "featured_collection_8TYWrQ"
+    "featured_collection_y4E8xQ"
   ]
 }
