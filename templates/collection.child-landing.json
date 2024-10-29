@@ -121,11 +121,11 @@
         "column_dQmUh8": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_10.30.24_LP_Mob.jpg",
+            "image": "shopify://shop_images/MP_FA24_Leader_Mob_8.6.24_2.jpg",
             "title": "",
             "text": "",
-            "link_label": "View Lookbook",
-            "link": ""
+            "link_label": "Shop Denim",
+            "link": "shopify://collections/child-fall-denim-collection"
           }
         },
         "column_iBFc39": {
