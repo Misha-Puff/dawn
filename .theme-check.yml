@@ -2,5 +2,8 @@ extends: theme-check:all
 ignore:
   - node_modules/**
   - snippets/shogun-content-handler.liquid
+  - snippets/locksmith.liquid 
+  - snippets/locksmith-variables.liquid
+  - snippets/locksmith-content-variables.liquid
 AssetSizeJavaScript:
   enabled: false
