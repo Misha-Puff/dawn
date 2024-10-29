@@ -444,6 +444,50 @@
         "show_text_below": false,
         "accessibility_info": ""
       }
+    },
+    "buttons_zMbkxJ": {
+      "type": "buttons",
+      "blocks": {
+        "button_heMLMc": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD BEST SELLERS",
+            "link": "shopify://collections/child-best-sellers",
+            "type": "secondary"
+          }
+        },
+        "button_m46TAN": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD SALE",
+            "link": "shopify://collections/child-sale",
+            "type": "secondary"
+          }
+        },
+        "button_ARR3P3": {
+          "type": "button",
+          "settings": {
+            "label": "",
+            "link": "",
+            "type": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "button_heMLMc",
+        "button_m46TAN",
+        "button_ARR3P3"
+      ],
+      "settings": {
+        "title": "More to explore",
+        "button_gap": 10,
+        "heading_size": "h2",
+        "color_scheme": "",
+        "desktop_padding_top": 48,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
+      }
     }
   },
   "order": [
@@ -453,6 +497,7 @@
     "multicolumn_4t4Ubf",
     "multicolumn_GbjXUE",
     "featured_collection_YrgjwD",
-    "slideshow_t7VikK"
+    "slideshow_t7VikK",
+    "buttons_zMbkxJ"
   ]
 }
