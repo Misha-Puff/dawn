@@ -18,7 +18,7 @@
     "body_scale": 100,
     "enable_sticky_bar": true,
     "page_width": 1600,
-    "page_width_padding": 30,
+    "page_width_padding": 40,
     "mobile_page_width_padding": 20,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 20,

@@ -68,7 +68,7 @@
         "column_3igURh": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_FA24_Leader_10.17.24_Adult_Mob.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_10.30.24_Adult.jpg",
             "title": "",
             "text": "",
             "link_label": "New Adult",
@@ -78,7 +78,7 @@
         "column_iAT4GA": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_FA24_Leader_10.17.24_Baby.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_10.30.24_Baby.jpg",
             "title": "",
             "text": "",
             "link_label": "Shop Baby",
@@ -101,8 +101,8 @@
         "button_type": "primary",
         "enable_full_width": false,
         "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 30,
-        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_desktop": 40,
+        "vertical_spacing_desktop": 40,
         "horizontal_spacing_mobile": 10,
         "vertical_spacing_mobile": 20,
         "image_width": "full",
@@ -115,10 +115,88 @@
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 30,
+        "desktop_padding_top": 40,
+        "desktop_padding_bottom": 40,
         "mobile_padding_top": 20,
         "mobile_padding_bottom": 20
+      }
+    },
+    "multicolumn": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_Yt8wiE": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "fall lookbook",
+            "link": "shopify://blogs/journal/child-fall-24"
+          }
+        },
+        "column_caihwR": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "sale",
+            "link": "shopify://collections/child-sale"
+          }
+        },
+        "column_HqmX9h": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "baby sale",
+            "link": "shopify://collections/baby-sale"
+          }
+        },
+        "column_HNbpBL": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "best sellers",
+            "link": "shopify://collections/child-best-sellers"
+          }
+        }
+      },
+      "block_order": [
+        "column_Yt8wiE",
+        "column_caihwR",
+        "column_HqmX9h",
+        "column_HNbpBL"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "enable_overlay": true,
+        "content_position": "middle-center",
+        "link_type": "button",
+        "link_color": "#000000",
+        "link_style": "none",
+        "button_type": "secondary",
+        "enable_full_width": true,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 0,
+        "vertical_spacing_desktop": 0,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 0,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 10,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 10,
+        "mobile_padding_bottom": 30
       }
     },
     "multicolumn_4t4Ubf": {
@@ -275,6 +353,7 @@
         "column_YhVwUE",
         "column_PTttra"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h2",
@@ -347,88 +426,6 @@
         "mobile_padding_right": 36
       }
     },
-    "multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_Yt8wiE": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/fa24_leadlook_Prev_b7d8e1d9-ba4d-40ba-a86a-e83a6f458764.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "fall lookbook",
-            "link": "shopify://blogs/journal/child-fall-24"
-          }
-        },
-        "column_caihwR": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/vQrqYDt-O3mRyz8prk03_5enbY8RiNPYzlkR_Lm5kxQ.webp",
-            "title": "",
-            "text": "",
-            "link_label": "sale",
-            "link": "shopify://collections/child-sale"
-          }
-        },
-        "column_HqmX9h": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/MP_SU24_Leader_Baby_5.13.24_2_Mob_6d18c1f6-bde7-4481-aa7c-bf1dccc57bba.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "baby sale",
-            "link": "shopify://collections/baby-sale"
-          }
-        },
-        "column_HNbpBL": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/xoTV_JdFiEtZkYYKuEz5tQ3ol-DyYtAoAbYHbg5HKgc.webp",
-            "title": "",
-            "text": "",
-            "link_label": "best sellers",
-            "link": "shopify://collections/child-best-sellers"
-          }
-        }
-      },
-      "block_order": [
-        "column_Yt8wiE",
-        "column_caihwR",
-        "column_HqmX9h",
-        "column_HNbpBL"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "enable_overlay": true,
-        "content_position": "middle-center",
-        "link_type": "button",
-        "link_color": "#000000",
-        "link_style": "none",
-        "button_type": "secondary",
-        "enable_full_width": true,
-        "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 10,
-        "vertical_spacing_desktop": 10,
-        "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 10,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 4,
-        "column_alignment": "left",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "scheme-1",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "desktop_padding_top": 10,
-        "desktop_padding_bottom": 30,
-        "mobile_padding_top": 10,
-        "mobile_padding_bottom": 30
-      }
-    },
     "slideshow_t7VikK": {
       "type": "slideshow",
       "blocks": {
@@ -471,10 +468,10 @@
   "order": [
     "image_banner_bz8jb3",
     "multicolumn_peYxH9",
+    "multicolumn",
     "multicolumn_4t4Ubf",
     "multicolumn_GbjXUE",
     "featured_collection_YrgjwD",
-    "multicolumn",
     "slideshow_t7VikK"
   ]
 }
