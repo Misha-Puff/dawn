@@ -57,8 +57,8 @@
         "buttons_MbErHB": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "PREVIEW WINTER",
-            "button_link_1": "",
+            "button_label_1": "SHOP FALL",
+            "button_link_1": "shopify://collections/child-fall-24",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -90,7 +90,7 @@
         "text_iqachQ"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_10.30.24_LP.jpg",
+        "image": "shopify://shop_images/MP_FA24_Leader_10.17.24_LP.jpg",
         "banner_link": "shopify://collections/child-fall-24-simplified",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -99,7 +99,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_10.30.24_LP_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_FA24_Leader_10.17.24_LP_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
