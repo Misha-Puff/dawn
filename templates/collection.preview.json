@@ -84,8 +84,9 @@
           "type": "button",
           "settings": {
             "label": "CHILD PREVIEW",
-            "link": "shopify://collections/child-preview",
-            "type": "secondary"
+            "link": "#",
+            "type": "secondary",
+            "on_click": "document.getElementById('collection-template--16484794073139__featured_collection_Nf9ban').scrollIntoView({behavior: 'smooth'}); return false;"
           }
         },
         "button_gPCjpf": {
@@ -93,7 +94,8 @@
           "settings": {
             "label": "BABY PREVIEW",
             "link": "shopify://collections/baby-preview",
-            "type": "secondary"
+            "type": "secondary",
+            "on_click": "document.getElementById('collection-template--16484794073139__featured_collection_aKRY9c').scrollIntoView({behavior: 'smooth'}); return false;"
           }
         }
       },
