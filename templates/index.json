@@ -68,11 +68,11 @@
         "column_3igURh": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_10.30.24_Adult.jpg",
+            "image": "shopify://shop_images/MP_FA24_Leader_10.4.24._Mob1.jpg",
             "title": "",
             "text": "",
-            "link_label": "New Adult",
-            "link": "shopify://collections/adult-fall-24"
+            "link_label": "Shop Fall",
+            "link": "shopify://collections/child-fall-24"
           }
         },
         "column_iAT4GA": {
@@ -127,6 +127,7 @@
         "column_Yt8wiE": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/MP_FA24_Leader_10.17.24_LP_Mob.jpg",
             "title": "",
             "text": "",
             "link_label": "fall lookbook",
@@ -141,62 +142,42 @@
             "link_label": "sale",
             "link": "shopify://collections/child-sale"
           }
-        },
-        "column_HqmX9h": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "",
-            "link_label": "baby sale",
-            "link": "shopify://collections/baby-sale"
-          }
-        },
-        "column_HNbpBL": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "",
-            "link_label": "best sellers",
-            "link": "shopify://collections/child-best-sellers"
-          }
         }
       },
       "block_order": [
         "column_Yt8wiE",
-        "column_caihwR",
-        "column_HqmX9h",
-        "column_HNbpBL"
+        "column_caihwR"
       ],
       "disabled": true,
       "settings": {
         "title": "",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "enable_overlay": true,
         "content_position": "middle-center",
-        "link_type": "button",
-        "link_color": "#000000",
-        "link_style": "none",
+        "link_type": "link",
+        "link_color": "#ffffff",
+        "link_style": "underline",
         "button_type": "secondary",
-        "enable_full_width": true,
+        "enable_full_width": false,
         "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 0,
-        "vertical_spacing_desktop": 0,
+        "horizontal_spacing_desktop": 40,
+        "vertical_spacing_desktop": 40,
         "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 0,
+        "vertical_spacing_mobile": 20,
         "image_width": "full",
         "image_ratio": "adapt",
-        "columns_desktop": 4,
+        "columns_desktop": 2,
         "column_alignment": "left",
         "background_style": "none",
         "button_label": "",
         "button_link": "",
         "color_scheme": "scheme-1",
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "desktop_padding_top": 10,
-        "desktop_padding_bottom": 30,
-        "mobile_padding_top": 10,
-        "mobile_padding_bottom": 30
+        "desktop_padding_top": 40,
+        "desktop_padding_bottom": 40,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 20
       }
     },
     "multicolumn_4t4Ubf": {
@@ -432,19 +413,19 @@
         "slide_mkRtae": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/MP_SU24_Leader_7.22.24_1.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_10.30.24_Adult_HP.jpg",
             "heading": "",
-            "heading_size": "h1",
+            "heading_size": "h2",
             "subheading": "",
-            "button_label": "SHOP SUMMER",
-            "link": "shopify://collections/child-summer-24",
+            "button_label": "NEW ADULT",
+            "link": "shopify://collections/adult-fall-24",
             "button_style_secondary": true,
             "box_align": "middle-center",
             "show_text_box": false,
             "text_alignment": "center",
             "image_overlay_opacity": 0,
             "color_scheme": "scheme-1",
-            "mobile_image": "shopify://shop_images/MP_SU24_Leader_7.22.24_1_Mob.jpg",
+            "mobile_image": "shopify://shop_images/MP_WI24_Leader_10.30.24_Adult_a59bfd2e-2495-40b6-a8b6-fc9a6a74ade5.jpg",
             "text_alignment_mobile": "center"
           }
         }
@@ -452,10 +433,9 @@
       "block_order": [
         "slide_mkRtae"
       ],
-      "disabled": true,
       "settings": {
-        "layout": "full_bleed",
-        "slide_height": "large",
+        "layout": "grid",
+        "slide_height": "adapt_image",
         "slider_visual": "counter",
         "auto_rotate": false,
         "change_slides_speed": 3,
