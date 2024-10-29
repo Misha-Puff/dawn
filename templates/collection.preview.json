@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "shogun-helper": {
@@ -41,7 +41,7 @@
         "text_aDVaDa": {
           "type": "text",
           "settings": {
-            "text": "<p>The Fall Collection is an ode to the eclectic styles of decades past — blending influences from counterculture to preppy, inspired by the spirited fashion of late ’70s California and early ’80s New York City.<\/p><p>Part 2 brings even more pieces that celebrate craft and quirk with vibrant pattern mixing and easy-to-layer looks — dynamic prints, signature styles, cozy Merino wool knits, bold graphics, plenty of Baby styles, and fresh new arrivals.<\/p><p>Part 2 of the Fall Collection launches <a href=\"https:\/\/calendar.google.com\/event?action=TEMPLATE&tmeid=N3MxY2JsczIwb2h2Mjd0ZjE0NWsxaTdxdGcgY18wNjMycDQ1cDgyNzk2OXI2YWE0MmJ0ZWFza0Bn&tmsrc=c_0632p45p827969r6aa42bteask%40group.calendar.google.com\" target=\"_blank\" title=\"https:\/\/calendar.google.com\/event?action=TEMPLATE&tmeid=N3MxY2JsczIwb2h2Mjd0ZjE0NWsxaTdxdGcgY18wNjMycDQ1cDgyNzk2OXI2YWE0MmJ0ZWFza0Bn&tmsrc=c_0632p45p827969r6aa42bteask%40group.calendar.google.com\">Thursday, September 19 at 11 am ET<\/a>.<br\/><br\/><\/p>",
+            "text": "<p>The Fall Collection is an ode to the eclectic styles of decades past — blending influences from counterculture to preppy, inspired by the spirited fashion of late ’70s California and early ’80s New York City.</p><p>Part 2 brings even more pieces that celebrate craft and quirk with vibrant pattern mixing and easy-to-layer looks — dynamic prints, signature styles, cozy Merino wool knits, bold graphics, plenty of Baby styles, and fresh new arrivals.</p><p>Part 2 of the Fall Collection launches <a href=\"https://calendar.google.com/event?action=TEMPLATE&tmeid=N3MxY2JsczIwb2h2Mjd0ZjE0NWsxaTdxdGcgY18wNjMycDQ1cDgyNzk2OXI2YWE0MmJ0ZWFza0Bn&tmsrc=c_0632p45p827969r6aa42bteask%40group.calendar.google.com\" target=\"_blank\" title=\"https://calendar.google.com/event?action=TEMPLATE&tmeid=N3MxY2JsczIwb2h2Mjd0ZjE0NWsxaTdxdGcgY18wNjMycDQ1cDgyNzk2OXI2YWE0MmJ0ZWFza0Bn&tmsrc=c_0632p45p827969r6aa42bteask%40group.calendar.google.com\">Thursday, September 19 at 11 am ET</a>.<br/><br/></p>",
             "line_height": 20
           }
         },
@@ -49,7 +49,7 @@
           "type": "button",
           "settings": {
             "button_label": "VIEW LOOKBOOK",
-            "button_link": "shopify:\/\/blogs\/journal\/fa-24-2",
+            "button_link": "shopify://blogs/journal/fa-24-2",
             "button_style_secondary": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -100,9 +100,7 @@
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "swipe_on_mobile": false
       }
     },
     "featured_collection_aKRY9c": {
@@ -114,7 +112,7 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "baby-fall-24-drop-2-preview",
+        "collection": "baby-preview",
         "products_to_show": 24,
         "columns_desktop": 3,
         "full_width": false,
@@ -129,9 +127,7 @@
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 48,
-        "padding_bottom": 36
+        "swipe_on_mobile": false
       }
     },
     "product-grid": {
@@ -141,7 +137,7 @@
           "type": "image",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
+            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
             "row_start_desktop": 1,
             "row_span_desktop": 1,
@@ -157,7 +153,7 @@
           "type": "image",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_TransitionalLayers_3.jpg",
+            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
             "row_start_desktop": 6,
             "row_span_desktop": 1,
@@ -184,7 +180,6 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        
         "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "drawer",
