@@ -41,12 +41,13 @@
         "text_aDVaDa": {
           "type": "text",
           "settings": {
-            "text": "<p>The Winter Collection — a showcase of rich textures and colors, rooted in holiday nostalgia. Cozy Merino knits, lush velvet and corduroy, inspired jacquards, and classic silhouettes with refined hand-worked details. Heirloom pieces for every cherised occasion.</p><p>Part 1 of the Winter Collection launches <a href=\"https://calendar.google.com/event?action=TEMPLATE&tmeid=ODJmNHJkaTlidnRyNmFlMDMzZ2QxZHJ0bDQgY18wNjMycDQ1cDgyNzk2OXI2YWE0MmJ0ZWFza0Bn&tmsrc=c_0632p45p827969r6aa42bteask%40group.calendar.google.com\" target=\"_blank\" title=\"https://calendar.google.com/event?action=TEMPLATE&tmeid=ODJmNHJkaTlidnRyNmFlMDMzZ2QxZHJ0bDQgY18wNjMycDQ1cDgyNzk2OXI2YWE0MmJ0ZWFza0Bn&tmsrc=c_0632p45p827969r6aa42bteask%40group.calendar.google.com\">Thursday, October 31 at 11 am ET</a>.<br/><br/></p>",
+            "text": "<p>The Winter Collection — a showcase of rich textures and colors, rooted in holiday nostalgia. Cozy Merino knits, lush velvet and corduroy, inspired jacquards, and classic silhouettes with refined hand-worked details. Heirloom pieces for every cherised occasion.</p><p>Part 1 of the Winter Collection launches <a href=\"https://calendar.google.com/event?action=TEMPLATE&tmeid=ODJmNHJkaTlidnRyNmFlMDMzZ2QxZHJ0bDQgY18wNjMycDQ1cDgyNzk2OXI2YWE0MmJ0ZWFza0Bn&tmsrc=c_0632p45p827969r6aa42bteask%40group.calendar.google.com\" target=\"_blank\" title=\"https://calendar.google.com/event?action=TEMPLATE&tmeid=ODJmNHJkaTlidnRyNmFlMDMzZ2QxZHJ0bDQgY18wNjMycDQ1cDgyNzk2OXI2YWE0MmJ0ZWFza0Bn&tmsrc=c_0632p45p827969r6aa42bteask%40group.calendar.google.com\">Thursday, October 31 at 11 am ET</a>.<br/><br/></p><p><a href=\"https://shop.misha-and-puff.com/blogs/journal/child-winter-24\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/blogs/journal/child-winter-24\">VIEW THE LOOKBOOK</a><br/><br/></p>",
             "line_height": 20
           }
         },
         "button_J6VEqX": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "button_label": "VIEW LOOKBOOK",
             "button_link": "https://shop.misha-and-puff.com/blogs/journal/child-winter-24",
@@ -74,6 +75,41 @@
         "padding_bottom": 40,
         "padding_left": 100,
         "padding_right": 100
+      }
+    },
+    "buttons_6fy444": {
+      "type": "buttons",
+      "blocks": {
+        "button_Li4UrX": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD PREVIEW",
+            "link": "shopify://collections/child-preview",
+            "type": "secondary"
+          }
+        },
+        "button_gPCjpf": {
+          "type": "button",
+          "settings": {
+            "label": "BABY PREVIEW",
+            "link": "shopify://collections/baby-preview",
+            "type": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "button_Li4UrX",
+        "button_gPCjpf"
+      ],
+      "settings": {
+        "title": "",
+        "button_gap": 10,
+        "heading_size": "h1",
+        "color_scheme": "",
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 16
       }
     },
     "featured_collection_Nf9ban": {
@@ -233,6 +269,7 @@
     "shogun-above",
     "banner",
     "rich_text_n8yiAy",
+    "buttons_6fy444",
     "featured_collection_Nf9ban",
     "featured_collection_aKRY9c",
     "product-grid",
