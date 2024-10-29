@@ -101,7 +101,7 @@
         "column_Hgag6H": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_10.30.24_Main_Mob_119cda42-5d30-4732-8cf5-7ed07949be47.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_10.30.24_Baby_LP.jpg",
             "title": "",
             "text": "",
             "link_label": "Preview Winter",
@@ -111,7 +111,7 @@
         "column_VnhYKW": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_FA24_Leader_9.19.24_Layette.jpg",
+            "image": "shopify://shop_images/misha-and-puff-layette-22-ipswich-65_bb402bb7-9fc1-46d3-8879-b7208a9b6129.jpg",
             "title": "",
             "text": "",
             "link_label": "Shop Layette",
@@ -129,7 +129,7 @@
         "enable_overlay": true,
         "content_position": "bottom-left",
         "link_type": "link",
-        "link_color": "#ffffff",
+        "link_color": "#000000",
         "link_style": "underline",
         "button_type": "primary",
         "enable_full_width": false,
