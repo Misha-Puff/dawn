@@ -47,6 +47,9 @@
             {% else %}
               href="{{ block.settings.link }}"
             {% endif %}
+            {% if block.settings.on_click %}
+              onclick="{{ block.settings.on_click }}"
+            {% endif %}
           >
             {{ block.settings.label | escape }}
           </a>
@@ -189,6 +192,12 @@
           ],
           "default": "primary",
           "label": "Button Type"
+        },
+        {
+          "type": "text",
+          "id": "on_click",
+          "label": "On Click JS",
+          "info": "Don't use this unless you know what you're doing!"
         }
       ]
     }
