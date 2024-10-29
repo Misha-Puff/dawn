@@ -114,8 +114,8 @@
             "image": "shopify://shop_images/MP_FA24_Leader_9.19.24_Layette.jpg",
             "title": "",
             "text": "",
-            "link_label": "View Lookbook",
-            "link": ""
+            "link_label": "Shop Layette",
+            "link": "shopify://collections/layette-24-old"
           }
         }
       },
