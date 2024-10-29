@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "shogun-helper": {
@@ -29,44 +29,6 @@
     },
     "product-grid": {
       "type": "main-collection-product-grid",
-      "blocks": {
-        "image_f8UJrh": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
-            "link": "",
-            "row_start_desktop": 1,
-            "row_span_desktop": 1,
-            "col_start_desktop": 1,
-            "col_span_desktop": 2,
-            "row_start_mobile": 1,
-            "row_span_mobile": 1,
-            "col_start_mobile": "1",
-            "col_span_mobile": "2"
-          }
-        },
-        "image_gkgQFt": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_TransitionalLayers_3.jpg",
-            "link": "",
-            "row_start_desktop": 6,
-            "row_span_desktop": 1,
-            "col_start_desktop": 1,
-            "col_span_desktop": 3,
-            "row_start_mobile": 1,
-            "row_span_mobile": 1,
-            "col_start_mobile": "1",
-            "col_span_mobile": "1"
-          }
-        }
-      },
-      "block_order": [
-        "image_f8UJrh",
-        "image_gkgQFt"
-      ],
       "settings": {
         "products_per_page": 48,
         "columns_desktop": 3,
@@ -76,7 +38,8 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        
+        "enable_overlay": false,
+        "enable_swatches": false,
         "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "drawer",
