@@ -127,20 +127,21 @@
         "column_Yt8wiE": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_FA24_Leader_10.17.24_LP_Mob.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_10.30.24_Adult_a59bfd2e-2495-40b6-a8b6-fc9a6a74ade5.jpg",
             "title": "",
             "text": "",
-            "link_label": "fall lookbook",
-            "link": "shopify://blogs/journal/child-fall-24"
+            "link_label": "New Adult",
+            "link": "shopify://collections/adult-fall-24"
           }
         },
         "column_caihwR": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_10.30.24_Baby.jpg",
             "title": "",
             "text": "",
-            "link_label": "sale",
-            "link": "shopify://collections/child-sale"
+            "link_label": "Shop Baby",
+            "link": "shopify://collections/baby-fall-24"
           }
         }
       },
@@ -153,7 +154,7 @@
         "title": "",
         "heading_size": "h2",
         "enable_overlay": true,
-        "content_position": "middle-center",
+        "content_position": "bottom-left",
         "link_type": "link",
         "link_color": "#ffffff",
         "link_style": "underline",
@@ -174,7 +175,7 @@
         "color_scheme": "scheme-1",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "desktop_padding_top": 40,
+        "desktop_padding_top": 16,
         "desktop_padding_bottom": 40,
         "mobile_padding_top": 20,
         "mobile_padding_bottom": 20
