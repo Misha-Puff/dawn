@@ -25,7 +25,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "PREVIEW WINTER",
-            "button_link_1": "shopify://collections/child-fall-24-simplified",
+            "button_link_1": "shopify://collections/preview",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -48,7 +48,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/MP_WI24_Leader_10.30.24_Main.jpg",
-        "banner_link": "shopify://collections/child-fall-24-simplified",
+        "banner_link": "shopify://collections/preview",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
