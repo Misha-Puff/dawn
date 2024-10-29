@@ -467,16 +467,25 @@
         "button_ARR3P3": {
           "type": "button",
           "settings": {
-            "label": "",
-            "link": "",
-            "type": "primary"
+            "label": "CHILD SWEATERS",
+            "link": "shopify://collections/child-sweaters-cardigans",
+            "type": "secondary"
+          }
+        },
+        "button_yEUTBh": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD DRESSES",
+            "link": "shopify://collections/child-dresses",
+            "type": "secondary"
           }
         }
       },
       "block_order": [
         "button_heMLMc",
         "button_m46TAN",
-        "button_ARR3P3"
+        "button_ARR3P3",
+        "button_yEUTBh"
       ],
       "settings": {
         "title": "More to explore",
