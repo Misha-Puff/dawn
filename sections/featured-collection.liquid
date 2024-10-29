@@ -24,20 +24,30 @@
   <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
+{% if section.settings.mobile_padding_left > 0 %}
+{% endif %}
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.mobile_padding_top }}px;
     padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
-    padding-left: {{ section.settings.mobile_padding_left  }}px;
-    padding-right: {{ section.settings.mobile_padding_right  }}px;
+    {% if section.settings.mobile_padding_left > 0 %}
+      padding-left: {{ section.settings.mobile_padding_left  }}px;
+    {% endif %}
+    {% if section.settings.mobile_padding_right > 0 %}
+      padding-right: {{ section.settings.mobile_padding_right  }}px;
+    {% endif %}
   }
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.desktop_padding_top }}px;
       padding-bottom: {{ section.settings.desktop_padding_bottom }}px;
-      padding-left: {{ section.settings.desktop_padding_left }}px;
-      padding-right: {{ section.settings.desktop_padding_right }}px;
+      {% if section.settings.desktop_padding_left > 0 %}
+        padding-left: {{ section.settings.desktop_padding_left  }}px;
+      {% endif %}
+      {% if section.settings.desktop_padding_right > 0 %}
+        padding-right: {{ section.settings.desktop_padding_right  }}px;
+      {% endif %}
     }
   }
 
