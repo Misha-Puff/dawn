@@ -101,11 +101,11 @@
         "column_Hgag6H": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_F24_LOOK_13_0517_LB.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_10.30.24_Main_Mob_119cda42-5d30-4732-8cf5-7ed07949be47.jpg",
             "title": "",
             "text": "",
-            "link_label": "View the Lookbook",
-            "link": "shopify://blogs/journal/fa-24-2"
+            "link_label": "Preview Winter",
+            "link": ""
           }
         },
         "column_VnhYKW": {
@@ -114,8 +114,8 @@
             "image": "shopify://shop_images/MP_FA24_Leader_9.19.24_Layette.jpg",
             "title": "",
             "text": "",
-            "link_label": "Shop Layette",
-            "link": "shopify://collections/layette-24-old"
+            "link_label": "View Lookbook",
+            "link": ""
           }
         }
       },
