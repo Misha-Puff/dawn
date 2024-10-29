@@ -479,13 +479,22 @@
             "link": "shopify://collections/child-dresses",
             "type": "secondary"
           }
+        },
+        "button_w9bhWc": {
+          "type": "button",
+          "settings": {
+            "label": "BABY ONESIES",
+            "link": "shopify://collections/baby-one-piece",
+            "type": "secondary"
+          }
         }
       },
       "block_order": [
         "button_heMLMc",
         "button_m46TAN",
         "button_ARR3P3",
-        "button_yEUTBh"
+        "button_yEUTBh",
+        "button_w9bhWc"
       ],
       "settings": {
         "title": "More to explore",
