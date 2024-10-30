@@ -24,8 +24,10 @@
         "buttons_CGGLqp": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "PREVIEW WINTER",
-            "button_link_1": "shopify://collections/preview",
+            "link_type": "button",
+            "link_color": "#000000",
+            "button_label_1": "SHOP WINTER",
+            "button_link_1": "shopify://collections/child-the-winter-collection",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -47,8 +49,8 @@
         "text_TdBLTR"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_10.30.24_Main.jpg",
-        "banner_link": "shopify://collections/preview",
+        "image": "shopify://shop_images/MP_WI24_Leader_10.31.24_Main.jpg",
+        "banner_link": "shopify://collections/child-the-winter-collection",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -56,7 +58,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_10.30.24_Main_Mob_119cda42-5d30-4732-8cf5-7ed07949be47.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_10.31.24_Main_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
@@ -95,6 +97,7 @@
         "heading_size": "h2",
         "enable_overlay": true,
         "content_position": "bottom-left",
+        "overlay_padding": 25,
         "link_type": "link",
         "link_color": "#ffffff",
         "link_style": "underline",
@@ -155,6 +158,7 @@
         "heading_size": "h2",
         "enable_overlay": true,
         "content_position": "bottom-left",
+        "overlay_padding": 25,
         "link_type": "link",
         "link_color": "#ffffff",
         "link_style": "underline",
@@ -215,6 +219,7 @@
         "heading_size": "h1",
         "enable_overlay": false,
         "content_position": "middle-center",
+        "overlay_padding": 25,
         "link_type": "link",
         "link_color": "#000000",
         "link_style": "none",
@@ -341,6 +346,7 @@
         "heading_size": "h2",
         "enable_overlay": true,
         "content_position": "middle-center",
+        "overlay_padding": 25,
         "link_type": "link",
         "link_color": "#ffffff",
         "link_style": "underline",
@@ -374,6 +380,7 @@
         "title": "",
         "heading_alignment": "left",
         "heading_size": "h2",
+        "heading_margin": 25,
         "description": "",
         "show_description": false,
         "description_style": "body",
@@ -453,7 +460,8 @@
           "settings": {
             "label": "CHILD BEST SELLERS",
             "link": "shopify://collections/child-best-sellers",
-            "type": "secondary"
+            "type": "secondary",
+            "on_click": ""
           }
         },
         "button_m46TAN": {
@@ -461,7 +469,8 @@
           "settings": {
             "label": "CHILD SALE",
             "link": "shopify://collections/child-sale",
-            "type": "secondary"
+            "type": "secondary",
+            "on_click": ""
           }
         },
         "button_ARR3P3": {
@@ -469,7 +478,8 @@
           "settings": {
             "label": "CHILD SWEATERS",
             "link": "shopify://collections/child-sweaters-cardigans",
-            "type": "secondary"
+            "type": "secondary",
+            "on_click": ""
           }
         },
         "button_yEUTBh": {
@@ -477,7 +487,8 @@
           "settings": {
             "label": "CHILD DRESSES",
             "link": "shopify://collections/child-dresses",
-            "type": "secondary"
+            "type": "secondary",
+            "on_click": ""
           }
         },
         "button_w9bhWc": {
@@ -485,7 +496,8 @@
           "settings": {
             "label": "BABY ONESIES",
             "link": "shopify://collections/baby-one-piece",
-            "type": "secondary"
+            "type": "secondary",
+            "on_click": ""
           }
         }
       },
