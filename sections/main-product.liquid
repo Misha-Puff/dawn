@@ -695,7 +695,7 @@
               {%- when 'bis_form' -%}
                 {% unless product.tags contains 'Badge-Coming Soon' %}
                   {% render 'klaviyo-bis-form' %}
-                {% comment %} {% endunless %} {% endcomment %}
+                {% endunless %}
             {%- endcase -%}
           {%- endfor -%}
           <a href="{{ product.url }}" class="link product__view-details animate-arrow">
