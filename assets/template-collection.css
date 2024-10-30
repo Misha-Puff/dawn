@@ -67,9 +67,9 @@
   margin: 0;
 }
 
-.collection__title.title-wrapper {
+/* .collection__title.title-wrapper {
   margin-bottom: 2.5rem;
-}
+} */
 
 .collection__title .title:not(:only-child) {
   margin-bottom: 1rem;
