@@ -316,6 +316,7 @@
         "column_cx3PxC",
         "column_7bKmgw"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h2",
@@ -493,6 +494,73 @@
       "type": "shogun-optimizer",
       "settings": {
       }
+    },
+    "buttons_xjxxkn": {
+      "type": "buttons",
+      "blocks": {
+        "button_BQbEcH": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD SWEATERS",
+            "link": "shopify://collections/child-sweaters-cardigans",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_X7EcYn": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD TOPS",
+            "link": "shopify://collections/child-tops",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_dHLFJa": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD BOTTOMS",
+            "link": "shopify://collections/child-bottoms",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_b7AeLN": {
+          "type": "button",
+          "settings": {
+            "label": "WINTER ACCESSORIES",
+            "link": "shopify://collections/child-accessories",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_nUW3r9": {
+          "type": "button",
+          "settings": {
+            "label": "DENIM",
+            "link": "shopify://collections/child-fall-denim-collection",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_BQbEcH",
+        "button_X7EcYn",
+        "button_dHLFJa",
+        "button_b7AeLN",
+        "button_nUW3r9"
+      ],
+      "settings": {
+        "title": "Explore More",
+        "button_gap": 10,
+        "heading_size": "h2",
+        "color_scheme": "",
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 40,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
+      }
     }
   },
   "order": [
@@ -508,6 +576,7 @@
     "image_banner_pmtDmp",
     "slideshow_8wUhXX",
     "shogun-below",
-    "shogun-optimizer"
+    "shogun-optimizer",
+    "buttons_xjxxkn"
   ]
 }
