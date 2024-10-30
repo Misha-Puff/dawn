@@ -83,7 +83,7 @@
         "button_Li4UrX": {
           "type": "button",
           "settings": {
-            "label": "CHILD PREVIEW",
+            "label": "CHILD PART 1 PREVIEW",
             "link": "#",
             "type": "secondary",
             "on_click": "document.getElementById('collection-template--16484794073139__featured_collection_Nf9ban').scrollIntoView({behavior: 'smooth'}); return false;"
@@ -92,7 +92,7 @@
         "button_gPCjpf": {
           "type": "button",
           "settings": {
-            "label": "BABY PREVIEW",
+            "label": "BABY PART 1 PREVIEW",
             "link": "shopify://collections/baby-preview",
             "type": "secondary",
             "on_click": "document.getElementById('collection-template--16484794073139__featured_collection_aKRY9c').scrollIntoView({behavior: 'smooth'}); return false;"
@@ -117,7 +117,7 @@
     "featured_collection_Nf9ban": {
       "type": "featured-collection",
       "settings": {
-        "title": "Child Preview",
+        "title": "Child Part 1 Preview",
         "heading_alignment": "center",
         "heading_size": "h2",
         "heading_margin": 25,
@@ -158,7 +158,7 @@
     "featured_collection_aKRY9c": {
       "type": "featured-collection",
       "settings": {
-        "title": "Baby Preview",
+        "title": "Baby Part 1 Preview",
         "heading_alignment": "center",
         "heading_size": "h2",
         "heading_margin": 25,
