@@ -128,12 +128,11 @@
     assign show_desktop_slider = true
   endif
 -%}
-
 <div
   class="color-{{ section.settings.color_scheme }} isolate gradient"
 >
   <div
-    class="collection page-width{% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %} section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}"
+    class="collection {% unless section.settings.section_full_width %}page-width{% endunless %}{% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %} section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}"
     id="collection-{{ section.id }}"
     data-id="{{ section.id }}"
   >
@@ -614,6 +613,11 @@
     {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_full_width",
+      "label": "Make section full width"
     },
     {
       "type": "range",
