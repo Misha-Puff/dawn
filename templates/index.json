@@ -509,13 +509,13 @@
         "button_w9bhWc"
       ],
       "settings": {
-        "title": "More to explore",
+        "title": "More to Explore",
         "button_gap": 10,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 48,
         "desktop_padding_bottom": 30,
-        "mobile_padding_top": 36,
+        "mobile_padding_top": 40,
         "mobile_padding_bottom": 30
       }
     }
