@@ -57,6 +57,8 @@
         "buttons_MbErHB": {
           "type": "buttons",
           "settings": {
+            "link_type": "button",
+            "link_color": "#000000",
             "button_label_1": "SHOP FALL",
             "button_link_1": "shopify://collections/child-fall-24",
             "button_style_secondary_1": true,
@@ -111,7 +113,7 @@
         "column_RwiwcK": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_10.30.24_Main_Mob_119cda42-5d30-4732-8cf5-7ed07949be47.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_10.30.24_Mob_84cf14d3-13dd-472f-9314-7df99d3c46bd.jpg",
             "title": "",
             "text": "",
             "link_label": "Preview Winter",
@@ -150,6 +152,7 @@
         "heading_size": "h1",
         "enable_overlay": true,
         "content_position": "bottom-left",
+        "overlay_padding": 25,
         "link_type": "link",
         "link_color": "#ffffff",
         "link_style": "underline",
@@ -182,6 +185,7 @@
         "title": "",
         "heading_alignment": "left",
         "heading_size": "h2",
+        "heading_margin": 25,
         "description": "<p>BEST SELLERS</p>",
         "show_description": false,
         "description_style": "body",
@@ -317,6 +321,7 @@
         "heading_size": "h2",
         "enable_overlay": true,
         "content_position": "middle-center",
+        "overlay_padding": 25,
         "link_type": "link",
         "link_color": "#ffffff",
         "link_style": "underline",
@@ -377,6 +382,7 @@
         "heading_size": "h1",
         "enable_overlay": false,
         "content_position": "middle-center",
+        "overlay_padding": 25,
         "link_type": "link",
         "link_color": "#000000",
         "link_style": "none",
@@ -409,6 +415,8 @@
         "buttons_mwJpBJ": {
           "type": "buttons",
           "settings": {
+            "link_type": "button",
+            "link_color": "#000000",
             "button_label_1": "Journal",
             "button_link_1": "shopify://blogs/journal",
             "button_style_secondary_1": true,
