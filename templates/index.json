@@ -80,11 +80,11 @@
         "column_3igURh": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_FA24_Leader_10.4.24._Mob1.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_10.30.24_Main_Mob_119cda42-5d30-4732-8cf5-7ed07949be47.jpg",
             "title": "",
             "text": "",
-            "link_label": "Shop Fall",
-            "link": "shopify://collections/child-fall-24"
+            "link_label": "Winter Lookbook",
+            "link": "shopify://blogs/journal/child-winter-24"
           }
         }
       },
@@ -405,6 +405,7 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": true,
+        "section_full_width": false,
         "desktop_padding_top": 36,
         "desktop_padding_bottom": 36,
         "desktop_padding_left": 36,
