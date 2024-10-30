@@ -558,7 +558,7 @@
         "color_scheme": "",
         "desktop_padding_top": 30,
         "desktop_padding_bottom": 40,
-        "mobile_padding_top": 30,
+        "mobile_padding_top": 10,
         "mobile_padding_bottom": 30
       }
     }
