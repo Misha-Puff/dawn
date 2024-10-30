@@ -260,6 +260,7 @@
         "column_VJfiC4",
         "column_PjhVYH"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h1",
@@ -327,6 +328,73 @@
         "stack_images_on_mobile": true,
         "show_text_below": false
       }
+    },
+    "buttons_YJPCrw": {
+      "type": "buttons",
+      "blocks": {
+        "button_ygfUMj": {
+          "type": "button",
+          "settings": {
+            "label": "BABY SWEATERS",
+            "link": "shopify://collections/baby-sweaters-cardigans",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_iN3JXJ": {
+          "type": "button",
+          "settings": {
+            "label": "BABY ONESIES",
+            "link": "shopify://collections/baby-one-piece",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_VCj38A": {
+          "type": "button",
+          "settings": {
+            "label": "BABY TOPS",
+            "link": "shopify://collections/baby-tops",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_jpNzgC": {
+          "type": "button",
+          "settings": {
+            "label": "BABY BOTTOMS",
+            "link": "shopify://collections/baby-bottoms",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_9kHAeC": {
+          "type": "button",
+          "settings": {
+            "label": "BABY ACCESSORIES",
+            "link": "shopify://collections/baby-accessories",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_ygfUMj",
+        "button_iN3JXJ",
+        "button_VCj38A",
+        "button_jpNzgC",
+        "button_9kHAeC"
+      ],
+      "settings": {
+        "title": "Explore Baby",
+        "button_gap": 11,
+        "heading_size": "h2",
+        "color_scheme": "",
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 40,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
+      }
     }
   },
   "order": [
@@ -336,6 +404,7 @@
     "multicolumn_BdmKMm",
     "featured_collection_8G4PAp",
     "multicolumn_ftgmXy",
-    "image_banner_jcHbpF"
+    "image_banner_jcHbpF",
+    "buttons_YJPCrw"
   ]
 }
