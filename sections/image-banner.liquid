@@ -52,6 +52,10 @@
       .Block-{{ block.id }}.banner__heading {
         color: {{ block.settings.heading_color }};
       }
+    {% elsif block.type == 'buttons' %}
+      .Block-{{ block.id }} .link {
+        color: {{ block.settings.link_color }};
+      }
     {% endif %}
   {% endfor %}
 {%- endstyle -%}
@@ -224,7 +228,7 @@
             </div>
           {%- when 'buttons' -%}
             <div
-              class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
+              class="Block-{{ block.id }} banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
               {{ block.shopify_attributes }}
             >
               {%- if block.settings.button_label_1 != blank -%}
@@ -234,7 +238,7 @@
                   {% else %}
                     href="{{ block.settings.button_link_1 }}"
                   {% endif %}
-                  class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"
+                  class="{% if block.settings.link_type == 'button' %}button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}{% else %}link{% endif %}"
                 >
                   {{- block.settings.button_label_1 | escape -}}
                 </a>
@@ -340,7 +344,7 @@
             </div>
           {%- when 'buttons' -%}
             <div
-              class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
+              class="Block-{{ block.id }} banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
               {{ block.shopify_attributes }}
             >
               {%- if block.settings.button_label_1 != blank -%}
@@ -350,7 +354,7 @@
                   {% else %}
                     href="{{ block.settings.button_link_1 }}"
                   {% endif %}
-                  class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"
+                  class="{% if block.settings.link_type == 'button' %}button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}{% else %}link{% endif %}"
                 >
                   {{- block.settings.button_label_1 | escape -}}
                 </a>
@@ -698,6 +702,28 @@
       "name": "t:sections.image-banner.blocks.buttons.name",
       "limit": 1,
       "settings": [
+        {
+          "type": "select",
+          "id": "link_type",
+          "options": [
+            {
+              "value": "button",
+              "label": "Button"
+            },
+            {
+              "value": "link",
+              "label": "Link"
+            }
+          ],
+          "default": "button",
+          "label": "Link Type"
+        },
+        {
+          "type": "color",
+          "id": "link_color",
+          "label": "Link Color",
+          "default": "#000000"
+        },
         {
           "type": "text",
           "id": "button_label_1",
