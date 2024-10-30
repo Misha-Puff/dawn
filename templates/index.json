@@ -67,6 +67,16 @@
     "multicolumn_peYxH9": {
       "type": "multicolumn",
       "blocks": {
+        "column_iAT4GA": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_10.31.24_Baby_LP.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Shop Baby",
+            "link": "shopify://collections/baby-the-winter-collection"
+          }
+        },
         "column_3igURh": {
           "type": "column",
           "settings": {
@@ -76,21 +86,11 @@
             "link_label": "Shop Fall",
             "link": "shopify://collections/child-fall-24"
           }
-        },
-        "column_iAT4GA": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_10.31.24_Baby_Mob.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Shop Baby",
-            "link": "shopify://collections/baby-fall-24"
-          }
         }
       },
       "block_order": [
-        "column_3igURh",
-        "column_iAT4GA"
+        "column_iAT4GA",
+        "column_3igURh"
       ],
       "settings": {
         "title": "",

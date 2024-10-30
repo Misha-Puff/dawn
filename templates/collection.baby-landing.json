@@ -47,8 +47,10 @@
         "buttons_QFyVkf": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "SHOP  FALL",
-            "button_link_1": "shopify://collections/baby-fall-24-simplified",
+            "link_type": "button",
+            "link_color": "#000000",
+            "button_label_1": "SHOP WINTER",
+            "button_link_1": "shopify://collections/baby-the-winter-collection",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -80,8 +82,8 @@
         "text_KVmVrL"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_FA24_Leader_10.4.24_Baby.jpg",
-        "banner_link": "shopify://collections/baby-fall-24-simplified",
+        "image": "shopify://shop_images/MP_WI24_Leader_10.31.24_Baby.jpg",
+        "banner_link": "shopify://collections/baby-the-winter-collection",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -89,7 +91,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_FA24_Leader_10.4.24_Baby_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_10.31.24_Baby_Mob_0aa0ee2a-e9fb-46af-bb07-f6ea5dfd9d3f.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
@@ -101,17 +103,17 @@
         "column_Hgag6H": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_10.30.24_Baby_LP.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_10.31.24_Baby_LP.jpg",
             "title": "",
             "text": "",
-            "link_label": "Preview Winter",
-            "link": "shopify://collections/preview"
+            "link_label": "Winter Lookbook",
+            "link": "shopify://blogs/journal/child-winter-24"
           }
         },
         "column_VnhYKW": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/misha-and-puff-layette-22-ipswich-65_bb402bb7-9fc1-46d3-8879-b7208a9b6129.jpg",
+            "image": "shopify://shop_images/misha-and-puff-layette-22-ipswich-98copy_16d824ea-ee5c-4516-ba5f-0e6f2e5d7ccf.jpg",
             "title": "",
             "text": "",
             "link_label": "Shop Layette",
@@ -128,8 +130,9 @@
         "heading_size": "h1",
         "enable_overlay": true,
         "content_position": "bottom-left",
+        "overlay_padding": 25,
         "link_type": "link",
-        "link_color": "#000000",
+        "link_color": "#ffffff",
         "link_style": "underline",
         "button_type": "primary",
         "enable_full_width": false,
@@ -160,6 +163,7 @@
         "title": "",
         "heading_alignment": "left",
         "heading_size": "h2",
+        "heading_margin": 25,
         "description": "<p>BEST SELLERS</p>",
         "show_description": false,
         "description_style": "body",
@@ -261,6 +265,7 @@
         "heading_size": "h1",
         "enable_overlay": true,
         "content_position": "middle-center",
+        "overlay_padding": 25,
         "link_type": "link",
         "link_color": "#ffffff",
         "link_style": "underline",
@@ -293,6 +298,8 @@
         "buttons_t8tKtg": {
           "type": "buttons",
           "settings": {
+            "link_type": "button",
+            "link_color": "#000000",
             "button_label_1": "Journal",
             "button_link_1": "shopify://blogs/journal",
             "button_style_secondary_1": true,
