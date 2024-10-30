@@ -74,7 +74,7 @@
   }
 
   .content-overlay .multicolumn-card__info {
-    padding: 2.5rem !important;
+    padding: {{ section.settings.overlay_padding }}px !important;
   }
 
   .content-overlay .multicolumn-card__info .button {
@@ -423,6 +423,16 @@
       ],
       "default": "middle-center",
       "label": "Content position"
+    },
+    {
+      "type": "range",
+      "id": "overlay_padding",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "default": 25,
+      "unit": "px",
+      "label": "Content padding"
     },
     {
       "type": "select",
