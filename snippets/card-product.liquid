@@ -508,6 +508,8 @@
 
             {% if section.settings.enable_swatches %}
               {% render 'product-sibling-swatches', product: card_product %}
+            {% else %}
+              {% render 'variant-availability', product: card_product %}
             {% endif %}
 
             {%- if card_product.quantity_price_breaks_configured? -%}
