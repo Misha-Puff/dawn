@@ -80,11 +80,11 @@
         "column_3igURh": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_10.30.24_Main_Mob_119cda42-5d30-4732-8cf5-7ed07949be47.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_11.1.24_Adult.jpg",
             "title": "",
             "text": "",
-            "link_label": "Winter Lookbook",
-            "link": "shopify://blogs/journal/child-winter-24"
+            "link_label": "Shop Adult",
+            "link": "shopify://collections/adult-fall-24"
           }
         }
       },
@@ -422,19 +422,19 @@
         "slide_mkRtae": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_10.30.24_Adult_HP.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_11.1.24_Lookbook.jpg",
             "heading": "",
             "heading_size": "h2",
             "subheading": "",
-            "button_label": "NEW ADULT",
-            "link": "shopify://collections/adult-fall-24",
+            "button_label": "winter lookbook",
+            "link": "shopify://blogs/journal/child-winter-24",
             "button_style_secondary": true,
             "box_align": "middle-center",
             "show_text_box": false,
             "text_alignment": "center",
             "image_overlay_opacity": 0,
             "color_scheme": "scheme-1",
-            "mobile_image": "shopify://shop_images/MP_WI24_Leader_10.30.24_Adult_a59bfd2e-2495-40b6-a8b6-fc9a6a74ade5.jpg",
+            "mobile_image": "shopify://shop_images/MP_WI24_Leader_10.30.24_Main_Mob_119cda42-5d30-4732-8cf5-7ed07949be47.jpg",
             "text_alignment_mobile": "center"
           }
         }
