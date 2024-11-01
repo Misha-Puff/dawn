@@ -191,7 +191,7 @@
         "vertical_spacing_mobile": 0,
         "show_view_all": true,
         "view_all_style": "solid",
-        "enable_desktop_slider": true,
+        "enable_desktop_slider": false,
         "color_scheme": "",
         "image_ratio": "adapt",
         "image_shape": "default",
