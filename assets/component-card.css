@@ -637,3 +637,9 @@
   text-decoration: line-through;
   cursor: default;
 }
+
+@media screen and (max-width: 989px) {
+  .card__content .card__information {
+    padding-left: 1rem !important;
+  }
+}
