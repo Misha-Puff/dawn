@@ -41,7 +41,7 @@
         "text_aDVaDa": {
           "type": "text",
           "settings": {
-            "text": "<p>We’re thrilled to share our exclusive collaboration with our longtime friends and partners at Junior Edition.</p>",
+            "text": "<p>An exclusive collaboration with our longtime friends and partners at Junior Edition.</p>",
             "line_height": 20
           }
         },
@@ -83,7 +83,7 @@
         "button_Li4UrX": {
           "type": "button",
           "settings": {
-            "label": "CHILD",
+            "label": "VIEW CHILD",
             "link": "#",
             "type": "secondary",
             "on_click": "document.getElementById('shopify-section-template--16507634122803__featured_collection_Nf9ban').scrollIntoView({behavior: 'smooth'}); return false;"
@@ -92,7 +92,7 @@
         "button_gPCjpf": {
           "type": "button",
           "settings": {
-            "label": "BABY",
+            "label": "VIEW BABY",
             "link": "#",
             "type": "secondary",
             "on_click": "document.getElementById('shopify-section-template--16507634122803__featured_collection_aKRY9c').scrollIntoView({behavior: 'smooth'}); return false;"
