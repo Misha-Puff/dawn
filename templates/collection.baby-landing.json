@@ -82,7 +82,7 @@
         "text_KVmVrL"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_10.31.24_Baby.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_11.7.24_Baby_4bede0d7-f721-4337-9a72-9e36c1f8205e.jpg",
         "banner_link": "shopify://collections/baby-the-winter-collection",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -91,7 +91,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_10.31.24_Baby_Mob_0aa0ee2a-e9fb-46af-bb07-f6ea5dfd9d3f.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_11.7.24_Baby_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
@@ -103,11 +103,11 @@
         "column_Hgag6H": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_10.31.24_Baby_LP.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_11.7.24_Baby_2_fca34fe4-90b2-4556-8ade-eb3919d934ab.jpg",
             "title": "",
             "text": "",
-            "link_label": "Winter Lookbook",
-            "link": "shopify://blogs/journal/child-winter-24"
+            "link_label": "M&P x Junior Edition",
+            "link": "shopify://collections/baby-m-p-x-junior-edition"
           }
         },
         "column_VnhYKW": {
