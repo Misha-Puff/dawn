@@ -83,19 +83,19 @@
         "button_Li4UrX": {
           "type": "button",
           "settings": {
-            "label": "CHILD PREVIEW",
+            "label": "CHILD",
             "link": "#",
             "type": "secondary",
-            "on_click": "document.getElementById('collection-template--16484794073139__featured_collection_Nf9ban').scrollIntoView({behavior: 'smooth'}); return false;"
+            "on_click": "document.getElementById('shopify-section-template--16507634122803__featured_collection_Nf9ban').scrollIntoView({behavior: 'smooth'}); return false;"
           }
         },
         "button_gPCjpf": {
           "type": "button",
           "settings": {
             "label": "BABY PREVIEW",
-            "link": "shopify://collections/baby-preview",
+            "link": "#",
             "type": "secondary",
-            "on_click": "document.getElementById('collection-template--16484794073139__featured_collection_aKRY9c').scrollIntoView({behavior: 'smooth'}); return false;"
+            "on_click": "document.getElementById('shopify-section-template--16507634122803__featured_collection_aKRY9c').scrollIntoView({behavior: 'smooth'}); return false;"
           }
         }
       },
@@ -124,7 +124,7 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "child-preview",
+        "collection": "child-m-p-x-junior-edition",
         "products_to_show": 24,
         "columns_desktop": 3,
         "full_width": true,
@@ -145,6 +145,7 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
+        "section_full_width": false,
         "desktop_padding_top": 36,
         "desktop_padding_bottom": 36,
         "desktop_padding_left": 0,
@@ -165,7 +166,7 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "baby-preview",
+        "collection": "baby-m-p-x-junior-edition",
         "products_to_show": 24,
         "columns_desktop": 3,
         "full_width": true,
@@ -186,6 +187,7 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
+        "section_full_width": false,
         "desktop_padding_top": 52,
         "desktop_padding_bottom": 36,
         "desktop_padding_left": 0,
