@@ -1,0 +1,245 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {
+      }
+    },
+    "shogun-above": {
+      "type": "shogun-above",
+      "settings": {
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "rich_text_n8yiAy": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_cw4QqC": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Winter Collection",
+            "heading_size": "h2"
+          }
+        },
+        "text_aDVaDa": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The Winter Collection — a showcase of rich textures and colors, rooted in holiday nostalgia. Cozy Merino knits, lush velvet and corduroy, inspired jacquards, and classic silhouettes with refined hand-worked details. Heirloom pieces for every cherished occasion.</p><p>Part 1 of the Winter Collection launches <a href=\"https://calendar.google.com/event?action=TEMPLATE&tmeid=ODJmNHJkaTlidnRyNmFlMDMzZ2QxZHJ0bDQgY18wNjMycDQ1cDgyNzk2OXI2YWE0MmJ0ZWFza0Bn&tmsrc=c_0632p45p827969r6aa42bteask%40group.calendar.google.com\" target=\"_blank\" title=\"https://calendar.google.com/event?action=TEMPLATE&tmeid=ODJmNHJkaTlidnRyNmFlMDMzZ2QxZHJ0bDQgY18wNjMycDQ1cDgyNzk2OXI2YWE0MmJ0ZWFza0Bn&tmsrc=c_0632p45p827969r6aa42bteask%40group.calendar.google.com\">Thursday, October 31 at 11 am ET</a>.<br/><br/></p><p><a href=\"https://shop.misha-and-puff.com/blogs/journal/child-winter-24\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/blogs/journal/child-winter-24\">VIEW THE LOOKBOOK</a><br/><br/></p>",
+            "line_height": 20
+          }
+        },
+        "button_J6VEqX": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "VIEW LOOKBOOK",
+            "button_link": "https://shop.misha-and-puff.com/blogs/journal/child-winter-24",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_cw4QqC",
+        "text_aDVaDa",
+        "button_J6VEqX"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 40,
+        "padding_left": 100,
+        "padding_right": 100
+      }
+    },
+    "buttons_6fy444": {
+      "type": "buttons",
+      "blocks": {
+        "button_Li4UrX": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD PREVIEW",
+            "link": "#",
+            "type": "secondary",
+            "on_click": "document.getElementById('collection-template--16484794073139__featured_collection_Nf9ban').scrollIntoView({behavior: 'smooth'}); return false;"
+          }
+        },
+        "button_gPCjpf": {
+          "type": "button",
+          "settings": {
+            "label": "BABY PREVIEW",
+            "link": "shopify://collections/baby-preview",
+            "type": "secondary",
+            "on_click": "document.getElementById('collection-template--16484794073139__featured_collection_aKRY9c').scrollIntoView({behavior: 'smooth'}); return false;"
+          }
+        }
+      },
+      "block_order": [
+        "button_Li4UrX",
+        "button_gPCjpf"
+      ],
+      "settings": {
+        "title": "",
+        "button_gap": 10,
+        "heading_size": "h1",
+        "color_scheme": "",
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 16
+      }
+    },
+    "featured_collection_Nf9ban": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Child Preview",
+        "heading_alignment": "center",
+        "heading_size": "h2",
+        "heading_margin": 25,
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "child-preview",
+        "products_to_show": 24,
+        "columns_desktop": 3,
+        "full_width": true,
+        "enable_custom_spacing": false,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 36,
+        "desktop_padding_left": 0,
+        "desktop_padding_right": 0,
+        "mobile_padding_top": 32,
+        "mobile_padding_bottom": 36,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
+      }
+    },
+    "featured_collection_aKRY9c": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Baby Preview",
+        "heading_alignment": "center",
+        "heading_size": "h2",
+        "heading_margin": 25,
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "baby-preview",
+        "products_to_show": 24,
+        "columns_desktop": 3,
+        "full_width": true,
+        "enable_custom_spacing": false,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 52,
+        "desktop_padding_bottom": 36,
+        "desktop_padding_left": 0,
+        "desktop_padding_right": 0,
+        "mobile_padding_top": 32,
+        "mobile_padding_bottom": 36,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "disabled": true,
+      "settings": {
+        "products_per_page": 48,
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_overlay": false,
+        "enable_swatches": false,
+        "quick_add": "standard",
+        "enable_filtering": true,
+        "filter_type": "drawer",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "shogun-below": {
+      "type": "shogun-below",
+      "settings": {
+      }
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "shogun-above",
+    "banner",
+    "rich_text_n8yiAy",
+    "buttons_6fy444",
+    "featured_collection_Nf9ban",
+    "featured_collection_aKRY9c",
+    "product-grid",
+    "shogun-below",
+    "shogun-optimizer"
+  ]
+}
