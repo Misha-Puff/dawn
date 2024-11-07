@@ -130,7 +130,7 @@
         "column_Yt8wiE": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.1.24_Adult_87f42f0f-be12-4d82-aef0-dfb217f9c219.jpg",
+            "image": "shopify://shop_images/MP_WI24_11.8.24_Adult_ad96a14e-613a-4d57-8879-4127dc2658f2.jpg",
             "title": "",
             "text": "",
             "link_label": "New Adult",
@@ -141,26 +141,27 @@
       "block_order": [
         "column_Yt8wiE"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h2",
         "enable_overlay": true,
         "content_position": "bottom-left",
-        "overlay_padding": 25,
+        "overlay_padding": 20,
         "link_type": "link",
         "link_color": "#ffffff",
         "link_style": "underline",
         "button_type": "secondary",
-        "enable_full_width": false,
+        "enable_full_width": true,
         "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 40,
-        "vertical_spacing_desktop": 40,
+        "horizontal_spacing_desktop": 0,
+        "vertical_spacing_desktop": 0,
         "horizontal_spacing_mobile": 10,
         "vertical_spacing_mobile": 20,
         "image_width": "full",
         "image_ratio": "adapt",
-        "columns_desktop": 2,
-        "column_alignment": "left",
+        "columns_desktop": 1,
+        "column_alignment": "center",
         "background_style": "none",
         "button_label": "",
         "button_link": "",
@@ -171,6 +172,43 @@
         "desktop_padding_bottom": 28,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 0
+      }
+    },
+    "slideshow_t7VikK": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_mkRtae": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_11.8.24_Adult.jpg",
+            "heading": "",
+            "heading_size": "h2",
+            "subheading": "",
+            "button_label": "SHOP ADULT",
+            "link": "shopify://collections/adult-fall-24",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "mobile_image": "shopify://shop_images/MP_WI24_11.8.24_Adult_Mob.jpg",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_mkRtae"
+      ],
+      "settings": {
+        "layout": "grid",
+        "slide_height": "adapt_image",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 3,
+        "image_behavior": "none",
+        "show_text_below": false,
+        "accessibility_info": ""
       }
     },
     "buttons_zMbkxJ": {
@@ -238,44 +276,6 @@
         "desktop_padding_bottom": 30,
         "mobile_padding_top": 40,
         "mobile_padding_bottom": 30
-      }
-    },
-    "slideshow_t7VikK": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_mkRtae": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.1.24_Adult_87f42f0f-be12-4d82-aef0-dfb217f9c219.jpg",
-            "heading": "",
-            "heading_size": "h2",
-            "subheading": "",
-            "button_label": "SHOP ADULT",
-            "link": "shopify://collections/adult-fall-24",
-            "button_style_secondary": true,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-1",
-            "mobile_image": "shopify://shop_images/MP_WI24_Leader_10.30.24_Main_Mob_119cda42-5d30-4732-8cf5-7ed07949be47.jpg",
-            "text_alignment_mobile": "center"
-          }
-        }
-      },
-      "block_order": [
-        "slide_mkRtae"
-      ],
-      "disabled": true,
-      "settings": {
-        "layout": "grid",
-        "slide_height": "adapt_image",
-        "slider_visual": "counter",
-        "auto_rotate": false,
-        "change_slides_speed": 3,
-        "image_behavior": "none",
-        "show_text_below": false,
-        "accessibility_info": ""
       }
     },
     "multicolumn_4t4Ubf": {
@@ -514,8 +514,8 @@
     "image_banner_bz8jb3",
     "multicolumn_peYxH9",
     "multicolumn",
-    "buttons_zMbkxJ",
     "slideshow_t7VikK",
+    "buttons_zMbkxJ",
     "multicolumn_4t4Ubf",
     "multicolumn_GbjXUE",
     "featured_collection_YrgjwD"
