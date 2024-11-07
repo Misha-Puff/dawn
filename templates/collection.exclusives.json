@@ -11,13 +11,11 @@
   "sections": {
     "shogun-helper": {
       "type": "shogun-helper",
-      "settings": {
-      }
+      "settings": {}
     },
     "shogun-above": {
       "type": "shogun-above",
-      "settings": {
-      }
+      "settings": {}
     },
     "banner": {
       "type": "main-collection-banner",
@@ -139,7 +137,7 @@
         "color_scheme": "",
         "image_ratio": "adapt",
         "image_shape": "default",
-        "show_secondary_image": false,
+        "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "none",
@@ -181,7 +179,7 @@
         "color_scheme": "",
         "image_ratio": "adapt",
         "image_shape": "default",
-        "show_secondary_image": false,
+        "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "none",
@@ -223,13 +221,11 @@
     },
     "shogun-below": {
       "type": "shogun-below",
-      "settings": {
-      }
+      "settings": {}
     },
     "shogun-optimizer": {
       "type": "shogun-optimizer",
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [
