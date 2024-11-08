@@ -11,13 +11,11 @@
   "sections": {
     "shogun-helper": {
       "type": "shogun-helper",
-      "settings": {
-      }
+      "settings": {}
     },
     "shogun-above": {
       "type": "shogun-above",
-      "settings": {
-      }
+      "settings": {}
     },
     "banner": {
       "type": "main-collection-banner",
@@ -60,7 +58,7 @@
             "link_type": "button",
             "link_color": "#000000",
             "button_label_1": "SHOP WINTER",
-            "button_link_1": "shopify://collections/child-the-winter-collection",
+            "button_link_1": "shopify://collections/child-winter-a",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -93,7 +91,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/MP_WI24_Leader_11.7.24_Child_2.jpg",
-        "banner_link": "shopify://collections/child-the-winter-collection",
+        "banner_link": "shopify://collections/child-winter-a",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -488,13 +486,11 @@
     },
     "shogun-below": {
       "type": "shogun-below",
-      "settings": {
-      }
+      "settings": {}
     },
     "shogun-optimizer": {
       "type": "shogun-optimizer",
-      "settings": {
-      }
+      "settings": {}
     },
     "buttons_xjxxkn": {
       "type": "buttons",
