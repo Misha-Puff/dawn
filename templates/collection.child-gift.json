@@ -25,6 +25,69 @@
         "color_scheme": "scheme-1"
       }
     },
+    "image_banner_QfnEBR": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_YtgzcQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Child Gift Guide",
+            "desktop_heading_size": "h2",
+            "mobile_heading_size": "h2",
+            "heading_color": "#ffffff"
+          }
+        },
+        "text_ckwhbN": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_bwWihy": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "link_type": "button",
+            "link_color": "#000000",
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_YtgzcQ",
+        "text_ckwhbN",
+        "buttons_bwWihy"
+      ],
+      "disabled": true,
+      "settings": {
+        "banner_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 0,
+        "desktop_padding_right": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
+      }
+    },
     "rich_text_YJeCaw": {
       "type": "rich-text",
       "blocks": {
@@ -84,6 +147,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 1,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -100,6 +166,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 6,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -124,6 +193,8 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "enable_overlay": false,
+        "enable_swatches": false,
         "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "drawer",
@@ -146,6 +217,7 @@
     "shogun-helper",
     "shogun-above",
     "banner",
+    "image_banner_QfnEBR",
     "rich_text_YJeCaw",
     "product-grid",
     "shogun-below",
