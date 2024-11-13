@@ -290,6 +290,67 @@
         "mobile_padding_right": 20
       }
     },
+    "multicolumn_4t4Ubf": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_VkmJ9N": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/IMG_8105_3.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Child Gift Guide",
+            "link": "shopify://collections/child-gift-edit"
+          }
+        },
+        "column_mcCDRB": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Insta_Post_8.14.24_1.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Back to School Edit —",
+            "link": "shopify://collections/child-fall-collection-back-to-school"
+          }
+        }
+      },
+      "block_order": [
+        "column_VkmJ9N",
+        "column_mcCDRB"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "enable_overlay": true,
+        "content_position": "bottom-left",
+        "overlay_padding": 25,
+        "link_type": "link",
+        "link_color": "#ffffff",
+        "link_style": "underline",
+        "button_type": "primary",
+        "enable_full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 40,
+        "vertical_spacing_desktop": 30,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 20,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 40,
+        "desktop_padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
     "buttons_zMbkxJ": {
       "type": "buttons",
       "blocks": {
@@ -355,67 +416,6 @@
         "desktop_padding_bottom": 30,
         "mobile_padding_top": 40,
         "mobile_padding_bottom": 30
-      }
-    },
-    "multicolumn_4t4Ubf": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_VkmJ9N": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/MP_SaleALL_8.20.24.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Sale / Further Markdowns up to 40% off —",
-            "link": "shopify://collections/child-sale"
-          }
-        },
-        "column_mcCDRB": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/Insta_Post_8.14.24_1.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Back to School Edit —",
-            "link": "shopify://collections/child-fall-collection-back-to-school"
-          }
-        }
-      },
-      "block_order": [
-        "column_VkmJ9N",
-        "column_mcCDRB"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "enable_overlay": false,
-        "content_position": "middle-center",
-        "overlay_padding": 25,
-        "link_type": "link",
-        "link_color": "#000000",
-        "link_style": "none",
-        "button_type": "primary",
-        "enable_full_width": false,
-        "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 30,
-        "vertical_spacing_desktop": 20,
-        "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 10,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 2,
-        "column_alignment": "left",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "desktop_padding_top": 0,
-        "desktop_padding_bottom": 20,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 20
       }
     },
     "multicolumn_GbjXUE": {
@@ -595,8 +595,8 @@
     "multicolumn",
     "slideshow_t7VikK",
     "image_banner_PTYKgc",
-    "buttons_zMbkxJ",
     "multicolumn_4t4Ubf",
+    "buttons_zMbkxJ",
     "multicolumn_GbjXUE",
     "featured_collection_YrgjwD"
   ]

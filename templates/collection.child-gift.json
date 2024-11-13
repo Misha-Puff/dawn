@@ -204,6 +204,73 @@
         "padding_bottom": 36
       }
     },
+    "buttons_WrnKTA": {
+      "type": "buttons",
+      "blocks": {
+        "button_zhJPgt": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP BABY GIFTS",
+            "link": "shopify://collections/baby-gift-edit",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_9L9q9w": {
+          "type": "button",
+          "settings": {
+            "label": "BEST SELLERS",
+            "link": "shopify://collections/child-best-sellers",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_MM8K3Q": {
+          "type": "button",
+          "settings": {
+            "label": "SWEATERS",
+            "link": "shopify://collections/child-sweaters-cardigans",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_PxyFwV": {
+          "type": "button",
+          "settings": {
+            "label": "ACCESSORIES",
+            "link": "shopify://collections/child-accessories",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_BAjg3L": {
+          "type": "button",
+          "settings": {
+            "label": "NEW ARRIVALS",
+            "link": "shopify://collections/child-new",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_zhJPgt",
+        "button_9L9q9w",
+        "button_MM8K3Q",
+        "button_PxyFwV",
+        "button_BAjg3L"
+      ],
+      "settings": {
+        "title": "More to Explore",
+        "button_gap": 10,
+        "heading_size": "h2",
+        "color_scheme": "",
+        "desktop_padding_top": 22,
+        "desktop_padding_bottom": 32,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 12
+      }
+    },
     "shogun-below": {
       "type": "shogun-below",
       "settings": {}
@@ -220,6 +287,7 @@
     "image_banner_QfnEBR",
     "rich_text_YJeCaw",
     "product-grid",
+    "buttons_WrnKTA",
     "shogun-below",
     "shogun-optimizer"
   ]
