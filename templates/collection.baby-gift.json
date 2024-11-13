@@ -84,6 +84,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 1,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -100,6 +103,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 6,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -124,6 +130,8 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "enable_overlay": false,
+        "enable_swatches": false,
         "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "drawer",
@@ -140,6 +148,73 @@
     "shogun-optimizer": {
       "type": "shogun-optimizer",
       "settings": {}
+    },
+    "buttons_UdwtAc": {
+      "type": "buttons",
+      "blocks": {
+        "button_eeTFLn": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD GIFTS",
+            "link": "shopify://collections/child-gift-edit",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_E8tYXH": {
+          "type": "button",
+          "settings": {
+            "label": "BEST SELLERS",
+            "link": "shopify://collections/baby-best-sellers",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_yApMDE": {
+          "type": "button",
+          "settings": {
+            "label": "SWEATERS",
+            "link": "shopify://collections/baby-sweaters-cardigans",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_Ryr3Bb": {
+          "type": "button",
+          "settings": {
+            "label": "LAYETTE",
+            "link": "shopify://collections/layette-24-old",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_fnfD6i": {
+          "type": "button",
+          "settings": {
+            "label": "NEW ARRIVALS",
+            "link": "shopify://collections/baby-new",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_eeTFLn",
+        "button_E8tYXH",
+        "button_yApMDE",
+        "button_Ryr3Bb",
+        "button_fnfD6i"
+      ],
+      "settings": {
+        "title": "More to Explore",
+        "button_gap": 10,
+        "heading_size": "h1",
+        "color_scheme": "",
+        "desktop_padding_top": 32,
+        "desktop_padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 30
+      }
     }
   },
   "order": [
@@ -149,6 +224,7 @@
     "rich_text_YJeCaw",
     "product-grid",
     "shogun-below",
-    "shogun-optimizer"
+    "shogun-optimizer",
+    "buttons_UdwtAc"
   ]
 }

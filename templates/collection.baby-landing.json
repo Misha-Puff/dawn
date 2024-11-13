@@ -94,7 +94,15 @@
         "mobile_image": "shopify://shop_images/MP_WI24_Leader_11.7.24_Baby_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
-        "show_text_below": false
+        "show_text_below": false,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 0,
+        "desktop_padding_right": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
       }
     },
     "multicolumn_BdmKMm": {
@@ -327,7 +335,15 @@
         "image_behavior": "none",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
-        "show_text_below": false
+        "show_text_below": false,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 0,
+        "desktop_padding_right": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
       }
     },
     "buttons_YJPCrw": {
@@ -391,9 +407,9 @@
         "button_gap": 11,
         "heading_size": "h2",
         "color_scheme": "",
-        "desktop_padding_top": 20,
-        "desktop_padding_bottom": 50,
-        "mobile_padding_top": 10,
+        "desktop_padding_top": 22,
+        "desktop_padding_bottom": 32,
+        "mobile_padding_top": 0,
         "mobile_padding_bottom": 30
       }
     }
