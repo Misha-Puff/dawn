@@ -8,9 +8,6 @@ This file can be re-written at any time.
   <script type="text/javascript">
     window.__shgProducts = window.__shgProducts || {};
     {% for handle in handles %}
-      {%- comment %}<locksmith:8ace>{% endcomment -%}
-        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: handle, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-      {%- comment %}</locksmith:8ace>{% endcomment -%}
       {% assign currentProduct = all_products[handle] %}
       {% if currentProduct != blank %}
         window.__shgProducts["{{handle}}"] = {{currentProduct | json }};
@@ -41,17 +38,11 @@ This file can be re-written at any time.
     window.__shgProducts = window.__shgProducts || {};
     window.__shgCategories = window.__shgCategories || {};
     {%- for collection_meta in collections_meta %}
-      {%- comment %}<locksmith:c97d>{% endcomment -%}
-        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: collection_meta, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-      {%- comment %}</locksmith:c97d>{% endcomment -%}
       {%- assign collection = collections[collection_meta.handle] -%}
       window.__shgCategories["{{collection.handle}}"] = window.__shgCategories["{{collection.handle}}"] || {{ collection | json }};
       window.__shgCategories["{{collection.handle}}"].products = window.__shgCategories["{{collection.handle}}"].products || [];
       {%- paginate collection.products by collection_meta.count -%}
         {%- for product in collection.products %}
-          {%- comment %}<locksmith:b24d>{% endcomment -%}
-            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-          {%- comment %}</locksmith:b24d>{% endcomment -%}
           window.__shgProducts["{{product.handle}}"] = window.__shgProducts["{{product.handle}}"] || {{ product | json }};
 
           if (!window.__shgCategories["{{collection.handle}}"].products.find(product => product.id == {{ product.id }})) {
