@@ -90,7 +90,7 @@
         "text_iqachQ"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_11.19.24_Preview1.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_11.21.24_Child_2.jpg",
         "banner_link": "shopify://collections/child-winter-a",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -99,7 +99,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_11.19.24_Preview1_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_11.21.24_Child_2_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false,
@@ -163,7 +163,8 @@
         "link_color": "#ffffff",
         "link_style": "underline",
         "button_type": "primary",
-        "enable_full_width": false,
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 40,
         "vertical_spacing_desktop": 40,
@@ -334,7 +335,8 @@
         "link_color": "#ffffff",
         "link_style": "underline",
         "button_type": "secondary",
-        "enable_full_width": false,
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 10,
         "vertical_spacing_desktop": 10,
@@ -395,7 +397,8 @@
         "link_color": "#000000",
         "link_style": "none",
         "button_type": "primary",
-        "enable_full_width": false,
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 30,
         "vertical_spacing_desktop": 20,
@@ -523,6 +526,7 @@
           "type": "button",
           "settings": {
             "label": "CHILD SWEATERS",
+            "open_new_tab": false,
             "link": "shopify://collections/child-sweaters-cardigans",
             "type": "secondary",
             "on_click": ""
@@ -532,6 +536,7 @@
           "type": "button",
           "settings": {
             "label": "CHILD TOPS",
+            "open_new_tab": false,
             "link": "shopify://collections/child-tops",
             "type": "secondary",
             "on_click": ""
@@ -541,6 +546,7 @@
           "type": "button",
           "settings": {
             "label": "CHILD BOTTOMS",
+            "open_new_tab": false,
             "link": "shopify://collections/child-bottoms",
             "type": "secondary",
             "on_click": ""
@@ -550,6 +556,7 @@
           "type": "button",
           "settings": {
             "label": "WINTER ACCESSORIES",
+            "open_new_tab": false,
             "link": "shopify://collections/child-accessories",
             "type": "secondary",
             "on_click": ""
@@ -559,6 +566,7 @@
           "type": "button",
           "settings": {
             "label": "DENIM",
+            "open_new_tab": false,
             "link": "shopify://collections/child-fall-denim-collection",
             "type": "secondary",
             "on_click": ""
