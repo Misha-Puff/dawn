@@ -35,8 +35,8 @@
           "settings": {
             "link_type": "button",
             "link_color": "#ffffff",
-            "button_label_1": "PREVIEW WINTER PART 2",
-            "button_link_1": "shopify://collections/preview",
+            "button_label_1": "SHOP WINTER",
+            "button_link_1": "shopify://collections/child-the-winter-collection",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -50,8 +50,8 @@
         "buttons_CGGLqp"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_11.19.24_Preview2.jpg",
-        "banner_link": "shopify://collections/preview",
+        "image": "shopify://shop_images/MP_WI24_Leader_11.21.24_Child_1.jpg",
+        "banner_link": "shopify://collections/child-the-winter-collection",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -59,7 +59,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_11.19.24_Preview2_Mobs.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_11.21.24_Child_1_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false,
@@ -76,30 +76,30 @@
     "multicolumn_peYxH9": {
       "type": "multicolumn",
       "blocks": {
-        "column_3igURh": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.15.24_Kids_LP_Mob.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Shop Child",
-            "link": "shopify://collections/child-the-winter-collection"
-          }
-        },
         "column_iAT4GA": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.15.24_Baby.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_11.21.24_Baby_1_9664c031-e747-44c6-b0b2-2ee8cd73e1ba.jpg",
             "title": "",
             "text": "",
             "link_label": "Shop Baby",
             "link": "shopify://collections/baby-the-winter-collection"
           }
+        },
+        "column_3igURh": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Look_03_0275_e_site.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Shop Adult",
+            "link": "shopify://collections/adult-fall-24"
+          }
         }
       },
       "block_order": [
-        "column_3igURh",
-        "column_iAT4GA"
+        "column_iAT4GA",
+        "column_3igURh"
       ],
       "settings": {
         "title": "",
@@ -111,6 +111,8 @@
         "link_color": "#ffffff",
         "link_style": "underline",
         "button_type": "primary",
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 40,
         "vertical_spacing_desktop": 40,
@@ -160,6 +162,8 @@
         "link_color": "#ffffff",
         "link_style": "underline",
         "button_type": "secondary",
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 0,
         "vertical_spacing_desktop": 0,
@@ -207,6 +211,7 @@
       "block_order": [
         "slide_mkRtae"
       ],
+      "disabled": true,
       "settings": {
         "layout": "full_bleed",
         "slide_height": "adapt_image",
@@ -232,17 +237,17 @@
         "column_VkmJ9N": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.7.24_JrEd.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_11.21.24_Journal.jpg",
             "title": "",
             "text": "",
-            "link_label": "M&P x Junior Edition",
-            "link": "shopify://collections/m-p-x-junior-edition"
+            "link_label": "Journal",
+            "link": "shopify://blogs/journal"
           }
         },
         "column_jQ3JVX": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.15.24_BestSell.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_11.21.24_BestSell.jpg",
             "title": "",
             "text": "",
             "link_label": "Best Sellers",
@@ -265,7 +270,6 @@
         "column_jQ3JVX",
         "column_mcCDRB"
       ],
-      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h2",
@@ -276,6 +280,8 @@
         "link_color": "#ffffff",
         "link_style": "underline",
         "button_type": "primary",
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 12,
         "vertical_spacing_desktop": 40,
@@ -367,6 +373,7 @@
           "type": "button",
           "settings": {
             "label": "CHILD BEST SELLERS",
+            "open_new_tab": false,
             "link": "shopify://collections/child-best-sellers",
             "type": "secondary",
             "on_click": ""
@@ -376,6 +383,7 @@
           "type": "button",
           "settings": {
             "label": "CHILD SALE",
+            "open_new_tab": false,
             "link": "shopify://collections/child-sale",
             "type": "secondary",
             "on_click": ""
@@ -385,6 +393,7 @@
           "type": "button",
           "settings": {
             "label": "CHILD SWEATERS",
+            "open_new_tab": false,
             "link": "shopify://collections/child-sweaters-cardigans",
             "type": "secondary",
             "on_click": ""
@@ -394,6 +403,7 @@
           "type": "button",
           "settings": {
             "label": "CHILD DRESSES",
+            "open_new_tab": false,
             "link": "shopify://collections/child-dresses",
             "type": "secondary",
             "on_click": ""
@@ -403,6 +413,7 @@
           "type": "button",
           "settings": {
             "label": "BABY ONESIES",
+            "open_new_tab": false,
             "link": "shopify://collections/baby-one-piece",
             "type": "secondary",
             "on_click": ""
@@ -532,6 +543,8 @@
         "link_color": "#ffffff",
         "link_style": "underline",
         "button_type": "secondary",
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 6,
         "vertical_spacing_desktop": 6,
