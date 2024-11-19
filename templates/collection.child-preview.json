@@ -11,13 +11,11 @@
   "sections": {
     "shogun-helper": {
       "type": "shogun-helper",
-      "settings": {
-      }
+      "settings": {}
     },
     "shogun-above": {
       "type": "shogun-above",
-      "settings": {
-      }
+      "settings": {}
     },
     "banner": {
       "type": "main-collection-banner",
@@ -25,6 +23,54 @@
         "show_collection_description": true,
         "show_collection_image": false,
         "color_scheme": "scheme-1"
+      }
+    },
+    "buttons_w3CmM7": {
+      "type": "buttons",
+      "blocks": {
+        "button_hrwKiT": {
+          "type": "button",
+          "settings": {
+            "label": "BACK TO ALL",
+            "link": "shopify://collections/preview",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_inhkWm": {
+          "type": "button",
+          "settings": {
+            "label": "BABY PREVIEW",
+            "link": "shopify://collections/baby-preview",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_7rKmVq": {
+          "type": "button",
+          "settings": {
+            "label": "",
+            "link": "",
+            "type": "primary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_hrwKiT",
+        "button_inhkWm",
+        "button_7rKmVq"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "button_gap": 10,
+        "heading_size": "h1",
+        "color_scheme": "",
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 40,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 30
       }
     },
     "product-grid": {
@@ -51,19 +97,18 @@
     },
     "shogun-below": {
       "type": "shogun-below",
-      "settings": {
-      }
+      "settings": {}
     },
     "shogun-optimizer": {
       "type": "shogun-optimizer",
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [
     "shogun-helper",
     "shogun-above",
     "banner",
+    "buttons_w3CmM7",
     "product-grid",
     "shogun-below",
     "shogun-optimizer"

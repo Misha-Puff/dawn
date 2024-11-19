@@ -57,8 +57,8 @@
           "settings": {
             "link_type": "button",
             "link_color": "#000000",
-            "button_label_1": "SHOP WINTER",
-            "button_link_1": "shopify://collections/child-winter-a",
+            "button_label_1": "PREVIEW WINTER PART 2",
+            "button_link_1": "shopify://collections/preview",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -90,7 +90,7 @@
         "text_iqachQ"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_11.7.24_Child_2.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_11.19.24_Preview1.jpg",
         "banner_link": "shopify://collections/child-winter-a",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -99,15 +99,33 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_11.7.24_Child_2_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_11.19.24_Preview1_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
-        "show_text_below": false
+        "show_text_below": false,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 0,
+        "desktop_padding_right": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
       }
     },
     "multicolumn_gfwpxD": {
       "type": "multicolumn",
       "blocks": {
+        "column_iBFc39": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_11.15.24_kids_Mob.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Shop Winter",
+            "link": "shopify://collections/child-the-winter-collection"
+          }
+        },
         "column_RwiwcK": {
           "type": "column",
           "settings": {
@@ -120,6 +138,7 @@
         },
         "column_dQmUh8": {
           "type": "column",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/MP_FA24_Leader_Mob_8.6.24_2.jpg",
             "title": "",
@@ -127,30 +146,19 @@
             "link_label": "Shop Denim",
             "link": "shopify://collections/child-fall-denim-collection"
           }
-        },
-        "column_iBFc39": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/MP_SaleALL_8.20.24.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Sale / Further Markdowns up to 40% off —",
-            "link": "shopify://collections/child-sale"
-          }
         }
       },
       "block_order": [
+        "column_iBFc39",
         "column_RwiwcK",
-        "column_dQmUh8",
-        "column_iBFc39"
+        "column_dQmUh8"
       ],
       "settings": {
         "title": "",
         "heading_size": "h1",
         "enable_overlay": true,
         "content_position": "bottom-left",
-        "overlay_padding": 25,
+        "overlay_padding": 15,
         "link_type": "link",
         "link_color": "#ffffff",
         "link_style": "underline",
@@ -443,7 +451,15 @@
         "mobile_image": "shopify://shop_images/MP_SU24_Leader_Journal_6.18.24_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
-        "show_text_below": false
+        "show_text_below": false,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 0,
+        "desktop_padding_right": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
       }
     },
     "slideshow_8wUhXX": {
@@ -481,7 +497,15 @@
         "change_slides_speed": 5,
         "image_behavior": "none",
         "show_text_below": false,
-        "accessibility_info": ""
+        "accessibility_info": "",
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 0,
+        "desktop_padding_right": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
       }
     },
     "shogun-below": {

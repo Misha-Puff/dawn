@@ -75,7 +75,15 @@
         "change_slides_speed": 5,
         "image_behavior": "none",
         "show_text_below": false,
-        "accessibility_info": ""
+        "accessibility_info": "",
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 0,
+        "desktop_padding_right": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
       }
     },
     "image_banner_8Dbi6e": {
@@ -119,7 +127,7 @@
         "buttons_8b9zaW"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_Adult_2.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_11.15.24_Adult_3.jpg",
         "banner_link": "shopify://collections/adult-fall-24",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -131,7 +139,15 @@
         "mobile_image": "shopify://shop_images/MP_WI24_Leader_Adult_2_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
-        "show_text_below": false
+        "show_text_below": false,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 0,
+        "desktop_padding_right": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
       }
     },
     "multicolumn_8DQLJ3": {
@@ -167,7 +183,7 @@
         "heading_size": "h1",
         "enable_overlay": true,
         "content_position": "bottom-left",
-        "overlay_padding": 25,
+        "overlay_padding": 15,
         "link_type": "link",
         "link_color": "#ffffff",
         "link_style": "underline",
@@ -269,7 +285,15 @@
         "image_behavior": "none",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
-        "show_text_below": false
+        "show_text_below": false,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 0,
+        "desktop_padding_right": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
       }
     }
   },

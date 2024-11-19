@@ -49,8 +49,8 @@
           "settings": {
             "link_type": "button",
             "link_color": "#000000",
-            "button_label_1": "SHOP WINTER",
-            "button_link_1": "shopify://collections/baby-the-winter-collection",
+            "button_label_1": "PREVIEW WINTER PART 2",
+            "button_link_1": "shopify://collections/preview",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -82,7 +82,7 @@
         "text_KVmVrL"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_11.7.24_Baby_4bede0d7-f721-4337-9a72-9e36c1f8205e.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_11.19.24_Preview_Baby.jpg",
         "banner_link": "shopify://collections/baby-the-winter-collection",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -91,7 +91,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_11.7.24_Baby_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_11.19.24_Preview_BabyMob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false,
@@ -108,10 +108,20 @@
     "multicolumn_BdmKMm": {
       "type": "multicolumn",
       "blocks": {
+        "column_iycPDw": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_11.7.24_Baby_Mob.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Shop Winter",
+            "link": "shopify://collections/baby-the-winter-collection"
+          }
+        },
         "column_Hgag6H": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.7.24_Baby_2_fca34fe4-90b2-4556-8ade-eb3919d934ab.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_11.19.24_Preview_BabyJrEd.jpg",
             "title": "",
             "text": "",
             "link_label": "M&P x Junior Edition",
@@ -130,6 +140,7 @@
         }
       },
       "block_order": [
+        "column_iycPDw",
         "column_Hgag6H",
         "column_VnhYKW"
       ],
@@ -138,20 +149,19 @@
         "heading_size": "h1",
         "enable_overlay": true,
         "content_position": "bottom-left",
-        "overlay_padding": 25,
+        "overlay_padding": 15,
         "link_type": "link",
         "link_color": "#ffffff",
         "link_style": "underline",
         "button_type": "primary",
-        "enable_full_width": false,
         "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 40,
+        "horizontal_spacing_desktop": 12,
         "vertical_spacing_desktop": 40,
         "horizontal_spacing_mobile": 10,
         "vertical_spacing_mobile": 20,
         "image_width": "full",
         "image_ratio": "adapt",
-        "columns_desktop": 2,
+        "columns_desktop": 3,
         "column_alignment": "left",
         "background_style": "none",
         "button_label": "",
@@ -280,7 +290,6 @@
         "link_color": "#ffffff",
         "link_style": "underline",
         "button_type": "secondary",
-        "enable_full_width": false,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 10,
         "vertical_spacing_desktop": 10,

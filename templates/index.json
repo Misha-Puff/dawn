@@ -14,43 +14,44 @@
       "blocks": {
         "heading_egMwVJ": {
           "type": "heading",
+          "disabled": true,
           "settings": {
-            "heading": "",
+            "heading": "Winter Part 2",
             "desktop_heading_size": "h2",
             "mobile_heading_size": "h2",
             "heading_color": "#ffffff"
-          }
-        },
-        "buttons_CGGLqp": {
-          "type": "buttons",
-          "settings": {
-            "link_type": "button",
-            "link_color": "#000000",
-            "button_label_1": "SHOP WINTER",
-            "button_link_1": "shopify://collections/child-winter-a",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
           }
         },
         "text_TdBLTR": {
           "type": "text",
           "disabled": true,
           "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text": "Launches Thursday, November",
             "text_style": "body"
+          }
+        },
+        "buttons_CGGLqp": {
+          "type": "buttons",
+          "settings": {
+            "link_type": "button",
+            "link_color": "#ffffff",
+            "button_label_1": "PREVIEW WINTER PART 2",
+            "button_link_1": "shopify://collections/preview",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
       "block_order": [
         "heading_egMwVJ",
-        "buttons_CGGLqp",
-        "text_TdBLTR"
+        "text_TdBLTR",
+        "buttons_CGGLqp"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_Child_1.jpg",
-        "banner_link": "shopify://collections/child-winter-a",
+        "image": "shopify://shop_images/MP_WI24_Leader_11.19.24_Preview2.jpg",
+        "banner_link": "shopify://collections/preview",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -58,7 +59,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_Child_1_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_11.19.24_Preview2_Mobs.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false,
@@ -78,17 +79,17 @@
         "column_3igURh": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.7.24_JrEd.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_11.15.24_Kids_LP_Mob.jpg",
             "title": "",
             "text": "",
-            "link_label": "M&P x Junior Edition",
-            "link": "shopify://collections/m-p-x-junior-edition"
+            "link_label": "Shop Child",
+            "link": "shopify://collections/child-the-winter-collection"
           }
         },
         "column_iAT4GA": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.7.24_Baby_HP_5a879e52-5546-4256-a089-e1f3e2832c77.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_11.15.24_Baby.jpg",
             "title": "",
             "text": "",
             "link_label": "Shop Baby",
@@ -105,12 +106,11 @@
         "heading_size": "h2",
         "enable_overlay": true,
         "content_position": "bottom-left",
-        "overlay_padding": 25,
+        "overlay_padding": 15,
         "link_type": "link",
         "link_color": "#ffffff",
         "link_style": "underline",
         "button_type": "primary",
-        "enable_full_width": false,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 40,
         "vertical_spacing_desktop": 40,
@@ -160,7 +160,6 @@
         "link_color": "#ffffff",
         "link_style": "underline",
         "button_type": "secondary",
-        "enable_full_width": true,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 0,
         "vertical_spacing_desktop": 0,
@@ -188,7 +187,7 @@
         "slide_mkRtae": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_11.8.24_Adult.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_11.15.24_Adult_1.jpg",
             "heading": "",
             "heading_size": "h2",
             "subheading": "",
@@ -200,7 +199,7 @@
             "text_alignment": "center",
             "image_overlay_opacity": 0,
             "color_scheme": "scheme-1",
-            "mobile_image": "shopify://shop_images/MP_WI24_11.8.24_Adult_Mob.jpg",
+            "mobile_image": "shopify://shop_images/Look_03_0275_e_site.jpg",
             "text_alignment_mobile": "center"
           }
         }
@@ -225,6 +224,77 @@
         "mobile_padding_bottom": 20,
         "mobile_padding_left": 20,
         "mobile_padding_right": 20
+      }
+    },
+    "multicolumn_4t4Ubf": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_VkmJ9N": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_11.7.24_JrEd.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "M&P x Junior Edition",
+            "link": "shopify://collections/m-p-x-junior-edition"
+          }
+        },
+        "column_jQ3JVX": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_11.15.24_BestSell.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Best Sellers",
+            "link": "shopify://collections/child-best-sellers"
+          }
+        },
+        "column_mcCDRB": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_Mob_Stores2.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Stores",
+            "link": "shopify://pages/stores"
+          }
+        }
+      },
+      "block_order": [
+        "column_VkmJ9N",
+        "column_jQ3JVX",
+        "column_mcCDRB"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "enable_overlay": true,
+        "content_position": "bottom-left",
+        "overlay_padding": 15,
+        "link_type": "link",
+        "link_color": "#ffffff",
+        "link_style": "underline",
+        "button_type": "primary",
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 12,
+        "vertical_spacing_desktop": 40,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 0,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 20
       }
     },
     "image_banner_PTYKgc": {
@@ -288,67 +358,6 @@
         "mobile_padding_bottom": 0,
         "mobile_padding_left": 20,
         "mobile_padding_right": 20
-      }
-    },
-    "multicolumn_4t4Ubf": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_VkmJ9N": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/IMG_8105_3.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Child Gift Guide",
-            "link": "shopify://collections/child-gift-edit"
-          }
-        },
-        "column_mcCDRB": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/Insta_Post_8.14.24_1.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Back to School Edit —",
-            "link": "shopify://collections/child-fall-collection-back-to-school"
-          }
-        }
-      },
-      "block_order": [
-        "column_VkmJ9N",
-        "column_mcCDRB"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "enable_overlay": true,
-        "content_position": "bottom-left",
-        "overlay_padding": 25,
-        "link_type": "link",
-        "link_color": "#ffffff",
-        "link_style": "underline",
-        "button_type": "primary",
-        "enable_full_width": false,
-        "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 40,
-        "vertical_spacing_desktop": 30,
-        "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 20,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 2,
-        "column_alignment": "left",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "desktop_padding_top": 40,
-        "desktop_padding_bottom": 0,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0
       }
     },
     "buttons_zMbkxJ": {
@@ -523,7 +532,6 @@
         "link_color": "#ffffff",
         "link_style": "underline",
         "button_type": "secondary",
-        "enable_full_width": true,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 6,
         "vertical_spacing_desktop": 6,
@@ -594,8 +602,8 @@
     "multicolumn_peYxH9",
     "multicolumn",
     "slideshow_t7VikK",
-    "image_banner_PTYKgc",
     "multicolumn_4t4Ubf",
+    "image_banner_PTYKgc",
     "buttons_zMbkxJ",
     "multicolumn_GbjXUE",
     "featured_collection_YrgjwD"
