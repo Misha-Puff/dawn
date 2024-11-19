@@ -3635,8 +3635,18 @@ html {
   }
 }
 
-.page-width-full {
-  padding: 0;
+@media screen and (min-width: 990px) {
+  .page-width-full-desktop {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .page-width-full-mobile {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
 }
 
 .announcement-bar__message p {
