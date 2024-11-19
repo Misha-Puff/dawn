@@ -57,8 +57,8 @@
           "settings": {
             "link_type": "button",
             "link_color": "#000000",
-            "button_label_1": "PREVIEW WINTER PART 2",
-            "button_link_1": "shopify://collections/preview",
+            "button_label_1": "SHOP WINTER",
+            "button_link_1": "shopify://collections/child-the-winter-collection",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -119,11 +119,11 @@
         "column_iBFc39": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.15.24_kids_Mob.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_11.15.24_BestSell.jpg",
             "title": "",
             "text": "",
-            "link_label": "Shop Winter",
-            "link": "shopify://collections/child-the-winter-collection"
+            "link_label": "Best Sellers",
+            "link": "shopify://collections/child-best-sellers"
           }
         },
         "column_RwiwcK": {

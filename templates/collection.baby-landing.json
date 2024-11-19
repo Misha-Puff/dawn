@@ -49,8 +49,8 @@
           "settings": {
             "link_type": "button",
             "link_color": "#000000",
-            "button_label_1": "PREVIEW WINTER PART 2",
-            "button_link_1": "shopify://collections/preview",
+            "button_label_1": "SHOP WINTER",
+            "button_link_1": "shopify://collections/baby-the-winter-collection",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -82,7 +82,7 @@
         "text_KVmVrL"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_11.19.24_Preview_Baby.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_11.21.24_Baby_LP.jpg",
         "banner_link": "shopify://collections/baby-the-winter-collection",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -91,7 +91,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_11.19.24_Preview_BabyMob.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_11.21.24_Baby_1_9664c031-e747-44c6-b0b2-2ee8cd73e1ba.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false,
@@ -111,11 +111,11 @@
         "column_iycPDw": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.7.24_Baby_Mob.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_11.21.24_Baby_Sweater.jpg",
             "title": "",
             "text": "",
-            "link_label": "Shop Winter",
-            "link": "shopify://collections/baby-the-winter-collection"
+            "link_label": "Baby Sweaters",
+            "link": "shopify://collections/baby-sweaters-cardigans"
           }
         },
         "column_Hgag6H": {
@@ -130,6 +130,7 @@
         },
         "column_VnhYKW": {
           "type": "column",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/misha-and-puff-layette-22-ipswich-98copy_16d824ea-ee5c-4516-ba5f-0e6f2e5d7ccf.jpg",
             "title": "",
@@ -154,14 +155,16 @@
         "link_color": "#ffffff",
         "link_style": "underline",
         "button_type": "primary",
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 12,
+        "horizontal_spacing_desktop": 40,
         "vertical_spacing_desktop": 40,
         "horizontal_spacing_mobile": 10,
         "vertical_spacing_mobile": 20,
         "image_width": "full",
         "image_ratio": "adapt",
-        "columns_desktop": 3,
+        "columns_desktop": 2,
         "column_alignment": "left",
         "background_style": "none",
         "button_label": "",
@@ -290,6 +293,8 @@
         "link_color": "#ffffff",
         "link_style": "underline",
         "button_type": "secondary",
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 10,
         "vertical_spacing_desktop": 10,
@@ -362,6 +367,7 @@
           "type": "button",
           "settings": {
             "label": "BABY SWEATERS",
+            "open_new_tab": false,
             "link": "shopify://collections/baby-sweaters-cardigans",
             "type": "secondary",
             "on_click": ""
@@ -371,6 +377,7 @@
           "type": "button",
           "settings": {
             "label": "BABY ONESIES",
+            "open_new_tab": false,
             "link": "shopify://collections/baby-one-piece",
             "type": "secondary",
             "on_click": ""
@@ -380,6 +387,7 @@
           "type": "button",
           "settings": {
             "label": "BABY TOPS",
+            "open_new_tab": false,
             "link": "shopify://collections/baby-tops",
             "type": "secondary",
             "on_click": ""
@@ -389,6 +397,7 @@
           "type": "button",
           "settings": {
             "label": "BABY BOTTOMS",
+            "open_new_tab": false,
             "link": "shopify://collections/baby-bottoms",
             "type": "secondary",
             "on_click": ""
@@ -398,6 +407,7 @@
           "type": "button",
           "settings": {
             "label": "BABY ACCESSORIES",
+            "open_new_tab": false,
             "link": "shopify://collections/baby-accessories",
             "type": "secondary",
             "on_click": ""
