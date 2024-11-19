@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -14,18 +14,15 @@
       "blocks": {
         "title": {
           "type": "title",
-          "settings": {
-          }
+          "settings": {}
         },
         "rating_fBYWfr": {
           "type": "rating",
-          "settings": {
-          }
+          "settings": {}
         },
         "price": {
           "type": "price",
-          "settings": {
-          }
+          "settings": {}
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -46,8 +43,7 @@
         },
         "bis_form_iQ4kYG": {
           "type": "bis_form",
-          "settings": {
-          }
+          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -58,8 +54,7 @@
         },
         "description": {
           "type": "description",
-          "settings": {
-          }
+          "settings": {}
         },
         "collapsible_tab_JNhcga": {
           "type": "collapsible_tab",
@@ -224,24 +219,47 @@
         "show_section_tag": "fig-wool"
       }
     },
-    "complete_the_look_wXixew": {
-      "type": "complete-the-look",
+    "metafield_product_slider_8x6YUj": {
+      "type": "metafield-product-slider",
       "settings": {
         "title": "COMPLETE THE LOOK",
-        "products_to_show": 25,
+        "product_list": "{{ product.metafields.product_page.complete_the_look.value }}",
+        "products_to_show": 48,
         "columns_desktop": 4,
         "full_width": false,
-        "show_view_all": true,
+        "show_view_all": false,
         "view_all_style": "solid",
-        "enable_desktop_slider": false,
+        "enable_desktop_slider": true,
         "color_scheme": "",
         "image_ratio": "adapt",
-        "show_secondary_image": false,
+        "show_secondary_image": true,
         "show_vendor": false,
-        "show_rating": false,
+        "show_rating": true,
         "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 56,
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "metafield_product_slider_bbMG9V": {
+      "type": "metafield-product-slider",
+      "settings": {
+        "title": "SHOP {{ product.metafields.shopify[\"color-pattern\"] | metafield_text: field: 'label' }}",
+        "product_list": "{{ product.metafields.product_page.color_siblings.value }}",
+        "products_to_show": 48,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
         "padding_bottom": 36
       }
     },
@@ -268,8 +286,7 @@
       "blocks": {
         "judge_me_reviews_review_widget_k9GUKa": {
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-          }
+          "settings": {}
         }
       },
       "block_order": [
@@ -285,7 +302,8 @@
     "image_with_text_7tNUwQ",
     "image_with_text_Yfnzea",
     "image_with_text_PbwkAd",
-    "complete_the_look_wXixew",
+    "metafield_product_slider_8x6YUj",
+    "metafield_product_slider_bbMG9V",
     "related-products",
     "17224329362434f250"
   ]
