@@ -50,6 +50,10 @@
             {% if block.settings.on_click %}
               onclick="{{ block.settings.on_click }}"
             {% endif %}
+            {% if block.settings.open_new_tab %}
+              target="_blank"
+              rel="noopener noreferrer"
+            {% endif %}
           >
             {{ block.settings.label | escape }}
           </a>
@@ -171,6 +175,11 @@
           "type": "text",
           "id": "label",
           "label": "t:sections.multicolumn.blocks.column.settings.link_label.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_new_tab",
+          "label": "Open Link in New Tab"
         },
         {
           "type": "url",
