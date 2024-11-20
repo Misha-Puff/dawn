@@ -224,9 +224,14 @@
       "settings": {
         "title": "SHOP {{ product.metafields.shopify[\"color-pattern\"] | metafield_text: field: 'label' }}",
         "product_list": "{{ product.metafields.product_page.color_siblings.value }}",
-        "products_to_show": 48,
+        "products_to_show": 20,
         "columns_desktop": 4,
-        "full_width": false,
+        "full_width": true,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 10,
+        "vertical_spacing_desktop": 0,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 0,
         "show_view_all": false,
         "view_all_style": "solid",
         "enable_desktop_slider": true,
@@ -235,10 +240,16 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "swipe_on_mobile": true,
-        "padding_top": 68,
-        "padding_bottom": 0
+        "desktop_padding_top": 16,
+        "desktop_padding_bottom": 28,
+        "desktop_padding_left": 40,
+        "desktop_padding_right": 40,
+        "mobile_padding_top": 40,
+        "mobile_padding_bottom": 20,
+        "mobile_padding_left": 4,
+        "mobile_padding_right": 4
       }
     },
     "metafield_product_slider_8x6YUj": {
@@ -249,6 +260,11 @@
         "products_to_show": 48,
         "columns_desktop": 4,
         "full_width": false,
+        "enable_custom_spacing": false,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
         "show_view_all": false,
         "view_all_style": "solid",
         "enable_desktop_slider": true,
@@ -259,8 +275,14 @@
         "show_rating": true,
         "columns_mobile": "2",
         "swipe_on_mobile": true,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 36,
+        "desktop_padding_left": 36,
+        "desktop_padding_right": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36,
+        "mobile_padding_left": 36,
+        "mobile_padding_right": 36
       }
     },
     "related-products": {
@@ -289,10 +311,21 @@
         "products_to_show": 48,
         "columns_desktop": 4,
         "full_width": false,
+        "enable_custom_spacing": false,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
         "color_scheme": "",
         "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 36,
+        "desktop_padding_left": 36,
+        "desktop_padding_right": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36,
+        "mobile_padding_left": 36,
+        "mobile_padding_right": 36
       }
     },
     "17224329362434f250": {
