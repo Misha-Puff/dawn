@@ -517,10 +517,12 @@
 
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
 
-            {% if section.settings.enable_swatches %}
-              {% render 'product-sibling-swatches', product: card_product %}
-            {% else %}
-              {% render 'variant-availability', product: card_product %}
+            {% if template contains 'collection' %}
+              {% if section.settings.enable_swatches %}
+                {% render 'product-sibling-swatches', product: card_product %}
+              {% else %}
+                {% render 'variant-availability', product: card_product %}
+              {% endif %}
             {% endif %}
 
             {%- if card_product.quantity_price_breaks_configured? -%}
