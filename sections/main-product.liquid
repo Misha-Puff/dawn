@@ -62,6 +62,51 @@
     {% endif %}
   {%- endstyle -%}
 
+  <script>
+    const recentlyViewedProductData = {
+      productID: '{{ product.id }}',
+      cardProduct: `
+        {% render 'card-product',
+          card_product: product,
+          media_aspect_ratio: section.settings.image_ratio,
+          image_shape: 'default',
+          show_secondary_image: section.settings.show_secondary_image,
+          show_vendor: section.settings.show_vendor,
+          show_rating: section.settings.show_rating,
+          skip_styles: true,
+          section_id: section.id,
+          quick_add: true
+        %}
+      `
+    };
+
+    let recentlyViewed = localStorage.getItem('MPRecentlyViewed');
+
+    if (recentlyViewed === null || recentlyViewed === undefined) {
+      localStorage.setItem('MPRecentlyViewed', JSON.stringify([recentlyViewedProductData]));
+    } else {
+      recentlyViewed = JSON.parse(recentlyViewed);
+
+      if (recentlyViewed.length === 0) {
+        localStorage.setItem('MPRecentlyViewed', JSON.stringify([recentlyViewedProductData]));
+      } else {
+        for (let i = 0; i < recentlyViewed.length; i++) {
+          const { productID } = recentlyViewed[i];
+
+          if (productID === recentlyViewedProductData.productID) {
+            recentlyViewed.splice(i, 1);
+
+            break;
+          }
+        }
+
+        recentlyViewed.unshift(recentlyViewedProductData);
+
+        localStorage.setItem('MPRecentlyViewed', JSON.stringify(recentlyViewed));
+      }
+    }
+  </script>
+
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
   {%- if product.quantity_price_breaks_configured? -%}
@@ -113,13 +158,49 @@
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
-          {%- comment %}<locksmith:e8be>{% endcomment -%}
-            {%- assign locksmith_8b90_forloop__size = 0 %}{%- for block in section.blocks -%}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block.settings.product, subject_parent: section, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_8b90_forloop__size = locksmith_8b90_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_8b90_forloop__index = nil -%}
-          {%- comment %}</locksmith:e8be>{% endcomment -%}
+          {%- comment %}<locksmith:e8be>{%- endcomment %}
+          {%- assign locksmith_8b90_forloop__size = 0 %}
           {%- for block in section.blocks -%}
-            {%- comment %}<locksmith:cde1>{% endcomment -%}
-              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block.settings.product, subject_parent: section, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_8b90_forloop__index == nil %}{% assign locksmith_8b90_forloop__index = 1 %}{% assign locksmith_8b90_forloop__index0 = 0 %}{% else %}{% assign locksmith_8b90_forloop__index = locksmith_8b90_forloop__index | plus: 1 %}{% assign locksmith_8b90_forloop__index0 = locksmith_8b90_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_8b90_forloop__index == 1 %}{% assign locksmith_8b90_forloop__first = true %}{% else %}{% assign locksmith_8b90_forloop__first = false %}{% endif %}{% if locksmith_8b90_forloop__index == locksmith_8b90_forloop__size %}{% assign locksmith_8b90_forloop__last = true %}{% else %}{% assign locksmith_8b90_forloop__last = false %}{% endif %}{% assign locksmith_8b90_forloop__rindex = locksmith_8b90_forloop__size | minus: locksmith_8b90_forloop__index | minus: 1 %}{% assign locksmith_8b90_forloop__rindex0 = locksmith_8b90_forloop__size | minus: locksmith_8b90_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
-            {%- comment %}</locksmith:cde1>{% endcomment -%}
+            {% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block.settings.product, subject_parent: section, variable: 'transparent' %}{% endcapture -%}
+            {%- if var == 'true' -%}
+              {%- assign locksmith_8b90_forloop__size = locksmith_8b90_forloop__size | plus: 1 -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {%- assign locksmith_8b90_forloop__index = null -%}
+          {%- comment %}</locksmith:e8be>{%- endcomment %}
+          {%- for block in section.blocks -%}
+            {%- comment %}<locksmith:cde1>{%- endcomment %}
+            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block.settings.product, subject_parent: section, variable: 'transparent' %}{% endcapture -%}
+            {%- if var == 'true' -%}
+              {%- if locksmith_8b90_forloop__index == null -%}
+                {%- assign locksmith_8b90_forloop__index = 1 -%}
+                {%- assign locksmith_8b90_forloop__index0 = 0 -%}
+              {%- else -%}
+                {%- assign locksmith_8b90_forloop__index = locksmith_8b90_forloop__index | plus: 1 -%}
+                {%- assign locksmith_8b90_forloop__index0 = locksmith_8b90_forloop__index0 | plus: 1 -%}
+              {%- endif -%}
+              {%- if locksmith_8b90_forloop__index == 1 -%}
+                {%- assign locksmith_8b90_forloop__first = true -%}
+              {%- else -%}
+                {%- assign locksmith_8b90_forloop__first = false -%}
+              {%- endif -%}
+              {%- if locksmith_8b90_forloop__index == locksmith_8b90_forloop__size -%}
+                {%- assign locksmith_8b90_forloop__last = true -%}
+              {%- else -%}
+                {%- assign locksmith_8b90_forloop__last = false -%}
+              {%- endif -%}
+              {%- assign locksmith_8b90_forloop__rindex = locksmith_8b90_forloop__size
+                | minus: locksmith_8b90_forloop__index
+                | minus: 1
+              -%}
+              {%- assign locksmith_8b90_forloop__rindex0 = locksmith_8b90_forloop__size
+                | minus: locksmith_8b90_forloop__index0
+                | minus: 1
+              -%}
+            {%- else -%}
+              {%- continue -%}
+            {%- endif -%}
+            {%- comment %}</locksmith:cde1>{%- endcomment %}
             {%- case block.type -%}
               {%- when '@app' -%}
                 {% render block %}
@@ -716,9 +797,10 @@
 
     {% assign popups = section.blocks | where: 'type', 'popup' %}
     {%- for block in popups -%}
-      {%- comment %}<locksmith:3859>{% endcomment -%}
-        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-      {%- comment %}</locksmith:3859>{% endcomment -%}
+      {%- comment %}<locksmith:3859>{%- endcomment %}
+      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block, variable: 'transparent' %}{% endcapture -%}
+      {%- if var == 'true' %}{% else %}{% continue %}{% endif -%}
+      {%- comment %}</locksmith:3859>{%- endcomment %}
       <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
         <div
           role="dialog"
