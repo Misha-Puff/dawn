@@ -134,103 +134,6 @@
         "mobile_padding_bottom": 20
       }
     },
-    "multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_Yt8wiE": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/MP_WI24_11.8.24_Adult_ad96a14e-613a-4d57-8879-4127dc2658f2.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "New Adult",
-            "link": "shopify://collections/adult-fall-24"
-          }
-        }
-      },
-      "block_order": [
-        "column_Yt8wiE"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "enable_overlay": true,
-        "content_position": "bottom-left",
-        "overlay_padding": 20,
-        "link_type": "link",
-        "link_color": "#ffffff",
-        "link_style": "underline",
-        "button_type": "secondary",
-        "enable_desktop_full_width": false,
-        "enable_mobile_full_width": false,
-        "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 0,
-        "vertical_spacing_desktop": 0,
-        "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 20,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 1,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "desktop_padding_top": 0,
-        "desktop_padding_bottom": 28,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0
-      }
-    },
-    "slideshow_t7VikK": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_mkRtae": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.15.24_Adult_1.jpg",
-            "heading": "",
-            "heading_size": "h2",
-            "subheading": "",
-            "button_label": "SHOP ADULT",
-            "link": "shopify://collections/adult-fall-24",
-            "button_style_secondary": true,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-1",
-            "mobile_image": "shopify://shop_images/Look_03_0275_e_site.jpg",
-            "text_alignment_mobile": "center"
-          }
-        }
-      },
-      "block_order": [
-        "slide_mkRtae"
-      ],
-      "disabled": true,
-      "settings": {
-        "layout": "full_bleed",
-        "slide_height": "adapt_image",
-        "slider_visual": "counter",
-        "auto_rotate": false,
-        "change_slides_speed": 3,
-        "image_behavior": "none",
-        "show_text_below": false,
-        "accessibility_info": "",
-        "desktop_padding_top": 0,
-        "desktop_padding_bottom": 0,
-        "desktop_padding_left": 40,
-        "desktop_padding_right": 40,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 20,
-        "mobile_padding_left": 20,
-        "mobile_padding_right": 20
-      }
-    },
     "multicolumn_4t4Ubf": {
       "type": "multicolumn",
       "blocks": {
@@ -364,6 +267,146 @@
         "mobile_padding_bottom": 0,
         "mobile_padding_left": 20,
         "mobile_padding_right": 20
+      }
+    },
+    "multicolumn": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_Yt8wiE": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_11.8.24_Adult_ad96a14e-613a-4d57-8879-4127dc2658f2.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "New Adult",
+            "link": "shopify://collections/adult-fall-24"
+          }
+        }
+      },
+      "block_order": [
+        "column_Yt8wiE"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "enable_overlay": true,
+        "content_position": "bottom-left",
+        "overlay_padding": 20,
+        "link_type": "link",
+        "link_color": "#ffffff",
+        "link_style": "underline",
+        "button_type": "secondary",
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 0,
+        "vertical_spacing_desktop": 0,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 20,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 1,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 28,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "slideshow_t7VikK": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_mkRtae": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_11.15.24_Adult_1.jpg",
+            "heading": "",
+            "heading_size": "h2",
+            "subheading": "",
+            "button_label": "SHOP ADULT",
+            "link": "shopify://collections/adult-fall-24",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "mobile_image": "shopify://shop_images/Look_03_0275_e_site.jpg",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_mkRtae"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "adapt_image",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 3,
+        "image_behavior": "none",
+        "show_text_below": false,
+        "accessibility_info": "",
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 40,
+        "desktop_padding_right": 40,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 20,
+        "mobile_padding_left": 20,
+        "mobile_padding_right": 20
+      }
+    },
+    "featured_collection_YrgjwD": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_alignment": "left",
+        "heading_size": "h2",
+        "heading_margin": 14,
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "child-the-winter-collection",
+        "products_to_show": 20,
+        "columns_desktop": 4,
+        "full_width": true,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 10,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 0,
+        "show_view_all": false,
+        "view_all_style": "link",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "section_full_width": true,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 40,
+        "desktop_padding_right": 40,
+        "mobile_padding_top": 52,
+        "mobile_padding_bottom": 20,
+        "mobile_padding_left": 12,
+        "mobile_padding_right": 12
       }
     },
     "buttons_zMbkxJ": {
@@ -565,60 +608,17 @@
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 0
       }
-    },
-    "featured_collection_YrgjwD": {
-      "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "heading_alignment": "left",
-        "heading_size": "h2",
-        "heading_margin": 25,
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "child-fall-denim-collection",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "full_width": true,
-        "enable_custom_spacing": false,
-        "horizontal_spacing_desktop": 20,
-        "vertical_spacing_desktop": 20,
-        "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 10,
-        "show_view_all": false,
-        "view_all_style": "link",
-        "enable_desktop_slider": false,
-        "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "section_full_width": false,
-        "desktop_padding_top": 36,
-        "desktop_padding_bottom": 36,
-        "desktop_padding_left": 36,
-        "desktop_padding_right": 36,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36,
-        "mobile_padding_left": 36,
-        "mobile_padding_right": 36
-      }
     }
   },
   "order": [
     "image_banner_bz8jb3",
     "multicolumn_peYxH9",
-    "multicolumn",
-    "slideshow_t7VikK",
     "multicolumn_4t4Ubf",
     "image_banner_PTYKgc",
     "buttons_zMbkxJ",
-    "multicolumn_GbjXUE",
-    "featured_collection_YrgjwD"
+    "multicolumn",
+    "slideshow_t7VikK",
+    "featured_collection_YrgjwD",
+    "multicolumn_GbjXUE"
   ]
 }
