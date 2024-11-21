@@ -136,7 +136,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_11.22.24_Adult_LP2_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_11.22.24_Adult_HP2.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": false,
@@ -156,7 +156,7 @@
         "column_dVCGVj": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.22.24_Adult_New1_53c6ad7e-511e-4653-aeca-55a13d7448e3.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_11.22.24_Adult_New1_d1a03ca4-3946-45d3-9a02-bbdf89bf2a42.jpg",
             "title": "",
             "text": "",
             "link_label": "New Arrivals",
