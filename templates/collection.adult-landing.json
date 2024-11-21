@@ -188,7 +188,8 @@
         "link_color": "#ffffff",
         "link_style": "underline",
         "button_type": "primary",
-        "enable_full_width": false,
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 40,
         "vertical_spacing_desktop": 40,
@@ -246,10 +247,10 @@
         "desktop_padding_bottom": 28,
         "desktop_padding_left": 40,
         "desktop_padding_right": 40,
-        "mobile_padding_top": 44,
+        "mobile_padding_top": 40,
         "mobile_padding_bottom": 20,
-        "mobile_padding_left": 4,
-        "mobile_padding_right": 4
+        "mobile_padding_left": 12,
+        "mobile_padding_right": 12
       }
     },
     "image_banner_ngVXDX": {
