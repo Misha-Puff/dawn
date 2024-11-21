@@ -102,6 +102,8 @@
 
         recentlyViewed.unshift(recentlyViewedProductData);
 
+        recentlyViewed = recentlyViewed.slice(0, 12);
+
         localStorage.setItem('MPRecentlyViewed', JSON.stringify(recentlyViewed));
       }
     }
