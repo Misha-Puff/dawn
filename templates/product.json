@@ -318,7 +318,7 @@
         "heading_size": "h1",
         "heading_margin": 14,
         "products_to_show": 20,
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "full_width": false,
         "enable_custom_spacing": false,
         "horizontal_spacing_desktop": 10,
