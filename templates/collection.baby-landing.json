@@ -189,6 +189,7 @@
         "show_description": false,
         "description_style": "body",
         "collection": "baby-new",
+        "hide_sold_out": true,
         "products_to_show": 20,
         "columns_desktop": 4,
         "full_width": true,
