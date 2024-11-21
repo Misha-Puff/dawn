@@ -112,7 +112,7 @@
     id="collection-{{ section.id }}"
     data-id="{{ section.id }}"
   >
-    <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width collection__title--desktop-slider {{ section.settings.heading_alignment }}">
+    <div class="collection__title title-wrapper title-wrapper--no-top-margin collection__title--desktop-slider {{ section.settings.heading_alignment }}">
       {%- if section.settings.title != blank -%}
         <h2 class="title inline-richtext uppercase {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           {{ section.settings.title }}
@@ -120,7 +120,7 @@
       {%- endif -%}
     </div>
 
-    <slider-component class="page-width slider-mobile-gutter slider-component-desktop{% if section.settings.full_width %} slider-component-full-width{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    <slider-component class="slider-mobile-gutter slider-component-desktop{% if section.settings.full_width %} slider-component-full-width{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       <ul
         id="Slider-{{ section.id }}"
         data-id="{{ section.id }}"
