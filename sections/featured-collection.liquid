@@ -214,6 +214,9 @@
             {%- continue -%}
           {%- endif -%}
           {%- comment %}</locksmith:b54d>{%- endcomment %}
+          {% if section.settings.hide_sold_out and product.available == false %}
+            {% continue %}
+          {% endif %}
           <li
             id="Slide-{{ section.id }}-{{ locksmith_a2c8_forloop__index }}"
             class="grid__item{% if show_mobile_slider or show_desktop_slider %} slider__slide{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -418,6 +421,12 @@
       "type": "collection",
       "id": "collection",
       "label": "t:sections.featured-collection.settings.collection.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_sold_out",
+      "label": "Hide Sold Out Products",
+      "default": false
     },
     {
       "type": "range",
