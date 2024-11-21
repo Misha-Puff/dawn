@@ -312,7 +312,6 @@
     },
     "recently_viewed_slider_QcHtbc": {
       "type": "recently-viewed-slider",
-      "disabled": true,
       "settings": {
         "title": "RECENTLY VIEWED",
         "heading_alignment": "left",
@@ -332,7 +331,7 @@
         "desktop_padding_bottom": 28,
         "desktop_padding_left": 40,
         "desktop_padding_right": 40,
-        "mobile_padding_top": 52,
+        "mobile_padding_top": 24,
         "mobile_padding_bottom": 20,
         "mobile_padding_left": 12,
         "mobile_padding_right": 12
