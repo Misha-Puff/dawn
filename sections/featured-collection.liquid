@@ -98,16 +98,20 @@
     }
   {% endif %}
 
-  .slider-buttons {
+  .section-{{ section.id }} .slider-buttons {
     display: none !important;
   }
 
-  .collection__view-all {
-    margin-top: 5rem;
+  .section-{{ section.id }} .collection__title .title {
+    font-size: 15px;
   }
 
-  .collection__title.title-wrapper {
-    margin-bottom: {{ section.settings.heading_margin }}px;
+  .section-{{ section.id }} .collection__title.title-wrapper {
+    margin-bottom: {{ section.settings.heading_margin }}px !important;
+  }
+
+  .section-{{ section.id }} .collection__title .title {
+    margin-bottom: 0 !important;
   }
 {%- endstyle -%}
 
@@ -134,7 +138,7 @@
   class="color-{{ section.settings.color_scheme }} isolate gradient"
 >
   <div
-    class="collection {% unless section.settings.section_full_width %}page-width{% endunless %}{% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %} section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}"
+    class=".section-{{ section.id }} collection {% unless section.settings.section_full_width %}page-width{% endunless %}{% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %} section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}"
     id="collection-{{ section.id }}"
     data-id="{{ section.id }}"
   >
@@ -167,13 +171,49 @@
         aria-label="{{ 'general.slider.name' | t }}"
       >
         {% assign skip_card_product_styles = false %}
-        {%- comment %}<locksmith:006e>{% endcomment -%}
-          {%- assign locksmith_a2c8_forloop__size = 0 %}{%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: section.settings.collection, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_a2c8_forloop__size = locksmith_a2c8_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_a2c8_forloop__index = nil -%}
-        {%- comment %}</locksmith:006e>{% endcomment -%}
+        {%- comment %}<locksmith:006e>{%- endcomment %}
+        {%- assign locksmith_a2c8_forloop__size = 0 %}
         {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
-          {%- comment %}<locksmith:b54d>{% endcomment -%}
-            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: section.settings.collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_a2c8_forloop__index == nil %}{% assign locksmith_a2c8_forloop__index = 1 %}{% assign locksmith_a2c8_forloop__index0 = 0 %}{% else %}{% assign locksmith_a2c8_forloop__index = locksmith_a2c8_forloop__index | plus: 1 %}{% assign locksmith_a2c8_forloop__index0 = locksmith_a2c8_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_a2c8_forloop__index == 1 %}{% assign locksmith_a2c8_forloop__first = true %}{% else %}{% assign locksmith_a2c8_forloop__first = false %}{% endif %}{% if locksmith_a2c8_forloop__index == locksmith_a2c8_forloop__size %}{% assign locksmith_a2c8_forloop__last = true %}{% else %}{% assign locksmith_a2c8_forloop__last = false %}{% endif %}{% assign locksmith_a2c8_forloop__rindex = locksmith_a2c8_forloop__size | minus: locksmith_a2c8_forloop__index | minus: 1 %}{% assign locksmith_a2c8_forloop__rindex0 = locksmith_a2c8_forloop__size | minus: locksmith_a2c8_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
-          {%- comment %}</locksmith:b54d>{% endcomment -%}
+          {% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: section.settings.collection, variable: 'transparent' %}{% endcapture -%}
+          {%- if var == 'true' -%}
+            {%- assign locksmith_a2c8_forloop__size = locksmith_a2c8_forloop__size | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- assign locksmith_a2c8_forloop__index = null -%}
+        {%- comment %}</locksmith:006e>{%- endcomment %}
+        {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
+          {%- comment %}<locksmith:b54d>{%- endcomment %}
+          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: section.settings.collection, variable: 'transparent' %}{% endcapture -%}
+          {%- if var == 'true' -%}
+            {%- if locksmith_a2c8_forloop__index == null -%}
+              {%- assign locksmith_a2c8_forloop__index = 1 -%}
+              {%- assign locksmith_a2c8_forloop__index0 = 0 -%}
+            {%- else -%}
+              {%- assign locksmith_a2c8_forloop__index = locksmith_a2c8_forloop__index | plus: 1 -%}
+              {%- assign locksmith_a2c8_forloop__index0 = locksmith_a2c8_forloop__index0 | plus: 1 -%}
+            {%- endif -%}
+            {%- if locksmith_a2c8_forloop__index == 1 -%}
+              {%- assign locksmith_a2c8_forloop__first = true -%}
+            {%- else -%}
+              {%- assign locksmith_a2c8_forloop__first = false -%}
+            {%- endif -%}
+            {%- if locksmith_a2c8_forloop__index == locksmith_a2c8_forloop__size -%}
+              {%- assign locksmith_a2c8_forloop__last = true -%}
+            {%- else -%}
+              {%- assign locksmith_a2c8_forloop__last = false -%}
+            {%- endif -%}
+            {%- assign locksmith_a2c8_forloop__rindex = locksmith_a2c8_forloop__size
+              | minus: locksmith_a2c8_forloop__index
+              | minus: 1
+            -%}
+            {%- assign locksmith_a2c8_forloop__rindex0 = locksmith_a2c8_forloop__size
+              | minus: locksmith_a2c8_forloop__index0
+              | minus: 1
+            -%}
+          {%- else -%}
+            {%- continue -%}
+          {%- endif -%}
+          {%- comment %}</locksmith:b54d>{%- endcomment %}
           <li
             id="Slide-{{ section.id }}-{{ locksmith_a2c8_forloop__index }}"
             class="grid__item{% if show_mobile_slider or show_desktop_slider %} slider__slide{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
