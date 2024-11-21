@@ -245,7 +245,7 @@
         "show_rating": false,
         "columns_mobile": "2",
         "swipe_on_mobile": true,
-        "desktop_padding_top": 16,
+        "desktop_padding_top": 52,
         "desktop_padding_bottom": 28,
         "desktop_padding_left": 40,
         "desktop_padding_right": 40,
