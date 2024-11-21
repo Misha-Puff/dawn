@@ -112,7 +112,7 @@
           "settings": {
             "link_type": "button",
             "link_color": "#000000",
-            "button_label_1": "SHOP FALL",
+            "button_label_1": "SHOP ADULT",
             "button_link_1": "shopify://collections/adult-fall-24",
             "button_style_secondary_1": true,
             "button_label_2": "",
@@ -153,6 +153,16 @@
     "multicolumn_8DQLJ3": {
       "type": "multicolumn",
       "blocks": {
+        "column_dVCGVj": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_11.22.24_Adult_New1_53c6ad7e-511e-4653-aeca-55a13d7448e3.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "New Arrivals",
+            "link": "shopify://collections/adult-fall-24"
+          }
+        },
         "column_BCxWxb": {
           "type": "column",
           "settings": {
@@ -162,21 +172,11 @@
             "link_label": "Fall Lookbook",
             "link": "https://shop.misha-and-puff.com/blogs/journal/adult-fall-24"
           }
-        },
-        "column_dVCGVj": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/MP_FA24_Leader_10.11.24_Adult_New.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "New Arrivals",
-            "link": "shopify://collections/adult-fall-24"
-          }
         }
       },
       "block_order": [
-        "column_BCxWxb",
-        "column_dVCGVj"
+        "column_dVCGVj",
+        "column_BCxWxb"
       ],
       "settings": {
         "title": "",
