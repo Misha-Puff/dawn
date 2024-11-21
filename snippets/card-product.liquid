@@ -517,7 +517,7 @@
 
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
 
-            {% if template contains 'collection' %}
+            {% if show_swatches_availability %}
               {% if section.settings.enable_swatches %}
                 {% render 'product-sibling-swatches', product: card_product %}
               {% else %}
