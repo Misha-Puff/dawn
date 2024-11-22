@@ -106,7 +106,7 @@
         "hide_sold_out": false,
         "products_to_show": 20,
         "columns_desktop": 4,
-        "full_width": false,
+        "full_width": true,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 10,
         "vertical_spacing_desktop": 0,
@@ -124,9 +124,9 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "section_full_width": true,
-        "desktop_padding_top": 16,
-        "desktop_padding_bottom": 28,
+        "section_full_width": false,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 56,
         "desktop_padding_left": 40,
         "desktop_padding_right": 40,
         "mobile_padding_top": 52,
@@ -134,6 +134,10 @@
         "mobile_padding_left": 0,
         "mobile_padding_right": 0
       }
+    },
+    "divider_QNP8CF": {
+      "type": "divider",
+      "settings": {}
     },
     "rich_text_Jak7Gh": {
       "type": "rich-text",
@@ -237,7 +241,7 @@
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "desktop_padding_top": 30,
-        "desktop_padding_bottom": 30,
+        "desktop_padding_bottom": 40,
         "mobile_padding_top": 40,
         "mobile_padding_bottom": 30
       }
@@ -278,6 +282,7 @@
     "rich_text_Qzf3YT",
     "custom_liquid_bKixf9",
     "featured_collection_HDDDGc",
+    "divider_QNP8CF",
     "rich_text_Jak7Gh",
     "multicolumn_mePegM",
     "shogun_custom_6740e893fc6c7f89abe638e3_LT8dkN",
