@@ -43,11 +43,18 @@
     "rich_text_Qzf3YT": {
       "type": "rich-text",
       "blocks": {
+        "heading_hgV8GR": {
+          "type": "heading",
+          "settings": {
+            "heading": "Made-to-Order Program",
+            "heading_size": "h2"
+          }
+        },
         "text_MDgMVV": {
           "type": "text",
           "settings": {
-            "text": "<p>Our most recent MTO program has reached capacity and is now <strong>closed</strong>.<br/>Check your order status and sign up to be notified for future MTO collections below.<br/><br/>Our Made-to-Order program is an initiative that we are very proud of — and at the heart of why we do what we do. This program introduces the ability to custom shop some of your favorite Misha & Puff styles in a limited small-batch capsule outside of our seasonal collections, while delivering on our promise to support our knitting community year-round.</p>",
-            "line_height": 24
+            "text": "<p>Our Adult Log Cabin MTO program is now open until we reach capacity.</p><p>Our Made-to-Order program is an initiative that we are very proud of — and at the heart of why we do what we do. This program introduces the ability to custom shop some of your favorite Misha & Puff styles in a limited small-batch capsule outside of our seasonal collections, while delivering on our promise to support our knitting community year-round.</p>",
+            "line_height": 20
           }
         },
         "button_9DxNK6": {
@@ -66,6 +73,7 @@
         }
       },
       "block_order": [
+        "heading_hgV8GR",
         "text_MDgMVV",
         "button_9DxNK6"
       ],
@@ -75,9 +83,9 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 40,
-        "padding_bottom": 20,
-        "padding_left": 0,
-        "padding_right": 0
+        "padding_bottom": 0,
+        "padding_left": 52,
+        "padding_right": 52
       }
     },
     "custom_liquid_bKixf9": {
