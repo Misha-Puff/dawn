@@ -29,17 +29,16 @@
         "text_WF8qEV": {
           "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
-            "line_height": 24
+            "text": "<p>Our Adult Log Cabin MTO will be open from Monday, November 25, at 11 AM ET, to Wednesday, November 27, at 4 PM ET, OR until we reach capacity. Expected shipping is February 2025.<br/></p>",
+            "line_height": 22
           }
         },
         "button_b486yq": {
           "type": "button",
-          "disabled": true,
           "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
+            "button_label": "SHOP MTO",
+            "button_link": "shopify://collections/made-to-order",
+            "button_style_secondary": true,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false,
@@ -58,8 +57,112 @@
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
-        "full_width": false,
+        "full_width": true,
         "padding_top": 40,
+        "padding_bottom": 20,
+        "padding_left": 52,
+        "padding_right": 52
+      }
+    },
+    "rich_text_6UiM93": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_deKrVC": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "text_HKRrd4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Made-to-Order styles are available for a limited time and have capacity limits due to their handcrafted nature. Once a style reaches capacity, it will show as “Unavailable.”</p><p>All Made-to-Order purchases are final sale—no cancellations or returns, even if delays occur.</p><p>The estimated ship date is February 2025. While we strive to meet this timeline, it is subject to change. Updates will be provided as production progresses.</p><p>You can update your shipping address until your order begins processing via the link in your confirmation email.</p><p>You can check the status of the MTO <a href=\"/pages/mto-status\" target=\"_blank\" title=\"Made to Order Status\">here</a>. For further assitance, visit our <a href=\"https://help.misha-and-puff.com/en-US#category-14398\" target=\"_blank\" title=\"https://help.misha-and-puff.com/en-US#category-14398\">Support Portal</a> or explore FAQs <a href=\"https://help.misha-and-puff.com/en-US\" target=\"_blank\" title=\"https://help.misha-and-puff.com/en-US\">here</a>.</p>",
+            "line_height": 22
+          }
+        },
+        "button_qkd9xF": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_deKrVC",
+        "text_HKRrd4",
+        "button_qkd9xF"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 60,
+        "padding_left": 52,
+        "padding_right": 52
+      }
+    },
+    "divider_KRexyr": {
+      "type": "divider",
+      "settings": {}
+    },
+    "rich_text_yzN863": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_TJRmnP": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "text_jKg8pG": {
+          "type": "text",
+          "settings": {
+            "text": "<p>MTO ADDRESS CHANGES<br/><br/>While address changes are generally not permitted, you may update your shipping address before your order is scheduled to ship. Use the unique link in your order confirmation email and follow the instructions <a href=\"https://help.misha-and-puff.com/en-US#article-62381\" target=\"_blank\" title=\"https://help.misha-and-puff.com/en-US#article-62381\">here</a>. If you encounter any issues, please submit a <a href=\"https://shop.misha-and-puff.com/pages/contact-form\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/pages/contact-form\">support ticket</a>.</p><p><em>Note:</em><em><strong> </strong></em><em>Changes to the destination country are not supported. Shipping charges and taxes will remain unchanged, as shipping fees are non-refundable.</em></p><p><br/><br/>ON MTO RETURNS, EXCHANGES, CANCELLATIONS</p><p>Since these items are custom-made, all Made-to-Order purchases are final sale—no cancellations or returns. Please review the sizing information on the product page carefully before placing your order.</p><p>If your Made-to-Order garment has a defect, we’re happy to issue a refund and accept the return. If a replacement is possible and you’d prefer that option, we’ll do our best to accommodate.</p>",
+            "line_height": 22
+          }
+        },
+        "button_n7zXEY": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_TJRmnP",
+        "text_jKg8pG",
+        "button_n7zXEY"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 32,
         "padding_bottom": 52,
         "padding_left": 52,
         "padding_right": 52
@@ -68,6 +171,9 @@
   },
   "order": [
     "main",
-    "rich_text_89RfhN"
+    "rich_text_89RfhN",
+    "rich_text_6UiM93",
+    "divider_KRexyr",
+    "rich_text_yzN863"
   ]
 }
