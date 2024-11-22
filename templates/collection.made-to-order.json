@@ -46,7 +46,7 @@
         "text_MDgMVV": {
           "type": "text",
           "settings": {
-            "text": "<h4>MADE-TO-ORDER PROGRAM</h4><p>Our most recent MTO program has reached capacity and is now <strong>closed</strong>.<br/>Check your order status and sign up to be notified for future MTO collections below.<br/><br/>Our Made-to-Order program is an initiative that we are very proud of — and at the heart of why we do what we do. This program introduces the ability to custom shop some of your favorite Misha & Puff styles in a limited small-batch capsule outside of our seasonal collections, while delivering on our promise to support our knitting community year-round.</p>",
+            "text": "<p>Our most recent MTO program has reached capacity and is now <strong>closed</strong>.<br/>Check your order status and sign up to be notified for future MTO collections below.<br/><br/>Our Made-to-Order program is an initiative that we are very proud of — and at the heart of why we do what we do. This program introduces the ability to custom shop some of your favorite Misha & Puff styles in a limited small-batch capsule outside of our seasonal collections, while delivering on our promise to support our knitting community year-round.</p>",
             "line_height": 24
           }
         },
