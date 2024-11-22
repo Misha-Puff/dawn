@@ -137,14 +137,10 @@
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 30,
-        "desktop_padding_bottom": 50,
+        "desktop_padding_bottom": 0,
         "mobile_padding_top": 30,
-        "mobile_padding_bottom": 50
+        "mobile_padding_bottom": 30
       }
-    },
-    "divider_Krnt3P": {
-      "type": "divider",
-      "settings": {}
     },
     "featured_collection_ityMij": {
       "type": "featured-collection",
@@ -153,12 +149,12 @@
         "heading_alignment": "left",
         "heading_size": "h2",
         "heading_margin": 14,
-        "description": "<p>ADULT LOG CABIN MADE-TO-ORDER</p>",
+        "description": "",
         "show_description": false,
         "description_style": "body",
         "collection": "adult-made-to-order",
         "hide_sold_out": false,
-        "products_to_show": 4,
+        "products_to_show": 20,
         "columns_desktop": 4,
         "full_width": true,
         "enable_custom_spacing": true,
@@ -177,17 +173,21 @@
         "show_rating": false,
         "quick_add": "standard",
         "columns_mobile": "2",
-        "swipe_on_mobile": true,
+        "swipe_on_mobile": false,
         "section_full_width": true,
         "desktop_padding_top": 52,
         "desktop_padding_bottom": 52,
         "desktop_padding_left": 40,
         "desktop_padding_right": 40,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36,
-        "mobile_padding_left": 36,
-        "mobile_padding_right": 36
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 40,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
       }
+    },
+    "divider_Krnt3P": {
+      "type": "divider",
+      "settings": {}
     },
     "rich_text_Jak7Gh": {
       "type": "rich-text",
@@ -310,6 +310,7 @@
       "block_order": [
         "text_9RUQPf"
       ],
+      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -335,6 +336,7 @@
       "block_order": [
         "text_anCRBG"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/About_the_Knitting_Cooperatives_4_1224x_2x.progressive_6716fe07-03e3-4739-b489-af6667833a89.jpg",
         "height": "small",
@@ -366,6 +368,7 @@
       "block_order": [
         "text_e6kabt"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/M_P_Peru_M_P_Peru_M14A4390.jpg",
         "height": "small",
@@ -397,6 +400,7 @@
       "block_order": [
         "text_6NnWyP"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/About_Machine_Knitting_Slide_8_1224x_2x.progressive_2a01a703-7424-45d3-9ee0-b50aa8a8ec57.jpg",
         "height": "small",
@@ -446,8 +450,8 @@
     "rich_text_Qzf3YT",
     "custom_liquid_bKixf9",
     "buttons_jPHbjN",
-    "divider_Krnt3P",
     "featured_collection_ityMij",
+    "divider_Krnt3P",
     "rich_text_Jak7Gh",
     "multicolumn_mePegM",
     "rich_text_C8LYdm",
