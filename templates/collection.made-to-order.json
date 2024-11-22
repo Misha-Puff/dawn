@@ -102,6 +102,45 @@
         "padding_bottom": 52
       }
     },
+    "buttons_HHBh8y": {
+      "type": "buttons",
+      "blocks": {
+        "button_hBT4RJ": {
+          "type": "button",
+          "settings": {
+            "label": "MTO STATUS UPDATES",
+            "open_new_tab": false,
+            "link": "shopify://pages/mto-status",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_KMMLGQ": {
+          "type": "button",
+          "settings": {
+            "label": "GET MTO ALERTS",
+            "open_new_tab": true,
+            "link": "shopify://pages/newsletter-signup",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_hBT4RJ",
+        "button_KMMLGQ"
+      ],
+      "settings": {
+        "title": "",
+        "button_gap": 10,
+        "heading_size": "h1",
+        "color_scheme": "",
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 0,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
+      }
+    },
     "featured_collection_HDDDGc": {
       "type": "featured-collection",
       "settings": {
@@ -156,7 +195,7 @@
           "type": "text",
           "settings": {
             "text": "<h4>WHAT TO EXPECT</h4><p>Every piece we create blends craftsmanship, heritage, and quality and each of our treasured partners provides unique contributions that amplify our appreciation of time-honored processes. Supporting handmade means supporting the local communities behind these crafts. Learn more about our sustainability efforts and our incredible artisanal knitting partners.</p>",
-            "line_height": 24
+            "line_height": 20
           }
         }
       },
@@ -169,9 +208,9 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 40,
-        "padding_bottom": 0,
-        "padding_left": 0,
-        "padding_right": 0
+        "padding_bottom": 12,
+        "padding_left": 52,
+        "padding_right": 52
       }
     },
     "multicolumn_mePegM": {
@@ -225,10 +264,10 @@
       ],
       "settings": {
         "title": "",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "enable_overlay": false,
         "content_position": "middle-center",
-        "overlay_padding": 25,
+        "overlay_padding": 14,
         "link_type": "link",
         "link_color": "#000000",
         "link_style": "none",
@@ -236,7 +275,7 @@
         "enable_desktop_full_width": false,
         "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 0,
+        "horizontal_spacing_desktop": 20,
         "vertical_spacing_desktop": 20,
         "horizontal_spacing_mobile": 10,
         "vertical_spacing_mobile": 10,
@@ -251,8 +290,8 @@
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "desktop_padding_top": 30,
-        "desktop_padding_bottom": 40,
-        "mobile_padding_top": 40,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 20,
         "mobile_padding_bottom": 30
       }
     },
@@ -283,45 +322,6 @@
         "padding_bottom": 32,
         "padding_left": 0,
         "padding_right": 0
-      }
-    },
-    "buttons_HHBh8y": {
-      "type": "buttons",
-      "blocks": {
-        "button_hBT4RJ": {
-          "type": "button",
-          "settings": {
-            "label": "MTO STATUS UPDATES",
-            "open_new_tab": false,
-            "link": "shopify://pages/mto-status",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_KMMLGQ": {
-          "type": "button",
-          "settings": {
-            "label": "GET MTO ALERTS",
-            "open_new_tab": true,
-            "link": "shopify://pages/newsletter-signup",
-            "type": "secondary",
-            "on_click": ""
-          }
-        }
-      },
-      "block_order": [
-        "button_hBT4RJ",
-        "button_KMMLGQ"
-      ],
-      "settings": {
-        "title": "",
-        "button_gap": 10,
-        "heading_size": "h1",
-        "color_scheme": "",
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 0,
-        "mobile_padding_top": 30,
-        "mobile_padding_bottom": 30
       }
     }
   },
