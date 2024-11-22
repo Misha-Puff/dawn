@@ -59,6 +59,7 @@
         },
         "button_9DxNK6": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "button_label": "MADE-TO-ORDER STATUS",
             "button_link": "shopify://pages/mto-status",
@@ -90,6 +91,7 @@
     },
     "custom_liquid_bKixf9": {
       "type": "custom-liquid",
+      "disabled": true,
       "custom_css": [
         "div {display: flex; justify-content: center;}"
       ],
@@ -133,12 +135,12 @@
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "section_full_width": false,
-        "desktop_padding_top": 0,
-        "desktop_padding_bottom": 56,
+        "desktop_padding_top": 52,
+        "desktop_padding_bottom": 52,
         "desktop_padding_left": 40,
         "desktop_padding_right": 40,
-        "mobile_padding_top": 52,
-        "mobile_padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 40,
         "mobile_padding_left": 0,
         "mobile_padding_right": 0
       }
@@ -282,6 +284,45 @@
         "padding_left": 0,
         "padding_right": 0
       }
+    },
+    "buttons_HHBh8y": {
+      "type": "buttons",
+      "blocks": {
+        "button_hBT4RJ": {
+          "type": "button",
+          "settings": {
+            "label": "MTO STATUS UPDATES",
+            "open_new_tab": false,
+            "link": "shopify://pages/mto-status",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_KMMLGQ": {
+          "type": "button",
+          "settings": {
+            "label": "GET MTO ALERTS",
+            "open_new_tab": true,
+            "link": "shopify://pages/newsletter-signup",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_hBT4RJ",
+        "button_KMMLGQ"
+      ],
+      "settings": {
+        "title": "",
+        "button_gap": 10,
+        "heading_size": "h1",
+        "color_scheme": "",
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 0,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
+      }
     }
   },
   "order": [
@@ -289,6 +330,7 @@
     "product-grid",
     "rich_text_Qzf3YT",
     "custom_liquid_bKixf9",
+    "buttons_HHBh8y",
     "featured_collection_HDDDGc",
     "divider_QNP8CF",
     "rich_text_Jak7Gh",
