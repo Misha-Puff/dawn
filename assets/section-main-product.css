@@ -1504,7 +1504,8 @@ a.product__text {
   .model-note {
     position: initial;
     opacity: 1;
-    padding: 0 var(--page-width-padding)
+    padding: 0 var(--page-width-padding);
+    padding-top: 5px;
   }
 }
 
