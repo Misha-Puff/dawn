@@ -83,7 +83,8 @@
             "title": "",
             "text": "",
             "link_label": "Shop Baby",
-            "link": "shopify://collections/baby-the-winter-collection"
+            "link": "shopify://collections/baby-the-winter-collection",
+            "new_tab": false
           }
         },
         "column_3igURh": {
@@ -93,7 +94,8 @@
             "title": "",
             "text": "",
             "link_label": "Shop Adult",
-            "link": "shopify://collections/adult-fall-24"
+            "link": "shopify://collections/adult-fall-24",
+            "new_tab": false
           }
         }
       },
@@ -144,7 +146,8 @@
             "title": "",
             "text": "",
             "link_label": "Journal",
-            "link": "shopify://blogs/journal"
+            "link": "shopify://blogs/journal",
+            "new_tab": false
           }
         },
         "column_jQ3JVX": {
@@ -154,7 +157,8 @@
             "title": "",
             "text": "",
             "link_label": "Best Sellers",
-            "link": "shopify://collections/child-best-sellers"
+            "link": "shopify://collections/child-best-sellers",
+            "new_tab": false
           }
         },
         "column_mcCDRB": {
@@ -164,7 +168,8 @@
             "title": "",
             "text": "",
             "link_label": "Stores",
-            "link": "shopify://pages/stores"
+            "link": "shopify://pages/stores",
+            "new_tab": false
           }
         }
       },
@@ -246,7 +251,7 @@
         "buttons_zkt4Vc"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_Gifts_SM_cb744927-906f-4d70-81c8-d4959b93e016.gif",
+        "image": "shopify://shop_images/giftguides_11.25.24_3.jpg",
         "banner_link": "",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -255,7 +260,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/GiftGuides24_Mob.gif",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_Mob_2_347adf01-8089-49b4-abb2-35ec10e77d9b.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": false,
@@ -269,6 +274,78 @@
         "mobile_padding_right": 20
       }
     },
+    "buttons_zMbkxJ": {
+      "type": "buttons",
+      "blocks": {
+        "button_heMLMc": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD BEST SELLERS",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-best-sellers",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_m46TAN": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD SALE",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-sale",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_ARR3P3": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD SWEATERS",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-sweaters-cardigans",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_yEUTBh": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD DRESSES",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-dresses",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_w9bhWc": {
+          "type": "button",
+          "settings": {
+            "label": "BABY ONESIES",
+            "open_new_tab": false,
+            "link": "shopify://collections/baby-one-piece",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_heMLMc",
+        "button_m46TAN",
+        "button_ARR3P3",
+        "button_yEUTBh",
+        "button_w9bhWc"
+      ],
+      "settings": {
+        "title": "More to Explore",
+        "button_gap": 10,
+        "heading_size": "h2",
+        "color_scheme": "",
+        "desktop_padding_top": 50,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 40,
+        "mobile_padding_bottom": 30
+      }
+    },
     "multicolumn": {
       "type": "multicolumn",
       "blocks": {
@@ -279,7 +356,8 @@
             "title": "",
             "text": "",
             "link_label": "New Adult",
-            "link": "shopify://collections/adult-fall-24"
+            "link": "shopify://collections/adult-fall-24",
+            "new_tab": false
           }
         }
       },
@@ -378,6 +456,7 @@
         "show_description": false,
         "description_style": "body",
         "collection": "child-the-winter-collection",
+        "hide_sold_out": false,
         "products_to_show": 20,
         "columns_desktop": 4,
         "full_width": true,
@@ -409,78 +488,6 @@
         "mobile_padding_right": 12
       }
     },
-    "buttons_zMbkxJ": {
-      "type": "buttons",
-      "blocks": {
-        "button_heMLMc": {
-          "type": "button",
-          "settings": {
-            "label": "CHILD BEST SELLERS",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-best-sellers",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_m46TAN": {
-          "type": "button",
-          "settings": {
-            "label": "CHILD SALE",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-sale",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_ARR3P3": {
-          "type": "button",
-          "settings": {
-            "label": "CHILD SWEATERS",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-sweaters-cardigans",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_yEUTBh": {
-          "type": "button",
-          "settings": {
-            "label": "CHILD DRESSES",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-dresses",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_w9bhWc": {
-          "type": "button",
-          "settings": {
-            "label": "BABY ONESIES",
-            "open_new_tab": false,
-            "link": "shopify://collections/baby-one-piece",
-            "type": "secondary",
-            "on_click": ""
-          }
-        }
-      },
-      "block_order": [
-        "button_heMLMc",
-        "button_m46TAN",
-        "button_ARR3P3",
-        "button_yEUTBh",
-        "button_w9bhWc"
-      ],
-      "settings": {
-        "title": "More to Explore",
-        "button_gap": 10,
-        "heading_size": "h2",
-        "color_scheme": "",
-        "desktop_padding_top": 50,
-        "desktop_padding_bottom": 30,
-        "mobile_padding_top": 40,
-        "mobile_padding_bottom": 30
-      }
-    },
     "multicolumn_GbjXUE": {
       "type": "multicolumn",
       "blocks": {
@@ -491,7 +498,8 @@
             "title": "",
             "text": "",
             "link_label": "TOPS",
-            "link": "shopify://collections/child-tops"
+            "link": "shopify://collections/child-tops",
+            "new_tab": false
           }
         },
         "column_8kQCT9": {
@@ -501,7 +509,8 @@
             "title": "",
             "text": "",
             "link_label": "BOTTOMS",
-            "link": "shopify://collections/child-bottoms"
+            "link": "shopify://collections/child-bottoms",
+            "new_tab": false
           }
         },
         "column_WCJg47": {
@@ -511,7 +520,8 @@
             "title": "",
             "text": "",
             "link_label": "SWEATERS",
-            "link": "shopify://collections/child-sweaters-cardigans"
+            "link": "shopify://collections/child-sweaters-cardigans",
+            "new_tab": false
           }
         },
         "column_prW6et": {
@@ -521,7 +531,8 @@
             "title": "",
             "text": "",
             "link_label": "ACCESSORIES",
-            "link": "shopify://collections/child-accessories"
+            "link": "shopify://collections/child-accessories",
+            "new_tab": false
           }
         },
         "column_JLMAqm": {
@@ -531,7 +542,8 @@
             "title": "",
             "text": "",
             "link_label": "DRESSES",
-            "link": "shopify://collections/child-dresses"
+            "link": "shopify://collections/child-dresses",
+            "new_tab": false
           }
         },
         "column_HnbifQ": {
@@ -541,7 +553,8 @@
             "title": "",
             "text": "",
             "link_label": "ONE-PIECES",
-            "link": "shopify://collections/child-one-piece"
+            "link": "shopify://collections/child-one-piece",
+            "new_tab": false
           }
         },
         "column_YhVwUE": {
@@ -551,7 +564,8 @@
             "title": "",
             "text": "",
             "link_label": "ACCESSORIES",
-            "link": "shopify://collections/child-accessories"
+            "link": "shopify://collections/child-accessories",
+            "new_tab": false
           }
         },
         "column_PTttra": {
@@ -561,7 +575,8 @@
             "title": "",
             "text": "",
             "link_label": "JACKETS",
-            "link": "shopify://collections/child-jackets"
+            "link": "shopify://collections/child-jackets",
+            "new_tab": false
           }
         }
       },
