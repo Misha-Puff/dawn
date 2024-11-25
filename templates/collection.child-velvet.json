@@ -92,7 +92,7 @@
           "settings": {
             "label": "SHOP CORDUROY",
             "open_new_tab": true,
-            "link": "shopify://collections/child-corduroy",
+            "link": "shopify://collections/child-corduroy-looks",
             "type": "secondary",
             "on_click": ""
           }
