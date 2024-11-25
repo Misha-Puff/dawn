@@ -93,9 +93,9 @@
   margin-right: 2.5rem;
 }
 
-/* .multicolumn-card__info > :nth-child(2) {
-  margin-top: 1rem;
-} */
+.multicolumn-card__info > :nth-child(2) {
+  margin-top: 0 !important;
+}
 
 .multicolumn-list__item.center .media--adapt,
 .multicolumn-list__item .media--adapt .multicolumn-card__image {
@@ -218,7 +218,7 @@
 .multicolumn-card__info .link {
   text-decoration: none;
   font-size: 14px;
-  /* margin-top: 1.5rem; */
+  margin-top: 1.5rem;
 }
 
 .multicolumn-card__info .icon-wrap {
