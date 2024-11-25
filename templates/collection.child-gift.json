@@ -84,7 +84,8 @@
             "title": "",
             "text": "",
             "link_label": "Cold Weather Accs",
-            "link": "shopify://collections/child-cold-weather-accessories"
+            "link": "shopify://collections/child-cold-weather-accessories",
+            "new_tab": true
           }
         },
         "column_cApgfB": {
@@ -94,7 +95,8 @@
             "title": "",
             "text": "",
             "link_label": "Sweaters + Cardigans",
-            "link": "shopify://collections/child-sweaters-to-live-in"
+            "link": "shopify://collections/child-sweaters-cardigans",
+            "new_tab": true
           }
         },
         "column_CEVrU7": {
@@ -104,7 +106,8 @@
             "title": "",
             "text": "",
             "link_label": "Denim",
-            "link": "shopify://collections/child-fall-denim-collection"
+            "link": "shopify://collections/child-fall-denim-collection",
+            "new_tab": true
           }
         },
         "column_iXBQ84": {
@@ -114,7 +117,8 @@
             "title": "",
             "text": "",
             "link_label": "Outerwear",
-            "link": "shopify://collections/child-jackets"
+            "link": "shopify://collections/child-jackets",
+            "new_tab": true
           }
         }
       },
