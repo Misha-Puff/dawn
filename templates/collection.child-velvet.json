@@ -25,6 +25,105 @@
         "color_scheme": "scheme-1"
       }
     },
+    "rich_text_JTcLVz": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_W79jc4": {
+          "type": "heading",
+          "settings": {
+            "heading": "New Arrival — Velvet",
+            "heading_size": "h2"
+          }
+        },
+        "text_EzLzzh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Just in time for the holidays — new opulent 100% cotton velvet with thoughtful embroidered details. Available in rich shades that shine for every special occasion.</p>",
+            "line_height": 22
+          }
+        },
+        "button_iUKAgn": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_W79jc4",
+        "text_EzLzzh",
+        "button_iUKAgn"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 52,
+        "padding_left": 52,
+        "padding_right": 52
+      }
+    },
+    "buttons_6BNDeY": {
+      "type": "buttons",
+      "blocks": {
+        "button_LLdmpB": {
+          "type": "button",
+          "settings": {
+            "label": "",
+            "open_new_tab": false,
+            "link": "",
+            "type": "primary",
+            "on_click": ""
+          }
+        },
+        "button_3cfhtQ": {
+          "type": "button",
+          "settings": {
+            "label": "",
+            "open_new_tab": false,
+            "link": "",
+            "type": "primary",
+            "on_click": ""
+          }
+        },
+        "button_bj9fHT": {
+          "type": "button",
+          "settings": {
+            "label": "",
+            "open_new_tab": false,
+            "link": "",
+            "type": "primary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_LLdmpB",
+        "button_3cfhtQ",
+        "button_bj9fHT"
+      ],
+      "settings": {
+        "title": "",
+        "button_gap": 10,
+        "heading_size": "h1",
+        "color_scheme": "",
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
+      }
+    },
     "rich_text_YJeCaw": {
       "type": "rich-text",
       "blocks": {
@@ -84,6 +183,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 1,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -100,6 +202,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 6,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -124,6 +229,8 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "enable_overlay": false,
+        "enable_swatches": false,
         "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "drawer",
@@ -146,6 +253,8 @@
     "shogun-helper",
     "shogun-above",
     "banner",
+    "rich_text_JTcLVz",
+    "buttons_6BNDeY",
     "rich_text_YJeCaw",
     "product-grid",
     "shogun-below",
