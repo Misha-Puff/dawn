@@ -69,59 +69,70 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 0,
-        "padding_bottom": 52,
-        "padding_left": 52,
-        "padding_right": 52
+        "padding_bottom": 0,
+        "padding_left": 100,
+        "padding_right": 100
       }
     },
     "buttons_6BNDeY": {
       "type": "buttons",
       "blocks": {
-        "button_LLdmpB": {
+        "button_zYfzWP": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
-        },
-        "button_3cfhtQ": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "ALL NEW ARRIVALS",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-the-winter-collection",
+            "type": "secondary",
             "on_click": ""
           }
         },
         "button_bj9fHT": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "SHOP CORDUROY",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-corduroy",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_LLdmpB": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD GIFT GUIDE",
+            "open_new_tab": true,
+            "link": "shopify://collections/adult-gift-guide-2023",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_3cfhtQ": {
+          "type": "button",
+          "settings": {
+            "label": "BABY GIFT GUIDE",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-gift-edit",
+            "type": "secondary",
             "on_click": ""
           }
         }
       },
       "block_order": [
+        "button_zYfzWP",
+        "button_bj9fHT",
         "button_LLdmpB",
-        "button_3cfhtQ",
-        "button_bj9fHT"
+        "button_3cfhtQ"
       ],
       "settings": {
         "title": "",
         "button_gap": 10,
         "heading_size": "h1",
         "color_scheme": "",
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 30,
-        "mobile_padding_top": 30,
-        "mobile_padding_bottom": 30
+        "desktop_padding_top": 28,
+        "desktop_padding_bottom": 40,
+        "mobile_padding_top": 28,
+        "mobile_padding_bottom": 34
       }
     },
     "rich_text_YJeCaw": {
