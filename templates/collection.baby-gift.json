@@ -25,24 +25,24 @@
         "color_scheme": "scheme-1"
       }
     },
-    "rich_text_YJeCaw": {
+    "rich_text_JAqhgt": {
       "type": "rich-text",
       "blocks": {
-        "heading_LbXhKd": {
+        "heading_hT8G97": {
           "type": "heading",
           "settings": {
-            "heading": "Limited Yarn",
+            "heading": "Baby Gifts",
             "heading_size": "h2"
           }
         },
-        "text_PGqAmF": {
+        "text_ACr8CQ": {
           "type": "text",
           "settings": {
-            "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.</p>",
-            "line_height": 20
+            "text": "<p>Explore our handpicked selection of baby gifts — for festive magic, stylish looks, cozy comfort, and essential heirlooms.</p>",
+            "line_height": 22
           }
         },
-        "button_Yh3Xhh": {
+        "button_pUtjCH": {
           "type": "button",
           "disabled": true,
           "settings": {
@@ -59,20 +59,92 @@
         }
       },
       "block_order": [
-        "heading_LbXhKd",
-        "text_PGqAmF",
-        "button_Yh3Xhh"
+        "heading_hT8G97",
+        "text_ACr8CQ",
+        "button_pUtjCH"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
-        "padding_left": 100,
-        "padding_right": 100
+        "padding_top": 0,
+        "padding_bottom": 48,
+        "padding_left": 132,
+        "padding_right": 132
+      }
+    },
+    "multicolumn_TXNWra": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_6eqDUc": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": "",
+            "new_tab": false
+          }
+        },
+        "column_JAVeTj": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": "",
+            "new_tab": false
+          }
+        },
+        "column_qem4bd": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": "",
+            "new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "column_6eqDUc",
+        "column_JAVeTj",
+        "column_qem4bd"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Multicolumn",
+        "heading_size": "h1",
+        "enable_overlay": false,
+        "content_position": "middle-center",
+        "overlay_padding": 25,
+        "link_type": "link",
+        "link_color": "#000000",
+        "link_style": "none",
+        "button_type": "primary",
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
+        "enable_custom_spacing": false,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "Button label",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
       }
     },
     "product-grid": {
@@ -156,6 +228,7 @@
           "type": "button",
           "settings": {
             "label": "CHILD GIFTS",
+            "open_new_tab": false,
             "link": "shopify://collections/child-gift-edit",
             "type": "secondary",
             "on_click": ""
@@ -165,6 +238,7 @@
           "type": "button",
           "settings": {
             "label": "BEST SELLERS",
+            "open_new_tab": false,
             "link": "shopify://collections/baby-best-sellers",
             "type": "secondary",
             "on_click": ""
@@ -174,6 +248,7 @@
           "type": "button",
           "settings": {
             "label": "SWEATERS",
+            "open_new_tab": false,
             "link": "shopify://collections/baby-sweaters-cardigans",
             "type": "secondary",
             "on_click": ""
@@ -183,6 +258,7 @@
           "type": "button",
           "settings": {
             "label": "LAYETTE",
+            "open_new_tab": false,
             "link": "shopify://collections/layette-24-old",
             "type": "secondary",
             "on_click": ""
@@ -192,6 +268,7 @@
           "type": "button",
           "settings": {
             "label": "NEW ARRIVALS",
+            "open_new_tab": false,
             "link": "shopify://collections/baby-new",
             "type": "secondary",
             "on_click": ""
@@ -215,16 +292,68 @@
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 30
       }
+    },
+    "rich_text_YJeCaw": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_LbXhKd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Limited Yarn",
+            "heading_size": "h2"
+          }
+        },
+        "text_PGqAmF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.</p>",
+            "line_height": 20
+          }
+        },
+        "button_Yh3Xhh": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_LbXhKd",
+        "text_PGqAmF",
+        "button_Yh3Xhh"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 40,
+        "padding_left": 100,
+        "padding_right": 100
+      }
     }
   },
   "order": [
     "shogun-helper",
     "shogun-above",
     "banner",
-    "rich_text_YJeCaw",
+    "rich_text_JAqhgt",
+    "multicolumn_TXNWra",
     "product-grid",
     "shogun-below",
     "shogun-optimizer",
-    "buttons_UdwtAc"
+    "buttons_UdwtAc",
+    "rich_text_YJeCaw"
   ]
 }
