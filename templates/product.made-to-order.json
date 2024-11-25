@@ -1,0 +1,367 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "rating_fBYWfr": {
+          "type": "rating",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker_type": "button",
+            "size_picker_type": "dropdown",
+            "swatch_shape": "square"
+          }
+        },
+        "inventory_PfG9Nk": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "uppercase",
+            "inventory_threshold": 6,
+            "show_inventory_quantity": false
+          }
+        },
+        "bis_form_iQ4kYG": {
+          "type": "bis_form",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "collapsible_tab_JNhcga": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "KEY FEATURES",
+            "icon": "none",
+            "content": "{% if product.metafields.product_page.key_features %}<p>{{ product.metafields.product_page.key_features | metafield_tag }}</p>\n{% endif %}",
+            "page": ""
+          }
+        },
+        "collapsible-row-0": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "MATERIALS AND CARE",
+            "icon": "none",
+            "content": "{%- if product.metafields.product_page.material_description -%}\n  <p>{{ product.metafields.product_page.material_description | metafield_tag }}</p>\n{%- endif -%}\n{%- if product.metafields.product_page.country_description -%}\n  <p>{{ product.metafields.product_page.country_description | metafield_tag }}</p>\n{%- endif -%}\n{%- if product.metafields.product_page.care_instructions -%}\n  <p>{{ product.metafields.product_page.care_instructions | metafield_tag }}</p>\n{%- endif -%}",
+            "page": ""
+          }
+        },
+        "collapsible-row-1": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "SIZE GUIDE",
+            "icon": "none",
+            "content": "{% if product.metafields.product_page.json_size_chart or product.metafields.product_page.size_chart %}<div>{{ product.metafields.product_page.extra_size_details }}</div><modal-opener class=\"product-popup-modal__opener quick-add-hidden\" data-modal=\"#PopupModal-{{ block.id }}\" {{ block.shopify_attributes }}>\n<button id=\"ProductPopup-{{ block.id }}\" class=\"product-popup-modal__button link\" type=\"button\" aria-haspopup=\"dialog\">\nProduct Measurements\n</button>\n</modal-opener>\n<modal-dialog id=\"PopupModal-{{ block.id }}\" class=\"product-popup-modal\" {{ block.shopify_attributes }}>\n<div role=\"dialog\" aria-label=\"Product Measurements\" aria-modal=\"true\" class=\"product-popup-modal__content\" tabindex=\"-1\">\n<button id=\"ModalClose-{{ block.id }}\" type=\"button\" class=\"product-popup-modal__toggle\" aria-label=\"{{ 'accessibility.close' | t }}\">\n{% render 'icon-close' %}</button>\n<div class=\"product-popup-modal__content-info\">\n<h1 class=\"h2\">\nProduct Measurements\n</h1>\n{% render 'size-chart' %}\n</div>\n</div>\n</modal-dialog>\n{% endif %}",
+            "page": ""
+          }
+        },
+        "collapsible-row-2": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "SHIPPING AND RETURNS",
+            "icon": "none",
+            "content": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "rating_fBYWfr",
+        "price",
+        "variant_picker",
+        "inventory_PfG9Nk",
+        "bis_form_iQ4kYG",
+        "buy_buttons",
+        "description",
+        "collapsible_tab_JNhcga",
+        "collapsible-row-0",
+        "collapsible-row-1",
+        "collapsible-row-2"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "",
+        "media_size": "large",
+        "constrain_to_viewport": false,
+        "media_fit": "contain",
+        "image_ratio": "adapt",
+        "gallery_layout": "columns",
+        "media_position": "left",
+        "image_zoom": "none",
+        "mobile_thumbnails": "hide",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "image_with_text_7tNUwQ": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_mRz8Ek": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>INTRODUCING THE DENIM COLLECTION</strong></p><p>Handcrafted in Japan by skilled artisans, we use the highest quality Japanese denim and time-honored techniques, upholding responsible manufacturing methods that honor both people and the environment. Each piece is meticulously crafted, undergoing nearly 100 steps to produce one garment.</p><p>All of our denim is 100% cotton, with thoughtful touches, like contrast topstitching, hand-tacked embroidery instead of rivets to optimize softness, and adjustable waistbands and straps for long-wear and the perfect fit.</p><p>Designed for comfort and made for long wear — this denim can be worn often, worn in, and passed down.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_mRz8Ek"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/mp_fall24_look_2_30_copy_AboutDenim.jpg",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_image": "shopify://shop_images/mp_fall24_look_2_30_copy_AboutDenim.jpg",
+        "mobile_content_alignment": "left",
+        "padding_top": 56,
+        "padding_bottom": 32,
+        "show_section_tag": "denim"
+      }
+    },
+    "image_with_text_Yfnzea": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_Eqkbw6": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>INFINITE VARIATIONS — THE MAGIC OF HAND-DYE</strong></p><p>Our hand-dyed Superwash Merino wool is sustainably and ethically crafted by skilled artisans in Peru using premium natural fibers and low-impact dyes. This yarn is truly special, with each strand unique due to the hand-dye process, introducing subtle nuances to every garment. The hand-dyed variation and natural patterns the yarn creates when knit mean no two garments are the same, and that’s exactly why we love it. With this process, we embrace unpredictability and celebrate the presence of the hand.</p><p>For those reasons, we can’t guarantee that the Space Dye garment you receive will have a pattern close to those pictured, but it will truly be a one-of-a-kind heirloom.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_Eqkbw6"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/bluestack_web.jpg",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_image": "shopify://shop_images/bluestack_web.jpg",
+        "mobile_content_alignment": "left",
+        "padding_top": 56,
+        "padding_bottom": 32,
+        "show_section_tag": "ocean-space-dye"
+      }
+    },
+    "image_with_text_PbwkAd": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_Dh6Hb4": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>INFINITE VARIATIONS — THE MAGIC OF HAND-DYE</strong></p><p>Our hand-dyed Superwash Merino wool is sustainably and ethically crafted by skilled artisans in Peru using premium natural fibers and low-impact dyes. This yarn is truly special, with each strand unique due to the hand-dye process, introducing subtle nuances to every garment. The hand-dyed variation and natural patterns the yarn creates when knit mean no two garments are the same, and that’s exactly why we love it. With this process, we embrace unpredictability and celebrate the presence of the hand.</p><p>For those reasons, we can’t guarantee that the garment you receive will have the exact tone as the one pictured, but it will truly be a one-of-a-kind heirloom.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_Dh6Hb4"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/fig_variation_web.jpg",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "show_section_tag": "fig-wool"
+      }
+    },
+    "metafield_product_slider_bbMG9V": {
+      "type": "metafield-product-slider",
+      "settings": {
+        "title": "SHOP {{ product.metafields.shopify[\"color-pattern\"] | metafield_text: field: 'label' }}",
+        "heading_alignment": "left",
+        "heading_size": "h2",
+        "heading_margin": 14,
+        "product_list": "{{ product.metafields.product_page.color_siblings.value }}",
+        "products_to_show": 20,
+        "columns_desktop": 4,
+        "full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 10,
+        "vertical_spacing_desktop": 0,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 0,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "desktop_padding_top": 52,
+        "desktop_padding_bottom": 28,
+        "desktop_padding_left": 40,
+        "desktop_padding_right": 40,
+        "mobile_padding_top": 52,
+        "mobile_padding_bottom": 20,
+        "mobile_padding_left": 12,
+        "mobile_padding_right": 12
+      }
+    },
+    "metafield_product_slider_8x6YUj": {
+      "type": "metafield-product-slider",
+      "settings": {
+        "title": "COMPLETE THE LOOK",
+        "heading_alignment": "left",
+        "heading_size": "h1",
+        "heading_margin": 14,
+        "product_list": "{{ product.metafields.product_page.complete_the_look.value }}",
+        "products_to_show": 20,
+        "columns_desktop": 4,
+        "full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 10,
+        "vertical_spacing_desktop": 0,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 0,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "desktop_padding_top": 16,
+        "desktop_padding_bottom": 28,
+        "desktop_padding_left": 40,
+        "desktop_padding_right": 40,
+        "mobile_padding_top": 24,
+        "mobile_padding_bottom": 20,
+        "mobile_padding_left": 12,
+        "mobile_padding_right": 12
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "YOU MAY ALSO LIKE",
+        "heading_size": "h1",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "recently_viewed_slider_QcHtbc": {
+      "type": "recently-viewed-slider",
+      "settings": {
+        "title": "RECENTLY VIEWED",
+        "heading_alignment": "left",
+        "heading_size": "h1",
+        "heading_margin": 14,
+        "products_to_show": 20,
+        "columns_desktop": 4,
+        "full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 10,
+        "vertical_spacing_desktop": 0,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 0,
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "desktop_padding_top": 16,
+        "desktop_padding_bottom": 28,
+        "desktop_padding_left": 40,
+        "desktop_padding_right": 40,
+        "mobile_padding_top": 24,
+        "mobile_padding_bottom": 20,
+        "mobile_padding_left": 12,
+        "mobile_padding_right": 12
+      }
+    },
+    "17224329362434f250": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_k9GUKa": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_k9GUKa"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_7tNUwQ",
+    "image_with_text_Yfnzea",
+    "image_with_text_PbwkAd",
+    "metafield_product_slider_bbMG9V",
+    "metafield_product_slider_8x6YUj",
+    "related-products",
+    "recently_viewed_slider_QcHtbc",
+    "17224329362434f250"
+  ]
+}
