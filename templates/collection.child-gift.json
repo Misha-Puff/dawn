@@ -80,41 +80,41 @@
         "column_XBwAqy": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/hat.jpg",
+            "image": "shopify://shop_images/gifts__0002_kodak_gold_200_03_11_2024_000206650010.jpg",
             "title": "",
             "text": "",
-            "link_label": "COLD WEATHER ACCESSORIES",
+            "link_label": "Cold Weather Accs",
             "link": "shopify://collections/child-cold-weather-accessories"
           }
         },
         "column_cApgfB": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/sweater_f7fd7f8d-ad2e-47ca-8b6e-f752437dbe91.jpg",
+            "image": "shopify://shop_images/sweaters_db4cd5ed-801d-4a25-861e-6008a4363985.jpg",
             "title": "",
             "text": "",
-            "link_label": "SWEATERS + CARDIS",
-            "link": ""
+            "link_label": "Sweaters + Cardigans",
+            "link": "shopify://collections/child-sweaters-to-live-in"
           }
         },
         "column_CEVrU7": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/pants_5f0415cf-5b05-4bf1-96a9-b4ddf02ddf58.jpg",
+            "image": "shopify://shop_images/gifts__0001_kodak_gold_200_03_11_2024_000206640008.jpg",
             "title": "",
             "text": "",
-            "link_label": "",
-            "link": ""
+            "link_label": "Denim",
+            "link": "shopify://collections/child-fall-denim-collection"
           }
         },
         "column_iXBQ84": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/jacket.jpg",
+            "image": "shopify://shop_images/jackets.jpg",
             "title": "",
             "text": "",
-            "link_label": "",
-            "link": ""
+            "link_label": "Outerwear",
+            "link": "shopify://collections/child-jackets"
           }
         }
       },
@@ -140,7 +140,7 @@
         "horizontal_spacing_desktop": 10,
         "vertical_spacing_desktop": 0,
         "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 10,
+        "vertical_spacing_mobile": 0,
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 4,
@@ -149,12 +149,12 @@
         "button_label": "",
         "button_link": "",
         "color_scheme": "",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
         "desktop_padding_top": 0,
         "desktop_padding_bottom": 30,
         "mobile_padding_top": 0,
-        "mobile_padding_bottom": 30
+        "mobile_padding_bottom": 10
       }
     },
     "image_banner_QfnEBR": {
@@ -275,18 +275,17 @@
       "blocks": {
         "image_f8UJrh": {
           "type": "image",
-          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
-            "link": "",
+            "image": "shopify://shop_images/MP_FA24_coldweather_1.jpg",
+            "link": "shopify://products/fa24-child-lattice-crochet-poncho-red-flame",
             "content": "",
             "text_color": "#000000",
-            "content_position": "middle-center",
-            "row_start_desktop": 1,
+            "content_position": "top-left",
+            "row_start_desktop": 12,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
             "col_span_desktop": 2,
-            "row_start_mobile": 1,
+            "row_start_mobile": 12,
             "row_span_mobile": 1,
             "col_start_mobile": "1",
             "col_span_mobile": "2"
@@ -301,14 +300,14 @@
             "content": "",
             "text_color": "#000000",
             "content_position": "middle-center",
-            "row_start_desktop": 6,
+            "row_start_desktop": 9,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
             "col_span_desktop": 3,
-            "row_start_mobile": 1,
+            "row_start_mobile": 12,
             "row_span_mobile": 1,
             "col_start_mobile": "1",
-            "col_span_mobile": "1"
+            "col_span_mobile": "2"
           }
         }
       },
