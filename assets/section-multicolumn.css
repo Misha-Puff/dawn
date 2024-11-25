@@ -93,9 +93,9 @@
   margin-right: 2.5rem;
 }
 
-.multicolumn-card__info > :nth-child(2) {
+/* .multicolumn-card__info > :nth-child(2) {
   margin-top: 1rem;
-}
+} */
 
 .multicolumn-list__item.center .media--adapt,
 .multicolumn-list__item .media--adapt .multicolumn-card__image {
@@ -217,8 +217,8 @@
 
 .multicolumn-card__info .link {
   text-decoration: none;
-  font-size: inherit;
-  margin-top: 1.5rem;
+  font-size: 14px;
+  /* margin-top: 1.5rem; */
 }
 
 .multicolumn-card__info .icon-wrap {
@@ -234,11 +234,6 @@
 
 .multicolumn-card__info {
   padding-left: 0 !important;
-}
-
-.multicolumn-card__info .link {
-  margin-top: 7px !important;
-  font-size: 14px !important;
 }
 
 .multicolumn-card__image-wrapper {
