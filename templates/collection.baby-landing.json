@@ -115,17 +115,19 @@
             "title": "",
             "text": "",
             "link_label": "Baby Sweaters",
-            "link": "shopify://collections/baby-sweaters-cardigans"
+            "link": "shopify://collections/baby-sweaters-cardigans",
+            "new_tab": false
           }
         },
         "column_Hgag6H": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.19.24_Preview_BabyJrEd.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_Mob_bbgift.jpg",
             "title": "",
             "text": "",
-            "link_label": "M&P x Junior Edition",
-            "link": "shopify://collections/baby-m-p-x-junior-edition"
+            "link_label": "Gift Guide",
+            "link": "shopify://collections/baby-gift-edit",
+            "new_tab": true
           }
         },
         "column_VnhYKW": {
@@ -136,7 +138,8 @@
             "title": "",
             "text": "",
             "link_label": "Shop Layette",
-            "link": "shopify://collections/layette-24-old"
+            "link": "shopify://collections/layette-24-old",
+            "new_tab": false
           }
         }
       },
@@ -150,7 +153,7 @@
         "heading_size": "h1",
         "enable_overlay": true,
         "content_position": "bottom-left",
-        "overlay_padding": 15,
+        "overlay_padding": 22,
         "link_type": "link",
         "link_color": "#ffffff",
         "link_style": "underline",
@@ -231,7 +234,8 @@
             "title": "",
             "text": "",
             "link_label": "SWEATERS",
-            "link": "shopify://collections/baby-sweaters-cardigans"
+            "link": "shopify://collections/baby-sweaters-cardigans",
+            "new_tab": false
           }
         },
         "column_WjaK8r": {
@@ -241,7 +245,8 @@
             "title": "",
             "text": "",
             "link_label": "TOPS",
-            "link": "shopify://collections/baby-tops"
+            "link": "shopify://collections/baby-tops",
+            "new_tab": false
           }
         },
         "column_xan3Nm": {
@@ -251,7 +256,8 @@
             "title": "",
             "text": "",
             "link_label": "BOTTOMS",
-            "link": "shopify://collections/baby-bottoms"
+            "link": "shopify://collections/baby-bottoms",
+            "new_tab": false
           }
         },
         "column_VJfiC4": {
@@ -261,7 +267,8 @@
             "title": "",
             "text": "",
             "link_label": "ONESIES",
-            "link": "shopify://collections/baby-one-piece"
+            "link": "shopify://collections/baby-one-piece",
+            "new_tab": false
           }
         },
         "column_PjhVYH": {
@@ -272,7 +279,8 @@
             "title": "",
             "text": "",
             "link_label": "ACCESSORIES",
-            "link": "shopify://collections/baby-accessories"
+            "link": "shopify://collections/baby-accessories",
+            "new_tab": false
           }
         }
       },

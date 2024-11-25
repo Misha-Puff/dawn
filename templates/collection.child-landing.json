@@ -161,7 +161,7 @@
         "heading_size": "h1",
         "enable_overlay": true,
         "content_position": "bottom-left",
-        "overlay_padding": 14,
+        "overlay_padding": 22,
         "link_type": "link",
         "link_color": "#ffffff",
         "link_style": "underline",
