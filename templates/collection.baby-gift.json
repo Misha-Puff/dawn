@@ -80,28 +80,42 @@
         "column_6eqDUc": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": "",
-            "new_tab": false
+            "image": "shopify://shop_images/babysweaters.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Sweaters + Cardigans",
+            "link": "shopify://collections/baby-sweaters-cardigans",
+            "new_tab": true
+          }
+        },
+        "column_HXj7QG": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/accs.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Cold Weather Accessories",
+            "link": "shopify://collections/baby-cold-weather-accessories",
+            "new_tab": true
           }
         },
         "column_JAVeTj": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": "",
-            "new_tab": false
+            "image": "shopify://shop_images/babyonesies.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "One-Pieces",
+            "link": "shopify://collections/baby-one-piece",
+            "new_tab": true
           }
         },
         "column_qem4bd": {
           "type": "column",
+          "disabled": true,
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "title": "",
+            "text": "",
             "link_label": "",
             "link": "",
             "new_tab": false
@@ -110,41 +124,41 @@
       },
       "block_order": [
         "column_6eqDUc",
+        "column_HXj7QG",
         "column_JAVeTj",
         "column_qem4bd"
       ],
-      "disabled": true,
       "settings": {
-        "title": "Multicolumn",
+        "title": "",
         "heading_size": "h1",
         "enable_overlay": false,
         "content_position": "middle-center",
-        "overlay_padding": 25,
+        "overlay_padding": 14,
         "link_type": "link",
         "link_color": "#000000",
         "link_style": "none",
         "button_type": "primary",
         "enable_desktop_full_width": false,
         "enable_mobile_full_width": false,
-        "enable_custom_spacing": false,
-        "horizontal_spacing_desktop": 20,
-        "vertical_spacing_desktop": 20,
-        "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 10,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 12,
+        "vertical_spacing_desktop": 0,
+        "horizontal_spacing_mobile": 12,
+        "vertical_spacing_mobile": 0,
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 3,
         "column_alignment": "left",
-        "background_style": "primary",
+        "background_style": "none",
         "button_label": "Button label",
         "button_link": "",
         "color_scheme": "",
         "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 30,
-        "mobile_padding_top": 30,
-        "mobile_padding_bottom": 30
+        "swipe_on_mobile": true,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 32,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 10
       }
     },
     "product-grid": {
@@ -152,18 +166,17 @@
       "blocks": {
         "image_f8UJrh": {
           "type": "image",
-          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
-            "link": "",
+            "image": "shopify://shop_images/MP_FA24_bbcoldweather.jpg",
+            "link": "shopify://products/wi24-baby-prairie-romper-seal-gray",
             "content": "",
             "text_color": "#000000",
             "content_position": "middle-center",
-            "row_start_desktop": 1,
+            "row_start_desktop": 7,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
             "col_span_desktop": 2,
-            "row_start_mobile": 1,
+            "row_start_mobile": 7,
             "row_span_mobile": 1,
             "col_start_mobile": "1",
             "col_span_mobile": "2"
