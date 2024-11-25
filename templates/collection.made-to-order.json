@@ -161,7 +161,7 @@
         "horizontal_spacing_desktop": 10,
         "vertical_spacing_desktop": 0,
         "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 0,
+        "vertical_spacing_mobile": 10,
         "show_view_all": false,
         "view_all_style": "solid",
         "enable_desktop_slider": false,
