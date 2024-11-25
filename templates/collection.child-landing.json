@@ -123,17 +123,19 @@
             "title": "",
             "text": "",
             "link_label": "Best Sellers",
-            "link": "shopify://collections/child-best-sellers"
+            "link": "shopify://collections/child-best-sellers",
+            "new_tab": false
           }
         },
         "column_RwiwcK": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.7.24_JrEd.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_Mob_2_347adf01-8089-49b4-abb2-35ec10e77d9b.jpg",
             "title": "",
             "text": "",
-            "link_label": "M&P x Junior Edition",
-            "link": "shopify://collections/child-m-p-x-junior-edition"
+            "link_label": "Gift Guide",
+            "link": "shopify://collections/child-gift-guide-2023",
+            "new_tab": true
           }
         },
         "column_dQmUh8": {
@@ -144,7 +146,8 @@
             "title": "",
             "text": "",
             "link_label": "Shop Denim",
-            "link": "shopify://collections/child-fall-denim-collection"
+            "link": "shopify://collections/child-fall-denim-collection",
+            "new_tab": false
           }
         }
       },
@@ -158,7 +161,7 @@
         "heading_size": "h1",
         "enable_overlay": true,
         "content_position": "bottom-left",
-        "overlay_padding": 15,
+        "overlay_padding": 14,
         "link_type": "link",
         "link_color": "#ffffff",
         "link_style": "underline",
@@ -166,7 +169,7 @@
         "enable_desktop_full_width": false,
         "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 40,
+        "horizontal_spacing_desktop": 16,
         "vertical_spacing_desktop": 40,
         "horizontal_spacing_mobile": 10,
         "vertical_spacing_mobile": 20,
@@ -239,7 +242,8 @@
             "title": "",
             "text": "",
             "link_label": "SWEATERS",
-            "link": "shopify://collections/child-sweaters-cardigans"
+            "link": "shopify://collections/child-sweaters-cardigans",
+            "new_tab": false
           }
         },
         "column_4dtYhK": {
@@ -249,7 +253,8 @@
             "title": "",
             "text": "",
             "link_label": "TOPS",
-            "link": "shopify://collections/child-tops"
+            "link": "shopify://collections/child-tops",
+            "new_tab": false
           }
         },
         "column_fqtCKn": {
@@ -259,7 +264,8 @@
             "title": "",
             "text": "",
             "link_label": "BOTTOMS",
-            "link": "shopify://collections/child-bottoms"
+            "link": "shopify://collections/child-bottoms",
+            "new_tab": false
           }
         },
         "column_cbb8R9": {
@@ -269,7 +275,8 @@
             "title": "",
             "text": "",
             "link_label": "DRESSES",
-            "link": "shopify://collections/child-dresses"
+            "link": "shopify://collections/child-dresses",
+            "new_tab": false
           }
         },
         "column_pW4ht9": {
@@ -279,7 +286,8 @@
             "title": "",
             "text": "",
             "link_label": "ACCESSORIES",
-            "link": "shopify://collections/child-accessories"
+            "link": "shopify://collections/child-accessories",
+            "new_tab": false
           }
         },
         "column_bNHwHc": {
@@ -289,7 +297,8 @@
             "title": "",
             "text": "",
             "link_label": "JACKETS",
-            "link": "shopify://collections/child-jackets"
+            "link": "shopify://collections/child-jackets",
+            "new_tab": false
           }
         },
         "column_cx3PxC": {
@@ -300,7 +309,8 @@
             "title": "",
             "text": "",
             "link_label": "ONE-PIECES",
-            "link": ""
+            "link": "",
+            "new_tab": false
           }
         },
         "column_7bKmgw": {
@@ -311,7 +321,8 @@
             "title": "",
             "text": "",
             "link_label": "HAIR",
-            "link": "shopify://collections/child-hair-accessories"
+            "link": "shopify://collections/child-hair-accessories",
+            "new_tab": false
           }
         }
       },
@@ -369,7 +380,8 @@
             "title": "",
             "text": "",
             "link_label": "Best Sellers —",
-            "link": "shopify://collections/child-best-sellers"
+            "link": "shopify://collections/child-best-sellers",
+            "new_tab": false
           }
         },
         "column_RkFMtr": {
@@ -379,7 +391,8 @@
             "title": "",
             "text": "",
             "link_label": "Fall Lookbook —",
-            "link": "shopify://blogs/journal/child-fall-24"
+            "link": "shopify://blogs/journal/child-fall-24",
+            "new_tab": false
           }
         }
       },
