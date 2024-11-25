@@ -83,7 +83,7 @@
             "image": "shopify://shop_images/babysweaters.jpg",
             "title": "",
             "text": "",
-            "link_label": "Sweaters + Cardigans",
+            "link_label": "SWEATERS + CARDIS",
             "link": "shopify://collections/baby-sweaters-cardigans",
             "new_tab": true
           }
@@ -94,7 +94,7 @@
             "image": "shopify://shop_images/accs.jpg",
             "title": "",
             "text": "",
-            "link_label": "Cold Weather Accessories",
+            "link_label": "COLD WEATHER ACCESSORIES",
             "link": "shopify://collections/baby-cold-weather-accessories",
             "new_tab": true
           }
@@ -105,7 +105,7 @@
             "image": "shopify://shop_images/babyonesies.jpg",
             "title": "",
             "text": "",
-            "link_label": "One-Pieces",
+            "link_label": "ONE-PIECES",
             "link": "shopify://collections/baby-one-piece",
             "new_tab": true
           }
@@ -136,7 +136,7 @@
         "overlay_padding": 14,
         "link_type": "link",
         "link_color": "#000000",
-        "link_style": "none",
+        "link_style": "underline",
         "button_type": "primary",
         "enable_desktop_full_width": false,
         "enable_mobile_full_width": false,
