@@ -215,7 +215,12 @@
           >
             <div class="multicolumn-card content-container">
               {% if block.settings.link %}
-                <a href="{{ block.settings.link }}">
+                <a
+                  href="{{ block.settings.link }}"
+                  {% if block.settings.new_tab %}
+                    target="_blank" rel="noopener noreferrer"
+                  {% endif %}
+                >
               {% endif %}
               {%- if block.settings.image != blank -%}
                 {% if section.settings.image_ratio == 'adapt' or section.settings.image_ratio == 'circle' %}
@@ -273,6 +278,10 @@
                       role="link" aria-disabled="true"
                     {% else %}
                       href="{{ block.settings.link }}"
+                    {% endif %}
+                    {% if block.settings.new_tab %}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     {% endif %}
                   >
                     {{- block.settings.link_label | escape -}}
@@ -747,6 +756,11 @@
           "type": "url",
           "id": "link",
           "label": "t:sections.multicolumn.blocks.column.settings.link.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "new_tab",
+          "label": "Open Link in New Tab"
         }
       ]
     }
