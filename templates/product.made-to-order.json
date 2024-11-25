@@ -24,6 +24,12 @@
           "type": "price",
           "settings": {}
         },
+        "custom_liquid_WfmPF8": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<p style=\"color: red;\">Expected to ship {{ product.metafields.product_page.mto_lead_time }}</p>"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -50,13 +56,6 @@
           "settings": {
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": true
-          }
-        },
-        "text_Xwhdfn": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.metafields.product_page.mto_lead_time.value }}",
-            "text_style": "body"
           }
         },
         "description": {
@@ -98,29 +97,22 @@
             "content": "",
             "page": ""
           }
-        },
-        "custom_liquid_WfmPF8": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "<p>Expected to ship {{ product.metafields.product_page.mto_lead_time }}</p>"
-          }
         }
       },
       "block_order": [
         "title",
         "rating_fBYWfr",
         "price",
+        "custom_liquid_WfmPF8",
         "variant_picker",
         "inventory_PfG9Nk",
         "bis_form_iQ4kYG",
         "buy_buttons",
-        "text_Xwhdfn",
         "description",
         "collapsible_tab_JNhcga",
         "collapsible-row-0",
         "collapsible-row-1",
-        "collapsible-row-2",
-        "custom_liquid_WfmPF8"
+        "collapsible-row-2"
       ],
       "settings": {
         "enable_sticky_info": true,
