@@ -83,7 +83,7 @@
             "image": "shopify://shop_images/gifts__0002_kodak_gold_200_03_11_2024_000206650010.jpg",
             "title": "",
             "text": "",
-            "link_label": "Cold Weather Accs",
+            "link_label": "COLD WEATHER ACCS",
             "link": "shopify://collections/child-cold-weather-accessories",
             "new_tab": true
           }
@@ -94,7 +94,7 @@
             "image": "shopify://shop_images/sweaters_db4cd5ed-801d-4a25-861e-6008a4363985.jpg",
             "title": "",
             "text": "",
-            "link_label": "Sweaters + Cardigans",
+            "link_label": "SWEATERS + CARDIS",
             "link": "shopify://collections/child-sweaters-cardigans",
             "new_tab": true
           }
@@ -105,7 +105,7 @@
             "image": "shopify://shop_images/gifts__0001_kodak_gold_200_03_11_2024_000206640008.jpg",
             "title": "",
             "text": "",
-            "link_label": "Denim",
+            "link_label": "DENIM",
             "link": "shopify://collections/child-fall-denim-collection",
             "new_tab": true
           }
@@ -116,7 +116,7 @@
             "image": "shopify://shop_images/jackets.jpg",
             "title": "",
             "text": "",
-            "link_label": "Outerwear",
+            "link_label": "OUTERWEAR",
             "link": "shopify://collections/child-jackets",
             "new_tab": true
           }
@@ -136,7 +136,7 @@
         "overlay_padding": 14,
         "link_type": "link",
         "link_color": "#000000",
-        "link_style": "none",
+        "link_style": "underline",
         "button_type": "primary",
         "enable_desktop_full_width": false,
         "enable_mobile_full_width": false,
@@ -277,7 +277,16 @@
     "divider_FaahUj": {
       "type": "divider",
       "disabled": true,
-      "settings": {}
+      "settings": {
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 36,
+        "desktop_padding_left": 40,
+        "desktop_padding_right": 40,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36,
+        "mobile_padding_left": 20,
+        "mobile_padding_right": 20
+      }
     },
     "product-grid": {
       "type": "main-collection-product-grid",
