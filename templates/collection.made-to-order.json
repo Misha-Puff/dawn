@@ -174,7 +174,7 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "section_full_width": false,
+        "section_full_width": true,
         "desktop_padding_top": 52,
         "desktop_padding_bottom": 52,
         "desktop_padding_left": 40,
