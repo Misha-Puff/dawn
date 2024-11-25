@@ -77,6 +77,17 @@
     "multicolumn_TXNWra": {
       "type": "multicolumn",
       "blocks": {
+        "column_HXj7QG": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/accs.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "COLD WEATHER ACCESSORIES",
+            "link": "shopify://collections/baby-cold-weather-accessories",
+            "new_tab": true
+          }
+        },
         "column_6eqDUc": {
           "type": "column",
           "settings": {
@@ -88,14 +99,14 @@
             "new_tab": true
           }
         },
-        "column_HXj7QG": {
+        "column_qem4bd": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/accs.jpg",
+            "image": "shopify://shop_images/Log_Cabin_Romper_Baby_-_Carbon_01_8ba1db0b-0a1a-4bad-a653-594bdaf87ac6.jpg",
             "title": "",
             "text": "",
-            "link_label": "COLD WEATHER ACCESSORIES",
-            "link": "shopify://collections/baby-cold-weather-accessories",
+            "link_label": "HAND-KNIT SPECIALTIES",
+            "link": "shopify://collections/baby-hand-knit",
             "new_tab": true
           }
         },
@@ -109,24 +120,13 @@
             "link": "shopify://collections/baby-one-piece",
             "new_tab": true
           }
-        },
-        "column_qem4bd": {
-          "type": "column",
-          "disabled": true,
-          "settings": {
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": "",
-            "new_tab": false
-          }
         }
       },
       "block_order": [
-        "column_6eqDUc",
         "column_HXj7QG",
-        "column_JAVeTj",
-        "column_qem4bd"
+        "column_6eqDUc",
+        "column_qem4bd",
+        "column_JAVeTj"
       ],
       "settings": {
         "title": "",
@@ -147,7 +147,7 @@
         "vertical_spacing_mobile": 0,
         "image_width": "full",
         "image_ratio": "adapt",
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "column_alignment": "left",
         "background_style": "none",
         "button_label": "",
