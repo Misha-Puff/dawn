@@ -25,6 +25,138 @@
         "color_scheme": "scheme-1"
       }
     },
+    "rich_text_AhzDgQ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RwtiLr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Gifts for Kids",
+            "heading_size": "h2"
+          }
+        },
+        "text_LPzcpF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Explore our handpicked selection of child gifts — for festive magic, stylish looks, cozy comfort, and essential heirlooms.</p>",
+            "line_height": 22
+          }
+        },
+        "button_knPQnV": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_RwtiLr",
+        "text_LPzcpF",
+        "button_knPQnV"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 52,
+        "padding_left": 132,
+        "padding_right": 132
+      }
+    },
+    "multicolumn_RQJfjC": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_XBwAqy": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/hat.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "COLD WEATHER ACCESSORIES",
+            "link": "shopify://collections/child-cold-weather-accessories"
+          }
+        },
+        "column_cApgfB": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/sweater_f7fd7f8d-ad2e-47ca-8b6e-f752437dbe91.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "SWEATERS + CARDIS",
+            "link": ""
+          }
+        },
+        "column_CEVrU7": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/pants_5f0415cf-5b05-4bf1-96a9-b4ddf02ddf58.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_iXBQ84": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/jacket.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_XBwAqy",
+        "column_cApgfB",
+        "column_CEVrU7",
+        "column_iXBQ84"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "enable_overlay": false,
+        "content_position": "middle-center",
+        "overlay_padding": 14,
+        "link_type": "link",
+        "link_color": "#000000",
+        "link_style": "none",
+        "button_type": "primary",
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 10,
+        "vertical_spacing_desktop": 0,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 30
+      }
+    },
     "image_banner_QfnEBR": {
       "type": "image-banner",
       "blocks": {
@@ -211,6 +343,7 @@
           "type": "button",
           "settings": {
             "label": "SHOP BABY GIFTS",
+            "open_new_tab": false,
             "link": "shopify://collections/baby-gift-edit",
             "type": "secondary",
             "on_click": ""
@@ -220,6 +353,7 @@
           "type": "button",
           "settings": {
             "label": "BEST SELLERS",
+            "open_new_tab": false,
             "link": "shopify://collections/child-best-sellers",
             "type": "secondary",
             "on_click": ""
@@ -229,6 +363,7 @@
           "type": "button",
           "settings": {
             "label": "SWEATERS",
+            "open_new_tab": false,
             "link": "shopify://collections/child-sweaters-cardigans",
             "type": "secondary",
             "on_click": ""
@@ -238,6 +373,7 @@
           "type": "button",
           "settings": {
             "label": "ACCESSORIES",
+            "open_new_tab": false,
             "link": "shopify://collections/child-accessories",
             "type": "secondary",
             "on_click": ""
@@ -247,6 +383,7 @@
           "type": "button",
           "settings": {
             "label": "NEW ARRIVALS",
+            "open_new_tab": false,
             "link": "shopify://collections/child-new",
             "type": "secondary",
             "on_click": ""
@@ -284,6 +421,8 @@
     "shogun-helper",
     "shogun-above",
     "banner",
+    "rich_text_AhzDgQ",
+    "multicolumn_RQJfjC",
     "image_banner_QfnEBR",
     "rich_text_YJeCaw",
     "product-grid",
