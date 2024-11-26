@@ -199,6 +199,78 @@
         "mobile_padding_right": 20
       }
     },
+    "buttons_zMbkxJ": {
+      "type": "buttons",
+      "blocks": {
+        "button_heMLMc": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD BEST SELLERS",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-best-sellers",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_m46TAN": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD SALE",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-sale",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_ARR3P3": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD SWEATERS",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-sweaters-cardigans",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_yEUTBh": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD DRESSES",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-dresses",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_w9bhWc": {
+          "type": "button",
+          "settings": {
+            "label": "BABY ONESIES",
+            "open_new_tab": false,
+            "link": "shopify://collections/baby-one-piece",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_heMLMc",
+        "button_m46TAN",
+        "button_ARR3P3",
+        "button_yEUTBh",
+        "button_w9bhWc"
+      ],
+      "settings": {
+        "title": "More to Explore",
+        "button_gap": 10,
+        "heading_size": "h2",
+        "color_scheme": "",
+        "desktop_padding_top": 50,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 40,
+        "mobile_padding_bottom": 30
+      }
+    },
     "multicolumn_4t4Ubf": {
       "type": "multicolumn",
       "blocks": {
@@ -273,78 +345,6 @@
         "desktop_padding_bottom": 0,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 20
-      }
-    },
-    "buttons_zMbkxJ": {
-      "type": "buttons",
-      "blocks": {
-        "button_heMLMc": {
-          "type": "button",
-          "settings": {
-            "label": "CHILD BEST SELLERS",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-best-sellers",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_m46TAN": {
-          "type": "button",
-          "settings": {
-            "label": "CHILD SALE",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-sale",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_ARR3P3": {
-          "type": "button",
-          "settings": {
-            "label": "CHILD SWEATERS",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-sweaters-cardigans",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_yEUTBh": {
-          "type": "button",
-          "settings": {
-            "label": "CHILD DRESSES",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-dresses",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_w9bhWc": {
-          "type": "button",
-          "settings": {
-            "label": "BABY ONESIES",
-            "open_new_tab": false,
-            "link": "shopify://collections/baby-one-piece",
-            "type": "secondary",
-            "on_click": ""
-          }
-        }
-      },
-      "block_order": [
-        "button_heMLMc",
-        "button_m46TAN",
-        "button_ARR3P3",
-        "button_yEUTBh",
-        "button_w9bhWc"
-      ],
-      "settings": {
-        "title": "More to Explore",
-        "button_gap": 10,
-        "heading_size": "h2",
-        "color_scheme": "",
-        "desktop_padding_top": 50,
-        "desktop_padding_bottom": 30,
-        "mobile_padding_top": 40,
-        "mobile_padding_bottom": 30
       }
     },
     "multicolumn": {
@@ -630,8 +630,8 @@
     "image_banner_bz8jb3",
     "multicolumn_peYxH9",
     "image_banner_PTYKgc",
-    "multicolumn_4t4Ubf",
     "buttons_zMbkxJ",
+    "multicolumn_4t4Ubf",
     "multicolumn",
     "slideshow_t7VikK",
     "featured_collection_YrgjwD",
