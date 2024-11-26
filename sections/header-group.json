@@ -17,14 +17,13 @@
         "announcement_egLqPG": {
           "type": "announcement",
           "settings": {
-            "text": "<p>20% Off select <a href=\"https://shop.misha-and-puff.com/collections/child-pima-staples\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/collections/child-pima-staples\">Fall Pima cotton</a>, online + in stores. Discount applied at checkout.<a href=\"/pages/promo-terms\" target=\"_blank\" title=\"Promo Terms\">*</a></p>"
+            "text": "<p>TBD ON COPY HERE <a href=\"https://shop.misha-and-puff.com/collections/child-pima-staples\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/collections/child-pima-staples\">Fall Pima cotton</a>, online + in stores. Discount applied at checkout.<a href=\"/pages/promo-terms\" target=\"_blank\" title=\"Promo Terms\">*</a></p>"
           }
         }
       },
       "block_order": [
         "announcement_egLqPG"
       ],
-      "disabled": true,
       "settings": {
         "color_scheme": "",
         "desktop_height": 40,
