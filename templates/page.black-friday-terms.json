@@ -64,10 +64,94 @@
         "padding_left": 52,
         "padding_right": 52
       }
+    },
+    "buttons_ztkGme": {
+      "type": "buttons",
+      "blocks": {
+        "button_H8YgNb": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD NEW ARRIVALS",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-the-winter-collection",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_x4wjJc": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD FALL",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-fall-24-simplified",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_BRYpw9": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD SALE",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-sale",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_XUEBRd": {
+          "type": "button",
+          "settings": {
+            "label": "BABY NEW ARRIVALS",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-the-winter-collection",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_ne3YGm": {
+          "type": "button",
+          "settings": {
+            "label": "BABY FALL",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-fall-24-simplified",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_CchCdX": {
+          "type": "button",
+          "settings": {
+            "label": "BABY SALE",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-sale",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_H8YgNb",
+        "button_x4wjJc",
+        "button_BRYpw9",
+        "button_XUEBRd",
+        "button_ne3YGm",
+        "button_CchCdX"
+      ],
+      "settings": {
+        "title": "Shop the Promo",
+        "button_gap": 10,
+        "heading_size": "h2",
+        "color_scheme": "",
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
+      }
     }
   },
   "order": [
     "main",
-    "rich_text_HcgfCD"
+    "rich_text_HcgfCD",
+    "buttons_ztkGme"
   ]
 }
