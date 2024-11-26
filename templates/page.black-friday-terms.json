@@ -142,10 +142,10 @@
         "button_gap": 10,
         "heading_size": "h2",
         "color_scheme": "",
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 30,
-        "mobile_padding_top": 30,
-        "mobile_padding_bottom": 30
+        "desktop_padding_top": 22,
+        "desktop_padding_bottom": 32,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 12
       }
     }
   },
