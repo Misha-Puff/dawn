@@ -188,6 +188,7 @@
     },
     "featured_collection_rdz6HF": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_alignment": "left",
