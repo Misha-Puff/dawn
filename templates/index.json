@@ -73,6 +73,69 @@
         "mobile_padding_right": 0
       }
     },
+    "multicolumn_peYxH9": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_iAT4GA": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_11.22.24_Baby_HP.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Shop Baby",
+            "link": "shopify://collections/baby-the-winter-collection",
+            "new_tab": false
+          }
+        },
+        "column_3igURh": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_Adult_HP_e6f2b506-f280-4fc3-a02e-66b20847b6b2.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Shop Adult",
+            "link": "shopify://collections/adult-fall-24",
+            "new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "column_iAT4GA",
+        "column_3igURh"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "enable_overlay": true,
+        "content_position": "bottom-left",
+        "overlay_padding": 15,
+        "link_type": "link",
+        "link_color": "#ffffff",
+        "link_style": "underline",
+        "button_type": "primary",
+        "enable_desktop_full_width": true,
+        "enable_mobile_full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 10,
+        "vertical_spacing_desktop": 40,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 20,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 40,
+        "desktop_padding_bottom": 40,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 20
+      }
+    },
     "multicolumn": {
       "type": "multicolumn",
       "blocks": {
@@ -121,69 +184,6 @@
         "desktop_padding_top": 20,
         "desktop_padding_bottom": 20,
         "mobile_padding_top": 0,
-        "mobile_padding_bottom": 20
-      }
-    },
-    "multicolumn_peYxH9": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_iAT4GA": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.22.24_Baby_HP.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Shop Baby",
-            "link": "shopify://collections/baby-the-winter-collection",
-            "new_tab": false
-          }
-        },
-        "column_3igURh": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_Adult_HP_e6f2b506-f280-4fc3-a02e-66b20847b6b2.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Shop Adult",
-            "link": "shopify://collections/adult-fall-24",
-            "new_tab": false
-          }
-        }
-      },
-      "block_order": [
-        "column_iAT4GA",
-        "column_3igURh"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "enable_overlay": true,
-        "content_position": "bottom-left",
-        "overlay_padding": 15,
-        "link_type": "link",
-        "link_color": "#ffffff",
-        "link_style": "underline",
-        "button_type": "primary",
-        "enable_desktop_full_width": false,
-        "enable_mobile_full_width": false,
-        "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 40,
-        "vertical_spacing_desktop": 40,
-        "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 20,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 2,
-        "column_alignment": "left",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "desktop_padding_top": 40,
-        "desktop_padding_bottom": 40,
-        "mobile_padding_top": 20,
         "mobile_padding_bottom": 20
       }
     },
