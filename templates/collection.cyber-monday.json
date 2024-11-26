@@ -19,30 +19,31 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
         "color_scheme": "scheme-1"
       }
     },
-    "rich_text_YJeCaw": {
+    "rich_text_8KBXWk": {
       "type": "rich-text",
       "blocks": {
-        "heading_LbXhKd": {
+        "heading_EahHqJ": {
           "type": "heading",
           "settings": {
-            "heading": "Limited Yarn",
+            "heading": "Cyber Monday",
             "heading_size": "h2"
           }
         },
-        "text_PGqAmF": {
+        "text_ibURUW": {
           "type": "text",
           "settings": {
-            "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.</p>",
-            "line_height": 20
+            "text": "<p>Enjoy 30-60% off select collections.</p>",
+            "line_height": 22
           }
         },
-        "button_Yh3Xhh": {
+        "button_rNDEqX": {
           "type": "button",
           "disabled": true,
           "settings": {
@@ -59,20 +60,130 @@
         }
       },
       "block_order": [
-        "heading_LbXhKd",
-        "text_PGqAmF",
-        "button_Yh3Xhh"
+        "heading_EahHqJ",
+        "text_ibURUW",
+        "button_rNDEqX"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
-        "padding_left": 100,
-        "padding_right": 100
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_left": 132,
+        "padding_right": 132
+      }
+    },
+    "multicolumn_zGAeN8": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_3jeAPN": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/CM_Categories_0000_SWEATERS_CARDIGANS_copy.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": "shopify://collections/cm-sweaters-cardis",
+            "new_tab": true
+          }
+        },
+        "column_cW6B4X": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/CM_Categories_0001_BOTTOMS_copy.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "new_tab": false
+          }
+        },
+        "column_RYWftf": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/CM_Categories_0002_STYLING_STAPLES_copy.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "new_tab": false
+          }
+        },
+        "column_Wckhz4": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/CM_Categories_0003_FALL_BABY_copy.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "new_tab": false
+          }
+        },
+        "column_TPqA87": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/CM_Categories_0004_LAST_FEW_copy.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "new_tab": false
+          }
+        },
+        "column_PNUUxN": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/CM_Categories_0005_WARM_WEATHER_ESSENTIALS_copy.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "column_3jeAPN",
+        "column_cW6B4X",
+        "column_RYWftf",
+        "column_Wckhz4",
+        "column_TPqA87",
+        "column_PNUUxN"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "enable_overlay": false,
+        "content_position": "middle-center",
+        "overlay_padding": 14,
+        "link_type": "link",
+        "link_color": "#000000",
+        "link_style": "none",
+        "button_type": "primary",
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 12,
+        "vertical_spacing_desktop": 0,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 0,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 6,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 32,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 10
       }
     },
     "product-grid": {
@@ -84,6 +195,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 1,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -100,6 +214,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 6,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -124,6 +241,8 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "enable_overlay": false,
+        "enable_swatches": false,
         "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "drawer",
@@ -146,7 +265,8 @@
     "shogun-helper",
     "shogun-above",
     "banner",
-    "rich_text_YJeCaw",
+    "rich_text_8KBXWk",
+    "multicolumn_zGAeN8",
     "product-grid",
     "shogun-below",
     "shogun-optimizer"
