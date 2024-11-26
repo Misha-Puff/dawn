@@ -142,7 +142,7 @@
         "column_Yt8wiE": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/Desktop_BF_Promo_adf486e9-9191-4ab0-8c73-539055660914.jpg",
+            "image": "shopify://shop_images/Desktop_BF_Promo_bb0c2b5c-88a0-4f57-b874-9084e33b0f85.jpg",
             "title": "",
             "text": "",
             "link_label": "Details",
@@ -181,8 +181,8 @@
         "color_scheme": "scheme-1",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "desktop_padding_top": 0,
-        "desktop_padding_bottom": 0,
+        "desktop_padding_top": 20,
+        "desktop_padding_bottom": 20,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 20
       }
