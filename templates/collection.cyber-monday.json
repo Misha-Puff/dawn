@@ -96,8 +96,8 @@
             "title": "",
             "text": "",
             "link_label": "",
-            "link": "",
-            "new_tab": false
+            "link": "shopify://collections/cm-bottoms",
+            "new_tab": true
           }
         },
         "column_RYWftf": {
@@ -107,8 +107,8 @@
             "title": "",
             "text": "",
             "link_label": "",
-            "link": "",
-            "new_tab": false
+            "link": "shopify://collections/cm-styling-staples",
+            "new_tab": true
           }
         },
         "column_Wckhz4": {
@@ -118,8 +118,8 @@
             "title": "",
             "text": "",
             "link_label": "",
-            "link": "",
-            "new_tab": false
+            "link": "shopify://collections/cm-baby",
+            "new_tab": true
           }
         },
         "column_TPqA87": {
@@ -129,8 +129,8 @@
             "title": "",
             "text": "",
             "link_label": "",
-            "link": "",
-            "new_tab": false
+            "link": "shopify://collections/cm-last-few",
+            "new_tab": true
           }
         },
         "column_PNUUxN": {
@@ -140,8 +140,8 @@
             "title": "",
             "text": "",
             "link_label": "",
-            "link": "",
-            "new_tab": false
+            "link": "shopify://collections/cm-warm-weather-essentials",
+            "new_tab": true
           }
         }
       },
@@ -232,6 +232,7 @@
         "image_f8UJrh",
         "image_gkgQFt"
       ],
+      "disabled": true,
       "settings": {
         "products_per_page": 48,
         "columns_desktop": 3,
@@ -259,6 +260,45 @@
     "shogun-optimizer": {
       "type": "shogun-optimizer",
       "settings": {}
+    },
+    "collage_zNizbD": {
+      "type": "collage",
+      "blocks": {
+        "image_Xq8JiN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/MP_F24_Ecomm_Look_60_11207.jpg"
+          }
+        },
+        "product_dhQhpJ": {
+          "type": "product",
+          "settings": {
+            "product": "fa24-child-candy-stripe-accordion-cardigan-red-flame",
+            "second_image": true
+          }
+        },
+        "collection_xFQwtW": {
+          "type": "collection",
+          "settings": {
+            "collection": "cm-sweaters-cardis"
+          }
+        }
+      },
+      "block_order": [
+        "image_Xq8JiN",
+        "product_dhQhpJ",
+        "collection_xFQwtW"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h2",
+        "desktop_layout": "left",
+        "mobile_layout": "collage",
+        "card_styles": "product-card-wrapper",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -269,6 +309,7 @@
     "multicolumn_zGAeN8",
     "product-grid",
     "shogun-below",
-    "shogun-optimizer"
+    "shogun-optimizer",
+    "collage_zNizbD"
   ]
 }
