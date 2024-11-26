@@ -113,10 +113,10 @@
         "link_color": "#ffffff",
         "link_style": "underline",
         "button_type": "primary",
-        "enable_desktop_full_width": true,
+        "enable_desktop_full_width": false,
         "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 10,
+        "horizontal_spacing_desktop": 40,
         "vertical_spacing_desktop": 40,
         "horizontal_spacing_mobile": 10,
         "vertical_spacing_mobile": 20,
@@ -181,8 +181,8 @@
         "color_scheme": "scheme-1",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "desktop_padding_top": 20,
-        "desktop_padding_bottom": 20,
+        "desktop_padding_top": 24,
+        "desktop_padding_bottom": 24,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 20
       }
