@@ -90,7 +90,7 @@
         "column_3igURh": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.22.24_Adult_HP_30104ea3-2627-41db-bf3e-f487387f1422.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_Adult_HP_e6f2b506-f280-4fc3-a02e-66b20847b6b2.jpg",
             "title": "",
             "text": "",
             "link_label": "Shop Adult",
@@ -131,83 +131,8 @@
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "desktop_padding_top": 40,
-        "desktop_padding_bottom": 40,
+        "desktop_padding_bottom": 10,
         "mobile_padding_top": 20,
-        "mobile_padding_bottom": 20
-      }
-    },
-    "multicolumn_4t4Ubf": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_VkmJ9N": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.21.24_Journal.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Journal",
-            "link": "shopify://blogs/journal",
-            "new_tab": false
-          }
-        },
-        "column_jQ3JVX": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.21.24_BestSell.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Best Sellers",
-            "link": "shopify://collections/child-best-sellers",
-            "new_tab": false
-          }
-        },
-        "column_mcCDRB": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_Mob_Stores2.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "Stores",
-            "link": "shopify://pages/stores",
-            "new_tab": false
-          }
-        }
-      },
-      "block_order": [
-        "column_VkmJ9N",
-        "column_jQ3JVX",
-        "column_mcCDRB"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "enable_overlay": true,
-        "content_position": "bottom-left",
-        "overlay_padding": 15,
-        "link_type": "link",
-        "link_color": "#ffffff",
-        "link_style": "underline",
-        "button_type": "primary",
-        "enable_desktop_full_width": false,
-        "enable_mobile_full_width": false,
-        "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 10,
-        "vertical_spacing_desktop": 40,
-        "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 20,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "left",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "desktop_padding_top": 0,
-        "desktop_padding_bottom": 0,
-        "mobile_padding_top": 0,
         "mobile_padding_bottom": 20
       }
     },
@@ -272,6 +197,82 @@
         "mobile_padding_bottom": 0,
         "mobile_padding_left": 20,
         "mobile_padding_right": 20
+      }
+    },
+    "multicolumn_4t4Ubf": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_VkmJ9N": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_11.21.24_Journal.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Journal",
+            "link": "shopify://blogs/journal",
+            "new_tab": false
+          }
+        },
+        "column_jQ3JVX": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_11.21.24_BestSell.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Best Sellers",
+            "link": "shopify://collections/child-best-sellers",
+            "new_tab": false
+          }
+        },
+        "column_mcCDRB": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_Mob_Stores2.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "Stores",
+            "link": "shopify://pages/stores",
+            "new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "column_VkmJ9N",
+        "column_jQ3JVX",
+        "column_mcCDRB"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "enable_overlay": true,
+        "content_position": "bottom-left",
+        "overlay_padding": 15,
+        "link_type": "link",
+        "link_color": "#ffffff",
+        "link_style": "underline",
+        "button_type": "primary",
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 10,
+        "vertical_spacing_desktop": 40,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 20,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 20
       }
     },
     "buttons_zMbkxJ": {
@@ -628,8 +629,8 @@
   "order": [
     "image_banner_bz8jb3",
     "multicolumn_peYxH9",
-    "multicolumn_4t4Ubf",
     "image_banner_PTYKgc",
+    "multicolumn_4t4Ubf",
     "buttons_zMbkxJ",
     "multicolumn",
     "slideshow_t7VikK",
