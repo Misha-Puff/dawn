@@ -196,7 +196,7 @@
         "description": "<p>SWEATERS + CARDIGANS</p>",
         "show_description": false,
         "description_style": "body",
-        "collection": "",
+        "collection": "cm-sweaters-cardis",
         "hide_sold_out": true,
         "products_to_show": 20,
         "columns_desktop": 4,
@@ -222,11 +222,11 @@
         "desktop_padding_top": 16,
         "desktop_padding_bottom": 28,
         "desktop_padding_left": 40,
-        "desktop_padding_right": 52,
-        "mobile_padding_top": 20,
-        "mobile_padding_bottom": 12,
+        "desktop_padding_right": 40,
+        "mobile_padding_top": 52,
+        "mobile_padding_bottom": 20,
         "mobile_padding_left": 12,
-        "mobile_padding_right": 36
+        "mobile_padding_right": 12
       }
     },
     "product-grid": {
