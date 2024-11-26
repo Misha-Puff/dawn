@@ -199,7 +199,7 @@
         "collection": "cm-sweaters-cardis",
         "hide_sold_out": true,
         "products_to_show": 20,
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "full_width": true,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 10,
