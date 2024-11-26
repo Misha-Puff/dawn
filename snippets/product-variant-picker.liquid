@@ -75,7 +75,9 @@
               picker_type: picker_type
             %}
           </select>
-          {% render 'icon-caret' %}
+          <span class="svg-wrapper">
+            {{- 'icon-caret.svg' | inline_asset_content -}}
+          </span>
         </div>
       </div>
     {%- endif -%}
