@@ -142,7 +142,7 @@
         "desktop_padding_top": 30,
         "desktop_padding_bottom": 40,
         "mobile_padding_top": 20,
-        "mobile_padding_bottom": 20
+        "mobile_padding_bottom": 0
       }
     },
     "multicolumn_BMReV9": {
