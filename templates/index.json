@@ -50,7 +50,7 @@
         "buttons_CGGLqp"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_11.29.24_Child1.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_11.29.24_Child2.jpg",
         "banner_link": "shopify://collections/child-the-winter-collection",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -79,36 +79,36 @@
         "column_iAT4GA": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.22.24_Baby_HP.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_11.29.24_Baby.jpg",
             "title": "",
             "text": "",
-            "link_label": "Shop Baby",
+            "link_label": "SHOP BABY",
             "link": "shopify://collections/baby-the-winter-collection",
             "new_tab": false,
-            "enable_overlay": true,
+            "enable_overlay": false,
             "content_position": "bottom-left",
             "overlay_padding": 15,
             "link_type": "link",
-            "link_color": "#ffffff",
-            "link_style": "underline",
+            "link_color": "#000000",
+            "link_style": "none",
             "button_type": "primary"
           }
         },
         "column_3igURh": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_Adult_HP_e6f2b506-f280-4fc3-a02e-66b20847b6b2.jpg",
+            "image": "shopify://shop_images/Email_BF_Promo_CTR.jpg",
             "title": "",
             "text": "",
-            "link_label": "Shop Adult",
-            "link": "shopify://collections/adult-fall-24",
-            "new_tab": false,
-            "enable_overlay": true,
-            "content_position": "bottom-left",
-            "overlay_padding": 15,
+            "link_label": "DETAILS",
+            "link": "shopify://pages/black-friday-terms",
+            "new_tab": true,
+            "enable_overlay": false,
+            "content_position": "bottom-center",
+            "overlay_padding": 27,
             "link_type": "link",
-            "link_color": "#ffffff",
-            "link_style": "underline",
+            "link_color": "#000000",
+            "link_style": "none",
             "button_type": "primary"
           }
         }
@@ -126,7 +126,7 @@
         "horizontal_spacing_desktop": 30,
         "vertical_spacing_desktop": 30,
         "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 20,
+        "vertical_spacing_mobile": 12,
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 2,
@@ -143,17 +143,35 @@
         "mobile_padding_bottom": 20
       }
     },
-    "multicolumn": {
+    "multicolumn_BMReV9": {
       "type": "multicolumn",
       "blocks": {
-        "column_Yt8wiE": {
+        "column_qXTqMb": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/BF_Promo_Mob.png",
+            "image": "shopify://shop_images/MP_WI24_Leader_Adult_HP_e6f2b506-f280-4fc3-a02e-66b20847b6b2.jpg",
             "title": "",
             "text": "",
-            "link_label": "Details",
-            "link": "shopify://pages/black-friday-terms",
+            "link_label": "ADULT NEW ARRIVALS",
+            "link": "shopify://collections/adult-fall-24",
+            "new_tab": false,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 15,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        },
+        "column_YehPqA": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_11.22.24_Kids_HP2_Mob.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "CHILD NEW ARRIVALS",
+            "link": "shopify://collections/child-new",
             "new_tab": false,
             "enable_overlay": false,
             "content_position": "middle-center",
@@ -166,31 +184,32 @@
         }
       },
       "block_order": [
-        "column_Yt8wiE"
+        "column_qXTqMb",
+        "column_YehPqA"
       ],
       "settings": {
         "title": "",
-        "heading_size": "h2",
+        "heading_size": "h1",
         "enable_desktop_full_width": false,
         "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 0,
-        "vertical_spacing_desktop": 0,
+        "horizontal_spacing_desktop": 30,
+        "vertical_spacing_desktop": 30,
         "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 20,
+        "vertical_spacing_mobile": 12,
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 2,
-        "column_alignment": "center",
+        "column_alignment": "left",
         "background_style": "none",
         "button_label": "",
         "button_link": "",
-        "color_scheme": "scheme-1",
+        "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "desktop_padding_top": 24,
-        "desktop_padding_bottom": 24,
-        "mobile_padding_top": 0,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 40,
+        "mobile_padding_top": 20,
         "mobile_padding_bottom": 20
       }
     },
@@ -219,10 +238,10 @@
           "settings": {
             "link_type": "link",
             "link_color": "#ffffff",
-            "button_label_1": "Child Guide",
+            "button_label_1": "CHILD GUIDE",
             "button_link_1": "shopify://collections/child-gift-edit",
             "button_style_secondary_1": false,
-            "button_label_2": "Baby Guide",
+            "button_label_2": "BABY GUIDE",
             "button_link_2": "shopify://collections/baby-gift-edit",
             "button_style_secondary_2": false
           }
@@ -247,7 +266,7 @@
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": false,
-        "desktop_padding_top": 40,
+        "desktop_padding_top": 0,
         "desktop_padding_bottom": 0,
         "desktop_padding_left": 0,
         "desktop_padding_right": 0,
@@ -698,7 +717,7 @@
   "order": [
     "image_banner_bz8jb3",
     "multicolumn_peYxH9",
-    "multicolumn",
+    "multicolumn_BMReV9",
     "image_banner_PTYKgc",
     "buttons_zMbkxJ",
     "multicolumn_4t4Ubf",
