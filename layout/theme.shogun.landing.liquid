@@ -5,7 +5,6 @@ This file can be re-written at any time.
 
 <html>
   <head>
-    {{ locksmith_initializations }}
     <!-- Start of Shoplift scripts -->
     {% render 'shoplift' %}
     <!-- End of Shoplift scripts -->
@@ -33,10 +32,7 @@ This file can be re-written at any time.
     </title>
 
     {% if page_description %}
-      {%- comment %}<locksmith:3506>{% endcomment -%}
-        {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
-        {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-      {%- comment %}</locksmith:3506>{% endcomment -%}
+      <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
 
     {% render 'meta-tags' %}
