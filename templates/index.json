@@ -227,7 +227,7 @@
         "buttons_zkt4Vc"
       ],
       "settings": {
-        "image": "shopify://shop_images/giftguides_11.25.24_2_cb444229-fa58-4387-b7be-6e022d61d686.jpg",
+        "image": "shopify://shop_images/giftguides_11.25.24_3_1920x1080_c1902b67-22e8-46c5-838e-32b5db58e5d4.jpg",
         "banner_link": "",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -242,8 +242,8 @@
         "show_text_below": false,
         "desktop_padding_top": 40,
         "desktop_padding_bottom": 0,
-        "desktop_padding_left": 40,
-        "desktop_padding_right": 40,
+        "desktop_padding_left": 0,
+        "desktop_padding_right": 0,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 0,
         "mobile_padding_left": 20,
