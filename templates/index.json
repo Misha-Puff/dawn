@@ -140,7 +140,7 @@
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "desktop_padding_top": 30,
-        "desktop_padding_bottom": 40,
+        "desktop_padding_bottom": 30,
         "mobile_padding_top": 20,
         "mobile_padding_bottom": 0
       }
@@ -305,9 +305,9 @@
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "desktop_padding_top": 0,
-        "desktop_padding_bottom": 0,
+        "desktop_padding_bottom": 40,
         "mobile_padding_top": 20,
-        "mobile_padding_bottom": 20
+        "mobile_padding_bottom": 0
       }
     },
     "image_banner_PTYKgc": {
