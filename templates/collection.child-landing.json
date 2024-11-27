@@ -119,11 +119,11 @@
         "column_iBFc39": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.15.24_BestSell.jpg",
+            "image": "shopify://shop_images/CM_Promo_1.jpg",
             "title": "",
             "text": "",
-            "link_label": "BEST SELLERS",
-            "link": "shopify://collections/child-best-sellers",
+            "link_label": "SHOP NOW",
+            "link": "shopify://collections/cyber-monday",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
