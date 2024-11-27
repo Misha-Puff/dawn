@@ -316,8 +316,8 @@
         "button_gap": 10,
         "heading_size": "h2",
         "color_scheme": "",
-        "desktop_padding_top": 50,
-        "desktop_padding_bottom": 30,
+        "desktop_padding_top": 60,
+        "desktop_padding_bottom": 40,
         "mobile_padding_top": 40,
         "mobile_padding_bottom": 30
       }
