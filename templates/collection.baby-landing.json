@@ -111,11 +111,11 @@
         "column_iycPDw": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/CM_Promo_1.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_11.21.24_Baby_Sweater.jpg",
             "title": "",
             "text": "",
-            "link_label": "CYBER MONDAY",
-            "link": "shopify://collections/cyber-monday",
+            "link_label": "SWEATERS + CARDIGANS",
+            "link": "shopify://collections/baby-sweaters-cardigans",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
