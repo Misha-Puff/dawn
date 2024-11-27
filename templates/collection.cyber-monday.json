@@ -81,7 +81,7 @@
         "column_3jeAPN": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/CM_Categories_0002s_0000_SWEATERS_CARDIGANS_copy_2.jpg",
+            "image": "shopify://shop_images/CM_Categories_sweaters.jpg",
             "title": "",
             "text": "",
             "link_label": "",
@@ -92,7 +92,7 @@
         "column_cW6B4X": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/CM_Categories_0002s_0001_BOTTOMS_copy_2.jpg",
+            "image": "shopify://shop_images/CM_Categories_bottoms.jpg",
             "title": "",
             "text": "",
             "link_label": "",
@@ -103,7 +103,7 @@
         "column_RYWftf": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/CM_Categories_0002s_0002_STYLING_STAPLES_copy_2.jpg",
+            "image": "shopify://shop_images/CM_Categories_styling.jpg",
             "title": "",
             "text": "",
             "link_label": "",
@@ -114,7 +114,7 @@
         "column_Wckhz4": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/CM_Categories_0002s_0003_FALL_BABY_copy_2.jpg",
+            "image": "shopify://shop_images/CM_Categories_baby.jpg",
             "title": "",
             "text": "",
             "link_label": "",
@@ -125,7 +125,7 @@
         "column_TPqA87": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/CM_Categories_0002s_0004_LAST_FEW_copy_2.jpg",
+            "image": "shopify://shop_images/CM_Categories_lastfew.jpg",
             "title": "",
             "text": "",
             "link_label": "",
@@ -136,7 +136,7 @@
         "column_PNUUxN": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/CM_Categories_0002s_0005_WARM_WEATHER_ESSENTIALS_copy_2.jpg",
+            "image": "shopify://shop_images/CM_Categories_warmweather.jpg",
             "title": "",
             "text": "",
             "link_label": "",
