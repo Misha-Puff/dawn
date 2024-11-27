@@ -214,13 +214,13 @@
             "link_label": "TOPS",
             "link": "shopify://collections/child-tops",
             "new_tab": false,
-            "enable_overlay": false,
+            "enable_overlay": true,
             "content_position": "middle-center",
             "overlay_padding": 25,
             "link_type": "link",
             "link_color": "#000000",
-            "link_style": "none",
-            "button_type": "primary"
+            "link_style": "underline",
+            "button_type": "secondary"
           }
         },
         "column_HHt4f8": {
@@ -232,13 +232,13 @@
             "link_label": "BOTTOMS",
             "link": "shopify://collections/child-bottoms",
             "new_tab": false,
-            "enable_overlay": false,
+            "enable_overlay": true,
             "content_position": "middle-center",
             "overlay_padding": 25,
             "link_type": "link",
             "link_color": "#000000",
-            "link_style": "none",
-            "button_type": "primary"
+            "link_style": "underline",
+            "button_type": "secondary"
           }
         },
         "column_LJRLEz": {
@@ -250,13 +250,13 @@
             "link_label": "DRESSES",
             "link": "shopify://collections/child-dresses",
             "new_tab": false,
-            "enable_overlay": false,
+            "enable_overlay": true,
             "content_position": "middle-center",
             "overlay_padding": 25,
             "link_type": "link",
             "link_color": "#000000",
-            "link_style": "none",
-            "button_type": "primary"
+            "link_style": "underline",
+            "button_type": "secondary"
           }
         },
         "column_r66WBe": {
@@ -268,13 +268,13 @@
             "link_label": "SWEATERS",
             "link": "shopify://collections/child-sweaters-cardigans",
             "new_tab": false,
-            "enable_overlay": false,
+            "enable_overlay": true,
             "content_position": "middle-center",
             "overlay_padding": 25,
             "link_type": "link",
             "link_color": "#000000",
-            "link_style": "none",
-            "button_type": "primary"
+            "link_style": "underline",
+            "button_type": "secondary"
           }
         },
         "column_PpdRg4": {
@@ -286,13 +286,13 @@
             "link_label": "ACCESSORIES",
             "link": "shopify://collections/child-accessories",
             "new_tab": false,
-            "enable_overlay": false,
+            "enable_overlay": true,
             "content_position": "middle-center",
             "overlay_padding": 25,
             "link_type": "link",
             "link_color": "#000000",
-            "link_style": "none",
-            "button_type": "primary"
+            "link_style": "underline",
+            "button_type": "secondary"
           }
         },
         "column_cRDGKE": {
@@ -304,13 +304,13 @@
             "link_label": "SHOP BABY",
             "link": "shopify://collections/baby-fall-24",
             "new_tab": false,
-            "enable_overlay": false,
+            "enable_overlay": true,
             "content_position": "middle-center",
             "overlay_padding": 25,
             "link_type": "link",
             "link_color": "#000000",
-            "link_style": "none",
-            "button_type": "primary"
+            "link_style": "underline",
+            "button_type": "secondary"
           }
         },
         "column_TmHkaL": {
@@ -322,13 +322,13 @@
             "link_label": "SALE",
             "link": "shopify://collections/child-sale",
             "new_tab": false,
-            "enable_overlay": false,
+            "enable_overlay": true,
             "content_position": "middle-center",
             "overlay_padding": 25,
             "link_type": "link",
             "link_color": "#000000",
-            "link_style": "none",
-            "button_type": "primary"
+            "link_style": "underline",
+            "button_type": "secondary"
           }
         }
       },
