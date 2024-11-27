@@ -1,23 +1,21 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "shogun-helper": {
       "type": "shogun-helper",
-      "settings": {
-      }
+      "settings": {}
     },
     "shogun-above": {
       "type": "shogun-above",
-      "settings": {
-      }
+      "settings": {}
     },
     "banner": {
       "type": "main-collection-banner",
@@ -40,7 +38,8 @@
         "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
-        
+        "enable_overlay": false,
+        "enable_swatches": false,
         "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "horizontal",
@@ -56,8 +55,10 @@
         "buttons_MbErHB": {
           "type": "buttons",
           "settings": {
+            "link_type": "button",
+            "link_color": "#000000",
             "button_label_1": "SHOP FALL",
-            "button_link_1": "shopify:\/\/collections\/child-fall-24",
+            "button_link_1": "shopify://collections/child-fall-24",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -69,7 +70,9 @@
           "disabled": true,
           "settings": {
             "heading": "Image banner",
-            "heading_size": "h1"
+            "desktop_heading_size": "h1",
+            "mobile_heading_size": "h1",
+            "heading_color": "#000000"
           }
         },
         "text_iqachQ": {
@@ -87,7 +90,8 @@
         "text_iqachQ"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.19.24_2.jpg",
+        "image": "shopify://shop_images/MP_FA24_Leader_8.19.24_2.jpg",
+        "banner_link": "",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -95,10 +99,18 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.19.24_Mob_2.jpg",
+        "mobile_image": "shopify://shop_images/MP_FA24_Leader_8.19.24_Mob_2.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
-        "show_text_below": false
+        "show_text_below": false,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 0,
+        "desktop_padding_right": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
       }
     },
     "multicolumn_gfwpxD": {
@@ -107,21 +119,37 @@
         "column_dQmUh8": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_Mob_8.6.24.jpg",
+            "image": "shopify://shop_images/MP_FA24_Leader_Mob_8.6.24.jpg",
             "title": "",
             "text": "",
             "link_label": "Shop Denim —",
-            "link": "shopify:\/\/collections\/child-fall-denim-collection"
+            "link": "shopify://collections/child-fall-denim-collection",
+            "new_tab": false,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         },
         "column_iBFc39": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_SaleALL_8.20.24.jpg",
+            "image": "shopify://shop_images/MP_SaleALL_8.20.24.jpg",
             "title": "",
             "text": "",
-            "link_label": "Sale \/ Further Markdowns up to 40% off —",
-            "link": "shopify:\/\/collections\/child-sale"
+            "link_label": "Sale / Further Markdowns up to 40% off —",
+            "link": "shopify://collections/child-sale",
+            "new_tab": false,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         }
       },
@@ -132,11 +160,8 @@
       "settings": {
         "title": "",
         "heading_size": "h1",
-        "enable_overlay": false,
-        "content_position": "middle-center",
-        "link_type": "link",
-        "button_type": "primary",
-        "enable_full_width": false,
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 30,
         "vertical_spacing_desktop": 20,
@@ -164,21 +189,37 @@
         "column_4RGfWt": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.19.24_BestSell.jpg",
+            "image": "shopify://shop_images/MP_FA24_Leader_8.19.24_BestSell.jpg",
             "title": "",
             "text": "",
             "link_label": "Best Sellers —",
-            "link": "shopify:\/\/collections\/child-best-sellers"
+            "link": "shopify://collections/child-best-sellers",
+            "new_tab": false,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         },
         "column_RkFMtr": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/fa24_leadlook_Prev_b7d8e1d9-ba4d-40ba-a86a-e83a6f458764.jpg",
+            "image": "shopify://shop_images/fa24_leadlook_Prev_b7d8e1d9-ba4d-40ba-a86a-e83a6f458764.jpg",
             "title": "",
             "text": "",
             "link_label": "Fall Lookbook —",
-            "link": "shopify:\/\/blogs\/journal\/child-fall-24"
+            "link": "shopify://blogs/journal/child-fall-24",
+            "new_tab": false,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         }
       },
@@ -189,11 +230,8 @@
       "settings": {
         "title": "",
         "heading_size": "h1",
-        "enable_overlay": false,
-        "content_position": "middle-center",
-        "link_type": "link",
-        "button_type": "primary",
-        "enable_full_width": false,
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 30,
         "vertical_spacing_desktop": 20,
@@ -221,41 +259,73 @@
         "column_9wJreE": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Original_Popcorn_Sweater_-_Pink_Lilac_01.jpg",
+            "image": "shopify://shop_images/Original_Popcorn_Sweater_-_Pink_Lilac_01.jpg",
             "title": "",
             "text": "",
             "link_label": "SWEATERS",
-            "link": "shopify:\/\/collections\/child-sweaters-cardigans"
+            "link": "shopify://collections/child-sweaters-cardigans",
+            "new_tab": false,
+            "enable_overlay": true,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "button",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "secondary"
           }
         },
         "column_cbb8R9": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/sKD766Xv7Pv_4F9uR0gpPS7VUIOIVIN_IAZ5kxmH5ko.webp",
+            "image": "shopify://shop_images/sKD766Xv7Pv_4F9uR0gpPS7VUIOIVIN_IAZ5kxmH5ko.webp",
             "title": "",
             "text": "",
             "link_label": "dresses",
-            "link": "shopify:\/\/collections\/child-dresses"
+            "link": "shopify://collections/child-dresses",
+            "new_tab": false,
+            "enable_overlay": true,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "button",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "secondary"
           }
         },
         "column_4dtYhK": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Turtleneck_-_Sprig_01.jpg",
+            "image": "shopify://shop_images/Turtleneck_-_Sprig_01.jpg",
             "title": "",
             "text": "",
             "link_label": "TOPS",
-            "link": "shopify:\/\/collections\/child-tops"
+            "link": "shopify://collections/child-tops",
+            "new_tab": false,
+            "enable_overlay": true,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "button",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "secondary"
           }
         },
         "column_fqtCKn": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Utility_Jeans_-_Sage_Denim_01.jpg",
+            "image": "shopify://shop_images/Utility_Jeans_-_Sage_Denim_01.jpg",
             "title": "",
             "text": "",
             "link_label": "bottoms",
-            "link": "shopify:\/\/collections\/child-bottoms"
+            "link": "shopify://collections/child-bottoms",
+            "new_tab": false,
+            "enable_overlay": true,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "button",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "secondary"
           }
         }
       },
@@ -268,11 +338,8 @@
       "settings": {
         "title": "",
         "heading_size": "h1",
-        "enable_overlay": true,
-        "content_position": "middle-center",
-        "link_type": "button",
-        "button_type": "secondary",
-        "enable_full_width": true,
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 10,
         "vertical_spacing_desktop": 20,
@@ -300,8 +367,10 @@
         "buttons_mwJpBJ": {
           "type": "buttons",
           "settings": {
+            "link_type": "button",
+            "link_color": "#000000",
             "button_label_1": "Journal",
-            "button_link_1": "shopify:\/\/blogs\/journal",
+            "button_link_1": "shopify://blogs/journal",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -313,7 +382,8 @@
         "buttons_mwJpBJ"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/MP_SU24_Leader_Journal_6.18.24.jpg",
+        "image": "shopify://shop_images/MP_SU24_Leader_Journal_6.18.24.jpg",
+        "banner_link": "",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -321,10 +391,18 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify:\/\/shop_images\/MP_SU24_Leader_Journal_6.18.24_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_SU24_Leader_Journal_6.18.24_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
-        "show_text_below": false
+        "show_text_below": false,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 0,
+        "desktop_padding_right": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
       }
     },
     "slideshow_8wUhXX": {
@@ -333,19 +411,19 @@
         "slide_t3KrGM": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/MP_FA24_Leader_8.6.24_2.jpg",
+            "image": "shopify://shop_images/MP_FA24_Leader_8.6.24_2.jpg",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
             "button_label": "Preview fall",
-            "link": "shopify:\/\/collections\/child-fall-24-preview",
+            "link": "shopify://collections/child-fall-24-preview",
             "button_style_secondary": true,
             "box_align": "middle-center",
             "show_text_box": false,
             "text_alignment": "center",
             "image_overlay_opacity": 0,
             "color_scheme": "scheme-1",
-            "mobile_image": "shopify:\/\/shop_images\/MP_FA24_Leader_Mob_8.6.24_2.jpg",
+            "mobile_image": "shopify://shop_images/MP_FA24_Leader_Mob_8.6.24_2.jpg",
             "text_alignment_mobile": "center"
           }
         }
@@ -362,18 +440,24 @@
         "change_slides_speed": 5,
         "image_behavior": "none",
         "show_text_below": false,
-        "accessibility_info": ""
+        "accessibility_info": "",
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 0,
+        "desktop_padding_right": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
       }
     },
     "shogun-below": {
       "type": "shogun-below",
-      "settings": {
-      }
+      "settings": {}
     },
     "shogun-optimizer": {
       "type": "shogun-optimizer",
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [

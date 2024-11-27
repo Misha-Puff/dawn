@@ -161,7 +161,14 @@
             "text": "",
             "link_label": "New Arrivals",
             "link": "shopify://collections/adult-fall-24",
-            "new_tab": false
+            "new_tab": false,
+            "enable_overlay": true,
+            "content_position": "bottom-left",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#ffffff",
+            "link_style": "underline",
+            "button_type": "primary"
           }
         },
         "column_BCxWxb": {
@@ -172,7 +179,14 @@
             "text": "",
             "link_label": "Fall Lookbook",
             "link": "https://shop.misha-and-puff.com/blogs/journal/adult-fall-24",
-            "new_tab": false
+            "new_tab": false,
+            "enable_overlay": true,
+            "content_position": "bottom-left",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#ffffff",
+            "link_style": "underline",
+            "button_type": "primary"
           }
         }
       },
@@ -183,13 +197,6 @@
       "settings": {
         "title": "",
         "heading_size": "h1",
-        "enable_overlay": true,
-        "content_position": "bottom-left",
-        "overlay_padding": 15,
-        "link_type": "link",
-        "link_color": "#ffffff",
-        "link_style": "underline",
-        "button_type": "primary",
         "enable_desktop_full_width": false,
         "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
