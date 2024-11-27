@@ -124,7 +124,14 @@
             "text": "",
             "link_label": "Best Sellers",
             "link": "shopify://collections/child-best-sellers",
-            "new_tab": false
+            "new_tab": false,
+            "enable_overlay": true,
+            "content_position": "bottom-left",
+            "overlay_padding": 22,
+            "link_type": "link",
+            "link_color": "#ffffff",
+            "link_style": "underline",
+            "button_type": "primary"
           }
         },
         "column_RwiwcK": {
@@ -135,7 +142,14 @@
             "text": "",
             "link_label": "Gift Guide",
             "link": "shopify://collections/child-gift-edit",
-            "new_tab": true
+            "new_tab": true,
+            "enable_overlay": true,
+            "content_position": "bottom-left",
+            "overlay_padding": 22,
+            "link_type": "link",
+            "link_color": "#ffffff",
+            "link_style": "underline",
+            "button_type": "primary"
           }
         },
         "column_dQmUh8": {
@@ -147,7 +161,14 @@
             "text": "",
             "link_label": "Shop Denim",
             "link": "shopify://collections/child-fall-denim-collection",
-            "new_tab": false
+            "new_tab": false,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         }
       },
@@ -159,13 +180,6 @@
       "settings": {
         "title": "",
         "heading_size": "h1",
-        "enable_overlay": true,
-        "content_position": "bottom-left",
-        "overlay_padding": 22,
-        "link_type": "link",
-        "link_color": "#ffffff",
-        "link_style": "underline",
-        "button_type": "primary",
         "enable_desktop_full_width": false,
         "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
@@ -243,7 +257,14 @@
             "text": "",
             "link_label": "SWEATERS",
             "link": "shopify://collections/child-sweaters-cardigans",
-            "new_tab": false
+            "new_tab": false,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         },
         "column_4dtYhK": {
@@ -254,7 +275,14 @@
             "text": "",
             "link_label": "TOPS",
             "link": "shopify://collections/child-tops",
-            "new_tab": false
+            "new_tab": false,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         },
         "column_fqtCKn": {
@@ -265,7 +293,14 @@
             "text": "",
             "link_label": "BOTTOMS",
             "link": "shopify://collections/child-bottoms",
-            "new_tab": false
+            "new_tab": false,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         },
         "column_cbb8R9": {
@@ -276,7 +311,14 @@
             "text": "",
             "link_label": "DRESSES",
             "link": "shopify://collections/child-dresses",
-            "new_tab": false
+            "new_tab": false,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         },
         "column_pW4ht9": {
@@ -287,7 +329,14 @@
             "text": "",
             "link_label": "ACCESSORIES",
             "link": "shopify://collections/child-accessories",
-            "new_tab": false
+            "new_tab": false,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         },
         "column_bNHwHc": {
@@ -298,7 +347,14 @@
             "text": "",
             "link_label": "JACKETS",
             "link": "shopify://collections/child-jackets",
-            "new_tab": false
+            "new_tab": false,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         },
         "column_cx3PxC": {
@@ -310,7 +366,14 @@
             "text": "",
             "link_label": "ONE-PIECES",
             "link": "",
-            "new_tab": false
+            "new_tab": false,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         },
         "column_7bKmgw": {
@@ -322,7 +385,14 @@
             "text": "",
             "link_label": "HAIR",
             "link": "shopify://collections/child-hair-accessories",
-            "new_tab": false
+            "new_tab": false,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         }
       },
@@ -340,13 +410,6 @@
       "settings": {
         "title": "",
         "heading_size": "h2",
-        "enable_overlay": true,
-        "content_position": "middle-center",
-        "overlay_padding": 25,
-        "link_type": "link",
-        "link_color": "#ffffff",
-        "link_style": "underline",
-        "button_type": "secondary",
         "enable_desktop_full_width": false,
         "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
@@ -381,7 +444,14 @@
             "text": "",
             "link_label": "Best Sellers —",
             "link": "shopify://collections/child-best-sellers",
-            "new_tab": false
+            "new_tab": false,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         },
         "column_RkFMtr": {
@@ -392,7 +462,14 @@
             "text": "",
             "link_label": "Fall Lookbook —",
             "link": "shopify://blogs/journal/child-fall-24",
-            "new_tab": false
+            "new_tab": false,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         }
       },
@@ -404,13 +481,6 @@
       "settings": {
         "title": "",
         "heading_size": "h1",
-        "enable_overlay": false,
-        "content_position": "middle-center",
-        "overlay_padding": 25,
-        "link_type": "link",
-        "link_color": "#000000",
-        "link_style": "none",
-        "button_type": "primary",
         "enable_desktop_full_width": false,
         "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
