@@ -126,7 +126,7 @@
         "horizontal_spacing_desktop": 30,
         "vertical_spacing_desktop": 30,
         "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 20,
+        "vertical_spacing_mobile": 14,
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 2,
@@ -196,7 +196,7 @@
         "horizontal_spacing_desktop": 30,
         "vertical_spacing_desktop": 30,
         "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 20,
+        "vertical_spacing_mobile": 14,
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 2,
@@ -208,7 +208,7 @@
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "desktop_padding_top": 0,
-        "desktop_padding_bottom": 0,
+        "desktop_padding_bottom": 10,
         "mobile_padding_top": 20,
         "mobile_padding_bottom": 20
       }
