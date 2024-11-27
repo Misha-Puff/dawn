@@ -138,6 +138,10 @@
       .Block-{{ block.id }} .styled-link {
         text-decoration: {{ block.settings.link_style }} !important;
       }
+
+      .Block-{{ block.id }}:not(.content-overlay ) .multicolumn-card__info .link {
+        margin-top: {{ block.settings.link_margin }}px;
+      }
     {% endfor %}
 {%- endstyle -%}
 
@@ -652,6 +656,16 @@
           "type": "checkbox",
           "id": "new_tab",
           "label": "Open Link in New Tab"
+        },
+        {
+          "type": "range",
+          "id": "link_margin",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "default": 15,
+          "unit": "px",
+          "label": "Link Top Margin"
         },
         {
           "type": "checkbox",
