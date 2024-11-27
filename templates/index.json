@@ -143,10 +143,10 @@
         "mobile_padding_bottom": 20
       }
     },
-    "multicolumn": {
+    "multicolumn_BMReV9": {
       "type": "multicolumn",
       "blocks": {
-        "column_Yt8wiE": {
+        "column_qXTqMb": {
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/MP_WI24_Leader_Adult_HP_e6f2b506-f280-4fc3-a02e-66b20847b6b2.jpg",
@@ -156,7 +156,7 @@
             "link": "shopify://collections/adult-fall-24",
             "new_tab": false,
             "enable_overlay": false,
-            "content_position": "bottom-left",
+            "content_position": "middle-center",
             "overlay_padding": 15,
             "link_type": "link",
             "link_color": "#000000",
@@ -164,13 +164,14 @@
             "button_type": "primary"
           }
         },
-        "column_iKGrBe": {
+        "column_YehPqA": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_11.22.24_Kids_LP1_Mob.jpg",
             "title": "",
             "text": "",
-            "link_label": "",
-            "link": "",
+            "link_label": "CHILD NEW ARRIVALS",
+            "link": "shopify://collections/child-new",
             "new_tab": false,
             "enable_overlay": false,
             "content_position": "middle-center",
@@ -183,12 +184,12 @@
         }
       },
       "block_order": [
-        "column_Yt8wiE",
-        "column_iKGrBe"
+        "column_qXTqMb",
+        "column_YehPqA"
       ],
       "settings": {
         "title": "",
-        "heading_size": "h2",
+        "heading_size": "h1",
         "enable_desktop_full_width": false,
         "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
@@ -199,15 +200,15 @@
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 2,
-        "column_alignment": "center",
+        "column_alignment": "left",
         "background_style": "none",
         "button_label": "",
         "button_link": "",
-        "color_scheme": "scheme-1",
+        "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "desktop_padding_top": 0,
-        "desktop_padding_bottom": 20,
+        "desktop_padding_bottom": 0,
         "mobile_padding_top": 20,
         "mobile_padding_bottom": 20
       }
@@ -716,7 +717,7 @@
   "order": [
     "image_banner_bz8jb3",
     "multicolumn_peYxH9",
-    "multicolumn",
+    "multicolumn_BMReV9",
     "image_banner_PTYKgc",
     "buttons_zMbkxJ",
     "multicolumn_4t4Ubf",
