@@ -180,12 +180,12 @@
             "link_label": "Fall Lookbook",
             "link": "https://shop.misha-and-puff.com/blogs/journal/adult-fall-24",
             "new_tab": false,
-            "enable_overlay": false,
-            "content_position": "middle-center",
+            "enable_overlay": true,
+            "content_position": "bottom-left",
             "overlay_padding": 25,
             "link_type": "link",
-            "link_color": "#000000",
-            "link_style": "none",
+            "link_color": "#ffffff",
+            "link_style": "underline",
             "button_type": "primary"
           }
         }
