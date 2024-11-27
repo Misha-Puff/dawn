@@ -39,7 +39,7 @@
         "text_ibURUW": {
           "type": "text",
           "settings": {
-            "text": "<p>Enjoy 30-60% off select styles, including Fall.<br/>Exclusions apply.*</p>",
+            "text": "<p>Enjoy 30-60% off select styles, including Fall.<br/>Exclusions apply.<a href=\"/pages/cyber-monday-terms\" target=\"_blank\" title=\"Cyber Monday Terms\">*</a></p>",
             "line_height": 22
           }
         },
@@ -86,7 +86,14 @@
             "text": "",
             "link_label": "",
             "link": "shopify://collections/cm-sweaters-cardis",
-            "new_tab": true
+            "new_tab": true,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         },
         "column_cW6B4X": {
@@ -97,7 +104,14 @@
             "text": "",
             "link_label": "",
             "link": "shopify://collections/cm-bottoms",
-            "new_tab": true
+            "new_tab": true,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         },
         "column_RYWftf": {
@@ -108,7 +122,14 @@
             "text": "",
             "link_label": "",
             "link": "shopify://collections/cm-styling-staples",
-            "new_tab": true
+            "new_tab": true,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         },
         "column_Wckhz4": {
@@ -119,7 +140,14 @@
             "text": "",
             "link_label": "",
             "link": "shopify://collections/cm-baby",
-            "new_tab": true
+            "new_tab": true,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         },
         "column_TPqA87": {
@@ -130,7 +158,14 @@
             "text": "",
             "link_label": "",
             "link": "shopify://collections/cm-last-few",
-            "new_tab": true
+            "new_tab": true,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         },
         "column_PNUUxN": {
@@ -141,7 +176,14 @@
             "text": "",
             "link_label": "",
             "link": "shopify://collections/cm-warm-weather-essentials",
-            "new_tab": true
+            "new_tab": true,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         }
       },
@@ -156,13 +198,6 @@
       "settings": {
         "title": "",
         "heading_size": "h1",
-        "enable_overlay": false,
-        "content_position": "middle-center",
-        "overlay_padding": 14,
-        "link_type": "link",
-        "link_color": "#000000",
-        "link_style": "none",
-        "button_type": "primary",
         "enable_desktop_full_width": false,
         "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
