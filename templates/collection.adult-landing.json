@@ -160,7 +160,8 @@
             "title": "",
             "text": "",
             "link_label": "New Arrivals",
-            "link": "shopify://collections/adult-fall-24"
+            "link": "shopify://collections/adult-fall-24",
+            "new_tab": false
           }
         },
         "column_BCxWxb": {
@@ -170,7 +171,8 @@
             "title": "",
             "text": "",
             "link_label": "Fall Lookbook",
-            "link": "https://shop.misha-and-puff.com/blogs/journal/adult-fall-24"
+            "link": "https://shop.misha-and-puff.com/blogs/journal/adult-fall-24",
+            "new_tab": false
           }
         }
       },
@@ -191,8 +193,8 @@
         "enable_desktop_full_width": false,
         "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 40,
-        "vertical_spacing_desktop": 40,
+        "horizontal_spacing_desktop": 30,
+        "vertical_spacing_desktop": 30,
         "horizontal_spacing_mobile": 10,
         "vertical_spacing_mobile": 20,
         "image_width": "full",
@@ -205,8 +207,8 @@
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "desktop_padding_top": 40,
-        "desktop_padding_bottom": 40,
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 30,
         "mobile_padding_top": 20,
         "mobile_padding_bottom": 0
       }
@@ -246,9 +248,9 @@
         "section_full_width": false,
         "desktop_padding_top": 16,
         "desktop_padding_bottom": 28,
-        "desktop_padding_left": 40,
-        "desktop_padding_right": 40,
-        "mobile_padding_top": 40,
+        "desktop_padding_left": 32,
+        "desktop_padding_right": 32,
+        "mobile_padding_top": 52,
         "mobile_padding_bottom": 20,
         "mobile_padding_left": 12,
         "mobile_padding_right": 12
