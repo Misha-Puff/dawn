@@ -296,6 +296,78 @@
         "padding_bottom": 36
       }
     },
+    "buttons_tdnNta": {
+      "type": "buttons",
+      "blocks": {
+        "button_NF9qEJ": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD SALE",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-sale",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_tLxcEW": {
+          "type": "button",
+          "settings": {
+            "label": "BABY SALE",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-sale",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_axfKWm": {
+          "type": "button",
+          "settings": {
+            "label": "NEW ARRIVALS",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-the-winter-collection",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_pN8PFP": {
+          "type": "button",
+          "settings": {
+            "label": "BEST SELLERS",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-best-sellers",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_Pr3VVg": {
+          "type": "button",
+          "settings": {
+            "label": "ADULT",
+            "open_new_tab": true,
+            "link": "shopify://collections/adult-fall-24",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_NF9qEJ",
+        "button_tLxcEW",
+        "button_axfKWm",
+        "button_pN8PFP",
+        "button_Pr3VVg"
+      ],
+      "settings": {
+        "title": "More to Explore",
+        "button_gap": 10,
+        "heading_size": "h2",
+        "color_scheme": "",
+        "desktop_padding_top": 20,
+        "desktop_padding_bottom": 50,
+        "mobile_padding_top": 10,
+        "mobile_padding_bottom": 30
+      }
+    },
     "shogun-below": {
       "type": "shogun-below",
       "settings": {}
@@ -313,6 +385,7 @@
     "multicolumn_zGAeN8",
     "featured_collection_rdz6HF",
     "product-grid",
+    "buttons_tdnNta",
     "shogun-below",
     "shogun-optimizer"
   ]
