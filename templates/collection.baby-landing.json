@@ -116,7 +116,14 @@
             "text": "",
             "link_label": "Baby Sweaters",
             "link": "shopify://collections/baby-sweaters-cardigans",
-            "new_tab": false
+            "new_tab": false,
+            "enable_overlay": true,
+            "content_position": "bottom-left",
+            "overlay_padding": 26,
+            "link_type": "link",
+            "link_color": "#ffffff",
+            "link_style": "underline",
+            "button_type": "primary"
           }
         },
         "column_Hgag6H": {
@@ -127,7 +134,14 @@
             "text": "",
             "link_label": "Gift Guide",
             "link": "shopify://collections/baby-gift-edit",
-            "new_tab": true
+            "new_tab": true,
+            "enable_overlay": true,
+            "content_position": "bottom-left",
+            "overlay_padding": 26,
+            "link_type": "link",
+            "link_color": "#ffffff",
+            "link_style": "underline",
+            "button_type": "primary"
           }
         },
         "column_VnhYKW": {
@@ -139,7 +153,14 @@
             "text": "",
             "link_label": "Shop Layette",
             "link": "shopify://collections/layette-24-old",
-            "new_tab": false
+            "new_tab": false,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         }
       },
@@ -151,13 +172,6 @@
       "settings": {
         "title": "",
         "heading_size": "h1",
-        "enable_overlay": true,
-        "content_position": "bottom-left",
-        "overlay_padding": 26,
-        "link_type": "link",
-        "link_color": "#ffffff",
-        "link_style": "underline",
-        "button_type": "primary",
         "enable_desktop_full_width": false,
         "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
@@ -235,7 +249,14 @@
             "text": "",
             "link_label": "SWEATERS",
             "link": "shopify://collections/baby-sweaters-cardigans",
-            "new_tab": false
+            "new_tab": false,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         },
         "column_WjaK8r": {
@@ -246,7 +267,14 @@
             "text": "",
             "link_label": "TOPS",
             "link": "shopify://collections/baby-tops",
-            "new_tab": false
+            "new_tab": false,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         },
         "column_xan3Nm": {
@@ -257,7 +285,14 @@
             "text": "",
             "link_label": "BOTTOMS",
             "link": "shopify://collections/baby-bottoms",
-            "new_tab": false
+            "new_tab": false,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         },
         "column_VJfiC4": {
@@ -268,7 +303,14 @@
             "text": "",
             "link_label": "ONESIES",
             "link": "shopify://collections/baby-one-piece",
-            "new_tab": false
+            "new_tab": false,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         },
         "column_PjhVYH": {
@@ -280,7 +322,14 @@
             "text": "",
             "link_label": "ACCESSORIES",
             "link": "shopify://collections/baby-accessories",
-            "new_tab": false
+            "new_tab": false,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         }
       },
@@ -295,13 +344,6 @@
       "settings": {
         "title": "",
         "heading_size": "h1",
-        "enable_overlay": true,
-        "content_position": "middle-center",
-        "overlay_padding": 25,
-        "link_type": "link",
-        "link_color": "#ffffff",
-        "link_style": "underline",
-        "button_type": "secondary",
         "enable_desktop_full_width": false,
         "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
