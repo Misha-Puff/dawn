@@ -61,8 +61,8 @@
         "full_width": true,
         "padding_top": 0,
         "padding_bottom": 28,
-        "padding_left": 52,
-        "padding_right": 52
+        "padding_left": 32,
+        "padding_right": 32
       }
     },
     "buttons_ztkGme": {
@@ -138,14 +138,14 @@
         "button_CchCdX"
       ],
       "settings": {
-        "title": "Shop the Promo",
+        "title": "Shop the Sale",
         "button_gap": 10,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 22,
-        "desktop_padding_bottom": 32,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 12
+        "desktop_padding_bottom": 50,
+        "mobile_padding_top": 10,
+        "mobile_padding_bottom": 30
       }
     }
   },
