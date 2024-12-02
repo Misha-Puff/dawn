@@ -87,7 +87,7 @@
           "settings": {
             "label": "SHOP ADULT",
             "open_new_tab": false,
-            "link": "shopify://collections/adult-mama-owl",
+            "link": "#shopify-section-template--16607044763699__featured_collection_GGmw48",
             "type": "secondary",
             "on_click": ""
           }
