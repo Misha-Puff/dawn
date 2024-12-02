@@ -83,9 +83,9 @@
           "settings": {
             "label": "SHOP CHILD",
             "open_new_tab": false,
-            "link": "shopify://collections/child-mama-owl",
+            "link": "#",
             "type": "secondary",
-            "on_click": ""
+            "on_click": "document.getElementById(\"shopify-section-template--16607044763699__featured_collection_UCmpWg\").scrollIntoView()"
           }
         },
         "button_EWnc3p": {
@@ -93,9 +93,9 @@
           "settings": {
             "label": "SHOP BABY",
             "open_new_tab": false,
-            "link": "shopify://collections/baby-mama-owl",
+            "link": "#",
             "type": "secondary",
-            "on_click": ""
+            "on_click": "document.getElementById(\"shopify-section-template--16607044763699__featured_collection_xQ84JX\").scrollIntoView();"
           }
         },
         "button_ddtWrH": {
