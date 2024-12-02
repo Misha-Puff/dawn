@@ -528,6 +528,78 @@
     "shogun-optimizer": {
       "type": "shogun-optimizer",
       "settings": {}
+    },
+    "buttons_e8VfMm": {
+      "type": "buttons",
+      "blocks": {
+        "button_axDVpa": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD NEW ARRIVALS",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-new",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_4gwwL4": {
+          "type": "button",
+          "settings": {
+            "label": "BABY NEW ARRIVALS",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-new",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_nydytD": {
+          "type": "button",
+          "settings": {
+            "label": "ADULT NEW ARRIVALS",
+            "open_new_tab": true,
+            "link": "shopify://collections/adult-new",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_JwExnU": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD GIFT GUIDE",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-gift-edit",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_eeg9gH": {
+          "type": "button",
+          "settings": {
+            "label": "BABY GIFT GUIDE",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-gift-edit",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_axDVpa",
+        "button_4gwwL4",
+        "button_nydytD",
+        "button_JwExnU",
+        "button_eeg9gH"
+      ],
+      "settings": {
+        "title": "More to Explore",
+        "button_gap": 10,
+        "heading_size": "h2",
+        "color_scheme": "",
+        "desktop_padding_top": 40,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
+      }
     }
   },
   "order": [
@@ -545,6 +617,7 @@
     "featured_collection_GGmw48",
     "product-grid",
     "shogun-below",
-    "shogun-optimizer"
+    "shogun-optimizer",
+    "buttons_e8VfMm"
   ]
 }
