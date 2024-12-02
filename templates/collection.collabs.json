@@ -130,6 +130,7 @@
       "blocks": {
         "heading_7pUtnB": {
           "type": "heading",
+          "disabled": true,
           "settings": {
             "heading": "Child",
             "heading_size": "h2"
@@ -137,7 +138,6 @@
         },
         "text_9bw7Ky": {
           "type": "text",
-          "disabled": true,
           "settings": {
             "text": "<p>CHILD</p>",
             "line_height": 24
@@ -169,7 +169,7 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 36,
+        "padding_top": 28,
         "padding_bottom": 16,
         "padding_left": 0,
         "padding_right": 0
@@ -273,6 +273,7 @@
       "blocks": {
         "heading_8L6QWd": {
           "type": "heading",
+          "disabled": true,
           "settings": {
             "heading": "Baby",
             "heading_size": "h2"
@@ -280,9 +281,8 @@
         },
         "text_cHPcDD": {
           "type": "text",
-          "disabled": true,
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+            "text": "<p>BABY</p>",
             "line_height": 24
           }
         },
@@ -366,6 +366,7 @@
       "blocks": {
         "heading_iegyaN": {
           "type": "heading",
+          "disabled": true,
           "settings": {
             "heading": "Adult",
             "heading_size": "h2"
@@ -373,9 +374,8 @@
         },
         "text_Rnzyjc": {
           "type": "text",
-          "disabled": true,
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+            "text": "<p>ADULT</p>",
             "line_height": 24
           }
         },
