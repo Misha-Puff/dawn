@@ -45,7 +45,6 @@
         },
         "button_8jcccQ": {
           "type": "button",
-          "disabled": true,
           "settings": {
             "button_label": "Button label",
             "button_link": "",
@@ -83,9 +82,9 @@
           "settings": {
             "label": "SHOP CHILD",
             "open_new_tab": false,
-            "link": "#",
+            "link": "#shopify-section-template--16607044763699__featured_collection_UCmpWg",
             "type": "secondary",
-            "on_click": "document.getElementById('shopify-section-template--16607044763699__featured_collection_UCmpWg').scrollIntoView()"
+            "on_click": ""
           }
         },
         "button_EWnc3p": {
@@ -93,9 +92,9 @@
           "settings": {
             "label": "SHOP BABY",
             "open_new_tab": false,
-            "link": "#",
+            "link": "#shopify-section-template--16607044763699__featured_collection_xQ84JX",
             "type": "secondary",
-            "on_click": "document.getElementById('shopify-section-template--16607044763699__featured_collection_xQ84JX').scrollIntoView();"
+            "on_click": ""
           }
         },
         "button_ddtWrH": {
