@@ -79,11 +79,11 @@
         "column_iAT4GA": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_12.2.24_Baby.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_12.5.24_MO_1.jpg",
             "title": "",
             "text": "",
-            "link_label": "SHOP BABY",
-            "link": "shopify://collections/baby-the-winter-collection",
+            "link_label": "MISHA & PUFF x MAMAOWL",
+            "link": "shopify://collections/mama-owl",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -98,11 +98,11 @@
         "column_3igURh": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.22.24_Adult_LP2_Mob.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_12.2.24_Baby.jpg",
             "title": "",
             "text": "",
-            "link_label": "ADULT NEW ARRIVALS",
-            "link": "shopify://collections/adult-fall-24",
+            "link_label": "SHOP BABY",
+            "link": "shopify://collections/baby-the-winter-collection",
             "new_tab": true,
             "link_margin": 8,
             "enable_overlay": false,
@@ -192,25 +192,6 @@
     "multicolumn_BMReV9": {
       "type": "multicolumn",
       "blocks": {
-        "column_qXTqMb": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.22.24_Adult_LP2_Mob.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "ADULT NEW ARRIVALS",
-            "link": "shopify://collections/adult-fall-24",
-            "new_tab": false,
-            "link_margin": 8,
-            "enable_overlay": false,
-            "content_position": "middle-center",
-            "overlay_padding": 15,
-            "link_type": "link",
-            "link_color": "#000000",
-            "link_style": "none",
-            "button_type": "primary"
-          }
-        },
         "column_YehPqA": {
           "type": "column",
           "settings": {
@@ -229,13 +210,31 @@
             "link_style": "none",
             "button_type": "primary"
           }
+        },
+        "column_qXTqMb": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_11.22.24_Adult_LP2_Mob.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "ADULT NEW ARRIVALS",
+            "link": "shopify://collections/adult-fall-24",
+            "new_tab": false,
+            "link_margin": 8,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 15,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
         }
       },
       "block_order": [
-        "column_qXTqMb",
-        "column_YehPqA"
+        "column_YehPqA",
+        "column_qXTqMb"
       ],
-      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h1",
