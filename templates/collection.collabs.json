@@ -42,26 +42,11 @@
             "text": "<p>Introducing our exclusive collaboration with MamaOwl — featuring Merino knits and Pima cotton styles in earthy, timeless hues. Baby, Child, and Adult styles available now.</p>",
             "line_height": 22
           }
-        },
-        "button_8jcccQ": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "button_label_3": "",
-            "button_link_3": "",
-            "button_style_secondary_3": false
-          }
         }
       },
       "block_order": [
         "heading_37iqJh",
-        "text_8b3dbY",
-        "button_8jcccQ"
+        "text_8b3dbY"
       ],
       "settings": {
         "desktop_content_position": "center",
