@@ -130,7 +130,6 @@
       "blocks": {
         "heading_7pUtnB": {
           "type": "heading",
-          "disabled": true,
           "settings": {
             "heading": "Child",
             "heading_size": "h2"
@@ -138,6 +137,7 @@
         },
         "text_9bw7Ky": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>CHILD</p>",
             "line_height": 24
@@ -170,7 +170,7 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 36,
-        "padding_bottom": 20,
+        "padding_bottom": 16,
         "padding_left": 0,
         "padding_right": 0
       }
