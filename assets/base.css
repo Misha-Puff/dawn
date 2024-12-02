@@ -3618,7 +3618,8 @@ details-disclosure > details {
 }
 
 html {
-  -webkit-font-smoothing: antialiased
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
 }
 
 .shopify-policy__title {
