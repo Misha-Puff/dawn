@@ -85,7 +85,7 @@
             "open_new_tab": false,
             "link": "#",
             "type": "secondary",
-            "on_click": "document.getElementById(\"shopify-section-template--16607044763699__featured_collection_UCmpWg\").scrollIntoView()"
+            "on_click": "document.getElementById('shopify-section-template--16607044763699__featured_collection_UCmpWg').scrollIntoView()"
           }
         },
         "button_EWnc3p": {
@@ -95,7 +95,7 @@
             "open_new_tab": false,
             "link": "#",
             "type": "secondary",
-            "on_click": "document.getElementById(\"shopify-section-template--16607044763699__featured_collection_xQ84JX\").scrollIntoView();"
+            "on_click": "document.getElementById('shopify-section-template--16607044763699__featured_collection_xQ84JX').scrollIntoView();"
           }
         },
         "button_ddtWrH": {
