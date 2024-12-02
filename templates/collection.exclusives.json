@@ -69,7 +69,7 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
+        "padding_top": 40,
         "padding_bottom": 40,
         "padding_left": 100,
         "padding_right": 100
@@ -82,6 +82,7 @@
           "type": "button",
           "settings": {
             "label": "VIEW CHILD",
+            "open_new_tab": false,
             "link": "#",
             "type": "secondary",
             "on_click": "document.getElementById('shopify-section-template--16507634122803__featured_collection_Nf9ban').scrollIntoView({behavior: 'smooth'}); return false;"
@@ -91,6 +92,7 @@
           "type": "button",
           "settings": {
             "label": "VIEW BABY",
+            "open_new_tab": false,
             "link": "#",
             "type": "secondary",
             "on_click": "document.getElementById('shopify-section-template--16507634122803__featured_collection_aKRY9c').scrollIntoView({behavior: 'smooth'}); return false;"
@@ -123,6 +125,7 @@
         "show_description": false,
         "description_style": "body",
         "collection": "child-m-p-x-junior-edition",
+        "hide_sold_out": false,
         "products_to_show": 24,
         "columns_desktop": 3,
         "full_width": true,
@@ -146,7 +149,7 @@
         "section_full_width": true,
         "desktop_padding_top": 36,
         "desktop_padding_bottom": 36,
-        "desktop_padding_left": 32,
+        "desktop_padding_left": 20,
         "desktop_padding_right": 20,
         "mobile_padding_top": 32,
         "mobile_padding_bottom": 36,
@@ -165,6 +168,7 @@
         "show_description": false,
         "description_style": "body",
         "collection": "baby-m-p-x-junior-edition",
+        "hide_sold_out": false,
         "products_to_show": 24,
         "columns_desktop": 3,
         "full_width": true,

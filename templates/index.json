@@ -73,8 +73,81 @@
         "mobile_padding_right": 0
       }
     },
+    "multicolumn_peYxH9": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_iAT4GA": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_12.5.24_MO_1.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "MP x MAMAOWL",
+            "link": "shopify://collections/mama-owl",
+            "new_tab": false,
+            "link_margin": 8,
+            "enable_overlay": false,
+            "content_position": "bottom-left",
+            "overlay_padding": 15,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        },
+        "column_3igURh": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_12.2.24_Baby.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "SHOP BABY",
+            "link": "shopify://collections/baby-the-winter-collection",
+            "new_tab": true,
+            "link_margin": 8,
+            "enable_overlay": false,
+            "content_position": "bottom-center",
+            "overlay_padding": 27,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "column_iAT4GA",
+        "column_3igURh"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 30,
+        "vertical_spacing_desktop": 30,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 12,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 20
+      }
+    },
     "featured_collection_YrgjwD": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_alignment": "left",
@@ -116,100 +189,9 @@
         "mobile_padding_right": 12
       }
     },
-    "multicolumn_peYxH9": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_iAT4GA": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_12.2.24_Baby.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "SHOP BABY",
-            "link": "shopify://collections/baby-the-winter-collection",
-            "new_tab": false,
-            "link_margin": 8,
-            "enable_overlay": false,
-            "content_position": "bottom-left",
-            "overlay_padding": 15,
-            "link_type": "link",
-            "link_color": "#000000",
-            "link_style": "none",
-            "button_type": "primary"
-          }
-        },
-        "column_3igURh": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.22.24_Adult_LP2_Mob.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "ADULT NEW ARRIVALS",
-            "link": "shopify://collections/adult-fall-24",
-            "new_tab": true,
-            "link_margin": 8,
-            "enable_overlay": false,
-            "content_position": "bottom-center",
-            "overlay_padding": 27,
-            "link_type": "link",
-            "link_color": "#000000",
-            "link_style": "none",
-            "button_type": "primary"
-          }
-        }
-      },
-      "block_order": [
-        "column_iAT4GA",
-        "column_3igURh"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "enable_desktop_full_width": false,
-        "enable_mobile_full_width": false,
-        "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 30,
-        "vertical_spacing_desktop": 30,
-        "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 12,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 2,
-        "column_alignment": "left",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "desktop_padding_top": 16,
-        "desktop_padding_bottom": 30,
-        "mobile_padding_top": 20,
-        "mobile_padding_bottom": 20
-      }
-    },
     "multicolumn_BMReV9": {
       "type": "multicolumn",
       "blocks": {
-        "column_qXTqMb": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.22.24_Adult_LP2_Mob.jpg",
-            "title": "",
-            "text": "",
-            "link_label": "ADULT NEW ARRIVALS",
-            "link": "shopify://collections/adult-fall-24",
-            "new_tab": false,
-            "link_margin": 8,
-            "enable_overlay": false,
-            "content_position": "middle-center",
-            "overlay_padding": 15,
-            "link_type": "link",
-            "link_color": "#000000",
-            "link_style": "none",
-            "button_type": "primary"
-          }
-        },
         "column_YehPqA": {
           "type": "column",
           "settings": {
@@ -228,13 +210,31 @@
             "link_style": "none",
             "button_type": "primary"
           }
+        },
+        "column_qXTqMb": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_11.22.24_Adult_LP2_Mob.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "ADULT NEW ARRIVALS",
+            "link": "shopify://collections/adult-fall-24",
+            "new_tab": false,
+            "link_margin": 8,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "overlay_padding": 15,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
         }
       },
       "block_order": [
-        "column_qXTqMb",
-        "column_YehPqA"
+        "column_YehPqA",
+        "column_qXTqMb"
       ],
-      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h1",
@@ -732,8 +732,8 @@
   },
   "order": [
     "image_banner_bz8jb3",
-    "featured_collection_YrgjwD",
     "multicolumn_peYxH9",
+    "featured_collection_YrgjwD",
     "multicolumn_BMReV9",
     "multicolumn_4t4Ubf",
     "image_banner_PTYKgc",

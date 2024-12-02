@@ -119,11 +119,11 @@
         "column_iBFc39": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.15.24_BestSell.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_12.5.24_MO_2_0acbade5-2b8b-4f73-a337-3b0f8c6009b0.jpg",
             "title": "",
             "text": "",
-            "link_label": "BEST SELLRS",
-            "link": "shopify://collections/child-best-sellers",
+            "link_label": "MP x MAMAOWL",
+            "link": "shopify://collections/mama-owl",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
