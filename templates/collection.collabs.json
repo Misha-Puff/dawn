@@ -312,7 +312,7 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 40,
+        "padding_top": 36,
         "padding_bottom": 16,
         "padding_left": 0,
         "padding_right": 0
@@ -405,7 +405,7 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 40,
+        "padding_top": 36,
         "padding_bottom": 16,
         "padding_left": 0,
         "padding_right": 0
@@ -535,7 +535,7 @@
         "button_axDVpa": {
           "type": "button",
           "settings": {
-            "label": "CHILD NEW ARRIVALS",
+            "label": "CHILD NEW",
             "open_new_tab": true,
             "link": "shopify://collections/child-new",
             "type": "secondary",
@@ -545,7 +545,7 @@
         "button_4gwwL4": {
           "type": "button",
           "settings": {
-            "label": "BABY NEW ARRIVALS",
+            "label": "BABY NEW",
             "open_new_tab": true,
             "link": "shopify://collections/baby-new",
             "type": "secondary",
@@ -555,7 +555,7 @@
         "button_nydytD": {
           "type": "button",
           "settings": {
-            "label": "ADULT NEW ARRIVALS",
+            "label": "ADULT NEW",
             "open_new_tab": true,
             "link": "shopify://collections/adult-new",
             "type": "secondary",
@@ -598,7 +598,7 @@
         "desktop_padding_top": 22,
         "desktop_padding_bottom": 32,
         "mobile_padding_top": 0,
-        "mobile_padding_bottom": 30
+        "mobile_padding_bottom": 12
       }
     }
   },
