@@ -265,6 +265,56 @@
         "mobile_padding_right": 12
       }
     },
+    "buttons_3QU9cQ": {
+      "type": "buttons",
+      "blocks": {
+        "button_wKJHD4": {
+          "type": "button",
+          "settings": {
+            "label": "winter ACCESSORIES",
+            "open_new_tab": false,
+            "link": "shopify://collections/adult-accessories",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_fby7Nf": {
+          "type": "button",
+          "settings": {
+            "label": "sweaters",
+            "open_new_tab": false,
+            "link": "shopify://collections/adult-sweaters-cardigans",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_jc4YHB": {
+          "type": "button",
+          "settings": {
+            "label": "COZY PANTS",
+            "open_new_tab": false,
+            "link": "shopify://collections/adult-bottoms",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_wKJHD4",
+        "button_fby7Nf",
+        "button_jc4YHB"
+      ],
+      "settings": {
+        "title": "More to Explore",
+        "button_gap": 10,
+        "heading_size": "h2",
+        "color_scheme": "",
+        "desktop_padding_top": 20,
+        "desktop_padding_bottom": 50,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
+      }
+    },
     "image_banner_ngVXDX": {
       "type": "image-banner",
       "blocks": {
@@ -317,6 +367,7 @@
     "image_banner_8Dbi6e",
     "multicolumn_8DQLJ3",
     "featured_collection_JqiqGp",
+    "buttons_3QU9cQ",
     "image_banner_ngVXDX"
   ]
 }
