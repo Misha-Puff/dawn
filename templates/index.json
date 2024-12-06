@@ -84,7 +84,7 @@
         "show_description": false,
         "description_style": "body",
         "collection": "child-the-winter-collection",
-        "hide_sold_out": false,
+        "hide_sold_out": true,
         "products_to_show": 20,
         "columns_desktop": 4,
         "full_width": true,
