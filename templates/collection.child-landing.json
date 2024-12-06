@@ -90,7 +90,7 @@
         "text_iqachQ"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_12.2.24_2.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_12.6.24_Child_3.jpg",
         "banner_link": "shopify://collections/child-the-winter-collection",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -99,7 +99,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_12.2.24_2_Mob_c9e9a745-fb46-4259-b19a-afe19e9e9d1f.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_12.6.24_Child_3_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false,
@@ -119,7 +119,7 @@
         "column_iBFc39": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_11.15.24_BestSell.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_12.6.24_BestSell.jpg",
             "title": "",
             "text": "",
             "link_label": "BEST SELLERS",
@@ -216,7 +216,7 @@
         "description": "<p>NEW ARRIVALS</p>",
         "show_description": false,
         "description_style": "body",
-        "collection": "child-new",
+        "collection": "child-the-winter-collection",
         "hide_sold_out": true,
         "products_to_show": 20,
         "columns_desktop": 4,
