@@ -232,11 +232,11 @@
         "swipe_on_mobile": true,
         "section_full_width": false,
         "desktop_padding_top": 8,
-        "desktop_padding_bottom": 28,
+        "desktop_padding_bottom": 0,
         "desktop_padding_left": 32,
         "desktop_padding_right": 32,
         "mobile_padding_top": 28,
-        "mobile_padding_bottom": 20,
+        "mobile_padding_bottom": 0,
         "mobile_padding_left": 12,
         "mobile_padding_right": 12
       }
@@ -485,9 +485,9 @@
         "button_gap": 11,
         "heading_size": "h2",
         "color_scheme": "",
-        "desktop_padding_top": 20,
+        "desktop_padding_top": 60,
         "desktop_padding_bottom": 50,
-        "mobile_padding_top": 10,
+        "mobile_padding_top": 40,
         "mobile_padding_bottom": 30
       }
     }
