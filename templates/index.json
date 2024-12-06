@@ -122,11 +122,11 @@
         "column_iAT4GA": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_12.5.24_MO_1.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_12.6.24_Adult_HP.jpg",
             "title": "",
             "text": "",
-            "link_label": "MP x MAMAOWL",
-            "link": "shopify://collections/mama-owl",
+            "link_label": "SHOP ADULT",
+            "link": "shopify://collections/adult-fall-24",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
