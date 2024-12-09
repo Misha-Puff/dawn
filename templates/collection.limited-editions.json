@@ -69,9 +69,8 @@
         },
         "text_WG9MBh": {
           "type": "text",
-          "disabled": true,
           "settings": {
-            "text": "",
+            "text": "<p>A limited edition collection — featuring never-before-seen color combinations.</p>",
             "line_height": 24
           }
         }
@@ -102,6 +101,7 @@
         "show_description": false,
         "description_style": "body",
         "collection": "limited-editions",
+        "hide_sold_out": false,
         "products_to_show": 25,
         "columns_desktop": 3,
         "full_width": true,
@@ -179,6 +179,7 @@
         "show_description": false,
         "description_style": "body",
         "collection": "bonus-additions",
+        "hide_sold_out": false,
         "products_to_show": 25,
         "columns_desktop": 3,
         "full_width": true,
