@@ -70,7 +70,7 @@
         "text_WG9MBh": {
           "type": "text",
           "settings": {
-            "text": "<p>A limited edition collection — featuring never-before-seen color combinations.</p>",
+            "text": "<p>A limited edition collection showcasing never-before-seen color pairings and textures, crafted to celebrate color, technique, and the unexpected. </p>",
             "line_height": 22
           }
         }
@@ -86,8 +86,8 @@
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 20,
-        "padding_left": 52,
-        "padding_right": 52
+        "padding_left": 60,
+        "padding_right": 60
       }
     },
     "featured_collection_cFKWUL": {
