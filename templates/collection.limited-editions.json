@@ -71,7 +71,7 @@
           "type": "text",
           "settings": {
             "text": "<p>A limited edition collection — featuring never-before-seen color combinations.</p>",
-            "line_height": 24
+            "line_height": 22
           }
         }
       },
@@ -85,9 +85,9 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 40,
-        "padding_bottom": 0,
-        "padding_left": 0,
-        "padding_right": 0
+        "padding_bottom": 20,
+        "padding_left": 52,
+        "padding_right": 52
       }
     },
     "featured_collection_cFKWUL": {
