@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -5,23 +14,18 @@
       "blocks": {
         "title": {
           "type": "title",
-          "settings": {
-          }
-        },
-        "rating_fBYWfr": {
-          "type": "rating",
-          "settings": {
-          }
+          "settings": {}
         },
         "price": {
           "type": "price",
-          "settings": {
-          }
+          "settings": {}
         },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
             "picker_type": "dropdown",
+            "color_picker_type": "button",
+            "size_picker_type": "dropdown",
             "swatch_shape": "none"
           }
         },
@@ -34,13 +38,11 @@
         },
         "description": {
           "type": "description",
-          "settings": {
-          }
+          "settings": {}
         }
       },
       "block_order": [
         "title",
-        "rating_fBYWfr",
         "price",
         "variant_picker",
         "buy_buttons",
@@ -81,10 +83,38 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "recently_viewed_slider_JQKNXe": {
+      "type": "recently-viewed-slider",
+      "settings": {
+        "title": "RECENTLY VIEWED",
+        "heading_alignment": "left",
+        "heading_size": "h1",
+        "heading_margin": 14,
+        "products_to_show": 20,
+        "columns_desktop": 4,
+        "full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 10,
+        "vertical_spacing_desktop": 0,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 0,
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "desktop_padding_top": 16,
+        "desktop_padding_bottom": 28,
+        "desktop_padding_left": 40,
+        "desktop_padding_right": 40,
+        "mobile_padding_top": 24,
+        "mobile_padding_bottom": 20,
+        "mobile_padding_left": 12,
+        "mobile_padding_right": 12
+      }
     }
   },
   "order": [
     "main",
-    "related-products"
+    "related-products",
+    "recently_viewed_slider_JQKNXe"
   ]
 }
