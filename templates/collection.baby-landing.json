@@ -111,11 +111,11 @@
         "column_iycPDw": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_12.13.24_Baby_BestSell.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_Baby_MO_LP.jpg",
             "title": "",
             "text": "",
-            "link_label": "BEST SELLERS",
-            "link": "shopify://collections/baby-best-sellers",
+            "link_label": "M&P x MAMAOWL",
+            "link": "shopify://collections/baby-mama-owl",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
