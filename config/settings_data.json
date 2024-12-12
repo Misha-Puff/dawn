@@ -19,7 +19,7 @@
     "enable_sticky_bar": false,
     "page_width": 1600,
     "page_width_padding": 30,
-    "mobile_page_width_padding": 20,
+    "mobile_page_width_padding": 15,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 20,
     "spacing_grid_vertical": 20,
