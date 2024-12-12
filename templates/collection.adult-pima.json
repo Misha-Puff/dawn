@@ -25,52 +25,35 @@
         "color_scheme": "scheme-1"
       }
     },
-    "rich_text_YJeCaw": {
+    "rich_text_UHxaJj": {
       "type": "rich-text",
       "blocks": {
-        "heading_LbXhKd": {
+        "heading_7E4KNh": {
           "type": "heading",
           "settings": {
-            "heading": "Limited Yarn",
+            "heading": "Pima cotton",
             "heading_size": "h2"
           }
         },
-        "text_PGqAmF": {
+        "text_agmWcF": {
           "type": "text",
           "settings": {
-            "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.</p>",
-            "line_height": 20
-          }
-        },
-        "button_Yh3Xhh": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "button_label_3": "",
-            "button_link_3": "",
-            "button_style_secondary_3": false
+            "text": "<p>Pima cotton is renowned for its silky softness, durability, vibrant, long-lasting color, and ability to maintain its shape and quality wash after wash. Our Adult Pima cotton styles are timeless essentials, perfect for effortless layering and a versatile addition to any wardrobe.</p>",
+            "line_height": 22
           }
         }
       },
       "block_order": [
-        "heading_LbXhKd",
-        "text_PGqAmF",
-        "button_Yh3Xhh"
+        "heading_7E4KNh",
+        "text_agmWcF"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
+        "padding_top": 20,
+        "padding_bottom": 52,
         "padding_left": 100,
         "padding_right": 100
       }
@@ -84,6 +67,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 1,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -100,6 +86,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 6,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -124,6 +113,8 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "enable_overlay": false,
+        "enable_swatches": false,
         "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "drawer",
@@ -140,15 +131,66 @@
     "shogun-optimizer": {
       "type": "shogun-optimizer",
       "settings": {}
+    },
+    "buttons_qJyVi3": {
+      "type": "buttons",
+      "blocks": {
+        "button_VPEgYj": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP ALL ADULT",
+            "open_new_tab": false,
+            "link": "shopify://collections/adult-all",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_4AEwDA": {
+          "type": "button",
+          "settings": {
+            "label": "BEST SELLERS",
+            "open_new_tab": false,
+            "link": "shopify://collections/adult-best-sellers",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_jRUYJm": {
+          "type": "button",
+          "settings": {
+            "label": "NEW ARRIVALS",
+            "open_new_tab": false,
+            "link": "shopify://collections/adult-new",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_VPEgYj",
+        "button_4AEwDA",
+        "button_jRUYJm"
+      ],
+      "settings": {
+        "title": "Explore More",
+        "button_gap": 10,
+        "heading_size": "h2",
+        "color_scheme": "",
+        "desktop_padding_top": 60,
+        "desktop_padding_bottom": 50,
+        "mobile_padding_top": 40,
+        "mobile_padding_bottom": 30
+      }
     }
   },
   "order": [
     "shogun-helper",
     "shogun-above",
     "banner",
-    "rich_text_YJeCaw",
+    "rich_text_UHxaJj",
     "product-grid",
     "shogun-below",
-    "shogun-optimizer"
+    "shogun-optimizer",
+    "buttons_qJyVi3"
   ]
 }
