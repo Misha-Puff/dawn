@@ -53,6 +53,14 @@
       "
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
+      {% if hide_content %}
+        <a
+          href="{{ card_product.url | within: collection }}"
+          id="CardLink-{{ section_id }}-{{ card_product.id }}"
+          class="full-unstyled-link"
+          aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
+        >
+      {% endif %}
       <div
         class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}"
         style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
@@ -367,68 +375,270 @@
           </div>
         {% endif %}
 
+        {% unless hide_content %}
+          <div class="card__content">
+            <div class="card__information">
+              <h3
+                class="card__heading"
+                {% if card_product.featured_media == null and settings.card_style == 'standard' %}
+                  id="title-{{ section_id }}-{{ card_product.id }}"
+                {% endif %}
+              >
+                <a
+                  href="{{ card_product.url | within: collection }}"
+                  id="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }}"
+                  class="full-unstyled-link"
+                  aria-labelledby="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }} NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+                >
+                  {{ card_product.title | escape -}}
+                  {%- if card_product.options[0] == 'Color' %}
+                    - {{ card_product.selected_or_first_available_variant.options[0] -}}
+                  {%- endif %}
+                </a>
+              </h3>
+            </div>
+            <div class="card__badge {{ settings.badge_position }}">
+              {% assign custom_tags = '' | split: '😉' %}
+
+              {% for tag in card_product.tags %}
+                {% if tag contains 'Badge-' %}
+                  {% assign custom_tag = tag | split: 'Badge-' | last | split: '😉' %}
+                  {% assign custom_tags = custom_tags | concat: custom_tag %}
+                {% endif %}
+              {% endfor %}
+
+              {%- if custom_tags.size > 0 -%}
+                {% for custom_tag in custom_tags %}
+                  <span
+                    id="Badge-{{ section_id }}-{{ card_product.id }}"
+                    class="badge badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}"
+                  >
+                    {{ custom_tag }}
+                  </span>
+                {% endfor %}
+              {% endif %}
+
+              {% unless card_product.tags contains 'Badge-Coming Soon' %}
+                {%- if card_product.available == false -%}
+                  <span
+                    id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+                    class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
+                  >
+                    {{- 'products.product.sold_out' | t -}}
+                  </span>
+                {% endif %}
+              {% endunless %}
+
+              {%- if card_product.compare_at_price > card_product.price -%}
+                <span
+                  id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+                  class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
+                >
+                  {{- 'products.product.on_sale' | t -}}
+                </span>
+              {%- endif -%}
+
+              {%- if card_product.tags contains 'RWS' -%}
+                <span
+                  id="Badge-{{ section_id }}-{{ card_product.id }}"
+                  class="badge badge--bottom-left color-{{ settings.rws_badge_color_scheme }}"
+                >
+                  RWS
+                </span>
+              {%- endif -%}
+
+              {%- if card_product.tags contains 'made-to-order' -%}
+                <span
+                  id="Badge-{{ section_id }}-{{ card_product.id }}"
+                  class="badge badge--bottom-left color-{{ settings.mto_badge_color_scheme }}"
+                >
+                  Made-to-Order
+                </span>
+              {%- endif -%}
+            </div>
+          </div>
+        {% endunless %}
+      </div>
+      {% if hide_content %}
+        </a>
+      {% endif %}
+      {% unless hide_content %}
         <div class="card__content">
           <div class="card__information">
             <h3
-              class="card__heading"
-              {% if card_product.featured_media == null and settings.card_style == 'standard' %}
+              class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
+              {% if card_product.featured_media or settings.card_style == 'card' %}
                 id="title-{{ section_id }}-{{ card_product.id }}"
               {% endif %}
             >
               <a
                 href="{{ card_product.url | within: collection }}"
-                id="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }}"
+                id="CardLink-{{ section_id }}-{{ card_product.id }}"
                 class="full-unstyled-link"
-                aria-labelledby="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }} NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+                aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
               >
                 {{ card_product.title | escape -}}
-                {%- if card_product.options[0] == 'Color' %}
-                  - {{ card_product.selected_or_first_available_variant.options[0] -}}
-                {%- endif %}
+                {% unless section.settings.enable_swatches %}
+                  {%- if card_product.options[0] == 'Color' %}
+                    - {{ card_product.selected_or_first_available_variant.options[0] -}}
+                  {%- endif %}
+                {% endunless %}
               </a>
             </h3>
+            <div class="card-information">
+              {%- if show_vendor -%}
+                <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
+                <div class="caption-with-letter-spacing light">{{ card_product.vendor }}</div>
+              {%- endif -%}
+
+              <span class="caption-large light">{{ block.settings.description | escape }}</span>
+
+              {%- if show_rating and card_product.metafields.reviews.rating.value != blank -%}
+                {% liquid
+                  assign rating_decimal = 0
+                  assign decimal = card_product.metafields.reviews.rating.value.rating | modulo: 1
+                  if decimal >= 0.3 and decimal <= 0.7
+                    assign rating_decimal = 0.5
+                  elsif decimal > 0.7
+                    assign rating_decimal = 1
+                  endif
+                %}
+                <div
+                  class="rating"
+                  role="img"
+                  aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: card_product.metafields.reviews.rating.value, rating_max: card_product.metafields.reviews.rating.value.scale_max }}"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="rating-star"
+                    style="--rating: {{ card_product.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ card_product.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};"
+                  ></span>
+                </div>
+                <p class="rating-text caption">
+                  <span aria-hidden="true">
+                    {{- card_product.metafields.reviews.rating.value }} /
+                    {{ card_product.metafields.reviews.rating.value.scale_max -}}
+                  </span>
+                </p>
+                <p class="rating-count caption">
+                  <span aria-hidden="true">({{ card_product.metafields.reviews.rating_count }})</span>
+                  <span class="visually-hidden">
+                    {{- card_product.metafields.reviews.rating_count }}
+                    {{ 'accessibility.total_reviews' | t -}}
+                  </span>
+                </p>
+              {%- endif -%}
+
+              {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+
+              {% if show_swatches_availability %}
+                {% if section.settings.enable_swatches %}
+                  {% render 'product-sibling-swatches', product: card_product %}
+                {% else %}
+                  {% render 'variant-availability', product: card_product %}
+                {% endif %}
+              {% endif %}
+
+              {%- if card_product.quantity_price_breaks_configured? -%}
+                {% if card_product.variants.size == 1 and quick_add == 'bulk' %}
+                  {% liquid
+                    assign quantity_rule = card_product.selected_or_first_available_variant.quantity_rule
+                    assign has_qty_rules = false
+                    if quantity_rule.increment > 1 or quantity_rule.min > 1 or quantity_rule.max != null
+                      assign has_qty_rules = true
+                    endif
+                  %}
+                  <quantity-popover>
+                    <button class="card__information-volume-pricing-note card__information-volume-pricing-note--button card__information-volume-pricing-note--button-{{ settings.card_text_alignment }} quantity-popover__info-button--icon-only button button button--tertiary medium-hide small-hide">
+                      <span class="caption">{{ 'products.product.volume_pricing.note' | t }}</span>
+                    </button>
+                    <button class="card__information-volume-pricing-note card__information-volume-pricing-note--button card__information-volume-pricing-note--button-{{ settings.card_text_alignment }} quantity-popover__info-button--icon-with-label button button--tertiary large-up-hide">
+                      <span class="caption">{{ 'products.product.volume_pricing.note' | t }}</span>
+                    </button>
+                {% else %}
+                  <div class="card__information-volume-pricing-note">
+                    <span class="caption">{{ 'products.product.volume_pricing.note' | t }}</span>
+                  </div>
+                {% endif %}
+                {% if card_product.variants.size == 1 and quick_add == 'bulk' %}
+                  <div
+                    class="global-settings-popup quantity-popover__info"
+                    tabindex="-1"
+                    hidden
+                    id="quantity-popover-info-{{ card_product.selected_or_first_available_variant.id }}"
+                  >
+                    {%- if has_qty_rules -%}
+                      <div class="quantity__rules caption no-js-hidden">
+                        {%- if quantity_rule.increment > 1 -%}
+                          <span class="divider">
+                            {{- 'products.product.quantity.multiples_of' | t: quantity: quantity_rule.increment -}}
+                          </span>
+                        {%- endif -%}
+                        {%- if quantity_rule.min > 1 -%}
+                          <span class="divider">
+                            {{- 'products.product.quantity.min_of' | t: quantity: quantity_rule.min -}}
+                          </span>
+                        {%- endif -%}
+                        {%- if quantity_rule.max != null -%}
+                          <span class="divider">
+                            {{- 'products.product.quantity.max_of' | t: quantity: quantity_rule.max -}}
+                          </span>
+                        {%- endif -%}
+                      </div>
+                    {%- endif -%}
+                    <button
+                      class="button-close button button--tertiary large-up-hide"
+                      type="button"
+                      aria-label="{{ 'accessibility.close' | t }}"
+                    >
+                      {%- render 'icon-close' -%}
+                    </button>
+                    {%- if card_product.selected_or_first_available_variant.quantity_price_breaks.size > 0 -%}
+                      <volume-pricing class="parent-display">
+                        <ul class="list-unstyled">
+                          <li>
+                            <span>{{ card_product.selected_or_first_available_variant.quantity_rule.min }}+</span>
+                            {%- assign price = card_product.selected_or_first_available_variant.price
+                              | money_with_currency
+                            -%}
+                            <span>{{ 'sections.quick_order_list.each' | t: money: price }}</span>
+                          </li>
+                          {%- for price_break in card_product.selected_or_first_available_variant.quantity_price_breaks -%}
+                            <li>
+                              <span>
+                                {{- price_break.minimum_quantity -}}
+                                <span aria-hidden="true">+</span></span
+                              >
+                              {%- assign price = price_break.price | money_with_currency -%}
+                              <span> {{ 'sections.quick_order_list.each' | t: money: price }}</span>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      </volume-pricing>
+                    {%- endif -%}
+                  </div>
+                  </quantity-popover>
+                {% endif %}
+              {%- endif -%}
+            </div>
           </div>
           <div class="card__badge {{ settings.badge_position }}">
-            {% assign custom_tags = '' | split: '😉' %}
-
-            {% for tag in card_product.tags %}
-              {% if tag contains 'Badge-' %}
-                {% assign custom_tag = tag | split: 'Badge-' | last | split: '😉' %}
-                {% assign custom_tags = custom_tags | concat: custom_tag %}
-              {% endif %}
-            {% endfor %}
-
-            {%- if custom_tags.size > 0 -%}
-              {% for custom_tag in custom_tags %}
-                <span
-                  id="Badge-{{ section_id }}-{{ card_product.id }}"
-                  class="badge badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}"
-                >
-                  {{ custom_tag }}
-                </span>
-              {% endfor %}
-            {% endif %}
-
-            {% unless card_product.tags contains 'Badge-Coming Soon' %}
-              {%- if card_product.available == false -%}
-                <span
-                  id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-                  class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
-                >
-                  {{- 'products.product.sold_out' | t -}}
-                </span>
-              {% endif %}
-            {% endunless %}
-
+            {%- if card_product.available == false -%}
+              <span
+                id="Badge-{{ section_id }}-{{ card_product.id }}"
+                class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
+              >
+                {{- 'products.product.sold_out' | t -}}
+              </span>
+            {%- endif -%}
             {%- if card_product.compare_at_price > card_product.price -%}
               <span
-                id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+                id="Badge-{{ section_id }}-{{ card_product.id }}"
                 class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
               >
                 {{- 'products.product.on_sale' | t -}}
               </span>
             {%- endif -%}
-
             {%- if card_product.tags contains 'RWS' -%}
               <span
                 id="Badge-{{ section_id }}-{{ card_product.id }}"
@@ -437,7 +647,6 @@
                 RWS
               </span>
             {%- endif -%}
-
             {%- if card_product.tags contains 'made-to-order' -%}
               <span
                 id="Badge-{{ section_id }}-{{ card_product.id }}"
@@ -446,211 +655,17 @@
                 Made-to-Order
               </span>
             {%- endif -%}
-          </div>
-        </div>
-      </div>
-      <div class="card__content">
-        <div class="card__information">
-          <h3
-            class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
-            {% if card_product.featured_media or settings.card_style == 'card' %}
-              id="title-{{ section_id }}-{{ card_product.id }}"
-            {% endif %}
-          >
-            <a
-              href="{{ card_product.url | within: collection }}"
-              id="CardLink-{{ section_id }}-{{ card_product.id }}"
-              class="full-unstyled-link"
-              aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
-            >
-              {{ card_product.title | escape -}}
-              {% unless section.settings.enable_swatches %}
-                {%- if card_product.options[0] == 'Color' %}
-                  - {{ card_product.selected_or_first_available_variant.options[0] -}}
-                {%- endif %}
-              {% endunless %}
-            </a>
-          </h3>
-          <div class="card-information">
-            {%- if show_vendor -%}
-              <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
-              <div class="caption-with-letter-spacing light">{{ card_product.vendor }}</div>
-            {%- endif -%}
-
-            <span class="caption-large light">{{ block.settings.description | escape }}</span>
-
-            {%- if show_rating and card_product.metafields.reviews.rating.value != blank -%}
-              {% liquid
-                assign rating_decimal = 0
-                assign decimal = card_product.metafields.reviews.rating.value.rating | modulo: 1
-                if decimal >= 0.3 and decimal <= 0.7
-                  assign rating_decimal = 0.5
-                elsif decimal > 0.7
-                  assign rating_decimal = 1
-                endif
-              %}
-              <div
-                class="rating"
-                role="img"
-                aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: card_product.metafields.reviews.rating.value, rating_max: card_product.metafields.reviews.rating.value.scale_max }}"
+            {%- if card_product.tags contains 'Badge-Coming Soon' -%}
+              <span
+                id="Badge-{{ section_id }}-{{ card_product.id }}"
+                class="badge badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}"
               >
-                <span
-                  aria-hidden="true"
-                  class="rating-star"
-                  style="--rating: {{ card_product.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ card_product.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};"
-                ></span>
-              </div>
-              <p class="rating-text caption">
-                <span aria-hidden="true">
-                  {{- card_product.metafields.reviews.rating.value }} /
-                  {{ card_product.metafields.reviews.rating.value.scale_max -}}
-                </span>
-              </p>
-              <p class="rating-count caption">
-                <span aria-hidden="true">({{ card_product.metafields.reviews.rating_count }})</span>
-                <span class="visually-hidden">
-                  {{- card_product.metafields.reviews.rating_count }}
-                  {{ 'accessibility.total_reviews' | t -}}
-                </span>
-              </p>
-            {%- endif -%}
-
-            {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
-
-            {% if show_swatches_availability %}
-              {% if section.settings.enable_swatches %}
-                {% render 'product-sibling-swatches', product: card_product %}
-              {% else %}
-                {% render 'variant-availability', product: card_product %}
-              {% endif %}
-            {% endif %}
-
-            {%- if card_product.quantity_price_breaks_configured? -%}
-              {% if card_product.variants.size == 1 and quick_add == 'bulk' %}
-                {% liquid
-                  assign quantity_rule = card_product.selected_or_first_available_variant.quantity_rule
-                  assign has_qty_rules = false
-                  if quantity_rule.increment > 1 or quantity_rule.min > 1 or quantity_rule.max != null
-                    assign has_qty_rules = true
-                  endif
-                %}
-                <quantity-popover>
-                  <button class="card__information-volume-pricing-note card__information-volume-pricing-note--button card__information-volume-pricing-note--button-{{ settings.card_text_alignment }} quantity-popover__info-button--icon-only button button button--tertiary medium-hide small-hide">
-                    <span class="caption">{{ 'products.product.volume_pricing.note' | t }}</span>
-                  </button>
-                  <button class="card__information-volume-pricing-note card__information-volume-pricing-note--button card__information-volume-pricing-note--button-{{ settings.card_text_alignment }} quantity-popover__info-button--icon-with-label button button--tertiary large-up-hide">
-                    <span class="caption">{{ 'products.product.volume_pricing.note' | t }}</span>
-                  </button>
-              {% else %}
-                <div class="card__information-volume-pricing-note">
-                  <span class="caption">{{ 'products.product.volume_pricing.note' | t }}</span>
-                </div>
-              {% endif %}
-              {% if card_product.variants.size == 1 and quick_add == 'bulk' %}
-                <div
-                  class="global-settings-popup quantity-popover__info"
-                  tabindex="-1"
-                  hidden
-                  id="quantity-popover-info-{{ card_product.selected_or_first_available_variant.id }}"
-                >
-                  {%- if has_qty_rules -%}
-                    <div class="quantity__rules caption no-js-hidden">
-                      {%- if quantity_rule.increment > 1 -%}
-                        <span class="divider">
-                          {{- 'products.product.quantity.multiples_of' | t: quantity: quantity_rule.increment -}}
-                        </span>
-                      {%- endif -%}
-                      {%- if quantity_rule.min > 1 -%}
-                        <span class="divider">
-                          {{- 'products.product.quantity.min_of' | t: quantity: quantity_rule.min -}}
-                        </span>
-                      {%- endif -%}
-                      {%- if quantity_rule.max != null -%}
-                        <span class="divider">
-                          {{- 'products.product.quantity.max_of' | t: quantity: quantity_rule.max -}}
-                        </span>
-                      {%- endif -%}
-                    </div>
-                  {%- endif -%}
-                  <button
-                    class="button-close button button--tertiary large-up-hide"
-                    type="button"
-                    aria-label="{{ 'accessibility.close' | t }}"
-                  >
-                    {%- render 'icon-close' -%}
-                  </button>
-                  {%- if card_product.selected_or_first_available_variant.quantity_price_breaks.size > 0 -%}
-                    <volume-pricing class="parent-display">
-                      <ul class="list-unstyled">
-                        <li>
-                          <span>{{ card_product.selected_or_first_available_variant.quantity_rule.min }}+</span>
-                          {%- assign price = card_product.selected_or_first_available_variant.price
-                            | money_with_currency
-                          -%}
-                          <span>{{ 'sections.quick_order_list.each' | t: money: price }}</span>
-                        </li>
-                        {%- for price_break in card_product.selected_or_first_available_variant.quantity_price_breaks -%}
-                          <li>
-                            <span>
-                              {{- price_break.minimum_quantity -}}
-                              <span aria-hidden="true">+</span></span
-                            >
-                            {%- assign price = price_break.price | money_with_currency -%}
-                            <span> {{ 'sections.quick_order_list.each' | t: money: price }}</span>
-                          </li>
-                        {%- endfor -%}
-                      </ul>
-                    </volume-pricing>
-                  {%- endif -%}
-                </div>
-                </quantity-popover>
-              {% endif %}
+                Coming Soon
+              </span>
             {%- endif -%}
           </div>
         </div>
-        <div class="card__badge {{ settings.badge_position }}">
-          {%- if card_product.available == false -%}
-            <span
-              id="Badge-{{ section_id }}-{{ card_product.id }}"
-              class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
-            >
-              {{- 'products.product.sold_out' | t -}}
-            </span>
-          {%- endif -%}
-          {%- if card_product.compare_at_price > card_product.price -%}
-            <span
-              id="Badge-{{ section_id }}-{{ card_product.id }}"
-              class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
-            >
-              {{- 'products.product.on_sale' | t -}}
-            </span>
-          {%- endif -%}
-          {%- if card_product.tags contains 'RWS' -%}
-            <span
-              id="Badge-{{ section_id }}-{{ card_product.id }}"
-              class="badge badge--bottom-left color-{{ settings.rws_badge_color_scheme }}"
-            >
-              RWS
-            </span>
-          {%- endif -%}
-          {%- if card_product.tags contains 'made-to-order' -%}
-            <span
-              id="Badge-{{ section_id }}-{{ card_product.id }}"
-              class="badge badge--bottom-left color-{{ settings.mto_badge_color_scheme }}"
-            >
-              Made-to-Order
-            </span>
-          {%- endif -%}
-          {%- if card_product.tags contains 'Badge-Coming Soon' -%}
-            <span
-              id="Badge-{{ section_id }}-{{ card_product.id }}"
-              class="badge badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}"
-            >
-              Coming Soon
-            </span>
-          {%- endif -%}
-        </div>
-      </div>
+      {% endunless %}
     </div>
   </div>
 {%- else -%}
