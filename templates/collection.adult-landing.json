@@ -110,9 +110,9 @@
         "buttons_8b9zaW": {
           "type": "buttons",
           "settings": {
-            "link_type": "button",
-            "link_color": "#000000",
-            "button_label_1": "SHOP ADULT",
+            "link_type": "link",
+            "link_color": "#ffffff",
+            "button_label_1": "ADULT WINTER",
             "button_link_1": "shopify://collections/adult-fall-24",
             "button_style_secondary_1": true,
             "button_label_2": "",
