@@ -75,7 +75,10 @@
 
   {% for block in section.blocks %}
     .Block-{{ block.id }}.content-overlay .multicolumn-card__info {
-      padding: {{ block.settings.overlay_padding }}px !important;
+      padding-top: {{ block.settings.tb_overlay_padding }}px !important;
+      padding-bottom: {{ block.settings.tb_overlay_padding }}px !important;
+      padding-left: {{ block.settings.lr_overlay_padding }}px !important;
+      padding-right: {{ block.settings.lr_overlay_padding }}px !important;
     }
   {% endfor %}
 
@@ -718,14 +721,25 @@
         },
         {
           "type": "range",
-          "id": "overlay_padding",
+          "id": "tb_overlay_padding",
           "min": 0,
-          "max": 50,
+          "max": 100,
           "step": 1,
           "default": 25,
           "unit": "px",
-          "label": "Content padding"
+          "label": "Top/Bottom Content padding"
         },
+        {
+          "type": "range",
+          "id": "lr_overlay_padding",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 25,
+          "unit": "px",
+          "label": "Left/Right Content padding"
+        },
+
         {
           "type": "select",
           "id": "link_type",
