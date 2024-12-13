@@ -93,7 +93,7 @@
             "title": "",
             "text": "",
             "link_label": "Shop Adult",
-            "link": "shopify://collections/adult-fall-24"
+            "link": "shopify://collections/adult-fall-winter"
           }
         }
       },
@@ -144,7 +144,7 @@
             "title": "",
             "text": "",
             "link_label": "New Adult",
-            "link": "shopify://collections/adult-fall-24"
+            "link": "shopify://collections/adult-fall-winter"
           }
         }
       },
@@ -196,7 +196,7 @@
             "heading_size": "h2",
             "subheading": "",
             "button_label": "SHOP ADULT",
-            "link": "shopify://collections/adult-fall-24",
+            "link": "shopify://collections/adult-fall-winter",
             "button_style_secondary": true,
             "box_align": "middle-center",
             "show_text_box": false,
