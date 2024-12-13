@@ -144,6 +144,8 @@
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
 
+  {% assign tags_str = product.tags | join: ',' %}
+
   <div class="page-width">
     {% render 'breadcrumbs' %}
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
@@ -259,7 +261,7 @@
                   {%- endform -%}
                 </div>
               {%- when 'inventory' -%}
-                {% unless product.tags contains 'Badge-Coming Soon' %}
+                {% unless tags_str contains 'Badge-' %}
                   <p
                     class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
                     {{ block.shopify_attributes }}
@@ -587,7 +589,7 @@
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
-                {% unless product.tags contains 'Badge-Coming Soon' %}
+                {% unless tags_str contains 'Badge-' %}
                   {%- render 'buy-buttons',
                     block: block,
                     product: product,

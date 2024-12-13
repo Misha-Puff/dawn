@@ -38,6 +38,8 @@
   # if target == product and product.price_varies
   #  assign money_price = 'products.product.price.from_price_html' | t: price: money_price
   # endif
+
+  assign tags_str = product.tags | join: ','
 -%}
 
 {%- unless target == null and placeholder == null -%}
@@ -128,7 +130,7 @@
         {{ 'products.product.on_sale' | t }}
       </span>
 
-      {% unless product.tags contains 'Badge-Coming Soon' %}
+      {% unless tags_str contains 'Badge-' %}
         <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
           {{ 'products.product.sold_out' | t }}
         </span>
@@ -142,10 +144,20 @@
         <span class="badge price__badge-mto color-{{ settings.mto_badge_color_scheme }}">Made-to-Order</span>
       {% endif %}
 
-      {% if product.tags contains 'Badge-Coming Soon' %}
-        <span class="badge price__badge-coming-soon color-{{ settings.coming_soon_badge_color_scheme }}">
-          Coming Soon
-        </span>
+      {% assign custom_tags = '' | split: '😉' %}
+
+      {% for tag in product.tags %}
+        {% if tag contains 'Badge-' %}
+          {% assign custom_tag = tag | split: 'Badge-' | last | split: '😉' %}
+          {% assign custom_tags = custom_tags | concat: custom_tag %}
+        {% endif %}
+      {% endfor %}
+      {%- if custom_tags.size > 0 -%}
+        {% for custom_tag in custom_tags %}
+          <span class="badge price__badge-coming-soon color-{{ settings.coming_soon_badge_color_scheme }}">
+            {{ custom_tag }}
+          </span>
+        {% endfor %}
       {% endif %}
     {%- endif -%}
   </div>
