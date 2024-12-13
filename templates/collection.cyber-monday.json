@@ -379,7 +379,7 @@
           "settings": {
             "label": "ADULT",
             "open_new_tab": true,
-            "link": "shopify://collections/adult-fall-24",
+            "link": "shopify://collections/adult-fall-winter",
             "type": "secondary",
             "on_click": ""
           }
