@@ -105,7 +105,7 @@
             "link_type": "button",
             "link_color": "#000000",
             "button_label_1": "SHOP FALL",
-            "button_link_1": "shopify://collections/adult-fall-24",
+            "button_link_1": "shopify://collections/adult-fall-winter",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -120,7 +120,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/MP_WI24_Leader_11.1.24_Adult_LP.jpg",
-        "banner_link": "shopify://collections/adult-fall-24",
+        "banner_link": "shopify://collections/adult-fall-winter",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "desktop_content_position": "middle-center",
@@ -154,7 +154,7 @@
             "title": "",
             "text": "",
             "link_label": "New Arrivals",
-            "link": "shopify://collections/adult-fall-24"
+            "link": "shopify://collections/adult-fall-winter"
           }
         }
       },
