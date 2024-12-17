@@ -55,7 +55,7 @@
           "type": "text",
           "settings": {
             "text": "<p>Our most recent MTO program has reached capacity and is now <strong>closed</strong>.<br/>Check your order status and sign up to be notified for future MTO collections below.</p><p>Our Made-to-Order program is an initiative that we are very proud of — and at the heart of why we do what we do. This program introduces the ability to custom shop some of your favorite Misha & Puff styles in a limited small-batch capsule outside of our seasonal collections, while delivering on our promise to support our knitting community year-round.</p>",
-            "line_height": 20
+            "line_height": 22
           }
         },
         "button_9DxNK6": {
@@ -155,6 +155,7 @@
         "description_style": "body",
         "collection": "adult-made-to-order",
         "hide_sold_out": false,
+        "hide_content": false,
         "products_to_show": 20,
         "columns_desktop": 4,
         "full_width": true,
@@ -191,12 +192,12 @@
       "settings": {
         "desktop_padding_top": 36,
         "desktop_padding_bottom": 36,
-        "desktop_padding_left": 40,
-        "desktop_padding_right": 40,
+        "desktop_padding_left": 52,
+        "desktop_padding_right": 52,
         "mobile_padding_top": 36,
         "mobile_padding_bottom": 36,
-        "mobile_padding_left": 20,
-        "mobile_padding_right": 20
+        "mobile_padding_left": 32,
+        "mobile_padding_right": 32
       }
     },
     "rich_text_Jak7Gh": {
@@ -206,7 +207,7 @@
           "type": "text",
           "settings": {
             "text": "<h4>WHAT TO EXPECT</h4><p>Every piece we create blends craftsmanship, heritage, and quality and each of our treasured partners provides unique contributions that amplify our appreciation of time-honored processes. Supporting handmade means supporting the local communities behind these crafts. Learn more about our sustainability efforts and our incredible artisanal knitting partners.</p>",
-            "line_height": 20
+            "line_height": 22
           }
         }
       },
@@ -234,7 +235,16 @@
             "text": "<p><strong>OPEN/CLOSED</strong></p><p>Ordering is open when our knitting partners have extra capacity</p>",
             "link_label": "",
             "link": "",
-            "new_tab": false
+            "new_tab": false,
+            "link_margin": 15,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 25,
+            "lr_overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         },
         "column_7GxhG4": {
@@ -244,7 +254,16 @@
             "text": "<p><strong>SELECT COLORS</strong></p><p>Each run offers beloved archival colors, repurposing our stock of excess or rejected yarns</p>",
             "link_label": "",
             "link": "",
-            "new_tab": false
+            "new_tab": false,
+            "link_margin": 15,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 25,
+            "lr_overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         },
         "column_hjKR7q": {
@@ -254,7 +273,16 @@
             "text": "<p><strong>LIMITED CAPACITY</strong></p><p>Handcrafted pieces and limited yarns mean a scarce supply and limited production capacity</p>",
             "link_label": "",
             "link": "",
-            "new_tab": false
+            "new_tab": false,
+            "link_margin": 15,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 25,
+            "lr_overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         },
         "column_rA7bPF": {
@@ -264,7 +292,16 @@
             "text": "<p><strong>LEAD TIMES</strong></p><p>Our repurposed yarn colors may be in stock or require custom dyeing, leading to a 3-5 month lead time</p>",
             "link_label": "",
             "link": "",
-            "new_tab": false
+            "new_tab": false,
+            "link_margin": 15,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 25,
+            "lr_overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
           }
         }
       },
@@ -280,13 +317,6 @@
       "settings": {
         "title": "",
         "heading_size": "h2",
-        "enable_overlay": false,
-        "content_position": "middle-center",
-        "overlay_padding": 14,
-        "link_type": "link",
-        "link_color": "#000000",
-        "link_style": "none",
-        "button_type": "primary",
         "enable_desktop_full_width": false,
         "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
