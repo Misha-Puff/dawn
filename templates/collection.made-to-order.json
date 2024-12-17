@@ -47,14 +47,14 @@
         "heading_hgV8GR": {
           "type": "heading",
           "settings": {
-            "heading": "Made-to-Order Program",
+            "heading": "Early Access: December Made-to-Order",
             "heading_size": "h2"
           }
         },
         "text_MDgMVV": {
           "type": "text",
           "settings": {
-            "text": "<p>Our latest Made-to-Order offering includes two categories: beloved silhouettes in requested archival colors and recently popular styles you might have missed the first time. Orders <strong>open Friday, December 20 at 11 AM</strong> <strong>ET and close Monday, December 23</strong> <strong>at</strong> <strong>12 PM</strong> <strong>ET</strong>—or sooner if we reach capacity. Please note, some styles may sell out faster than others.</p><p>Our Made-to-Order program is an initiative that we are very proud of — and at the heart of why we do what we do. This program introduces the ability to custom shop some of your favorite Misha & Puff styles in a limited small-batch capsule outside of our seasonal collections, while delivering on our promise to support our knitting community year-round.</p>",
+            "text": "<p>For the next 24 hours, shop our latest Made-to-Order offering before anyone else. This release features two categories: beloved silhouettes in requested archival colors and recently popular styles you may have missed the first time.</p><p>Your Early Access window opens <strong>Thursday, December 19 at 11 AM ET</strong> and closes <strong>Friday, December 20 at 11 AM ET</strong>.</p><p>Orders open to everyone on <strong>Friday, December 20 at 11 AM ET</strong> and close <strong>Monday, December 23 at 12 PM ET</strong>—or sooner if we reach capacity. Some styles may sell out quickly!</p>",
             "line_height": 22
           }
         },
@@ -86,8 +86,8 @@
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 0,
-        "padding_left": 52,
-        "padding_right": 52
+        "padding_left": 40,
+        "padding_right": 40
       }
     },
     "custom_liquid_bKixf9": {
@@ -103,48 +103,8 @@
         "padding_bottom": 52
       }
     },
-    "buttons_HHBh8y": {
-      "type": "buttons",
-      "blocks": {
-        "button_hBT4RJ": {
-          "type": "button",
-          "settings": {
-            "label": "MTO STATUS UPDATES",
-            "open_new_tab": false,
-            "link": "shopify://pages/mto-status",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_KMMLGQ": {
-          "type": "button",
-          "settings": {
-            "label": "GET MTO ALERTS",
-            "open_new_tab": true,
-            "link": "shopify://pages/newsletter-signup",
-            "type": "secondary",
-            "on_click": ""
-          }
-        }
-      },
-      "block_order": [
-        "button_hBT4RJ",
-        "button_KMMLGQ"
-      ],
-      "settings": {
-        "title": "",
-        "button_gap": 10,
-        "heading_size": "h1",
-        "color_scheme": "",
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 0,
-        "mobile_padding_top": 30,
-        "mobile_padding_bottom": 30
-      }
-    },
     "featured_collection_HDDDGc": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
         "title": "",
         "heading_alignment": "left",
@@ -153,11 +113,11 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "adult-made-to-order",
+        "collection": "child-made-to-order",
         "hide_sold_out": false,
         "hide_content": false,
         "products_to_show": 20,
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "full_width": true,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 10,
@@ -206,7 +166,7 @@
         "text_jhkXDN": {
           "type": "text",
           "settings": {
-            "text": "<h4>WHAT TO EXPECT</h4><p>Every piece we create blends craftsmanship, heritage, and quality and each of our treasured partners provides unique contributions that amplify our appreciation of time-honored processes. Supporting handmade means supporting the local communities behind these crafts. Learn more about our sustainability efforts and our incredible artisanal knitting partners.</p>",
+            "text": "<h4>WHAT TO EXPECT</h4><p>Our Made-to-Order program is an initiative that we are very proud of — and at the heart of why we do what we do. This program introduces the ability to custom shop some of your favorite Misha & Puff styles in a limited small-batch capsule outside of our seasonal collections, while delivering on our promise to support our knitting community year-round.<br/><br/>Every piece we create blends craftsmanship, heritage, and quality and each of our treasured partners provides unique contributions that amplify our appreciation of time-honored processes. Supporting handmade means supporting the local communities behind these crafts. Learn more about our sustainability efforts and our incredible artisanal knitting partners.</p>",
             "line_height": 22
           }
         }
@@ -344,6 +304,45 @@
       "type": "shogun-custom-6740e893fc6c7f89abe638e3",
       "settings": {}
     },
+    "buttons_HHBh8y": {
+      "type": "buttons",
+      "blocks": {
+        "button_hBT4RJ": {
+          "type": "button",
+          "settings": {
+            "label": "MTO STATUS UPDATES",
+            "open_new_tab": false,
+            "link": "shopify://pages/mto-status",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_KMMLGQ": {
+          "type": "button",
+          "settings": {
+            "label": "GET MTO ALERTS",
+            "open_new_tab": true,
+            "link": "shopify://pages/newsletter-signup",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_hBT4RJ",
+        "button_KMMLGQ"
+      ],
+      "settings": {
+        "title": "Check on an existing MTO or sign up for alerts",
+        "button_gap": 10,
+        "heading_size": "h2",
+        "color_scheme": "",
+        "desktop_padding_top": 58,
+        "desktop_padding_bottom": 58,
+        "mobile_padding_top": 44,
+        "mobile_padding_bottom": 44
+      }
+    },
     "rich_text_CV66KV": {
       "type": "rich-text",
       "blocks": {
@@ -375,12 +374,12 @@
     "product-grid",
     "rich_text_Qzf3YT",
     "custom_liquid_bKixf9",
-    "buttons_HHBh8y",
     "featured_collection_HDDDGc",
     "divider_QNP8CF",
     "rich_text_Jak7Gh",
     "multicolumn_mePegM",
     "shogun_custom_6740e893fc6c7f89abe638e3_LT8dkN",
+    "buttons_HHBh8y",
     "rich_text_CV66KV"
   ]
 }
