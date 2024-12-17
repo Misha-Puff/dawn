@@ -145,10 +145,10 @@
     "featured_collection_HDDDGc": {
       "type": "featured-collection",
       "settings": {
-        "title": "",
-        "heading_alignment": "left",
+        "title": "ARCHIVAL COLORS",
+        "heading_alignment": "center",
         "heading_size": "h2",
-        "heading_margin": 14,
+        "heading_margin": 24,
         "description": "",
         "show_description": false,
         "description_style": "body",
@@ -176,11 +176,11 @@
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "section_full_width": true,
-        "desktop_padding_top": 52,
+        "desktop_padding_top": 40,
         "desktop_padding_bottom": 52,
         "desktop_padding_left": 40,
         "desktop_padding_right": 40,
-        "mobile_padding_top": 0,
+        "mobile_padding_top": 20,
         "mobile_padding_bottom": 40,
         "mobile_padding_left": 0,
         "mobile_padding_right": 0
@@ -189,10 +189,10 @@
     "featured_collection_q97ALK": {
       "type": "featured-collection",
       "settings": {
-        "title": "",
-        "heading_alignment": "left",
-        "heading_size": "h1",
-        "heading_margin": 15,
+        "title": "RECENT STYLES",
+        "heading_alignment": "center",
+        "heading_size": "h2",
+        "heading_margin": 24,
         "description": "",
         "show_description": false,
         "description_style": "body",
@@ -224,7 +224,7 @@
         "desktop_padding_bottom": 52,
         "desktop_padding_left": 40,
         "desktop_padding_right": 40,
-        "mobile_padding_top": 0,
+        "mobile_padding_top": 20,
         "mobile_padding_bottom": 40,
         "mobile_padding_left": 0,
         "mobile_padding_right": 0
