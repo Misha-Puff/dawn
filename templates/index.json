@@ -50,7 +50,7 @@
         "buttons_CGGLqp"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_12.13.24_Child_LP5_e1424f31-87f0-412a-bffc-465c51588f32.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_12.23.24_Child_HP.jpg",
         "banner_link": "shopify://collections/child-winter-b",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -59,7 +59,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_12.13.24_Child_LP5_Mob2.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_2x3_12.23.24_Child_HP_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false,
