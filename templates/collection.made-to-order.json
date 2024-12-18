@@ -221,11 +221,11 @@
         "swipe_on_mobile": false,
         "section_full_width": true,
         "desktop_padding_top": 52,
-        "desktop_padding_bottom": 52,
+        "desktop_padding_bottom": 24,
         "desktop_padding_left": 40,
         "desktop_padding_right": 40,
         "mobile_padding_top": 20,
-        "mobile_padding_bottom": 40,
+        "mobile_padding_bottom": 24,
         "mobile_padding_left": 0,
         "mobile_padding_right": 0
       }
@@ -262,7 +262,7 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 0,
+        "padding_top": 12,
         "padding_bottom": 12,
         "padding_left": 0,
         "padding_right": 0
