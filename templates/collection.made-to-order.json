@@ -47,15 +47,15 @@
         "heading_hgV8GR": {
           "type": "heading",
           "settings": {
-            "heading": "Made-to-Order Program",
+            "heading": "Early Access: December Made-to-Order",
             "heading_size": "h2"
           }
         },
         "text_MDgMVV": {
           "type": "text",
           "settings": {
-            "text": "<p>Our most recent MTO program has reached capacity and is now <strong>closed</strong>.<br/>Check your order status and sign up to be notified for future MTO collections below.</p><p>Our Made-to-Order program is an initiative that we are very proud of — and at the heart of why we do what we do. This program introduces the ability to custom shop some of your favorite Misha & Puff styles in a limited small-batch capsule outside of our seasonal collections, while delivering on our promise to support our knitting community year-round.</p>",
-            "line_height": 20
+            "text": "<p>For the next 24 hours, shop our latest Made-to-Order offering before anyone else. This release features two categories: beloved silhouettes in requested archival colors and recently popular styles you may have missed the first time.</p><p>Your Early Access window opens <strong>Thursday, December 19 at 11 AM ET</strong> and closes <strong>Friday, December 20 at 11 AM ET</strong>.</p><p>Orders open to everyone on Friday, December 20 at 11 AM ET and close Monday, December 23 at 12 PM ET — or sooner if we reach capacity. Some styles may sell out quickly!</p>",
+            "line_height": 22
           }
         },
         "button_9DxNK6": {
@@ -86,8 +86,47 @@
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 0,
-        "padding_left": 52,
-        "padding_right": 52
+        "padding_left": 0,
+        "padding_right": 0
+      }
+    },
+    "buttons_3PfeUB": {
+      "type": "buttons",
+      "blocks": {
+        "button_CDtW7F": {
+          "type": "button",
+          "settings": {
+            "label": "ARCHIVAL COLORS",
+            "open_new_tab": false,
+            "link": "#shopify-section-template--16660874952755__featured_collection_HDDDGc",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_6jYd6m": {
+          "type": "button",
+          "settings": {
+            "label": "RECENT STYLES",
+            "open_new_tab": false,
+            "link": "#shopify-section-template--16660874952755__featured_collection_q97ALK",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_CDtW7F",
+        "button_6jYd6m"
+      ],
+      "settings": {
+        "title": "",
+        "button_gap": 10,
+        "heading_size": "h2",
+        "color_scheme": "",
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 36,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
       }
     },
     "custom_liquid_bKixf9": {
@@ -102,6 +141,251 @@
         "padding_top": 0,
         "padding_bottom": 52
       }
+    },
+    "featured_collection_HDDDGc": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "ARCHIVAL COLORS",
+        "heading_alignment": "center",
+        "heading_size": "h2",
+        "heading_margin": 24,
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "child-made-to-order-archival",
+        "hide_sold_out": false,
+        "hide_content": false,
+        "products_to_show": 30,
+        "columns_desktop": 3,
+        "full_width": true,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 24,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 20,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "section_full_width": true,
+        "desktop_padding_top": 40,
+        "desktop_padding_bottom": 52,
+        "desktop_padding_left": 40,
+        "desktop_padding_right": 40,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 40,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
+      }
+    },
+    "featured_collection_q97ALK": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "RECENT STYLES",
+        "heading_alignment": "center",
+        "heading_size": "h2",
+        "heading_margin": 24,
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "child-made-to-order",
+        "hide_sold_out": false,
+        "hide_content": false,
+        "products_to_show": 30,
+        "columns_desktop": 3,
+        "full_width": true,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 24,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 20,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "section_full_width": true,
+        "desktop_padding_top": 52,
+        "desktop_padding_bottom": 24,
+        "desktop_padding_left": 40,
+        "desktop_padding_right": 40,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 24,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
+      }
+    },
+    "divider_QNP8CF": {
+      "type": "divider",
+      "settings": {
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 36,
+        "desktop_padding_left": 52,
+        "desktop_padding_right": 52,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36,
+        "mobile_padding_left": 32,
+        "mobile_padding_right": 32
+      }
+    },
+    "rich_text_Jak7Gh": {
+      "type": "rich-text",
+      "blocks": {
+        "text_jhkXDN": {
+          "type": "text",
+          "settings": {
+            "text": "<h4>WHAT TO EXPECT</h4><p>Our Made-to-Order program is an initiative that we are very proud of — and at the heart of why we do what we do. This program introduces the ability to custom shop some of your favorite Misha & Puff styles in a limited small-batch capsule outside of our seasonal collections, while delivering on our promise to support our knitting community year-round.<br/><br/>Every piece we create blends craftsmanship, heritage, and quality and each of our treasured partners provides unique contributions that amplify our appreciation of time-honored processes. Supporting handmade means supporting the local communities behind these crafts. Learn more about our sustainability efforts and our incredible artisanal knitting partners.</p>",
+            "line_height": 22
+          }
+        }
+      },
+      "block_order": [
+        "text_jhkXDN"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "padding_left": 0,
+        "padding_right": 0
+      }
+    },
+    "multicolumn_mePegM": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_bNVh4e": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p><strong>OPEN/CLOSED</strong></p><p>Ordering is open when our knitting partners have extra capacity</p>",
+            "link_label": "",
+            "link": "",
+            "new_tab": false,
+            "link_margin": 15,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 25,
+            "lr_overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        },
+        "column_7GxhG4": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p><strong>SELECT COLORS</strong></p><p>Each run offers beloved archival colors, repurposing our stock of excess or rejected yarns</p>",
+            "link_label": "",
+            "link": "",
+            "new_tab": false,
+            "link_margin": 15,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 25,
+            "lr_overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        },
+        "column_hjKR7q": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p><strong>LIMITED CAPACITY</strong></p><p>Handcrafted pieces and limited yarns mean a scarce supply and limited production capacity</p>",
+            "link_label": "",
+            "link": "",
+            "new_tab": false,
+            "link_margin": 15,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 25,
+            "lr_overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        },
+        "column_rA7bPF": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p><strong>LEAD TIMES</strong></p><p>Our repurposed yarn colors may be in stock or require custom dyeing, leading to a 3-5 month lead time</p>",
+            "link_label": "",
+            "link": "",
+            "new_tab": false,
+            "link_margin": 15,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 25,
+            "lr_overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "column_bNVh4e",
+        "column_7GxhG4",
+        "column_hjKR7q",
+        "column_rA7bPF"
+      ],
+      "custom_css": [
+        ".multicolumn-list__item {text-align: center;}"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 30
+      }
+    },
+    "shogun_custom_6740e893fc6c7f89abe638e3_LT8dkN": {
+      "type": "shogun-custom-6740e893fc6c7f89abe638e3",
+      "settings": {}
     },
     "buttons_HHBh8y": {
       "type": "buttons",
@@ -132,187 +416,15 @@
         "button_KMMLGQ"
       ],
       "settings": {
-        "title": "",
+        "title": "Check on an existing MTO or sign up for alerts",
         "button_gap": 10,
-        "heading_size": "h1",
-        "color_scheme": "",
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 0,
-        "mobile_padding_top": 30,
-        "mobile_padding_bottom": 30
-      }
-    },
-    "featured_collection_HDDDGc": {
-      "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "title": "",
-        "heading_alignment": "left",
         "heading_size": "h2",
-        "heading_margin": 14,
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "adult-made-to-order",
-        "hide_sold_out": false,
-        "products_to_show": 20,
-        "columns_desktop": 4,
-        "full_width": true,
-        "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 10,
-        "vertical_spacing_desktop": 0,
-        "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 10,
-        "show_view_all": false,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
         "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "section_full_width": true,
-        "desktop_padding_top": 52,
-        "desktop_padding_bottom": 52,
-        "desktop_padding_left": 40,
-        "desktop_padding_right": 40,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 40,
-        "mobile_padding_left": 0,
-        "mobile_padding_right": 0
+        "desktop_padding_top": 58,
+        "desktop_padding_bottom": 58,
+        "mobile_padding_top": 44,
+        "mobile_padding_bottom": 44
       }
-    },
-    "divider_QNP8CF": {
-      "type": "divider",
-      "settings": {
-        "desktop_padding_top": 36,
-        "desktop_padding_bottom": 36,
-        "desktop_padding_left": 40,
-        "desktop_padding_right": 40,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36,
-        "mobile_padding_left": 20,
-        "mobile_padding_right": 20
-      }
-    },
-    "rich_text_Jak7Gh": {
-      "type": "rich-text",
-      "blocks": {
-        "text_jhkXDN": {
-          "type": "text",
-          "settings": {
-            "text": "<h4>WHAT TO EXPECT</h4><p>Every piece we create blends craftsmanship, heritage, and quality and each of our treasured partners provides unique contributions that amplify our appreciation of time-honored processes. Supporting handmade means supporting the local communities behind these crafts. Learn more about our sustainability efforts and our incredible artisanal knitting partners.</p>",
-            "line_height": 20
-          }
-        }
-      },
-      "block_order": [
-        "text_jhkXDN"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 0,
-        "padding_bottom": 12,
-        "padding_left": 52,
-        "padding_right": 52
-      }
-    },
-    "multicolumn_mePegM": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_bNVh4e": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "<p><strong>OPEN/CLOSED</strong></p><p>Ordering is open when our knitting partners have extra capacity</p>",
-            "link_label": "",
-            "link": "",
-            "new_tab": false
-          }
-        },
-        "column_7GxhG4": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "<p><strong>SELECT COLORS</strong></p><p>Each run offers beloved archival colors, repurposing our stock of excess or rejected yarns</p>",
-            "link_label": "",
-            "link": "",
-            "new_tab": false
-          }
-        },
-        "column_hjKR7q": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "<p><strong>LIMITED CAPACITY</strong></p><p>Handcrafted pieces and limited yarns mean a scarce supply and limited production capacity</p>",
-            "link_label": "",
-            "link": "",
-            "new_tab": false
-          }
-        },
-        "column_rA7bPF": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "<p><strong>LEAD TIMES</strong></p><p>Our repurposed yarn colors may be in stock or require custom dyeing, leading to a 3-5 month lead time</p>",
-            "link_label": "",
-            "link": "",
-            "new_tab": false
-          }
-        }
-      },
-      "block_order": [
-        "column_bNVh4e",
-        "column_7GxhG4",
-        "column_hjKR7q",
-        "column_rA7bPF"
-      ],
-      "custom_css": [
-        ".multicolumn-list__item {text-align: center;}"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "enable_overlay": false,
-        "content_position": "middle-center",
-        "overlay_padding": 14,
-        "link_type": "link",
-        "link_color": "#000000",
-        "link_style": "none",
-        "button_type": "primary",
-        "enable_desktop_full_width": false,
-        "enable_mobile_full_width": false,
-        "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 20,
-        "vertical_spacing_desktop": 20,
-        "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 10,
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 4,
-        "column_alignment": "left",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 30,
-        "mobile_padding_top": 20,
-        "mobile_padding_bottom": 30
-      }
-    },
-    "shogun_custom_6740e893fc6c7f89abe638e3_LT8dkN": {
-      "type": "shogun-custom-6740e893fc6c7f89abe638e3",
-      "settings": {}
     },
     "rich_text_CV66KV": {
       "type": "rich-text",
@@ -344,13 +456,15 @@
     "banner",
     "product-grid",
     "rich_text_Qzf3YT",
+    "buttons_3PfeUB",
     "custom_liquid_bKixf9",
-    "buttons_HHBh8y",
     "featured_collection_HDDDGc",
+    "featured_collection_q97ALK",
     "divider_QNP8CF",
     "rich_text_Jak7Gh",
     "multicolumn_mePegM",
     "shogun_custom_6740e893fc6c7f89abe638e3_LT8dkN",
+    "buttons_HHBh8y",
     "rich_text_CV66KV"
   ]
 }
