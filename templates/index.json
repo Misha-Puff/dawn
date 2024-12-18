@@ -383,7 +383,7 @@
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "desktop_padding_top": 10,
+        "desktop_padding_top": 16,
         "desktop_padding_bottom": 20,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 20
