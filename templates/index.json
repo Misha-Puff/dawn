@@ -144,7 +144,7 @@
         "desktop_padding_top": 30,
         "desktop_padding_bottom": 30,
         "mobile_padding_top": 12,
-        "mobile_padding_bottom": 16
+        "mobile_padding_bottom": 0
       }
     },
     "rich_text_N3wraP": {
