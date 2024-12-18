@@ -17,13 +17,14 @@
         "announcement_egLqPG": {
           "type": "announcement",
           "settings": {
-            "text": "<p>Winter <a href=\"https://shop.misha-and-puff.com/collections/made-to-order\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/collections/made-to-order\">Made-to-Order is open</a>! Closes Monday, 12/23, at noon ET.</p>"
+            "text": "<p>Our offices are closed 12/25-1/1 + our warehouse is closed 12/25, 12.26 and 1/1</p>"
           }
         }
       },
       "block_order": [
         "announcement_egLqPG"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "",
         "desktop_height": 40,
@@ -54,8 +55,8 @@
         "enable_customer_avatar": true,
         "mobile_logo_position": "center",
         "margin_bottom": 0,
-        "padding_top": 20,
-        "padding_bottom": 20
+        "padding_top": 24,
+        "padding_bottom": 24
       }
     }
   },
