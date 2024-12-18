@@ -86,8 +86,8 @@
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 0,
-        "padding_left": 28,
-        "padding_right": 28
+        "padding_left": 0,
+        "padding_right": 0
       }
     },
     "buttons_3PfeUB": {
@@ -264,8 +264,8 @@
         "full_width": true,
         "padding_top": 0,
         "padding_bottom": 12,
-        "padding_left": 28,
-        "padding_right": 28
+        "padding_left": 0,
+        "padding_right": 0
       }
     },
     "multicolumn_mePegM": {
