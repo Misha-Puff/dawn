@@ -87,12 +87,12 @@
             "link": "shopify://collections/made-to-order",
             "new_tab": false,
             "link_margin": 8,
-            "enable_overlay": true,
+            "enable_overlay": false,
             "content_position": "bottom-left",
             "tb_overlay_padding": 15,
             "lr_overlay_padding": 25,
             "link_type": "link",
-            "link_color": "#ffffff",
+            "link_color": "#000000",
             "link_style": "none",
             "button_type": "primary"
           }
@@ -107,12 +107,12 @@
             "link": "shopify://collections/child-winter-b",
             "new_tab": false,
             "link_margin": 8,
-            "enable_overlay": true,
+            "enable_overlay": false,
             "content_position": "bottom-left",
             "tb_overlay_padding": 15,
             "lr_overlay_padding": 25,
             "link_type": "link",
-            "link_color": "#ffffff",
+            "link_color": "#000000",
             "link_style": "none",
             "button_type": "primary"
           }
@@ -154,7 +154,7 @@
         "column_iAT4GA": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_12.18.24_Adult_HP.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_12.18.24_Adult_HP_2x3_fb241d1e-9ab1-40fa-ab79-d446d4bd5782.jpg",
             "title": "",
             "text": "",
             "link_label": "ADULT NEW ARRIVALS",
@@ -174,7 +174,7 @@
         "column_3igURh": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_12.2.24_Baby.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_12.18.24_Baby_HP_2x3_ce1214dc-2ce1-407f-a68f-41b66e2a60f7.jpg",
             "title": "",
             "text": "",
             "link_label": "SHOP BABY",
@@ -194,7 +194,7 @@
         "column_LdhAqc": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/GiftGuide_24_Mob.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_12.18.24_gift_HP_2x3_129a1fd2-3b8a-42d5-b8ea-f177d4ad4fc8.jpg",
             "title": "",
             "text": "",
             "link_label": "GIFT GUIDES",
@@ -299,19 +299,19 @@
         "column_mcCDRB": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_12.13.24_Stores2.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_12.18.24_Stores_HP_2x3_044462ed-a8f9-44b8-93e4-5525f3a81a6b.jpg",
             "title": "",
             "text": "",
             "link_label": "OUR STORES",
             "link": "shopify://pages/stores",
             "new_tab": false,
             "link_margin": 8,
-            "enable_overlay": true,
+            "enable_overlay": false,
             "content_position": "bottom-left",
             "tb_overlay_padding": 15,
             "lr_overlay_padding": 25,
             "link_type": "link",
-            "link_color": "#ffffff",
+            "link_color": "#000000",
             "link_style": "none",
             "button_type": "primary"
           }
@@ -319,19 +319,19 @@
         "column_VkmJ9N": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_12.13.24_Accs_f4d21fb3-39fa-44dd-aff5-c3b0a59df95c.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_12.18.24_Accs_HP_2x3_fee9ec7f-32c4-4b56-9d75-bc99e5665f88.jpg",
             "title": "",
             "text": "",
             "link_label": "WINTER ACCESSORIES",
             "link": "shopify://collections/child-accessories",
             "new_tab": false,
             "link_margin": 8,
-            "enable_overlay": true,
+            "enable_overlay": false,
             "content_position": "bottom-left",
             "tb_overlay_padding": 15,
             "lr_overlay_padding": 25,
             "link_type": "link",
-            "link_color": "#ffffff",
+            "link_color": "#000000",
             "link_style": "none",
             "button_type": "primary"
           }
