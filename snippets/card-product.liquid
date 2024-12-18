@@ -398,65 +398,65 @@
               </h3>
             </div>
             <div class="card__badge {{ settings.badge_position }}">
-              {% assign custom_tags = '' | split: '😉' %}
-
-              {% for tag in card_product.tags %}
-                {% if tag contains 'Badge-' %}
-                  {% assign custom_tag = tag | split: 'Badge-' | last | split: '😉' %}
-                  {% assign custom_tags = custom_tags | concat: custom_tag %}
-                {% endif %}
-              {% endfor %}
-
-              {%- if custom_tags.size > 0 -%}
-                {% for custom_tag in custom_tags %}
-                  <span
-                    id="Badge-{{ section_id }}-{{ card_product.id }}"
-                    class="badge badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}"
-                  >
-                    {{ custom_tag }}
-                  </span>
-                {% endfor %}
-              {% endif %}
-
               {% assign tags_str = card_product.tags | join: ',' %}
 
-              {% unless tags_str contains 'Badge-' %}
-                {%- if card_product.available == false -%}
-                  <span
-                    id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-                    class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
-                  >
-                    {{- 'products.product.sold_out' | t -}}
-                  </span>
-                {% endif %}
-              {% endunless %}
+              {% if tags_str contains 'Badge-Coming Soon' %}
+                <span
+                  id="Badge-{{ section_id }}-{{ card_product.id }}"
+                  class="badge badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}"
+                >
+                  Coming Soon
+                </span>
+              {% elsif card_product.available == false %}
+                <span
+                  id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+                  class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
+                >
+                  {{- 'products.product.sold_out' | t -}}
+                </span>
+              {% elsif tags_str contains 'Badge-' %}
+                {% assign custom_tags = '' | split: '😉' %}
 
-              {%- if card_product.compare_at_price > card_product.price -%}
+                {% for tag in card_product.tags %}
+                  {% if tag contains 'Badge-' %}
+                    {% assign custom_tag = tag | split: 'Badge-' | last | split: '😉' %}
+                    {% assign custom_tags = custom_tags | concat: custom_tag %}
+                  {% endif %}
+                {% endfor %}
+
+                {%- if custom_tags.size > 0 -%}
+                  {% for custom_tag in custom_tags %}
+                    <span
+                      id="Badge-{{ section_id }}-{{ card_product.id }}"
+                      class="badge badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}"
+                    >
+                      {{ custom_tag }}
+                    </span>
+                  {% endfor %}
+                {% endif %}
+
+              {% elsif card_product.compare_at_price > card_product.price %}
                 <span
                   id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
                   class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
                 >
                   {{- 'products.product.on_sale' | t -}}
                 </span>
-              {%- endif -%}
-
-              {%- if card_product.tags contains 'RWS' -%}
+              {% elsif card_product.tags contains 'RWS' %}
                 <span
                   id="Badge-{{ section_id }}-{{ card_product.id }}"
                   class="badge badge--bottom-left color-{{ settings.rws_badge_color_scheme }}"
                 >
                   RWS
                 </span>
-              {%- endif -%}
-
-              {%- if card_product.tags contains 'made-to-order' -%}
+              {% elsif card_product.tags contains 'made-to-order' %}
                 <span
                   id="Badge-{{ section_id }}-{{ card_product.id }}"
                   class="badge badge--bottom-left color-{{ settings.mto_badge_color_scheme }}"
                 >
                   Made-to-Order
                 </span>
-              {%- endif -%}
+              {% endif %}
             </div>
           </div>
         {% endunless %}
