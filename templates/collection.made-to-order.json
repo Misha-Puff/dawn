@@ -54,7 +54,7 @@
         "text_MDgMVV": {
           "type": "text",
           "settings": {
-            "text": "<p>For the next 24 hours, shop our latest Made-to-Order offering before anyone else. This release features two categories: beloved silhouettes in requested archival colors and recently popular styles you may have missed the first time.</p><p>Your Early Access window opens <strong>Thursday, December 19 at 11 AM ET</strong> and closes <strong>Friday, December 20 at 11 AM ET</strong>.</p><p>Orders open to everyone on <strong>Friday, December 20 at 11 AM ET</strong> and close <strong>Monday, December 23 at 12 PM ET</strong>—or sooner if we reach capacity. Some styles may sell out quickly!</p>",
+            "text": "<p>For the next 24 hours, shop our latest Made-to-Order offering before anyone else. This release features two categories: beloved silhouettes in requested archival colors and recently popular styles you may have missed the first time.</p><p>Your Early Access window opens <strong>Thursday, December 19 at 11 AM ET</strong> and closes <strong>Friday, December 20 at 11 AM ET</strong>.</p><p>Orders open to everyone on Friday, December 20 at 11 AM ET and close Monday, December 23 at 12 PM ET — or sooner if we reach capacity. Some styles may sell out quickly!</p>",
             "line_height": 22
           }
         },
@@ -86,8 +86,8 @@
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 0,
-        "padding_left": 40,
-        "padding_right": 40
+        "padding_left": 32,
+        "padding_right": 32
       }
     },
     "buttons_3PfeUB": {
@@ -264,8 +264,8 @@
         "full_width": true,
         "padding_top": 0,
         "padding_bottom": 12,
-        "padding_left": 52,
-        "padding_right": 52
+        "padding_left": 28,
+        "padding_right": 28
       }
     },
     "multicolumn_mePegM": {
