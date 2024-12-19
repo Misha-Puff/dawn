@@ -54,7 +54,7 @@
         "text_MDgMVV": {
           "type": "text",
           "settings": {
-            "text": "<p>For the next 24 hours, shop our latest Made-to-Order offering before anyone else. This release features two categories: beloved silhouettes in requested archival colors and recently popular styles you may have missed the first time.</p><p>Your Early Access window opens <strong>Thursday, December 19 at 11 AM ET</strong> and closes <strong>Friday, December 20 at 11 AM ET</strong>.</p><p>Orders open to everyone on Friday, December 20 at 11 AM ET and close Monday, December 23 at 12 PM ET — or sooner if we reach capacity. Some styles may sell out quickly!</p>",
+            "text": "<p>For the next 24 hours, shop our latest Made-to-Order offering before anyone else. You asked, and we listened. This release features two categories: beloved silhouettes in requested archival colors and recently popular styles you may have missed the first time. All styles are expected to ship by early Fall 2025.</p><p>Your Early Access window opens <strong>Thursday, December 19 at 11 AM ET</strong> and closes <strong>Friday, December 20 at 11 AM ET</strong>.</p><p>Orders open to everyone on Friday, December 20 at 11 AM ET and close Monday, December 23 at 12 PM ET — or sooner if we reach capacity. Some styles may sell out quickly!</p>",
             "line_height": 22
           }
         },
@@ -169,7 +169,7 @@
         "color_scheme": "",
         "image_ratio": "adapt",
         "image_shape": "default",
-        "show_secondary_image": false,
+        "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "standard",

@@ -29,7 +29,7 @@
         "text_WF8qEV": {
           "type": "text",
           "settings": {
-            "text": "<p>Our Adult Log Cabin MTO will be open from Monday, November 25, at 11 am ET, through Wednesday, November 27, at 11:59 pm ET, <em><strong>OR</strong></em> until we reach capacity. Expected shipping is February 2025.<br/></p>",
+            "text": "<p>Our Winter MTO will be open from Friday, December 20, at 11 am ET, through Monday, December 23, at 12 pm ET, <em><strong>OR</strong></em> until we reach capacity. Expected shipping is early Fall 2025.<br/></p>",
             "line_height": 22
           }
         },
@@ -78,7 +78,7 @@
         "text_HKRrd4": {
           "type": "text",
           "settings": {
-            "text": "<p>Made-to-Order styles are available for a limited time and have capacity limits due to their handcrafted nature. Once a style reaches capacity, it will show as “Unavailable.”</p><p>All Made-to-Order purchases are final sale—no cancellations or returns, even if delays occur.</p><p>The estimated ship date is February 2025. While we strive to meet this timeline, it is subject to change. Updates will be provided as production progresses.</p><p>You can update your shipping address until your order begins processing via the link in your confirmation email.</p><p>You can check the status of the MTO <a href=\"/pages/mto-status\" target=\"_blank\" title=\"Made to Order Status\">here</a>. For further assitance, visit our <a href=\"https://help.misha-and-puff.com/en-US#category-14398\" target=\"_blank\" title=\"https://help.misha-and-puff.com/en-US#category-14398\">Support Portal</a> or explore FAQs <a href=\"https://help.misha-and-puff.com/en-US\" target=\"_blank\" title=\"https://help.misha-and-puff.com/en-US\">here</a>.</p>",
+            "text": "<p>Made-to-Order styles are available for a limited time and have capacity limits due to their handcrafted nature. Once a style reaches capacity, it will show as “Unavailable.”</p><p>All Made-to-Order purchases are final sale—no cancellations or returns, even if delays occur.</p><p>The estimated ship date is early Fall 2025. While we strive to meet this timeline, it is subject to change. Updates will be provided as production progresses.</p><p>You can update your shipping address until your order begins processing via the link in your confirmation email.</p><p>You can check the status of the MTO <a href=\"/pages/mto-status\" target=\"_blank\" title=\"Made to Order Status\">here</a>. For further assitance, visit our <a href=\"https://help.misha-and-puff.com/en-US#category-14398\" target=\"_blank\" title=\"https://help.misha-and-puff.com/en-US#category-14398\">Support Portal</a> or explore FAQs <a href=\"https://help.misha-and-puff.com/en-US\" target=\"_blank\" title=\"https://help.misha-and-puff.com/en-US\">here</a>.</p>",
             "line_height": 22
           }
         },
@@ -116,7 +116,16 @@
     },
     "divider_KRexyr": {
       "type": "divider",
-      "settings": {}
+      "settings": {
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 36,
+        "desktop_padding_left": 40,
+        "desktop_padding_right": 40,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36,
+        "mobile_padding_left": 20,
+        "mobile_padding_right": 20
+      }
     },
     "rich_text_yzN863": {
       "type": "rich-text",
