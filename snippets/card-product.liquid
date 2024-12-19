@@ -400,21 +400,7 @@
             <div class="card__badge {{ settings.badge_position }}">
               {% assign tags_str = card_product.tags | join: ',' %}
 
-              {% if tags_str contains 'Badge-Coming Soon' %}
-                <span
-                  id="Badge-{{ section_id }}-{{ card_product.id }}"
-                  class="badge badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}"
-                >
-                  Coming Soon
-                </span>
-              {% elsif card_product.available == false %}
-                <span
-                  id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-                  class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
-                >
-                  {{- 'products.product.sold_out' | t -}}
-                </span>
-              {% elsif tags_str contains 'Badge-' %}
+              {% if tags_str contains 'Badge-' %}
                 {% assign custom_tags = '' | split: '😉' %}
 
                 {% for tag in card_product.tags %}
@@ -434,7 +420,13 @@
                     </span>
                   {% endfor %}
                 {% endif %}
-
+              {% elsif card_product.available == false %}
+                <span
+                  id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+                  class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
+                >
+                  {{- 'products.product.sold_out' | t -}}
+                </span>
               {% elsif card_product.compare_at_price > card_product.price %}
                 <span
                   id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"

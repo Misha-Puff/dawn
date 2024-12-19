@@ -126,15 +126,7 @@
       </small>
     </div>
     {%- if show_badges -%}
-      {% if tags_str contains 'Badge-Coming Soon' %}
-        <span class="badge price__badge-coming-soon color-{{ settings.coming_soon_badge_color_scheme }}">
-          Coming Soon
-        </span>
-      {% elsif product.available == false %}
-        <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
-          {{ 'products.product.sold_out' | t }}
-        </span>
-      {% elsif tags_str contains 'Badge-' %}
+      {% if tags_str contains 'Badge-' %}
         {% assign custom_tags = '' | split: '😉' %}
 
         {% for tag in product.tags %}
@@ -151,7 +143,10 @@
             </span>
           {% endfor %}
         {% endif %}
-
+      {% elsif product.available == false %}
+        <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
+          {{ 'products.product.sold_out' | t }}
+        </span>
       {% elsif product.compare_at_price > product.price %}
         <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
           {{ 'products.product.on_sale' | t }}
