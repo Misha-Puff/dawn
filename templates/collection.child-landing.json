@@ -123,7 +123,7 @@
             "title": "",
             "text": "",
             "link_label": "MADE-TO-ORDER",
-            "link": "shopify://collections/child-best-sellers",
+            "link": "shopify://collections/made-to-order",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
