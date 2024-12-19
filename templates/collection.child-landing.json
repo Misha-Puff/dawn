@@ -90,7 +90,7 @@
         "text_iqachQ"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_12.13.24_Child_LP3.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_12.23.24_Child_LP.jpg",
         "banner_link": "shopify://collections/child-winter-b",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -99,7 +99,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_2x3_Child_LP.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_12.23.24_Child_LP_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false,
@@ -119,10 +119,10 @@
         "column_iBFc39": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_12.18.24_MTO_HP_2x3_85c467d0-bad8-417c-9c48-1e422d36ae8c.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_2x3_12.23.24_BestSell.jpg",
             "title": "",
             "text": "",
-            "link_label": "MADE-TO-ORDER",
+            "link_label": "BEST SELLERS",
             "link": "shopify://collections/child-best-sellers",
             "new_tab": false,
             "link_margin": 8,

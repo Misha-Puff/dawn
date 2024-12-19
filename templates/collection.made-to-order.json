@@ -54,7 +54,7 @@
         "text_MDgMVV": {
           "type": "text",
           "settings": {
-            "text": "<p>Winter Made-to-Order is now open. You asked, and we listened. This release features two categories: beloved silhouettes in requested archival colors and recently popular styles you may have missed the first time. All styles are expected to ship by early Fall 2025.</p><p>Orders are open Friday, December 20 at 11 AM ET and close Monday, December 23 at 12 PM ET — or sooner if we reach capacity. Some styles may sell out quickly!</p>",
+            "text": "<p>Our most recent MTO program has reached capacity and is now closed. Check your order status and sign up to be notified for future MTO collections below.</p>",
             "line_height": 22
           }
         },
@@ -85,48 +85,48 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 40,
-        "padding_bottom": 0,
+        "padding_bottom": 28,
         "padding_left": 0,
         "padding_right": 0
       }
     },
-    "buttons_3PfeUB": {
+    "buttons_HHBh8y": {
       "type": "buttons",
       "blocks": {
-        "button_CDtW7F": {
+        "button_hBT4RJ": {
           "type": "button",
           "settings": {
-            "label": "ARCHIVAL COLORS",
+            "label": "MTO STATUS UPDATES",
             "open_new_tab": false,
-            "link": "#shopify-section-template--16660874952755__featured_collection_HDDDGc",
+            "link": "shopify://pages/mto-status",
             "type": "secondary",
             "on_click": ""
           }
         },
-        "button_6jYd6m": {
+        "button_KMMLGQ": {
           "type": "button",
           "settings": {
-            "label": "RECENT STYLES",
-            "open_new_tab": false,
-            "link": "#shopify-section-template--16660874952755__featured_collection_q97ALK",
+            "label": "GET MTO ALERTS",
+            "open_new_tab": true,
+            "link": "shopify://pages/newsletter-signup",
             "type": "secondary",
             "on_click": ""
           }
         }
       },
       "block_order": [
-        "button_CDtW7F",
-        "button_6jYd6m"
+        "button_hBT4RJ",
+        "button_KMMLGQ"
       ],
       "settings": {
         "title": "",
         "button_gap": 10,
         "heading_size": "h2",
         "color_scheme": "",
-        "desktop_padding_top": 36,
-        "desktop_padding_bottom": 36,
-        "mobile_padding_top": 30,
-        "mobile_padding_bottom": 30
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 58,
+        "mobile_padding_top": 10,
+        "mobile_padding_bottom": 40
       }
     },
     "custom_liquid_bKixf9": {
@@ -140,94 +140,6 @@
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 52
-      }
-    },
-    "featured_collection_HDDDGc": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "ARCHIVAL COLORS",
-        "heading_alignment": "center",
-        "heading_size": "h2",
-        "heading_margin": 24,
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "child-made-to-order-archival",
-        "hide_sold_out": false,
-        "hide_content": false,
-        "products_to_show": 30,
-        "columns_desktop": 3,
-        "full_width": true,
-        "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 20,
-        "vertical_spacing_desktop": 24,
-        "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 20,
-        "show_view_all": false,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "standard",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "section_full_width": true,
-        "desktop_padding_top": 40,
-        "desktop_padding_bottom": 52,
-        "desktop_padding_left": 40,
-        "desktop_padding_right": 40,
-        "mobile_padding_top": 20,
-        "mobile_padding_bottom": 40,
-        "mobile_padding_left": 0,
-        "mobile_padding_right": 0
-      }
-    },
-    "featured_collection_q97ALK": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "RECENT STYLES",
-        "heading_alignment": "center",
-        "heading_size": "h2",
-        "heading_margin": 24,
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "child-made-to-order",
-        "hide_sold_out": false,
-        "hide_content": false,
-        "products_to_show": 30,
-        "columns_desktop": 3,
-        "full_width": true,
-        "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 20,
-        "vertical_spacing_desktop": 24,
-        "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 20,
-        "show_view_all": false,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "standard",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "section_full_width": true,
-        "desktop_padding_top": 52,
-        "desktop_padding_bottom": 24,
-        "desktop_padding_left": 40,
-        "desktop_padding_right": 40,
-        "mobile_padding_top": 20,
-        "mobile_padding_bottom": 24,
-        "mobile_padding_left": 0,
-        "mobile_padding_right": 0
       }
     },
     "divider_QNP8CF": {
@@ -387,45 +299,6 @@
       "type": "shogun-custom-6740e893fc6c7f89abe638e3",
       "settings": {}
     },
-    "buttons_HHBh8y": {
-      "type": "buttons",
-      "blocks": {
-        "button_hBT4RJ": {
-          "type": "button",
-          "settings": {
-            "label": "MTO STATUS UPDATES",
-            "open_new_tab": false,
-            "link": "shopify://pages/mto-status",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_KMMLGQ": {
-          "type": "button",
-          "settings": {
-            "label": "GET MTO ALERTS",
-            "open_new_tab": true,
-            "link": "shopify://pages/newsletter-signup",
-            "type": "secondary",
-            "on_click": ""
-          }
-        }
-      },
-      "block_order": [
-        "button_hBT4RJ",
-        "button_KMMLGQ"
-      ],
-      "settings": {
-        "title": "Check on an existing MTO or sign up for alerts",
-        "button_gap": 10,
-        "heading_size": "h2",
-        "color_scheme": "",
-        "desktop_padding_top": 58,
-        "desktop_padding_bottom": 58,
-        "mobile_padding_top": 44,
-        "mobile_padding_bottom": 44
-      }
-    },
     "rich_text_CV66KV": {
       "type": "rich-text",
       "blocks": {
@@ -456,15 +329,12 @@
     "banner",
     "product-grid",
     "rich_text_Qzf3YT",
-    "buttons_3PfeUB",
+    "buttons_HHBh8y",
     "custom_liquid_bKixf9",
-    "featured_collection_HDDDGc",
-    "featured_collection_q97ALK",
     "divider_QNP8CF",
     "rich_text_Jak7Gh",
     "multicolumn_mePegM",
     "shogun_custom_6740e893fc6c7f89abe638e3_LT8dkN",
-    "buttons_HHBh8y",
     "rich_text_CV66KV"
   ]
 }
