@@ -4,14 +4,15 @@
     assign show_bis = true
   endunless
 %}
-
-{% if product.tags contains 'no-returns' %}
-  {% style %}
-    #bis-form-wrapper {
-      display: none;
-    }
-  {% endstyle %}
-{% endif %}
+{% unless product.tags contains 'made-to-order' %}
+  {% if product.tags contains 'no-returns' %}
+    {% style %}
+      #bis-form-wrapper {
+        display: none;
+      }
+    {% endstyle %}
+  {% endif %}
+{% endunless %}
 
 <div
   id="bis-form-wrapper"
