@@ -142,7 +142,7 @@
         text-decoration: {{ block.settings.link_style }} !important;
       }
 
-      .Block-{{ block.id }}:not(.content-overlay ) .multicolumn-card__info .link {
+      .Block-{{ block.id }}:not(.content-overlay ) .multicolumn-card__info>:nth-child(1) {
         margin-top: {{ block.settings.link_margin }}px;
       }
     {% endfor %}
