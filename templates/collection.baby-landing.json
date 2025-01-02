@@ -44,10 +44,17 @@
     "image_banner_mnqyLG": {
       "type": "image-banner",
       "blocks": {
+        "text_KVmVrL": {
+          "type": "text",
+          "settings": {
+            "text": "NOW 20% OFF",
+            "text_style": "body"
+          }
+        },
         "buttons_QFyVkf": {
           "type": "buttons",
           "settings": {
-            "link_type": "button",
+            "link_type": "link",
             "link_color": "#ffffff",
             "button_label_1": "SHOP WINTER",
             "button_link_1": "shopify://collections/baby-winter-b",
@@ -66,20 +73,12 @@
             "mobile_heading_size": "h1",
             "heading_color": "#000000"
           }
-        },
-        "text_KVmVrL": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
         }
       },
       "block_order": [
+        "text_KVmVrL",
         "buttons_QFyVkf",
-        "heading_8Wxr38",
-        "text_KVmVrL"
+        "heading_8Wxr38"
       ],
       "settings": {
         "image": "shopify://shop_images/MP_WI24_Leader_12.23.24_Baby_LP_5b1a09ba-d30f-47db-a16a-b271fded722e.jpg",
