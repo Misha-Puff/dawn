@@ -300,7 +300,7 @@
         "stack_images_on_mobile": true,
         "show_text_below": false,
         "desktop_padding_top": 32,
-        "desktop_padding_bottom": 20,
+        "desktop_padding_bottom": 32,
         "desktop_padding_left": 28,
         "desktop_padding_right": 28,
         "mobile_padding_top": 28,
