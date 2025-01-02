@@ -274,9 +274,9 @@
         "button_wKJHD4": {
           "type": "button",
           "settings": {
-            "label": "winter ACCESSORIES",
+            "label": "BEST SELLERS",
             "open_new_tab": false,
-            "link": "shopify://collections/adult-accessories",
+            "link": "shopify://collections/adult-best-sellers",
             "type": "secondary",
             "on_click": ""
           }
