@@ -16,7 +16,7 @@
           "type": "heading",
           "disabled": true,
           "settings": {
-            "heading": "Winter Part 2",
+            "heading": "20% off",
             "desktop_heading_size": "h2",
             "mobile_heading_size": "h2",
             "heading_color": "#ffffff"
@@ -26,16 +26,16 @@
           "type": "text",
           "disabled": true,
           "settings": {
-            "text": "Launches Thursday, November",
+            "text": "Now 20% off",
             "text_style": "body"
           }
         },
         "buttons_CGGLqp": {
           "type": "buttons",
           "settings": {
-            "link_type": "button",
+            "link_type": "link",
             "link_color": "#ffffff",
-            "button_label_1": "SHOP WINTER",
+            "button_label_1": "WINTER MARKDOWNS",
             "button_link_1": "shopify://collections/child-winter-b",
             "button_style_secondary_1": true,
             "button_label_2": "",
@@ -50,7 +50,7 @@
         "buttons_CGGLqp"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_12.23.24_Child_HP_2.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_1.jpg",
         "banner_link": "shopify://collections/child-winter-b",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
