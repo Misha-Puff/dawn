@@ -85,7 +85,7 @@
             "link_label": "Shop Now",
             "link": "shopify://collections/child-fall-24",
             "new_tab": false,
-            "link_margin": 0,
+            "link_margin": 10,
             "enable_overlay": false,
             "content_position": "bottom-left",
             "tb_overlay_padding": 15,
