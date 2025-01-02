@@ -110,7 +110,7 @@
         "buttons_8b9zaW": {
           "type": "buttons",
           "settings": {
-            "link_type": "button",
+            "link_type": "link",
             "link_color": "#ffffff",
             "button_label_1": "SHOP ADULT",
             "button_link_1": "shopify://collections/adult-fall-winter",
@@ -127,7 +127,7 @@
         "buttons_8b9zaW"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_12.13.23_Adult.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_Adult_LP_6f05daff-fb63-4d31-8016-8cc7548ea5f2.jpg",
         "banner_link": "shopify://collections/adult-fall-winter",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -136,7 +136,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_2x3_Adult_LP.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_1.3.24_Adult_LP_Mob_a2d4627f-d152-42bf-8d6a-c06b5cb06cea.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": false,
@@ -156,11 +156,11 @@
         "column_dVCGVj": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_12.18.24_Adult_HP_2x3_fb241d1e-9ab1-40fa-ab79-d446d4bd5782.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_Adult_Accs.jpg",
             "title": "",
             "text": "",
-            "link_label": "NEW ARRIVALS",
-            "link": "shopify://collections/adult-fall-winter",
+            "link_label": "WINTER ACCESSORIES",
+            "link": "shopify://collections/adult-accessories",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
