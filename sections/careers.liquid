@@ -9,6 +9,12 @@
   echo num_careers
 %}
 
+{% style %}
+  .career-block {
+    margin-bottom: 65px;
+  }
+{% endstyle %}
+
 <div class="page-width page-width--narrow section-{{ section.id }}-padding">
   <h1 class="main-page-title page-title h2{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
     {{ page.title | escape }}
