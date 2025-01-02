@@ -118,11 +118,11 @@
         "column_iBFc39": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_2x3_12.23.24_BestSell.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_Child_Sweaters.jpg",
             "title": "",
             "text": "",
-            "link_label": "BEST SELLERS",
-            "link": "shopify://collections/child-best-sellers",
+            "link_label": "SWEATERS + CARDIGANS",
+            "link": "shopify://collections/child-sweaters-cardigans",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
