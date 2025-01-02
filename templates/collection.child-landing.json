@@ -635,9 +635,9 @@
         "button_BQbEcH": {
           "type": "button",
           "settings": {
-            "label": "CHILD SWEATERS",
+            "label": "CHILD PIMA COTTON",
             "open_new_tab": false,
-            "link": "shopify://collections/child-sweaters-cardigans",
+            "link": "shopify://collections/child-pima-staples",
             "type": "secondary",
             "on_click": ""
           }
