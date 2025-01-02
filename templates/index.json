@@ -14,9 +14,8 @@
       "blocks": {
         "heading_egMwVJ": {
           "type": "heading",
-          "disabled": true,
           "settings": {
-            "heading": "20% off",
+            "heading": "Winter Markdowns",
             "desktop_heading_size": "h2",
             "mobile_heading_size": "h2",
             "heading_color": "#ffffff"
@@ -24,10 +23,9 @@
         },
         "text_TdBLTR": {
           "type": "text",
-          "disabled": true,
           "settings": {
-            "text": "Now 20% off",
-            "text_style": "body"
+            "text": "NOW 20% OFF",
+            "text_style": "subtitle"
           }
         },
         "buttons_CGGLqp": {
@@ -35,7 +33,7 @@
           "settings": {
             "link_type": "link",
             "link_color": "#ffffff",
-            "button_label_1": "WINTER MARKDOWNS",
+            "button_label_1": "SHOP WINTER",
             "button_link_1": "shopify://collections/child-winter-b",
             "button_style_secondary_1": true,
             "button_label_2": "",
@@ -50,11 +48,11 @@
         "buttons_CGGLqp"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_1.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_1_dc3e696b-b0fd-4e8e-97fd-312a73cc8195.jpg",
         "banner_link": "shopify://collections/child-winter-b",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
-        "desktop_content_position": "middle-center",
+        "desktop_content_position": "middle-left",
         "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "",
