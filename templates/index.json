@@ -101,9 +101,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_SP_2.jpg",
             "title": "",
-            "text": "",
-            "link_label": "SPRING/SUMMER — UP TO 70% OFF",
-            "link": "shopify://collections/baby-winter-b",
+            "text": "<p>SPRING/SUMMER — UP TO 70% OFF</p>",
+            "link_label": "",
+            "link": "",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
