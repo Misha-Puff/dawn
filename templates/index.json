@@ -16,7 +16,7 @@
           "type": "heading",
           "disabled": true,
           "settings": {
-            "heading": "Winter Part 2",
+            "heading": "20% off",
             "desktop_heading_size": "h2",
             "mobile_heading_size": "h2",
             "heading_color": "#ffffff"
@@ -26,16 +26,16 @@
           "type": "text",
           "disabled": true,
           "settings": {
-            "text": "Launches Thursday, November",
+            "text": "Now 20% off",
             "text_style": "body"
           }
         },
         "buttons_CGGLqp": {
           "type": "buttons",
           "settings": {
-            "link_type": "button",
+            "link_type": "link",
             "link_color": "#ffffff",
-            "button_label_1": "SHOP WINTER",
+            "button_label_1": "WINTER MARKDOWNS",
             "button_link_1": "shopify://collections/child-winter-b",
             "button_style_secondary_1": true,
             "button_label_2": "",
@@ -50,7 +50,7 @@
         "buttons_CGGLqp"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_12.23.24_Child_HP_2.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_1.jpg",
         "banner_link": "shopify://collections/child-winter-b",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -79,13 +79,13 @@
         "column_YehPqA": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_12.18.24_Adult_HP_2x3_fb241d1e-9ab1-40fa-ab79-d446d4bd5782.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_FA_1.jpg",
             "title": "",
-            "text": "",
-            "link_label": "ADULT NEW ARRIVALS",
+            "text": "<p>FALL 24 — NOW 20% OFF</p>",
+            "link_label": "Shop Now",
             "link": "shopify://collections/adult-fall-winter",
             "new_tab": false,
-            "link_margin": 8,
+            "link_margin": 0,
             "enable_overlay": false,
             "content_position": "bottom-left",
             "tb_overlay_padding": 15,
@@ -99,7 +99,7 @@
         "column_qXTqMb": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_12.18.24_Baby_HP_2x3_ce1214dc-2ce1-407f-a68f-41b66e2a60f7.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_SP_2.jpg",
             "title": "",
             "text": "",
             "link_label": "SHOP BABY",
@@ -197,6 +197,215 @@
         "padding_right": 0
       }
     },
+    "image_banner_PTYKgc": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_QAPny3": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Gift Guides",
+            "desktop_heading_size": "h2",
+            "mobile_heading_size": "h2",
+            "heading_color": "#ffffff"
+          }
+        },
+        "text_bypQNG": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_zkt4Vc": {
+          "type": "buttons",
+          "settings": {
+            "link_type": "link",
+            "link_color": "#ffffff",
+            "button_label_1": "ADULT FALL/WINTER",
+            "button_link_1": "shopify://collections/adult-fall-winter",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_QAPny3",
+        "text_bypQNG",
+        "buttons_zkt4Vc"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_Adult_1.jpg",
+        "banner_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_image": "shopify://shop_images/GiftGuide_24_Mob.jpg",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false,
+        "desktop_padding_top": 32,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 28,
+        "desktop_padding_right": 28,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "mobile_padding_left": 20,
+        "mobile_padding_right": 20
+      }
+    },
+    "buttons_zMbkxJ": {
+      "type": "buttons",
+      "blocks": {
+        "button_m46TAN": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD SALE",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-sale",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_ARR3P3": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD SWEATERS",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-sweaters-cardigans",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_yEUTBh": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD DRESSES",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-dresses",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_heMLMc": {
+          "type": "button",
+          "settings": {
+            "label": "ADULT BEST SELLERS",
+            "open_new_tab": false,
+            "link": "shopify://collections/adult-best-sellers",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_w9bhWc": {
+          "type": "button",
+          "settings": {
+            "label": "BABY ONESIES",
+            "open_new_tab": false,
+            "link": "shopify://collections/baby-one-piece",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_m46TAN",
+        "button_ARR3P3",
+        "button_yEUTBh",
+        "button_heMLMc",
+        "button_w9bhWc"
+      ],
+      "settings": {
+        "title": "More to Explore",
+        "button_gap": 10,
+        "heading_size": "h2",
+        "color_scheme": "",
+        "desktop_padding_top": 60,
+        "desktop_padding_bottom": 50,
+        "mobile_padding_top": 40,
+        "mobile_padding_bottom": 30
+      }
+    },
+    "multicolumn_tbTyfj": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_3apXXc": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": "",
+            "new_tab": false,
+            "link_margin": 15,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 25,
+            "lr_overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        },
+        "column_ceiQAf": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": "",
+            "new_tab": false,
+            "link_margin": 15,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 25,
+            "lr_overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "column_3apXXc",
+        "column_ceiQAf"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 14,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "Button label",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 12,
+        "mobile_padding_bottom": 0
+      }
+    },
     "multicolumn_peYxH9": {
       "type": "multicolumn",
       "blocks": {
@@ -266,6 +475,7 @@
         "column_iAT4GA",
         "column_3igURh"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h2",
@@ -294,6 +504,7 @@
     },
     "featured_collection_YrgjwD": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_alignment": "left",
@@ -431,142 +642,6 @@
         "desktop_padding_bottom": 20,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 20
-      }
-    },
-    "image_banner_PTYKgc": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_QAPny3": {
-          "type": "heading",
-          "settings": {
-            "heading": "Gift Guides",
-            "desktop_heading_size": "h2",
-            "mobile_heading_size": "h2",
-            "heading_color": "#ffffff"
-          }
-        },
-        "text_bypQNG": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
-        },
-        "buttons_zkt4Vc": {
-          "type": "buttons",
-          "settings": {
-            "link_type": "link",
-            "link_color": "#ffffff",
-            "button_label_1": "CHILD GUIDE",
-            "button_link_1": "shopify://collections/child-gift-edit",
-            "button_style_secondary_1": false,
-            "button_label_2": "BABY GUIDE",
-            "button_link_2": "shopify://collections/baby-gift-edit",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_QAPny3",
-        "text_bypQNG",
-        "buttons_zkt4Vc"
-      ],
-      "disabled": true,
-      "settings": {
-        "image": "shopify://shop_images/giftguides_11.25.24_3_1920x1080_c1902b67-22e8-46c5-838e-32b5db58e5d4.jpg",
-        "banner_link": "",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/GiftGuide_24_Mob.jpg",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": false,
-        "desktop_padding_top": 0,
-        "desktop_padding_bottom": 0,
-        "desktop_padding_left": 28,
-        "desktop_padding_right": 28,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0,
-        "mobile_padding_left": 20,
-        "mobile_padding_right": 20
-      }
-    },
-    "buttons_zMbkxJ": {
-      "type": "buttons",
-      "blocks": {
-        "button_m46TAN": {
-          "type": "button",
-          "settings": {
-            "label": "CHILD SALE",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-sale",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_ARR3P3": {
-          "type": "button",
-          "settings": {
-            "label": "CHILD SWEATERS",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-sweaters-cardigans",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_yEUTBh": {
-          "type": "button",
-          "settings": {
-            "label": "CHILD DRESSES",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-dresses",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_heMLMc": {
-          "type": "button",
-          "settings": {
-            "label": "ADULT BEST SELLERS",
-            "open_new_tab": false,
-            "link": "shopify://collections/adult-best-sellers",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_w9bhWc": {
-          "type": "button",
-          "settings": {
-            "label": "BABY ONESIES",
-            "open_new_tab": false,
-            "link": "shopify://collections/baby-one-piece",
-            "type": "secondary",
-            "on_click": ""
-          }
-        }
-      },
-      "block_order": [
-        "button_m46TAN",
-        "button_ARR3P3",
-        "button_yEUTBh",
-        "button_heMLMc",
-        "button_w9bhWc"
-      ],
-      "settings": {
-        "title": "More to Explore",
-        "button_gap": 10,
-        "heading_size": "h2",
-        "color_scheme": "",
-        "desktop_padding_top": 60,
-        "desktop_padding_bottom": 50,
-        "mobile_padding_top": 40,
-        "mobile_padding_bottom": 30
       }
     },
     "slideshow_t7VikK": {
@@ -821,11 +896,12 @@
     "image_banner_bz8jb3",
     "multicolumn_BMReV9",
     "rich_text_N3wraP",
+    "image_banner_PTYKgc",
+    "buttons_zMbkxJ",
+    "multicolumn_tbTyfj",
     "multicolumn_peYxH9",
     "featured_collection_YrgjwD",
     "multicolumn_4t4Ubf",
-    "image_banner_PTYKgc",
-    "buttons_zMbkxJ",
     "slideshow_t7VikK",
     "multicolumn_GbjXUE"
   ]
