@@ -81,9 +81,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_FA_1.jpg",
             "title": "",
-            "text": "<p>FALL 24 — NOW 20% OFF</p>",
+            "text": "<p>CHILD FALL — NOW 20% OFF</p>",
             "link_label": "Shop Now",
-            "link": "shopify://collections/adult-fall-winter",
+            "link": "shopify://collections/child-fall-24",
             "new_tab": false,
             "link_margin": 0,
             "enable_overlay": false,
