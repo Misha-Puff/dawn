@@ -17,7 +17,7 @@
         "announcement_egLqPG": {
           "type": "announcement",
           "settings": {
-            "text": "<p>SALE — NOW UP TO 70% OFF: <a href=\"/collections/child-sale\" target=\"_blank\" title=\"Child - Sale\">Child Sale</a>|<a href=\"/collections/baby-sale\" target=\"_blank\" title=\"Baby - Sale\">Baby Sale</a></p>"
+            "text": "<p>SALE — NOW UP TO 70% OFF: <a href=\"/collections/child-sale\" target=\"_blank\" title=\"Child - Sale\">Child Sale</a> | <a href=\"/collections/baby-sale\" target=\"_blank\" title=\"Baby - Sale\">Baby Sale</a></p>"
           }
         }
       },
