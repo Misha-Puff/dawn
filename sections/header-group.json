@@ -17,14 +17,13 @@
         "announcement_egLqPG": {
           "type": "announcement",
           "settings": {
-            "text": "<p>Our offices are closed 12/25-1/1 + our warehouse is closed 12/25, 12.26 and 1/1</p>"
+            "text": "<p>SALE — NOW UP TO 70% OFF: <a href=\"/collections/child-sale\" target=\"_blank\" title=\"Child - Sale\">Child Sale</a>|<a href=\"/collections/baby-sale\" target=\"_blank\" title=\"Baby - Sale\">Baby Sale</a></p>"
           }
         }
       },
       "block_order": [
         "announcement_egLqPG"
       ],
-      "disabled": true,
       "settings": {
         "color_scheme": "",
         "desktop_height": 40,
