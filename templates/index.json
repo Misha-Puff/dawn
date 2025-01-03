@@ -15,7 +15,7 @@
         "heading_egMwVJ": {
           "type": "heading",
           "settings": {
-            "heading": "Winter Markdowns",
+            "heading": "Winter Collection",
             "desktop_heading_size": "h2",
             "mobile_heading_size": "h2",
             "heading_color": "#ffffff"
@@ -25,7 +25,9 @@
           "type": "text",
           "settings": {
             "text": "NOW 20% OFF",
-            "text_style": "body"
+            "text_color": "#ffffff",
+            "text_style": "body",
+            "text_top_margin": 0
           }
         },
         "buttons_CGGLqp": {
@@ -38,7 +40,8 @@
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_style_secondary_2": false,
+            "buttons_top_margin": 10
           }
         }
       },
@@ -52,12 +55,14 @@
         "banner_link": "shopify://collections/child-winter-b",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
-        "desktop_content_position": "middle-left",
+        "content_position": "middle-center",
+        "tb_overlay_padding": 25,
+        "lr_overlay_padding": 25,
         "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_1_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_1_Mob_89983261-6b44-4e77-ab5e-604c4119fabc.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false,
@@ -101,7 +106,7 @@
             "title": "",
             "text": "<p>SPRING/SUMMER — UP TO 70% OFF</p>",
             "link_label": "",
-            "link": "",
+            "link": "shopify://collections/mixed-spring-summer-24",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -263,7 +268,9 @@
           "disabled": true,
           "settings": {
             "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
+            "text_color": "#000000",
+            "text_style": "body",
+            "text_top_margin": 10
           }
         },
         "buttons_zkt4Vc": {
@@ -276,7 +283,8 @@
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_style_secondary_2": false,
+            "buttons_top_margin": 20
           }
         }
       },
@@ -287,10 +295,12 @@
       ],
       "settings": {
         "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_Adult_1.jpg",
-        "banner_link": "",
+        "banner_link": "shopify://collections/adult-fall-winter",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
-        "desktop_content_position": "middle-left",
+        "content_position": "top-left",
+        "tb_overlay_padding": 25,
+        "lr_overlay_padding": 25,
         "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "",
