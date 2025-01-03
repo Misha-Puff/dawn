@@ -547,7 +547,7 @@
               {%- when 'variant_picker' -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
               {%- when 'buy_buttons' -%}
-                {% unless tags_str contains 'Badge-' %}
+                {% unless tags_str contains 'Badge-Coming Soon' %}
                   {%- render 'buy-buttons',
                     block: block,
                     product: product,
@@ -757,9 +757,10 @@
 
     {% assign popups = section.blocks | where: 'type', 'popup' %}
     {%- for block in popups -%}
-      {%- comment %}<locksmith:917d>{% endcomment -%}
-        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-      {%- comment %}</locksmith:917d>{% endcomment -%}
+      {%- comment %}<locksmith:917d>{%- endcomment %}
+      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block, variable: 'transparent' %}{% endcapture -%}
+      {%- if var == 'true' %}{% else %}{% continue %}{% endif -%}
+      {%- comment %}</locksmith:917d>{%- endcomment %}
       <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
         <div
           role="dialog"
