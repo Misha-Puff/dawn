@@ -69,14 +69,97 @@
     opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
   }
 
+  .banner__content.content--top-left .banner__box {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .banner__content.content--top-center .banner__box {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .banner__content.content--top-right .banner__box {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .banner__content.content--middle-left .banner__box {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+  }
+
+  .banner__content .content--middle-center .multicolumn-card__info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .banner__content.content--middle-right .banner__box {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+  }
+
+  .banner__content.content--bottom-left .banner__box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .banner__content.content--bottom-center .banner__box {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .banner__content.content--bottom-right .banner__box {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  .Banner-{{ section.id }} .banner__content .banner__box {
+    padding-top: {{ section.settings.tb_overlay_padding }}px !important;
+    padding-bottom: {{ section.settings.tb_overlay_padding }}px !important;
+    padding-left: {{ section.settings.lr_overlay_padding }}px !important;
+    padding-right: {{ section.settings.lr_overlay_padding }}px !important;
+  }
+
   {% for block in section.blocks %}
     {% if block.type == 'heading' %}
       .Block-{{ block.id }}.banner__heading {
         color: {{ block.settings.heading_color }};
       }
+
+      .Block-{{ block.id }}.h2 {
+        font-size: 20px;
+      }
+    {% elsif block.type == 'text' %}
+      .Block-{{ block.id }}.banner__text {
+        color: {{ block.settings.text_color }};
+      }
+
+      .Block-{{ block.id }}.banner__text {
+        margin-top: {{ block.settings.text_top_margin }}px !important;
+      }
     {% elsif block.type == 'buttons' %}
       .Block-{{ block.id }} .link {
         color: {{ block.settings.link_color }};
+        font-size: 13px;
+      }
+
+      .Block-{{ block.id }}.banner__buttons {
+        margin-top: {{ block.settings.buttons_top_margin }}px !important;
       }
     {% endif %}
   {% endfor %}
@@ -106,7 +189,7 @@
 
 <div
   id="Banner-{{ section.id }}-desktop"
-  class="banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.stack_images_on_mobile and section.settings.image != blank and section.settings.image_2 != blank %} banner--stacked{% endif %}{% if section.settings.image_height == 'adapt' and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} is-hidden-mobile-only"
+  class="Banner-{{ section.id }} banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.stack_images_on_mobile and section.settings.image != blank and section.settings.image_2 != blank %} banner--stacked{% endif %}{% if section.settings.image_height == 'adapt' and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} is-hidden-mobile-only"
   {% if section.settings.banner_link %}
     onclick="location.href='{{ section.settings.banner_link }}';"
     style="cursor: pointer;"
@@ -233,7 +316,7 @@
       }}
     </div>
   {%- endif -%}
-  <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="banner__content content--{{ section.settings.content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
@@ -245,7 +328,10 @@
               {{ block.settings.heading }}
             </h2>
           {%- when 'text' -%}
-            <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+            <div
+              class="Block-{{ block.id }} banner__text rte {{ block.settings.text_style }}"
+              {{ block.shopify_attributes }}
+            >
               <p>{{ block.settings.text }}</p>
             </div>
           {%- when 'buttons' -%}
@@ -286,7 +372,7 @@
 
 <div
   id="Banner-{{ section.id }}-mobile"
-  class="banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.stack_images_on_mobile and section.settings.mobile_image != blank and section.settings.mobile_image_2 != blank %} banner--stacked{% endif %}{% if section.settings.image_height == 'adapt' and section.settings.mobile_image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} is-hidden-desktop-only"
+  class="Banner-{{ section.id }} banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.stack_images_on_mobile and section.settings.mobile_image != blank and section.settings.mobile_image_2 != blank %} banner--stacked{% endif %}{% if section.settings.image_height == 'adapt' and section.settings.mobile_image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} is-hidden-desktop-only"
   {% if section.settings.banner_link %}
     onclick="location.href='{{ section.settings.banner_link }}';"
     style="cursor: pointer;"
@@ -349,7 +435,7 @@
     </div>
   {%- endif -%}
 
-  <div class="banner__content banner__content--{{ section.settings.desktop_content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="banner__content content--{{ section.settings.content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
@@ -361,7 +447,10 @@
               {{ block.settings.heading }}
             </h2>
           {%- when 'text' -%}
-            <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+            <div
+              class="Block-{{ block.id }} banner__text rte {{ block.settings.text_style }}"
+              {{ block.shopify_attributes }}
+            >
               <p>{{ block.settings.text }}</p>
             </div>
           {%- when 'buttons' -%}
@@ -461,7 +550,7 @@
     },
     {
       "type": "select",
-      "id": "desktop_content_position",
+      "id": "content_position",
       "options": [
         {
           "value": "top-left",
@@ -501,7 +590,27 @@
         }
       ],
       "default": "middle-center",
-      "label": "t:sections.image-banner.settings.desktop_content_position.label"
+      "label": "Content Position"
+    },
+    {
+      "type": "range",
+      "id": "tb_overlay_padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 25,
+      "unit": "px",
+      "label": "Top/Bottom Content padding"
+    },
+    {
+      "type": "range",
+      "id": "lr_overlay_padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 25,
+      "unit": "px",
+      "label": "Left/Right Content padding"
     },
     {
       "type": "checkbox",
@@ -782,6 +891,12 @@
           "label": "t:sections.image-banner.blocks.text.settings.text.label"
         },
         {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text Color",
+          "default": "#000000"
+        },
+        {
           "type": "select",
           "id": "text_style",
           "options": [
@@ -800,6 +915,16 @@
           ],
           "default": "body",
           "label": "t:sections.image-banner.blocks.text.settings.text_style.label"
+        },
+        {
+          "type": "range",
+          "id": "text_top_margin",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "default": 10,
+          "unit": "px",
+          "label": "Top Margin"
         }
       ]
     },
@@ -865,6 +990,16 @@
           "id": "button_style_secondary_2",
           "default": false,
           "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_2.label"
+        },
+        {
+          "type": "range",
+          "id": "buttons_top_margin",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "default": 20,
+          "unit": "px",
+          "label": "Top Margin"
         }
       ]
     }
