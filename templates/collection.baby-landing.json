@@ -44,10 +44,17 @@
     "image_banner_mnqyLG": {
       "type": "image-banner",
       "blocks": {
+        "text_KVmVrL": {
+          "type": "text",
+          "settings": {
+            "text": "NOW 20% OFF",
+            "text_style": "body"
+          }
+        },
         "buttons_QFyVkf": {
           "type": "buttons",
           "settings": {
-            "link_type": "button",
+            "link_type": "link",
             "link_color": "#ffffff",
             "button_label_1": "SHOP WINTER",
             "button_link_1": "shopify://collections/baby-winter-b",
@@ -66,20 +73,12 @@
             "mobile_heading_size": "h1",
             "heading_color": "#000000"
           }
-        },
-        "text_KVmVrL": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
         }
       },
       "block_order": [
+        "text_KVmVrL",
         "buttons_QFyVkf",
-        "heading_8Wxr38",
-        "text_KVmVrL"
+        "heading_8Wxr38"
       ],
       "settings": {
         "image": "shopify://shop_images/MP_WI24_Leader_12.23.24_Baby_LP_5b1a09ba-d30f-47db-a16a-b271fded722e.jpg",
@@ -111,11 +110,11 @@
         "column_iycPDw": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_2x3_MO.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_Baby_Onesies_0fbddf65-90f3-402b-9e98-d2bab3b5a962.jpg",
             "title": "",
             "text": "",
-            "link_label": "M&P x MAMAOWL",
-            "link": "shopify://collections/baby-mama-owl",
+            "link_label": "ONE-PIECES",
+            "link": "shopify://collections/baby-one-piece",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -131,11 +130,11 @@
         "column_Hgag6H": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_2x3_BabyGift.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_Child_Sale.jpg",
             "title": "",
             "text": "",
-            "link_label": "BABY GIFTS",
-            "link": "shopify://collections/baby-gift-edit",
+            "link_label": "SALE — NOW UP TO 70% OFF",
+            "link": "shopify://collections/baby-sale",
             "new_tab": true,
             "link_margin": 8,
             "enable_overlay": false,
@@ -208,10 +207,10 @@
         "heading_alignment": "left",
         "heading_size": "h2",
         "heading_margin": 14,
-        "description": "<p>NEW ARRIVALS</p>",
+        "description": "<p>BEST SELLERS</p>",
         "show_description": false,
         "description_style": "body",
-        "collection": "baby-new",
+        "collection": "baby-best-sellers",
         "hide_sold_out": true,
         "hide_content": false,
         "products_to_show": 20,
@@ -434,9 +433,9 @@
         "button_ygfUMj": {
           "type": "button",
           "settings": {
-            "label": "BABY SWEATERS",
+            "label": "BABY PIMA COTTON",
             "open_new_tab": false,
-            "link": "shopify://collections/baby-sweaters-cardigans",
+            "link": "shopify://collections/baby-pima-staples",
             "type": "secondary",
             "on_click": ""
           }

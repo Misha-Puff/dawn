@@ -77,7 +77,7 @@
         "column_YehPqA": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_FA_1.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_FA_1_8f5b7347-8fe5-46ff-b0cc-c424720939d6.jpg",
             "title": "",
             "text": "<p>FALL — NOW 20% OFF</p>",
             "link_label": "",
@@ -97,7 +97,7 @@
         "column_qXTqMb": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_SP_2.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_SP_1_80875ca0-629c-4b8d-ab28-400ae4714f14.jpg",
             "title": "",
             "text": "<p>SPRING/SUMMER — UP TO 70% OFF</p>",
             "link_label": "",
@@ -300,7 +300,7 @@
         "stack_images_on_mobile": true,
         "show_text_below": false,
         "desktop_padding_top": 32,
-        "desktop_padding_bottom": 20,
+        "desktop_padding_bottom": 32,
         "desktop_padding_left": 28,
         "desktop_padding_right": 28,
         "mobile_padding_top": 28,
