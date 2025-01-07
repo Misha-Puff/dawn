@@ -252,7 +252,7 @@
           "page_padding_bottom": 80,
           "show_share_button": true,
           "show_buy_all_button": true,
-          "show_clear_wishlist_button": false,
+          "show_clear_wishlist_button": true,
           "add_to_cart_remove_from_wishlist": false,
           "remove_button_style": "icon",
           "product_options": "dropdowns",
