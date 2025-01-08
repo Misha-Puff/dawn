@@ -115,7 +115,7 @@
           "type": "button",
           "settings": {
             "label": "ACCESSORIES",
-            "open_new_tab": false,
+            "open_new_tab": true,
             "link": "shopify://collections/child-accessories",
             "type": "secondary",
             "on_click": ""
