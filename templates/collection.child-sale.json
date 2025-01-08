@@ -121,12 +121,12 @@
             "on_click": ""
           }
         },
-        "button_LFchVW": {
+        "button_cWdpAb": {
           "type": "button",
           "settings": {
-            "label": "PIMA",
+            "label": "DENIM",
             "open_new_tab": true,
-            "link": "shopify://collections/child-pima-staples",
+            "link": "shopify://collections/child-fall-denim-collection",
             "type": "secondary",
             "on_click": ""
           }
@@ -139,7 +139,7 @@
         "button_PmqNBf",
         "button_nzMNzB",
         "button_XrGpnh",
-        "button_LFchVW"
+        "button_cWdpAb"
       ],
       "settings": {
         "title": "",
