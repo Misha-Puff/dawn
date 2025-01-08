@@ -120,6 +120,16 @@
             "type": "secondary",
             "on_click": ""
           }
+        },
+        "button_LFchVW": {
+          "type": "button",
+          "settings": {
+            "label": "PIMA",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-pima-staples",
+            "type": "secondary",
+            "on_click": ""
+          }
         }
       },
       "block_order": [
@@ -128,7 +138,8 @@
         "button_Vygdi3",
         "button_PmqNBf",
         "button_nzMNzB",
-        "button_XrGpnh"
+        "button_XrGpnh",
+        "button_LFchVW"
       ],
       "settings": {
         "title": "",
