@@ -17,62 +17,128 @@
       "type": "shogun-above",
       "settings": {}
     },
+    "rich_text_CjN3Ga": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_TkC9wX": {
+          "type": "heading",
+          "settings": {
+            "heading": "Child - Sale",
+            "heading_size": "h2"
+          }
+        },
+        "text_CJWyqe": {
+          "type": "text",
+          "settings": {
+            "text": "<p><a href=\"/collections/child-sale\" target=\"_blank\" title=\"Child - Sale\">Child Sale</a> is now up to 70% off. Past season favorites + most coveted styles, including the <a href=\"/collections/child-winter-b\" target=\"_blank\" title=\"Child - The Winter Collection\">Winter Collection</a> — online and in our <a href=\"/pages/stores\" target=\"_blank\" title=\"Stores\">stores</a>.</p>",
+            "line_height": 24
+          }
+        }
+      },
+      "block_order": [
+        "heading_TkC9wX",
+        "text_CJWyqe"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 36,
+        "padding_bottom": 0,
+        "padding_left": 152,
+        "padding_right": 152
+      }
+    },
+    "buttons_MNAPfT": {
+      "type": "buttons",
+      "blocks": {
+        "button_6ndqMx": {
+          "type": "button",
+          "settings": {
+            "label": "SWEATERS + CARDIGANS",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-sweaters-cardigans",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_mRrVGy": {
+          "type": "button",
+          "settings": {
+            "label": "JACKETS",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-jackets",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_Vygdi3": {
+          "type": "button",
+          "settings": {
+            "label": "BOTTOMS",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-bottoms",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_PmqNBf": {
+          "type": "button",
+          "settings": {
+            "label": "TOPS",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-tops",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_nzMNzB": {
+          "type": "button",
+          "settings": {
+            "label": "DRESSES",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-dresses",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_XrGpnh": {
+          "type": "button",
+          "settings": {
+            "label": "ACCESSORIES",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-accessories",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_6ndqMx",
+        "button_mRrVGy",
+        "button_Vygdi3",
+        "button_PmqNBf",
+        "button_nzMNzB",
+        "button_XrGpnh"
+      ],
+      "settings": {
+        "title": "",
+        "button_gap": 10,
+        "heading_size": "h2",
+        "color_scheme": "",
+        "desktop_padding_top": 28,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 20
+      }
+    },
     "banner": {
       "type": "main-collection-banner",
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
         "color_scheme": "scheme-1"
-      }
-    },
-    "rich_text_YJeCaw": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_LbXhKd": {
-          "type": "heading",
-          "settings": {
-            "heading": "Limited Yarn",
-            "heading_size": "h2"
-          }
-        },
-        "text_PGqAmF": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.</p>",
-            "line_height": 20
-          }
-        },
-        "button_Yh3Xhh": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "button_label_3": "",
-            "button_link_3": "",
-            "button_style_secondary_3": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_LbXhKd",
-        "text_PGqAmF",
-        "button_Yh3Xhh"
-      ],
-      "disabled": true,
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
-        "padding_left": 100,
-        "padding_right": 100
       }
     },
     "product-grid": {
@@ -84,6 +150,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 1,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -100,6 +169,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 6,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -124,6 +196,8 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "enable_overlay": false,
+        "enable_swatches": false,
         "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "drawer",
@@ -145,8 +219,9 @@
   "order": [
     "shogun-helper",
     "shogun-above",
+    "rich_text_CjN3Ga",
+    "buttons_MNAPfT",
     "banner",
-    "rich_text_YJeCaw",
     "product-grid",
     "shogun-below",
     "shogun-optimizer"
