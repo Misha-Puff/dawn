@@ -457,7 +457,8 @@
 }
 
 .card .icon-wrap {
-  margin-left: 0.8rem;
+  margin-left: 0.4rem;
+  margin-right: 0.4rem;
   white-space: nowrap;
   transition: transform var(--duration-short) ease;
   overflow: hidden;
@@ -605,18 +606,18 @@
   bottom: 0;
   transform: translateY(100%);
   width: 100%;
-  z-index:2;
+  z-index: 2;
   transition: transform var(--duration-default);
   padding: 1rem 1rem 2rem;
   text-align: center;
 }
 
 .popup-overlay.background {
-  background-color: rgba(var(--color-background),.6);
+  background-color: rgba(var(--color-background), 0.6);
 }
 
 @media only screen and (min-width: 990px) {
-  .card-wrapper:hover .popup-overlay  {
+  .card-wrapper:hover .popup-overlay {
     opacity: 1;
     transform: translateY(0);
     transition: transform var(--duration-default);

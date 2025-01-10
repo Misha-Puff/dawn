@@ -21,9 +21,12 @@
   width: auto;
 }
 
-.header__icon.header__icon--search, 
 .header__icon.header__icon--account {
   margin-right: 1rem;
+}
+
+.header__icon.header__icon--cart {
+  margin-left: 1rem;
 }
 
 @media screen and (max-width: 989px) {

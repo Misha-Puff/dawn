@@ -53,8 +53,8 @@
           height="{{ section.settings.image.width | divided_by: section.settings.image.aspect_ratio }}"
         >
       {%- else -%}
-        {%- render 'email-signup-banner-background' -%}
-        {%- render 'email-signup-banner-background-mobile' -%}
+        {{- 'email-signup-banner-background.svg' | inline_asset_content -}}
+        {{- 'email-signup-banner-background-mobile.svg' | inline_asset_content -}}
       {%- endif -%}
     </div>
   {%- endif -%}
@@ -108,11 +108,17 @@
                     aria-label="{{ 'newsletter.button_label' | t }}"
                   >
                     Subscribe
-                    {% comment %} {% render 'icon-arrow' %} {% endcomment %}
+                    {% comment %}
+                      <span class="svg-wrapper">
+                        {{- 'icon-arrow.svg' | inline_asset_content -}}
+                      </span>
+                    {% endcomment %}
                   </button>
                   {%- if form.errors -%}
                     <small class="newsletter-form__message form__message" id="Newsletter-error--{{ section.id }}">
-                      {%- render 'icon-error' -%}
+                      <span class="svg-wrapper">
+                        {{- 'icon-error.svg' | inline_asset_content -}}
+                      </span>
                       {{- form.errors.translated_fields.email | capitalize }}
                       {{ form.errors.messages.email -}}
                     </small>
@@ -125,7 +131,9 @@
                     tabindex="-1"
                     autofocus
                   >
-                    {% render 'icon-success' -%}
+                    <span class="svg-wrapper">
+                      {{- 'icon-success.svg' | inline_asset_content -}}
+                    </span>
                     {{- 'newsletter.success' | t }}
                   </h3>
                 {%- endif -%}

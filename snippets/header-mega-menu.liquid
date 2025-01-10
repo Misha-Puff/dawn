@@ -21,7 +21,11 @@
                     {{- link.title | escape -}}
                   </span>
                 </a>
-                {% comment %} {% render 'icon-caret' %} {% endcomment %}
+                {% comment %}
+                  <span class="svg-wrapper">
+                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                  </span>
+                {% endcomment %}
               </summary>
               <div
                 id="MegaMenu-Content-{{ forloop.index }}"

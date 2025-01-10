@@ -141,7 +141,9 @@
                             <div class="summary__title">
                               <h2 class="h4 accordion__title inline-richtext">{{- block.settings.heading -}}</h2>
                             </div>
-                            {% render 'icon-caret' %}
+                            <span class="svg-wrapper">
+                              {{- 'icon-caret.svg' | inline_asset_content -}}
+                            </span>
                           </summary>
                           <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
                             {%- for link in block.settings.menu.links -%}
@@ -269,7 +271,9 @@
                               </div>
                               {%- if form.errors -%}
                                 <small class="newsletter-form__message form__message" id="ContactFooter-error">
-                                  {%- render 'icon-error' -%}
+                                  <span class="svg-wrapper">
+                                    {{- 'icon-error.svg' | inline_asset_content -}}
+                                  </span>
                                   {{- form.errors.translated_fields.email | capitalize }}
                                   {{ form.errors.messages.email -}}
                                 </small>
@@ -283,7 +287,11 @@
                               aria-label="{{ 'newsletter.button_label' | t }}"
                             >
                               Subscribe
-                              {% comment %} {% render 'icon-arrow' %} {% endcomment %}
+                              {% comment %}
+                                <span class="svg-wrapper">
+                                  {{- 'icon-arrow.svg' | inline_asset_content -}}
+                                </span>
+                              {% endcomment %}
                             </button>
 
                             {%- if form.posted_successfully? -%}
@@ -293,7 +301,9 @@
                                 tabindex="-1"
                                 autofocus
                               >
-                                {% render 'icon-success' -%}
+                                <span class="svg-wrapper">
+                                  {{- 'icon-success.svg' | inline_asset_content -}}
+                                </span>
                                 {{- 'newsletter.success' | t }}
                               </h3>
                             {%- endif -%}
