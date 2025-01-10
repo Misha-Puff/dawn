@@ -226,32 +226,6 @@
           "version": "main"
         }
       },
-      "6680288666557934739": {
-        "type": "shopify://apps/wishlist-king/blocks/wishlist-page/194f5011-a43c-4b22-b12e-eaf20dc4506a",
-        "disabled": false,
-        "settings": {
-          "column_width": "md",
-          "wishlist_empty_link": "shopify://collections/all",
-          "page_max_width": 1200,
-          "page_padding_top": 30,
-          "page_padding_bottom": 80,
-          "show_share_button": true,
-          "show_buy_all_button": false,
-          "show_clear_wishlist_button": false,
-          "add_to_cart_remove_from_wishlist": false,
-          "remove_button_style": "icon",
-          "product_options": "dropdowns",
-          "cta_button": "add_to_cart",
-          "cta_button_style": "solid_accent_1",
-          "alignment": "center",
-          "image_aspect_ratio": "1/1",
-          "image_object_fit": "cover",
-          "show_vendor": false,
-          "show_product_title": true,
-          "show_price": true,
-          "show_variant_input_label": false
-        }
-      },
       "15685250022964305326": {
         "type": "shopify://apps/elevar-conversion-tracking/blocks/dataLayerEmbed/bc30ab68-b15c-4311-811f-8ef485877ad6",
         "disabled": false,
@@ -266,6 +240,32 @@
         "type": "shopify://apps/seoant-redirects/blocks/brokenlink-404/cc7b1996-e567-42d0-8862-356092041863",
         "disabled": false,
         "settings": {}
+      },
+      "6680288666557934739": {
+        "type": "shopify://apps/swish-formerly-wishlist-king/blocks/wishlist-page/194f5011-a43c-4b22-b12e-eaf20dc4506a",
+        "disabled": false,
+        "settings": {
+          "column_width": "md",
+          "wishlist_empty_link": "shopify://collections/all",
+          "page_max_width": 1200,
+          "page_padding_top": 30,
+          "page_padding_bottom": 80,
+          "show_share_button": true,
+          "show_buy_all_button": true,
+          "show_clear_wishlist_button": true,
+          "add_to_cart_remove_from_wishlist": false,
+          "remove_button_style": "icon",
+          "product_options": "dropdowns",
+          "cta_button": "add_to_cart",
+          "cta_button_style": "solid_accent_1",
+          "alignment": "center",
+          "image_aspect_ratio": "1/1",
+          "image_object_fit": "cover",
+          "show_vendor": false,
+          "show_product_title": true,
+          "show_price": true,
+          "show_variant_input_label": false
+        }
       }
     },
     "color_schemes": {
