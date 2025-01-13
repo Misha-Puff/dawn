@@ -51,7 +51,7 @@
         "buttons_CGGLqp"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_1_dc3e696b-b0fd-4e8e-97fd-312a73cc8195.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_1.10.25_Child_1.jpg",
         "banner_link": "shopify://collections/child-winter-b",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -62,7 +62,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_1_Mob_89983261-6b44-4e77-ab5e-604c4119fabc.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_1.10.25_Child_1_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false,
@@ -79,14 +79,14 @@
     "multicolumn_BMReV9": {
       "type": "multicolumn",
       "blocks": {
-        "column_YehPqA": {
+        "column_qXTqMb": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_FA_1_8f5b7347-8fe5-46ff-b0cc-c424720939d6.jpg",
+            "image": "shopify://shop_images/kodak_professional_portra_400_03_11_2024_000206660010_Baby.jpg",
             "title": "",
-            "text": "<p>FALL — NOW 20% OFF</p>",
+            "text": "<p>BABY WINTER — NOW 20% OFF</p>",
             "link_label": "",
-            "link": "shopify://collections/child-fall-24",
+            "link": "shopify://collections/baby-winter-b",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -99,14 +99,14 @@
             "button_type": "primary"
           }
         },
-        "column_qXTqMb": {
+        "column_YehPqA": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_SP_1_80875ca0-629c-4b8d-ab28-400ae4714f14.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_12.18.24_Adult_HP_2x3_fb241d1e-9ab1-40fa-ab79-d446d4bd5782.jpg",
             "title": "",
-            "text": "<p>SPRING/SUMMER — UP TO 70% OFF</p>",
+            "text": "<p>SHOP ADULT</p>",
             "link_label": "",
-            "link": "shopify://collections/mixed-spring-summer-24",
+            "link": "shopify://collections/adult-fall-winter",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -121,8 +121,8 @@
         }
       },
       "block_order": [
-        "column_YehPqA",
-        "column_qXTqMb"
+        "column_qXTqMb",
+        "column_YehPqA"
       ],
       "settings": {
         "title": "",
@@ -278,8 +278,8 @@
           "settings": {
             "link_type": "link",
             "link_color": "#ffffff",
-            "button_label_1": "ADULT FALL/WINTER",
-            "button_link_1": "shopify://collections/adult-fall-winter",
+            "button_label_1": "ADULT WINTER ACCESSORIES",
+            "button_link_1": "shopify://collections/adult-accessories",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -294,8 +294,8 @@
         "buttons_zkt4Vc"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_Adult_1.jpg",
-        "banner_link": "shopify://collections/adult-fall-winter",
+        "image": "shopify://shop_images/MP_WI24_Leader_1.10.25_Adult_HP_2.jpg",
+        "banner_link": "shopify://collections/adult-accessories",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "content_position": "top-left",
@@ -305,7 +305,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_12.18.24_Adult_HP_2x3_fb241d1e-9ab1-40fa-ab79-d446d4bd5782.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_1.10.25_Adult_HP_2_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": false,
