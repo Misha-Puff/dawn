@@ -4,7 +4,7 @@
     assign show_bis = true
   endunless
 %}
-{% unless product.tags contains 'made-to-order' %}
+{% unless product.tags contains 'made-to-order' or product.type == 'Yarn Skein' %}
   {% if product.tags contains 'no-returns' %}
     {% style %}
       #bis-form-wrapper {
