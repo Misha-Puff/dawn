@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -5,18 +14,15 @@
       "blocks": {
         "title": {
           "type": "title",
-          "settings": {
-          }
+          "settings": {}
         },
         "rating_fBYWfr": {
           "type": "rating",
-          "settings": {
-          }
+          "settings": {}
         },
         "price": {
           "type": "price",
-          "settings": {
-          }
+          "settings": {}
         },
         "inventory_PfG9Nk": {
           "type": "inventory",
@@ -28,8 +34,7 @@
         },
         "quantity_selector_qaKBkM": {
           "type": "quantity_selector",
-          "settings": {
-          }
+          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -38,22 +43,25 @@
             "show_gift_card_recipient": true
           }
         },
+        "bis_form_fjU3wV": {
+          "type": "bis_form",
+          "settings": {}
+        },
         "description": {
           "type": "description",
-          "settings": {
-          }
+          "settings": {}
         },
         "text_gK6KcD": {
           "type": "text",
           "settings": {
-            "text": "Check out our knitting patterns <a href=\"\/collections\/knitting-patterns\" title=\"Knitting Patterns\">here<\/a>.",
+            "text": "Check out our knitting patterns <a href=\"/collections/knitting-patterns\" title=\"Knitting Patterns\">here</a>.",
             "text_style": "body"
           }
         },
         "text_tYPffQ": {
           "type": "text",
           "settings": {
-            "text": "<strong>What is RWS?<\/strong>",
+            "text": "<strong>What is RWS?</strong>",
             "text_style": "body"
           }
         },
@@ -69,7 +77,7 @@
           "settings": {
             "layout": "vertical",
             "icon_1": "none",
-            "image_1": "shopify:\/\/shop_images\/RWS_BLUE_CERT_NUM_1.png",
+            "image_1": "shopify://shop_images/RWS_BLUE_CERT_NUM_1.png",
             "heading_1": "_",
             "icon_2": "none",
             "heading_2": "",
@@ -85,6 +93,7 @@
         "inventory_PfG9Nk",
         "quantity_selector_qaKBkM",
         "buy_buttons",
+        "bis_form_fjU3wV",
         "description",
         "text_gK6KcD",
         "text_tYPffQ",
@@ -134,9 +143,8 @@
       "type": "apps",
       "blocks": {
         "judge_me_reviews_review_widget_Xzqy7K": {
-          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-          }
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
         }
       },
       "block_order": [
