@@ -36,16 +36,16 @@
           "type": "quantity_selector",
           "settings": {}
         },
+        "bis_form_fjU3wV": {
+          "type": "bis_form",
+          "settings": {}
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": true
           }
-        },
-        "bis_form_fjU3wV": {
-          "type": "bis_form",
-          "settings": {}
         },
         "description": {
           "type": "description",
@@ -92,8 +92,8 @@
         "price",
         "inventory_PfG9Nk",
         "quantity_selector_qaKBkM",
-        "buy_buttons",
         "bis_form_fjU3wV",
+        "buy_buttons",
         "description",
         "text_gK6KcD",
         "text_tYPffQ",
