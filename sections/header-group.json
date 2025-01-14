@@ -17,21 +17,13 @@
         "announcement_4MwKwV": {
           "type": "announcement",
           "settings": {
-            "text": "<p>SALE — NOW UP TO 70% OFF: <a href=\"https://shop.misha-and-puff.com/collections/child-sale?filter.v.availability=1&sort_by=manual\" target=\"_blank\" title=\"Child Sale\">Child Sale</a> | <a href=\"https://shop.misha-and-puff.com/collections/baby-sale?filter.v.availability=1&sort_by=manual\" target=\"_blank\" title=\"Baby Sale\">Baby Sale</a></p>"
-          }
-        },
-        "announcement_egLqPG": {
-          "type": "announcement",
-          "settings": {
-            "text": "<p>SALE — NOW UP TO 70% OFF: <a href=\"/collections/child-sale\" target=\"_blank\" title=\"Child - Sale\">Child Sale</a> | <a href=\"/collections/baby-sale\" target=\"_blank\" title=\"Baby - Sale\">Baby Sale</a></p>"
+            "text": "<p><a href=\"/pages/promo-terms\" target=\"_blank\" title=\"Promo Terms\">Lorem ipsum</a></p>"
           }
         }
       },
       "block_order": [
-        "announcement_4MwKwV",
-        "announcement_egLqPG"
+        "announcement_4MwKwV"
       ],
-      "disabled": true,
       "settings": {
         "color_scheme": "",
         "desktop_height": 40,
