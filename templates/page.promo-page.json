@@ -23,15 +23,15 @@
         "heading_g8ihVz": {
           "type": "heading",
           "settings": {
-            "heading": "20% Off Pima Sale",
+            "heading": "Free Gift with Purchase — January 2025",
             "heading_size": "h2"
           }
         },
         "text_jM9GUT": {
           "type": "text",
           "settings": {
-            "text": "<p>Enjoy 20% off select Fall Baby + Child Pima cotton styles, now through Wednesday, October 30 at midnight ET — online and at our <a href=\"https://shop.misha-and-puff.com/pages/brooklyn-store?utm_campaign=Oct%2023%2024%20%7C%20Kids%20FA24%20Part%202%20%E2%80%94%20Pima%20Staples%20%2801JAWVBQFVH0AVQCJZ9AW1HPR7%29&utm_medium=email&utm_source=Most%20Recently%20engaged&_kx=9y5NvpEfn33slTDISXh84Q.H9eAyC\" target=\"_blank\">Brooklyn</a> and <a href=\"https://shop.misha-and-puff.com/pages/newburyport-store?utm_campaign=Oct%2023%2024%20%7C%20Kids%20FA24%20Part%202%20%E2%80%94%20Pima%20Staples%20%2801JAWVBQFVH0AVQCJZ9AW1HPR7%29&utm_medium=email&utm_source=Most%20Recently%20engaged&_kx=9y5NvpEfn33slTDISXh84Q.H9eAyC\" target=\"_blank\">Newburyport</a> stores.</p><p>Promotional discount applied in cart at checkout. Offer valid on Baby and Child full-price Pima cotton styles from the Fall Collection at misha-and-puff.com and our Brooklyn and Newburyport stores. Promotion ends Wednesday, October 30 at midnight ET. Exclusions apply. Offer cannot be combined with any other savings, cannot be redeemed for cash or credit, and cannot be used towards payment of gift cards.No price adjustments on previous purchases. Misha & Puff reserves the right to change or cancel this promotion at any time.</p>",
-            "line_height": 20
+            "text": "<p>Free Gift with Purchase (GWP) on all purchases, now through Friday, January 31 at 11:59 PM ET — online and at our <a href=\"https://shop.misha-and-puff.com/pages/brooklyn-store?utm_campaign=Oct%2023%2024%20%7C%20Kids%20FA24%20Part%202%20%E2%80%94%20Pima%20Staples%20%2801JAWVBQFVH0AVQCJZ9AW1HPR7%29&utm_medium=email&utm_source=Most%20Recently%20engaged&_kx=9y5NvpEfn33slTDISXh84Q.H9eAyC\" target=\"_blank\">Brooklyn</a> and <a href=\"https://shop.misha-and-puff.com/pages/newburyport-store?utm_campaign=Oct%2023%2024%20%7C%20Kids%20FA24%20Part%202%20%E2%80%94%20Pima%20Staples%20%2801JAWVBQFVH0AVQCJZ9AW1HPR7%29&utm_medium=email&utm_source=Most%20Recently%20engaged&_kx=9y5NvpEfn33slTDISXh84Q.H9eAyC\" target=\"_blank\">Newburyport</a> stores.</p><p>• Spend under $200 and receive a hair accessory<br/>• Spend $200+ and receive a bag or scarf<br/>• Spend $300 and receive mittens or a hat<br/><br/>At checkout, select your free gift from a curated selection of options. No code necessary — your gift will ship with your order.</p><p></p>",
+            "line_height": 22
           }
         },
         "button_3k6igj": {
@@ -59,15 +59,79 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 0,
-        "padding_bottom": 52,
+        "padding_top": 20,
+        "padding_bottom": 40,
         "padding_left": 52,
         "padding_right": 52
+      }
+    },
+    "divider_wjYxCk": {
+      "type": "divider",
+      "settings": {
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 40,
+        "desktop_padding_left": 76,
+        "desktop_padding_right": 76,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 40,
+        "mobile_padding_left": 20,
+        "mobile_padding_right": 20
+      }
+    },
+    "rich_text_CrF3FE": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_QdXmhQ": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "text_QhGc3A": {
+          "type": "text",
+          "settings": {
+            "text": "<p>If you prefer not to receive the GWP, simply proceed to checkout without adding the gift.</p><p>Note: If you add the GWP to your cart and continue shopping before checking out, you will need to re-add the gift at checkout.</p><p>Questions? Contact us <a href=\"https://shop.misha-and-puff.com/pages/contact-form\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/pages/contact-form\">here</a>.</p>",
+            "line_height": 24
+          }
+        },
+        "button_HrTcTW": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_QdXmhQ",
+        "text_QhGc3A",
+        "button_HrTcTW"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_left": 0,
+        "padding_right": 0
       }
     }
   },
   "order": [
     "main",
-    "rich_text_DQdTKX"
+    "rich_text_DQdTKX",
+    "divider_wjYxCk",
+    "rich_text_CrF3FE"
   ]
 }
