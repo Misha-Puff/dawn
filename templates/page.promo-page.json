@@ -37,8 +37,8 @@
         "button_3k6igj": {
           "type": "button",
           "settings": {
-            "button_label": "SHOP PIMA",
-            "button_link": "https://shop.misha-and-puff.com/collections/child-pima-staples",
+            "button_label": "BACK TO SHOPPING",
+            "button_link": "https://shop.misha-and-puff.com/",
             "button_style_secondary": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -61,8 +61,8 @@
         "full_width": true,
         "padding_top": 20,
         "padding_bottom": 40,
-        "padding_left": 52,
-        "padding_right": 52
+        "padding_left": 0,
+        "padding_right": 0
       }
     },
     "divider_wjYxCk": {
@@ -73,7 +73,7 @@
         "desktop_padding_left": 76,
         "desktop_padding_right": 76,
         "mobile_padding_top": 0,
-        "mobile_padding_bottom": 40,
+        "mobile_padding_bottom": 8,
         "mobile_padding_left": 20,
         "mobile_padding_right": 20
       }
@@ -92,12 +92,13 @@
         "text_QhGc3A": {
           "type": "text",
           "settings": {
-            "text": "<p>If you prefer not to receive the GWP, simply proceed to checkout without adding the gift.</p><p>Note: If you add the GWP to your cart and continue shopping before checking out, you will need to re-add the gift at checkout.</p><p>Questions? Contact us <a href=\"https://shop.misha-and-puff.com/pages/contact-form\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/pages/contact-form\">here</a>.</p>",
-            "line_height": 24
+            "text": "<p>If you prefer not to receive the GWP, simply proceed to checkout without adding the gift.</p><p>Note: If you add the GWP to your cart and continue shopping before checking out, you will need to re-add the gift at checkout.</p><p>Questions? Contact us <a href=\"https://shop.misha-and-puff.com/pages/contact-form\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/pages/contact-form\">here</a>.<br/><br/><br/><em>Free Gift with Purchase Promotion ends January 31, 2025 at 11:59 PM ET, online and at our Brooklyn and Newburyport stores, or while supplies last. Supplies are limited. Exclusions apply. Limit one GWP per customer. Offer cannot be combined with other discounts, and gifts cannot be returned or redeemed for cash or credit. No adjustments to previous purchases. Misha & Puff reserves the right to modify or cancel this promotion at any time.</em></p>",
+            "line_height": 22
           }
         },
         "button_HrTcTW": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "button_label": "Button label",
             "button_link": "",
@@ -121,8 +122,8 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52,
+        "padding_top": 0,
+        "padding_bottom": 40,
         "padding_left": 0,
         "padding_right": 0
       }
