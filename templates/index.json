@@ -79,14 +79,14 @@
     "multicolumn_BMReV9": {
       "type": "multicolumn",
       "blocks": {
-        "column_qXTqMb": {
+        "column_YehPqA": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/kodak_professional_portra_400_03_11_2024_000206660010_Baby.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_1.10.25_Child_2_Mob.jpg",
             "title": "",
-            "text": "<p>BABY WINTER — NOW 20% OFF</p>",
+            "text": "<p>WINTER SALE</p>",
             "link_label": "",
-            "link": "shopify://collections/baby-winter-b",
+            "link": "shopify://collections/child-winter-b",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -99,14 +99,14 @@
             "button_type": "primary"
           }
         },
-        "column_YehPqA": {
+        "column_qXTqMb": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_12.18.24_Adult_HP_2x3_fb241d1e-9ab1-40fa-ab79-d446d4bd5782.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_12.18.24_Baby_HP_2x3_ce1214dc-2ce1-407f-a68f-41b66e2a60f7.jpg",
             "title": "",
-            "text": "<p>SHOP ADULT</p>",
+            "text": "<p>BABY WINTER SALE</p>",
             "link_label": "",
-            "link": "shopify://collections/adult-fall-winter",
+            "link": "shopify://collections/baby-winter-b",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -121,8 +121,8 @@
         }
       },
       "block_order": [
-        "column_qXTqMb",
-        "column_YehPqA"
+        "column_YehPqA",
+        "column_qXTqMb"
       ],
       "settings": {
         "title": "",
@@ -146,7 +146,7 @@
         "swipe_on_mobile": false,
         "desktop_padding_top": 30,
         "desktop_padding_bottom": 30,
-        "mobile_padding_top": 12,
+        "mobile_padding_top": 16,
         "mobile_padding_bottom": 0
       }
     },
@@ -278,13 +278,13 @@
           "settings": {
             "link_type": "link",
             "link_color": "#ffffff",
-            "button_label_1": "ADULT WINTER ACCESSORIES",
-            "button_link_1": "shopify://collections/adult-accessories",
+            "button_label_1": "SHOP ADULT",
+            "button_link_1": "shopify://collections/adult-fall-winter",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false,
-            "buttons_top_margin": 20
+            "buttons_top_margin": 15
           }
         }
       },
@@ -294,8 +294,8 @@
         "buttons_zkt4Vc"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_1.10.25_Adult_HP_2.jpg",
-        "banner_link": "shopify://collections/adult-accessories",
+        "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_Adult_1.jpg",
+        "banner_link": "shopify://collections/adult-fall-winter",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "content_position": "top-left",
