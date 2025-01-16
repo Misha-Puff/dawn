@@ -77,7 +77,7 @@
           "settings": {
             "link_type": "link",
             "link_color": "#ffffff",
-            "button_label_1": "SHOP WINTER SALE",
+            "button_label_1": "WINTER SALE",
             "button_link_1": "shopify://collections/child-winter-b",
             "button_style_secondary_1": true,
             "button_label_2": "",

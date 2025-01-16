@@ -46,6 +46,7 @@
       "blocks": {
         "heading_8Wxr38": {
           "type": "heading",
+          "disabled": true,
           "settings": {
             "heading": "Winter Collection",
             "desktop_heading_size": "h2",
@@ -55,6 +56,7 @@
         },
         "text_KVmVrL": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "NOW 20% OFF",
             "text_color": "#ffffff",
@@ -67,7 +69,7 @@
           "settings": {
             "link_type": "link",
             "link_color": "#ffffff",
-            "button_label_1": "SHOP WINTER",
+            "button_label_1": "WINTER SALE",
             "button_link_1": "shopify://collections/baby-winter-b",
             "button_style_secondary_1": true,
             "button_label_2": "",
@@ -116,8 +118,8 @@
           "settings": {
             "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_Baby_Onesies_0fbddf65-90f3-402b-9e98-d2bab3b5a962.jpg",
             "title": "",
-            "text": "",
-            "link_label": "ONE-PIECES",
+            "text": "<p>ONE-PIECES</p>",
+            "link_label": "",
             "link": "shopify://collections/baby-one-piece",
             "new_tab": false,
             "link_margin": 8,
@@ -134,10 +136,10 @@
         "column_Hgag6H": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_Child_Sale.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_1.17.25_Sale_2_Mob_d3ea9d35-2902-43f6-a3ba-a07c9a12a5b3.jpg",
             "title": "",
-            "text": "",
-            "link_label": "SALE — NOW UP TO 70% OFF",
+            "text": "<p>EXTRA 20% OFF SELECT SALE — ENDS MONDAY</p>",
+            "link_label": "",
             "link": "shopify://collections/baby-sale",
             "new_tab": true,
             "link_margin": 8,
