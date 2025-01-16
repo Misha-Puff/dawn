@@ -41,7 +41,7 @@
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false,
-            "buttons_top_margin": 20
+            "buttons_top_margin": 15
           }
         }
       },
@@ -62,7 +62,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_1.10.25_Child_1_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_1.17.25_Sale_2_Mob_817d0281-a117-4bb7-b8e5-4930d0732f10.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false,
