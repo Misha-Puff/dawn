@@ -17,7 +17,7 @@
           "settings": {
             "heading": "Sale on sale",
             "desktop_heading_size": "h1",
-            "mobile_heading_size": "h2",
+            "mobile_heading_size": "h1",
             "heading_color": "#ffffff"
           }
         },
