@@ -54,6 +54,7 @@
       "blocks": {
         "heading_gLE39z": {
           "type": "heading",
+          "disabled": true,
           "settings": {
             "heading": "Winter Collection",
             "desktop_heading_size": "h2",
@@ -63,6 +64,7 @@
         },
         "text_iqachQ": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "NOW 20% OFF",
             "text_color": "#ffffff",
@@ -75,7 +77,7 @@
           "settings": {
             "link_type": "link",
             "link_color": "#ffffff",
-            "button_label_1": "SHOP WINTER",
+            "button_label_1": "SHOP WINTER SALE",
             "button_link_1": "shopify://collections/child-winter-b",
             "button_style_secondary_1": true,
             "button_label_2": "",
@@ -124,8 +126,8 @@
           "settings": {
             "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_Child_Sweaters_5088486e-579f-4480-a358-e81e9d9af1b6.jpg",
             "title": "",
-            "text": "",
-            "link_label": "SWEATERS + CARDIGANS",
+            "text": "<p>SWEATERS + CARDIGANS</p>",
+            "link_label": "",
             "link": "shopify://collections/child-sweaters-cardigans",
             "new_tab": false,
             "link_margin": 8,
@@ -142,10 +144,10 @@
         "column_RwiwcK": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_Child_Sale.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_1.17.25_Sale_2_Mob_d3ea9d35-2902-43f6-a3ba-a07c9a12a5b3.jpg",
             "title": "",
-            "text": "",
-            "link_label": "SALE — NOW UP TO 70% OFF",
+            "text": "<p>EXTRA 20% OFF SELECT SALE — ENDS MONDAY</p>",
+            "link_label": "",
             "link": "shopify://collections/child-sale",
             "new_tab": true,
             "link_margin": 8,
