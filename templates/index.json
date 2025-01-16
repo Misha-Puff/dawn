@@ -24,9 +24,9 @@
         "text_TdBLTR": {
           "type": "text",
           "settings": {
-            "text": "Extra 20% off Fall and Winter Collections. Ends Monday.",
+            "text": "Extra 20% off Fall + Winter SALE. ENDS MONDAY.",
             "text_color": "#ffffff",
-            "text_style": "body",
+            "text_style": "caption-with-letter-spacing",
             "text_top_margin": 5
           }
         },
@@ -41,7 +41,7 @@
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false,
-            "buttons_top_margin": 10
+            "buttons_top_margin": 20
           }
         }
       },
@@ -56,8 +56,8 @@
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "content_position": "middle-left",
-        "tb_overlay_padding": 25,
-        "lr_overlay_padding": 74,
+        "tb_overlay_padding": 0,
+        "lr_overlay_padding": 35,
         "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "",
