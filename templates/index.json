@@ -15,8 +15,8 @@
         "heading_egMwVJ": {
           "type": "heading",
           "settings": {
-            "heading": "Winter Collection",
-            "desktop_heading_size": "h2",
+            "heading": "Sale on sale",
+            "desktop_heading_size": "h1",
             "mobile_heading_size": "h2",
             "heading_color": "#ffffff"
           }
@@ -24,10 +24,10 @@
         "text_TdBLTR": {
           "type": "text",
           "settings": {
-            "text": "NOW 20% OFF",
+            "text": "Extra 20% off Fall and Winter Collections. Ends Monday.",
             "text_color": "#ffffff",
             "text_style": "body",
-            "text_top_margin": 0
+            "text_top_margin": 5
           }
         },
         "buttons_CGGLqp": {
@@ -35,8 +35,8 @@
           "settings": {
             "link_type": "link",
             "link_color": "#ffffff",
-            "button_label_1": "SHOP WINTER",
-            "button_link_1": "shopify://collections/child-winter-b",
+            "button_label_1": "SHOP SALE",
+            "button_link_1": "shopify://collections/child-sale",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -51,13 +51,13 @@
         "buttons_CGGLqp"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_1.10.25_Child_1.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_1.17.25_Sale_2.jpg",
         "banner_link": "shopify://collections/child-winter-b",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
-        "content_position": "middle-center",
+        "content_position": "middle-left",
         "tb_overlay_padding": 25,
-        "lr_overlay_padding": 25,
+        "lr_overlay_padding": 74,
         "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "",
