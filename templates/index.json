@@ -14,6 +14,7 @@
       "blocks": {
         "heading_egMwVJ": {
           "type": "heading",
+          "disabled": true,
           "settings": {
             "heading": "Sale on sale",
             "desktop_heading_size": "h1",
@@ -23,6 +24,7 @@
         },
         "text_TdBLTR": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "Extra 20% off Fall + Winter SALE. ENDS MONDAY.",
             "text_color": "#ffffff",
@@ -35,8 +37,8 @@
           "settings": {
             "link_type": "link",
             "link_color": "#ffffff",
-            "button_label_1": "SHOP SALE",
-            "button_link_1": "shopify://collections/child-sale",
+            "button_label_1": "WINTER SALE",
+            "button_link_1": "shopify://collections/child-winter-b",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -51,18 +53,18 @@
         "buttons_CGGLqp"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_1.17.25_Sale_2.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_1.20.25_Child_2_02437c91-eb1f-432a-abb2-2fa4f40e8dbe.jpg",
         "banner_link": "shopify://collections/child-winter-b",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
-        "content_position": "middle-left",
+        "content_position": "middle-center",
         "tb_overlay_padding": 0,
         "lr_overlay_padding": 45,
         "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_1.17.25_Sale_2_Mob_817d0281-a117-4bb7-b8e5-4930d0732f10.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_1.20.25_Child_2_Mob_a0a23713-656d-433b-9d72-92f43e0488ae.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false,
