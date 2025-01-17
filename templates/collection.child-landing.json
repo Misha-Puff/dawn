@@ -93,7 +93,7 @@
         "buttons_MbErHB"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_1.10.25_Child_2.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_1.20.25_Child_1.jpg",
         "banner_link": "shopify://collections/child-winter-b",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -144,9 +144,9 @@
         "column_RwiwcK": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_1.17.25_Sale_2_Mob_d3ea9d35-2902-43f6-a3ba-a07c9a12a5b3.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_Child_Sale.jpg",
             "title": "",
-            "text": "<p>EXTRA 20% OFF SELECT SALE — ENDS MONDAY</p>",
+            "text": "<p>ALL SALE — UP TO 70% OFF</p>",
             "link_label": "",
             "link": "shopify://collections/child-sale",
             "new_tab": true,
