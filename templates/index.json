@@ -84,11 +84,11 @@
         "column_YehPqA": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_1.10.25_Child_2_Mob.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_Baby_Onesies_0fbddf65-90f3-402b-9e98-d2bab3b5a962.jpg",
             "title": "",
-            "text": "<p>WINTER SALE</p>",
+            "text": "<p>BABY WINTER SALE</p>",
             "link_label": "",
-            "link": "shopify://collections/child-winter-b",
+            "link": "shopify://collections/baby-winter-b",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -104,11 +104,11 @@
         "column_qXTqMb": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_12.18.24_Baby_HP_2x3_ce1214dc-2ce1-407f-a68f-41b66e2a60f7.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_Child_Sale.jpg",
             "title": "",
-            "text": "<p>BABY WINTER SALE</p>",
+            "text": "<p>ALL SALE — UP TO 70% OFF</p>",
             "link_label": "",
-            "link": "shopify://collections/baby-winter-b",
+            "link": "shopify://collections/child-sale",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
