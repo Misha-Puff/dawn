@@ -17,14 +17,13 @@
         "announcement_4MwKwV": {
           "type": "announcement",
           "settings": {
-            "text": "<p>ENDS MONDAY, 1/20 at 11:59 PM ET — Extra 20% off Fall/Winter Sale + Free Gift with Purchase<strong> </strong><a href=\"/pages/promo-terms\" target=\"_blank\" title=\"Promo Terms\">*</a></p>"
+            "text": "<p>FREE GIFT WITH PURCHASE — Now through January 31, while supplies last!<a href=\"/pages/promo-terms\" target=\"_blank\" title=\"Promo Terms\">*</a></p>"
           }
         }
       },
       "block_order": [
         "announcement_4MwKwV"
       ],
-      "disabled": true,
       "settings": {
         "color_scheme": "",
         "desktop_height": 40,
