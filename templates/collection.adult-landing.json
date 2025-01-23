@@ -161,8 +161,8 @@
           "settings": {
             "image": "shopify://shop_images/MP_WI24_Leader_1.24.25_Adult_Accs.jpg",
             "title": "",
-            "text": "",
-            "link_label": "WINTER ACCESSORIES — Select Styles 20% Off for a Limited Time",
+            "text": "<p>WINTER ACCESSORIES — Select Styles 20% Off for a Limited Time</p>",
+            "link_label": "",
             "link": "shopify://collections/adult-accessories",
             "new_tab": false,
             "link_margin": 8,
@@ -181,8 +181,8 @@
           "settings": {
             "image": "shopify://shop_images/MP_WI24_Leader_2x3_Adult_LB.jpg",
             "title": "",
-            "text": "",
-            "link_label": "FALL LOOKBOOK",
+            "text": "<p>FALL LOOKBOOK</p>",
+            "link_label": "",
             "link": "https://shop.misha-and-puff.com/blogs/journal/adult-fall-24",
             "new_tab": false,
             "link_margin": 8,

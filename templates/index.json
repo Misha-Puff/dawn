@@ -55,11 +55,11 @@
       "settings": {
         "image": "shopify://shop_images/MP_WI24_Leader_1.20.25_Child_2_02437c91-eb1f-432a-abb2-2fa4f40e8dbe.jpg",
         "banner_link": "shopify://collections/child-winter-b",
-        "image_overlay_opacity": 0,
+        "image_overlay_opacity": 10,
         "image_height": "adapt",
         "content_position": "middle-center",
         "tb_overlay_padding": 0,
-        "lr_overlay_padding": 45,
+        "lr_overlay_padding": 0,
         "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "",
@@ -81,26 +81,6 @@
     "multicolumn_BMReV9": {
       "type": "multicolumn",
       "blocks": {
-        "column_YehPqA": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_Baby_Onesies_0fbddf65-90f3-402b-9e98-d2bab3b5a962.jpg",
-            "title": "",
-            "text": "<p>BABY WINTER SALE</p>",
-            "link_label": "",
-            "link": "shopify://collections/baby-winter-b",
-            "new_tab": false,
-            "link_margin": 8,
-            "enable_overlay": false,
-            "content_position": "bottom-left",
-            "tb_overlay_padding": 15,
-            "lr_overlay_padding": 25,
-            "link_type": "link",
-            "link_color": "#000000",
-            "link_style": "none",
-            "button_type": "primary"
-          }
-        },
         "column_qXTqMb": {
           "type": "column",
           "settings": {
@@ -120,11 +100,31 @@
             "link_style": "none",
             "button_type": "primary"
           }
+        },
+        "column_YehPqA": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_Baby_Onesies_0fbddf65-90f3-402b-9e98-d2bab3b5a962.jpg",
+            "title": "",
+            "text": "<p>BABY WINTER SALE</p>",
+            "link_label": "",
+            "link": "shopify://collections/baby-winter-b",
+            "new_tab": false,
+            "link_margin": 8,
+            "enable_overlay": false,
+            "content_position": "bottom-left",
+            "tb_overlay_padding": 15,
+            "lr_overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
         }
       },
       "block_order": [
-        "column_YehPqA",
-        "column_qXTqMb"
+        "column_qXTqMb",
+        "column_YehPqA"
       ],
       "settings": {
         "title": "",
