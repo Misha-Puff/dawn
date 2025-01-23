@@ -159,7 +159,7 @@
         "column_dVCGVj": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_Adult_Accs.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_1.24.25_Adult_Accs.jpg",
             "title": "",
             "text": "",
             "link_label": "WINTER ACCESSORIES — Select Styles 20% Off for a Limited Time",
@@ -234,7 +234,7 @@
         "heading_alignment": "left",
         "heading_size": "h2",
         "heading_margin": 14,
-        "description": "<p>JUST IN</p>",
+        "description": "",
         "show_description": false,
         "description_style": "body",
         "collection": "adult-new",
