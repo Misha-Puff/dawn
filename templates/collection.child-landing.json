@@ -93,18 +93,18 @@
         "buttons_MbErHB"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_1.20.25_Child_1.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_1.24.25_Child_1_bfaad73a-f699-488b-ad8d-78b7388e23e1.jpg",
         "banner_link": "shopify://collections/child-winter-b",
-        "image_overlay_opacity": 0,
+        "image_overlay_opacity": 10,
         "image_height": "adapt",
-        "content_position": "middle-center",
-        "tb_overlay_padding": 25,
-        "lr_overlay_padding": 25,
+        "content_position": "middle-left",
+        "tb_overlay_padding": 0,
+        "lr_overlay_padding": 100,
         "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_1.10.25_Child_2_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_1.24.25_Child_1_Mob_2904e3d1-2b04-4620-88b0-75e5d1dbc8dc.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false,
@@ -124,7 +124,7 @@
         "column_iBFc39": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_Child_Sweaters_5088486e-579f-4480-a358-e81e9d9af1b6.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_Child_Sweaters.jpg",
             "title": "",
             "text": "<p>SWEATERS + CARDIGANS</p>",
             "link_label": "",

@@ -43,7 +43,7 @@
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false,
-            "buttons_top_margin": 15
+            "buttons_top_margin": 0
           }
         }
       },
@@ -53,18 +53,18 @@
         "buttons_CGGLqp"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_1.20.25_Child_2_02437c91-eb1f-432a-abb2-2fa4f40e8dbe.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_1.24.25_Child_2_3b321af8-958e-4907-a32d-61cb331e4c4c.jpg",
         "banner_link": "shopify://collections/child-winter-b",
-        "image_overlay_opacity": 10,
+        "image_overlay_opacity": 0,
         "image_height": "adapt",
         "content_position": "middle-center",
         "tb_overlay_padding": 0,
-        "lr_overlay_padding": 0,
+        "lr_overlay_padding": 100,
         "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_1.20.25_Child_2_Mob_a0a23713-656d-433b-9d72-92f43e0488ae.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_1.24.25_Child_2_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false,
@@ -104,7 +104,7 @@
         "column_YehPqA": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_Baby_Onesies_0fbddf65-90f3-402b-9e98-d2bab3b5a962.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_1.24.25_Baby_2.jpg",
             "title": "",
             "text": "<p>BABY WINTER SALE</p>",
             "link_label": "",
