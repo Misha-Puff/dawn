@@ -104,11 +104,11 @@
         "column_qXTqMb": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_Child_Sale.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_Adult_Accs.jpg",
             "title": "",
-            "text": "<p>ALL SALE — UP TO 70% OFF</p>",
+            "text": "<p>ADULT F/W SALE — Select Styles 20% Off</p>",
             "link_label": "",
-            "link": "shopify://collections/child-sale",
+            "link": "shopify://collections/adult-fall-winter",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,

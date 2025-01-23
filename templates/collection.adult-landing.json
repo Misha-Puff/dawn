@@ -91,22 +91,20 @@
       "blocks": {
         "text_yfJCR4": {
           "type": "text",
-          "disabled": true,
           "settings": {
-            "text": "COMING SOON",
-            "text_color": "#000000",
-            "text_style": "body",
-            "text_top_margin": 10
+            "text": "THROUGH SUNDAY <a href=\"/pages/promo-terms\" target=\"_blank\" title=\"Promo Terms\">1/26</a>",
+            "text_color": "#ffffff",
+            "text_style": "caption-with-letter-spacing",
+            "text_top_margin": 0
           }
         },
         "heading_8rkKyc": {
           "type": "heading",
-          "disabled": true,
           "settings": {
-            "heading": "Image banner",
-            "desktop_heading_size": "h1",
-            "mobile_heading_size": "h1",
-            "heading_color": "#000000"
+            "heading": "20% OFF SELECT FALL/WINTER",
+            "desktop_heading_size": "h2",
+            "mobile_heading_size": "h2",
+            "heading_color": "#ffffff"
           }
         },
         "buttons_8b9zaW": {
@@ -114,13 +112,13 @@
           "settings": {
             "link_type": "link",
             "link_color": "#ffffff",
-            "button_label_1": "SHOP ADULT",
+            "button_label_1": "SHOP NOW",
             "button_link_1": "shopify://collections/adult-fall-winter",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false,
-            "buttons_top_margin": 20
+            "buttons_top_margin": 30
           }
         }
       },
@@ -130,7 +128,7 @@
         "buttons_8b9zaW"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_1.17.25_Adult_2_e2538ed2-25b8-4561-92e3-94bd90e3658a.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_Adult_LP.jpg",
         "banner_link": "shopify://collections/adult-fall-winter",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -141,7 +139,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_1.17.25_Adult_2_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_1.3.24_Adult_LP_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": false,
@@ -164,7 +162,7 @@
             "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_Adult_Accs.jpg",
             "title": "",
             "text": "",
-            "link_label": "WINTER ACCESSORIES",
+            "link_label": "WINTER ACCESSORIES — Select Styles 20% Off for a Limited Time",
             "link": "shopify://collections/adult-accessories",
             "new_tab": false,
             "link_margin": 8,
