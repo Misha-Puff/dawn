@@ -91,7 +91,7 @@
           "type": "button",
           "settings": {
             "label": "SWEATERS + CARDIGANS",
-            "open_new_tab": false,
+            "open_new_tab": true,
             "link": "shopify://collections/child-sweaters-cardigans",
             "type": "secondary",
             "on_click": ""
@@ -101,7 +101,7 @@
           "type": "button",
           "settings": {
             "label": "TOPS",
-            "open_new_tab": false,
+            "open_new_tab": true,
             "link": "shopify://collections/child-tops",
             "type": "secondary",
             "on_click": ""
@@ -111,7 +111,7 @@
           "type": "button",
           "settings": {
             "label": "BOTTOMS",
-            "open_new_tab": false,
+            "open_new_tab": true,
             "link": "shopify://collections/child-bottoms",
             "type": "secondary",
             "on_click": ""
@@ -121,7 +121,7 @@
           "type": "button",
           "settings": {
             "label": "BABY SALE",
-            "open_new_tab": false,
+            "open_new_tab": true,
             "link": "shopify://collections/baby-sale",
             "type": "secondary",
             "on_click": ""
