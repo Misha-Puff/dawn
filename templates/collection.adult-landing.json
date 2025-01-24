@@ -91,6 +91,7 @@
       "blocks": {
         "text_yfJCR4": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "THROUGH SUNDAY <a href=\"/pages/promo-terms\" target=\"_blank\" title=\"Promo Terms\">1/26</a>",
             "text_color": "#ffffff",
@@ -100,6 +101,7 @@
         },
         "heading_8rkKyc": {
           "type": "heading",
+          "disabled": true,
           "settings": {
             "heading": "20% OFF SELECT FALL/WINTER",
             "desktop_heading_size": "h2",
@@ -112,7 +114,7 @@
           "settings": {
             "link_type": "link",
             "link_color": "#ffffff",
-            "button_label_1": "SHOP NOW",
+            "button_label_1": "ADULT FALL/WINTER",
             "button_link_1": "shopify://collections/adult-fall-winter",
             "button_style_secondary_1": true,
             "button_label_2": "",
@@ -128,18 +130,18 @@
         "buttons_8b9zaW"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_1.24.25_Adult_1_c.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_1.17.25_Adult_2_e2538ed2-25b8-4561-92e3-94bd90e3658a.jpg",
         "banner_link": "shopify://collections/adult-fall-winter",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
-        "content_position": "middle-left",
+        "content_position": "middle-center",
         "tb_overlay_padding": 0,
-        "lr_overlay_padding": 45,
+        "lr_overlay_padding": 0,
         "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_1.24.25_Adult_1_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_1.17.25_Adult_2_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": false,
@@ -161,7 +163,7 @@
           "settings": {
             "image": "shopify://shop_images/MP_WI24_Leader_1.24.25_Adult_Accs.jpg",
             "title": "",
-            "text": "<p>WINTER ACCESSORIES — Select Styles 20% Off for a Limited Time</p>",
+            "text": "<p>WINTER ACCESSORIES</p>",
             "link_label": "",
             "link": "shopify://collections/adult-accessories",
             "new_tab": false,

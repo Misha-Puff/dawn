@@ -81,26 +81,6 @@
     "multicolumn_BMReV9": {
       "type": "multicolumn",
       "blocks": {
-        "column_qXTqMb": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_Adult_Accs.jpg",
-            "title": "",
-            "text": "<p>ADULT F/W SALE — Select Styles 20% Off</p>",
-            "link_label": "",
-            "link": "shopify://collections/adult-fall-winter",
-            "new_tab": false,
-            "link_margin": 8,
-            "enable_overlay": false,
-            "content_position": "bottom-left",
-            "tb_overlay_padding": 15,
-            "lr_overlay_padding": 25,
-            "link_type": "link",
-            "link_color": "#000000",
-            "link_style": "none",
-            "button_type": "primary"
-          }
-        },
         "column_YehPqA": {
           "type": "column",
           "settings": {
@@ -120,11 +100,31 @@
             "link_style": "none",
             "button_type": "primary"
           }
+        },
+        "column_qXTqMb": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_Child_Sale.jpg",
+            "title": "",
+            "text": "<p>ALL SALE — Up to 70% off</p>",
+            "link_label": "",
+            "link": "shopify://collections/child-sale",
+            "new_tab": false,
+            "link_margin": 8,
+            "enable_overlay": false,
+            "content_position": "bottom-left",
+            "tb_overlay_padding": 15,
+            "lr_overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
         }
       },
       "block_order": [
-        "column_qXTqMb",
-        "column_YehPqA"
+        "column_YehPqA",
+        "column_qXTqMb"
       ],
       "settings": {
         "title": "",
