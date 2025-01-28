@@ -39,12 +39,13 @@
         "text_FWX7U7": {
           "type": "text",
           "settings": {
-            "text": "<p>Through Sunday, February 2, at 4 PM ET, shop your exclusive Early Access to Part 1 of the Spring Collection. </p><p>Please connect with our Brooklyn Store Manager, Anne, to place your order: anne@misha-and-puff.com.</p><p>Orders open to everyone on Thursday, February 6, at 11 AM ET. </p>",
+            "text": "<p>As one of our valued customers, we’re giving you exclusive Early Access to Part 1 of the Spring Collection, plus our online exclusives of the season.</p><p>Through Sunday, February 2, at 4 PM ET, you have early access to place your order with us. Please connect with our Brooklyn Store Manager, Anne, to place your order.</p><p>Orders open to everyone on Thursday, February 6, at 11 AM ET. </p>",
             "line_height": 22
           }
         },
         "button_CEpfd9": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "button_label": "Button label",
             "button_link": "",
@@ -68,19 +69,32 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52,
-        "padding_left": 0,
-        "padding_right": 0
+        "padding_top": 20,
+        "padding_bottom": 32,
+        "padding_left": 120,
+        "padding_right": 120
+      }
+    },
+    "divider_nmzegr": {
+      "type": "divider",
+      "settings": {
+        "desktop_padding_top": 20,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 32,
+        "desktop_padding_right": 32,
+        "mobile_padding_top": 12,
+        "mobile_padding_bottom": 36,
+        "mobile_padding_left": 20,
+        "mobile_padding_right": 20
       }
     },
     "featured_collection_aKRY9c": {
       "type": "featured-collection",
       "settings": {
-        "title": "Exclusives!",
+        "title": "MISHA & PUFF EXCLUSIVES",
         "heading_alignment": "center",
         "heading_size": "h2",
-        "heading_margin": 25,
+        "heading_margin": 30,
         "description": "",
         "show_description": false,
         "description_style": "body",
@@ -90,7 +104,7 @@
         "products_to_show": 24,
         "columns_desktop": 3,
         "full_width": true,
-        "enable_custom_spacing": false,
+        "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 20,
         "vertical_spacing_desktop": 20,
         "horizontal_spacing_mobile": 10,
@@ -101,21 +115,71 @@
         "color_scheme": "",
         "image_ratio": "adapt",
         "image_shape": "default",
-        "show_secondary_image": false,
+        "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "quick_add": "none",
+        "quick_add": "standard",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "section_full_width": false,
-        "desktop_padding_top": 52,
+        "desktop_padding_top": 44,
         "desktop_padding_bottom": 36,
         "desktop_padding_left": 0,
         "desktop_padding_right": 0,
-        "mobile_padding_top": 32,
+        "mobile_padding_top": 40,
         "mobile_padding_bottom": 36,
         "mobile_padding_left": 0,
         "mobile_padding_right": 0
+      }
+    },
+    "rich_text_m9YyJX": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_C7ewwU": {
+          "type": "heading",
+          "settings": {
+            "heading": "SPRING COLLECTION — PART 1",
+            "heading_size": "h2"
+          }
+        },
+        "text_Eb3mJJ": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "",
+            "line_height": 24
+          }
+        },
+        "button_pF6FVm": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_C7ewwU",
+        "text_Eb3mJJ",
+        "button_pF6FVm"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_left": 0,
+        "padding_right": 0
       }
     },
     "rich_text_n8yiAy": {
@@ -156,6 +220,7 @@
         "text_aDVaDa",
         "button_J6VEqX"
       ],
+      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -203,7 +268,9 @@
     "shogun-above",
     "banner",
     "rich_text_yLT7QX",
+    "divider_nmzegr",
     "featured_collection_aKRY9c",
+    "rich_text_m9YyJX",
     "rich_text_n8yiAy",
     "product-grid",
     "shogun-below",
