@@ -70,7 +70,7 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 20,
-        "padding_bottom": 32,
+        "padding_bottom": 40,
         "padding_left": 120,
         "padding_right": 120
       }
@@ -132,7 +132,7 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 36,
+        "padding_top": 40,
         "padding_bottom": 28,
         "padding_left": 0,
         "padding_right": 0
@@ -185,7 +185,7 @@
     "divider_zahYiY": {
       "type": "divider",
       "settings": {
-        "desktop_padding_top": 36,
+        "desktop_padding_top": 40,
         "desktop_padding_bottom": 20,
         "desktop_padding_left": 32,
         "desktop_padding_right": 32,
@@ -239,7 +239,7 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 36,
+        "padding_top": 40,
         "padding_bottom": 28,
         "padding_left": 0,
         "padding_right": 0
