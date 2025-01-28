@@ -79,19 +79,69 @@
       "type": "divider",
       "settings": {
         "desktop_padding_top": 20,
-        "desktop_padding_bottom": 0,
+        "desktop_padding_bottom": 20,
         "desktop_padding_left": 32,
         "desktop_padding_right": 32,
-        "mobile_padding_top": 12,
-        "mobile_padding_bottom": 36,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 20,
         "mobile_padding_left": 20,
         "mobile_padding_right": 20
+      }
+    },
+    "rich_text_g9zhUy": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_jeJRUQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Misha & Puff Exclusives",
+            "heading_size": "h2"
+          }
+        },
+        "text_8xRXGV": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+            "line_height": 24
+          }
+        },
+        "button_BL3a9c": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_jeJRUQ",
+        "text_8xRXGV",
+        "button_BL3a9c"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 36,
+        "padding_bottom": 28,
+        "padding_left": 0,
+        "padding_right": 0
       }
     },
     "featured_collection_aKRY9c": {
       "type": "featured-collection",
       "settings": {
-        "title": "MISHA & PUFF EXCLUSIVES",
+        "title": "",
         "heading_alignment": "center",
         "heading_size": "h2",
         "heading_margin": 30,
@@ -101,7 +151,7 @@
         "collection": "spring-25-exclusives",
         "hide_sold_out": false,
         "hide_content": false,
-        "products_to_show": 24,
+        "products_to_show": 32,
         "columns_desktop": 3,
         "full_width": true,
         "enable_custom_spacing": true,
@@ -122,7 +172,7 @@
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "section_full_width": false,
-        "desktop_padding_top": 44,
+        "desktop_padding_top": 0,
         "desktop_padding_bottom": 36,
         "desktop_padding_left": 0,
         "desktop_padding_right": 0,
@@ -132,13 +182,26 @@
         "mobile_padding_right": 0
       }
     },
+    "divider_zahYiY": {
+      "type": "divider",
+      "settings": {
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 20,
+        "desktop_padding_left": 32,
+        "desktop_padding_right": 32,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 20,
+        "mobile_padding_left": 20,
+        "mobile_padding_right": 20
+      }
+    },
     "rich_text_m9YyJX": {
       "type": "rich-text",
       "blocks": {
         "heading_C7ewwU": {
           "type": "heading",
           "settings": {
-            "heading": "SPRING COLLECTION — PART 1",
+            "heading": "Spring Collection — Part 1",
             "heading_size": "h2"
           }
         },
@@ -176,8 +239,8 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52,
+        "padding_top": 36,
+        "padding_bottom": 28,
         "padding_left": 0,
         "padding_right": 0
       }
@@ -269,7 +332,9 @@
     "banner",
     "rich_text_yLT7QX",
     "divider_nmzegr",
+    "rich_text_g9zhUy",
     "featured_collection_aKRY9c",
+    "divider_zahYiY",
     "rich_text_m9YyJX",
     "rich_text_n8yiAy",
     "product-grid",
