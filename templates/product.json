@@ -16,10 +16,6 @@
           "type": "title",
           "settings": {}
         },
-        "rating_fBYWfr": {
-          "type": "rating",
-          "settings": {}
-        },
         "price": {
           "type": "price",
           "settings": {}
@@ -95,7 +91,6 @@
       },
       "block_order": [
         "title",
-        "rating_fBYWfr",
         "price",
         "variant_picker",
         "inventory_PfG9Nk",
