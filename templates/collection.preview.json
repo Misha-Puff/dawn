@@ -100,10 +100,9 @@
         },
         "text_8xRXGV": {
           "type": "text",
-          "disabled": true,
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
-            "line_height": 24
+            "text": "<p>These styles are only available on misha-and-puff.com.</p>",
+            "line_height": 22
           }
         },
         "button_BL3a9c": {
