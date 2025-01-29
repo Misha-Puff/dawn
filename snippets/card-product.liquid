@@ -424,7 +424,9 @@
                 >
                   {{- 'products.product.sold_out' | t -}}
                 </span>
-              {% elsif tags_str contains 'Badge-' %}
+              {% endif %}
+
+              {% if tags_str contains 'Badge-' %}
                 {% assign custom_tags = '' | split: '😉' %}
 
                 {% for tag in card_product.tags %}
