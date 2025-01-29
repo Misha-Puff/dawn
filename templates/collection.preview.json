@@ -91,7 +91,7 @@
     "custom_liquid_MMXNgm": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "{% capture page_num %}\n  {% render 'get-query-param', param: 'page' %}\n{% endcapture %}\n{% assign page_num = page_num | plus: 0 %}\n{% if page_num > 0 %}\n  {% style %}\n    #shopify-section-template--16811714314291__rich_text_g9zhUy, #shopify-section-template--16811714314291__featured_collection_aKRY9c, #shopify-section-template--16811714314291__divider_zahYiY {\n      display: none;\n    }\n  {% endstyle %}\n{% endif %}",
+        "custom_liquid": "{% capture page_num %}\n  {% render 'get-query-param', param: 'page' %}\n{% endcapture %}\n{% assign page_num = page_num | plus: 0 %}\n{% if page_num > 1 %}\n  {% style %}\n    #shopify-section-template--16811714314291__rich_text_g9zhUy, #shopify-section-template--16811714314291__featured_collection_aKRY9c, #shopify-section-template--16811714314291__divider_zahYiY {\n      display: none;\n    }\n  {% endstyle %}\n{% endif %}",
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 0
