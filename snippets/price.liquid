@@ -140,10 +140,12 @@
         {% assign custom_tags = '' | split: '😉' %}
 
         {% for tag in product.tags %}
-          {% if tag contains 'Badge-' %}
-            {% assign custom_tag = tag | split: 'Badge-' | last | split: '😉' %}
-            {% assign custom_tags = custom_tags | concat: custom_tag %}
-          {% endif %}
+          {% unless tag contains 'Badge-Coming Soon' %}
+            {% if tag contains 'Badge-' %}
+              {% assign custom_tag = tag | split: 'Badge-' | last | split: '😉' %}
+              {% assign custom_tags = custom_tags | concat: custom_tag %}
+            {% endif %}
+          {% endunless %}
         {% endfor %}
 
         {%- if custom_tags.size > 0 -%}
