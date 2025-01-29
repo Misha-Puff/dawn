@@ -39,7 +39,7 @@
         "text_FWX7U7": {
           "type": "text",
           "settings": {
-            "text": "<p>As a top customer, we’re thrilled to give you exclusive Early Access to Part 1 of the Spring Collection, plus online exclusives of the season.</p><p>Please connect with our Retail Director, Anne, to place your order. </p><p>Early Access ends Sunday, February 2, at 3 PM ET. Orders open to everyone on Thursday, February 6, at 11 AM ET. </p>",
+            "text": "<p>As a top customer, we’re thrilled to give you exclusive Early Access to Part 1 of the Spring Collection, plus online exclusives of the season. </p><p>Browse the styles in the collection below. Please connect with our Retail Director, Anne, to place your order. </p><p>Early Access ends Sunday, February 2, at 3 PM ET. Orders open to everyone on Thursday, February 6, at 11 AM ET. </p>",
             "line_height": 22
           }
         },
@@ -184,7 +184,7 @@
     "divider_zahYiY": {
       "type": "divider",
       "settings": {
-        "desktop_padding_top": 40,
+        "desktop_padding_top": 52,
         "desktop_padding_bottom": 20,
         "desktop_padding_left": 32,
         "desktop_padding_right": 32,
@@ -238,7 +238,7 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 40,
+        "padding_top": 56,
         "padding_bottom": 28,
         "padding_left": 0,
         "padding_right": 0
