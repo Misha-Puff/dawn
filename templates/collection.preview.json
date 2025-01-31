@@ -39,17 +39,16 @@
         "text_FWX7U7": {
           "type": "text",
           "settings": {
-            "text": "<p>We’re thrilled to give you Early Access to our Exclusives of the Spring Collection, along with a special preview of Part 1.</p><p>Shop these Exclusives now through Wednesday, February 5 at 9 AM ET.</p><p>Discover the Part 1 styles ahead of their launch on Thursday, February 6 at 11 AM ET— explore, favorite, and plan your looks.</p>",
+            "text": "<p>We’re thrilled to offer you Early Access to our Exclusive Baby and Child styles from the Spring Collection, plus a special preview of Part 1 and a first look at the <a href=\"https://ctrk.klclick.com/l/01JJYJZYTV1Q60H9CVX7Y9XCVC_2\" target=\"_blank\">lookbook</a>.</p><p>Shop these Exclusives now through Wednesday, February 5 at 9 AM ET.</p><p>Discover the Part 1 styles ahead of their launch on Thursday, February 6 at 11 AM ET— explore, favorite, and plan your looks.</p>",
             "line_height": 22
           }
         },
         "button_CEpfd9": {
           "type": "button",
-          "disabled": true,
           "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
+            "button_label": "VIEW LOOKBOOK",
+            "button_link": "shopify://blogs/journal/child-spring-25",
+            "button_style_secondary": true,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false,
@@ -109,6 +108,7 @@
         },
         "text_8xRXGV": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>These styles are only available on misha-and-puff.com.</p>",
             "line_height": 22
