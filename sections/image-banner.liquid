@@ -69,60 +69,60 @@
     opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
   }
 
-  .banner__content.content--top-left .banner__box {
+  #Banner-{{ section.id }}-desktop .banner__content.content--top-left .banner__box {
     position: absolute;
     top: 0;
     left: 0;
   }
 
-  .banner__content.content--top-center .banner__box {
+  #Banner-{{ section.id }}-desktop .banner__content.content--top-center .banner__box {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translate(-50%, 0);
   }
 
-  .banner__content.content--top-right .banner__box {
+  #Banner-{{ section.id }}-desktop .banner__content.content--top-right .banner__box {
     position: absolute;
     top: 0;
     right: 0;
   }
 
-  .banner__content.content--middle-left .banner__box {
+  #Banner-{{ section.id }}-desktop .banner__content.content--middle-left .banner__box {
     position: absolute;
     top: 50%;
     left: 0;
     transform: translate(0, -50%);
   }
 
-  .banner__content .content--middle-center .multicolumn-card__info {
+  #Banner-{{ section.id }}-desktop .banner__content .content--middle-center .banner__box {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 
-  .banner__content.content--middle-right .banner__box {
+  #Banner-{{ section.id }}-desktop .banner__content.content--middle-right .banner__box {
     position: absolute;
     top: 50%;
     right: 0;
     transform: translate(0, -50%);
   }
 
-  .banner__content.content--bottom-left .banner__box {
+  #Banner-{{ section.id }}-desktop .banner__content.content--bottom-left .banner__box {
     position: absolute;
     bottom: 0;
     left: 0;
   }
 
-  .banner__content.content--bottom-center .banner__box {
+  #Banner-{{ section.id }}-desktop .banner__content.content--bottom-center .banner__box {
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translate(-50%, 0);
   }
 
-  .banner__content.content--bottom-right .banner__box {
+  #Banner-{{ section.id }}-desktop .banner__content.content--bottom-right .banner__box {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -435,7 +435,7 @@
     </div>
   {%- endif -%}
 
-  <div class="banner__content content--{{ section.settings.content_position }} page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="banner__content page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
     <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
