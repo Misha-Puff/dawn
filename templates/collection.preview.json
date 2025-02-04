@@ -150,7 +150,6 @@
     },
     "featured_collection_aKRY9c": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
         "title": "",
         "heading_alignment": "center",
