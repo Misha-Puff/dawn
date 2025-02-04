@@ -46,9 +46,8 @@
       "blocks": {
         "heading_8Wxr38": {
           "type": "heading",
-          "disabled": true,
           "settings": {
-            "heading": "Winter Collection",
+            "heading": "SPRING COLLECTION, PART 1",
             "desktop_heading_size": "h2",
             "mobile_heading_size": "h2",
             "heading_color": "#ffffff"
@@ -69,8 +68,8 @@
           "settings": {
             "link_type": "link",
             "link_color": "#ffffff",
-            "button_label_1": "WINTER SALE",
-            "button_link_1": "shopify://collections/baby-winter-b",
+            "button_label_1": "PREVIEW COLLECTION",
+            "button_link_1": "shopify://collections/preview",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -85,18 +84,18 @@
         "buttons_QFyVkf"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_12.23.24_Baby_LP_5b1a09ba-d30f-47db-a16a-b271fded722e.jpg",
-        "banner_link": "shopify://collections/baby-winter-b",
+        "image": "shopify://shop_images/MP_WI24_Leader_2.5.25_Baby_1.jpg",
+        "banner_link": "shopify://collections/preview",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
-        "content_position": "middle-center",
-        "tb_overlay_padding": 25,
+        "content_position": "bottom-center",
+        "tb_overlay_padding": 100,
         "lr_overlay_padding": 25,
         "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_1.3.24_Baby_LP_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_2.5.25_Baby_1_M.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false,
