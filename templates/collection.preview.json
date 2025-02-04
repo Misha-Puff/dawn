@@ -135,6 +135,7 @@
         "text_8xRXGV",
         "button_BL3a9c"
       ],
+      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -148,6 +149,7 @@
     },
     "featured_collection_aKRY9c": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_alignment": "center",
@@ -192,6 +194,7 @@
     },
     "divider_zahYiY": {
       "type": "divider",
+      "disabled": true,
       "settings": {
         "desktop_padding_top": 52,
         "desktop_padding_bottom": 20,
@@ -247,8 +250,8 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 56,
-        "padding_bottom": 28,
+        "padding_top": 40,
+        "padding_bottom": 24,
         "padding_left": 0,
         "padding_right": 0
       }
