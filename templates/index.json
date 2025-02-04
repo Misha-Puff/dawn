@@ -131,8 +131,8 @@
         "enable_desktop_full_width": false,
         "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 20,
-        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_desktop": 30,
+        "vertical_spacing_desktop": 40,
         "horizontal_spacing_mobile": 10,
         "vertical_spacing_mobile": 14,
         "image_width": "full",
@@ -190,7 +190,6 @@
         "text_nGfUnQ",
         "button_ihJPKi"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -240,6 +239,7 @@
         "text_xEBaKk",
         "button_hTVGWN"
       ],
+      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -295,7 +295,7 @@
         "buttons_zkt4Vc"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_1.17.25_Adult_1.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_2.5.25_Adult_1.jpg",
         "banner_link": "shopify://collections/adult-fall-winter",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -306,7 +306,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_1.17.25_Adult_1_Mob_c9e14c07-52e8-4fe3-92c5-c71d7ea397de.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_2x3MP_WI24_Leader_2.5.25_Adult_1_M.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": false,
