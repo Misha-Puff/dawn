@@ -76,6 +76,7 @@
     },
     "divider_nmzegr": {
       "type": "divider",
+      "disabled": true,
       "settings": {
         "desktop_padding_top": 20,
         "desktop_padding_bottom": 20,
@@ -250,7 +251,7 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 40,
+        "padding_top": 24,
         "padding_bottom": 24,
         "padding_left": 0,
         "padding_right": 0
