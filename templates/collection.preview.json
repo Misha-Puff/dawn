@@ -32,14 +32,14 @@
         "heading_4bAnVw": {
           "type": "heading",
           "settings": {
-            "heading": "Early Access — Spring Collection Part 1",
+            "heading": "Spring Collection Part 1",
             "heading_size": "h2"
           }
         },
         "text_FWX7U7": {
           "type": "text",
           "settings": {
-            "text": "<p>We’re thrilled to offer you Early Access to our Exclusive Baby and Child styles from the Spring Collection, plus a special preview of Part 1 and a first look at the <a href=\"https://ctrk.klclick.com/l/01JJYJZYTV1Q60H9CVX7Y9XCVC_2\" target=\"_blank\">lookbook</a>.</p><p>Shop these Exclusives now through Wednesday, February 5 at 9 AM ET.</p><p>Discover the Part 1 styles ahead of their launch on Thursday, February 6 at 11 AM ET— explore, favorite, and plan your looks.</p>",
+            "text": "<p>This collection is a jewel box of technique, featuring new knits, wovens, denim, and Pima. Rich in color and intricate crafstmanship, designed to create mix-and-match looks in diverse fabrications — for comfort, versatility, and dimension. Styles that feel both familiar and unexpected. Enjoy!</p><p>Part 1 of the Spring Collection launches Thursday, February 6 at 11 AM ET — explore, favorite, and plan your looks now.</p>",
             "line_height": 22
           }
         },
@@ -76,6 +76,7 @@
     },
     "divider_nmzegr": {
       "type": "divider",
+      "disabled": true,
       "settings": {
         "desktop_padding_top": 20,
         "desktop_padding_bottom": 20,
@@ -135,6 +136,7 @@
         "text_8xRXGV",
         "button_BL3a9c"
       ],
+      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -148,6 +150,7 @@
     },
     "featured_collection_aKRY9c": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_alignment": "center",
@@ -192,6 +195,7 @@
     },
     "divider_zahYiY": {
       "type": "divider",
+      "disabled": true,
       "settings": {
         "desktop_padding_top": 52,
         "desktop_padding_bottom": 20,
@@ -247,8 +251,8 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 56,
-        "padding_bottom": 28,
+        "padding_top": 24,
+        "padding_bottom": 24,
         "padding_left": 0,
         "padding_right": 0
       }
