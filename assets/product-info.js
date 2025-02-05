@@ -201,41 +201,13 @@ if (!customElements.get('product-info')) {
             window.variantStrings.soldOut
           );
 
-          const inventoryStatusEl = html.querySelector('.product__inventory');
           const bisForm = document.querySelector('#bis-form-wrapper');
 
-          if (inventoryStatusEl !== null) {
-            const innerEl = inventoryStatusEl.querySelector('.inner');
-            const outerEl = inventoryStatusEl.querySelector('.outer');
-            let mishaAndPuff = inventoryStatusEl.querySelector('[data-misha-and-puff]')?.innerHTML;
-            mishaAndPuff = JSON.parse(atob(mishaAndPuff));
-
-            const quantity = mishaAndPuff[variant.id];
-            const threshold = mishaAndPuff['threshold'];
-            const inStockMsg = mishaAndPuff['in-stock'];
-            const lowStockMsg = mishaAndPuff['low-stock'];
-            const noStockMsg = mishaAndPuff['no-stock'];
-
-            if (quantity === 0) {
-              outerEl.style.fill = 'rgb(200,200,200, 0.3)';
-              innerEl.style.fill = 'rgb(200,200,200)';
-              inventoryStatusEl.innerHTML = noStockMsg;
-            } else if (quantity <= threshold) {
-              outerEl.style.fill = 'rgb(238,148,65, 0.3)';
-              innerEl.style.fill = 'rgb(238,148,65)';
-              inventoryStatusEl.innerHTML = lowStockMsg;
-            } else {
-              outerEl.style.fill = 'rgb(62,214,96, 0.3)';
-              innerEl.style.fill = 'rgb(62,214,96)';
-              inventoryStatusEl.innerHTML = inStockMsg;
-            }
-
-            if (bisForm !== null) {
-              if (quantity === 0 && bisForm.classList.contains('hidden')) {
-                bisForm.classList.remove('hidden');
-              } else if (quantity !== 0 && !bisForm.classList.contains('hidden')) {
-                bisForm.classList.add('hidden');
-              }
+          if (bisForm !== null) {
+            if (variant.available && !bisForm.classList.contains('hidden')) {
+              bisForm.classList.add('hidden');
+            } else if (!variant.available && bisForm.classList.contains('hidden')) {
+              bisForm.classList.remove('hidden');
             }
           }
 
@@ -249,15 +221,7 @@ if (!customElements.get('product-info')) {
         };
       }
 
-      updateVariantInputs(variantId) {
-        this.querySelectorAll(
-          `#product-form-${this.dataset.section}, #product-form-installment-${this.dataset.section}`
-        ).forEach((productForm) => {
-          const input = productForm.querySelector('input[name="id"]');
-          input.value = variantId ?? '';
-          input.dispatchEvent(new Event('change', { bubbles: true }));
-        });
-      }
+      updateVariantInputs(variantId) {}
 
       updateURL(url, variantId) {
         this.querySelector('share-button')?.updateUrl(
