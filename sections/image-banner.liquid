@@ -155,7 +155,7 @@
     {% elsif block.type == 'buttons' %}
       .Block-{{ block.id }} .link {
         color: {{ block.settings.link_color }};
-        font-size: 13px;
+        font-size: {{ block.settings.link_size }}px;
       }
 
       .Block-{{ block.id }}.banner__buttons {
@@ -954,6 +954,16 @@
           "id": "link_color",
           "label": "Link Color",
           "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "link_size",
+          "min": 10,
+          "max": 50,
+          "step": 1,
+          "default": 13,
+          "unit": "px",
+          "label": "Link Font Size"
         },
         {
           "type": "text",
