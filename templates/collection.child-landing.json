@@ -99,7 +99,7 @@
         "image_height": "adapt",
         "content_position": "middle-left",
         "tb_overlay_padding": 0,
-        "lr_overlay_padding": 66,
+        "lr_overlay_padding": 76,
         "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "",
