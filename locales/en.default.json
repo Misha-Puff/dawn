@@ -168,6 +168,7 @@
       "share": "Share this product",
       "sold_out": "Sold out",
       "unavailable": "Unavailable",
+      "preorder": "Add to Preorder",
       "vendor": "Vendor",
       "value_unavailable": "{{ option_value }} - Unavailable",
       "value_preorder": "{{ option_value }} - Preorder",
