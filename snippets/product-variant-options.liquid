@@ -278,7 +278,7 @@
         {% endif %}
         {{ input_dataset }}
       >
-        {% if product.tags contains 'preorder' -%}
+        {% if product.tags contains 'Badge-Preorder' -%}
           {{- 'products.product.value_preorder' | t: option_value: value -}}
         {%- elsif option_disabled -%}
           {{- 'products.product.value_unavailable' | t: option_value: value -}}

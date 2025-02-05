@@ -80,7 +80,7 @@
             {% endif %}
           >
             <span>
-              {%- if product.tags contains 'preorder' -%}
+              {%- if product.tags contains 'Badge-Preorder' -%}
                 {{ 'products.product.preorder' | t }}
               {%- elsif product.selected_or_first_available_variant == null -%}
                 {{ 'products.product.unavailable' | t }}
