@@ -81,14 +81,14 @@
     "multicolumn_BMReV9": {
       "type": "multicolumn",
       "blocks": {
-        "column_qXTqMb": {
+        "column_YehPqA": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_WI_Child_Sale.jpg",
+            "image": "shopify://shop_images/MP_SP25_Leader_2.6.25_2_Baby.jpg",
             "title": "",
-            "text": "<p>SALE — Up to 70% off</p>",
+            "text": "<p>SHOP BABY</p>",
             "link_label": "",
-            "link": "shopify://collections/child-sale",
+            "link": "shopify://collections/baby-spring-25",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -101,14 +101,14 @@
             "button_type": "primary"
           }
         },
-        "column_YehPqA": {
+        "column_qXTqMb": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_1.24.25_Baby_2.jpg",
+            "image": "shopify://shop_images/MP_WI24_Leader_2.5.25_1_M.jpg",
             "title": "",
-            "text": "<p>BABY SALE </p>",
+            "text": "<p>SPRING LOOKBOOK</p>",
             "link_label": "",
-            "link": "shopify://collections/baby-sale",
+            "link": "shopify://blogs/journal/child-spring-25",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -123,8 +123,8 @@
         }
       },
       "block_order": [
-        "column_qXTqMb",
-        "column_YehPqA"
+        "column_YehPqA",
+        "column_qXTqMb"
       ],
       "settings": {
         "title": "",
