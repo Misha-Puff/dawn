@@ -6,6 +6,5 @@ ignore:
   - snippets/locksmith-variables.liquid
   - snippets/locksmith-content-variables.liquid
   - sections/shogun-*.liquid
-  - locales/*.json
 AssetSizeJavaScript:
   enabled: false
