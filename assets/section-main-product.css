@@ -1569,3 +1569,7 @@ a.product__text {
 .size-chart table tr td:nth-child(1) {
   width: 100%;
 }
+
+.size-chart table tr th {
+  font-weight: normal;
+}
