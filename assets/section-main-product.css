@@ -1565,3 +1565,7 @@ a.product__text {
 .product__text.inline-richtext {
   font-size: 14px;
 }
+
+.size-chart table tr td:nth-child(1) {
+  width: 100%;
+}
