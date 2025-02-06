@@ -221,7 +221,15 @@ if (!customElements.get('product-info')) {
         };
       }
 
-      updateVariantInputs(variantId) {}
+      updateVariantInputs(variantId) {
+        this.querySelectorAll(
+          `#product-form-${this.dataset.section}, #product-form-installment-${this.dataset.section}`
+        ).forEach((productForm) => {
+          const input = productForm.querySelector('input[name="id"]');
+          input.value = variantId ?? '';
+          input.dispatchEvent(new Event('change', { bubbles: true }));
+        });
+      }
 
       updateURL(url, variantId) {
         this.querySelector('share-button')?.updateUrl(
