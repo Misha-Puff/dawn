@@ -37,6 +37,12 @@
             "show_inventory_quantity": false
           }
         },
+        "custom_liquid_X9miCe": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% if product.tags contains 'Badge-Preorder' %}\n<p style=\"color: blue; line-height: normal;\">Pre-order: Expected to ship within six to eight weeks.</p>\n{% endif %}"
+          }
+        },
         "bis_form_iQ4kYG": {
           "type": "bis_form",
           "settings": {}
@@ -46,12 +52,6 @@
           "settings": {
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": true
-          }
-        },
-        "custom_liquid_X9miCe": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% if product.tags contains 'Badge-Preorder' %}\n<p style=\"color: blue;\">Pre-order: Expected to ship within six to eight weeks.</p>\n{% endif %}"
           }
         },
         "description": {
@@ -100,9 +100,9 @@
         "price",
         "variant_picker",
         "inventory_PfG9Nk",
+        "custom_liquid_X9miCe",
         "bis_form_iQ4kYG",
         "buy_buttons",
-        "custom_liquid_X9miCe",
         "description",
         "collapsible_tab_JNhcga",
         "collapsible-row-0",
