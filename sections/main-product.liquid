@@ -222,7 +222,7 @@
                   </div>
                 {%- endif -%}
               {%- when 'inventory' -%}
-                {% unless tags_str contains 'Badge-Coming Soon' %}
+                {% unless tags_str contains 'Badge-' %}
                   <p
                     class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
                     {{ block.shopify_attributes }}
@@ -230,12 +230,8 @@
                     role="status"
                   >
                     {%- if product.selected_or_first_available_variant.inventory_management == 'shopify' -%}
-                      {%- if product.tags contains 'Badge-Preorder' -%}
-                        <span class="svg-wrapper" style="color: rgb(64, 64, 256)">
-                          {{- 'icon-inventory-status.svg' | inline_asset_content -}}
-                        </span>
-                        {{- 'products.product.inventory_preorder_stock' | t -}}
-                      {%- elsif product.selected_or_first_available_variant.inventory_quantity > 0 -%}
+                      {% render 'inventory_data', threshold: block.settings.inventory_threshold %}
+                      {%- if product.selected_or_first_available_variant.inventory_quantity > 0 -%}
                         {%- if product.selected_or_first_available_variant.inventory_quantity
                             <= block.settings.inventory_threshold
                         -%}
@@ -779,10 +775,9 @@
 
     {% assign popups = section.blocks | where: 'type', 'popup' %}
     {%- for block in popups -%}
-      {%- comment %}<locksmith:9210>{%- endcomment %}
-      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block, variable: 'transparent' %}{% endcapture -%}
-      {%- if var == 'true' %}{% else %}{% continue %}{% endif -%}
-      {%- comment %}</locksmith:9210>{%- endcomment %}
+      {%- comment %}<locksmith:7556>{% endcomment -%}
+        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+      {%- comment %}</locksmith:7556>{% endcomment -%}
       <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
         <div
           role="dialog"
