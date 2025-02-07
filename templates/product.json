@@ -48,6 +48,12 @@
             "show_gift_card_recipient": true
           }
         },
+        "custom_liquid_X9miCe": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% if product.tags contains 'Badge-Preorder' %}\n<p style=\"color: blue;\">Pre-order: Expected to ship within six to eight weeks.</p>\n{% endif %}"
+          }
+        },
         "description": {
           "type": "description",
           "settings": {}
@@ -96,6 +102,7 @@
         "inventory_PfG9Nk",
         "bis_form_iQ4kYG",
         "buy_buttons",
+        "custom_liquid_X9miCe",
         "description",
         "collapsible_tab_JNhcga",
         "collapsible-row-0",
