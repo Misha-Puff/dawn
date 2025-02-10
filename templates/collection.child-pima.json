@@ -31,14 +31,14 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Limited Yarn",
+            "heading": "Pima Staples",
             "heading_size": "h2"
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.</p>",
+            "text": "<p>Discover our soft, durable Pima cotton essentials for kids — timeless staples designed for ultimate comfort and effortless style, perfect for layering and everyday wear.</p>",
             "line_height": 20
           }
         },
@@ -63,13 +63,12 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
+        "padding_top": 0,
         "padding_bottom": 40,
         "padding_left": 100,
         "padding_right": 100
@@ -84,6 +83,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 1,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -100,6 +102,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 6,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -124,6 +129,8 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "enable_overlay": false,
+        "enable_swatches": false,
         "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "drawer",
