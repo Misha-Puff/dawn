@@ -116,6 +116,24 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "blocks": {
+        "image_Jd4VTF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/MP_SP25_ECOM_Look_07_0199.jpg",
+            "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
+            "row_start_desktop": 1,
+            "row_span_desktop": 1,
+            "col_start_desktop": 1,
+            "col_span_desktop": 1,
+            "row_start_mobile": 1,
+            "row_span_mobile": 1,
+            "col_start_mobile": "1",
+            "col_span_mobile": "1"
+          }
+        },
         "image_f8UJrh": {
           "type": "image",
           "disabled": true,
@@ -156,6 +174,7 @@
         }
       },
       "block_order": [
+        "image_Jd4VTF",
         "image_f8UJrh",
         "image_gkgQFt"
       ],
