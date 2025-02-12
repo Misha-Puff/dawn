@@ -118,6 +118,7 @@
       "blocks": {
         "image_Jd4VTF": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/MP_SP25_ECOM_Look_07_0199.jpg",
             "link": "",
