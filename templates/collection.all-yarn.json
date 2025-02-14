@@ -39,7 +39,7 @@
           "type": "text",
           "settings": {
             "text": "<p>Our yarn skeins are 100% hand-dyed Merino wool yarn, available in both RWS-certified and Limited varieties.</p><p>Our RWS yarn, introduced in 2023, meets the Responsible Wool Standard (RWS), ensuring high standards of animal welfare and ethical production from farm to fiber. Our Limited yarn is made from apparel production overages and available in small batches — once it’s gone, it’s gone. Read more about our materials <a href=\"/pages/materials\" target=\"_blank\" title=\"Materials\">here</a>.</p>",
-            "line_height": 20
+            "line_height": 22
           }
         },
         "button_Yh3Xhh": {
@@ -69,9 +69,59 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 0,
-        "padding_bottom": 40,
+        "padding_bottom": 0,
         "padding_left": 60,
         "padding_right": 60
+      }
+    },
+    "buttons_JtrEW4": {
+      "type": "buttons",
+      "blocks": {
+        "button_AGmAfc": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP KNITTING PATTERNS",
+            "open_new_tab": true,
+            "link": "shopify://collections/knitting-patterns",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_UM4A6D": {
+          "type": "button",
+          "settings": {
+            "label": "MENDING SERVICES",
+            "open_new_tab": true,
+            "link": "shopify://collections/mending-services",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_EjbnbT": {
+          "type": "button",
+          "settings": {
+            "label": "",
+            "open_new_tab": false,
+            "link": "",
+            "type": "primary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_AGmAfc",
+        "button_UM4A6D",
+        "button_EjbnbT"
+      ],
+      "settings": {
+        "title": "",
+        "button_gap": 10,
+        "heading_size": "h1",
+        "color_scheme": "",
+        "desktop_padding_top": 20,
+        "desktop_padding_bottom": 40,
+        "mobile_padding_top": 10,
+        "mobile_padding_bottom": 20
       }
     },
     "product-grid": {
@@ -154,6 +204,7 @@
     "shogun-above",
     "banner",
     "rich_text_YJeCaw",
+    "buttons_JtrEW4",
     "product-grid",
     "shogun-below",
     "shogun-optimizer"
