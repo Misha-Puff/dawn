@@ -92,7 +92,7 @@
           "type": "button",
           "settings": {
             "label": "SHOP LIMITED YARN",
-            "open_new_tab": false,
+            "open_new_tab": true,
             "link": "shopify://collections/limited-yarn-skeins",
             "type": "secondary",
             "on_click": ""
