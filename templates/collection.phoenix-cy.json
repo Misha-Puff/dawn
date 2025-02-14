@@ -31,12 +31,13 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Limited Yarn",
+            "heading": "Shop the Look - Phoenix + Cy",
             "heading_size": "h2"
           }
         },
         "text_PGqAmF": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.</p>",
             "line_height": 20
@@ -63,16 +64,65 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
-        "padding_left": 100,
-        "padding_right": 100
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 60,
+        "padding_right": 60
+      }
+    },
+    "buttons_Jgajf6": {
+      "type": "buttons",
+      "blocks": {
+        "button_PFKjbw": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP ALL SPRING",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-spring-collection",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_JbKDjc": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP BABY SPRING",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-spring-collection",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_rp3eKL": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP DENIM",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-fall-denim-collection",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_PFKjbw",
+        "button_JbKDjc",
+        "button_rp3eKL"
+      ],
+      "settings": {
+        "title": "",
+        "button_gap": 10,
+        "heading_size": "h1",
+        "color_scheme": "",
+        "desktop_padding_top": 20,
+        "desktop_padding_bottom": 40,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 20
       }
     },
     "product-grid": {
@@ -84,6 +134,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 1,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -100,6 +153,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 6,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -124,6 +180,8 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "enable_overlay": false,
+        "enable_swatches": false,
         "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "drawer",
@@ -147,6 +205,7 @@
     "shogun-above",
     "banner",
     "rich_text_YJeCaw",
+    "buttons_Jgajf6",
     "product-grid",
     "shogun-below",
     "shogun-optimizer"
