@@ -144,11 +144,11 @@
         "column_RwiwcK": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_SP25_Leader_2.6.25_Child_New.jpg",
+            "image": "shopify://shop_images/MP_SP25_Leader_2x3_2.14.25_Pima.jpg",
             "title": "",
-            "text": "<p>SPRING SWEATERS</p>",
+            "text": "<p>LAYERING STAPLES</p>",
             "link_label": "",
-            "link": "shopify://collections/child-sweaters-cardigans",
+            "link": "shopify://collections/child-pima-staples",
             "new_tab": true,
             "link_margin": 8,
             "enable_overlay": false,
