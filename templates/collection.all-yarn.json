@@ -78,6 +78,26 @@
     "buttons_JtrEW4": {
       "type": "buttons",
       "blocks": {
+        "button_EjbnbT": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP RWS YARN",
+            "open_new_tab": true,
+            "link": "shopify://collections/rws-yarn-skeins",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_NjBN3m": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP LIMITED YARN",
+            "open_new_tab": false,
+            "link": "shopify://collections/limited-yarn-skeins",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
         "button_AGmAfc": {
           "type": "button",
           "settings": {
@@ -97,22 +117,13 @@
             "type": "secondary",
             "on_click": ""
           }
-        },
-        "button_EjbnbT": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
         }
       },
       "block_order": [
+        "button_EjbnbT",
+        "button_NjBN3m",
         "button_AGmAfc",
-        "button_UM4A6D",
-        "button_EjbnbT"
+        "button_UM4A6D"
       ],
       "settings": {
         "title": "",
