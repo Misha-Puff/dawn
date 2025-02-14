@@ -121,15 +121,15 @@
     "multicolumn_gfwpxD": {
       "type": "multicolumn",
       "blocks": {
-        "column_iBFc39": {
+        "column_RwiwcK": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/250207_MP_LAYDOWNS3528_acbac481-d2a2-4563-a0fd-b2432b4ac97a.jpg",
+            "image": "shopify://shop_images/MP_SP25_Leader_2x3_2.14.25_Pima.jpg",
             "title": "",
-            "text": "<p>NEW ACCESSORIES</p>",
+            "text": "<p>LAYERING STAPLES</p>",
             "link_label": "",
-            "link": "shopify://blogs/journal/child-spring-25",
-            "new_tab": false,
+            "link": "shopify://collections/child-pima-staples",
+            "new_tab": true,
             "link_margin": 8,
             "enable_overlay": false,
             "content_position": "bottom-left",
@@ -141,15 +141,15 @@
             "button_type": "primary"
           }
         },
-        "column_RwiwcK": {
+        "column_iBFc39": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_SP25_Leader_2x3_2.14.25_Pima.jpg",
+            "image": "shopify://shop_images/250207_MP_LAYDOWNS3528_acbac481-d2a2-4563-a0fd-b2432b4ac97a.jpg",
             "title": "",
-            "text": "<p>LAYERING STAPLES</p>",
+            "text": "<p>NEW ACCESSORIES</p>",
             "link_label": "",
-            "link": "shopify://collections/child-pima-staples",
-            "new_tab": true,
+            "link": "shopify://blogs/journal/child-spring-25",
+            "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
             "content_position": "bottom-left",
@@ -184,8 +184,8 @@
         }
       },
       "block_order": [
-        "column_iBFc39",
         "column_RwiwcK",
+        "column_iBFc39",
         "column_dQmUh8"
       ],
       "settings": {
