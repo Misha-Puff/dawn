@@ -121,6 +121,56 @@
         "padding_bottom": 12
       }
     },
+    "image_with_text_MyqbiN": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_T3pjyi": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_K8DbnC": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>INFINITE VARIATIONS — THE MAGIC OF HAND-DYE<br/><br/></strong>Our hand-dyed Superwash Merino wool is sustainably and ethically crafted by skilled artisans in Peru using premium natural fibers and low-impact dyes. This yarn is truly special, with each strand unique due to the hand-dye process, introducing subtle nuances to every garment. The hand-dyed variation and natural patterns the yarn creates when knit mean no two garments are the same, and that’s exactly why we love it. With this process, we embrace unpredictability and celebrate the presence of the hand.</p><p>For those reasons, we can’t guarantee that the garment you knit will look <em>exactly</em> like the swatch shown, but it will truly be a one-of-a-kind heirloom.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_VNkqXJ": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_T3pjyi",
+        "text_K8DbnC",
+        "button_VNkqXJ"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/M_P_Peru_M_P_Peru_M14A4408_1224x_2x.progressive_5d0cbecd-14cd-4c4f-b5a8-4cba72327da2_handdye2.jpg",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_image": "shopify://shop_images/M_P_Peru_M_P_Peru_M14A4408_1224x_2x.progressive_handdye2_cba5ccc4-e41e-47f4-930f-5186bae522b3.jpg",
+        "mobile_content_alignment": "center",
+        "padding_top": 48,
+        "padding_bottom": 36,
+        "show_section_tag": ""
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -157,6 +207,7 @@
   },
   "order": [
     "main",
+    "image_with_text_MyqbiN",
     "related-products",
     "17220167188c825a94"
   ]
