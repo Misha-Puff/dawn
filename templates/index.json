@@ -323,7 +323,7 @@
           "type": "buttons",
           "settings": {
             "link_type": "link",
-            "link_color": "#121212",
+            "link_color": "#ffffff",
             "link_size": 13,
             "button_label_1": "SHOP ADULT",
             "button_link_1": "shopify://collections/adult-fall-winter",
@@ -345,7 +345,7 @@
         "banner_link": "shopify://collections/adult-fall-winter",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
-        "content_position": "top-left",
+        "content_position": "middle-center",
         "tb_overlay_padding": 14,
         "lr_overlay_padding": 26,
         "show_text_box": false,
