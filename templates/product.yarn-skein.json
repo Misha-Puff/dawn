@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -5,18 +14,15 @@
       "blocks": {
         "title": {
           "type": "title",
-          "settings": {
-          }
+          "settings": {}
         },
         "rating_fBYWfr": {
           "type": "rating",
-          "settings": {
-          }
+          "settings": {}
         },
         "price": {
           "type": "price",
-          "settings": {
-          }
+          "settings": {}
         },
         "inventory_PfG9Nk": {
           "type": "inventory",
@@ -28,8 +34,7 @@
         },
         "quantity_selector_qaKBkM": {
           "type": "quantity_selector",
-          "settings": {
-          }
+          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -40,8 +45,7 @@
         },
         "description": {
           "type": "description",
-          "settings": {
-          }
+          "settings": {}
         },
         "text_GCGqn4": {
           "type": "text",
@@ -53,7 +57,7 @@
         "text_3RRpf3": {
           "type": "text",
           "settings": {
-            "text": "Check out our knitting patterns <a href=\"\/collections\/knitting-patterns\" title=\"Knitting Patterns\">here<\/a>.",
+            "text": "Check out our knitting patterns <a href=\"/collections/knitting-patterns\" title=\"Knitting Patterns\">here</a>.",
             "text_style": "body"
           }
         }
@@ -86,6 +90,57 @@
         "padding_bottom": 12
       }
     },
+    "image_with_text_T9CkTT": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_RyFwxi": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "h1"
+          }
+        },
+        "text_XCxQCP": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>INFINITE VARIATIONS — THE MAGIC OF HAND-DYE<br/><br/></strong>Our hand-dyed Superwash Merino wool is sustainably and ethically crafted by skilled artisans in Peru using premium natural fibers and low-impact dyes. This yarn is truly special, with each strand unique due to the hand-dye process, introducing subtle nuances to every garment. The hand-dyed variation and natural patterns the yarn creates when knit mean no two garments are the same, and that’s exactly why we love it. With this process, we embrace unpredictability and celebrate the presence of the hand.</p><p>For those reasons, we can’t guarantee that the garment you knit will look <em>exactly</em> like the swatch shown, but whatever you make will truly be a one-of-a-kind heirloom.<br/></p>",
+            "text_style": "body"
+          }
+        },
+        "button_9zqJpg": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_RyFwxi",
+        "text_XCxQCP",
+        "button_9zqJpg"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/M_P_Peru_M_P_Peru_M14A4408_1224x_2x.progressive_handdye2_cba5ccc4-e41e-47f4-930f-5186bae522b3.jpg",
+        "height": "adapt",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_image": "shopify://shop_images/M_P_Peru_M_P_Peru_M14A4408_1224x_2x.progressive_handdye2_cba5ccc4-e41e-47f4-930f-5186bae522b3.jpg",
+        "mobile_content_alignment": "center",
+        "padding_top": 48,
+        "padding_bottom": 36,
+        "show_section_tag": ""
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -108,9 +163,8 @@
       "type": "apps",
       "blocks": {
         "judge_me_reviews_review_widget_Xzqy7K": {
-          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-          }
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
         }
       },
       "block_order": [
@@ -123,6 +177,7 @@
   },
   "order": [
     "main",
+    "image_with_text_T9CkTT",
     "related-products",
     "17220167188c825a94"
   ]
