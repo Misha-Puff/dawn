@@ -37,13 +37,13 @@
             "link_type": "link",
             "link_color": "#ffffff",
             "link_size": 13,
-            "button_label_1": "SHOP NOW",
+            "button_label_1": "SHOP SPRING",
             "button_link_1": "shopify://collections/child-spring-collection",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false,
-            "buttons_top_margin": 10
+            "buttons_top_margin": 8
           }
         }
       },
@@ -53,18 +53,18 @@
         "buttons_CGGLqp"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_SP25_Leader_2.14.25_Child_1.jpg",
+        "image": "shopify://shop_images/MP_SP25_Leader_2.21.25_Child_1.jpg",
         "banner_link": "shopify://collections/child-spring-collection",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "content_position": "middle-left",
         "tb_overlay_padding": 0,
-        "lr_overlay_padding": 76,
+        "lr_overlay_padding": 80,
         "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_SP25_Leader_2.14.25_Child_1_M_6c2225ef-32a4-4395-94b5-955807eb012d.jpg",
+        "mobile_image": "shopify://shop_images/MP_SP25_Leader_2.21.25_1_Mob.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false,
@@ -104,7 +104,7 @@
         "column_qXTqMb": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/250207_MP_LAYDOWNS3528_acbac481-d2a2-4563-a0fd-b2432b4ac97a.jpg",
+            "image": "shopify://shop_images/MP_SP25_Leader_2x3_2.21.25_Accs.jpg",
             "title": "",
             "text": "<p>SPRING ACCESSORIES</p>",
             "link_label": "",
@@ -341,7 +341,7 @@
         "buttons_zkt4Vc"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_2.5.25_Adult_1.jpg",
+        "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_Adult_LP_6f05daff-fb63-4d31-8016-8cc7548ea5f2.jpg",
         "banner_link": "shopify://collections/adult-fall-winter",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -352,7 +352,7 @@
         "desktop_content_alignment": "center",
         "color_scheme": "",
         "image_behavior": "none",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_2x3MP_WI24_Leader_2.5.25_Adult_1_M.jpg",
+        "mobile_image": "shopify://shop_images/MP_WI24_Leader_1.3.24_Adult_LP_Mob_a2d4627f-d152-42bf-8d6a-c06b5cb06cea.jpg",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": false,
