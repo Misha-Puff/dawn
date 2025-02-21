@@ -17,14 +17,13 @@
         "announcement_4MwKwV": {
           "type": "announcement",
           "settings": {
-            "text": "<p>FREE GIFT WITH PURCHASE — Now through January 31, while supplies last!<a href=\"/pages/promo-terms\" target=\"_blank\" title=\"Promo Terms\">*</a></p>"
+            "text": "<p>New markdowns — now up to 40% off Fall/Winter collections <a href=\"/collections/child-sale\" target=\"_blank\" title=\"Child - Sale\">SHOP SALE</a></p>"
           }
         }
       },
       "block_order": [
         "announcement_4MwKwV"
       ],
-      "disabled": true,
       "settings": {
         "color_scheme": "",
         "desktop_height": 40,
