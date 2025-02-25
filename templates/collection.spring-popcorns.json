@@ -31,15 +31,15 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Limited Yarn",
+            "heading": "Spring Popcorns",
             "heading_size": "h2"
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.</p>",
-            "line_height": 20
+            "text": "<p>Shop our latest Signature Popcorn styles — in Pima cotton for spring.</p>",
+            "line_height": 22
           }
         },
         "button_Yh3Xhh": {
@@ -63,16 +63,65 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
+        "padding_top": 0,
+        "padding_bottom": 0,
         "padding_left": 100,
         "padding_right": 100
+      }
+    },
+    "buttons_YVAGDG": {
+      "type": "buttons",
+      "blocks": {
+        "button_PRkzxD": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP ALL SPRING",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-spring-collection",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_jAdkFk": {
+          "type": "button",
+          "settings": {
+            "label": "BABY SPRING",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-spring-collection",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_8fD9cr": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP PIMA LAYERS",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-pima-staples",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_PRkzxD",
+        "button_jAdkFk",
+        "button_8fD9cr"
+      ],
+      "settings": {
+        "title": "",
+        "button_gap": 10,
+        "heading_size": "h1",
+        "color_scheme": "",
+        "desktop_padding_top": 20,
+        "desktop_padding_bottom": 40,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 20
       }
     },
     "product-grid": {
@@ -84,6 +133,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 1,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -100,6 +152,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 6,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -124,6 +179,8 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "enable_overlay": false,
+        "enable_swatches": false,
         "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "drawer",
@@ -147,6 +204,7 @@
     "shogun-above",
     "banner",
     "rich_text_YJeCaw",
+    "buttons_YVAGDG",
     "product-grid",
     "shogun-below",
     "shogun-optimizer"
