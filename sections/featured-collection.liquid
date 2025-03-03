@@ -176,7 +176,7 @@
           {% paginate section.settings.collection.products by section.settings.products_to_show %}
             {%- comment %}<locksmith:644b>{%- endcomment %}
             {%- assign locksmith_26d6_forloop__size = 0 %}
-            {%- for product in section.settings.collection.products -%}
+            {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
               {% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: section.settings.collection, variable: 'transparent' %}{% endcapture -%}
               {%- if var == 'true' -%}
                 {%- assign locksmith_26d6_forloop__size = locksmith_26d6_forloop__size | plus: 1 -%}
@@ -184,7 +184,7 @@
             {%- endfor -%}
             {%- assign locksmith_26d6_forloop__index = null -%}
             {%- comment %}</locksmith:644b>{%- endcomment %}
-            {%- for product in section.settings.collection.products -%}
+            {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
               {%- comment %}<locksmith:b60c>{%- endcomment %}
               {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: section.settings.collection, variable: 'transparent' %}{% endcapture -%}
               {%- if var == 'true' -%}
