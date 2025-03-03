@@ -299,7 +299,11 @@
                     {% endif %}
                   >
                     {{- block.settings.link_label | escape -}}
-                    {% comment %} <span class="svg-wrapper">&nbsp;{{ 'icon-arrow.svg' | inline_asset_content }}</span> {% endcomment %}
+                    {% comment %}
+                      <span class="svg-wrapper"
+                        ><span class="icon-wrap">&nbsp;{{ 'icon-arrow.svg' | inline_asset_content }}</span></span
+                      >
+                    {% endcomment %}
                   </a>
                 {%- endif -%}
               </div>
