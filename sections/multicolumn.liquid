@@ -455,6 +455,10 @@
       "label": "Mobile Vertical Spacing"
     },
     {
+      "type": "header",
+      "content": "t:sections.multicolumn.settings.header_image.content"
+    },
+    {
       "type": "select",
       "id": "image_width",
       "options": [
@@ -499,6 +503,26 @@
       "label": "t:sections.multicolumn.settings.image_ratio.label"
     },
     {
+      "type": "header",
+      "content": "t:sections.multicolumn.settings.header_button.content"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "t:sections.multicolumn.settings.button_label.default",
+      "label": "t:sections.multicolumn.settings.button_label.label",
+      "info": "t:sections.multicolumn.settings.button_label.info"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.multicolumn.settings.button_link.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.multicolumn.settings.header_layout.content"
+    },
+    {
       "type": "range",
       "id": "columns_desktop",
       "min": 1,
@@ -538,17 +562,6 @@
       ],
       "default": "primary",
       "label": "t:sections.multicolumn.settings.background_style.label"
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "default": "t:sections.multicolumn.settings.button_label.default",
-      "label": "t:sections.multicolumn.settings.button_label.label"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "t:sections.multicolumn.settings.button_link.label"
     },
     {
       "type": "color_scheme",
@@ -652,7 +665,8 @@
         {
           "type": "text",
           "id": "link_label",
-          "label": "t:sections.multicolumn.blocks.column.settings.link_label.label"
+          "label": "t:sections.multicolumn.blocks.column.settings.link_label.label",
+          "info": "t:sections.multicolumn.blocks.column.settings.link_label.info"
         },
         {
           "type": "url",
