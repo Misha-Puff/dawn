@@ -1,6 +1,6 @@
-{%- comment %}<locksmith:9c54>{%- endcomment %}
-{%- include 'locksmith' -%}
-{%- comment %}</locksmith:9c54>{%- endcomment %}
+{%- comment %}<locksmith:e8a4>{% endcomment -%}
+  {%- include 'locksmith' -%}
+{%- comment %}</locksmith:e8a4>{% endcomment -%}
 
 {% include 'shogun-content-handler' %}
 
@@ -8,8 +8,8 @@
 {% render 'signature' %}
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
-    {{ locksmith_initializations }}
 
+    {{ locksmith_initializations }}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -33,11 +33,10 @@
     </title>
 
     {% if page_description %}
-      {%- comment %}<locksmith:6a64>{%- endcomment %}
-      {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture -%}
-      {%- if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
-      {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-      {%- comment %}</locksmith:6a64>{%- endcomment %}
+      {%- comment %}<locksmith:b764>{% endcomment -%}
+        {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+        {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
+      {%- comment %}</locksmith:b764>{% endcomment -%}
     {% endif %}
 
     {% render 'meta-tags' %}
