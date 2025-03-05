@@ -1,6 +1,6 @@
-{%- comment %}<locksmith:9c54>{% endcomment -%}
-  {%- include 'locksmith' -%}
-{%- comment %}</locksmith:9c54>{% endcomment -%}
+{%- comment %}<locksmith:9c54>{%- endcomment %}
+{%- include 'locksmith' -%}
+{%- comment %}</locksmith:9c54>{%- endcomment %}
 
 {% include 'shogun-content-handler' %}
 
@@ -9,9 +9,6 @@
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
     {{ locksmith_initializations }}
-    <!-- Start of Shoplift scripts -->
-    {% render 'shoplift' %}
-    <!-- End of Shoplift scripts -->
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,10 +33,11 @@
     </title>
 
     {% if page_description %}
-      {%- comment %}<locksmith:6a64>{% endcomment -%}
-        {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
-        {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-      {%- comment %}</locksmith:6a64>{% endcomment -%}
+      {%- comment %}<locksmith:6a64>{%- endcomment %}
+      {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture -%}
+      {%- if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+      {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
+      {%- comment %}</locksmith:6a64>{%- endcomment %}
     {% endif %}
 
     {% render 'meta-tags' %}
@@ -436,7 +434,7 @@
     <!-- ACCESSIBILITYSPARK END -->
 
     <!-- Widget : Crochet Gift with Purchase -->
-      <div data-rebuy-id="177218"></div>
-      <!-- End Widget : Crochet Gift with Purchase -->
+    <div data-rebuy-id="177218"></div>
+    <!-- End Widget : Crochet Gift with Purchase -->
   </body>
 </html>
