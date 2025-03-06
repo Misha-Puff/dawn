@@ -200,6 +200,8 @@
 
                   {% if product.tags contains 'no-returns' %}
                     {% render 'final-sale' %}
+                  {% elsif product.tags contains 'Adult' %}
+                    <p class="free-returns" style="color: blue;">NEW: Free returns on domestic Adult orders</p>
                   {% endif %}
                 </div>
                 {%- if product.quantity_price_breaks_configured? -%}
@@ -446,7 +448,10 @@
                                 </dt>
                                 <dd>
                                   <span class="price-per-item--current">
-                                    {{- 'products.product.volume_pricing.price_at_each_html' | t: price: variant_price -}}
+                                    {{-
+                                      'products.product.volume_pricing.price_at_each_html'
+                                      | t: price: variant_price
+                                    -}}
                                   </span>
                                 </dd>
                               </dl>
@@ -779,9 +784,10 @@
 
     {% assign popups = section.blocks | where: 'type', 'popup' %}
     {%- for block in popups -%}
-      {%- comment %}<locksmith:a4e5>{% endcomment -%}
-        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-      {%- comment %}</locksmith:a4e5>{% endcomment -%}
+      {%- comment %}<locksmith:a4e5>{%- endcomment %}
+      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block, variable: 'transparent' %}{% endcapture -%}
+      {%- if var == 'true' %}{% else %}{% continue %}{% endif -%}
+      {%- comment %}</locksmith:a4e5>{%- endcomment %}
       <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
         <div
           role="dialog"
@@ -1818,7 +1824,7 @@
         {
           "type": "header",
           "content": "t:sections.main-product.blocks.icon_with_text.settings.pairing_2.label"
-        },        
+        },
         {
           "type": "select",
           "id": "icon_2",
@@ -2018,7 +2024,7 @@
         {
           "type": "header",
           "content": "t:sections.main-product.blocks.icon_with_text.settings.pairing_3.label"
-        },        
+        },
         {
           "type": "select",
           "id": "icon_3",
@@ -2346,7 +2352,7 @@
       ],
       "default": "hide",
       "label": "t:sections.main-product.settings.mobile_thumbnails.label"
-    },    
+    },
     {
       "type": "select",
       "id": "media_position",

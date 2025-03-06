@@ -1534,7 +1534,8 @@ a.product__text {
 }
 
 .final-sale,
-.globale {
+.globale,
+.free-returns {
   margin-top: 0;
   font-size: 12px;
 }
