@@ -345,6 +345,67 @@
     "shogun-optimizer": {
       "type": "shogun-optimizer",
       "settings": {}
+    },
+    "buttons_eLLatb": {
+      "type": "buttons",
+      "blocks": {
+        "button_8mmyyM": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD SPRING PART 1",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-spring-collection",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_QmyM6w": {
+          "type": "button",
+          "settings": {
+            "label": "BABY SPRING PART 1",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-spring-collection",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_XJpKP6": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD SWEATERS",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-sweaters-cardigans",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_G9yhBD": {
+          "type": "button",
+          "settings": {
+            "label": "PIMA COTTON STAPLES",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-pima-staples",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_8mmyyM",
+        "button_QmyM6w",
+        "button_XJpKP6",
+        "button_G9yhBD"
+      ],
+      "settings": {
+        "title": "More to Explore",
+        "button_gap": 10,
+        "heading_size": "h2",
+        "color_scheme": "",
+        "desktop_padding_top": 10,
+        "desktop_padding_bottom": 50,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 40
+      }
     }
   },
   "order": [
@@ -361,6 +422,7 @@
     "rich_text_n8yiAy",
     "product-grid",
     "shogun-below",
-    "shogun-optimizer"
+    "shogun-optimizer",
+    "buttons_eLLatb"
   ]
 }
