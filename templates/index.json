@@ -84,11 +84,11 @@
         "column_YehPqA": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/250207_MP_LAYDOWNS3268_50043b57-c972-445f-ad60-e40e5036584b.jpg",
+            "image": "shopify://shop_images/MP_SP25_Leader_3.7.25_Child_1.jpg",
             "title": "",
-            "text": "<p>SHOP BABY</p>",
+            "text": "<p>CHILD SPRING</p>",
             "link_label": "",
-            "link": "shopify://collections/baby-spring-collection",
+            "link": "shopify://collections/child-spring-collection",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -104,11 +104,11 @@
         "column_qXTqMb": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_SP25_Leader_2x3_2.21.25_Accs.jpg",
+            "image": "shopify://shop_images/250207_MP_LAYDOWNS3210.webp",
             "title": "",
-            "text": "<p>SPRING ACCESSORIES</p>",
+            "text": "<p>BABY SPRING</p>",
             "link_label": "",
-            "link": "shopify://collections/child-accessories",
+            "link": "shopify://collections/baby-spring-collection",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -340,6 +340,7 @@
         "text_bypQNG",
         "buttons_zkt4Vc"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_Adult_LP_6f05daff-fb63-4d31-8016-8cc7548ea5f2.jpg",
         "banner_link": "shopify://collections/adult-fall-winter",
@@ -956,8 +957,8 @@
   "order": [
     "image_banner_bz8jb3",
     "multicolumn_BMReV9",
-    "featured_collection_YrgjwD",
     "rich_text_N3wraP",
+    "featured_collection_YrgjwD",
     "rich_text_9CUP9Q",
     "image_banner_PTYKgc",
     "buttons_zMbkxJ",
