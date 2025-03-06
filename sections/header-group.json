@@ -17,7 +17,7 @@
         "announcement_4MwKwV": {
           "type": "announcement",
           "settings": {
-            "text": "<p>ADULT FALL/WINTER 20% OFF <a href=\"/collections/adult-fall-winter\" target=\"_blank\" title=\"Adult - Fall/Winter Collection\">SHOP ADULT</a> + CHILD SALE NOW UP TO 40% OFF <a href=\"/collections/child-sale\" target=\"_blank\" title=\"Child - Sale\">SHOP CHILD</a></p>"
+            "text": "<p>NEW: FREE RETURNS ON DOMESTIC ADULT ORDERS <a href=\"/collections/adult-spring-25\" target=\"_blank\" title=\"Adult - Spring 25\">SHOP NOW</a></p>"
           }
         }
       },
@@ -25,13 +25,13 @@
         "announcement_4MwKwV"
       ],
       "settings": {
-        "color_scheme": "",
         "desktop_height": 40,
         "mobile_height": 50,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "color_scheme": "",
         "show_line_separator": false,
         "show_social": false,
-        "auto_rotate": true,
-        "change_slides_speed": 5,
         "enable_country_selector": false,
         "enable_language_selector": false
       }
@@ -43,6 +43,7 @@
       ],
       "settings": {
         "logo_position": "top-center",
+        "mobile_logo_position": "center",
         "menu": "dawn-nav-1",
         "menu_type_desktop": "mega",
         "sticky_header_type": "always",
@@ -52,7 +53,6 @@
         "enable_country_selector": false,
         "enable_language_selector": false,
         "enable_customer_avatar": true,
-        "mobile_logo_position": "center",
         "margin_bottom": 0,
         "padding_top": 24,
         "padding_bottom": 24

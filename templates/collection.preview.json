@@ -32,14 +32,14 @@
         "heading_4bAnVw": {
           "type": "heading",
           "settings": {
-            "heading": "Spring Collection Part 1",
+            "heading": "Spring Collection Part 2",
             "heading_size": "h2"
           }
         },
         "text_FWX7U7": {
           "type": "text",
           "settings": {
-            "text": "<p>This collection is a jewel box of technique, featuring new knits, wovens, denim, and Pima. Rich in color and intricate craftsmanship, designed to create mix-and-match looks in diverse fabrications — for comfort, versatility, and dimension. Styles that feel both familiar and unexpected. Enjoy!</p><p>Part 1 of the Spring Collection launches Thursday, February 6 at 11 AM ET — explore, favorite, and plan your looks now.</p>",
+            "text": "<p>This collection is a jewel box of technique, featuring new knits, wovens, denim, and Pima. Rich in color and intricate craftsmanship, designed to create mix-and-match looks in diverse fabrications — for comfort, versatility, and dimension. Styles that feel both familiar and unexpected.</p><p>Part 2 of the Spring Collection launches Thursday, March 13 at 11 AM ET — explore, favorite, and plan your looks now.</p>",
             "line_height": 22
           }
         },
@@ -152,6 +152,8 @@
       "type": "featured-collection",
       "disabled": true,
       "settings": {
+        "collection": "spring-25-exclusives",
+        "products_to_show": 32,
         "title": "",
         "heading_alignment": "center",
         "heading_size": "h2",
@@ -159,11 +161,10 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "spring-25-exclusives",
         "hide_sold_out": false,
         "hide_content": false,
-        "products_to_show": 32,
         "columns_desktop": 3,
+        "enable_desktop_slider": false,
         "full_width": true,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 20,
@@ -172,7 +173,6 @@
         "vertical_spacing_mobile": 10,
         "show_view_all": true,
         "view_all_style": "link",
-        "enable_desktop_slider": false,
         "color_scheme": "",
         "image_ratio": "adapt",
         "image_shape": "default",
@@ -312,6 +312,7 @@
       "settings": {
         "products_per_page": 48,
         "columns_desktop": 3,
+        "columns_mobile": "2",
         "color_scheme": "",
         "image_ratio": "adapt",
         "image_shape": "default",
@@ -324,7 +325,6 @@
         "enable_filtering": true,
         "filter_type": "drawer",
         "enable_sorting": true,
-        "columns_mobile": "2",
         "padding_top": 0,
         "padding_bottom": 36
       }
