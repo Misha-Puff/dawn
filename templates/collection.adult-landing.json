@@ -157,26 +157,6 @@
     "multicolumn_8DQLJ3": {
       "type": "multicolumn",
       "blocks": {
-        "column_dVCGVj": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_1.24.25_Adult_Accs.jpg",
-            "title": "",
-            "text": "<p>WINTER ACCESSORIES — ON SALE</p>",
-            "link_label": "",
-            "link": "shopify://collections/adult-accessories",
-            "new_tab": false,
-            "link_margin": 8,
-            "enable_overlay": false,
-            "content_position": "bottom-left",
-            "tb_overlay_padding": 26,
-            "lr_overlay_padding": 26,
-            "link_type": "link",
-            "link_color": "#000000",
-            "link_style": "none",
-            "button_type": "primary"
-          }
-        },
         "column_BCxWxb": {
           "type": "column",
           "settings": {
@@ -196,11 +176,31 @@
             "link_style": "none",
             "button_type": "primary"
           }
+        },
+        "column_dVCGVj": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_WI24_Leader_1.24.25_Adult_Accs.jpg",
+            "title": "",
+            "text": "<p>WINTER ACCESSORIES — ON SALE</p>",
+            "link_label": "",
+            "link": "shopify://collections/adult-accessories",
+            "new_tab": false,
+            "link_margin": 8,
+            "enable_overlay": false,
+            "content_position": "bottom-left",
+            "tb_overlay_padding": 26,
+            "lr_overlay_padding": 26,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
         }
       },
       "block_order": [
-        "column_dVCGVj",
-        "column_BCxWxb"
+        "column_BCxWxb",
+        "column_dVCGVj"
       ],
       "settings": {
         "title": "",
