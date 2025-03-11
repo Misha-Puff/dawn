@@ -72,6 +72,12 @@
             "icon_offset_vertical": 0
           }
         },
+        "custom_liquid_mPzed7": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"divider-wrapper\">\n<div class=\"divider\">\n<span class=\"visually-hidden\">divider</span></div></div>"
+          }
+        },
         "description": {
           "type": "description",
           "settings": {}
@@ -122,6 +128,7 @@
         "bis_form_iQ4kYG",
         "buy_buttons",
         "swish_formerly_wishlist_king_wishlist_button_block_BQcWBQ",
+        "custom_liquid_mPzed7",
         "description",
         "collapsible_tab_JNhcga",
         "collapsible-row-0",
