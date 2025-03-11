@@ -124,11 +124,11 @@
         "column_RwiwcK": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_SP25_Leader_3.7.25_Pima.jpg",
+            "image": "shopify://shop_images/MP_SP25_Leader_3.12.25_1_Mob.jpg",
             "title": "",
-            "text": "<p>LAYERING STAPLES</p>",
+            "text": "<p>PREVIEW SPRING PART 2</p>",
             "link_label": "",
-            "link": "shopify://collections/child-pima-staples",
+            "link": "shopify://collections/preview",
             "new_tab": true,
             "link_margin": 8,
             "enable_overlay": false,
