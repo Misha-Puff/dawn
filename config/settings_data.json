@@ -247,11 +247,6 @@
           "show_variant_input_label": false
         }
       },
-      "pagefly-page-builder": {
-        "type": "shopify://apps/pagefly-page-builder/blocks/app-embed/83e179f7-59a0-4589-8c66-c0dddf959200",
-        "disabled": false,
-        "settings": {}
-      },
       "3915993389370480168": {
         "type": "shopify://apps/swish-formerly-wishlist-king/blocks/wishlist-link-floating/194f5011-a43c-4b22-b12e-eaf20dc4506a",
         "disabled": true,
@@ -295,6 +290,11 @@
           "product_link_selector": "",
           "floating_reference_js": ""
         }
+      },
+      "pagefly-page-builder": {
+        "type": "shopify://apps/pagefly-page-builder/blocks/app-embed/83e179f7-59a0-4589-8c66-c0dddf959200",
+        "disabled": true,
+        "settings": {}
       }
     },
     "color_schemes": {
