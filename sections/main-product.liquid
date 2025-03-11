@@ -574,11 +574,6 @@
                       {{ form | payment_terms }}
                     {%- endform -%}
                   </div>
-                  <div class="divider-wrapper">
-                    <div class="divider">
-                      <span class="visually-hidden">divider</span>
-                    </div>
-                  </div>
                 {% endunless %}
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
