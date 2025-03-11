@@ -15,7 +15,7 @@
         "heading_egMwVJ": {
           "type": "heading",
           "settings": {
-            "heading": "ADULT SPRING COLLECTION",
+            "heading": "SPRING COLLECTION PART 2",
             "desktop_heading_size": "h2",
             "mobile_heading_size": "h2",
             "heading_color": "#ffffff"
@@ -23,11 +23,12 @@
         },
         "text_TdBLTR": {
           "type": "text",
+          "disabled": true,
           "settings": {
-            "text": "FIRST RELEASE IS HERE",
+            "text": "LAUNCHES THURSDAY, MARCH 13 11 AM ET",
             "text_color": "#ffffff",
             "text_style": "caption-with-letter-spacing",
-            "text_top_margin": 9
+            "text_top_margin": 7
           }
         },
         "buttons_CGGLqp": {
@@ -35,14 +36,14 @@
           "settings": {
             "link_type": "link",
             "link_color": "#ffffff",
-            "link_size": 13,
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/adult-spring",
+            "link_size": 12,
+            "button_label_1": "VIEW PREVIEW",
+            "button_link_1": "shopify://collections/preview",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false,
-            "buttons_top_margin": 19
+            "buttons_top_margin": 15
           }
         }
       },
@@ -52,9 +53,9 @@
         "buttons_CGGLqp"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_SP25_Leader_3.7.25_Adult_4.jpg",
-        "banner_link": "shopify://collections/adult-spring",
-        "image_overlay_opacity": 20,
+        "image": "shopify://shop_images/MP_SP25_Leader_3.12.25_1.jpg",
+        "banner_link": "shopify://collections/preview",
+        "image_overlay_opacity": 10,
         "image_height": "adapt",
         "image_behavior": "none",
         "content_position": "middle-center",
@@ -63,7 +64,7 @@
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "",
-        "mobile_image": "shopify://shop_images/MP_SP25_Leader_3.7.25_Adult_3_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_SP25_Leader_3.12.25_1_Mob2_dc2cb1cd-bb7e-4f28-bfe5-8c6fccd6c325.jpg",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
         "show_text_below": false,
@@ -203,6 +204,7 @@
     },
     "featured_collection_YrgjwD": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "collection": "child-spring-collection",
         "products_to_show": 20,
@@ -339,20 +341,19 @@
         "text_bypQNG",
         "buttons_zkt4Vc"
       ],
-      "disabled": true,
       "settings": {
-        "image": "shopify://shop_images/MP_WI24_Leader_1.3.24_Adult_LP_6f05daff-fb63-4d31-8016-8cc7548ea5f2.jpg",
+        "image": "shopify://shop_images/MP_SP25_Leader_3.7.25_Adult_2_ea6b1730-e3b5-4a25-8986-ce74ad3e7040.jpg",
         "banner_link": "shopify://collections/adult-fall-winter",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "image_behavior": "none",
-        "content_position": "middle-center",
-        "tb_overlay_padding": 14,
-        "lr_overlay_padding": 26,
+        "content_position": "middle-left",
+        "tb_overlay_padding": 0,
+        "lr_overlay_padding": 120,
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "",
-        "mobile_image": "shopify://shop_images/MP_WI24_Leader_1.3.24_Adult_LP_Mob_a2d4627f-d152-42bf-8d6a-c06b5cb06cea.jpg",
+        "mobile_image": "shopify://shop_images/MP_SP25_Leader_3.7.25_Adult_2_Mob_76fc9486-7af7-4c59-aaca-ffa39c77148a.jpg",
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "center",
         "show_text_below": false,
