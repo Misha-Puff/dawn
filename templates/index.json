@@ -53,7 +53,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/MP_SP25_Leader_3.13.25_3.jpg",
-        "banner_link": "shopify://collections/preview",
+        "banner_link": "shopify://collections/child-spring-collection",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
         "image_behavior": "none",
