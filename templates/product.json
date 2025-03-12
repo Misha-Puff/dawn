@@ -40,7 +40,7 @@
         "custom_liquid_X9miCe": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "{% if product.tags contains 'Badge-Preorder' %}\n<p style=\"color: blue; line-height: normal;\">Pre-order: Expected to ship within six to eight weeks.</p>\n{% endif %}"
+            "custom_liquid": "{% if product.available and product.tags contains 'Badge-Preorder' %}\n<p style=\"color: blue; line-height: normal;\">Pre-order: Expected to ship within six to eight weeks.</p>\n{% endif %}"
           }
         },
         "bis_form_iQ4kYG": {
