@@ -83,11 +83,11 @@
         "column_YehPqA": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_SP25_Leader_3.7.25_Child_1.jpg",
+            "image": "shopify://shop_images/MP_SP25_Leader_3.13.25_Denim.jpg",
             "title": "",
-            "text": "<p>CHILD SPRING</p>",
+            "text": "<p>NEW — DENIM</p>",
             "link_label": "",
-            "link": "shopify://collections/child-spring-collection",
+            "link": "shopify://collections/child-denim",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
