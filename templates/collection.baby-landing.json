@@ -87,7 +87,7 @@
       "settings": {
         "image": "shopify://shop_images/MP_SP25_Leader_3.13.25_Baby_LP.jpg",
         "banner_link": "shopify://collections/baby-spring-collection",
-        "image_overlay_opacity": 0,
+        "image_overlay_opacity": 10,
         "image_height": "adapt",
         "image_behavior": "none",
         "content_position": "middle-center",
