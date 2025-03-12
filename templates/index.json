@@ -15,7 +15,7 @@
         "heading_egMwVJ": {
           "type": "heading",
           "settings": {
-            "heading": "SPRING COLLECTION PART 2",
+            "heading": "SPRING COLLECTION",
             "desktop_heading_size": "h2",
             "mobile_heading_size": "h2",
             "heading_color": "#ffffff"
@@ -23,9 +23,8 @@
         },
         "text_TdBLTR": {
           "type": "text",
-          "disabled": true,
           "settings": {
-            "text": "LAUNCHES THURSDAY, MARCH 13 11 AM ET",
+            "text": "NEW ARRIVALS",
             "text_color": "#ffffff",
             "text_style": "caption-with-letter-spacing",
             "text_top_margin": 7
@@ -36,14 +35,14 @@
           "settings": {
             "link_type": "link",
             "link_color": "#ffffff",
-            "link_size": 12,
-            "button_label_1": "VIEW PREVIEW",
-            "button_link_1": "shopify://collections/preview",
+            "link_size": 13,
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/child-spring-collection",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false,
-            "buttons_top_margin": 15
+            "buttons_top_margin": 13
           }
         }
       },
@@ -53,18 +52,18 @@
         "buttons_CGGLqp"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_SP25_Leader_3.12.25_1.jpg",
+        "image": "shopify://shop_images/MP_SP25_Leader_3.13.25_3.jpg",
         "banner_link": "shopify://collections/preview",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
         "image_behavior": "none",
-        "content_position": "middle-center",
+        "content_position": "middle-left",
         "tb_overlay_padding": 0,
-        "lr_overlay_padding": 0,
+        "lr_overlay_padding": 110,
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "",
-        "mobile_image": "shopify://shop_images/MP_SP25_Leader_3.12.25_1_Mob2_dc2cb1cd-bb7e-4f28-bfe5-8c6fccd6c325.jpg",
+        "mobile_image": "shopify://shop_images/MP_SP25_Leader_3.13.25_3_Mob.jpg",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
         "show_text_below": false,
@@ -205,7 +204,6 @@
     },
     "featured_collection_YrgjwD": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
         "collection": "child-spring-collection",
         "products_to_show": 20,
