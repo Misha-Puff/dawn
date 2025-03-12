@@ -55,7 +55,7 @@
         "heading_gLE39z": {
           "type": "heading",
           "settings": {
-            "heading": "SPRING COLLECTION, PART 1",
+            "heading": "SPRING COLLECTION",
             "desktop_heading_size": "h2",
             "mobile_heading_size": "h2",
             "heading_color": "#ffffff"
@@ -93,7 +93,7 @@
         "buttons_MbErHB"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_SP25_Leader_2.28.25_1.jpg",
+        "image": "shopify://shop_images/MP_SP25_Leader_3.13.25_1.jpg",
         "banner_link": "shopify://collections/child-spring-collection",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
@@ -104,7 +104,7 @@
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "",
-        "mobile_image": "shopify://shop_images/MP_SP25_Leader_2.14.25_Child_2_M.jpg",
+        "mobile_image": "shopify://shop_images/MP_SP25_Leader_3.13.25_1_MOB_be7334a3-0fa3-4863-80ba-7639b5c90fc1.jpg",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
         "show_text_below": false,
@@ -124,11 +124,11 @@
         "column_RwiwcK": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_SP25_Leader_3.12.25_1_Mob.jpg",
+            "image": "shopify://shop_images/MP_SP25_Leader_3.13.25_Child_LP_Denim.jpg",
             "title": "",
-            "text": "<p>PREVIEW SPRING PART 2</p>",
+            "text": "<p>NEW — DENIM</p>",
             "link_label": "",
-            "link": "shopify://collections/preview",
+            "link": "shopify://collections/child-denim",
             "new_tab": true,
             "link_margin": 8,
             "enable_overlay": false,
