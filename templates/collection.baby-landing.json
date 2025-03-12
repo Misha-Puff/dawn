@@ -116,11 +116,11 @@
         "column_iycPDw": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_SP25_Leader_3.12.25_1_Mob.jpg",
+            "image": "shopify://shop_images/MP_SP25_Leader_3.13.25_Baby_f32e4812-d203-4443-9819-ca93446c94f7.jpg",
             "title": "",
-            "text": "<p>PREVIEW SPRING PART 2</p>",
+            "text": "<p>SPRING ONE-PIECES</p>",
             "link_label": "",
-            "link": "shopify://collections/preview",
+            "link": "shopify://collections/baby-one-piece",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -136,11 +136,11 @@
         "column_Hgag6H": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_SP25_Leader_2.6.25_Baby_Onesies.jpg",
+            "image": "shopify://shop_images/MP_SP25_Leader_3.13.25_Baby_LP_NEW.jpg",
             "title": "",
-            "text": "<p>SPRING ONE-PIECES</p>",
+            "text": "<p>NEW ARRIVALS</p>",
             "link_label": "",
-            "link": "shopify://collections/baby-one-piece",
+            "link": "shopify://collections/baby-new",
             "new_tab": true,
             "link_margin": 8,
             "enable_overlay": false,
@@ -209,13 +209,13 @@
     "featured_collection_8G4PAp": {
       "type": "featured-collection",
       "settings": {
-        "collection": "baby-new",
+        "collection": "baby-best-sellers",
         "products_to_show": 20,
         "title": "",
         "heading_alignment": "left",
         "heading_size": "h2",
         "heading_margin": 14,
-        "description": "<p>NEW ARRIVALS</p>",
+        "description": "<p>BEST SELLERS</p>",
         "show_description": false,
         "description_style": "body",
         "hide_sold_out": true,
