@@ -1,3 +1,7 @@
+{%- comment %}<locksmith:68c4>{% endcomment -%}
+  {%- include 'locksmith' -%}
+{%- comment %}</locksmith:68c4>{% endcomment -%}
+
 {% comment %}
 	GEMPAGES BUILDER (https://apps.shopify.com/gempages)
 
@@ -5,10 +9,6 @@
 	It is automatically generated from GEMPAGES BUILDER
 	Try to edit page with the live editor.
 {% endcomment %}
-{%- comment %}<locksmith:e8a4>{% endcomment -%}
-  {%- include 'locksmith' -%}
-{%- comment %}</locksmith:e8a4>{% endcomment -%}
-
 {% include 'shogun-content-handler' %}
 
 <!doctype html>
@@ -40,10 +40,10 @@
     </title>
 
     {% if page_description %}
-      {%- comment %}<locksmith:b764>{% endcomment -%}
+      {%- comment %}<locksmith:d57b>{% endcomment -%}
         {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
         {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-      {%- comment %}</locksmith:b764>{% endcomment -%}
+      {%- comment %}</locksmith:d57b>{% endcomment -%}
     {% endif %}
 
     {% render 'meta-tags' %}
