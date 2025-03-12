@@ -356,7 +356,7 @@
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "center",
         "show_text_below": false,
-        "desktop_padding_top": 28,
+        "desktop_padding_top": 36,
         "desktop_padding_bottom": 32,
         "desktop_padding_left": 0,
         "desktop_padding_right": 0,
