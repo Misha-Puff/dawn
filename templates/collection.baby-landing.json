@@ -47,7 +47,7 @@
         "heading_8Wxr38": {
           "type": "heading",
           "settings": {
-            "heading": "SPRING COLLECTION, PART 1",
+            "heading": "SPRING COLLECTION",
             "desktop_heading_size": "h2",
             "mobile_heading_size": "h2",
             "heading_color": "#ffffff"
@@ -85,7 +85,7 @@
         "buttons_QFyVkf"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_SP25_Leader_2.21.25_Baby_1.jpg",
+        "image": "shopify://shop_images/MP_SP25_Leader_3.13.25_Baby_LP.jpg",
         "banner_link": "shopify://collections/baby-spring-collection",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -96,7 +96,7 @@
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "",
-        "mobile_image": "shopify://shop_images/MP_SP25_Leader_2.21.25_Baby_1_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_SP25_Leader_3.13.25_Baby_LP_Mob.jpg",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
         "show_text_below": false,
