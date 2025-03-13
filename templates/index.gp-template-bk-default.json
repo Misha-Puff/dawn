@@ -97,7 +97,6 @@
       "type": "buttons"
     },
     "featured_collection_YrgjwD": {
-      "disabled": true,
       "settings": {
         "collection": "child-spring-collection",
         "color_scheme": "",
@@ -192,7 +191,7 @@
         "desktop_padding_bottom": 32,
         "desktop_padding_left": 0,
         "desktop_padding_right": 0,
-        "desktop_padding_top": 20,
+        "desktop_padding_top": 36,
         "image": "shopify://shop_images/MP_SP25_Leader_3.7.25_Adult_2_ea6b1730-e3b5-4a25-8986-ce74ad3e7040.jpg",
         "image_behavior": "none",
         "image_height": "adapt",
@@ -203,7 +202,7 @@
         "mobile_padding_bottom": 0,
         "mobile_padding_left": 0,
         "mobile_padding_right": 0,
-        "mobile_padding_top": 20,
+        "mobile_padding_top": 0,
         "show_text_below": false,
         "show_text_box": false,
         "stack_images_on_mobile": true,
@@ -220,15 +219,15 @@
       "blocks": {
         "buttons_CGGLqp": {
           "settings": {
-            "button_label_1": "VIEW PREVIEW",
+            "button_label_1": "SHOP NOW",
             "button_label_2": "",
-            "button_link_1": "shopify://collections/preview",
+            "button_link_1": "shopify://collections/child-spring-collection",
             "button_link_2": "",
             "button_style_secondary_1": true,
             "button_style_secondary_2": false,
-            "buttons_top_margin": 15,
+            "buttons_top_margin": 13,
             "link_color": "#ffffff",
-            "link_size": 12,
+            "link_size": 13,
             "link_type": "link"
           },
           "type": "buttons"
@@ -236,16 +235,15 @@
         "heading_egMwVJ": {
           "settings": {
             "desktop_heading_size": "h2",
-            "heading": "SPRING COLLECTION PART 2",
+            "heading": "SPRING COLLECTION",
             "heading_color": "#ffffff",
             "mobile_heading_size": "h2"
           },
           "type": "heading"
         },
         "text_TdBLTR": {
-          "disabled": true,
           "settings": {
-            "text": "LAUNCHES THURSDAY, MARCH 13 11 AM ET",
+            "text": "NEW ARRIVALS",
             "text_color": "#ffffff",
             "text_style": "caption-with-letter-spacing",
             "text_top_margin": 7
@@ -254,21 +252,21 @@
         }
       },
       "settings": {
-        "banner_link": "shopify://collections/preview",
+        "banner_link": "shopify://collections/child-spring-collection",
         "color_scheme": "",
-        "content_position": "middle-center",
+        "content_position": "middle-left",
         "desktop_content_alignment": "center",
         "desktop_padding_bottom": 0,
         "desktop_padding_left": 0,
         "desktop_padding_right": 0,
         "desktop_padding_top": 0,
-        "image": "shopify://shop_images/MP_SP25_Leader_3.12.25_1.jpg",
+        "image": "shopify://shop_images/MP_SP25_Leader_3.13.25_3.jpg",
         "image_behavior": "none",
         "image_height": "adapt",
         "image_overlay_opacity": 10,
-        "lr_overlay_padding": 0,
+        "lr_overlay_padding": 110,
         "mobile_content_alignment": "center",
-        "mobile_image": "shopify://shop_images/MP_SP25_Leader_3.12.25_1_Mob2_dc2cb1cd-bb7e-4f28-bfe5-8c6fccd6c325.jpg",
+        "mobile_image": "shopify://shop_images/MP_SP25_Leader_3.13.25_3_Mob.jpg",
         "mobile_padding_bottom": 0,
         "mobile_padding_left": 0,
         "mobile_padding_right": 0,
@@ -388,8 +386,8 @@
             "button_type": "primary",
             "content_position": "bottom-left",
             "enable_overlay": false,
-            "image": "shopify://shop_images/MP_SP25_Leader_3.7.25_Child_1.jpg",
-            "link": "shopify://collections/child-spring-collection",
+            "image": "shopify://shop_images/MP_SP25_Leader_3.13.25_Denim.jpg",
+            "link": "shopify://collections/child-denim",
             "link_color": "#000000",
             "link_label": "",
             "link_margin": 8,
@@ -398,7 +396,7 @@
             "lr_overlay_padding": 26,
             "new_tab": false,
             "tb_overlay_padding": 16,
-            "text": "<p>CHILD SPRING</p>",
+            "text": "<p>NEW — DENIM</p>",
             "title": ""
           },
           "type": "column"
@@ -408,7 +406,7 @@
             "button_type": "primary",
             "content_position": "bottom-left",
             "enable_overlay": false,
-            "image": "shopify://shop_images/250207_MP_LAYDOWNS3210.webp",
+            "image": "shopify://shop_images/MP_SP25_Leader_3.13.25_Baby_1.jpg",
             "link": "shopify://collections/baby-spring-collection",
             "link_color": "#000000",
             "link_label": "",
@@ -418,7 +416,7 @@
             "lr_overlay_padding": 26,
             "new_tab": false,
             "tb_overlay_padding": 16,
-            "text": "<p>BABY SPRING</p>",
+            "text": "<p>NEW ARRIVALS — BABY</p>",
             "title": ""
           },
           "type": "column"

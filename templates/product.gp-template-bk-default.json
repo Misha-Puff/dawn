@@ -57,7 +57,7 @@
         "desktop_content_position": "top",
         "desktop_image_width": "small",
         "height": "adapt",
-        "image": "shopify://shop_images/mp_fall24_look_2_30_copy_AboutDenim.jpg",
+        "image": "shopify://shop_images/MP_SP25_Denim_Detail.jpg",
         "image_behavior": "none",
         "layout": "text_first",
         "mobile_content_alignment": "left",
@@ -259,7 +259,7 @@
         },
         "custom_liquid_X9miCe": {
           "settings": {
-            "custom_liquid": "{% if product.tags contains 'Badge-Preorder' %}\n<p style=\"color: blue; line-height: normal;\">Pre-order: Expected to ship within six to eight weeks.</p>\n{% endif %}"
+            "custom_liquid": "{% if product.available and product.tags contains 'Badge-Preorder' %}\n<p style=\"color: blue; line-height: normal;\">Pre-order: Expected to ship within six to eight weeks.</p>\n{% endif %}"
           },
           "type": "custom_liquid"
         },
