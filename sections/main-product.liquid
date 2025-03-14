@@ -780,10 +780,9 @@
 
     {% assign popups = section.blocks | where: 'type', 'popup' %}
     {%- for block in popups -%}
-      {%- comment %}<locksmith:5ec0>{%- endcomment %}
-      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block, variable: 'transparent' %}{% endcapture -%}
-      {%- if var == 'true' %}{% else %}{% continue %}{% endif -%}
-      {%- comment %}</locksmith:5ec0>{%- endcomment %}
+      {%- comment %}<locksmith:fae5>{% endcomment -%}
+        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+      {%- comment %}</locksmith:fae5>{% endcomment -%}
       <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
         <div
           role="dialog"
