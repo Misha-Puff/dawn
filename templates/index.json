@@ -190,6 +190,7 @@
         "text_nGfUnQ",
         "button_ihJPKi"
       ],
+      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -283,6 +284,7 @@
         "text_xEBaKk",
         "button_hTVGWN"
       ],
+      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -425,6 +427,7 @@
         "button_heMLMc",
         "button_w9bhWc"
       ],
+      "disabled": true,
       "settings": {
         "title": "More to Explore",
         "button_gap": 10,
@@ -463,6 +466,7 @@
       "block_order": [
         "column_3apXXc"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h2",
@@ -558,6 +562,7 @@
         "column_iAT4GA",
         "column_3igURh"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h2",
@@ -654,6 +659,7 @@
         "column_VkmJ9N",
         "column_jQ3JVX"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h2",
@@ -706,6 +712,7 @@
       "block_order": [
         "slide_mkRtae"
       ],
+      "disabled": true,
       "settings": {
         "layout": "full_bleed",
         "slide_height": "adapt_image",
@@ -899,6 +906,7 @@
         "column_YhVwUE",
         "column_PTttra"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h2",
