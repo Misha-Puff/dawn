@@ -8,6 +8,140 @@
  * ------------------------------------------------------------
  */
 {
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "shogun-above": {
+      "type": "shogun-above",
+      "settings": {}
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "rich_text_YJeCaw": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_LbXhKd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Limited Yarn",
+            "heading_size": "h2"
+          }
+        },
+        "text_PGqAmF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.<\/p>",
+            "line_height": 20
+          }
+        },
+        "button_Yh3Xhh": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_LbXhKd",
+        "text_PGqAmF",
+        "button_Yh3Xhh"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 40,
+        "padding_left": 100,
+        "padding_right": 100
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "blocks": {
+        "image_f8UJrh": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
+            "link": "",
+            "row_start_desktop": 1,
+            "row_span_desktop": 1,
+            "col_start_desktop": 1,
+            "col_span_desktop": 2,
+            "row_start_mobile": 1,
+            "row_span_mobile": 1,
+            "col_start_mobile": "1",
+            "col_span_mobile": "2"
+          }
+        },
+        "image_gkgQFt": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_FA24_TransitionalLayers_3.jpg",
+            "link": "",
+            "row_start_desktop": 6,
+            "row_span_desktop": 1,
+            "col_start_desktop": 1,
+            "col_span_desktop": 3,
+            "row_start_mobile": 1,
+            "row_span_mobile": 1,
+            "col_start_mobile": "1",
+            "col_span_mobile": "1"
+          }
+        }
+      },
+      "block_order": [
+        "image_f8UJrh",
+        "image_gkgQFt"
+      ],
+      "settings": {
+        "products_per_page": 48,
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "enable_filtering": true,
+        "filter_type": "drawer",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "shogun-below": {
+      "type": "shogun-below",
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
+    }
+  },
   "order": [
     "shogun-helper",
     "shogun-above",
@@ -16,139 +150,5 @@
     "product-grid",
     "shogun-below",
     "shogun-optimizer"
-  ],
-  "sections": {
-    "banner": {
-      "settings": {
-        "color_scheme": "scheme-1",
-        "show_collection_description": true,
-        "show_collection_image": false
-      },
-      "type": "main-collection-banner"
-    },
-    "product-grid": {
-      "block_order": [
-        "image_f8UJrh",
-        "image_gkgQFt"
-      ],
-      "blocks": {
-        "image_f8UJrh": {
-          "disabled": true,
-          "settings": {
-            "col_span_desktop": 2,
-            "col_span_mobile": "2",
-            "col_start_desktop": 1,
-            "col_start_mobile": "1",
-            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
-            "link": "",
-            "row_span_desktop": 1,
-            "row_span_mobile": 1,
-            "row_start_desktop": 1,
-            "row_start_mobile": 1
-          },
-          "type": "image"
-        },
-        "image_gkgQFt": {
-          "disabled": true,
-          "settings": {
-            "col_span_desktop": 3,
-            "col_span_mobile": "1",
-            "col_start_desktop": 1,
-            "col_start_mobile": "1",
-            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
-            "link": "",
-            "row_span_desktop": 1,
-            "row_span_mobile": 1,
-            "row_start_desktop": 6,
-            "row_start_mobile": 1
-          },
-          "type": "image"
-        }
-      },
-      "settings": {
-        "color_scheme": "",
-        "columns_desktop": 3,
-        "columns_mobile": "2",
-        "enable_filtering": true,
-        "enable_sorting": true,
-        "filter_type": "drawer",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "padding_bottom": 36,
-        "padding_top": 0,
-        "products_per_page": 48,
-        "quick_add": "standard",
-        "show_rating": false,
-        "show_secondary_image": true,
-        "show_vendor": false
-      },
-      "type": "main-collection-product-grid"
-    },
-    "rich_text_YJeCaw": {
-      "block_order": [
-        "heading_LbXhKd",
-        "text_PGqAmF",
-        "button_Yh3Xhh"
-      ],
-      "blocks": {
-        "button_Yh3Xhh": {
-          "disabled": true,
-          "settings": {
-            "button_label": "Button label",
-            "button_label_2": "",
-            "button_label_3": "",
-            "button_link": "",
-            "button_link_2": "",
-            "button_link_3": "",
-            "button_style_secondary": false,
-            "button_style_secondary_2": false,
-            "button_style_secondary_3": false
-          },
-          "type": "button"
-        },
-        "heading_LbXhKd": {
-          "settings": {
-            "heading": "Limited Yarn",
-            "heading_size": "h2"
-          },
-          "type": "heading"
-        },
-        "text_PGqAmF": {
-          "settings": {
-            "line_height": 20,
-            "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.</p>"
-          },
-          "type": "text"
-        }
-      },
-      "disabled": true,
-      "settings": {
-        "color_scheme": "",
-        "content_alignment": "center",
-        "desktop_content_position": "center",
-        "full_width": true,
-        "padding_bottom": 40,
-        "padding_left": 100,
-        "padding_right": 100,
-        "padding_top": 52
-      },
-      "type": "rich-text"
-    },
-    "shogun-above": {
-      "settings": {},
-      "type": "shogun-above"
-    },
-    "shogun-below": {
-      "settings": {},
-      "type": "shogun-below"
-    },
-    "shogun-helper": {
-      "settings": {},
-      "type": "shogun-helper"
-    },
-    "shogun-optimizer": {
-      "settings": {},
-      "type": "shogun-optimizer"
-    }
-  }
+  ]
 }

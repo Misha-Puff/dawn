@@ -8,6 +8,932 @@
  * ------------------------------------------------------------
  */
 {
+  "sections": {
+    "image_banner_bz8jb3": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_egMwVJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "SPRING COLLECTION",
+            "desktop_heading_size": "h2",
+            "mobile_heading_size": "h2",
+            "heading_color": "#ffffff"
+          }
+        },
+        "text_TdBLTR": {
+          "type": "text",
+          "settings": {
+            "text": "NEW ARRIVALS",
+            "text_color": "#ffffff",
+            "text_style": "caption-with-letter-spacing",
+            "text_top_margin": 7
+          }
+        },
+        "buttons_CGGLqp": {
+          "type": "buttons",
+          "settings": {
+            "link_type": "link",
+            "link_color": "#ffffff",
+            "link_size": 13,
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify:\/\/collections\/child-spring-collection",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "buttons_top_margin": 13
+          }
+        }
+      },
+      "block_order": [
+        "heading_egMwVJ",
+        "text_TdBLTR",
+        "buttons_CGGLqp"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/MP_SP25_Leader_3.13.25_3.jpg",
+        "banner_link": "shopify:\/\/collections\/child-spring-collection",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "content_position": "middle-left",
+        "tb_overlay_padding": 0,
+        "lr_overlay_padding": 110,
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "",
+        "mobile_image": "shopify:\/\/shop_images\/MP_SP25_Leader_3.13.25_3_Mob.jpg",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 0,
+        "desktop_padding_right": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
+      }
+    },
+    "multicolumn_BMReV9": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_YehPqA": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SP25_Leader_3.13.25_Denim.jpg",
+            "title": "",
+            "text": "<p>NEW — DENIM<\/p>",
+            "link_label": "",
+            "link": "shopify:\/\/collections\/child-denim",
+            "new_tab": false,
+            "link_margin": 8,
+            "enable_overlay": false,
+            "content_position": "bottom-left",
+            "tb_overlay_padding": 16,
+            "lr_overlay_padding": 26,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        },
+        "column_qXTqMb": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SP25_Leader_3.13.25_Baby_1.jpg",
+            "title": "",
+            "text": "<p>NEW ARRIVALS — BABY<\/p>",
+            "link_label": "",
+            "link": "shopify:\/\/collections\/baby-spring-collection",
+            "new_tab": false,
+            "link_margin": 8,
+            "enable_overlay": false,
+            "content_position": "bottom-left",
+            "tb_overlay_padding": 16,
+            "lr_overlay_padding": 26,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "column_YehPqA",
+        "column_qXTqMb"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 30,
+        "vertical_spacing_desktop": 40,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 14,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 10,
+        "mobile_padding_top": 16,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "rich_text_N3wraP": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_8jBai8": {
+          "type": "heading",
+          "settings": {
+            "heading": "Objects of memory, made to last and meant to be lived in.",
+            "heading_size": "h2"
+          }
+        },
+        "text_nGfUnQ": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>",
+            "line_height": 24
+          }
+        },
+        "button_ihJPKi": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_8jBai8",
+        "text_nGfUnQ",
+        "button_ihJPKi"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 88,
+        "padding_bottom": 100,
+        "padding_left": 0,
+        "padding_right": 0
+      }
+    },
+    "featured_collection_YrgjwD": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "child-spring-collection",
+        "products_to_show": 20,
+        "title": "",
+        "heading_alignment": "left",
+        "heading_size": "h2",
+        "heading_margin": 0,
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "hide_sold_out": true,
+        "hide_content": false,
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "full_width": true,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 12,
+        "vertical_spacing_desktop": 0,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 0,
+        "show_view_all": false,
+        "view_all_style": "link",
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "section_full_width": false,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 32,
+        "desktop_padding_right": 32,
+        "mobile_padding_top": 28,
+        "mobile_padding_bottom": 0,
+        "mobile_padding_left": 12,
+        "mobile_padding_right": 12
+      }
+    },
+    "rich_text_9CUP9Q": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_dnQRbK": {
+          "type": "heading",
+          "settings": {
+            "heading": "SHOP ALL SALE",
+            "heading_size": "h2"
+          }
+        },
+        "text_xEBaKk": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>",
+            "line_height": 24
+          }
+        },
+        "button_hTVGWN": {
+          "type": "button",
+          "settings": {
+            "button_label": "CHILD SALE",
+            "button_link": "shopify:\/\/collections\/child-sale",
+            "button_style_secondary": true,
+            "button_label_2": "BABY SALE",
+            "button_link_2": "shopify:\/\/collections\/baby-sale",
+            "button_style_secondary_2": true,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_dnQRbK",
+        "text_xEBaKk",
+        "button_hTVGWN"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 76,
+        "padding_bottom": 76,
+        "padding_left": 0,
+        "padding_right": 0
+      }
+    },
+    "image_banner_PTYKgc": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_QAPny3": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Gift Guides",
+            "desktop_heading_size": "h2",
+            "mobile_heading_size": "h2",
+            "heading_color": "#ffffff"
+          }
+        },
+        "text_bypQNG": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_color": "#000000",
+            "text_style": "body",
+            "text_top_margin": 10
+          }
+        },
+        "buttons_zkt4Vc": {
+          "type": "buttons",
+          "settings": {
+            "link_type": "link",
+            "link_color": "#ffffff",
+            "link_size": 13,
+            "button_label_1": "SHOP ADULT",
+            "button_link_1": "shopify:\/\/collections\/adult-fall-winter",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "buttons_top_margin": 15
+          }
+        }
+      },
+      "block_order": [
+        "heading_QAPny3",
+        "text_bypQNG",
+        "buttons_zkt4Vc"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/MP_SP25_Leader_3.7.25_Adult_2_ea6b1730-e3b5-4a25-8986-ce74ad3e7040.jpg",
+        "banner_link": "shopify:\/\/collections\/adult-spring",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "content_position": "middle-left",
+        "tb_overlay_padding": 0,
+        "lr_overlay_padding": 120,
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "",
+        "mobile_image": "shopify:\/\/shop_images\/MP_SP25_Leader_3.7.25_Adult_2_Mob_76fc9486-7af7-4c59-aaca-ffa39c77148a.jpg",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": false,
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 32,
+        "desktop_padding_left": 0,
+        "desktop_padding_right": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
+      }
+    },
+    "buttons_zMbkxJ": {
+      "type": "buttons",
+      "blocks": {
+        "button_m46TAN": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD SALE",
+            "open_new_tab": false,
+            "link": "shopify:\/\/collections\/child-sale",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_ARR3P3": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD SWEATERS",
+            "open_new_tab": false,
+            "link": "shopify:\/\/collections\/child-sweaters-cardigans",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_yEUTBh": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD DRESSES",
+            "open_new_tab": false,
+            "link": "shopify:\/\/collections\/child-dresses",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_heMLMc": {
+          "type": "button",
+          "settings": {
+            "label": "ADULT BEST SELLERS",
+            "open_new_tab": false,
+            "link": "shopify:\/\/collections\/adult-best-sellers",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_w9bhWc": {
+          "type": "button",
+          "settings": {
+            "label": "BABY ONESIES",
+            "open_new_tab": false,
+            "link": "shopify:\/\/collections\/baby-one-piece",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_m46TAN",
+        "button_ARR3P3",
+        "button_yEUTBh",
+        "button_heMLMc",
+        "button_w9bhWc"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "More to Explore",
+        "button_gap": 10,
+        "heading_size": "h2",
+        "color_scheme": "",
+        "desktop_padding_top": 60,
+        "desktop_padding_bottom": 50,
+        "mobile_padding_top": 40,
+        "mobile_padding_bottom": 30
+      }
+    },
+    "multicolumn_tbTyfj": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_3apXXc": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_SP25_Leader_3.7.25_Adult_2_ea6b1730-e3b5-4a25-8986-ce74ad3e7040.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "new_tab": false,
+            "link_margin": 0,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 26,
+            "lr_overlay_padding": 26,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "column_3apXXc"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "enable_desktop_full_width": true,
+        "enable_mobile_full_width": true,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 0,
+        "vertical_spacing_desktop": 0,
+        "horizontal_spacing_mobile": 0,
+        "vertical_spacing_mobile": 0,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "Button label",
+        "button_link": "",
+        "columns_desktop": 1,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "multicolumn_peYxH9": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_LdhAqc": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_WI24_Leader_12.18.24_gift_HP_2x3_129a1fd2-3b8a-42d5-b8ea-f177d4ad4fc8.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "GIFT GUIDES",
+            "link": "",
+            "new_tab": false,
+            "link_margin": 8,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 26,
+            "lr_overlay_padding": 26,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        },
+        "column_iAT4GA": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_WI24_Leader_12.18.24_Accs_HP_2x3_fee9ec7f-32c4-4b56-9d75-bc99e5665f88.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "WINTER ACCESSORIES",
+            "link": "shopify:\/\/collections\/child-accessories",
+            "new_tab": false,
+            "link_margin": 8,
+            "enable_overlay": false,
+            "content_position": "bottom-left",
+            "tb_overlay_padding": 26,
+            "lr_overlay_padding": 26,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        },
+        "column_3igURh": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_WI24_Leader_12.18.24_Stores_HP_2x3_044462ed-a8f9-44b8-93e4-5525f3a81a6b.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "OUR STORES",
+            "link": "shopify:\/\/pages\/stores",
+            "new_tab": true,
+            "link_margin": 8,
+            "enable_overlay": false,
+            "content_position": "bottom-center",
+            "tb_overlay_padding": 26,
+            "lr_overlay_padding": 26,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "column_LdhAqc",
+        "column_iAT4GA",
+        "column_3igURh"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 10,
+        "vertical_spacing_desktop": 0,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 12,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 30,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 16,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "multicolumn_4t4Ubf": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_mcCDRB": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_WI24_Leader_12.18.24_Stores_HP_2x3_044462ed-a8f9-44b8-93e4-5525f3a81a6b.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "OUR STORES",
+            "link": "shopify:\/\/pages\/stores",
+            "new_tab": false,
+            "link_margin": 8,
+            "enable_overlay": false,
+            "content_position": "bottom-left",
+            "tb_overlay_padding": 16,
+            "lr_overlay_padding": 26,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        },
+        "column_VkmJ9N": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_WI24_Leader_12.18.24_Accs_HP_2x3_fee9ec7f-32c4-4b56-9d75-bc99e5665f88.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "WINTER ACCESSORIES",
+            "link": "shopify:\/\/collections\/child-accessories",
+            "new_tab": false,
+            "link_margin": 8,
+            "enable_overlay": false,
+            "content_position": "bottom-left",
+            "tb_overlay_padding": 16,
+            "lr_overlay_padding": 26,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        },
+        "column_jQ3JVX": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_WI24_Leader_12.6.24_BestSell.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "BEST SELLERS",
+            "link": "shopify:\/\/collections\/child-best-sellers",
+            "new_tab": false,
+            "link_margin": 8,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 26,
+            "lr_overlay_padding": 26,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "column_mcCDRB",
+        "column_VkmJ9N",
+        "column_jQ3JVX"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 14,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 20,
+        "desktop_padding_bottom": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 20
+      }
+    },
+    "slideshow_t7VikK": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_mkRtae": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/MP_WI24_Leader_11.15.24_Adult_1.jpg",
+            "image_overlay_opacity": 0,
+            "heading": "",
+            "heading_size": "h2",
+            "subheading": "asdfasdf",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": true,
+            "show_text_box": false,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "mobile_image": "shopify:\/\/shop_images\/Look_03_0275_e_site.jpg",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-1"
+          }
+        }
+      },
+      "block_order": [
+        "slide_mkRtae"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "adapt_image",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 3,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "",
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 40,
+        "desktop_padding_right": 40,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 20,
+        "mobile_padding_left": 20,
+        "mobile_padding_right": 20
+      }
+    },
+    "multicolumn_GbjXUE": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_rLVYmc": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Long_Sleeve_Vintage_Henley_-_Yonder_Scribble_1_Tops.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "TOPS",
+            "link": "shopify:\/\/collections\/child-tops",
+            "new_tab": false,
+            "link_margin": 15,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 26,
+            "lr_overlay_padding": 26,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        },
+        "column_8kQCT9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Cable_Skating_Skirt_-_Iris_Confetti_Bottoms.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "BOTTOMS",
+            "link": "shopify:\/\/collections\/child-bottoms",
+            "new_tab": false,
+            "link_margin": 15,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 26,
+            "lr_overlay_padding": 26,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        },
+        "column_WCJg47": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Folk_Art_Sweater_-_Ocean_Space_Dye_1_Sweaters.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "SWEATERS",
+            "link": "shopify:\/\/collections\/child-sweaters-cardigans",
+            "new_tab": false,
+            "link_margin": 15,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 26,
+            "lr_overlay_padding": 26,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        },
+        "column_prW6et": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Log_Cabin_Legwarmer_-_Citron_1_Accs2_f780bd07-61d5-41b1-9a48-325681ef97c1.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "ACCESSORIES",
+            "link": "shopify:\/\/collections\/child-accessories",
+            "new_tab": false,
+            "link_margin": 15,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 26,
+            "lr_overlay_padding": 26,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        },
+        "column_JLMAqm": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Ingrid_Dress_-_Ink_Playground_1_DRESS.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "DRESSES",
+            "link": "shopify:\/\/collections\/child-dresses",
+            "new_tab": false,
+            "link_margin": 15,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 26,
+            "lr_overlay_padding": 26,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        },
+        "column_HnbifQ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Simone_Overall_-_Atlantic_Zigzag_Jacquard_1_ONEPIECE.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "ONE-PIECES",
+            "link": "shopify:\/\/collections\/child-one-piece",
+            "new_tab": false,
+            "link_margin": 15,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 26,
+            "lr_overlay_padding": 26,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        },
+        "column_YhVwUE": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Cate_Capelet_-_Ocean_Space_Dye_1_Accs.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "ACCESSORIES",
+            "link": "shopify:\/\/collections\/child-accessories",
+            "new_tab": false,
+            "link_margin": 15,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 26,
+            "lr_overlay_padding": 26,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        },
+        "column_PTttra": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Alphabet_Market_Coat_-_Sprig_1_JACKETS.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "JACKETS",
+            "link": "shopify:\/\/collections\/child-jackets",
+            "new_tab": false,
+            "link_margin": 15,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 26,
+            "lr_overlay_padding": 26,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "column_rLVYmc",
+        "column_8kQCT9",
+        "column_WCJg47",
+        "column_prW6et",
+        "column_JLMAqm",
+        "column_HnbifQ",
+        "column_YhVwUE",
+        "column_PTttra"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 6,
+        "vertical_spacing_desktop": 6,
+        "horizontal_spacing_mobile": 6,
+        "vertical_spacing_mobile": 6,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    }
+  },
   "order": [
     "image_banner_bz8jb3",
     "multicolumn_BMReV9",
@@ -21,931 +947,5 @@
     "multicolumn_4t4Ubf",
     "slideshow_t7VikK",
     "multicolumn_GbjXUE"
-  ],
-  "sections": {
-    "buttons_zMbkxJ": {
-      "block_order": [
-        "button_m46TAN",
-        "button_ARR3P3",
-        "button_yEUTBh",
-        "button_heMLMc",
-        "button_w9bhWc"
-      ],
-      "blocks": {
-        "button_ARR3P3": {
-          "settings": {
-            "label": "CHILD SWEATERS",
-            "link": "shopify://collections/child-sweaters-cardigans",
-            "on_click": "",
-            "open_new_tab": false,
-            "type": "secondary"
-          },
-          "type": "button"
-        },
-        "button_heMLMc": {
-          "settings": {
-            "label": "ADULT BEST SELLERS",
-            "link": "shopify://collections/adult-best-sellers",
-            "on_click": "",
-            "open_new_tab": false,
-            "type": "secondary"
-          },
-          "type": "button"
-        },
-        "button_m46TAN": {
-          "settings": {
-            "label": "CHILD SALE",
-            "link": "shopify://collections/child-sale",
-            "on_click": "",
-            "open_new_tab": false,
-            "type": "secondary"
-          },
-          "type": "button"
-        },
-        "button_w9bhWc": {
-          "settings": {
-            "label": "BABY ONESIES",
-            "link": "shopify://collections/baby-one-piece",
-            "on_click": "",
-            "open_new_tab": false,
-            "type": "secondary"
-          },
-          "type": "button"
-        },
-        "button_yEUTBh": {
-          "settings": {
-            "label": "CHILD DRESSES",
-            "link": "shopify://collections/child-dresses",
-            "on_click": "",
-            "open_new_tab": false,
-            "type": "secondary"
-          },
-          "type": "button"
-        }
-      },
-      "disabled": true,
-      "settings": {
-        "button_gap": 10,
-        "color_scheme": "",
-        "desktop_padding_bottom": 50,
-        "desktop_padding_top": 60,
-        "heading_size": "h2",
-        "mobile_padding_bottom": 30,
-        "mobile_padding_top": 40,
-        "title": "More to Explore"
-      },
-      "type": "buttons"
-    },
-    "featured_collection_YrgjwD": {
-      "settings": {
-        "collection": "child-spring-collection",
-        "color_scheme": "",
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "description": "",
-        "description_style": "body",
-        "desktop_padding_bottom": 0,
-        "desktop_padding_left": 32,
-        "desktop_padding_right": 32,
-        "desktop_padding_top": 0,
-        "enable_custom_spacing": true,
-        "enable_desktop_slider": true,
-        "full_width": true,
-        "heading_alignment": "left",
-        "heading_margin": 0,
-        "heading_size": "h2",
-        "hide_content": false,
-        "hide_sold_out": true,
-        "horizontal_spacing_desktop": 12,
-        "horizontal_spacing_mobile": 10,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "mobile_padding_bottom": 0,
-        "mobile_padding_left": 12,
-        "mobile_padding_right": 12,
-        "mobile_padding_top": 28,
-        "products_to_show": 20,
-        "quick_add": "standard",
-        "section_full_width": false,
-        "show_description": false,
-        "show_rating": false,
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_view_all": false,
-        "swipe_on_mobile": true,
-        "title": "",
-        "vertical_spacing_desktop": 0,
-        "vertical_spacing_mobile": 0,
-        "view_all_style": "link"
-      },
-      "type": "featured-collection"
-    },
-    "image_banner_PTYKgc": {
-      "block_order": [
-        "heading_QAPny3",
-        "text_bypQNG",
-        "buttons_zkt4Vc"
-      ],
-      "blocks": {
-        "buttons_zkt4Vc": {
-          "settings": {
-            "button_label_1": "SHOP ADULT",
-            "button_label_2": "",
-            "button_link_1": "shopify://collections/adult-fall-winter",
-            "button_link_2": "",
-            "button_style_secondary_1": false,
-            "button_style_secondary_2": false,
-            "buttons_top_margin": 15,
-            "link_color": "#ffffff",
-            "link_size": 13,
-            "link_type": "link"
-          },
-          "type": "buttons"
-        },
-        "heading_QAPny3": {
-          "disabled": true,
-          "settings": {
-            "desktop_heading_size": "h2",
-            "heading": "Gift Guides",
-            "heading_color": "#ffffff",
-            "mobile_heading_size": "h2"
-          },
-          "type": "heading"
-        },
-        "text_bypQNG": {
-          "disabled": true,
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_color": "#000000",
-            "text_style": "body",
-            "text_top_margin": 10
-          },
-          "type": "text"
-        }
-      },
-      "settings": {
-        "banner_link": "shopify://collections/adult-spring",
-        "color_scheme": "",
-        "content_position": "middle-left",
-        "desktop_content_alignment": "center",
-        "desktop_padding_bottom": 32,
-        "desktop_padding_left": 0,
-        "desktop_padding_right": 0,
-        "desktop_padding_top": 36,
-        "image": "shopify://shop_images/MP_SP25_Leader_3.7.25_Adult_2_ea6b1730-e3b5-4a25-8986-ce74ad3e7040.jpg",
-        "image_behavior": "none",
-        "image_height": "adapt",
-        "image_overlay_opacity": 0,
-        "lr_overlay_padding": 120,
-        "mobile_content_alignment": "center",
-        "mobile_image": "shopify://shop_images/MP_SP25_Leader_3.7.25_Adult_2_Mob_76fc9486-7af7-4c59-aaca-ffa39c77148a.jpg",
-        "mobile_padding_bottom": 0,
-        "mobile_padding_left": 0,
-        "mobile_padding_right": 0,
-        "mobile_padding_top": 0,
-        "show_text_below": false,
-        "show_text_box": false,
-        "stack_images_on_mobile": true,
-        "tb_overlay_padding": 0
-      },
-      "type": "image-banner"
-    },
-    "image_banner_bz8jb3": {
-      "block_order": [
-        "heading_egMwVJ",
-        "text_TdBLTR",
-        "buttons_CGGLqp"
-      ],
-      "blocks": {
-        "buttons_CGGLqp": {
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_label_2": "",
-            "button_link_1": "shopify://collections/child-spring-collection",
-            "button_link_2": "",
-            "button_style_secondary_1": true,
-            "button_style_secondary_2": false,
-            "buttons_top_margin": 13,
-            "link_color": "#ffffff",
-            "link_size": 13,
-            "link_type": "link"
-          },
-          "type": "buttons"
-        },
-        "heading_egMwVJ": {
-          "settings": {
-            "desktop_heading_size": "h2",
-            "heading": "SPRING COLLECTION",
-            "heading_color": "#ffffff",
-            "mobile_heading_size": "h2"
-          },
-          "type": "heading"
-        },
-        "text_TdBLTR": {
-          "settings": {
-            "text": "NEW ARRIVALS",
-            "text_color": "#ffffff",
-            "text_style": "caption-with-letter-spacing",
-            "text_top_margin": 7
-          },
-          "type": "text"
-        }
-      },
-      "settings": {
-        "banner_link": "shopify://collections/child-spring-collection",
-        "color_scheme": "",
-        "content_position": "middle-left",
-        "desktop_content_alignment": "center",
-        "desktop_padding_bottom": 0,
-        "desktop_padding_left": 0,
-        "desktop_padding_right": 0,
-        "desktop_padding_top": 0,
-        "image": "shopify://shop_images/MP_SP25_Leader_3.13.25_3.jpg",
-        "image_behavior": "none",
-        "image_height": "adapt",
-        "image_overlay_opacity": 10,
-        "lr_overlay_padding": 110,
-        "mobile_content_alignment": "center",
-        "mobile_image": "shopify://shop_images/MP_SP25_Leader_3.13.25_3_Mob.jpg",
-        "mobile_padding_bottom": 0,
-        "mobile_padding_left": 0,
-        "mobile_padding_right": 0,
-        "mobile_padding_top": 0,
-        "show_text_below": false,
-        "show_text_box": false,
-        "stack_images_on_mobile": false,
-        "tb_overlay_padding": 0
-      },
-      "type": "image-banner"
-    },
-    "multicolumn_4t4Ubf": {
-      "block_order": [
-        "column_mcCDRB",
-        "column_VkmJ9N",
-        "column_jQ3JVX"
-      ],
-      "blocks": {
-        "column_VkmJ9N": {
-          "settings": {
-            "button_type": "primary",
-            "content_position": "bottom-left",
-            "enable_overlay": false,
-            "image": "shopify://shop_images/MP_WI24_Leader_12.18.24_Accs_HP_2x3_fee9ec7f-32c4-4b56-9d75-bc99e5665f88.jpg",
-            "link": "shopify://collections/child-accessories",
-            "link_color": "#000000",
-            "link_label": "WINTER ACCESSORIES",
-            "link_margin": 8,
-            "link_style": "none",
-            "link_type": "link",
-            "lr_overlay_padding": 26,
-            "new_tab": false,
-            "tb_overlay_padding": 16,
-            "text": "",
-            "title": ""
-          },
-          "type": "column"
-        },
-        "column_jQ3JVX": {
-          "disabled": true,
-          "settings": {
-            "button_type": "primary",
-            "content_position": "middle-center",
-            "enable_overlay": false,
-            "image": "shopify://shop_images/MP_WI24_Leader_12.6.24_BestSell.jpg",
-            "link": "shopify://collections/child-best-sellers",
-            "link_color": "#000000",
-            "link_label": "BEST SELLERS",
-            "link_margin": 8,
-            "link_style": "none",
-            "link_type": "link",
-            "lr_overlay_padding": 26,
-            "new_tab": false,
-            "tb_overlay_padding": 26,
-            "text": "",
-            "title": ""
-          },
-          "type": "column"
-        },
-        "column_mcCDRB": {
-          "settings": {
-            "button_type": "primary",
-            "content_position": "bottom-left",
-            "enable_overlay": false,
-            "image": "shopify://shop_images/MP_WI24_Leader_12.18.24_Stores_HP_2x3_044462ed-a8f9-44b8-93e4-5525f3a81a6b.jpg",
-            "link": "shopify://pages/stores",
-            "link_color": "#000000",
-            "link_label": "OUR STORES",
-            "link_margin": 8,
-            "link_style": "none",
-            "link_type": "link",
-            "lr_overlay_padding": 26,
-            "new_tab": false,
-            "tb_overlay_padding": 16,
-            "text": "",
-            "title": ""
-          },
-          "type": "column"
-        }
-      },
-      "disabled": true,
-      "settings": {
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "",
-        "column_alignment": "left",
-        "columns_desktop": 2,
-        "columns_mobile": "1",
-        "desktop_padding_bottom": 20,
-        "desktop_padding_top": 20,
-        "enable_custom_spacing": true,
-        "enable_desktop_full_width": false,
-        "enable_mobile_full_width": false,
-        "heading_size": "h2",
-        "horizontal_spacing_desktop": 20,
-        "horizontal_spacing_mobile": 10,
-        "image_ratio": "adapt",
-        "image_width": "full",
-        "mobile_padding_bottom": 20,
-        "mobile_padding_top": 0,
-        "swipe_on_mobile": false,
-        "title": "",
-        "vertical_spacing_desktop": 20,
-        "vertical_spacing_mobile": 14
-      },
-      "type": "multicolumn"
-    },
-    "multicolumn_BMReV9": {
-      "block_order": [
-        "column_YehPqA",
-        "column_qXTqMb"
-      ],
-      "blocks": {
-        "column_YehPqA": {
-          "settings": {
-            "button_type": "primary",
-            "content_position": "bottom-left",
-            "enable_overlay": false,
-            "image": "shopify://shop_images/MP_SP25_Leader_3.13.25_Denim.jpg",
-            "link": "shopify://collections/child-denim",
-            "link_color": "#000000",
-            "link_label": "",
-            "link_margin": 8,
-            "link_style": "none",
-            "link_type": "link",
-            "lr_overlay_padding": 26,
-            "new_tab": false,
-            "tb_overlay_padding": 16,
-            "text": "<p>NEW — DENIM</p>",
-            "title": ""
-          },
-          "type": "column"
-        },
-        "column_qXTqMb": {
-          "settings": {
-            "button_type": "primary",
-            "content_position": "bottom-left",
-            "enable_overlay": false,
-            "image": "shopify://shop_images/MP_SP25_Leader_3.13.25_Baby_1.jpg",
-            "link": "shopify://collections/baby-spring-collection",
-            "link_color": "#000000",
-            "link_label": "",
-            "link_margin": 8,
-            "link_style": "none",
-            "link_type": "link",
-            "lr_overlay_padding": 26,
-            "new_tab": false,
-            "tb_overlay_padding": 16,
-            "text": "<p>NEW ARRIVALS — BABY</p>",
-            "title": ""
-          },
-          "type": "column"
-        }
-      },
-      "settings": {
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "",
-        "column_alignment": "left",
-        "columns_desktop": 2,
-        "columns_mobile": "1",
-        "desktop_padding_bottom": 10,
-        "desktop_padding_top": 30,
-        "enable_custom_spacing": true,
-        "enable_desktop_full_width": false,
-        "enable_mobile_full_width": false,
-        "heading_size": "h1",
-        "horizontal_spacing_desktop": 30,
-        "horizontal_spacing_mobile": 10,
-        "image_ratio": "adapt",
-        "image_width": "full",
-        "mobile_padding_bottom": 0,
-        "mobile_padding_top": 16,
-        "swipe_on_mobile": false,
-        "title": "",
-        "vertical_spacing_desktop": 40,
-        "vertical_spacing_mobile": 14
-      },
-      "type": "multicolumn"
-    },
-    "multicolumn_GbjXUE": {
-      "block_order": [
-        "column_rLVYmc",
-        "column_8kQCT9",
-        "column_WCJg47",
-        "column_prW6et",
-        "column_JLMAqm",
-        "column_HnbifQ",
-        "column_YhVwUE",
-        "column_PTttra"
-      ],
-      "blocks": {
-        "column_8kQCT9": {
-          "settings": {
-            "button_type": "primary",
-            "content_position": "middle-center",
-            "enable_overlay": false,
-            "image": "shopify://shop_images/Cable_Skating_Skirt_-_Iris_Confetti_Bottoms.jpg",
-            "link": "shopify://collections/child-bottoms",
-            "link_color": "#000000",
-            "link_label": "BOTTOMS",
-            "link_margin": 15,
-            "link_style": "none",
-            "link_type": "link",
-            "lr_overlay_padding": 26,
-            "new_tab": false,
-            "tb_overlay_padding": 26,
-            "text": "",
-            "title": ""
-          },
-          "type": "column"
-        },
-        "column_HnbifQ": {
-          "settings": {
-            "button_type": "primary",
-            "content_position": "middle-center",
-            "enable_overlay": false,
-            "image": "shopify://shop_images/Simone_Overall_-_Atlantic_Zigzag_Jacquard_1_ONEPIECE.jpg",
-            "link": "shopify://collections/child-one-piece",
-            "link_color": "#000000",
-            "link_label": "ONE-PIECES",
-            "link_margin": 15,
-            "link_style": "none",
-            "link_type": "link",
-            "lr_overlay_padding": 26,
-            "new_tab": false,
-            "tb_overlay_padding": 26,
-            "text": "",
-            "title": ""
-          },
-          "type": "column"
-        },
-        "column_JLMAqm": {
-          "settings": {
-            "button_type": "primary",
-            "content_position": "middle-center",
-            "enable_overlay": false,
-            "image": "shopify://shop_images/Ingrid_Dress_-_Ink_Playground_1_DRESS.jpg",
-            "link": "shopify://collections/child-dresses",
-            "link_color": "#000000",
-            "link_label": "DRESSES",
-            "link_margin": 15,
-            "link_style": "none",
-            "link_type": "link",
-            "lr_overlay_padding": 26,
-            "new_tab": false,
-            "tb_overlay_padding": 26,
-            "text": "",
-            "title": ""
-          },
-          "type": "column"
-        },
-        "column_PTttra": {
-          "settings": {
-            "button_type": "primary",
-            "content_position": "middle-center",
-            "enable_overlay": false,
-            "image": "shopify://shop_images/Alphabet_Market_Coat_-_Sprig_1_JACKETS.jpg",
-            "link": "shopify://collections/child-jackets",
-            "link_color": "#000000",
-            "link_label": "JACKETS",
-            "link_margin": 15,
-            "link_style": "none",
-            "link_type": "link",
-            "lr_overlay_padding": 26,
-            "new_tab": false,
-            "tb_overlay_padding": 26,
-            "text": "",
-            "title": ""
-          },
-          "type": "column"
-        },
-        "column_WCJg47": {
-          "settings": {
-            "button_type": "primary",
-            "content_position": "middle-center",
-            "enable_overlay": false,
-            "image": "shopify://shop_images/Folk_Art_Sweater_-_Ocean_Space_Dye_1_Sweaters.jpg",
-            "link": "shopify://collections/child-sweaters-cardigans",
-            "link_color": "#000000",
-            "link_label": "SWEATERS",
-            "link_margin": 15,
-            "link_style": "none",
-            "link_type": "link",
-            "lr_overlay_padding": 26,
-            "new_tab": false,
-            "tb_overlay_padding": 26,
-            "text": "",
-            "title": ""
-          },
-          "type": "column"
-        },
-        "column_YhVwUE": {
-          "settings": {
-            "button_type": "primary",
-            "content_position": "middle-center",
-            "enable_overlay": false,
-            "image": "shopify://shop_images/Cate_Capelet_-_Ocean_Space_Dye_1_Accs.jpg",
-            "link": "shopify://collections/child-accessories",
-            "link_color": "#000000",
-            "link_label": "ACCESSORIES",
-            "link_margin": 15,
-            "link_style": "none",
-            "link_type": "link",
-            "lr_overlay_padding": 26,
-            "new_tab": false,
-            "tb_overlay_padding": 26,
-            "text": "",
-            "title": ""
-          },
-          "type": "column"
-        },
-        "column_prW6et": {
-          "settings": {
-            "button_type": "primary",
-            "content_position": "middle-center",
-            "enable_overlay": false,
-            "image": "shopify://shop_images/Log_Cabin_Legwarmer_-_Citron_1_Accs2_f780bd07-61d5-41b1-9a48-325681ef97c1.jpg",
-            "link": "shopify://collections/child-accessories",
-            "link_color": "#000000",
-            "link_label": "ACCESSORIES",
-            "link_margin": 15,
-            "link_style": "none",
-            "link_type": "link",
-            "lr_overlay_padding": 26,
-            "new_tab": false,
-            "tb_overlay_padding": 26,
-            "text": "",
-            "title": ""
-          },
-          "type": "column"
-        },
-        "column_rLVYmc": {
-          "settings": {
-            "button_type": "primary",
-            "content_position": "middle-center",
-            "enable_overlay": false,
-            "image": "shopify://shop_images/Long_Sleeve_Vintage_Henley_-_Yonder_Scribble_1_Tops.jpg",
-            "link": "shopify://collections/child-tops",
-            "link_color": "#000000",
-            "link_label": "TOPS",
-            "link_margin": 15,
-            "link_style": "none",
-            "link_type": "link",
-            "lr_overlay_padding": 26,
-            "new_tab": false,
-            "tb_overlay_padding": 26,
-            "text": "",
-            "title": ""
-          },
-          "type": "column"
-        }
-      },
-      "disabled": true,
-      "settings": {
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "",
-        "column_alignment": "left",
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "desktop_padding_bottom": 0,
-        "desktop_padding_top": 0,
-        "enable_custom_spacing": true,
-        "enable_desktop_full_width": false,
-        "enable_mobile_full_width": false,
-        "heading_size": "h2",
-        "horizontal_spacing_desktop": 6,
-        "horizontal_spacing_mobile": 6,
-        "image_ratio": "adapt",
-        "image_width": "full",
-        "mobile_padding_bottom": 0,
-        "mobile_padding_top": 0,
-        "swipe_on_mobile": false,
-        "title": "",
-        "vertical_spacing_desktop": 6,
-        "vertical_spacing_mobile": 6
-      },
-      "type": "multicolumn"
-    },
-    "multicolumn_peYxH9": {
-      "block_order": [
-        "column_LdhAqc",
-        "column_iAT4GA",
-        "column_3igURh"
-      ],
-      "blocks": {
-        "column_3igURh": {
-          "settings": {
-            "button_type": "primary",
-            "content_position": "bottom-center",
-            "enable_overlay": false,
-            "image": "shopify://shop_images/MP_WI24_Leader_12.18.24_Stores_HP_2x3_044462ed-a8f9-44b8-93e4-5525f3a81a6b.jpg",
-            "link": "shopify://pages/stores",
-            "link_color": "#000000",
-            "link_label": "OUR STORES",
-            "link_margin": 8,
-            "link_style": "none",
-            "link_type": "link",
-            "lr_overlay_padding": 26,
-            "new_tab": true,
-            "tb_overlay_padding": 26,
-            "text": "",
-            "title": ""
-          },
-          "type": "column"
-        },
-        "column_LdhAqc": {
-          "settings": {
-            "button_type": "primary",
-            "content_position": "middle-center",
-            "enable_overlay": false,
-            "image": "shopify://shop_images/MP_WI24_Leader_12.18.24_gift_HP_2x3_129a1fd2-3b8a-42d5-b8ea-f177d4ad4fc8.jpg",
-            "link": "",
-            "link_color": "#000000",
-            "link_label": "GIFT GUIDES",
-            "link_margin": 8,
-            "link_style": "none",
-            "link_type": "link",
-            "lr_overlay_padding": 26,
-            "new_tab": false,
-            "tb_overlay_padding": 26,
-            "text": "",
-            "title": ""
-          },
-          "type": "column"
-        },
-        "column_iAT4GA": {
-          "settings": {
-            "button_type": "primary",
-            "content_position": "bottom-left",
-            "enable_overlay": false,
-            "image": "shopify://shop_images/MP_WI24_Leader_12.18.24_Accs_HP_2x3_fee9ec7f-32c4-4b56-9d75-bc99e5665f88.jpg",
-            "link": "shopify://collections/child-accessories",
-            "link_color": "#000000",
-            "link_label": "WINTER ACCESSORIES",
-            "link_margin": 8,
-            "link_style": "none",
-            "link_type": "link",
-            "lr_overlay_padding": 26,
-            "new_tab": false,
-            "tb_overlay_padding": 26,
-            "text": "",
-            "title": ""
-          },
-          "type": "column"
-        }
-      },
-      "disabled": true,
-      "settings": {
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "",
-        "column_alignment": "left",
-        "columns_desktop": 3,
-        "columns_mobile": "1",
-        "desktop_padding_bottom": 30,
-        "desktop_padding_top": 30,
-        "enable_custom_spacing": true,
-        "enable_desktop_full_width": false,
-        "enable_mobile_full_width": false,
-        "heading_size": "h2",
-        "horizontal_spacing_desktop": 10,
-        "horizontal_spacing_mobile": 10,
-        "image_ratio": "adapt",
-        "image_width": "full",
-        "mobile_padding_bottom": 0,
-        "mobile_padding_top": 16,
-        "swipe_on_mobile": false,
-        "title": "",
-        "vertical_spacing_desktop": 0,
-        "vertical_spacing_mobile": 12
-      },
-      "type": "multicolumn"
-    },
-    "multicolumn_tbTyfj": {
-      "block_order": [
-        "column_3apXXc"
-      ],
-      "blocks": {
-        "column_3apXXc": {
-          "settings": {
-            "button_type": "primary",
-            "content_position": "middle-center",
-            "enable_overlay": false,
-            "image": "shopify://shop_images/MP_SP25_Leader_3.7.25_Adult_2_ea6b1730-e3b5-4a25-8986-ce74ad3e7040.jpg",
-            "link": "",
-            "link_color": "#000000",
-            "link_label": "",
-            "link_margin": 0,
-            "link_style": "none",
-            "link_type": "link",
-            "lr_overlay_padding": 26,
-            "new_tab": false,
-            "tb_overlay_padding": 26,
-            "text": "",
-            "title": ""
-          },
-          "type": "column"
-        }
-      },
-      "disabled": true,
-      "settings": {
-        "background_style": "primary",
-        "button_label": "Button label",
-        "button_link": "",
-        "color_scheme": "",
-        "column_alignment": "left",
-        "columns_desktop": 1,
-        "columns_mobile": "1",
-        "desktop_padding_bottom": 0,
-        "desktop_padding_top": 0,
-        "enable_custom_spacing": true,
-        "enable_desktop_full_width": true,
-        "enable_mobile_full_width": true,
-        "heading_size": "h2",
-        "horizontal_spacing_desktop": 0,
-        "horizontal_spacing_mobile": 0,
-        "image_ratio": "adapt",
-        "image_width": "full",
-        "mobile_padding_bottom": 0,
-        "mobile_padding_top": 0,
-        "swipe_on_mobile": false,
-        "title": "",
-        "vertical_spacing_desktop": 0,
-        "vertical_spacing_mobile": 0
-      },
-      "type": "multicolumn"
-    },
-    "rich_text_9CUP9Q": {
-      "block_order": [
-        "heading_dnQRbK",
-        "text_xEBaKk",
-        "button_hTVGWN"
-      ],
-      "blocks": {
-        "button_hTVGWN": {
-          "settings": {
-            "button_label": "CHILD SALE",
-            "button_label_2": "BABY SALE",
-            "button_label_3": "",
-            "button_link": "shopify://collections/child-sale",
-            "button_link_2": "shopify://collections/baby-sale",
-            "button_link_3": "",
-            "button_style_secondary": true,
-            "button_style_secondary_2": true,
-            "button_style_secondary_3": false
-          },
-          "type": "button"
-        },
-        "heading_dnQRbK": {
-          "settings": {
-            "heading": "SHOP ALL SALE",
-            "heading_size": "h2"
-          },
-          "type": "heading"
-        },
-        "text_xEBaKk": {
-          "disabled": true,
-          "settings": {
-            "line_height": 24,
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
-          },
-          "type": "text"
-        }
-      },
-      "disabled": true,
-      "settings": {
-        "color_scheme": "",
-        "content_alignment": "center",
-        "desktop_content_position": "center",
-        "full_width": true,
-        "padding_bottom": 76,
-        "padding_left": 0,
-        "padding_right": 0,
-        "padding_top": 76
-      },
-      "type": "rich-text"
-    },
-    "rich_text_N3wraP": {
-      "block_order": [
-        "heading_8jBai8",
-        "text_nGfUnQ",
-        "button_ihJPKi"
-      ],
-      "blocks": {
-        "button_ihJPKi": {
-          "disabled": true,
-          "settings": {
-            "button_label": "Button label",
-            "button_label_2": "",
-            "button_label_3": "",
-            "button_link": "",
-            "button_link_2": "",
-            "button_link_3": "",
-            "button_style_secondary": false,
-            "button_style_secondary_2": false,
-            "button_style_secondary_3": false
-          },
-          "type": "button"
-        },
-        "heading_8jBai8": {
-          "settings": {
-            "heading": "Objects of memory, made to last and meant to be lived in.",
-            "heading_size": "h2"
-          },
-          "type": "heading"
-        },
-        "text_nGfUnQ": {
-          "disabled": true,
-          "settings": {
-            "line_height": 24,
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
-          },
-          "type": "text"
-        }
-      },
-      "disabled": true,
-      "settings": {
-        "color_scheme": "",
-        "content_alignment": "center",
-        "desktop_content_position": "center",
-        "full_width": true,
-        "padding_bottom": 100,
-        "padding_left": 0,
-        "padding_right": 0,
-        "padding_top": 88
-      },
-      "type": "rich-text"
-    },
-    "slideshow_t7VikK": {
-      "block_order": [
-        "slide_mkRtae"
-      ],
-      "blocks": {
-        "slide_mkRtae": {
-          "settings": {
-            "box_align": "middle-center",
-            "button_label": "",
-            "button_style_secondary": true,
-            "color_scheme": "scheme-1",
-            "heading": "",
-            "heading_size": "h2",
-            "image": "shopify://shop_images/MP_WI24_Leader_11.15.24_Adult_1.jpg",
-            "image_overlay_opacity": 0,
-            "link": "",
-            "mobile_image": "shopify://shop_images/Look_03_0275_e_site.jpg",
-            "show_text_box": false,
-            "subheading": "asdfasdf",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center"
-          },
-          "type": "slide"
-        }
-      },
-      "disabled": true,
-      "settings": {
-        "accessibility_info": "",
-        "auto_rotate": false,
-        "change_slides_speed": 3,
-        "desktop_padding_bottom": 0,
-        "desktop_padding_left": 40,
-        "desktop_padding_right": 40,
-        "desktop_padding_top": 0,
-        "image_behavior": "none",
-        "layout": "full_bleed",
-        "mobile_padding_bottom": 20,
-        "mobile_padding_left": 20,
-        "mobile_padding_right": 20,
-        "mobile_padding_top": 0,
-        "show_text_below": true,
-        "slide_height": "adapt_image",
-        "slider_visual": "counter"
-      },
-      "type": "slideshow"
-    }
-  }
+  ]
 }
