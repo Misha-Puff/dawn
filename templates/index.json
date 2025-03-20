@@ -115,7 +115,7 @@
         "desktop_padding_bottom": 0,
         "desktop_padding_left": 20,
         "desktop_padding_right": 20,
-        "mobile_padding_top": 28,
+        "mobile_padding_top": 20,
         "mobile_padding_bottom": 0,
         "mobile_padding_left": 12,
         "mobile_padding_right": 12
@@ -129,7 +129,7 @@
           "settings": {
             "image": "shopify://shop_images/MP_SP25_Leader_3.21.25_Child_1.jpg",
             "title": "",
-            "text": "<p>NEW ARRIVALS — CHILD</p>",
+            "text": "<p>CHILD SPRING COLLECTION</p>",
             "link_label": "",
             "link": "shopify://collections/child-denim",
             "new_tab": false,
@@ -149,7 +149,7 @@
           "settings": {
             "image": "shopify://shop_images/MP_SP25_Leader_3.21.25_Baby_1.jpg",
             "title": "",
-            "text": "<p>NEW ARRIVALS — BABY</p>",
+            "text": "<p>BABY SPRING COLLECTION</p>",
             "link_label": "",
             "link": "shopify://collections/baby-spring-collection",
             "new_tab": false,
@@ -189,10 +189,10 @@
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 10,
-        "mobile_padding_top": 16,
-        "mobile_padding_bottom": 0
+        "desktop_padding_top": 34,
+        "desktop_padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 20
       }
     },
     "rich_text_N3wraP": {
