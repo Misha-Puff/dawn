@@ -180,11 +180,11 @@
         "column_dVCGVj": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_WI24_Leader_1.24.25_Adult_Accs.jpg",
+            "image": "shopify://shop_images/SP25_Adult_Look_12_0913.jpg",
             "title": "",
-            "text": "<p>WINTER ACCESSORIES — ON SALE</p>",
+            "text": "<p>NEW ARRIVALS</p>",
             "link_label": "",
-            "link": "shopify://collections/adult-accessories",
+            "link": "shopify://collections/adult-new",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
