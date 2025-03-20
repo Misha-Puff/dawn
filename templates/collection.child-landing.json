@@ -93,7 +93,7 @@
         "buttons_MbErHB"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_SP25_Leader_3.13.25_1.jpg",
+        "image": "shopify://shop_images/MP_SP25_Leader_3.21_25_Child_2.jpg",
         "banner_link": "shopify://collections/child-spring-collection",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
@@ -104,7 +104,7 @@
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "",
-        "mobile_image": "shopify://shop_images/MP_SP25_Leader_3.13.25_1_MOB_be7334a3-0fa3-4863-80ba-7639b5c90fc1.jpg",
+        "mobile_image": "shopify://shop_images/MP_SP25_Leader_3.21_25_Child_2_Mob.jpg",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
         "show_text_below": false,
@@ -144,7 +144,7 @@
         "column_iBFc39": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_SP25_Leader_3.13.25_Accs.jpg",
+            "image": "shopify://shop_images/250207_MP_LAYDOWNS3525_1.jpg",
             "title": "",
             "text": "<p>NEW — ACCESSORIES</p>",
             "link_label": "",
