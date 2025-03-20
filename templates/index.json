@@ -301,9 +301,8 @@
       "blocks": {
         "heading_QAPny3": {
           "type": "heading",
-          "disabled": true,
           "settings": {
-            "heading": "Gift Guides",
+            "heading": "DENIM COLLECTION",
             "desktop_heading_size": "h2",
             "mobile_heading_size": "h2",
             "heading_color": "#ffffff"
@@ -325,13 +324,13 @@
             "link_type": "link",
             "link_color": "#ffffff",
             "link_size": 13,
-            "button_label_1": "SHOP ADULT",
-            "button_link_1": "shopify://collections/adult-fall-winter",
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/child-denim",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false,
-            "buttons_top_margin": 15
+            "buttons_top_margin": 9
           }
         }
       },
@@ -341,18 +340,18 @@
         "buttons_zkt4Vc"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_SP25_Leader_3.7.25_Adult_2_ea6b1730-e3b5-4a25-8986-ce74ad3e7040.jpg",
-        "banner_link": "shopify://collections/adult-spring",
+        "image": "shopify://shop_images/MP_SP25_Leader_3.21_25_Denim_2c4ab193-0551-4197-9d69-d5138708acbb.jpg",
+        "banner_link": "shopify://collections/child-denim",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "image_behavior": "none",
-        "content_position": "middle-left",
+        "content_position": "middle-center",
         "tb_overlay_padding": 0,
         "lr_overlay_padding": 120,
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "",
-        "mobile_image": "shopify://shop_images/MP_SP25_Leader_3.7.25_Adult_2_Mob_76fc9486-7af7-4c59-aaca-ffa39c77148a.jpg",
+        "mobile_image": "shopify://shop_images/MP_SP25_Leader_3.21_25_Denim_Mob.jpg",
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "center",
         "show_text_below": false,
