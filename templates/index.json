@@ -15,7 +15,7 @@
         "heading_egMwVJ": {
           "type": "heading",
           "settings": {
-            "heading": "SPRING COLLECTION",
+            "heading": "ADULT SPRING COLLECTION",
             "desktop_heading_size": "h2",
             "mobile_heading_size": "h2",
             "heading_color": "#ffffff"
@@ -37,7 +37,7 @@
             "link_color": "#ffffff",
             "link_size": 13,
             "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/child-spring-collection",
+            "button_link_1": "shopify://collections/adult-spring",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -52,18 +52,18 @@
         "buttons_CGGLqp"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_SP25_Leader_3.13.25_3.jpg",
-        "banner_link": "shopify://collections/child-spring-collection",
+        "image": "shopify://shop_images/MP_SP25_Leader_3.21.25_Adult_1.jpg",
+        "banner_link": "shopify://collections/adult-spring",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
         "image_behavior": "none",
-        "content_position": "middle-left",
+        "content_position": "middle-center",
         "tb_overlay_padding": 0,
         "lr_overlay_padding": 110,
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "",
-        "mobile_image": "shopify://shop_images/MP_SP25_Leader_3.13.25_3_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_SP25_Leader_3.21.25_Adult_1_MOB_7b071cb7-c785-4ba6-b909-41e60b516139.jpg",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
         "show_text_below": false,

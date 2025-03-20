@@ -91,7 +91,6 @@
       "blocks": {
         "heading_8rkKyc": {
           "type": "heading",
-          "disabled": true,
           "settings": {
             "heading": "ADULT SPRING COLLECTION",
             "desktop_heading_size": "h2",
@@ -101,12 +100,11 @@
         },
         "text_yfJCR4": {
           "type": "text",
-          "disabled": true,
           "settings": {
-            "text": "FIRST RELEASE IS HERE",
+            "text": "NEW ARRIVALAS",
             "text_color": "#ffffff",
             "text_style": "caption-with-letter-spacing",
-            "text_top_margin": 9
+            "text_top_margin": 7
           }
         },
         "buttons_8b9zaW": {
@@ -121,7 +119,7 @@
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false,
-            "buttons_top_margin": 19
+            "buttons_top_margin": 13
           }
         }
       },
@@ -131,7 +129,7 @@
         "buttons_8b9zaW"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_SP25_Leader_Adult_3.12.25_bc7a4f8b-ace0-4836-a25b-56b0f6aa8f44.jpg",
+        "image": "shopify://shop_images/MP_SP25_Leader_3.21.25_Adult_2.jpg",
         "banner_link": "shopify://collections/adult-spring",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
@@ -142,7 +140,7 @@
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "",
-        "mobile_image": "shopify://shop_images/MP_SP25_Leader_Adult_3.12.25_Mob_14767705-740f-4644-b145-100f0864f9f5.jpg",
+        "mobile_image": "shopify://shop_images/MP_SP25_Leader_3.21.25_Adult_2_MOB_0fe7a307-9761-4609-99db-151759b9607a.jpg",
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "center",
         "show_text_below": false,
