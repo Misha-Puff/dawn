@@ -1,6 +1,6 @@
-{%- comment %}<locksmith:e8a4>{%- endcomment %}
-{%- include 'locksmith' -%}
-{%- comment %}</locksmith:e8a4>{%- endcomment %}
+{%- comment %}<locksmith:04e9>{% endcomment -%}
+  {%- include 'locksmith' -%}
+{%- comment %}</locksmith:04e9>{% endcomment -%}
 
 {% include 'shogun-content-handler' %}
 
@@ -8,6 +8,7 @@
 {% render 'signature' %}
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
+    {{ locksmith_initializations }}
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -23,7 +24,6 @@
     </script>
     <!-- End Google Tag Manager -->
 
-    {{ locksmith_initializations }}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -47,11 +47,10 @@
     </title>
 
     {% if page_description %}
-      {%- comment %}<locksmith:b764>{%- endcomment %}
-      {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture -%}
-      {%- if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
-      {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-      {%- comment %}</locksmith:b764>{%- endcomment %}
+      {%- comment %}<locksmith:01c7>{% endcomment -%}
+        {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+        {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
+      {%- comment %}</locksmith:01c7>{% endcomment -%}
     {% endif %}
 
     {% render 'meta-tags' %}
