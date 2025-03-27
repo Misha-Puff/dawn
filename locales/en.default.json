@@ -571,5 +571,11 @@
     "StockCounter": {
       "let_buy_now": "<mark>HURRY!</mark> LET BUY NOW"
     }
+  },
+  "locksmith": {
+    "forms": {
+      "submit_button_text": "Continue",
+      "loading_text": "One moment..."
+    }
   }
 }
