@@ -1,6 +1,6 @@
-{%- comment %}<locksmith:04e9>{% endcomment -%}
-  {%- include 'locksmith' -%}
-{%- comment %}</locksmith:04e9>{% endcomment -%}
+{%- comment %}<locksmith:04e9>{%- endcomment %}
+{%- include 'locksmith' -%}
+{%- comment %}</locksmith:04e9>{%- endcomment %}
 
 {% include 'shogun-content-handler' %}
 
@@ -20,7 +20,7 @@
         j.async = true;
         j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
         f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', 'GTM-MSN4Q7BM');
+      })(window, document, 'script', 'dataLayer', 'GTM-JLY41K95KQ');
     </script>
     <!-- End Google Tag Manager -->
 
@@ -47,10 +47,11 @@
     </title>
 
     {% if page_description %}
-      {%- comment %}<locksmith:01c7>{% endcomment -%}
-        {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
-        {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-      {%- comment %}</locksmith:01c7>{% endcomment -%}
+      {%- comment %}<locksmith:01c7>{%- endcomment %}
+      {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture -%}
+      {%- if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+      {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
+      {%- comment %}</locksmith:01c7>{%- endcomment %}
     {% endif %}
 
     {% render 'meta-tags' %}
@@ -345,7 +346,7 @@
     <!-- Google Tag Manager (noscript) -->
     <noscript
       ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-MSN4Q7BM"
+        src="https://www.googletagmanager.com/ns.html?id=GTM-JLY41K95KQ"
         height="0"
         width="0"
         style="display:none;visibility:hidden"
