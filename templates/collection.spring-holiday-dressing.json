@@ -25,6 +25,127 @@
         "color_scheme": "scheme-1"
       }
     },
+    "rich_text_MccHbc": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_QFfFpm": {
+          "type": "heading",
+          "settings": {
+            "heading": "Spring Holiday Dressing",
+            "heading_size": "h2"
+          }
+        },
+        "text_633F6R": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Spring holidays are near. Shop our curated looks for spring holiday dressing — festive looks for every type of gathering.</p>",
+            "line_height": 22
+          }
+        },
+        "button_336ybz": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_QFfFpm",
+        "text_633F6R",
+        "button_336ybz"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 20,
+        "padding_left": 152,
+        "padding_right": 152
+      }
+    },
+    "buttons_EbyzYT": {
+      "type": "buttons",
+      "blocks": {
+        "button_tXjcG4": {
+          "type": "button",
+          "settings": {
+            "label": "ALL CHILD SPRING",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-spring-collection",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_bwt7GV": {
+          "type": "button",
+          "settings": {
+            "label": "ALL BABY SPRING",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-spring-collection",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_fytxKT": {
+          "type": "button",
+          "settings": {
+            "label": "DRESSES",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-dresses",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_NYUGFe": {
+          "type": "button",
+          "settings": {
+            "label": "SWEATERS",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-sweaters-cardigans",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_EBjLzk": {
+          "type": "button",
+          "settings": {
+            "label": "ACCESSORIES",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-accessories",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_tXjcG4",
+        "button_bwt7GV",
+        "button_fytxKT",
+        "button_NYUGFe",
+        "button_EBjLzk"
+      ],
+      "settings": {
+        "title": "",
+        "button_gap": 10,
+        "heading_size": "h1",
+        "color_scheme": "",
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 20
+      }
+    },
     "rich_text_YJeCaw": {
       "type": "rich-text",
       "blocks": {
@@ -84,6 +205,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 1,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -100,6 +224,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 6,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -118,17 +245,19 @@
       "settings": {
         "products_per_page": 48,
         "columns_desktop": 3,
+        "columns_mobile": "2",
         "color_scheme": "",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "enable_overlay": false,
+        "enable_swatches": false,
         "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "drawer",
         "enable_sorting": true,
-        "columns_mobile": "2",
         "padding_top": 0,
         "padding_bottom": 36
       }
@@ -146,6 +275,8 @@
     "shogun-helper",
     "shogun-above",
     "banner",
+    "rich_text_MccHbc",
+    "buttons_EbyzYT",
     "rich_text_YJeCaw",
     "product-grid",
     "shogun-below",
