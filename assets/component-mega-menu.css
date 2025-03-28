@@ -12,13 +12,13 @@
   padding-top: 3rem;
   position: absolute;
   right: 0;
-  top: calc(100% - 27px);
+  /* top: calc(100% - 27px); */
   z-index: 999998;
 }
 
-.scrolled-past-header .mega-menu__content {
+/* .scrolled-past-header .mega-menu__content {
   top: calc(100% - 37px);
-}
+} */
 
 .shopify-section-header-sticky .mega-menu__content {
   max-height: calc(100vh - var(--header-bottom-position-desktop, 20rem) - 4rem);
