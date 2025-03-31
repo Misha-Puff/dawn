@@ -63,7 +63,6 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -73,6 +72,57 @@
         "padding_bottom": 20,
         "padding_left": 124,
         "padding_right": 124
+      }
+    },
+    "buttons_hynhHR": {
+      "type": "buttons",
+      "blocks": {
+        "button_RhxiBN": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP ALL SPRING",
+            "open_new_tab": true,
+            "link": "shopify://collections/adult-spring",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_GKRmb6": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP LAYERING PIMA",
+            "open_new_tab": true,
+            "link": "shopify://collections/adult-pima-cotton",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_7CVkAW": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "label": "",
+            "open_new_tab": false,
+            "link": "",
+            "type": "primary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_RhxiBN",
+        "button_GKRmb6",
+        "button_7CVkAW"
+      ],
+      "settings": {
+        "title": "",
+        "button_gap": 15,
+        "heading_size": "h1",
+        "color_scheme": "",
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 40,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 30
       }
     },
     "product-grid": {
@@ -148,56 +198,6 @@
     "shogun-optimizer": {
       "type": "shogun-optimizer",
       "settings": {}
-    },
-    "buttons_hynhHR": {
-      "type": "buttons",
-      "blocks": {
-        "button_RhxiBN": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP ALL SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/adult-spring",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_GKRmb6": {
-          "type": "button",
-          "settings": {
-            "label": "LAYERING PIMA",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
-        },
-        "button_7CVkAW": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
-        }
-      },
-      "block_order": [
-        "button_RhxiBN",
-        "button_GKRmb6",
-        "button_7CVkAW"
-      ],
-      "settings": {
-        "title": "",
-        "button_gap": 10,
-        "heading_size": "h1",
-        "color_scheme": "",
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 30,
-        "mobile_padding_top": 30,
-        "mobile_padding_bottom": 30
-      }
     }
   },
   "order": [
@@ -205,9 +205,9 @@
     "shogun-above",
     "banner",
     "rich_text_YJeCaw",
+    "buttons_hynhHR",
     "product-grid",
     "shogun-below",
-    "shogun-optimizer",
-    "buttons_hynhHR"
+    "shogun-optimizer"
   ]
 }
