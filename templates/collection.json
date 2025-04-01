@@ -148,21 +148,6 @@
     "shogun-optimizer": {
       "type": "shogun-optimizer",
       "settings": {}
-    },
-    "collapsible_rich_text_9tqUQP": {
-      "type": "collapsible-rich-text",
-      "settings": {
-        "text": "<p>{{ collection.metafields.seo.description | metafield_tag }}</p>",
-        "line_height": 24,
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52,
-        "padding_left": 0,
-        "padding_right": 0
-      }
     }
   },
   "order": [
@@ -172,7 +157,6 @@
     "rich_text_YJeCaw",
     "product-grid",
     "shogun-below",
-    "shogun-optimizer",
-    "collapsible_rich_text_9tqUQP"
+    "shogun-optimizer"
   ]
 }
