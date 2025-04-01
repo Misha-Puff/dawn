@@ -1,23 +1,21 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "shogun-helper": {
       "type": "shogun-helper",
-      "settings": {
-      }
+      "settings": {}
     },
     "shogun-above": {
       "type": "shogun-above",
-      "settings": {
-      }
+      "settings": {}
     },
     "banner": {
       "type": "main-collection-banner",
@@ -72,9 +70,59 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 52,
-        "padding_bottom": 40,
-        "padding_left": 100,
-        "padding_right": 100
+        "padding_bottom": 20,
+        "padding_left": 80,
+        "padding_right": 80
+      }
+    },
+    "buttons_irahck": {
+      "type": "buttons",
+      "blocks": {
+        "button_mdyzBU": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP YARN",
+            "open_new_tab": true,
+            "link": "shopify://collections/all-yarn",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_EiLBCL": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP KNITTING PATTERNS",
+            "open_new_tab": true,
+            "link": "shopify://collections/knitting-patterns",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_NQDVXi": {
+          "type": "button",
+          "settings": {
+            "label": "",
+            "open_new_tab": false,
+            "link": "",
+            "type": "primary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_mdyzBU",
+        "button_EiLBCL",
+        "button_NQDVXi"
+      ],
+      "settings": {
+        "title": "",
+        "button_gap": 10,
+        "heading_size": "h1",
+        "color_scheme": "",
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 40,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 20
       }
     },
     "product-grid": {
@@ -86,6 +134,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 1,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -102,6 +153,9 @@
           "settings": {
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 6,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -120,6 +174,7 @@
       "settings": {
         "products_per_page": 48,
         "columns_desktop": 3,
+        "columns_mobile": "2",
         "color_scheme": "",
         "image_ratio": "adapt",
         "image_shape": "default",
@@ -132,20 +187,17 @@
         "enable_filtering": true,
         "filter_type": "drawer",
         "enable_sorting": true,
-        "columns_mobile": "2",
         "padding_top": 0,
         "padding_bottom": 36
       }
     },
     "shogun-below": {
       "type": "shogun-below",
-      "settings": {
-      }
+      "settings": {}
     },
     "shogun-optimizer": {
       "type": "shogun-optimizer",
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [
@@ -153,6 +205,7 @@
     "shogun-above",
     "banner",
     "rich_text_YyAWtR",
+    "buttons_irahck",
     "product-grid",
     "shogun-below",
     "shogun-optimizer"
