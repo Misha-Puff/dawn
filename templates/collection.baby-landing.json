@@ -508,6 +508,22 @@
         "mobile_padding_top": 40,
         "mobile_padding_bottom": 30
       }
+    },
+    "collapsible_rich_text_ffHaxx": {
+      "type": "collapsible-rich-text",
+      "settings": {
+        "text": "{{ collection.metafields.seo.description | metafield_tag }}",
+        "line_height": 24,
+        "max_character_count": 200,
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_left": 0,
+        "padding_right": 0
+      }
     }
   },
   "order": [
@@ -518,6 +534,7 @@
     "featured_collection_8G4PAp",
     "multicolumn_ftgmXy",
     "image_banner_jcHbpF",
-    "buttons_YJPCrw"
+    "buttons_YJPCrw",
+    "collapsible_rich_text_ffHaxx"
   ]
 }
