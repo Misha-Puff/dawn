@@ -24,19 +24,16 @@
 {%- endstyle -%}
 
 {% liquid
-  assign full_text_content = section.settings.text | strip_html
-  assign word_count = full_text_content | strip_html | split: ' ' | size
-  if word_count > 32
-    assign truncated_text_content = full_text_content | strip_html | truncatewords: 32
-  endif
+  assign full_text_content = section.settings.text
+  assign full_text_size = full_text_content | size
+  assign max_character_count = section.settings.max_character_count
 %}
 
 {% unless full_text_content == blank %}
   <script>
     function toggleContent() {
-      console.log('HERE');
-      const fullContent = document.querySelector('.section-{{ section.id }}-padding .full-content');
-      const truncatedContent = document.querySelector('.section-{{ section.id }}-padding .truncated-content');
+      const fullContent = document.querySelector('.section-{{ section.id }}-padding .full-content-wrapper');
+      const truncatedContent = document.querySelector('.section-{{ section.id }}-padding .truncated-content-wrapper');
 
       fullContent.classList.toggle('hidden');
       truncatedContent.classList.toggle('hidden');
@@ -53,25 +50,77 @@
               style="--animation-order: 0;"
             {% endif %}
           >
-            {% if word_count > 32 %}
-              <p class="truncated-content">
-                {{ truncated_text_content }}
+            {% if full_text_size > max_character_count %}
+              <span class="truncated-content-wrapper">
+                <span class="truncated-content"></span>
                 <button class="link" onclick="toggleContent()">Read more</button>
-              </p>
-              <p class="full-content hidden">
-                {{ full_text_content }}
+              </span>
+              <span class="full-content-wrapper hidden">
+                <span class="full-content">{{ full_text_content }}</span>
                 <button class="link" onclick="toggleContent()">Read less</button>
-              </p>
+              </span>
             {% else %}
-              <p>
+              <span>
                 {{ full_text_content }}
-              </p>
+              </span>
             {% endif %}
           </div>
         </div>
       </div>
     </div>
   </div>
+  <script>
+    function truncateHTML(length) {
+      const fullContent = document.querySelector('.section-{{ section.id }}-padding .full-content');
+      const truncatedContent = document.querySelector('.section-{{ section.id }}-padding .truncated-content');
+
+      let visibleTextLength = 0;
+      let truncatedHTML = '';
+
+      function traverseNodes(node) {
+        if (visibleTextLength >= length) {
+          return;
+        }
+
+        if (node.nodeType === Node.TEXT_NODE) {
+          const remainingLength = length - visibleTextLength;
+          const text = node.nodeValue;
+
+          if (text.length <= remainingLength) {
+            truncatedHTML += text;
+            visibleTextLength += text.length;
+          } else {
+            truncatedHTML += text.substring(0, remainingLength);
+            visibleTextLength = length;
+          }
+
+          if(visibleTextLength == length) {
+            truncatedHTML += '...';
+          }
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+          truncatedHTML += node.outerHTML.match(/^<[^>]+>/)?.[0] || '';
+
+          for (const childNode of node.childNodes) {
+            traverseNodes(childNode);
+
+            if (visibleTextLength >= length) {
+              break;
+            }
+          }
+
+          if (visibleTextLength <= length) {
+            truncatedHTML += node.outerHTML.match(/<\/[^>]+>$/)?.[0] || '';
+          }
+        }
+      }
+
+      traverseNodes(fullContent);
+
+      truncatedContent.innerHTML = truncatedHTML;
+    }
+
+    truncateHTML({{ max_character_count }});
+  </script>
 {% endunless %}
 
 {% schema %}
@@ -98,6 +147,12 @@
       "unit": "px",
       "label": "Line Height",
       "default": 24
+    },
+    {
+      "type": "number",
+      "id": "max_character_count",
+      "label": "Max character count",
+      "default": 200
     },
     {
       "type": "select",
