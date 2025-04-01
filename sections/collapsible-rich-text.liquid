@@ -53,14 +53,20 @@
               style="--animation-order: 0;"
             {% endif %}
           >
-            <p class="truncated-content">
-              {{ truncated_text_content }}
-              <button class="link" onclick="toggleContent()">Read more</button>
-            </p>
-            <p class="full-content hidden">
-              {{ full_text_content }}
-              <button class="link" onclick="toggleContent()">Read less</button>
-            </p>
+            {% if word_count > 32 %}
+              <p class="truncated-content">
+                {{ truncated_text_content }}
+                <button class="link" onclick="toggleContent()">Read more</button>
+              </p>
+              <p class="full-content hidden">
+                {{ full_text_content }}
+                <button class="link" onclick="toggleContent()">Read less</button>
+              </p>
+            {% else %}
+              <p>
+                {{ full_text_content }}
+              </p>
+            {% endif %}
           </div>
         </div>
       </div>
