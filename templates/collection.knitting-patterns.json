@@ -39,8 +39,8 @@
         "text_QeRMap": {
           "type": "text",
           "settings": {
-            "text": "<p>This lovingly curated collection of knitting patterns from our archives brings you the essentials and signature pieces from our early collections. These patterns are road maps to your own unique creation, letting you customize size, color, and embrace the magic of the creative process.</p>",
-            "line_height": 20
+            "text": "<p>Discover our lovingly curated collection of knitting patterns from our archives, bringing you the essentials and signature pieces from our early collections.</p><p>Featuring child and baby knitting patterns, as well as womens’ knitwear patterns. These patterns are road maps to your own unique creation, letting you customize size, color, and embrace the magic of the creative process. </p>",
+            "line_height": 22
           }
         },
         "button_zKjgA7": {
@@ -123,6 +123,7 @@
       "settings": {
         "products_per_page": 48,
         "columns_desktop": 3,
+        "columns_mobile": "2",
         "color_scheme": "",
         "image_ratio": "adapt",
         "image_shape": "default",
@@ -135,7 +136,6 @@
         "enable_filtering": true,
         "filter_type": "drawer",
         "enable_sorting": true,
-        "columns_mobile": "2",
         "padding_top": 0,
         "padding_bottom": 36
       }
