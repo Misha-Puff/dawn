@@ -17,14 +17,13 @@
         "announcement_4MwKwV": {
           "type": "announcement",
           "settings": {
-            "text": "<p>FREE DOMESTIC SHIPPING ON ORDERS $200+</p>"
+            "text": "<p>NEW MARKDOWNS — NOW UP TO 50% OFF   <a href=\"/collections/child-sale\" target=\"_blank\" title=\"Child - Sale\">SHOP CHILD</a> | <a href=\"/collections/baby-sale\" target=\"_blank\" title=\"Baby - Sale\">SHOP BABY</a></p>"
           }
         }
       },
       "block_order": [
         "announcement_4MwKwV"
       ],
-      "disabled": true,
       "settings": {
         "desktop_height": 40,
         "mobile_height": 50,
