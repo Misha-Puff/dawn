@@ -31,15 +31,15 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Limited Yarn",
+            "heading": "Spring Tees",
             "heading_size": "h2"
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.</p>",
-            "line_height": 20
+            "text": "<p>Discover our soft, durable Pima cotton tees for kids — timeless staples designed for ultimate comfort and effortless style, perfect for layering and everyday wear.</p>",
+            "line_height": 22
           }
         },
         "button_Yh3Xhh": {
@@ -63,16 +63,87 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
+        "padding_top": 0,
+        "padding_bottom": 20,
         "padding_left": 100,
         "padding_right": 100
+      }
+    },
+    "buttons_BLUPm3": {
+      "type": "buttons",
+      "blocks": {
+        "button_FhLcEq": {
+          "type": "button",
+          "settings": {
+            "label": "ALL CHILD SPRING",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-spring-collection",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_wUraTJ": {
+          "type": "button",
+          "settings": {
+            "label": "ALL PIMA STAPLES",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-pima-staples",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_F68tE7": {
+          "type": "button",
+          "settings": {
+            "label": "DENIM",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-denim",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_Br4CTq": {
+          "type": "button",
+          "settings": {
+            "label": "SWEATERS",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-sweaters-cardigans",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_JcgyEF": {
+          "type": "button",
+          "settings": {
+            "label": "ACCESSORIES",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-accessories",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_FhLcEq",
+        "button_wUraTJ",
+        "button_F68tE7",
+        "button_Br4CTq",
+        "button_JcgyEF"
+      ],
+      "settings": {
+        "title": "",
+        "button_gap": 10,
+        "heading_size": "h1",
+        "color_scheme": "",
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 40,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 20
       }
     },
     "product-grid": {
@@ -171,6 +242,7 @@
     "shogun-above",
     "banner",
     "rich_text_YJeCaw",
+    "buttons_BLUPm3",
     "product-grid",
     "shogun-below",
     "shogun-optimizer",
