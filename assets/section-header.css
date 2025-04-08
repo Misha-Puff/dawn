@@ -75,3 +75,8 @@
     margin-left: 0;
   }
 }
+
+.swym-wishlist {
+  display: flex;
+  align-items: center;
+}
