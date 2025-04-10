@@ -17,18 +17,6 @@
   }
 }
 
-.header .header__icons .header__icon {
-  width: auto;
-}
-
-.header__icon.header__icon--account {
-  margin-right: 1rem;
-}
-
-.header__icon.header__icon--cart {
-  margin-left: 1rem;
-}
-
 @media screen and (max-width: 989px) {
   .header__icons .header__search {
     display: none;
@@ -74,9 +62,4 @@
   .scrolled-past-header .header--top-center .header__inline-menu {
     margin-left: 0;
   }
-}
-
-.swym-wishlist {
-  display: flex;
-  align-items: center;
 }

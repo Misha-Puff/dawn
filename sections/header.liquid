@@ -295,9 +295,11 @@
           </span>
         </a>
       {%- endif -%}
-      <a href="/pages/swym-wishlist" class="swym-wishlist">
+
+      <a href="/pages/swym-wishlist" class="header__icon link focus-inset">
         <span class="svg-wrapper">{{- 'icon-heart.svg' | inline_asset_content -}}</span>
       </a>
+
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when '@app' -%}
