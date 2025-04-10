@@ -297,11 +297,33 @@
           "version": "main"
         }
       },
+      "5946647744298494267": {
+        "type": "shopify://apps/wishlist-plus/blocks/wishlist-app-embed/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
+        "disabled": false,
+        "settings": {
+          "storefront_layout_enabled": true,
+          "storefront_layout_type": "as-section",
+          "storefront_layout_collection_enabled": false,
+          "storefront_layout_primary_bg_color": "#000000",
+          "storefront_layout_primary_text_color": "#ffffff",
+          "storefront_layout_secondary_bg_color": "#ffffff",
+          "storefront_layout_secondary_text_color": "#333333",
+          "storefront_layout_ui_border_radius": 0,
+          "storefront_layout_notification_enabled_as_default": true,
+          "storefront_layout_notification_position": "left",
+          "storefront_layout_action_popup_position": "left",
+          "storefront_layout_drawer_position": "left",
+          "storefront_layout_drawer_width": 340,
+          "storefront_layout_as_section_page": "swym-wishlist"
+        }
+      },
       "10274264662263595587": {
         "type": "shopify://apps/wishlist-plus/blocks/wishlist-collections-embed/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
         "disabled": false,
         "settings": {
           "swym_collections_icon_type": "heart",
+          "swym_collections_add_icon": "shopify://shop_images/heart-outline.svg",
+          "swym_collections_added_icon": "shopify://shop_images/heart-fill.svg",
           "swym_collections_position": "top-right",
           "swym_collections_vertical_offset": 0,
           "swym_collections_horizontal_offset": 0,
@@ -321,26 +343,6 @@
           "swym_variant_selector_product_detail_font_color": "#ffffff",
           "swym_variant_selector_create_list_placeholder_text": "Enter wishlist name",
           "swym_variant_selector_create_list_title": "Name Your Wishlist"
-        }
-      },
-      "5946647744298494267": {
-        "type": "shopify://apps/wishlist-plus/blocks/wishlist-app-embed/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
-        "disabled": false,
-        "settings": {
-          "storefront_layout_enabled": true,
-          "storefront_layout_type": "as-section",
-          "storefront_layout_collection_enabled": false,
-          "storefront_layout_primary_bg_color": "#000000",
-          "storefront_layout_primary_text_color": "#ffffff",
-          "storefront_layout_secondary_bg_color": "#ffffff",
-          "storefront_layout_secondary_text_color": "#333333",
-          "storefront_layout_ui_border_radius": 0,
-          "storefront_layout_notification_enabled_as_default": true,
-          "storefront_layout_notification_position": "left",
-          "storefront_layout_action_popup_position": "left",
-          "storefront_layout_drawer_position": "left",
-          "storefront_layout_drawer_width": 340,
-          "storefront_layout_as_section_page": "swym-wishlist"
         }
       }
     },
