@@ -303,7 +303,7 @@
         "settings": {
           "storefront_layout_enabled": true,
           "storefront_layout_type": "as-section",
-          "storefront_layout_collection_enabled": false,
+          "storefront_layout_collection_enabled": true,
           "storefront_layout_primary_bg_color": "#000000",
           "storefront_layout_primary_text_color": "#ffffff",
           "storefront_layout_secondary_bg_color": "#ffffff",
@@ -331,7 +331,7 @@
           "swym_collections_icon_color": "#000000",
           "swym_collections_product_link_selector": "-",
           "swym_collections_product_tile_selector": "-",
-          "enable_variant_selector": false,
+          "enable_variant_selector": true,
           "swym_add_to_wishlist_title_color": "#333333",
           "swym_variant_selector_font_size_1": 13,
           "swym_variant_selector_popup_bg_color": "#ffffff",
