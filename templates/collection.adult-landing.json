@@ -129,7 +129,7 @@
         "buttons_8b9zaW"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_SP25_Leader_3.21.25_Adult_2.jpg",
+        "image": "shopify://shop_images/MP_SP25_Leader_4.16.25_Adult_1.jpg",
         "banner_link": "shopify://collections/adult-spring",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
@@ -180,11 +180,11 @@
         "column_dVCGVj": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/SP25_Adult_Look_12_0913.jpg",
+            "image": "shopify://shop_images/MP_SP25_Leader_4.16.25_Adult_NEW.jpg",
             "title": "",
-            "text": "<p>NEW ARRIVALS</p>",
+            "text": "<p>NEW — ACCESSORIES</p>",
             "link_label": "",
-            "link": "shopify://collections/adult-new",
+            "link": "shopify://collections/adult-accessories",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
