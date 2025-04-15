@@ -93,7 +93,7 @@
         "buttons_MbErHB"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_SP25_Leader_3.21_25_Child_2.jpg",
+        "image": "shopify://shop_images/MP_SP25_Leader_Child_1b.jpg",
         "banner_link": "shopify://collections/child-spring-collection",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
@@ -104,7 +104,7 @@
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "",
-        "mobile_image": "shopify://shop_images/MP_SP25_Leader_3.21_25_Child_2_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_SP25_Leader_2x3_Child_1_Mob.jpg",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
         "show_text_below": false,
@@ -124,11 +124,11 @@
         "column_RwiwcK": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_SP25_Leader_3.13.25_Child_LP_Denim.jpg",
+            "image": "shopify://shop_images/MP_SP25_Leader_2x3_Isetan_2b.jpg",
             "title": "",
-            "text": "<p>NEW — DENIM</p>",
+            "text": "<p>MISHA & PUFF x ISETAN — SHOP THE COLLAB</p>",
             "link_label": "",
-            "link": "shopify://collections/child-denim",
+            "link": "shopify://collections/child-mp-isetan-edit",
             "new_tab": true,
             "link_margin": 8,
             "enable_overlay": false,
