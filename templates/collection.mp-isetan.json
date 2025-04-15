@@ -31,15 +31,15 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Limited Yarn",
+            "heading": "Misha & Puff x Isetan",
             "heading_size": "h2"
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.</p>",
-            "line_height": 20
+            "text": "<p>Our exclusive collaboration with our friends at Japanese retailer Isetan is here. Discover classic Pima cotton silhouettes in a brand new colorway of our Playground print. <br/><br/>See how Misha & Puff Founder/Creative Director, Anna, mixes the Isetan collaboration with our Spring Collection — color, texture, and plenty of inspo.</p>",
+            "line_height": 22
           }
         },
         "button_Yh3Xhh": {
@@ -63,16 +63,66 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
-        "padding_left": 100,
-        "padding_right": 100
+        "padding_top": 0,
+        "padding_bottom": 20,
+        "padding_left": 40,
+        "padding_right": 40
+      }
+    },
+    "buttons_ACd7tE": {
+      "type": "buttons",
+      "blocks": {
+        "button_YT8BGL": {
+          "type": "button",
+          "settings": {
+            "label": "MP x ISETAN STYLES",
+            "open_new_tab": true,
+            "link": "shopify://collections/mp-isetan-2025",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_qd46z7": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP ALL SPRING",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-spring-collection",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_hRRrci": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP DENIM",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-denim",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_YT8BGL",
+        "button_qd46z7",
+        "button_hRRrci"
+      ],
+      "name": "Buttons",
+      "settings": {
+        "title": "",
+        "button_gap": 10,
+        "heading_size": "h1",
+        "color_scheme": "",
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 20
       }
     },
     "product-grid": {
@@ -171,6 +221,7 @@
     "shogun-above",
     "banner",
     "rich_text_YJeCaw",
+    "buttons_ACd7tE",
     "product-grid",
     "shogun-below",
     "shogun-optimizer",
