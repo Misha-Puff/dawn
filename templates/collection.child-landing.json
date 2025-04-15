@@ -208,10 +208,69 @@
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "desktop_padding_top": 30,
+        "desktop_padding_top": 46,
         "desktop_padding_bottom": 30,
         "mobile_padding_top": 16,
         "mobile_padding_bottom": 0
+      }
+    },
+    "image_banner_pmtDmp": {
+      "type": "image-banner",
+      "blocks": {
+        "text_MQzM9M": {
+          "type": "text",
+          "settings": {
+            "text": "<a href=\"https://shop.misha-and-puff.com/blogs/journal\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/blogs/journal\">JOURNAL</a>",
+            "text_color": "#ffffff",
+            "text_style": "body",
+            "text_top_margin": 10
+          }
+        },
+        "buttons_mwJpBJ": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "link_type": "button",
+            "link_color": "#000000",
+            "link_size": 13,
+            "button_label_1": "Journal",
+            "button_link_1": "shopify://blogs/journal",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "buttons_top_margin": 20
+          }
+        }
+      },
+      "block_order": [
+        "text_MQzM9M",
+        "buttons_mwJpBJ"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/MP_SP25_Leader_4.16.25_Journal_b1ee4849-80c5-4960-8b0c-6b674d8864c4.jpg",
+        "banner_link": "shopify://blogs/journal/haein-jookyung",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "content_position": "middle-center",
+        "tb_overlay_padding": 0,
+        "lr_overlay_padding": 0,
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "",
+        "mobile_image": "shopify://shop_images/MP_SP25_Leader_4.16.25_Journal_Mob.jpg",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": false,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 0,
+        "desktop_padding_right": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
       }
     },
     "featured_collection_UUyGYb": {
@@ -248,7 +307,7 @@
         "columns_mobile": "2",
         "swipe_on_mobile": true,
         "section_full_width": false,
-        "desktop_padding_top": 8,
+        "desktop_padding_top": 48,
         "desktop_padding_bottom": 0,
         "desktop_padding_left": 32,
         "desktop_padding_right": 32,
@@ -536,55 +595,6 @@
         "mobile_padding_bottom": 20
       }
     },
-    "image_banner_pmtDmp": {
-      "type": "image-banner",
-      "blocks": {
-        "buttons_mwJpBJ": {
-          "type": "buttons",
-          "settings": {
-            "link_type": "button",
-            "link_color": "#000000",
-            "link_size": 13,
-            "button_label_1": "Journal",
-            "button_link_1": "shopify://blogs/journal",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "buttons_top_margin": 20
-          }
-        }
-      },
-      "block_order": [
-        "buttons_mwJpBJ"
-      ],
-      "disabled": true,
-      "settings": {
-        "image": "shopify://shop_images/MP_SU24_Leader_Journal_6.18.24.jpg",
-        "banner_link": "",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "image_behavior": "none",
-        "content_position": "middle-center",
-        "tb_overlay_padding": 26,
-        "lr_overlay_padding": 26,
-        "desktop_content_alignment": "center",
-        "show_text_box": false,
-        "color_scheme": "",
-        "mobile_image": "shopify://shop_images/MP_SU24_Leader_Journal_6.18.24_Mob.jpg",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
-        "show_text_below": false,
-        "desktop_padding_top": 0,
-        "desktop_padding_bottom": 0,
-        "desktop_padding_left": 0,
-        "desktop_padding_right": 0,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0,
-        "mobile_padding_left": 0,
-        "mobile_padding_right": 0
-      }
-    },
     "slideshow_8wUhXX": {
       "type": "slideshow",
       "blocks": {
@@ -735,10 +745,10 @@
     "product-grid",
     "image_banner_pHe7YH",
     "multicolumn_gfwpxD",
+    "image_banner_pmtDmp",
     "featured_collection_UUyGYb",
     "multicolumn_HbcHgm",
     "multicolumn_pC9LLV",
-    "image_banner_pmtDmp",
     "slideshow_8wUhXX",
     "shogun-below",
     "shogun-optimizer",
