@@ -15,6 +15,7 @@
   .swymcs-wishlist-header {
     display: flex;
     flex-direction: row;
+    margin-bottom: 20px;
   }
 
   select#swym-mutliple-list {
@@ -26,18 +27,16 @@
 
   #swymcs-custom-wishlist-{{ section.id }}{
     max-width: 1200px;
-    margin: auto;
     font-size: 14px;
     line-height: 20px;
-    padding: 5px 20px;
     display: block;
   }
 
   .swymcs-wishlist-title{
     color: black;
-    font-size: 1.5rem;
+    font-size: 14px;
     padding: 10px;
-    border-bottom: 1px solid rgb(1,1,1,0.25);
+    border-bottom: 1px solid black;
   }
 
   .swymcs-hide{
@@ -165,7 +164,7 @@
 <swymcs-custom-wishlist
   id="swymcs-custom-wishlist-{{ section.id }}"
   data-section-id="{{ section.id }}"
-  class="swymcs-custom-wishlist"
+  class="swymcs-custom-wishlist page-width"
   data-sectionId="{{ section.id }}"
   data-settings="{{ section.settings | json | escape }}"
 >
@@ -181,7 +180,7 @@
     <div class="swymcs-wishlist-header">
       <div id="swymcs-wishlist-list-options-container"></div>
       <div id="swymcs-wishlist-list-actions-container" class="swymcs-hide">
-        <div><button class="button" onclick="deleteWishlist()">Delete Wishlist</button></div>
+        <div><button class="link" onclick="deleteWishlist()">Delete Wishlist</button></div>
       </div>
     </div>
     <div id="swymcs-wishlist-container" class="swymcs-hide">
@@ -419,8 +418,8 @@
   function deleteWishlist() {
     swat.deleteList(
       swat.swymCustomWishlistSelectedListId,
-      onSuccess: () => fetchWishlist(),
-      onError: (error) => console.log(`Error while deleting the List, ${swat.swymCustomWishlistSelectedListId}`, error)
+      () => fetchWishlist(),
+      (error) => console.log(`Error while deleting the List, ${swat.swymCustomWishlistSelectedListId}`, error)
     );
   }
 </script>
