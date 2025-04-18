@@ -1,0 +1,43 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "swym_custom_wishlist_q6kRya": {
+      "type": "swym-custom-wishlist",
+      "settings": {
+        "swym_wishlist_primary_button_color": "#1773B0",
+        "swym_wishlist_primary_button_text_color": "#ffffff",
+        "swym_wishlist_title": "My Wishlist",
+        "swym_wishlist_show_price": true,
+        "swym_wishlist_show_addtocart": true,
+        "swym_wishlist_show_delete_item": true,
+        "swym_wishlist_item_cta_addtocart": "Add to cart",
+        "swym_wishlist_item_cta_addingtocart": "Adding to cart",
+        "swym_wishlist_item_cta_addedtocart": "Added to cart",
+        "swym_wishlist_item_cta_soldout": "Sold out",
+        "swym_wishlist_item_cta_unavailable": "Unavailable",
+        "swym_wishlist_empty_description": "Your wishlist is empty.",
+        "swym_wishlist_empty_action_button_cta": "Discover the Collection Now"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "swym_custom_wishlist_q6kRya"
+  ]
+}
