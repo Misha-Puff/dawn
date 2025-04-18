@@ -115,6 +115,7 @@
   }
 
   .swymcs-wishlistplus-item-content{
+    padding-top: 7px;
     font-size: 12px;
   }
 
@@ -122,13 +123,6 @@
     text-decoration: none;
     color: black;
     font-weight: 500;
-  }
-
-  .swymcs-wishlistplus-item-content .swymcs-wishlistplus-item-title .swymcs-wishlistplus-item-title-content{
-    display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .swymcs-product-price{
@@ -181,6 +175,7 @@
       <div id="swymcs-wishlist-list-options-container"></div>
       <div id="swymcs-wishlist-list-actions-container" class="swymcs-hide">
         <div><button class="link" onclick="deleteWishlist()">Delete Wishlist</button></div>
+        <div><button class="link" onclick="shareWishlist()">Share Wishlist</button></div>
       </div>
     </div>
     <div id="swymcs-wishlist-container" class="swymcs-hide">
@@ -319,9 +314,9 @@
           ).toFixed(2)}</span><span class="swymcs-product-price-final">${_swat.currency}${(
             item.productData.price / 100
           ).toFixed(2)}</span></div>`
-        : `<div class="swymcs-product-price"><p class="swymcs-product-price-final">${_swat.currency}${(
+        : `<div class="swymcs-product-price"><span class="swymcs-product-price-final">${_swat.currency}${(
             item.productData.price / 100
-          ).toFixed(2)}</p></div>`;
+          ).toFixed(2)}</span></div>`;
 
     wishlistItem.innerHTML = `
       <a href="${item.du}" class="swymcs-wishlist-image-container">
@@ -420,6 +415,26 @@
       swat.swymCustomWishlistSelectedListId,
       () => fetchWishlist(),
       (error) => console.log(`Error while deleting the List, ${swat.swymCustomWishlistSelectedListId}`, error)
+    );
+  }
+
+  function shareWishlist() {
+    swat.markListPublic(
+      swat.swymCustomWishlistSelectedListId,
+      (response) => {
+        swat.generateSharedListURL(
+          swat.swymCustomWishlistSelectedListId,
+          (link, lid) => {
+            console.log('Successfully Generated Link ', link, lid);
+          },
+          (error) => {
+            console.log('Error while generating the link', error);
+          }
+        );
+      },
+      (error) => {
+        console.log('Error while marking the list public', error);
+      }
     );
   }
 </script>
