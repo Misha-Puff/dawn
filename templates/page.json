@@ -22,9 +22,7 @@
       "settings": {
         "swym_wishlist_primary_button_color": "#000000",
         "swym_wishlist_primary_button_text_color": "#ffffff",
-        "swym_wishlist_title": "My Favorites",
-        "swym_wishlist_font": "helvetica_n4",
-        "swym_wishlist_show_vendor": true,
+        "swym_wishlist_title": "MY FAVORITES",
         "swym_wishlist_show_price": true,
         "swym_wishlist_show_addtocart": true,
         "swym_wishlist_show_delete_item": true,
