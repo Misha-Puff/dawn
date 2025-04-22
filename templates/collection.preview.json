@@ -32,8 +32,15 @@
         "heading_4bAnVw": {
           "type": "heading",
           "settings": {
-            "heading": "Spring Collection Part 2",
+            "heading": "The Summer Collection — Part 1",
             "heading_size": "h2"
+          }
+        },
+        "text_bdVDk3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Enjoy Early Access to Part 1 of the Summer Collection — please place your order directly with Anne, and explore the collection below.</p><p>This season channels the quiet charm of New England’s coastal summer — a soft-spoken study in sun-bleached tones, rich textures, and storied tradition.</p><p>Crafted in soft knits, Pima cotton, cotton poplin, linen, and terry, the collection features silhouettes and prints that nod to long days by the sea. Hand-worked details and thoughtful crossovers between baby and child create a world that feels both grounded and quietly transportive.</p><p></p><p>Part 1 of the collection will be available to everyone starting Thursday, May 1 at 11 AM ET. Don’t miss this special preview + chance to shop early.</p>",
+            "line_height": 24
           }
         },
         "text_FWX7U7": {
@@ -44,15 +51,9 @@
             "line_height": 22
           }
         },
-        "text_bdVDk3": {
-          "type": "text",
-          "settings": {
-            "text": "<p>This collection is a jewel box of technique, featuring new knits, wovens, denim, and Pima. Rich in color and intricate craftsmanship, designed to create mix-and-match looks in diverse fabrications — for comfort, versatility, and dimension. Styles that feel both familiar and unexpected. Shop Part 1 of the collection <a href=\"https://shop.misha-and-puff.com/collections/child-spring-collection\" target=\"_blank\">here</a>.</p><p>Part 2 of the Spring Collection launches Thursday, March 13 at 11 AM ET. Browse, favorite, and plan your looks!</p>",
-            "line_height": 24
-          }
-        },
         "button_CEpfd9": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "button_label": "VIEW LOOKBOOK",
             "button_link": "shopify://blogs/journal/child-spring-25",
@@ -68,8 +69,8 @@
       },
       "block_order": [
         "heading_4bAnVw",
-        "text_FWX7U7",
         "text_bdVDk3",
+        "text_FWX7U7",
         "button_CEpfd9"
       ],
       "settings": {
@@ -77,10 +78,10 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 20,
-        "padding_bottom": 40,
-        "padding_left": 76,
-        "padding_right": 76
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "padding_left": 40,
+        "padding_right": 40
       }
     },
     "divider_nmzegr": {
@@ -222,7 +223,7 @@
         "heading_C7ewwU": {
           "type": "heading",
           "settings": {
-            "heading": "Spring Collection — Part 2",
+            "heading": "Summer Collection — Part 1",
             "heading_size": "h2"
           }
         },
@@ -255,6 +256,7 @@
         "text_Eb3mJJ",
         "button_pF6FVm"
       ],
+      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
