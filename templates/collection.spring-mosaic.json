@@ -31,15 +31,15 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Limited Yarn",
+            "heading": "A Spring Mosaic",
             "heading_size": "h2"
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.</p>",
-            "line_height": 20
+            "text": "<p>A curated spectrum of spring colors —spotlighting the Joya group, Spring Mosaic, and other vibrant accents that complement the looks.</p>",
+            "line_height": 22
           }
         },
         "button_Yh3Xhh": {
@@ -63,16 +63,65 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
-        "padding_left": 100,
-        "padding_right": 100
+        "padding_top": 0,
+        "padding_bottom": 20,
+        "padding_left": 60,
+        "padding_right": 60
+      }
+    },
+    "buttons_QYziBB": {
+      "type": "buttons",
+      "blocks": {
+        "button_qPweeY": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP ALL SPRING",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-spring-botanica",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_y8wBnq": {
+          "type": "button",
+          "settings": {
+            "label": "ACCESSORIES",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-accessories",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_gQAcKJ": {
+          "type": "button",
+          "settings": {
+            "label": "DENIM",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-denim",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_qPweeY",
+        "button_y8wBnq",
+        "button_gQAcKJ"
+      ],
+      "settings": {
+        "title": "",
+        "button_gap": 10,
+        "heading_size": "h1",
+        "color_scheme": "",
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 20
       }
     },
     "product-grid": {
@@ -171,6 +220,7 @@
     "shogun-above",
     "banner",
     "rich_text_YJeCaw",
+    "buttons_QYziBB",
     "product-grid",
     "shogun-below",
     "shogun-optimizer",
