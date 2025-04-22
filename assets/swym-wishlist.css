@@ -1,3 +1,64 @@
+#swycs-wishlist-modal-background {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 999999999;
+  top: 0;
+  left: 0;
+}
+
+#swycs-wishlist-modal-background::after {
+  content: '';
+  height: 100%;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background-color: #000;
+  opacity: calc(85 / 100);
+}
+
+#swycs-wishlist-modal-container {
+  position: absolute;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 512px;
+  padding: 20px;
+}
+
+#swycs-wishlist-modal-container p {
+  text-align: center;
+}
+
+#swycs-wishlist-modal-container .button-wrapper {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+  gap: 20px;
+}
+
+#swycs-wishlist-share-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#swycs-wishlist-share-form [aria-required='true'] + label::after {
+  font-size: 1.3em;
+  content: '*';
+  color: red;
+  margin-left: 0.1em;
+}
+
 div#swymcs-wishlist-list-options-container {
   border: 1px solid rgb(1, 1, 1, 0.25);
   width: fit-content;
@@ -9,11 +70,24 @@ div#swymcs-wishlist-list-options-container {
   flex-direction: row;
   align-items: center;
   margin-left: 20px;
+  gap: 20px;
+}
+
+#swymcs-wishlist-list-actions-container button {
+  padding: 0;
+}
+
+#swymcs-wishlist-list-actions-container a {
+  letter-spacing: normal;
+  text-align: center;
 }
 
 .swymcs-wishlist-header {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 15px;
   margin-bottom: 20px;
 }
 
@@ -79,7 +153,8 @@ select.swym-mutliple-list {
 .swymcs-custom-wishlist #swymcs-wishlist-items-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  justify-content: center;
+  gap: 45px 15px;
   margin-top: 10px;
 }
 
@@ -90,6 +165,7 @@ select.swym-mutliple-list {
   overflow: hidden;
 }
 
+.swycs-wishlist-modal-container-exit,
 .swymcs-wishlistplus-item-remove {
   cursor: pointer;
   position: absolute;
@@ -171,18 +247,18 @@ select.swym-mutliple-list {
 
 @media only screen and (max-width: 767px) {
   .swymcs-wishlistplus-item {
-    width: 48%;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .swymcs-wishlistplus-item {
+    width: 100%;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   .swymcs-wishlistplus-item {
     width: 32%;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  .swymcs-wishlistplus-item {
-    width: 24%;
   }
 }
