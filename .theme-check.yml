@@ -6,5 +6,9 @@ ignore:
   - snippets/locksmith-variables.liquid
   - snippets/locksmith-content-variables.liquid
   - sections/shogun-*.liquid
+  - layout/theme.gem-*.liquid
+  - layout/theme.shogun.*.liquid
+  - layout/theme.gempages.*.liquid
+  - templates/page.gem-*.liquid
 AssetSizeJavaScript:
   enabled: false
