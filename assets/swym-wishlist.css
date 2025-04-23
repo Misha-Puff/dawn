@@ -1,13 +1,13 @@
-#swycs-wishlist-modal-background {
+#swymcs-wishlist-modal-background {
   height: 100vh;
   width: 100vw;
   position: fixed;
-  z-index: 999999999;
+  z-index: 10;
   top: 0;
   left: 0;
 }
 
-#swycs-wishlist-modal-background::after {
+#swymcs-wishlist-modal-background::after {
   content: '';
   height: 100%;
   width: 100vw;
@@ -21,7 +21,7 @@
   opacity: calc(85 / 100);
 }
 
-#swycs-wishlist-modal-container {
+#swymcs-wishlist-modal-container {
   position: absolute;
   height: auto;
   display: flex;
@@ -35,24 +35,24 @@
   padding: 20px;
 }
 
-#swycs-wishlist-modal-container p {
+#swymcs-wishlist-modal-container p {
   text-align: center;
 }
 
-#swycs-wishlist-modal-container .button-wrapper {
+#swymcs-wishlist-modal-container .button-wrapper {
   display: flex;
   flex-wrap: wrap-reverse;
   justify-content: center;
   gap: 20px;
 }
 
-#swycs-wishlist-share-form {
+#swymcs-wishlist-share-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-#swycs-wishlist-share-form [aria-required='true'] + label::after {
+#swymcs-wishlist-share-form [aria-required='true'] + label::after {
   font-size: 1.3em;
   content: '*';
   color: red;
@@ -67,27 +67,75 @@ div#swymcs-wishlist-list-options-container {
 
 #swymcs-wishlist-list-actions-container {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-left: 20px;
-  gap: 20px;
+  position: relative;
 }
 
-#swymcs-wishlist-list-actions-container button {
+#swymcs-wishlist-list-actions-background {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+}
+
+#swymcs-wishlist-list-actions-background::after {
+  content: '';
+  height: 100%;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background-color: #000;
+  opacity: 0;
+}
+
+.swymcs-wishlist-list-actions-trigger {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.swymcs-wishlist-list-actions-trigger::before {
+  content: '\2807';
+  font-size: 32px;
+}
+
+#swymcs-wishlist-list-actions {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  gap: 20px;
+  top: 50%;
+  left: 100%;
+  background-color: #fff;
+  z-index: 12;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+#swymcs-wishlist-list-actions button {
   padding: 0;
 }
 
-#swymcs-wishlist-list-actions-container a {
+#swymcs-wishlist-list-actions a {
   letter-spacing: normal;
   text-align: center;
 }
 
+#swymcs-wishlist-list-actions a[href='#'] {
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+}
+
 .swymcs-wishlist-header {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  row-gap: 15px;
+  gap: 20px;
   margin-bottom: 20px;
 }
 
@@ -165,7 +213,7 @@ select.swym-mutliple-list {
   overflow: hidden;
 }
 
-.swycs-wishlist-modal-container-exit,
+.swymcs-wishlist-modal-container-exit,
 .swymcs-wishlistplus-item-remove {
   cursor: pointer;
   position: absolute;
@@ -215,34 +263,6 @@ select.swym-mutliple-list {
 
 #share-wishlist {
   position: relative;
-}
-
-.tooltip {
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  top: -150%;
-  left: 20%;
-  margin: 0;
-  padding: 5px;
-  z-index: 1;
-  border-radius: 5px;
-  text-align: center;
-  width: fit-content;
-  background-color: black;
-  color: #fff;
-  transition: opacity 0.3s;
-}
-
-.tooltip::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: black transparent transparent transparent;
 }
 
 @media only screen and (max-width: 767px) {

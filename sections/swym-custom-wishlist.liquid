@@ -1,5 +1,12 @@
 {{ 'swym-wishlist.css' | asset_url | stylesheet_tag }}
 
+{% liquid
+  assign swym_enable_actions = false
+
+  if section.settings.swym_enable_delete_action or section.settings.swym_enable_share_action or section.settings.swym_enable_checkout_action
+    assign swym_enable_actions = true
+  endif
+%}
 <swymcs-custom-wishlist
   class="swymcs-custom-wishlist page-width"
   data-sectionId="{{ section.id }}"
@@ -16,30 +23,43 @@
     </div>
     <div class="swymcs-wishlist-header">
       <div id="swymcs-wishlist-list-options-container"></div>
-      <div id="swymcs-wishlist-list-actions-container" class="swymcs-hide">
-        <div><button class="link" onclick="openModal('delete')">Delete Wishlist</button></div>
-        <div>
-          <button class="link" onclick="openModal('share')">Share Wishlist</button>
+      {% if swym_enable_actions %}
+        <div id="swymcs-wishlist-list-actions-container" class="swymcs-hide">
+          <button class="swymcs-wishlist-list-actions-trigger" onclick="toggleActions()"></button>
+          <div id="swymcs-wishlist-list-actions-background" class="swymcs-hide" onclick="toggleActions()">&nbsp;</div>
+          <div id="swymcs-wishlist-list-actions" class="swymcs-hide">
+            {% if section.settings.swym_enable_delete_action %}
+              <button class="link" onclick="openModal('delete')">Delete Wishlist</button>
+            {% endif %}
+            {% if section.settings.swym_enable_share_action %}
+              <button class="link" onclick="openModal('share')">Share Wishlist</button>
+            {% endif %}
+            {% if section.settings.swym_enable_checkout_action %}
+              <a id="swymcs-wishlist-checkout" class="link" href="#">Checkout Wishlist</a>
+            {% endif %}
+          </div>
         </div>
-        <div><a class="link" href="#" disabled>Checkout Wishlist</a></div>
-      </div>
+      {% endif %}
     </div>
     <div id="swymcs-wishlist-container" class="swymcs-hide">
       <div id="swymcs-wishlist-items-container"></div>
     </div>
     <div id="swymcs-empty-wishlist-container" class="swymcs-hide">
-      <div>{{ section.settings.swym_wishlist_empty_description }}</div>
-      <a href="/collections/all" class="swymcs-custom-continue-shopping button button--secondary">
-        {{- section.settings.swym_wishlist_empty_action_button_cta -}}
+      <div>{{ section.settings.swym_empty_wishlist_description }}</div>
+      <a
+        href="{{ section.settings.swym_empty_wishlist_cta_link }}"
+        class="swymcs-custom-continue-shopping button button--secondary"
+      >
+        {{- section.settings.swym_empty_wishlist_cta_text -}}
       </a>
     </div>
   </div>
-  <div id="swycs-wishlist-modal-background" class="swymcs-hide">
-    <div id="swycs-wishlist-modal-container">
-      <button class="swycs-wishlist-modal-container-exit" onclick="closeModal()">
+  <div id="swymcs-wishlist-modal-background" class="swymcs-hide">
+    <div id="swymcs-wishlist-modal-container">
+      <button class="swymcs-wishlist-modal-container-exit" onclick="closeModal()">
         <span class="svg-wrapper">{{- 'icon-close.svg' | inline_asset_content -}}</span>
       </button>
-      <div id="swycs-wishlist-modal-content-delete" class="swymcs-hide">
+      <div id="swymcs-wishlist-modal-content-delete" class="swymcs-hide">
         <p>Are you sure you want to delete this wishlist?</p>
         <p>This action cannot be undone</p>
         <div class="button-wrapper">
@@ -47,13 +67,13 @@
           <button class="button" onclick="deleteWishlist()">Yes, Delete</button>
         </div>
       </div>
-      <div id="swycs-wishlist-modal-content-share" class="swymcs-hide">
+      <div id="swymcs-wishlist-modal-content-share" class="swymcs-hide">
         <div class=""></div>
         <h3>Share List Via Email</h3>
-        <form id="swycs-wishlist-share-form">
+        <form id="swymcs-wishlist-share-form">
           <div class="field">
             <input
-              id="swycs-wishlist-share-form-email"
+              id="swymcs-wishlist-share-form-email"
               class="field__input"
               type="email"
               name="Recipient Email"
@@ -61,26 +81,26 @@
               aria-required="true"
               required
             >
-            <label class="field__label" for="swycs-wishlist-share-form-email">Recipient Email</label>
+            <label class="field__label" for="swymcs-wishlist-share-form-email">Recipient Email</label>
           </div>
           <div class="field">
             <input
-              id="swycs-wishlist-share-form-name"
+              id="swymcs-wishlist-share-form-name"
               class="field__input"
               type="text"
               name="Sender Name"
               value=""
             >
-            <label class="field__label" for="swycs-wishlist-share-form-name">Sender Name</label>
+            <label class="field__label" for="swymcs-wishlist-share-form-name">Sender Name</label>
           </div>
           <div class="field">
             <textarea
               rows="10"
-              id="swycs-wishlist-share-form-message"
+              id="swymcs-wishlist-share-form-message"
               class="text-area field__input"
               name="Message"
             ></textarea>
-            <label class="form__label field__label" for="swycs-wishlist-share-form-message"> Message </label>
+            <label class="form__label field__label" for="swymcs-wishlist-share-form-message"> Message </label>
           </div>
           <div><span style="color: red;">*</span>Required Fields</div>
           <button type="submit" class="button">SHARE LIST</button>
@@ -109,20 +129,23 @@
       loader: wishlistElement.querySelector('#swymcs-wishlist-loader'),
       container: wishlistElement.querySelector('#swymcs-wishlist-container'),
       listOptions: wishlistElement.querySelector('#swymcs-wishlist-list-options-container'),
+      listActions: wishlistElement.querySelector('#swymcs-wishlist-list-actions'),
+      listActionsBackground: wishlistElement.querySelector('#swymcs-wishlist-list-actions-background'),
       itemsContainer: wishlistElement.querySelector('#swymcs-wishlist-items-container'),
       emptyContainer: wishlistElement.querySelector('#swymcs-empty-wishlist-container'),
       actionsContainer: wishlistElement.querySelector('#swymcs-wishlist-list-actions-container'),
-      modalBackground: wishlistElement.querySelector('#swycs-wishlist-modal-background'),
-      deleteModalContent: wishlistElement.querySelector('#swycs-wishlist-modal-content-delete'),
-      shareModalContent: wishlistElement.querySelector('#swycs-wishlist-modal-content-share'),
+      modalBackground: wishlistElement.querySelector('#swymcs-wishlist-modal-background'),
+      deleteModalContent: wishlistElement.querySelector('#swymcs-wishlist-modal-content-delete'),
+      shareModalContent: wishlistElement.querySelector('#swymcs-wishlist-modal-content-share'),
+      checkoutLink: wishlistElement.querySelector('#swymcs-wishlist-checkout'),
       form: {
-        email: wishlistElement.querySelector('#swycs-wishlist-share-form-email'),
-        name: wishlistElement.querySelector('#swycs-wishlist-share-form-name'),
-        message: wishlistElement.querySelector('#swycs-wishlist-share-form-message'),
+        email: wishlistElement.querySelector('#swymcs-wishlist-share-form-email'),
+        name: wishlistElement.querySelector('#swymcs-wishlist-share-form-name'),
+        message: wishlistElement.querySelector('#swymcs-wishlist-share-form-message'),
       },
     };
 
-    wishlistElement.querySelector('#swycs-wishlist-share-form').addEventListener('submit', (e) => {
+    wishlistElement.querySelector('#swymcs-wishlist-share-form').addEventListener('submit', (e) => {
       e.preventDefault();
       emailWishlist();
     });
@@ -131,7 +154,7 @@
   }
 
   function fetchWishlist() {
-    showLoader();
+    toggleLoader();
 
     swat.fetchLists({
       callbackFn: (wishlists) => {
@@ -158,6 +181,7 @@
       const wishlistedProducts = await fetchProductData(wishlist.listcontents);
       wishlistedProducts.forEach(renderWishlistItem);
     }
+
     updateUIState(wishlist);
   }
 
@@ -303,7 +327,9 @@
   }
 
   function updateUIState(wishlist) {
-    hideLoader();
+    updateCheckoutLink(wishlist);
+
+    toggleLoader();
     if (wishlist && wishlist.listcontents.length > 0) {
       elements.container.classList.remove('swymcs-hide');
       elements.actionsContainer.classList.remove('swymcs-hide');
@@ -315,12 +341,38 @@
     }
   }
 
-  function showLoader() {
-    elements.loader.classList.remove('swymcs-hide');
+  function toggleLoader() {
+    elements.loader.classList.toggle('swymcs-hide');
   }
 
-  function hideLoader() {
-    elements.loader.classList.add('swymcs-hide');
+  function toggleActions() {
+    elements.listActions.classList.toggle('swymcs-hide');
+    elements.listActionsBackground.classList.toggle('swymcs-hide');
+  }
+
+  function openModal(key) {
+    toggleActions();
+    switch (key) {
+      case 'delete': {
+        elements.modalBackground.classList.remove('swymcs-hide');
+        elements.deleteModalContent.classList.remove('swymcs-hide');
+        break;
+      }
+
+      case 'share': {
+        elements.modalBackground.classList.remove('swymcs-hide');
+        elements.shareModalContent.classList.remove('swymcs-hide');
+        break;
+      }
+      default:
+        break;
+    }
+  }
+
+  function closeModal() {
+    elements.modalBackground.classList.add('swymcs-hide');
+    elements.deleteModalContent.classList.add('swymcs-hide');
+    elements.shareModalContent.classList.add('swymcs-hide');
   }
 
   function deleteWishlist() {
@@ -354,30 +406,6 @@
     );
   }
 
-  function openModal(key) {
-    switch (key) {
-      case 'delete': {
-        elements.modalBackground.classList.remove('swymcs-hide');
-        elements.deleteModalContent.classList.remove('swymcs-hide');
-        break;
-      }
-
-      case 'share': {
-        elements.modalBackground.classList.remove('swymcs-hide');
-        elements.shareModalContent.classList.remove('swymcs-hide');
-        break;
-      }
-      default:
-        break;
-    }
-  }
-
-  function closeModal() {
-    elements.modalBackground.classList.add('swymcs-hide');
-    elements.deleteModalContent.classList.add('swymcs-hide');
-    elements.shareModalContent.classList.add('swymcs-hide');
-  }
-
   function emailWishlist() {
     const recipientEmail = elements.form.email.value;
     const senderName = elements.form.name.value;
@@ -400,6 +428,17 @@
 
     closeModal();
   }
+
+  function updateCheckoutLink(wishlist) {
+    let link = '#';
+
+    if (wishlist && wishlist.listcontents.length > 0) {
+      const variants = wishlist.listcontents.map(({ epi }) => `${epi}:1`).join(',');
+      link = `/cart/${variants}`;
+    }
+
+    elements.checkoutLink.href = link;
+  }
 </script>
 
 {% schema %}
@@ -415,6 +454,28 @@
       "id": "swym_wishlist_title",
       "label": "Wishlist Title",
       "default": "My Wishlist"
+    },
+    {
+      "type": "header",
+      "content": "Wishlist Actions"
+    },
+    {
+      "type": "checkbox",
+      "id": "swym_enable_delete_action",
+      "default": false,
+      "label": "Enable Wishlist Delete"
+    },
+    {
+      "type": "checkbox",
+      "id": "swym_enable_share_action",
+      "default": false,
+      "label": "Enable Wishlist Share"
+    },
+    {
+      "type": "checkbox",
+      "id": "swym_enable_checkout_action",
+      "default": false,
+      "label": "Enable Wishlist Checkout"
     },
     {
       "type": "header",
@@ -468,15 +529,21 @@
     },
     {
       "type": "text",
-      "id": "swym_wishlist_empty_description",
-      "label": "Wishlist Empty Desciption",
+      "id": "swym_empty_wishlist_description",
+      "label": "Empty Wishlist Desciption",
       "default": "Your wishlist is empty."
     },
     {
       "type": "text",
-      "id": "swym_wishlist_empty_action_button_cta",
-      "label": "Wishlist Empty Action Button CTA",
-      "default": "Discover the Collection Now"
+      "id": "swym_empty_wishlist_cta_text",
+      "label": "Empty Wishlist CTA Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "swym_empty_wishlist_cta_link",
+      "label": "Empty Wishlist CTA Link",
+      "default": "/collections/all"
     }
   ],
   "presets": [
