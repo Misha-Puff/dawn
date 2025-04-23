@@ -201,7 +201,6 @@ select.swym-mutliple-list {
 .swymcs-custom-wishlist #swymcs-wishlist-items-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 45px 15px;
   margin-top: 10px;
 }
