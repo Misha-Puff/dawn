@@ -124,7 +124,7 @@
     const wishlistElement = document.querySelector('.swymcs-custom-wishlist');
     settings = JSON.parse(wishlistElement.dataset.settings);
     sectionId = wishlistElement.dataset.sectionid;
-
+    console.log(settings);
     elements = {
       loader: wishlistElement.querySelector('#swymcs-wishlist-loader'),
       container: wishlistElement.querySelector('#swymcs-wishlist-container'),
@@ -327,7 +327,9 @@
   }
 
   function updateUIState(wishlist) {
-    updateCheckoutLink(wishlist);
+    if (settings.swym_enable_checkout_action) {
+      updateCheckoutLink(wishlist);
+    }
 
     toggleLoader();
     if (wishlist && wishlist.listcontents.length > 0) {
