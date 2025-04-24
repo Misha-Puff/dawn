@@ -40,3 +40,12 @@ span.swym-variant-selector-status svg path {
 #swym-vs-actions-container {
   margin-top: 20px;
 }
+
+#swym-custom-wishlist-actions-title {
+  visibility: hidden;
+}
+
+#swym-custom-wishlist-actions-title::before {
+  content: 'My Wishlist(s)';
+  visibility: visible;
+}
