@@ -60,7 +60,8 @@
 }
 
 div#swymcs-wishlist-list-options-container {
-  border: 1px solid rgb(1, 1, 1, 0.25);
+  display: flex;
+  align-items: center;
   width: fit-content;
   padding-right: 5px;
 }
@@ -110,8 +111,8 @@ div#swymcs-wishlist-list-options-container {
   flex-direction: column;
   width: max-content;
   gap: 20px;
-  top: 50%;
-  left: 100%;
+  top: 100%;
+  right: 50%;
   background-color: #fff;
   z-index: 12;
   padding: 20px;
@@ -135,15 +136,15 @@ div#swymcs-wishlist-list-options-container {
 
 .swymcs-wishlist-header {
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
   margin-bottom: 20px;
 }
 
 select.swym-mutliple-list {
   padding: 10px;
+  padding-right: 30px;
   border: none;
-  outline: none;
-  box-shadow: none;
+  appearance: initial;
 }
 
 .swymcs-custom-wishlist {
@@ -207,8 +208,7 @@ select.swym-mutliple-list {
 
 .swymcs-wishlistplus-item {
   position: relative;
-  width: 24%;
-  max-width: 257px;
+  width: 32%;
   overflow: hidden;
 }
 
@@ -266,18 +266,6 @@ select.swym-mutliple-list {
 
 @media only screen and (max-width: 767px) {
   .swymcs-wishlistplus-item {
-    width: 100%;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  .swymcs-wishlistplus-item {
-    width: 100%;
-  }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .swymcs-wishlistplus-item {
-    width: 32%;
+    width: 47%;
   }
 }

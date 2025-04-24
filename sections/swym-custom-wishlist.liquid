@@ -209,10 +209,15 @@
     const wishlistOptionsContent =
       wishlists.length > 0
         ? `
-      <select class="swymcs-wishlist-list swym-mutliple-list" onchange="onListChange(event)">
-        ${wishlistOptionsHtml}
-      </select>
-    `
+        <div class="select">
+          <select class="swymcs-wishlist-list swym-mutliple-list" onchange="onListChange(event)">
+            ${wishlistOptionsHtml}
+          </select>
+          <span class="svg-wrapper">
+            {{- 'icon-caret.svg' | inline_asset_content -}}
+          </span>
+        </div>
+      `
         : '';
 
     elements.listOptions.innerHTML = wishlistOptionsContent;
