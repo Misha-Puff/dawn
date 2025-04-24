@@ -93,7 +93,7 @@
         "buttons_MbErHB"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_SP25_Leader_Child_1b.jpg",
+        "image": "shopify://shop_images/MP_SP25_Leader_4.25.25_Child_LP.jpg",
         "banner_link": "shopify://collections/child-spring-collection",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
@@ -104,7 +104,7 @@
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "",
-        "mobile_image": "shopify://shop_images/MP_SP25_Leader_2x3_Child_1_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_SP25_Leader_4.25.25_Child_LP_Mob.jpg",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
         "show_text_below": false,
@@ -124,11 +124,11 @@
         "column_RwiwcK": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_SP25_Leader_2x3_Isetan_2b_179b2c53-9f14-4d25-962e-a3a6d61780f0.jpg",
+            "image": "shopify://shop_images/c5c97d4ebbd14864b52d643b4a49a9a2-ezgif.com-optimize.gif",
             "title": "",
-            "text": "<p>MISHA & PUFF x ISETAN — SHOP THE COLLAB</p>",
+            "text": "<p>THE SUMMER COLLECTION — COMING SOON</p>",
             "link_label": "",
-            "link": "shopify://collections/child-mp-isetan-edit",
+            "link": "",
             "new_tab": true,
             "link_margin": 8,
             "enable_overlay": false,
