@@ -59,6 +59,26 @@
   margin-left: 0.1em;
 }
 
+.swymcs-share-links-wrapper {
+  margin-top: 25px;
+  border-top: 1px solid black;
+}
+
+.swymcs-share-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.swymcs-share-links button {
+  display: flex;
+  gap: 5px;
+}
+
+.swymcs-share-links button p {
+  margin: 0;
+}
+
 div#swymcs-wishlist-list-options-container {
   display: flex;
   align-items: center;

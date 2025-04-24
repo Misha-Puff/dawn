@@ -68,8 +68,7 @@
         </div>
       </div>
       <div id="swymcs-wishlist-modal-content-share" class="swymcs-hide">
-        <div class=""></div>
-        <h3>Share List Via Email</h3>
+        <h3>Share List via Email</h3>
         <form id="swymcs-wishlist-share-form">
           <div class="field">
             <input
@@ -105,6 +104,30 @@
           <div><span style="color: red;">*</span>Required Fields</div>
           <button type="submit" class="button">SHARE LIST</button>
         </form>
+        <div class="swymcs-share-links-wrapper">
+          <h4>Or share via</h4>
+
+          <div class="swymcs-share-links">
+            <button id="swymcs-share-link-copy-button" class="link" onclick="shareWishlist()">
+              <span class="svg-wrapper">
+                {{- 'icon-clipboard.svg' | inline_asset_content -}}
+              </span>
+              <p>{{ section.settings.swym_wishlist_share_link_text }}</p>
+            </button>
+            <button class="link" onclick="shareSocial('facebook')">
+              <span class="svg-wrapper">
+                {{- 'icon-facebook.svg' | inline_asset_content -}}
+              </span>
+              <p>Facebook</p>
+            </button>
+            <button class="link" onclick="shareSocial('twitter')">
+              <span class="svg-wrapper">
+                {{- 'icon-twitter.svg' | inline_asset_content -}}
+              </span>
+              <p>Twitter</p>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -143,6 +166,7 @@
         name: wishlistElement.querySelector('#swymcs-wishlist-share-form-name'),
         message: wishlistElement.querySelector('#swymcs-wishlist-share-form-message'),
       },
+      copyLinkButtonText: wishlistElement.querySelector('#swymcs-share-link-copy-button p'),
     };
 
     wishlistElement.querySelector('#swymcs-wishlist-share-form').addEventListener('submit', (e) => {
@@ -400,7 +424,11 @@
         swat.generateSharedListURL(
           swat.swymCustomWishlistSelectedListId,
           (link, lid) => {
-            console.log(link);
+            navigator.clipboard.writeText(link);
+
+            elements.copyLinkButtonText.innerHTML = settings.swym_wishlist_shared_link_text;
+
+            setTimeout(() => (elements.copyLinkButtonText.innerHTML = settings.swym_wishlist_share_link_text), 2000);
           },
           (error) => {
             console.log('Error while generating the link', error);
@@ -446,6 +474,16 @@
 
     elements.checkoutLink.href = link;
   }
+
+  function shareSocial(platform) {
+    const urlTemplate = swat.retailerSettings.Wishlist.SharingModes.filter(({ type }) => type === platform)[0].url;
+    const senderName = elements.form.name.value;
+    const message = elements.form.message.value;
+
+    swat.shareListSocial(swat.swymCustomWishlistSelectedListId, senderName, urlTemplate, platform, message, (error) => {
+      console.log('There was an Error opening the share platform', error);
+    });
+  }
 </script>
 
 {% schema %}
@@ -464,7 +502,7 @@
     },
     {
       "type": "header",
-      "content": "Wishlist Actions"
+      "content": "Wishlist Delete"
     },
     {
       "type": "checkbox",
@@ -473,10 +511,30 @@
       "label": "Enable Wishlist Delete"
     },
     {
+      "type": "header",
+      "content": "Wishlist Share"
+    },
+    {
       "type": "checkbox",
       "id": "swym_enable_share_action",
       "default": false,
       "label": "Enable Wishlist Share"
+    },
+    {
+      "type": "text",
+      "id": "swym_wishlist_share_link_text",
+      "label": "Share link text",
+      "default": "Copy Link"
+    },
+    {
+      "type": "text",
+      "id": "swym_wishlist_shared_link_text",
+      "label": "Shared link text",
+      "default": "Link Copied!"
+    },
+    {
+      "type": "header",
+      "content": "Wishlist Checkout"
     },
     {
       "type": "checkbox",
