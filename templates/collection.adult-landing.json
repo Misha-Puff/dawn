@@ -129,7 +129,7 @@
         "buttons_8b9zaW"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_SP25_Leader_4.16.25_Adult_1.jpg",
+        "image": "shopify://shop_images/MP_SP25_Leader_Adult_3.12.25.jpg",
         "banner_link": "shopify://collections/adult-spring",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
@@ -140,7 +140,7 @@
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "",
-        "mobile_image": "shopify://shop_images/MP_SP25_Leader_3.21.25_Adult_2_MOB_0fe7a307-9761-4609-99db-151759b9607a.jpg",
+        "mobile_image": "shopify://shop_images/MP_SP25_Leader_Adult_3.12.25_Mob_14767705-740f-4644-b145-100f0864f9f5.jpg",
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "center",
         "show_text_below": false,
