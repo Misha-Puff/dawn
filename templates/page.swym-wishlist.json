@@ -22,7 +22,9 @@
       "settings": {
         "swym_wishlist_title": "My Wishlist",
         "swym_enable_delete_action": true,
-        "swym_enable_share_action": false,
+        "swym_enable_share_action": true,
+        "swym_wishlist_share_link_text": "Copy Link",
+        "swym_wishlist_shared_link_text": "Link Copied!",
         "swym_enable_checkout_action": true,
         "swym_wishlist_show_price": true,
         "swym_wishlist_show_addtocart": true,
