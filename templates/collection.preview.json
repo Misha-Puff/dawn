@@ -354,7 +354,7 @@
         "button_8mmyyM": {
           "type": "button",
           "settings": {
-            "label": "CHILD SPRING PART 1",
+            "label": "SHOP SPRING",
             "open_new_tab": true,
             "link": "shopify://collections/child-spring-collection",
             "type": "secondary",
@@ -364,19 +364,19 @@
         "button_QmyM6w": {
           "type": "button",
           "settings": {
-            "label": "BABY SPRING PART 1",
+            "label": "SHOP BABY SPRING",
             "open_new_tab": true,
             "link": "shopify://collections/baby-spring-collection",
             "type": "secondary",
             "on_click": ""
           }
         },
-        "button_XJpKP6": {
+        "button_t9xDNr": {
           "type": "button",
           "settings": {
-            "label": "CHILD SWEATERS",
+            "label": "DENIM",
             "open_new_tab": true,
-            "link": "shopify://collections/child-sweaters-cardigans",
+            "link": "shopify://collections/child-denim",
             "type": "secondary",
             "on_click": ""
           }
@@ -390,13 +390,24 @@
             "type": "secondary",
             "on_click": ""
           }
+        },
+        "button_XJpKP6": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD SWEATERS",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-sweaters-cardigans",
+            "type": "secondary",
+            "on_click": ""
+          }
         }
       },
       "block_order": [
         "button_8mmyyM",
         "button_QmyM6w",
-        "button_XJpKP6",
-        "button_G9yhBD"
+        "button_t9xDNr",
+        "button_G9yhBD",
+        "button_XJpKP6"
       ],
       "settings": {
         "title": "More to Explore",
