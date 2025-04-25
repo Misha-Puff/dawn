@@ -33,7 +33,7 @@
     assign content_size = content | size
     assign max_chars = 20
 %}
-<p>Content: |{{ content}}|</p>
+
 {% unless content_size == 0 %}
     <div class="isolate page-width">
         <div class="rich-text content-container gradient section-collapsible-seo">
@@ -62,12 +62,15 @@
         </div>
     </div>
     <script>
-        const fullContent = document.querySelector('.section-collapsible-seo .full-content-wrapper');
-        const truncatedContent = document.querySelector('.section-collapsible-seo .truncated-content-wrapper');
+        const fullContentWrapper = document.querySelector('.section-collapsible-seo .full-content-wrapper');
+        const truncatedContentWrapper = document.querySelector('.section-collapsible-seo .truncated-content-wrapper');
+        const fullContent = document.querySelector('.section-collapsible-seo .full-content');
+        const truncatedContent = document.querySelector('.section-collapsible-seo .truncated-content');
+        
         
         function toggleContent() {
-          fullContent.classList.toggle('hidden');
-          truncatedContent.classList.toggle('hidden');
+          fullContentWrapper.classList.toggle('hidden');
+          truncatedContentWrapper.classList.toggle('hidden');
         }
         
         function truncateHTML(length) {
@@ -113,7 +116,6 @@
         
             traverseNodes(fullContent);
             
-            console.log(fullContent)
             truncatedContent.innerHTML = truncatedHTML;
         }
         
