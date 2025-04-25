@@ -33,7 +33,7 @@
     assign content_size = content | size
     assign max_chars = 20
 %}
-
+<p>Content: |{{ content}}|</p>
 {% unless content_size == 0 %}
     <div class="isolate page-width">
         <div class="rich-text content-container gradient section-collapsible-seo">
