@@ -39,8 +39,8 @@
         "text_bdVDk3": {
           "type": "text",
           "settings": {
-            "text": "<p>Enjoy Early Access to Part 1 of the Summer Collection — please place your order directly with Anne, and explore the collection below.</p><p>This season channels the quiet charm of New England’s coastal summer — a soft-spoken study in sun-bleached tones, rich textures, and storied tradition.</p><p>Crafted in soft knits, Pima cotton, cotton poplin, linen, and terry, the collection features silhouettes and prints that nod to long days by the sea. Hand-worked details and thoughtful crossovers between baby and child create a world that feels both grounded and quietly transportive.</p><p></p><p>Part 1 of the collection will be available to everyone starting Thursday, May 1 at 11 AM ET. Don’t miss this special preview + chance to shop early.</p>",
-            "line_height": 24
+            "text": "<p>Enjoy Early Access to Part 1 of the Summer Collection — shop the online exclusives below now, and get a first look at the rest of the collection. You also have early access to the <a href=\"https://shop.misha-and-puff.com/blogs/journal/child-su-25\">Lookbook</a>. Get inspired, browse, favorite, and plan your looks.</p><p>This season channels the quiet charm of the coastal summer — a soft-spoken study in sun-bleached tones, rich textures, and storied tradition. Crafted in soft knits, Pima cotton, cotton poplin, linen, and terry, the collection features silhouettes and prints that nod to long days by the sea. Hand-worked details and thoughtful baby-and-child crossovers create a world both grounded and quietly transportive.</p><p>Early Access ends Wednesday, April 30 at 9 AM ET. Part 1 of the collection will be available to everyone starting Thursday, May 1 at 11 AM ET.</p>",
+            "line_height": 22
           }
         },
         "text_FWX7U7": {
@@ -79,9 +79,61 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 32,
-        "padding_bottom": 32,
-        "padding_left": 36,
-        "padding_right": 36
+        "padding_bottom": 20,
+        "padding_left": 0,
+        "padding_right": 0
+      }
+    },
+    "buttons_eEATqX": {
+      "type": "buttons",
+      "blocks": {
+        "button_dy8XDD": {
+          "type": "button",
+          "settings": {
+            "label": "VIEW LOOKBOOK",
+            "open_new_tab": true,
+            "link": "https://shop.misha-and-puff.com/blogs/journal/child-su-25",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_MdW9Jh": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "label": "VIEW ONLY EXCLUSIVES",
+            "open_new_tab": true,
+            "link": "",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_i7JnE7": {
+          "type": "button",
+          "settings": {
+            "label": "",
+            "open_new_tab": false,
+            "link": "",
+            "type": "primary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_dy8XDD",
+        "button_MdW9Jh",
+        "button_i7JnE7"
+      ],
+      "name": "Buttons",
+      "settings": {
+        "title": "",
+        "button_gap": 15,
+        "heading_size": "h1",
+        "color_scheme": "",
+        "desktop_padding_top": 10,
+        "desktop_padding_bottom": 48,
+        "mobile_padding_top": 10,
+        "mobile_padding_bottom": 30
       }
     },
     "divider_nmzegr": {
@@ -426,6 +478,7 @@
     "shogun-above",
     "banner",
     "rich_text_yLT7QX",
+    "buttons_eEATqX",
     "divider_nmzegr",
     "custom_liquid_MMXNgm",
     "rich_text_g9zhUy",

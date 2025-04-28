@@ -93,7 +93,7 @@
         "buttons_MbErHB"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_SP25_Leader_Child_1b.jpg",
+        "image": "shopify://shop_images/MP_SP25_Leader_4.25.25_Child_LP.jpg",
         "banner_link": "shopify://collections/child-spring-collection",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
@@ -104,7 +104,7 @@
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "",
-        "mobile_image": "shopify://shop_images/MP_SP25_Leader_2x3_Child_1_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_SP25_Leader_4.25.25_Child_LP_Mob.jpg",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
         "show_text_below": false,
@@ -124,11 +124,11 @@
         "column_RwiwcK": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_SP25_Leader_2x3_Isetan_2b_179b2c53-9f14-4d25-962e-a3a6d61780f0.jpg",
+            "image": "shopify://shop_images/c5c97d4ebbd14864b52d643b4a49a9a2-ezgif.com-optimize.gif",
             "title": "",
-            "text": "<p>MISHA & PUFF x ISETAN — SHOP THE COLLAB</p>",
+            "text": "<p>THE SUMMER COLLECTION — COMING SOON</p>",
             "link_label": "",
-            "link": "shopify://collections/child-mp-isetan-edit",
+            "link": "",
             "new_tab": true,
             "link_margin": 8,
             "enable_overlay": false,
@@ -214,6 +214,50 @@
         "mobile_padding_bottom": 0
       }
     },
+    "featured_collection_UUyGYb": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "child-new",
+        "products_to_show": 20,
+        "title": "",
+        "heading_alignment": "left",
+        "heading_size": "h2",
+        "heading_margin": 14,
+        "description": "<p>NEW ARRIVALS</p>",
+        "show_description": false,
+        "description_style": "body",
+        "hide_sold_out": true,
+        "hide_content": false,
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "full_width": true,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 12,
+        "vertical_spacing_desktop": 0,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 0,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "section_full_width": false,
+        "desktop_padding_top": 8,
+        "desktop_padding_bottom": 40,
+        "desktop_padding_left": 32,
+        "desktop_padding_right": 32,
+        "mobile_padding_top": 20,
+        "mobile_padding_bottom": 0,
+        "mobile_padding_left": 12,
+        "mobile_padding_right": 12
+      }
+    },
     "image_banner_pmtDmp": {
       "type": "image-banner",
       "blocks": {
@@ -273,48 +317,76 @@
         "mobile_padding_right": 0
       }
     },
-    "featured_collection_UUyGYb": {
-      "type": "featured-collection",
+    "buttons_xjxxkn": {
+      "type": "buttons",
+      "blocks": {
+        "button_BQbEcH": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD PIMA COTTON",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-pima-staples",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_X7EcYn": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD TOPS",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-tops",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_dHLFJa": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD BOTTOMS",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-bottoms",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_b7AeLN": {
+          "type": "button",
+          "settings": {
+            "label": "WINTER ACCESSORIES",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-accessories",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_nUW3r9": {
+          "type": "button",
+          "settings": {
+            "label": "DENIM",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-fall-denim-collection",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_BQbEcH",
+        "button_X7EcYn",
+        "button_dHLFJa",
+        "button_b7AeLN",
+        "button_nUW3r9"
+      ],
       "settings": {
-        "collection": "child-new",
-        "products_to_show": 20,
-        "title": "",
-        "heading_alignment": "left",
+        "title": "Explore More",
+        "button_gap": 10,
         "heading_size": "h2",
-        "heading_margin": 14,
-        "description": "<p>NEW ARRIVALS</p>",
-        "show_description": false,
-        "description_style": "body",
-        "hide_sold_out": true,
-        "hide_content": false,
-        "columns_desktop": 4,
-        "enable_desktop_slider": true,
-        "full_width": true,
-        "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 12,
-        "vertical_spacing_desktop": 0,
-        "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 0,
-        "show_view_all": false,
-        "view_all_style": "solid",
         "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "standard",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "section_full_width": false,
-        "desktop_padding_top": 48,
-        "desktop_padding_bottom": 0,
-        "desktop_padding_left": 32,
-        "desktop_padding_right": 32,
-        "mobile_padding_top": 20,
-        "mobile_padding_bottom": 0,
-        "mobile_padding_left": 12,
-        "mobile_padding_right": 12
+        "desktop_padding_top": 60,
+        "desktop_padding_bottom": 50,
+        "mobile_padding_top": 40,
+        "mobile_padding_bottom": 30
       }
     },
     "multicolumn_HbcHgm": {
@@ -649,78 +721,6 @@
       "type": "shogun-optimizer",
       "settings": {}
     },
-    "buttons_xjxxkn": {
-      "type": "buttons",
-      "blocks": {
-        "button_BQbEcH": {
-          "type": "button",
-          "settings": {
-            "label": "CHILD PIMA COTTON",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-pima-staples",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_X7EcYn": {
-          "type": "button",
-          "settings": {
-            "label": "CHILD TOPS",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-tops",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_dHLFJa": {
-          "type": "button",
-          "settings": {
-            "label": "CHILD BOTTOMS",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-bottoms",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_b7AeLN": {
-          "type": "button",
-          "settings": {
-            "label": "WINTER ACCESSORIES",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-accessories",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_nUW3r9": {
-          "type": "button",
-          "settings": {
-            "label": "DENIM",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-fall-denim-collection",
-            "type": "secondary",
-            "on_click": ""
-          }
-        }
-      },
-      "block_order": [
-        "button_BQbEcH",
-        "button_X7EcYn",
-        "button_dHLFJa",
-        "button_b7AeLN",
-        "button_nUW3r9"
-      ],
-      "settings": {
-        "title": "Explore More",
-        "button_gap": 10,
-        "heading_size": "h2",
-        "color_scheme": "",
-        "desktop_padding_top": 60,
-        "desktop_padding_bottom": 50,
-        "mobile_padding_top": 40,
-        "mobile_padding_bottom": 30
-      }
-    },
     "collapsible_rich_text_XxaGbE": {
       "type": "collapsible-rich-text",
       "settings": {
@@ -745,14 +745,14 @@
     "product-grid",
     "image_banner_pHe7YH",
     "multicolumn_gfwpxD",
-    "image_banner_pmtDmp",
     "featured_collection_UUyGYb",
+    "image_banner_pmtDmp",
+    "buttons_xjxxkn",
     "multicolumn_HbcHgm",
     "multicolumn_pC9LLV",
     "slideshow_8wUhXX",
     "shogun-below",
     "shogun-optimizer",
-    "buttons_xjxxkn",
     "collapsible_rich_text_XxaGbE"
   ]
 }
