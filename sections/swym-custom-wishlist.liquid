@@ -25,17 +25,15 @@
       <div id="swymcs-wishlist-list-options-container"></div>
       {% if swym_enable_actions %}
         <div id="swymcs-wishlist-list-actions-container" class="swymcs-hide">
-          <button class="swymcs-wishlist-list-actions-trigger" onclick="toggleActions()"></button>
-          <div id="swymcs-wishlist-list-actions-background" class="swymcs-hide" onclick="toggleActions()">&nbsp;</div>
-          <div id="swymcs-wishlist-list-actions" class="swymcs-hide">
-            {% if section.settings.swym_enable_delete_action %}
-              <button class="link" onclick="openModal('delete')">Delete Wishlist</button>
-            {% endif %}
+          <div class="swymcs-wishlist-list-actions">
             {% if section.settings.swym_enable_share_action %}
               <button class="link" onclick="openModal('share')">Share Wishlist</button>
             {% endif %}
             {% if section.settings.swym_enable_checkout_action %}
               <a id="swymcs-wishlist-checkout" class="link" href="#">Checkout Wishlist</a>
+            {% endif %}
+            {% if section.settings.swym_enable_delete_action %}
+              <button class="link" onclick="openModal('delete')">Delete Wishlist</button>
             {% endif %}
           </div>
         </div>
@@ -152,8 +150,6 @@
       loader: wishlistElement.querySelector('#swymcs-wishlist-loader'),
       container: wishlistElement.querySelector('#swymcs-wishlist-container'),
       listOptions: wishlistElement.querySelector('#swymcs-wishlist-list-options-container'),
-      listActions: wishlistElement.querySelector('#swymcs-wishlist-list-actions'),
-      listActionsBackground: wishlistElement.querySelector('#swymcs-wishlist-list-actions-background'),
       itemsContainer: wishlistElement.querySelector('#swymcs-wishlist-items-container'),
       emptyContainer: wishlistElement.querySelector('#swymcs-empty-wishlist-container'),
       actionsContainer: wishlistElement.querySelector('#swymcs-wishlist-list-actions-container'),
@@ -376,13 +372,7 @@
     elements.loader.classList.toggle('swymcs-hide');
   }
 
-  function toggleActions() {
-    elements.listActions.classList.toggle('swymcs-hide');
-    elements.listActionsBackground.classList.toggle('swymcs-hide');
-  }
-
   function openModal(key) {
-    toggleActions();
     switch (key) {
       case 'delete': {
         elements.modalBackground.classList.remove('swymcs-hide');
