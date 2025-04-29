@@ -5,6 +5,7 @@ ignore:
   - layout/theme.shogun.*.liquid
   - layout/theme.gempages.*.liquid
   - templates/page.gem-*.liquid
+  - templates/index.gem-*.liquid
   - sections/shogun-*.liquid
   - sections/gp-*.liquid
   - snippets/shogun-*.liquid
