@@ -8,6 +8,7 @@ button#swym-custom-confirm-list-button,
 div#swym-custom-create-list-container,
 input#swym-custom-new-list-name-input,
 div#swym-custom-wishlist-actions,
+.swym-add-to-wishlist-single,
 label.swym-filter-labels,
 .swym-add-to-wishlist-1 {
   border-radius: 0 !important;
