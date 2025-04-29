@@ -6,7 +6,7 @@ ignore:
   - layout/theme.gempages.*.liquid
   - templates/page.gem-*.liquid
   - sections/shogun-*.liquid
-  - sections/gp-section-*.liquid
+  - sections/gp-*.liquid
   - snippets/shogun-*.liquid
   - snippets/locksmith.liquid 
   - snippets/locksmith-variables.liquid
