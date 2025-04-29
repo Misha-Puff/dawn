@@ -1,6 +1,6 @@
-{%- comment %}<locksmith:e8a4>{% endcomment -%}
+{%- comment %}<locksmith:efe8>{% endcomment -%}
   {%- include 'locksmith' -%}
-{%- comment %}</locksmith:e8a4>{% endcomment -%}
+{%- comment %}</locksmith:efe8>{% endcomment -%}
 
 {% include 'shogun-content-handler' %}
 
@@ -8,9 +8,22 @@
 {% render 'signature' %}
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
- 
-
     {{ locksmith_initializations }}
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-JLY41K95KQ');
+    </script>
+    <!-- End Google Tag Manager -->
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -34,10 +47,10 @@
     </title>
 
     {% if page_description %}
-      {%- comment %}<locksmith:b764>{% endcomment -%}
+      {%- comment %}<locksmith:0497>{% endcomment -%}
         {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
         {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-      {%- comment %}</locksmith:b764>{% endcomment -%}
+      {%- comment %}</locksmith:0497>{% endcomment -%}
     {% endif %}
 
     {% render 'meta-tags' %}
@@ -329,6 +342,16 @@
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-JLY41K95KQ"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
@@ -438,3 +461,6 @@
     <!-- End Widget : Crochet Gift with Purchase -->
   </body>
 </html>
+
+
+{% if content_for_header contains "kimonix_void_script" %}<script async id="kimonix_elements_script" src="https://api.kimonix.com/kimonix_elements.js?shop=misha-and-puff.myshopify.com"></script>{% endif %}

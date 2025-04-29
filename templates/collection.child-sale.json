@@ -38,7 +38,7 @@
         "text_CJWyqe": {
           "type": "text",
           "settings": {
-            "text": "<p><a href=\"/collections/child-sale\" target=\"_blank\" title=\"Child - Sale\">Child Sale</a> is now up to 40% off. Past season favorites + most coveted styles, including the <a href=\"/collections/child-winter-b\" target=\"_blank\" title=\"Child - The Winter Collection\">Winter Collection</a> — online and in our <a href=\"/pages/stores\" target=\"_blank\" title=\"Stores\">stores</a>.</p>",
+            "text": "<p><a href=\"/collections/child-sale\" target=\"_blank\" title=\"Child - Sale\">Child Sale</a> is now up to 50% off. Past season favorites + most coveted styles, including the <a href=\"/collections/child-winter-b\" target=\"_blank\" title=\"Child - The Winter Collection\">Winter Collection</a>.</p>",
             "line_height": 22
           }
         }
@@ -86,8 +86,18 @@
           "settings": {
             "label": "SWEATERS + CARDIGANS",
             "open_new_tab": true,
-            "link": "shopify://collections/child-sweaters-cardigans",
+            "link": "https://shop.misha-and-puff.com/collections/child-sale?filter.p.m.taxonomy.sub_classification=Cardigan&filter.p.m.taxonomy.sub_classification=Sweaters&filter.v.availability=1&sort_by=manual",
             "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_hcytFK": {
+          "type": "button",
+          "settings": {
+            "label": "",
+            "open_new_tab": false,
+            "link": "",
+            "type": "primary",
             "on_click": ""
           }
         },
@@ -96,7 +106,7 @@
           "settings": {
             "label": "JACKETS",
             "open_new_tab": true,
-            "link": "shopify://collections/child-jackets",
+            "link": "https://shop.misha-and-puff.com/collections/child-sale?filter.p.m.taxonomy.sub_classification=Jacket&filter.v.availability=1&sort_by=manual",
             "type": "secondary",
             "on_click": ""
           }
@@ -106,7 +116,7 @@
           "settings": {
             "label": "TOPS",
             "open_new_tab": true,
-            "link": "shopify://collections/child-tops",
+            "link": "https://shop.misha-and-puff.com/collections/child-sale?filter.p.m.taxonomy.sub_classification=LS+Tops&filter.p.m.taxonomy.sub_classification=Sleeveless+Tops&filter.p.m.taxonomy.sub_classification=SS+Tops&filter.p.m.taxonomy.sub_classification=Tanks&filter.v.availability=1&sort_by=manual",
             "type": "secondary",
             "on_click": ""
           }
@@ -116,6 +126,7 @@
         "button_wzaiq4",
         "button_Dyk9tj",
         "button_6ndqMx",
+        "button_hcytFK",
         "button_mRrVGy",
         "button_PmqNBf"
       ],
@@ -203,6 +214,22 @@
     "shogun-optimizer": {
       "type": "shogun-optimizer",
       "settings": {}
+    },
+    "collapsible_rich_text_kUaE6r": {
+      "type": "collapsible-rich-text",
+      "settings": {
+        "text": "{{ collection.metafields.seo.description | metafield_tag }}",
+        "line_height": 24,
+        "max_character_count": 200,
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_left": 0,
+        "padding_right": 0
+      }
     }
   },
   "order": [
@@ -213,6 +240,7 @@
     "buttons_MNAPfT",
     "product-grid",
     "shogun-below",
-    "shogun-optimizer"
+    "shogun-optimizer",
+    "collapsible_rich_text_kUaE6r"
   ]
 }

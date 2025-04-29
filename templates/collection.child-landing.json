@@ -93,7 +93,7 @@
         "buttons_MbErHB"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_SP25_Leader_3.21_25_Child_2.jpg",
+        "image": "shopify://shop_images/MP_SP25_Leader_4.25.25_Child_LP.jpg",
         "banner_link": "shopify://collections/child-spring-collection",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
@@ -104,7 +104,7 @@
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "",
-        "mobile_image": "shopify://shop_images/MP_SP25_Leader_3.21_25_Child_2_Mob.jpg",
+        "mobile_image": "shopify://shop_images/MP_SP25_Leader_4.25.25_Child_LP_Mob.jpg",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
         "show_text_below": false,
@@ -124,11 +124,11 @@
         "column_RwiwcK": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/MP_SP25_Leader_3.13.25_Child_LP_Denim.jpg",
+            "image": "shopify://shop_images/c5c97d4ebbd14864b52d643b4a49a9a2-ezgif.com-optimize.gif",
             "title": "",
-            "text": "<p>NEW — DENIM</p>",
+            "text": "<p>THE SUMMER COLLECTION — COMING SOON</p>",
             "link_label": "",
-            "link": "shopify://collections/child-denim",
+            "link": "",
             "new_tab": true,
             "link_margin": 8,
             "enable_overlay": false,
@@ -148,7 +148,7 @@
             "title": "",
             "text": "<p>NEW — ACCESSORIES</p>",
             "link_label": "",
-            "link": "shopify://blogs/journal/child-spring-25",
+            "link": "shopify://collections/child-accessories",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -208,7 +208,7 @@
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "desktop_padding_top": 30,
+        "desktop_padding_top": 46,
         "desktop_padding_bottom": 30,
         "mobile_padding_top": 16,
         "mobile_padding_bottom": 0
@@ -249,13 +249,144 @@
         "swipe_on_mobile": true,
         "section_full_width": false,
         "desktop_padding_top": 8,
-        "desktop_padding_bottom": 0,
+        "desktop_padding_bottom": 40,
         "desktop_padding_left": 32,
         "desktop_padding_right": 32,
         "mobile_padding_top": 20,
         "mobile_padding_bottom": 0,
         "mobile_padding_left": 12,
         "mobile_padding_right": 12
+      }
+    },
+    "image_banner_pmtDmp": {
+      "type": "image-banner",
+      "blocks": {
+        "text_MQzM9M": {
+          "type": "text",
+          "settings": {
+            "text": "<a href=\"https://shop.misha-and-puff.com/blogs/journal\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/blogs/journal\">JOURNAL</a>",
+            "text_color": "#ffffff",
+            "text_style": "body",
+            "text_top_margin": 10
+          }
+        },
+        "buttons_mwJpBJ": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "link_type": "button",
+            "link_color": "#000000",
+            "link_size": 13,
+            "button_label_1": "Journal",
+            "button_link_1": "shopify://blogs/journal",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "buttons_top_margin": 20
+          }
+        }
+      },
+      "block_order": [
+        "text_MQzM9M",
+        "buttons_mwJpBJ"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/MP_SP25_Leader_4.16.25_Journal_268a240c-7e6f-404f-8ed5-a507c09819b4.jpg",
+        "banner_link": "shopify://blogs/journal/haein-jookyung",
+        "image_overlay_opacity": 10,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "content_position": "middle-center",
+        "tb_overlay_padding": 0,
+        "lr_overlay_padding": 0,
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "",
+        "mobile_image": "shopify://shop_images/MP_SP25_Leader_4.16.25_Journal_Mob.jpg",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": false,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 0,
+        "desktop_padding_right": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
+      }
+    },
+    "buttons_xjxxkn": {
+      "type": "buttons",
+      "blocks": {
+        "button_BQbEcH": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD PIMA COTTON",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-pima-staples",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_X7EcYn": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD TOPS",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-tops",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_dHLFJa": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD BOTTOMS",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-bottoms",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_b7AeLN": {
+          "type": "button",
+          "settings": {
+            "label": "WINTER ACCESSORIES",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-accessories",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_nUW3r9": {
+          "type": "button",
+          "settings": {
+            "label": "DENIM",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-fall-denim-collection",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_BQbEcH",
+        "button_X7EcYn",
+        "button_dHLFJa",
+        "button_b7AeLN",
+        "button_nUW3r9"
+      ],
+      "settings": {
+        "title": "Explore More",
+        "button_gap": 10,
+        "heading_size": "h2",
+        "color_scheme": "",
+        "desktop_padding_top": 60,
+        "desktop_padding_bottom": 50,
+        "mobile_padding_top": 40,
+        "mobile_padding_bottom": 30
       }
     },
     "multicolumn_HbcHgm": {
@@ -536,55 +667,6 @@
         "mobile_padding_bottom": 20
       }
     },
-    "image_banner_pmtDmp": {
-      "type": "image-banner",
-      "blocks": {
-        "buttons_mwJpBJ": {
-          "type": "buttons",
-          "settings": {
-            "link_type": "button",
-            "link_color": "#000000",
-            "link_size": 13,
-            "button_label_1": "Journal",
-            "button_link_1": "shopify://blogs/journal",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false,
-            "buttons_top_margin": 20
-          }
-        }
-      },
-      "block_order": [
-        "buttons_mwJpBJ"
-      ],
-      "disabled": true,
-      "settings": {
-        "image": "shopify://shop_images/MP_SU24_Leader_Journal_6.18.24.jpg",
-        "banner_link": "",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "image_behavior": "none",
-        "content_position": "middle-center",
-        "tb_overlay_padding": 26,
-        "lr_overlay_padding": 26,
-        "desktop_content_alignment": "center",
-        "show_text_box": false,
-        "color_scheme": "",
-        "mobile_image": "shopify://shop_images/MP_SU24_Leader_Journal_6.18.24_Mob.jpg",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
-        "show_text_below": false,
-        "desktop_padding_top": 0,
-        "desktop_padding_bottom": 0,
-        "desktop_padding_left": 0,
-        "desktop_padding_right": 0,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 0,
-        "mobile_padding_left": 0,
-        "mobile_padding_right": 0
-      }
-    },
     "slideshow_8wUhXX": {
       "type": "slideshow",
       "blocks": {
@@ -639,76 +721,20 @@
       "type": "shogun-optimizer",
       "settings": {}
     },
-    "buttons_xjxxkn": {
-      "type": "buttons",
-      "blocks": {
-        "button_BQbEcH": {
-          "type": "button",
-          "settings": {
-            "label": "CHILD PIMA COTTON",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-pima-staples",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_X7EcYn": {
-          "type": "button",
-          "settings": {
-            "label": "CHILD TOPS",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-tops",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_dHLFJa": {
-          "type": "button",
-          "settings": {
-            "label": "CHILD BOTTOMS",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-bottoms",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_b7AeLN": {
-          "type": "button",
-          "settings": {
-            "label": "WINTER ACCESSORIES",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-accessories",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_nUW3r9": {
-          "type": "button",
-          "settings": {
-            "label": "DENIM",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-fall-denim-collection",
-            "type": "secondary",
-            "on_click": ""
-          }
-        }
-      },
-      "block_order": [
-        "button_BQbEcH",
-        "button_X7EcYn",
-        "button_dHLFJa",
-        "button_b7AeLN",
-        "button_nUW3r9"
-      ],
+    "collapsible_rich_text_XxaGbE": {
+      "type": "collapsible-rich-text",
       "settings": {
-        "title": "Explore More",
-        "button_gap": 10,
-        "heading_size": "h2",
+        "text": "{{ collection.metafields.seo.description | metafield_tag }}",
+        "line_height": 24,
+        "max_character_count": 200,
+        "desktop_content_position": "center",
+        "content_alignment": "center",
         "color_scheme": "",
-        "desktop_padding_top": 60,
-        "desktop_padding_bottom": 50,
-        "mobile_padding_top": 40,
-        "mobile_padding_bottom": 30
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_left": 0,
+        "padding_right": 0
       }
     }
   },
@@ -720,12 +746,13 @@
     "image_banner_pHe7YH",
     "multicolumn_gfwpxD",
     "featured_collection_UUyGYb",
+    "image_banner_pmtDmp",
+    "buttons_xjxxkn",
     "multicolumn_HbcHgm",
     "multicolumn_pC9LLV",
-    "image_banner_pmtDmp",
     "slideshow_8wUhXX",
     "shogun-below",
     "shogun-optimizer",
-    "buttons_xjxxkn"
+    "collapsible_rich_text_XxaGbE"
   ]
 }

@@ -32,8 +32,15 @@
         "heading_4bAnVw": {
           "type": "heading",
           "settings": {
-            "heading": "Spring Collection Part 2",
+            "heading": "The Summer Collection — Part 1",
             "heading_size": "h2"
+          }
+        },
+        "text_bdVDk3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Enjoy Early Access to Part 1 of the Summer Collection — shop the online exclusives below now, and get a first look at the rest of the collection. You also have early access to the <a href=\"https://shop.misha-and-puff.com/blogs/journal/child-su-25\">Lookbook</a>. Get inspired, browse, favorite, and plan your looks.</p><p>This season channels the quiet charm of the coastal summer — a soft-spoken study in sun-bleached tones, rich textures, and storied tradition. Crafted in soft knits, Pima cotton, cotton poplin, linen, and terry, the collection features silhouettes and prints that nod to long days by the sea. Hand-worked details and thoughtful baby-and-child crossovers create a world both grounded and quietly transportive.</p><p>Early Access ends Wednesday, April 30 at 9 AM ET. Part 1 of the collection will be available to everyone starting Thursday, May 1 at 11 AM ET.</p>",
+            "line_height": 22
           }
         },
         "text_FWX7U7": {
@@ -44,15 +51,9 @@
             "line_height": 22
           }
         },
-        "text_bdVDk3": {
-          "type": "text",
-          "settings": {
-            "text": "<p>This collection is a jewel box of technique, featuring new knits, wovens, denim, and Pima. Rich in color and intricate craftsmanship, designed to create mix-and-match looks in diverse fabrications — for comfort, versatility, and dimension. Styles that feel both familiar and unexpected. Shop Part 1 of the collection <a href=\"https://shop.misha-and-puff.com/collections/child-spring-collection\" target=\"_blank\">here</a>.</p><p>Part 2 of the Spring Collection launches Thursday, March 13 at 11 AM ET. Browse, favorite, and plan your looks!</p>",
-            "line_height": 24
-          }
-        },
         "button_CEpfd9": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "button_label": "VIEW LOOKBOOK",
             "button_link": "shopify://blogs/journal/child-spring-25",
@@ -68,8 +69,8 @@
       },
       "block_order": [
         "heading_4bAnVw",
-        "text_FWX7U7",
         "text_bdVDk3",
+        "text_FWX7U7",
         "button_CEpfd9"
       ],
       "settings": {
@@ -77,10 +78,62 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 20,
-        "padding_bottom": 40,
-        "padding_left": 76,
-        "padding_right": 76
+        "padding_top": 32,
+        "padding_bottom": 20,
+        "padding_left": 0,
+        "padding_right": 0
+      }
+    },
+    "buttons_eEATqX": {
+      "type": "buttons",
+      "blocks": {
+        "button_dy8XDD": {
+          "type": "button",
+          "settings": {
+            "label": "VIEW LOOKBOOK",
+            "open_new_tab": true,
+            "link": "https://shop.misha-and-puff.com/blogs/journal/child-su-25",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_MdW9Jh": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "label": "VIEW ONLY EXCLUSIVES",
+            "open_new_tab": true,
+            "link": "",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_i7JnE7": {
+          "type": "button",
+          "settings": {
+            "label": "",
+            "open_new_tab": false,
+            "link": "",
+            "type": "primary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_dy8XDD",
+        "button_MdW9Jh",
+        "button_i7JnE7"
+      ],
+      "name": "Buttons",
+      "settings": {
+        "title": "",
+        "button_gap": 15,
+        "heading_size": "h1",
+        "color_scheme": "",
+        "desktop_padding_top": 10,
+        "desktop_padding_bottom": 48,
+        "mobile_padding_top": 10,
+        "mobile_padding_bottom": 30
       }
     },
     "divider_nmzegr": {
@@ -222,7 +275,7 @@
         "heading_C7ewwU": {
           "type": "heading",
           "settings": {
-            "heading": "Spring Collection — Part 2",
+            "heading": "Summer Collection — Part 1",
             "heading_size": "h2"
           }
         },
@@ -255,6 +308,7 @@
         "text_Eb3mJJ",
         "button_pF6FVm"
       ],
+      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -352,7 +406,7 @@
         "button_8mmyyM": {
           "type": "button",
           "settings": {
-            "label": "CHILD SPRING PART 1",
+            "label": "SHOP SPRING",
             "open_new_tab": true,
             "link": "shopify://collections/child-spring-collection",
             "type": "secondary",
@@ -362,19 +416,19 @@
         "button_QmyM6w": {
           "type": "button",
           "settings": {
-            "label": "BABY SPRING PART 1",
+            "label": "SHOP BABY SPRING",
             "open_new_tab": true,
             "link": "shopify://collections/baby-spring-collection",
             "type": "secondary",
             "on_click": ""
           }
         },
-        "button_XJpKP6": {
+        "button_t9xDNr": {
           "type": "button",
           "settings": {
-            "label": "CHILD SWEATERS",
+            "label": "DENIM",
             "open_new_tab": true,
-            "link": "shopify://collections/child-sweaters-cardigans",
+            "link": "shopify://collections/child-denim",
             "type": "secondary",
             "on_click": ""
           }
@@ -388,13 +442,24 @@
             "type": "secondary",
             "on_click": ""
           }
+        },
+        "button_XJpKP6": {
+          "type": "button",
+          "settings": {
+            "label": "SWEATERS",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-sweaters-cardigans",
+            "type": "secondary",
+            "on_click": ""
+          }
         }
       },
       "block_order": [
         "button_8mmyyM",
         "button_QmyM6w",
-        "button_XJpKP6",
-        "button_G9yhBD"
+        "button_t9xDNr",
+        "button_G9yhBD",
+        "button_XJpKP6"
       ],
       "settings": {
         "title": "More to Explore",
@@ -413,6 +478,7 @@
     "shogun-above",
     "banner",
     "rich_text_yLT7QX",
+    "buttons_eEATqX",
     "divider_nmzegr",
     "custom_liquid_MMXNgm",
     "rich_text_g9zhUy",

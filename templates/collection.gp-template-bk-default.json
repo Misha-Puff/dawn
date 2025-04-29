@@ -15,7 +15,8 @@
     "rich_text_YJeCaw",
     "product-grid",
     "shogun-below",
-    "shogun-optimizer"
+    "shogun-optimizer",
+    "collapsible_rich_text_wL8x3p"
   ],
   "sections": {
     "banner": {
@@ -25,6 +26,22 @@
         "show_collection_image": false
       },
       "type": "main-collection-banner"
+    },
+    "collapsible_rich_text_wL8x3p": {
+      "settings": {
+        "color_scheme": "",
+        "content_alignment": "center",
+        "desktop_content_position": "center",
+        "full_width": true,
+        "line_height": 24,
+        "max_character_count": 200,
+        "padding_bottom": 52,
+        "padding_left": 0,
+        "padding_right": 0,
+        "padding_top": 40,
+        "text": "{{ collection.metafields.seo.description | metafield_tag }}"
+      },
+      "type": "collapsible-rich-text"
     },
     "product-grid": {
       "block_order": [
@@ -39,12 +56,15 @@
             "col_span_mobile": "2",
             "col_start_desktop": 1,
             "col_start_mobile": "1",
+            "content": "",
+            "content_position": "middle-center",
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
             "row_span_desktop": 1,
             "row_span_mobile": 1,
             "row_start_desktop": 1,
-            "row_start_mobile": 1
+            "row_start_mobile": 1,
+            "text_color": "#000000"
           },
           "type": "image"
         },
@@ -55,12 +75,15 @@
             "col_span_mobile": "1",
             "col_start_desktop": 1,
             "col_start_mobile": "1",
+            "content": "",
+            "content_position": "middle-center",
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
             "row_span_desktop": 1,
             "row_span_mobile": 1,
             "row_start_desktop": 6,
-            "row_start_mobile": 1
+            "row_start_mobile": 1,
+            "text_color": "#000000"
           },
           "type": "image"
         }
@@ -70,7 +93,9 @@
         "columns_desktop": 3,
         "columns_mobile": "2",
         "enable_filtering": true,
+        "enable_overlay": false,
         "enable_sorting": true,
+        "enable_swatches": false,
         "filter_type": "drawer",
         "image_ratio": "adapt",
         "image_shape": "default",

@@ -259,7 +259,7 @@
         },
         "custom_liquid_X9miCe": {
           "settings": {
-            "custom_liquid": "{% if product.available and product.tags contains 'Badge-Preorder' %}\n<p style=\"color: blue; line-height: normal;\">Pre-order: Expected to ship within six to eight weeks.</p>\n{% endif %}"
+            "custom_liquid": "{% if product.available and product.tags contains 'Badge-Preorder' %}\n<p style=\"color: blue; line-height: normal;\">Pre-order: Expected to ship within six to eight weeks.</p>\n{% elsif product.tags contains 'Badge-Exclusive Collab' %}\n<p style=\"color: blue; line-height: normal;\">Misha & Puff x Isetan Collaboration</p>\n{% elsif product.tags contains 'Badge-Exclusive' %}\n<p style=\"color: blue; line-height: normal;\">This style is exclusive to Misha & Puff</p>\n{% endif %}"
           },
           "type": "custom_liquid"
         },
@@ -350,7 +350,7 @@
         "heading_alignment": "left",
         "heading_margin": 14,
         "heading_size": "h1",
-        "hide_sold_out": false,
+        "hide_sold_out": true,
         "horizontal_spacing_desktop": 10,
         "horizontal_spacing_mobile": 10,
         "image_ratio": "adapt",
@@ -387,7 +387,7 @@
         "heading_alignment": "left",
         "heading_margin": 14,
         "heading_size": "h2",
-        "hide_sold_out": false,
+        "hide_sold_out": true,
         "horizontal_spacing_desktop": 10,
         "horizontal_spacing_mobile": 10,
         "image_ratio": "adapt",
