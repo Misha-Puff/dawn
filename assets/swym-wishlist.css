@@ -242,3 +242,20 @@ select.swym-mutliple-list {
     width: 47%;
   }
 }
+
+@media only screen and (max-width: 400px) {
+  .swymcs-wishlist-list-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .swymcs-wishlist-list-actions > * {
+    padding-left: 0;
+  }
+
+  .swymcs-wishlistplus-item {
+    width: 100%;
+  }
+}
