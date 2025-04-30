@@ -31,7 +31,7 @@
 {% liquid
     assign content = collection.metafields.seo.description | metafield_tag
     assign content_size = content | size
-    assign max_chars = 20
+    assign max_chars = 200
 %}
 
 {% unless content_size == 0 %}
