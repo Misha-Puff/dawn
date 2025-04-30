@@ -267,13 +267,13 @@
           : settings.swym_wishlist_item_cta_addtocart
         : settings.swym_wishlist_item_cta_soldout;
 
-    const compareAtPrice = item.productData.compare_at_price;
+    const compareAtPrice = item.productData.compare_at_price / 100;
 
     const priceContent =
       compareAtPrice && compareAtPrice > item.pr
-        ? `<div class="swymcs-product-price"><span class="swymcs-product-price-compare">${_swat.currency}${(
-            compareAtPrice / 100
-          ).toFixed(2)}</span><span class="swymcs-product-price-final">${_swat.currency}${(
+        ? `<div class="swymcs-product-price"><span class="swymcs-product-price-compare">${
+            _swat.currency
+          }${compareAtPrice.toFixed(2)}</span><span class="swymcs-product-price-final">${_swat.currency}${(
             item.productData.price / 100
           ).toFixed(2)}</span></div>`
         : `<div class="swymcs-product-price"><span class="swymcs-product-price-final">${_swat.currency}${(
