@@ -26,15 +26,19 @@
       style="--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--ta:left"
       data-keep-class="true"
       class="gfBElgkh2u "
-    ><div>{{ 'section-rich-text.css' | asset_url | stylesheet_tag }}
-
-{% liquid
-    assign content = collection.metafields.seo.description
+    ><div>{% liquid
+    assign content = collection.metafields.seo.description | metafield_tag
     assign content_size = content | size
-    assign max_chars = 20
+    assign max_chars = 200
 %}
 
 {% unless content_size == 0 %}
+    {{ 'section-rich-text.css' | asset_url | stylesheet_tag }}
+    <style>
+        .rich-text__wrapper.page-width {
+            width: 60% !important;
+        }
+    </style>
     <div class="isolate page-width">
         <div class="rich-text content-container gradient section-collapsible-seo">
             <div class="rich-text__wrapper page-width">
