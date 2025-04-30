@@ -34,6 +34,18 @@
     assign max_chars = 200
 %}
 
+<style>
+    .truncated-content-wrapper,
+    .full-content-wrapper {
+        display: flex;
+    }
+    
+    .truncated-content-wrapper .link,
+    .full-content-wrapper .link {
+        padding-left: 5px;
+    }
+</style>
+
 {% unless content_size == 0 %}
     <div class="isolate page-width">
         <div class="rich-text content-container gradient section-collapsible-seo">
