@@ -29,9 +29,9 @@
     ><div>{{ 'section-rich-text.css' | asset_url | stylesheet_tag }}
 
 {% liquid
-    assign content = collection.metafields.seo.description
+    assign content = collection.metafields.seo.description | metafield_tag
     assign content_size = content | size
-    assign max_chars = 20
+    assign max_chars = 200
 %}
 
 {% unless content_size == 0 %}
