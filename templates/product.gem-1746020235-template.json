@@ -40,7 +40,7 @@
         "custom_liquid_X9miCe": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "{% if product.available and product.tags contains 'Badge-Preorder' %}\n<p style=\"color: blue; line-height: normal;\">Pre-order: Expected to ship within six to eight weeks.</p>\n{% elsif product.tags contains 'Badge-Exclusive Collab' %}\n<p style=\"color: blue; line-height: normal;\">Misha & Puff x Isetan Collaboration</p>\n{% elsif product.tags contains 'Badge-Exclusive' %}\n<p style=\"color: blue; line-height: normal;\">This style is exclusive to Misha & Puff</p>\n{% endif %}"
+            "custom_liquid": "{% if product.available and product.tags contains 'Badge-Preorder' %}\n<p style=\"color: blue; line-height: normal;\">Pre-order: Expected to ship within six to eight weeks.<\/p>\n{% elsif product.tags contains 'Badge-Exclusive Collab' %}\n<p style=\"color: blue; line-height: normal;\">Misha & Puff x Isetan Collaboration<\/p>\n{% elsif product.tags contains 'Badge-Exclusive' %}\n<p style=\"color: blue; line-height: normal;\">This style is exclusive to Misha & Puff<\/p>\n{% endif %}"
           }
         },
         "bis_form_iQ4kYG": {
@@ -54,36 +54,28 @@
             "show_gift_card_recipient": true
           }
         },
-        "wishlist_plus_wishlist_pdp_button_NBkk6K": {
-          "type": "shopify://apps/wishlist-plus/blocks/wishlist-pdp-button/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
+        "swish_formerly_wishlist_king_wishlist_button_block_BQcWBQ": {
+          "type": "shopify:\/\/apps\/swish-formerly-wishlist-king\/blocks\/wishlist-button-block\/194f5011-a43c-4b22-b12e-eaf20dc4506a",
           "settings": {
-            "swym_atw_button_icon": "heart",
-            "swym_atw_icon_thickness": 1,
-            "swym_atw_display_btn_text": true,
-            "swym_button_position": "default",
-            "swym_atw_button_vertical_offset": 0,
-            "swym_atw_full_width": false,
-            "swym_atw_button_alignment": "left",
-            "swym_add_to_wishlist_color": "#ffffff",
-            "swym_added_to_wishlist_color": "#ffffff",
-            "swym_button_text_color": "#000000",
-            "swym_atw_border_color": "#000000",
-            "swym_atw_border_thickness": 0,
-            "swym_atw_button_border_radius": 0,
-            "swym_enable_hover_customization": false,
-            "swym_hover_add_to_wishlist_color": "#ffffff",
-            "swym_hover_added_to_wishlist_color": "#ffffff",
-            "swym_hover_button_text_color": "#000000",
-            "swym_hover_atw_border_color": "#000000",
-            "swym_hover_atw_border_thickness": 0,
-            "swym_hover_atw_button_border_radius": 0,
-            "swym_custom_css": "#swym-atw-pdp-button {\npadding-left: 0 !important;\n}"
+            "button_style": "plain_accent_1",
+            "button_alignment": "left",
+            "button_content_alignment": "left",
+            "button_margin_top": 0,
+            "button_margin_bottom": 0,
+            "button_max_width": 0,
+            "button_padding_horizontal": 15,
+            "button_full_width": true,
+            "button_show_text": true,
+            "button_show_icon": true,
+            "icon_size": 18,
+            "icon_stroke_width": 1,
+            "icon_offset_vertical": 0
           }
         },
         "custom_liquid_mPzed7": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<div class=\"divider-wrapper\">\n<div class=\"divider\">\n<span class=\"visually-hidden\">divider</span></div></div>"
+            "custom_liquid": "<div class=\"divider-wrapper\">\n<div class=\"divider\">\n<span class=\"visually-hidden\">divider<\/span><\/div><\/div>"
           }
         },
         "description": {
@@ -95,7 +87,7 @@
           "settings": {
             "heading": "KEY FEATURES",
             "icon": "none",
-            "content": "{% if product.metafields.product_page.key_features %}<p>{{ product.metafields.product_page.key_features | metafield_tag }}</p>\n{% endif %}",
+            "content": "{% if product.metafields.product_page.key_features %}<p>{{ product.metafields.product_page.key_features | metafield_tag }}<\/p>\n{% endif %}",
             "page": ""
           }
         },
@@ -104,7 +96,7 @@
           "settings": {
             "heading": "MATERIALS AND CARE",
             "icon": "none",
-            "content": "{%- if product.metafields.product_page.material_description -%}\n  <p>{{ product.metafields.product_page.material_description | metafield_tag }}</p>\n{%- endif -%}\n{%- if product.metafields.product_page.country_description -%}\n  <p>{{ product.metafields.product_page.country_description | metafield_tag }}</p>\n{%- endif -%}\n{%- if product.metafields.product_page.care_instructions -%}\n  <p>{{ product.metafields.product_page.care_instructions | metafield_tag }}</p>\n{%- endif -%}",
+            "content": "{%- if product.metafields.product_page.material_description -%}\n  <p>{{ product.metafields.product_page.material_description | metafield_tag }}<\/p>\n{%- endif -%}\n{%- if product.metafields.product_page.country_description -%}\n  <p>{{ product.metafields.product_page.country_description | metafield_tag }}<\/p>\n{%- endif -%}\n{%- if product.metafields.product_page.care_instructions -%}\n  <p>{{ product.metafields.product_page.care_instructions | metafield_tag }}<\/p>\n{%- endif -%}",
             "page": ""
           }
         },
@@ -113,7 +105,7 @@
           "settings": {
             "heading": "SIZE GUIDE",
             "icon": "none",
-            "content": "{% if product.metafields.product_page.json_size_chart or product.metafields.product_page.size_chart %}<div>{{ product.metafields.product_page.extra_size_details }}</div><modal-opener class=\"product-popup-modal__opener quick-add-hidden\" data-modal=\"#PopupModal-{{ block.id }}\" {{ block.shopify_attributes }}>\n<button id=\"ProductPopup-{{ block.id }}\" class=\"product-popup-modal__button link\" type=\"button\" aria-haspopup=\"dialog\">\nProduct Measurements\n</button>\n</modal-opener>\n<modal-dialog id=\"PopupModal-{{ block.id }}\" class=\"product-popup-modal\" {{ block.shopify_attributes }}>\n<div role=\"dialog\" aria-label=\"Product Measurements\" aria-modal=\"true\" class=\"product-popup-modal__content\" tabindex=\"-1\">\n<button id=\"ModalClose-{{ block.id }}\" type=\"button\" class=\"product-popup-modal__toggle\" aria-label=\"{{ 'accessibility.close' | t }}\">\n<span class=\"svg-wrapper\">{{- 'icon-close.svg' | inline_asset_content -}}</span></button>\n<div class=\"product-popup-modal__content-info\">\n<h1 class=\"h2\">\nProduct Measurements\n</h1>\n{% render 'size-chart' %}\n</div>\n</div>\n</modal-dialog>\n{% endif %}",
+            "content": "{% if product.metafields.product_page.json_size_chart or product.metafields.product_page.size_chart %}<div>{{ product.metafields.product_page.extra_size_details }}<\/div><modal-opener class=\"product-popup-modal__opener quick-add-hidden\" data-modal=\"#PopupModal-{{ block.id }}\" {{ block.shopify_attributes }}>\n<button id=\"ProductPopup-{{ block.id }}\" class=\"product-popup-modal__button link\" type=\"button\" aria-haspopup=\"dialog\">\nProduct Measurements\n<\/button>\n<\/modal-opener>\n<modal-dialog id=\"PopupModal-{{ block.id }}\" class=\"product-popup-modal\" {{ block.shopify_attributes }}>\n<div role=\"dialog\" aria-label=\"Product Measurements\" aria-modal=\"true\" class=\"product-popup-modal__content\" tabindex=\"-1\">\n<button id=\"ModalClose-{{ block.id }}\" type=\"button\" class=\"product-popup-modal__toggle\" aria-label=\"{{ 'accessibility.close' | t }}\">\n<span class=\"svg-wrapper\">{{- 'icon-close.svg' | inline_asset_content -}}<\/span><\/button>\n<div class=\"product-popup-modal__content-info\">\n<h1 class=\"h2\">\nProduct Measurements\n<\/h1>\n{% render 'size-chart' %}\n<\/div>\n<\/div>\n<\/modal-dialog>\n{% endif %}",
             "page": ""
           }
         },
@@ -135,7 +127,7 @@
         "custom_liquid_X9miCe",
         "bis_form_iQ4kYG",
         "buy_buttons",
-        "wishlist_plus_wishlist_pdp_button_NBkk6K",
+        "swish_formerly_wishlist_king_wishlist_button_block_BQcWBQ",
         "custom_liquid_mPzed7",
         "description",
         "collapsible_tab_JNhcga",
@@ -166,7 +158,7 @@
         "text_mRz8Ek": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>THE DENIM COLLECTION</strong></p><p>Handcrafted in Japan by skilled artisans, we use the highest quality Japanese denim and time-honored techniques, upholding responsible manufacturing methods that honor both people and the environment. Each piece is meticulously crafted, undergoing nearly 100 steps to produce one garment.</p><p>All of our denim is 100% cotton, with thoughtful touches, like contrast topstitching, hand-tacked embroidery instead of rivets to optimize softness, and adjustable waistbands and straps for long-wear and the perfect fit. Crafted entirely from cotton, our denim has no stretch — yet remains soft with a great hand-feel and is effortlessly versatile.</p><p>Designed for comfort and made for long wear — this denim can be worn often, worn in, and passed down.</p>",
+            "text": "<p><strong>THE DENIM COLLECTION<\/strong><\/p><p>Handcrafted in Japan by skilled artisans, we use the highest quality Japanese denim and time-honored techniques, upholding responsible manufacturing methods that honor both people and the environment. Each piece is meticulously crafted, undergoing nearly 100 steps to produce one garment.<\/p><p>All of our denim is 100% cotton, with thoughtful touches, like contrast topstitching, hand-tacked embroidery instead of rivets to optimize softness, and adjustable waistbands and straps for long-wear and the perfect fit. Crafted entirely from cotton, our denim has no stretch — yet remains soft with a great hand-feel and is effortlessly versatile.<\/p><p>Designed for comfort and made for long wear — this denim can be worn often, worn in, and passed down.<\/p>",
             "text_style": "body"
           }
         }
@@ -175,7 +167,7 @@
         "text_mRz8Ek"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_SP25_Denim_Detail.jpg",
+        "image": "shopify:\/\/shop_images\/MP_SP25_Denim_Detail.jpg",
         "height": "adapt",
         "desktop_image_width": "small",
         "layout": "text_first",
@@ -197,7 +189,7 @@
         "text_Eqkbw6": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>INFINITE VARIATIONS — THE MAGIC OF HAND-DYE</strong></p><p>Our hand-dyed Superwash Merino wool is sustainably and ethically crafted by skilled artisans in Peru using premium natural fibers and low-impact dyes. This yarn is truly special, with each strand unique due to the hand-dye process, introducing subtle nuances to every garment. The hand-dyed variation and natural patterns the yarn creates when knit mean no two garments are the same, and that’s exactly why we love it. With this process, we embrace unpredictability and celebrate the presence of the hand.</p><p>For those reasons, we can’t guarantee that the Space Dye garment you receive will have a pattern close to those pictured, but it will truly be a one-of-a-kind heirloom.</p>",
+            "text": "<p><strong>INFINITE VARIATIONS — THE MAGIC OF HAND-DYE<\/strong><\/p><p>Our hand-dyed Superwash Merino wool is sustainably and ethically crafted by skilled artisans in Peru using premium natural fibers and low-impact dyes. This yarn is truly special, with each strand unique due to the hand-dye process, introducing subtle nuances to every garment. The hand-dyed variation and natural patterns the yarn creates when knit mean no two garments are the same, and that’s exactly why we love it. With this process, we embrace unpredictability and celebrate the presence of the hand.<\/p><p>For those reasons, we can’t guarantee that the Space Dye garment you receive will have a pattern close to those pictured, but it will truly be a one-of-a-kind heirloom.<\/p>",
             "text_style": "body"
           }
         }
@@ -206,7 +198,7 @@
         "text_Eqkbw6"
       ],
       "settings": {
-        "image": "shopify://shop_images/bluestack_web.jpg",
+        "image": "shopify:\/\/shop_images\/bluestack_web.jpg",
         "height": "adapt",
         "desktop_image_width": "small",
         "layout": "text_first",
@@ -228,7 +220,7 @@
         "text_Dh6Hb4": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>INFINITE VARIATIONS — THE MAGIC OF HAND-DYE</strong></p><p>Our hand-dyed Superwash Merino wool is sustainably and ethically crafted by skilled artisans in Peru using premium natural fibers and low-impact dyes. This yarn is truly special, with each strand unique due to the hand-dye process, introducing subtle nuances to every garment. The hand-dyed variation and natural patterns the yarn creates when knit mean no two garments are the same, and that’s exactly why we love it. With this process, we embrace unpredictability and celebrate the presence of the hand.</p><p>For those reasons, we can’t guarantee that the garment you receive will have the exact tone as the one pictured, but it will truly be a one-of-a-kind heirloom.</p>",
+            "text": "<p><strong>INFINITE VARIATIONS — THE MAGIC OF HAND-DYE<\/strong><\/p><p>Our hand-dyed Superwash Merino wool is sustainably and ethically crafted by skilled artisans in Peru using premium natural fibers and low-impact dyes. This yarn is truly special, with each strand unique due to the hand-dye process, introducing subtle nuances to every garment. The hand-dyed variation and natural patterns the yarn creates when knit mean no two garments are the same, and that’s exactly why we love it. With this process, we embrace unpredictability and celebrate the presence of the hand.<\/p><p>For those reasons, we can’t guarantee that the garment you receive will have the exact tone as the one pictured, but it will truly be a one-of-a-kind heirloom.<\/p>",
             "text_style": "body"
           }
         }
@@ -237,7 +229,7 @@
         "text_Dh6Hb4"
       ],
       "settings": {
-        "image": "shopify://shop_images/fig_variation_web.jpg",
+        "image": "shopify:\/\/shop_images\/fig_variation_web.jpg",
         "height": "adapt",
         "desktop_image_width": "small",
         "layout": "text_first",
@@ -259,7 +251,7 @@
         "text_Qkxx8W": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>PRISM COLLECTION<br/></strong><br/>The Prism styles are meticulously handcrafted, with each garment requiring 30 to 50 hours of expert work. The striking hand-knit and hand-crocheted patchwork showcases the remarkable artistry of our skilled knitting partners.</p>",
+            "text": "<p><strong>PRISM COLLECTION<br\/><\/strong><br\/>The Prism styles are meticulously handcrafted, with each garment requiring 30 to 50 hours of expert work. The striking hand-knit and hand-crocheted patchwork showcases the remarkable artistry of our skilled knitting partners.<\/p>",
             "text_style": "subtitle"
           }
         }
@@ -268,7 +260,7 @@
         "text_Qkxx8W"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_SP25_Prism.jpg",
+        "image": "shopify:\/\/shop_images\/MP_SP25_Prism.jpg",
         "height": "adapt",
         "desktop_image_width": "small",
         "layout": "text_first",
@@ -290,7 +282,7 @@
         "text_LbmpDK": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>INFINITE VARIATIONS — THE MAGIC OF HAND-DYE</strong></p><p>Our hand-dyed Superwash Merino wool is sustainably and ethically crafted by skilled artisans in Peru using premium natural fibers and low-impact dyes. This yarn is truly special, with each strand unique due to the hand-dye process, introducing subtle nuances to every garment. The hand-dyed variation and natural patterns the yarn creates when knit mean no two garments are the same, and that’s exactly why we love it. With this process, we embrace unpredictability and celebrate the presence of the hand.</p><p>For those reasons, we can’t guarantee that the Space Dye garment you receive will have a pattern close to those pictured, but it will truly be a one-of-a-kind heirloom.</p>",
+            "text": "<p><strong>INFINITE VARIATIONS — THE MAGIC OF HAND-DYE<\/strong><\/p><p>Our hand-dyed Superwash Merino wool is sustainably and ethically crafted by skilled artisans in Peru using premium natural fibers and low-impact dyes. This yarn is truly special, with each strand unique due to the hand-dye process, introducing subtle nuances to every garment. The hand-dyed variation and natural patterns the yarn creates when knit mean no two garments are the same, and that’s exactly why we love it. With this process, we embrace unpredictability and celebrate the presence of the hand.<\/p><p>For those reasons, we can’t guarantee that the Space Dye garment you receive will have a pattern close to those pictured, but it will truly be a one-of-a-kind heirloom.<\/p>",
             "text_style": "body"
           }
         }
@@ -299,7 +291,7 @@
         "text_LbmpDK"
       ],
       "settings": {
-        "image": "shopify://shop_images/MP_SP25_PrismSpaceDye.jpg",
+        "image": "shopify:\/\/shop_images\/MP_SP25_PrismSpaceDye.jpg",
         "height": "adapt",
         "desktop_image_width": "small",
         "layout": "text_first",
@@ -439,7 +431,7 @@
       "type": "apps",
       "blocks": {
         "judge_me_reviews_review_widget_k9GUKa": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {}
         }
       },

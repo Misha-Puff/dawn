@@ -1,6 +1,6 @@
-{%- comment %}<locksmith:efe8>{%- endcomment %}
-{%- include 'locksmith' -%}
-{%- comment %}</locksmith:efe8>{%- endcomment %}
+{%- comment %}<locksmith:1aab>{% endcomment -%}
+  {%- include 'locksmith' -%}
+{%- comment %}</locksmith:1aab>{% endcomment -%}
 
 {% include 'shogun-content-handler' %}
 
@@ -47,11 +47,10 @@
     </title>
 
     {% if page_description %}
-      {%- comment %}<locksmith:0497>{%- endcomment %}
-      {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture -%}
-      {%- if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
-      {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-      {%- comment %}</locksmith:0497>{%- endcomment %}
+      {%- comment %}<locksmith:221e>{% endcomment -%}
+        {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+        {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
+      {%- comment %}</locksmith:221e>{% endcomment -%}
     {% endif %}
 
     {% render 'meta-tags' %}
@@ -463,6 +462,3 @@
     <!-- End Widget : Crochet Gift with Purchase -->
   </body>
 </html>
-
-
-
