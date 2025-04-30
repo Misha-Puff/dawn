@@ -91,19 +91,11 @@ div#swymcs-wishlist-list-options-container {
   position: relative;
 }
 
-#swymcs-wishlist-list-actions {
-}
-
-#swymcs-wishlist-list-actions button {
-  padding: 0;
-}
-
-#swymcs-wishlist-list-actions a {
+.swymcs-wishlist-list-actions * {
   letter-spacing: normal;
-  text-align: center;
 }
 
-#swymcs-wishlist-list-actions a[href='#'] {
+.swymcs-wishlist-list-actions a[href='#'] {
   cursor: not-allowed;
   opacity: 0.5;
   text-decoration: none;
