@@ -11,7 +11,7 @@
               
     <div
       enableLazyloadImage="true" id="gaX5ZgJoG9" data-id="gaX5ZgJoG9"
-        style="--ml:40px;--mr:40px;--pt:var(--g-s-2xl);--pb:var(--g-s-2xl);--ml-mobile:var(--g-s-s);--mr-mobile:40px;--pt-mobile:var(--g-s-2xl);--pb-mobile:var(--g-s-2xl);--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--op:100%;--cg:32px;--pc:start;--gtc:minmax(0, 12fr);--w:100%;--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        style="--ml:auto;--mr:auto;--pt:var(--g-s-2xl);--pb:var(--g-s-2xl);--ml-mobile:var(--g-s-s);--mr-mobile:40px;--pt-mobile:var(--g-s-2xl);--pb-mobile:var(--g-s-2xl);--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--op:100%;--cg:32px;--pc:start;--gtc:minmax(0, 12fr);--w:100%;--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
         class="gaX5ZgJoG9 gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]"
     >
     <div
@@ -26,15 +26,19 @@
       style="--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--ta:left"
       data-keep-class="true"
       class="gXWyGctDS8 "
-    ><div>{{ 'section-rich-text.css' | asset_url | stylesheet_tag }}
-
-{% liquid
+    ><div>{% liquid
     assign content = collection.metafields.seo.description | metafield_tag
     assign content_size = content | size
     assign max_chars = 200
 %}
 
 {% unless content_size == 0 %}
+    {{ 'section-rich-text.css' | asset_url | stylesheet_tag }}
+    <style>
+        .rich-text__wrapper.page-width {
+            width: 60% !important;
+        }
+    </style>
     <div class="isolate page-width">
         <div class="rich-text content-container gradient section-collapsible-seo">
             <div class="rich-text__wrapper page-width">
