@@ -88,16 +88,6 @@
     "buttons_Y667Cy": {
       "type": "buttons",
       "blocks": {
-        "button_HKEnRa": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP BABY SUMMER",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-summer-collection",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
         "button_JBYUhC": {
           "type": "button",
           "settings": {
@@ -118,10 +108,30 @@
             "on_click": ""
           }
         },
+        "button_YkEgYX": {
+          "type": "button",
+          "settings": {
+            "label": "DRESSES",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-dresses",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_HKEnRa": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP BABY SUMMER",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-summer-collection",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
         "button_HWFEKG": {
           "type": "button",
           "settings": {
-            "label": "SUMMER LOOKBOOK",
+            "label": "VIEW LOOKBOOK",
             "open_new_tab": true,
             "link": "shopify://blogs/journal/child-su-25",
             "type": "secondary",
@@ -130,9 +140,10 @@
         }
       },
       "block_order": [
-        "button_HKEnRa",
         "button_JBYUhC",
         "button_NatF3b",
+        "button_YkEgYX",
+        "button_HKEnRa",
         "button_HWFEKG"
       ],
       "name": "Buttons",
