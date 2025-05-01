@@ -77,7 +77,7 @@
             "swym_hover_atw_border_color": "#000000",
             "swym_hover_atw_border_thickness": 0,
             "swym_hover_atw_button_border_radius": 0,
-            "swym_custom_css": "#swym-atw-pdp-button {\npadding-left: 0 !important;\n}"
+            "swym_custom_css": "#swym-atw-pdp-button {\npadding-left: 0 !important;\ntext-transform: uppercase;\n}"
           }
         },
         "custom_liquid_mPzed7": {
