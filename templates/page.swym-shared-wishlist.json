@@ -20,19 +20,13 @@
     "swym_shared_wishlist_XngTqp": {
       "type": "swym-shared-wishlist",
       "settings": {
-        "swym_wishlist_primary_button_color": "#1773B0",
-        "swym_wishlist_primary_button_text_color": "#ffffff",
-        "swym_wishlist_title": "My Wishlist",
         "swym_wishlist_show_price": true,
         "swym_wishlist_show_addtocart": true,
-        "swym_wishlist_show_delete_item": true,
         "swym_wishlist_item_cta_addtocart": "Add to cart",
         "swym_wishlist_item_cta_addingtocart": "Adding to cart",
         "swym_wishlist_item_cta_addedtocart": "Added to cart",
         "swym_wishlist_item_cta_soldout": "Sold out",
-        "swym_wishlist_item_cta_unavailable": "Unavailable",
-        "swym_wishlist_empty_description": "Your wishlist is empty.",
-        "swym_wishlist_empty_action_button_cta": "Discover the Collection Now"
+        "swym_wishlist_empty_description": "Your wishlist is empty"
       }
     }
   },
