@@ -58,7 +58,7 @@
             "col_start_mobile": "1",
             "content": "",
             "content_position": "middle-center",
-            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
+            "image": "shopify:\/\/shop_images\/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
             "row_span_desktop": 1,
             "row_span_mobile": 1,
@@ -77,7 +77,7 @@
             "col_start_mobile": "1",
             "content": "",
             "content_position": "middle-center",
-            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
+            "image": "shopify:\/\/shop_images\/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
             "row_span_desktop": 1,
             "row_span_mobile": 1,
@@ -141,7 +141,7 @@
         "text_PGqAmF": {
           "settings": {
             "line_height": 20,
-            "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.</p>"
+            "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.<\/p>"
           },
           "type": "text"
         }
