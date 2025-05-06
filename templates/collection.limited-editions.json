@@ -1,0 +1,227 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "shogun-above": {
+      "type": "shogun-above",
+      "settings": {}
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "shogun-below": {
+      "type": "shogun-below",
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
+    },
+    "rich_text_PN3G9P": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_bcz6NH": {
+          "type": "heading",
+          "settings": {
+            "heading": "Limited Edition",
+            "heading_size": "h2"
+          }
+        },
+        "text_WG9MBh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A limited edition collection showcasing never-before-seen color pairings and textures, crafted to celebrate color, technique, and the unexpected. </p>",
+            "line_height": 22
+          }
+        }
+      },
+      "block_order": [
+        "heading_bcz6NH",
+        "text_WG9MBh"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20,
+        "padding_left": 60,
+        "padding_right": 60
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 48,
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_overlay": false,
+        "enable_swatches": false,
+        "quick_add": "standard",
+        "enable_filtering": true,
+        "filter_type": "drawer",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "featured_collection_cFKWUL": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_alignment": "left",
+        "heading_size": "h1",
+        "heading_margin": 25,
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "limited-editions",
+        "hide_sold_out": false,
+        "products_to_show": 25,
+        "columns_desktop": 3,
+        "full_width": true,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 26,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "section_full_width": true,
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 36,
+        "desktop_padding_left": 40,
+        "desktop_padding_right": 40,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 20,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 4
+      }
+    },
+    "rich_text_pTCyyJ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_FEPBf9": {
+          "type": "heading",
+          "settings": {
+            "heading": "Fuchsia",
+            "heading_size": "h2"
+          }
+        },
+        "text_x8NmaN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>When creating our Made-to-Order capsules, we often produce a small surplus. This allows us to make the most of the materials ordered and minimize waste, while also providing a buffer for any unexpected customer needs. Occasionally, these extras become available in limited quantities for those who may have missed out during the initial release.</p>",
+            "line_height": 20
+          }
+        }
+      },
+      "block_order": [
+        "heading_FEPBf9",
+        "text_x8NmaN"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0
+      }
+    },
+    "featured_collection_e7EjDV": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_alignment": "left",
+        "heading_size": "h1",
+        "heading_margin": 25,
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "bonus-additions",
+        "hide_sold_out": false,
+        "products_to_show": 25,
+        "columns_desktop": 3,
+        "full_width": true,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 26,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "section_full_width": true,
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 36,
+        "desktop_padding_left": 40,
+        "desktop_padding_right": 40,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 20,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
+      }
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "shogun-above",
+    "banner",
+    "shogun-below",
+    "shogun-optimizer",
+    "rich_text_PN3G9P",
+    "product-grid",
+    "featured_collection_cFKWUL",
+    "rich_text_pTCyyJ",
+    "featured_collection_e7EjDV"
+  ]
+}

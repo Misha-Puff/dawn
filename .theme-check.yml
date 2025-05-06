@@ -1,4 +1,17 @@
-MatchingTranslations:
-  enabled: false
-TemplateLength:
+extends: theme-check:all
+ignore:
+  - node_modules/**
+  - layout/theme.gem-*.liquid
+  - layout/theme.shogun.*.liquid
+  - layout/theme.gempages.*.liquid
+  - templates/page.gem-*.liquid
+  - templates/index.gem-*.liquid
+  - sections/shogun-*.liquid
+  - sections/gp-*.liquid
+  - snippets/shogun-*.liquid
+  - snippets/locksmith.liquid 
+  - snippets/locksmith-variables.liquid
+  - snippets/locksmith-content-variables.liquid
+
+AssetSizeJavaScript:
   enabled: false

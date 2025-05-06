@@ -1,0 +1,268 @@
+{{ 'swym-wishlist.css' | asset_url | stylesheet_tag }}
+
+<swymcs-custom-wishlist
+  data-section-id="{{ section.id }}"
+  class="swymcs-custom-wishlist page-width"
+  data-sectionId="{{ section.id }}"
+  data-settings="{{ section.settings | json | escape }}"
+>
+  <div id="swymcs-wishlist-loader" class="swymcs-hide">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="50">
+      <radialGradient id="a12" cx=".66" fx=".66" cy=".3125" fy=".3125" gradientTransform="scale(1.5)"><stop offset="0" stop-color="currentColor"></stop><stop offset=".3" stop-color="currentColor" stop-opacity=".9"></stop><stop offset=".6" stop-color="currentColor" stop-opacity=".6"></stop><stop offset=".8" stop-color="currentColor" stop-opacity=".3"></stop><stop offset="1" stop-color="currentColor" stop-opacity="0"></stop></radialGradient><circle transform-origin="center" fill="none" stroke="url(#a12)" stroke-width="15" stroke-linecap="round" stroke-dasharray="200 1000" stroke-dashoffset="0" cx="100" cy="100" r="70"><animateTransform type="rotate" attributeName="transform" calcMode="spline" dur="2" values="360;0" keyTimes="0;1" keySplines="0 0 1 1" repeatCount="indefinite"></animateTransform></circle><circle transform-origin="center" fill="none" opacity=".2" stroke="currentColor" stroke-width="15" stroke-linecap="round" cx="100" cy="100" r="70"></circle>
+    </svg>
+  </div>
+  <div id="swymcs-wishlist-wrapper" class="swymcs-hide">
+    <div id="swymcs-wishlist-title" class="swymcs-wishlist-title"></div>
+    <div class="swymcs-wishlist-body">
+      <div id="swymcs-wishlist-container" class="swymcs-hide">
+        <div id="swymcs-wishlist-items-container"></div>
+      </div>
+      <div id="swymcs-empty-wishlist-container" class="swymcs-hide">
+        <div>
+          {{ section.settings.swym_wishlist_empty_description }}
+        </div>
+      </div>
+    </div>
+  </div>
+</swymcs-custom-wishlist>
+
+<script>
+  if (!window.SwymCallbacks) window.SwymCallbacks = [];
+  window.SwymCallbacks.push(initSwymUI);
+
+  let swat;
+  let settings;
+  let sectionId;
+  let elements;
+
+  function initSwymUI(swatInstance) {
+    swat = swatInstance;
+    const wishlistElement = document.querySelector('.swymcs-custom-wishlist');
+    settings = JSON.parse(wishlistElement.dataset.settings);
+    sectionId = wishlistElement.dataset.sectionid;
+
+    elements = {
+      loader: wishlistElement.querySelector('#swymcs-wishlist-loader'),
+      wrapper: wishlistElement.querySelector('#swymcs-wishlist-wrapper'),
+      container: wishlistElement.querySelector('#swymcs-wishlist-container'),
+      itemsContainer: wishlistElement.querySelector('#swymcs-wishlist-items-container'),
+      emptyContainer: wishlistElement.querySelector('#swymcs-empty-wishlist-container'),
+      title: wishlistElement.querySelector('#swymcs-wishlist-title'),
+    };
+
+    const queryParams = swat.utils.getEncodedAsObject(window.location.search);
+
+    fetchWishlist(queryParams.lid);
+  }
+
+  function fetchWishlist(lid) {
+    showLoader();
+
+    swat.fetchListDetails(
+      { lid },
+      (listDetails) => renderWishlist(listDetails.list),
+      (error) => updateUIState(null)
+    );
+  }
+
+  async function renderWishlist(wishlist) {
+    const firstName = wishlist.userinfo?.fname;
+    const lastName = wishlist.userinfo?.lname;
+    const email = wishlist.userinfo?.em;
+
+    let title = 'Wishlist';
+
+    if (firstName && lastName) {
+      title = `${firstName} ${lastName}'s Wishlist`;
+    } else if (firstName) {
+      title = `${firstName}'s Wishlist`;
+    } else if (email) {
+      title = `${email}'s Wishlist`;
+    }
+
+    elements.itemsContainer.innerHTML = '';
+    elements.title.innerHTML = title;
+
+    if (wishlist && wishlist.listcontents.length > 0) {
+      const wishlistedProducts = await fetchProductData(wishlist.listcontents);
+      wishlistedProducts.forEach(renderWishlistItem);
+    }
+
+    updateUIState(wishlist);
+  }
+
+  async function fetchProductData(wishlistItems) {
+    const productDataPromises = wishlistItems.map(async (wishlistItem) => {
+      const response = await fetch(`${wishlistItem.du.split('?')[0]}.js`);
+      wishlistItem.productData = await response.json();
+      return wishlistItem;
+    });
+    return await Promise.all(productDataPromises);
+  }
+
+  function renderWishlistItem(item) {
+    const wishlistItem = document.createElement('div');
+    wishlistItem.classList.add('swymcs-wishlistplus-item');
+    wishlistItem.dataset.epi = item.epi;
+    wishlistItem.dataset.empi = item.empi;
+    wishlistItem.dataset.du = item.du;
+    wishlistItem.dataset.sectionid = sectionId;
+
+    const productImage = item.productData?.featured_image || item.iu;
+    const selectedVariant = item.productData.variants.find((variant) => variant.id == item.epi);
+    const isInCart = _swat.platform.isInDeviceCart(selectedVariant.id);
+    const getButtonState = () =>
+      selectedVariant?.available
+        ? isInCart
+          ? settings.swym_wishlist_item_cta_addedtocart
+          : settings.swym_wishlist_item_cta_addtocart
+        : settings.swym_wishlist_item_cta_soldout;
+
+    const compareAtPrice = item.productData.compare_at_price;
+
+    const priceContent =
+      compareAtPrice && compareAtPrice > item.pr
+        ? `<div class="swymcs-product-price"><span class="swymcs-product-price-compare">${_swat.currency}${(
+            compareAtPrice / 100
+          ).toFixed(2)}</span><span class="swymcs-product-price-final">${_swat.currency}${(
+            item.productData.price / 100
+          ).toFixed(2)}</span></div>`
+        : `<div class="swymcs-product-price"><span class="swymcs-product-price-final">${_swat.currency}${(
+            item.productData.price / 100
+          ).toFixed(2)}</span></div>`;
+
+    wishlistItem.innerHTML = `
+      <a href="${item.du}" class="swymcs-wishlist-image-container">
+        <img src="${productImage}" class="swymcs-wishlistplus-item-image" />
+      </a>
+      <div class="swymcs-wishlistplus-item-content">
+        <a href="${item.du}" class="swymcs-wishlistplus-item-title">
+          <div class="swymcs-wishlistplus-item-title-content">${item.dt} - ${selectedVariant.title}</div>
+        </a>
+        ${settings.swym_wishlist_show_price ? priceContent : ''}
+        <div class="swymcs-wishlist-action-container">
+          ${
+            settings.swym_wishlist_show_addtocart
+              ? `<button class="button button--secondary" data-action="add-to-cart" ${
+                  !selectedVariant?.available ? 'disabled' : ''
+                }>${getButtonState()}</button>`
+              : ''
+          }
+        </div>
+      </div>
+    `;
+
+    wishlistItem.querySelector('[data-action="add-to-cart"]')?.addEventListener('click', (event) => {
+      event.preventDefault();
+      let button = event.target;
+
+      let { empi, epi, du, qty } = item;
+
+      let originalButtonState = button.innerHTML;
+      button.innerHTML = settings.swym_wishlist_item_cta_addingtocart;
+
+      swat.replayAddToCart(
+        { empi: empi, du: du, qty: qty },
+        epi,
+        (success) => {
+          button.innerHTML = settings.swym_wishlist_item_cta_addedtocart;
+          const variant = JSON.parse(success).items[0];
+          const productTitle = variant.title;
+          let successMessage = `<strong>${productTitle}</strong> has been added to cart!`;
+          swat.ui.showSuccessNotification({ message: successMessage });
+        },
+        (error) => {
+          button.innerHTML = originalButtonState;
+          swat.ui.showErrorNotification({ message: error.description });
+        }
+      );
+    });
+
+    elements.itemsContainer.appendChild(wishlistItem);
+  }
+
+  function updateUIState(wishlist) {
+    hideLoader();
+
+    if (!wishlist) {
+      elements.title.innerHTML = 'Wishlist Not Found';
+    } else if (wishlist.listcontents.length > 0) {
+      elements.container.classList.remove('swymcs-hide');
+    } else {
+      elements.emptyContainer.classList.remove('swymcs-hide');
+    }
+
+    elements.wrapper.classList.remove('swymcs-hide');
+  }
+
+  function showLoader() {
+    elements.loader.classList.remove('swymcs-hide');
+  }
+
+  function hideLoader() {
+    elements.loader.classList.add('swymcs-hide');
+  }
+</script>
+
+{% schema %}
+{
+  "name": "SWYM Shared Wishlist",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Wishlist Item"
+    },
+    {
+      "type": "checkbox",
+      "id": "swym_wishlist_show_price",
+      "label": "Show price",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "swym_wishlist_show_addtocart",
+      "label": "Show Add To Cart Button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "swym_wishlist_item_cta_addtocart",
+      "label": "Button label Add to cart",
+      "default": "Add to cart"
+    },
+    {
+      "type": "text",
+      "id": "swym_wishlist_item_cta_addingtocart",
+      "label": "Button label Add to cart",
+      "default": "Adding to cart"
+    },
+    {
+      "type": "text",
+      "id": "swym_wishlist_item_cta_addedtocart",
+      "label": "Button label Added to cart",
+      "default": "Added to cart"
+    },
+    {
+      "type": "text",
+      "id": "swym_wishlist_item_cta_soldout",
+      "label": "Button label sold out",
+      "default": "Sold out"
+    },
+    {
+      "type": "header",
+      "content": "Empty Wishlist"
+    },
+    {
+      "type": "text",
+      "id": "swym_wishlist_empty_description",
+      "label": "Wishlist Empty Desciption",
+      "default": "Your wishlist is empty."
+    }
+  ],
+  "presets": [
+    {
+      "name": "SWYM Shared Wishlist"
+    }
+  ]
+}
+{% endschema %}

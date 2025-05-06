@@ -1,0 +1,157 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_HcgfCD": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_9AyMmp": {
+          "type": "heading",
+          "settings": {
+            "heading": "Black Friday Weekend Details",
+            "heading_size": "h2"
+          }
+        },
+        "text_4cnNFw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Prices as marked. Exclusions apply. All <a href=\"https://shop.misha-and-puff.com/collections/child-fall-24-simplified\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/collections/child-fall-24-simplified\">Fall Collection</a> items purchased during this promotion, as well as any Sale items, are final sale and not eligible for return, exchange, or store credit. This promotion runs from Friday, November 29, at 8:00 AM ET, through Sunday, December 1, at 11:59 PM ET.</p><p>The <em>Spend Now, Celebrate Later</em> voucher is valid for online and in-store use at our retail locations from December 15, 2024, through December 31, 2024, at 11:59 PM ET. Customers who qualify for a voucher will receive a reminder email before the redemption period begins. The voucher will automatically be applied to the first purchase within the designated dates, is valid for one-time use only, and must be used in full in a single transaction. For qualifying purchases, the voucher will be linked to the account associated with the purchase:<br/>Spend $250+, receive a $25 voucher<br/>Spend $500+, receive  a $100 voucher<br/>Spend $1,000+, receive a $250 voucher<br/><br/></p><p>Qualifying totals are calculated after shipping, duties, and tax. Unused vouchers and credits do not roll over to future purchases. The voucher is valid sitewide, including Sale items, though some exclusions may apply.<br/><br/></p><p>This promotion is available for a limited time only, while supplies last. Offers are valid for one use per customer, cannot exceed $250 off in voucher credit, and cannot be combined with other savings, redeemed for cash or alternative credit, or applied toward gift card purchases. No price adjustments on previous purchases.<br/><br/></p><p>Misha & Puff reserves the right to modify or cancel this promotion at any time.</p>",
+            "line_height": 22
+          }
+        },
+        "button_QDAYY4": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_9AyMmp",
+        "text_4cnNFw",
+        "button_QDAYY4"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 28,
+        "padding_left": 32,
+        "padding_right": 32
+      }
+    },
+    "buttons_ztkGme": {
+      "type": "buttons",
+      "blocks": {
+        "button_H8YgNb": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD NEW ARRIVALS",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-the-winter-collection",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_x4wjJc": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD FALL",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-fall-24-simplified",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_BRYpw9": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD SALE",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-sale",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_XUEBRd": {
+          "type": "button",
+          "settings": {
+            "label": "BABY NEW ARRIVALS",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-the-winter-collection",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_ne3YGm": {
+          "type": "button",
+          "settings": {
+            "label": "BABY FALL",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-fall-24-simplified",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_CchCdX": {
+          "type": "button",
+          "settings": {
+            "label": "BABY SALE",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-sale",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_H8YgNb",
+        "button_x4wjJc",
+        "button_BRYpw9",
+        "button_XUEBRd",
+        "button_ne3YGm",
+        "button_CchCdX"
+      ],
+      "settings": {
+        "title": "Shop the Sale",
+        "button_gap": 10,
+        "heading_size": "h2",
+        "color_scheme": "",
+        "desktop_padding_top": 22,
+        "desktop_padding_bottom": 50,
+        "mobile_padding_top": 10,
+        "mobile_padding_bottom": 30
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_HcgfCD",
+    "buttons_ztkGme"
+  ]
+}

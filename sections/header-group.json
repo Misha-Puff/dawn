@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -14,30 +14,37 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "announcement_egLqPG": {
+        "announcement_4MwKwV": {
           "type": "announcement",
           "settings": {
-            "text": "<p>Stay in the know — Sign up for <a href=\"\/pages\/sms-subscribe\" target=\"_blank\" title=\"SMS Subscribe\">SMS<\/a> \/ <a href=\"\/pages\/newsletter-signup\" target=\"_blank\" title=\"Newsletter Signup\">Emails<\/a><\/p>"
+            "text": "<p>ENDS SUNDAY — 20% off Adult Pia Tank + Ballet Tee when you buy 2+. Checkout code: ADULT20PIMA</p>"
           }
         }
       },
       "block_order": [
-        "announcement_egLqPG"
+        "announcement_4MwKwV"
       ],
+      "disabled": true,
       "settings": {
-        "color_scheme": "",
-        "show_line_separator": true,
-        "show_social": false,
+        "desktop_height": 40,
+        "mobile_height": 50,
         "auto_rotate": false,
         "change_slides_speed": 5,
+        "color_scheme": "",
+        "show_line_separator": false,
+        "show_social": false,
         "enable_country_selector": false,
         "enable_language_selector": false
       }
     },
     "header": {
       "type": "header",
+      "custom_css": [
+        "#HeaderMenu-archive {color: red;}"
+      ],
       "settings": {
         "logo_position": "top-center",
+        "mobile_logo_position": "center",
         "menu": "dawn-nav-1",
         "menu_type_desktop": "mega",
         "sticky_header_type": "always",
@@ -47,10 +54,9 @@
         "enable_country_selector": false,
         "enable_language_selector": false,
         "enable_customer_avatar": true,
-        "mobile_logo_position": "center",
         "margin_bottom": 0,
         "padding_top": 20,
-        "padding_bottom": 20
+        "padding_bottom": 16
       }
     }
   },

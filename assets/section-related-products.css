@@ -5,3 +5,7 @@
 .related-products__heading {
   margin: 0 0 3rem;
 }
+
+product-recommendations h2.h1 {
+  font-size: 15px;
+}

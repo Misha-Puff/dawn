@@ -1,0 +1,6 @@
+<script id="global-variables" type="application/ld+json">
+  {
+    "freeShippingThresholdOverrideEnabled": {% if settings.cart_free_shipping_override != nil %}true{% else %}false{% endif %},
+    "freeShippingThreshold": {{ settings.cart_free_shipping_override }}
+  }
+</script>

@@ -35,8 +35,15 @@
     assign money_price_max = price_max | money_with_currency
   endif
 
-  if target == product and product.price_varies
-    assign money_price = 'products.product.price.from_price_html' | t: price: money_price
+  # if target == product and product.price_varies
+  #  assign money_price = 'products.product.price.from_price_html' | t: price: money_price
+  # endif
+
+  assign tags_str = product.tags | join: ','
+  assign coming_soon = false
+
+  if tags_str contains 'Badge-Coming Soon'
+    assign coming_soon = true
   endif
 -%}
 
@@ -124,28 +131,37 @@
       </small>
     </div>
     {%- if show_badges -%}
-      <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
-        {{ 'products.product.on_sale' | t }}
-      </span>
+      {% if tags_str contains 'Badge-' %}
+        {% assign custom_tags = '' | split: '😉' %}
 
-      {% unless product.tags contains 'Badge-Coming Soon' %}
+        {% for tag in product.tags %}
+          {% if tag contains 'Badge-' %}
+            {% assign custom_tag = tag | split: 'Badge-' | last | split: '😉' %}
+            {% assign custom_tags = custom_tags | concat: custom_tag %}
+          {% endif %}
+        {% endfor %}
+
+        {%- if custom_tags.size > 0 -%}
+          {% for custom_tag in custom_tags %}
+            <span class="badge price__badge-coming-soon color-{{ settings.coming_soon_badge_color_scheme }}">
+              {{ custom_tag }}
+            </span>
+          {% endfor %}
+        {% endif %}
+      {% endif %}
+
+      {% if product.available == false and coming_soon == false %}
         <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
           {{ 'products.product.sold_out' | t }}
         </span>
-      {% endunless %}
-
-      {% if product.tags contains 'RWS' %}
-        <span class="badge price__badge-rws color-{{ settings.rws_badge_color_scheme }}">RWS</span>
-      {% endif %}
-
-      {% if product.tags contains 'made-to-order' %}
-        <span class="badge price__badge-mto color-{{ settings.mto_badge_color_scheme }}">MTO</span>
-      {% endif %}
-
-      {% if product.tags contains 'Badge-Coming Soon' %}
-        <span class="badge price__badge-coming-soon color-{{ settings.coming_soon_badge_color_scheme }}">
-          Coming Soon
+      {% elsif product.compare_at_price > product.price %}
+        <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
+          {{ 'products.product.on_sale' | t }}
         </span>
+      {% elsif product.tags contains 'RWS' %}
+        <span class="badge price__badge-rws color-{{ settings.rws_badge_color_scheme }}">RWS</span>
+      {% elsif product.tags contains 'made-to-order' %}
+        <span class="badge price__badge-mto color-{{ settings.mto_badge_color_scheme }}">Made-to-Order</span>
       {% endif %}
     {%- endif -%}
   </div>

@@ -1,0 +1,459 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+
+{{ 'component-rating.css' | asset_url | stylesheet_tag }}
+{{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
+
+{{ 'quick-order-list.css' | asset_url | stylesheet_tag }}
+{{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
+
+{{ 'quick-add.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
+{%- style -%}
+  @media screen and (max-width: 990px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.mobile_padding_top }}px;
+      padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+      {% if section.settings.mobile_padding_left > 0 %}
+        padding-left: {{ section.settings.mobile_padding_left  }}px;
+      {% endif %}
+      {% if section.settings.mobile_padding_right > 0 %}
+        padding-right: {{ section.settings.mobile_padding_right  }}px;
+      {% endif %}
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.desktop_padding_top }}px;
+      padding-bottom: {{ section.settings.desktop_padding_bottom }}px;
+      {% if section.settings.desktop_padding_left > 0 %}
+        padding-left: {{ section.settings.desktop_padding_left  }}px;
+      {% endif %}
+      {% if section.settings.desktop_padding_right > 0 %}
+        padding-right: {{ section.settings.desktop_padding_right  }}px;
+      {% endif %}
+    }
+  }
+
+  {% if section.settings.enable_custom_spacing %}
+    .section-{{ section.id }}-padding .grid {
+      column-gap: {{ section.settings.horizontal_spacing_mobile }}px;
+      row-gap: {{ section.settings.vertical_spacing_mobile }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding .grid {
+        column-gap: {{ section.settings.horizontal_spacing_desktop }}px;
+        row-gap: {{ section.settings.vertical_spacing_desktop }}px;
+      }
+
+      .section-{{ section.id }}-padding .grid--6-col-desktop .grid__item {
+        width: calc(16.66% - {{ section.settings.horizontal_spacing_desktop }}px * 5 / 6) !important;
+        max-width: calc(16.66% - {{ section.settings.horizontal_spacing_desktop }}px * 5 / 6) !important;
+      }
+
+      .section-{{ section.id }}-padding .grid--5-col-desktop .grid__item {
+        width: calc(20% - {{ section.settings.horizontal_spacing_desktop }}px * 4 / 5) !important;
+        max-width: calc(20% - {{ section.settings.horizontal_spacing_desktop }}px * 4 / 5) !important;
+      }
+
+      .section-{{ section.id }}-padding .grid--4-col-desktop .grid__item {
+        width: calc(25% - {{ section.settings.horizontal_spacing_desktop }}px * 3 / 4) !important;
+        max-width: calc(25% - {{ section.settings.horizontal_spacing_desktop }}px * 3 / 4) !important;
+      }
+
+      .section-{{ section.id }}-padding .grid--3-col-desktop .grid__item {
+        width: calc(33.33% - {{ section.settings.horizontal_spacing_desktop }}px * 2 / 3) !important;
+        max-width: calc(33.33% - {{ section.settings.horizontal_spacing_desktop }}px * 2 / 3) !important;
+      }
+
+      .section-{{ section.id }}-padding .grid--2-col-desktop .grid__item {
+        width: calc(50% - {{ section.settings.horizontal_spacing_desktop }}px / 2) !important;
+        max-width: calc(50% - {{ section.settings.horizontal_spacing_desktop }}px / 2) !important;
+      }
+    }
+
+    @media screen and (max-width: 749px){
+      .section-{{ section.id }}-padding .grid--2-col-tablet-down .grid__item {
+        width: calc(50% - {{ section.settings.horizontal_spacing_mobile }}px / 2);
+      }
+    }
+  {% endif %}
+
+  .section-{{ section.id }} .slider-buttons {
+    display: none !important;
+  }
+
+  .section-{{ section.id }} .collection__title .title {
+    font-size: 15px;
+  }
+
+  .section-{{ section.id }} .collection__title.title-wrapper {
+    margin-bottom: {{ section.settings.heading_margin }}px !important;
+  }
+
+  .section-{{ section.id }} .collection__title .title {
+    margin-bottom: 0 !important;
+  }
+{%- endstyle -%}
+
+<div
+  class="color-{{ section.settings.color_scheme }} isolate gradient"
+>
+  <div
+    class="section-{{ section.id }} collection section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}"
+    id="collection-{{ section.id }}"
+    data-id="{{ section.id }}"
+  >
+    <div class="collection__title title-wrapper title-wrapper--no-top-margin collection__title--desktop-slider {{ section.settings.heading_alignment }}">
+      {%- if section.settings.title != blank -%}
+        <h2 class="title inline-richtext uppercase {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {{ section.settings.title }}
+        </h2>
+      {%- endif -%}
+    </div>
+
+    <slider-component class="slider-mobile-gutter slider-component-desktop{% if section.settings.full_width %} slider-component-full-width{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <ul
+        id="Slider-{{ section.id }}"
+        data-id="{{ section.id }}"
+        class="grid product-grid contains-card contains-card--product{% if settings.card_style == 'standard' %} contains-card--standard{% endif %} grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down slider slider--desktop slider--tablet grid--peek"
+        role="list"
+        aria-label="{{ 'general.slider.name' | t }}"
+      ></ul>
+      <div class="slider-buttons">
+        <button
+          type="button"
+          class="slider-button slider-button--prev"
+          name="previous"
+          aria-label="{{ 'general.slider.previous_slide' | t }}"
+          aria-controls="Slider-{{ section.id }}"
+        >
+          <span class="svg-wrapper">
+            {{- 'icon-caret.svg' | inline_asset_content -}}
+          </span>
+        </button>
+        <div class="slider-counter caption">
+          <span class="slider-counter--current">1</span>
+          <span aria-hidden="true"> / </span>
+          <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
+          <span class="slider-counter--total">{{ products_to_display }}</span>
+        </div>
+        <button
+          type="button"
+          class="slider-button slider-button--next"
+          name="next"
+          aria-label="{{ 'general.slider.next_slide' | t }}"
+          aria-controls="Slider-{{ section.id }}"
+        >
+          <span class="svg-wrapper">
+            {{- 'icon-caret.svg' | inline_asset_content -}}
+          </span>
+        </button>
+      </div>
+    </slider-component>
+  </div>
+</div>
+
+<script>
+  const generateLiEl = (idx, cardProduct) => `
+    <li
+      id="Slide-{{ section.id }}-${idx}"
+      class="grid__item slider__slide{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+      {% if settings.animations_reveal_on_scroll %}
+        data-cascade
+        style="--animation-order: ${idx};"
+      {% endif %}
+    >${cardProduct}</li>
+  `;
+
+  recentlyViewed = localStorage.getItem('MPRecentlyViewed');
+
+  if (recentlyViewed !== null && recentlyViewed !== undefined) {
+    recentlyViewed = JSON.parse(recentlyViewed);
+
+    const recentlyViewedParentEl = document.getElementById('Slider-{{ section.id }}');
+
+    let recentlyViewedBlock = [];
+
+    for (let i = 0; i < recentlyViewed.length; i++) {
+      const { productID, cardProduct } = recentlyViewed[i];
+      
+      if(i == {{ section.settings.products_to_show }}) break;
+
+      recentlyViewedBlock.push(generateLiEl(i, cardProduct));
+    }
+
+    recentlyViewedBlock = recentlyViewedBlock.join('');
+
+    recentlyViewedParentEl.innerHTML = recentlyViewedBlock;
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Recently Viewed Products",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "t:sections.featured-collection.settings.title.default",
+      "label": "t:sections.featured-collection.settings.title.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left",
+      "label": "Heading Alignment"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "id": "heading_margin",
+      "label": "Heading margin",
+      "min": 0,
+      "max": 50,
+      "type": "range",
+      "default": 25,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 48,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.featured-collection.settings.products_to_show.label"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.featured-collection.settings.columns_desktop.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.featured-collection.settings.full_width.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_custom_spacing",
+      "label": "Enable Custom Spacing"
+    },
+    {
+      "type": "range",
+      "id": "horizontal_spacing_desktop",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 20,
+      "unit": "px",
+      "label": "Desktop Horizontal Spacing"
+    },
+    {
+      "type": "range",
+      "id": "vertical_spacing_desktop",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 20,
+      "unit": "px",
+      "label": "Desktop Vertical Spacing"
+    },
+    {
+      "type": "range",
+      "id": "horizontal_spacing_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 10,
+      "unit": "px",
+      "label": "Mobile Horizontal Spacing"
+    },
+    {
+      "type": "range",
+      "id": "vertical_spacing_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 10,
+      "unit": "px",
+      "label": "Mobile Vertical Spacing"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.featured-collection.settings.header_mobile.content"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "t:sections.featured-collection.settings.columns_mobile.label",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:sections.featured-collection.settings.columns_mobile.options__1.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.featured-collection.settings.columns_mobile.options__2.label"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop Top Padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop Bottom Padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_left",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop Left Padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_right",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop Right Padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile Top Padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile Bottom Padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_left",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile Left Padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_right",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile Right Padding",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Recently Viewed Products"
+    }
+  ]
+}
+{% endschema %}

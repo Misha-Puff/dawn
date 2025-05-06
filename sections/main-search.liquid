@@ -116,14 +116,14 @@
                 class="reset__button field__button{% if search.terms == blank %} hidden{% endif %}"
                 aria-label="{{ 'general.search.reset' | t }}"
               >
-                <svg class="icon icon-close" aria-hidden="true" focusable="false">
-                  <use xlink:href="#icon-reset">
-                </svg>
+                <span class="svg-wrapper">
+                  {{- 'icon-reset.svg' | inline_asset_content -}}
+                </span>
               </button>
               <button type="submit" class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
-                <svg class="icon icon-search" aria-hidden="true" focusable="false">
-                  <use xlink:href="#icon-search">
-                </svg>
+                <span class="svg-wrapper">
+                  {{- 'icon-search.svg' | inline_asset_content -}}
+                </span>
               </button>
             </div>
           </form>
@@ -176,7 +176,9 @@
                       </option>
                     {%- endfor -%}
                   </select>
-                  {% render 'icon-caret' %}
+                  <span class="svg-wrapper">
+                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                  </span>
                 </div>
               </div>
             </div>
@@ -255,9 +257,15 @@
                 role="list"
               >
                 {%- assign skip_card_product_styles = false -%}
+                {%- comment %}<locksmith:0a98>{% endcomment -%}
+                  {%- assign locksmith_92eb_forloop__size = 0 %}{%- for item in search.results -%}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: item, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_92eb_forloop__size = locksmith_92eb_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_92eb_forloop__index = nil -%}
+                {%- comment %}</locksmith:0a98>{% endcomment -%}
                 {%- for item in search.results -%}
+                  {%- comment %}<locksmith:a883>{% endcomment -%}
+                    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: item, subject_parent: search, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_92eb_forloop__index == nil %}{% assign locksmith_92eb_forloop__index = 1 %}{% assign locksmith_92eb_forloop__index0 = 0 %}{% else %}{% assign locksmith_92eb_forloop__index = locksmith_92eb_forloop__index | plus: 1 %}{% assign locksmith_92eb_forloop__index0 = locksmith_92eb_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_92eb_forloop__index == 1 %}{% assign locksmith_92eb_forloop__first = true %}{% else %}{% assign locksmith_92eb_forloop__first = false %}{% endif %}{% if locksmith_92eb_forloop__index == locksmith_92eb_forloop__size %}{% assign locksmith_92eb_forloop__last = true %}{% else %}{% assign locksmith_92eb_forloop__last = false %}{% endif %}{% assign locksmith_92eb_forloop__rindex = locksmith_92eb_forloop__size | minus: locksmith_92eb_forloop__index | minus: 1 %}{% assign locksmith_92eb_forloop__rindex0 = locksmith_92eb_forloop__size | minus: locksmith_92eb_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
+                  {%- comment %}</locksmith:a883>{% endcomment -%}
                   {% assign lazy_load = false %}
-                  {%- if forloop.index > 2 -%}
+                  {%- if locksmith_92eb_forloop__index > 2 -%}
                     {%- assign lazy_load = true -%}
                   {%- endif -%}
 
@@ -269,7 +277,7 @@
                   >
                     {%- case item.object_type -%}
                       {%- when 'product' -%}
-                        {%- capture product_settings -%}{%- if section.settings.product_show_vendor -%}vendor,{%- endif -%}title,price{%- endcapture -%}
+                        {% comment %} {%- capture product_settings -%}{%- if section.settings.product_show_vendor -%}vendor,{%- endif -%}title,price{%- endcapture -%} {% endcomment %}
                         {% render 'card-product',
                           card_product: item,
                           media_aspect_ratio: section.settings.image_ratio,
@@ -328,7 +336,7 @@
   </div>
 {% endpaginate %}
 {% if section.settings.image_shape == 'arch' %}
-  {% render 'mask-arch' %}
+  {{ 'mask-arch.svg' | inline_asset_content }}
 {%- endif -%}
 
 {% schema %}
@@ -346,6 +354,22 @@
       "default": 4,
       "label": "t:sections.main-search.settings.columns_desktop.label"
     },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "t:sections.main-search.settings.columns_mobile.label",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:sections.main-search.settings.columns_mobile.options__1.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.main-search.settings.columns_mobile.options__2.label"
+        }
+      ]
+    },    
     {
       "type": "header",
       "content": "t:sections.main-search.settings.header__1.content"
@@ -408,8 +432,7 @@
         }
       ],
       "default": "default",
-      "label": "t:sections.all.image_shape.label",
-      "info": "t:sections.all.image_shape.info"
+      "label": "t:sections.all.image_shape.label"
     },
     {
       "type": "checkbox",
@@ -459,8 +482,7 @@
         }
       ],
       "default": "horizontal",
-      "label": "t:sections.main-collection-product-grid.settings.filter_type.label",
-      "info": "t:sections.main-collection-product-grid.settings.filter_type.info"
+      "label": "t:sections.main-collection-product-grid.settings.filter_type.label"
     },
     {
       "type": "checkbox",
@@ -470,8 +492,7 @@
     },
     {
       "type": "header",
-      "content": "t:sections.main-search.settings.header__2.content",
-      "info": "t:sections.main-search.settings.header__2.info"
+      "content": "t:sections.main-search.settings.header__2.content"
     },
     {
       "type": "checkbox",
@@ -484,26 +505,6 @@
       "id": "article_show_author",
       "default": false,
       "label": "t:sections.main-search.settings.article_show_author.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.main-search.settings.header_mobile.content"
-    },
-    {
-      "type": "select",
-      "id": "columns_mobile",
-      "default": "2",
-      "label": "t:sections.main-search.settings.columns_mobile.label",
-      "options": [
-        {
-          "value": "1",
-          "label": "t:sections.main-search.settings.columns_mobile.options__1.label"
-        },
-        {
-          "value": "2",
-          "label": "t:sections.main-search.settings.columns_mobile.options__2.label"
-        }
-      ]
     },
     {
       "type": "header",

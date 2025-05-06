@@ -1,0 +1,253 @@
+#swymcs-wishlist-modal-background {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+}
+
+#swymcs-wishlist-modal-background::after {
+  content: '';
+  height: 100%;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background-color: #000;
+  opacity: calc(85 / 100);
+}
+
+#swymcs-wishlist-modal-container {
+  position: absolute;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 512px;
+  padding: 20px;
+}
+
+#swymcs-wishlist-modal-container p {
+  text-align: center;
+}
+
+#swymcs-wishlist-modal-container .button-wrapper {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+  gap: 20px;
+}
+
+#swymcs-wishlist-share-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#swymcs-wishlist-share-form [aria-required='true'] + label::after {
+  font-size: 1.3em;
+  content: '*';
+  color: red;
+  margin-left: 0.1em;
+}
+
+.swymcs-share-links-wrapper {
+  margin-top: 25px;
+  border-top: 1px solid black;
+}
+
+.swymcs-share-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.swymcs-share-links button {
+  display: flex;
+  gap: 5px;
+}
+
+.swymcs-share-links button p {
+  margin: 0;
+}
+
+div#swymcs-wishlist-list-options-container {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding-right: 5px;
+}
+
+#swymcs-wishlist-list-actions-container {
+  display: flex;
+  position: relative;
+}
+
+.swymcs-wishlist-list-actions * {
+  letter-spacing: normal;
+}
+
+.swymcs-wishlist-list-actions a[href='#'] {
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+.swymcs-wishlist-header {
+  margin-bottom: 20px;
+}
+
+select.swym-mutliple-list {
+  padding: 10px;
+  padding-right: 30px;
+  border: none;
+  appearance: initial;
+}
+
+.swymcs-custom-wishlist {
+  max-width: 1200px;
+  font-size: 14px;
+  line-height: 20px;
+  display: block;
+  position: relative;
+  min-height: 100px;
+}
+
+.swymcs-wishlist-title {
+  color: black;
+  font-size: 14px;
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+.swymcs-hide {
+  display: none !important;
+}
+
+.swymcs-custom-wishlist .swymcs-wishlist-body {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  min-height: 300px;
+  position: relative;
+}
+
+.swymcs-custom-wishlist #swymcs-wishlist-loader {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.swymcs-custom-wishlist #swymcs-empty-wishlist-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 15px;
+  margin-top: 20px;
+  color: rgb(0, 0, 0, 0.75);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.swymcs-custom-wishlist .swymcs-custom-continue-shopping {
+  margin-top: 15px;
+}
+
+.swymcs-custom-wishlist #swymcs-wishlist-items-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 45px 15px;
+  margin-top: 10px;
+}
+
+.swymcs-wishlistplus-item {
+  position: relative;
+  width: 32%;
+  overflow: hidden;
+}
+
+.swymcs-wishlist-modal-container-exit,
+.swymcs-wishlistplus-item-remove {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border: none;
+  background: transparent;
+  z-index: 1;
+}
+
+.swymcs-wishlist-image-container {
+  display: block;
+}
+
+.swymcs-wishlist-image-container .swymcs-wishlistplus-item-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin: auto;
+  object-fit: cover;
+}
+
+.swymcs-wishlistplus-item-content {
+  padding-top: 7px;
+  font-size: 12px;
+}
+
+.swymcs-wishlistplus-item-content .swymcs-wishlistplus-item-title {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+.swymcs-product-price {
+  color: black;
+  margin-bottom: 10px;
+}
+
+.swymcs-product-price-compare {
+  text-decoration: line-through;
+  color: black;
+  margin-right: 1rem;
+}
+
+#share-wishlist {
+  position: relative;
+}
+
+@media only screen and (max-width: 767px) {
+  .swymcs-wishlistplus-item {
+    width: 47%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .swymcs-wishlist-list-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .swymcs-wishlist-list-actions > * {
+    padding-left: 0;
+  }
+
+  .swymcs-wishlistplus-item {
+    width: 100%;
+  }
+}

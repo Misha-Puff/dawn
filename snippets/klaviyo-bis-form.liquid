@@ -4,6 +4,16 @@
     assign show_bis = true
   endunless
 %}
+{% unless product.tags contains 'made-to-order' or product.type == 'Yarn Skein' %}
+  {% if product.tags contains 'no-returns' %}
+    {% style %}
+      #bis-form-wrapper {
+        display: none;
+      }
+    {% endstyle %}
+  {% endif %}
+{% endunless %}
+
 <div
   id="bis-form-wrapper"
   class="color-{{ section.settings.color_scheme }} gradient{% unless show_bis %} hidden{% endunless %}"
@@ -23,12 +33,12 @@
   -%}
   <form id="bis-form" class="{{ contact_form_class }}">
     <h2 class="form-status success form-status-list form__message" tabindex="-1" autofocus>
-      {% render 'icon-success' %}
+      {{- 'icon-success.svg' | inline_asset_content -}}
       Thanks! We will notify you when this product becomes available!
     </h2>
     <div class="form__message">
       <h2 class="form-status error caption-large text-body" role="alert" tabindex="-1" autofocus>
-        {% render 'icon-error' %}
+        {{- 'icon-error.svg' | inline_asset_content -}}
         Uh oh! It looks like something went wrong. Please try again later.
       </h2>
     </div>

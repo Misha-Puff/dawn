@@ -12,9 +12,13 @@
   padding-top: 3rem;
   position: absolute;
   right: 0;
-  top: calc(100% - 25px);
-  z-index: 999999;
+  /* top: calc(100% - 27px); */
+  z-index: 999998;
 }
+
+/* .scrolled-past-header .mega-menu__content {
+  top: calc(100% - 37px);
+} */
 
 .shopify-section-header-sticky .mega-menu__content {
   max-height: calc(100vh - var(--header-bottom-position-desktop, 20rem) - 4rem);
@@ -80,4 +84,8 @@
 
 .mega-menu__list--condensed .mega-menu__link {
   font-weight: normal;
+}
+
+.mega-menu__link:not(.mega-menu__link--level-2) {
+  font-size: 13px;
 }

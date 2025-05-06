@@ -1,0 +1,451 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "shogun-above": {
+      "type": "shogun-above",
+      "settings": {}
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "rich_text_AhzDgQ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RwtiLr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Gifts for Kids",
+            "heading_size": "h2"
+          }
+        },
+        "text_LPzcpF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Explore our handpicked selection of child gifts — for festive magic, stylish looks, cozy comfort, and essential heirlooms.</p>",
+            "line_height": 22
+          }
+        },
+        "button_knPQnV": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_RwtiLr",
+        "text_LPzcpF",
+        "button_knPQnV"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 48,
+        "padding_left": 132,
+        "padding_right": 132
+      }
+    },
+    "multicolumn_RQJfjC": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_XBwAqy": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/gifts__0002_kodak_gold_200_03_11_2024_000206650010.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "COLD WEATHER ACCS",
+            "link": "shopify://collections/child-cold-weather-accessories",
+            "new_tab": true
+          }
+        },
+        "column_cApgfB": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/sweaters_db4cd5ed-801d-4a25-861e-6008a4363985.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "SWEATERS + CARDIS",
+            "link": "shopify://collections/child-sweaters-cardigans",
+            "new_tab": true
+          }
+        },
+        "column_CEVrU7": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/gifts__0001_kodak_gold_200_03_11_2024_000206640008.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "DENIM",
+            "link": "shopify://collections/child-fall-denim-collection",
+            "new_tab": true
+          }
+        },
+        "column_iXBQ84": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/jackets.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "OUTERWEAR",
+            "link": "shopify://collections/child-jackets",
+            "new_tab": true
+          }
+        }
+      },
+      "block_order": [
+        "column_XBwAqy",
+        "column_cApgfB",
+        "column_CEVrU7",
+        "column_iXBQ84"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "enable_overlay": false,
+        "content_position": "middle-center",
+        "overlay_padding": 14,
+        "link_type": "link",
+        "link_color": "#000000",
+        "link_style": "underline",
+        "button_type": "primary",
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": false,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 12,
+        "vertical_spacing_desktop": 0,
+        "horizontal_spacing_mobile": 12,
+        "vertical_spacing_mobile": 0,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 32,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 10
+      }
+    },
+    "image_banner_QfnEBR": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_YtgzcQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Child Gift Guide",
+            "desktop_heading_size": "h2",
+            "mobile_heading_size": "h2",
+            "heading_color": "#ffffff"
+          }
+        },
+        "text_ckwhbN": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_bwWihy": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "link_type": "button",
+            "link_color": "#000000",
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_YtgzcQ",
+        "text_ckwhbN",
+        "buttons_bwWihy"
+      ],
+      "disabled": true,
+      "settings": {
+        "banner_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 0,
+        "desktop_padding_right": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
+      }
+    },
+    "rich_text_YJeCaw": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_LbXhKd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Limited Yarn",
+            "heading_size": "h2"
+          }
+        },
+        "text_PGqAmF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.</p>",
+            "line_height": 20
+          }
+        },
+        "button_Yh3Xhh": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_LbXhKd",
+        "text_PGqAmF",
+        "button_Yh3Xhh"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 40,
+        "padding_left": 100,
+        "padding_right": 100
+      }
+    },
+    "divider_FaahUj": {
+      "type": "divider",
+      "disabled": true,
+      "settings": {
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 36,
+        "desktop_padding_left": 40,
+        "desktop_padding_right": 40,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36,
+        "mobile_padding_left": 20,
+        "mobile_padding_right": 20
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "blocks": {
+        "image_f8UJrh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/MP_FA24_coldweather_1.jpg",
+            "link": "shopify://products/fa24-child-lattice-crochet-poncho-red-flame",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "top-left",
+            "row_start_desktop": 12,
+            "row_span_desktop": 1,
+            "col_start_desktop": 1,
+            "col_span_desktop": 2,
+            "row_start_mobile": 12,
+            "row_span_mobile": 1,
+            "col_start_mobile": "1",
+            "col_span_mobile": "2"
+          }
+        },
+        "image_gkgQFt": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
+            "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
+            "row_start_desktop": 9,
+            "row_span_desktop": 1,
+            "col_start_desktop": 1,
+            "col_span_desktop": 3,
+            "row_start_mobile": 12,
+            "row_span_mobile": 1,
+            "col_start_mobile": "1",
+            "col_span_mobile": "2"
+          }
+        }
+      },
+      "block_order": [
+        "image_f8UJrh",
+        "image_gkgQFt"
+      ],
+      "settings": {
+        "products_per_page": 48,
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_overlay": false,
+        "enable_swatches": false,
+        "quick_add": "standard",
+        "enable_filtering": true,
+        "filter_type": "drawer",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "buttons_WrnKTA": {
+      "type": "buttons",
+      "blocks": {
+        "button_zhJPgt": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP BABY GIFTS",
+            "open_new_tab": false,
+            "link": "shopify://collections/baby-gift-edit",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_9L9q9w": {
+          "type": "button",
+          "settings": {
+            "label": "BEST SELLERS",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-best-sellers",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_MM8K3Q": {
+          "type": "button",
+          "settings": {
+            "label": "SWEATERS",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-sweaters-cardigans",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_PxyFwV": {
+          "type": "button",
+          "settings": {
+            "label": "ACCESSORIES",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-accessories",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_BAjg3L": {
+          "type": "button",
+          "settings": {
+            "label": "NEW ARRIVALS",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-new",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_zhJPgt",
+        "button_9L9q9w",
+        "button_MM8K3Q",
+        "button_PxyFwV",
+        "button_BAjg3L"
+      ],
+      "settings": {
+        "title": "More to Explore",
+        "button_gap": 10,
+        "heading_size": "h2",
+        "color_scheme": "",
+        "desktop_padding_top": 22,
+        "desktop_padding_bottom": 32,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 12
+      }
+    },
+    "shogun-below": {
+      "type": "shogun-below",
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "shogun-above",
+    "banner",
+    "rich_text_AhzDgQ",
+    "multicolumn_RQJfjC",
+    "image_banner_QfnEBR",
+    "rich_text_YJeCaw",
+    "divider_FaahUj",
+    "product-grid",
+    "buttons_WrnKTA",
+    "shogun-below",
+    "shogun-optimizer"
+  ]
+}

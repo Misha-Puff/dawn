@@ -1,0 +1,247 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "shogun-above": {
+      "type": "shogun-above",
+      "settings": {}
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "rich_text_n8yiAy": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_cw4QqC": {
+          "type": "heading",
+          "settings": {
+            "heading": "Misha & Puff x Junior Edition",
+            "heading_size": "h2"
+          }
+        },
+        "text_aDVaDa": {
+          "type": "text",
+          "settings": {
+            "text": "<p>An exclusive collaboration with our longtime friends and partners at Junior Edition.</p>",
+            "line_height": 20
+          }
+        },
+        "button_J6VEqX": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "VIEW LOOKBOOK",
+            "button_link": "https://shop.misha-and-puff.com/blogs/journal/child-winter-24",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_cw4QqC",
+        "text_aDVaDa",
+        "button_J6VEqX"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_left": 100,
+        "padding_right": 100
+      }
+    },
+    "buttons_6fy444": {
+      "type": "buttons",
+      "blocks": {
+        "button_Li4UrX": {
+          "type": "button",
+          "settings": {
+            "label": "VIEW CHILD",
+            "open_new_tab": false,
+            "link": "#",
+            "type": "secondary",
+            "on_click": "document.getElementById('shopify-section-template--16507634122803__featured_collection_Nf9ban').scrollIntoView({behavior: 'smooth'}); return false;"
+          }
+        },
+        "button_gPCjpf": {
+          "type": "button",
+          "settings": {
+            "label": "VIEW BABY",
+            "open_new_tab": false,
+            "link": "#",
+            "type": "secondary",
+            "on_click": "document.getElementById('shopify-section-template--16507634122803__featured_collection_aKRY9c').scrollIntoView({behavior: 'smooth'}); return false;"
+          }
+        }
+      },
+      "block_order": [
+        "button_Li4UrX",
+        "button_gPCjpf"
+      ],
+      "settings": {
+        "title": "",
+        "button_gap": 10,
+        "heading_size": "h1",
+        "color_scheme": "",
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 30,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 16
+      }
+    },
+    "featured_collection_Nf9ban": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Child",
+        "heading_alignment": "center",
+        "heading_size": "h2",
+        "heading_margin": 25,
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "child-m-p-x-junior-edition",
+        "hide_sold_out": false,
+        "products_to_show": 24,
+        "columns_desktop": 3,
+        "full_width": true,
+        "enable_custom_spacing": false,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "section_full_width": true,
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 36,
+        "desktop_padding_left": 20,
+        "desktop_padding_right": 20,
+        "mobile_padding_top": 32,
+        "mobile_padding_bottom": 36,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
+      }
+    },
+    "featured_collection_aKRY9c": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Baby",
+        "heading_alignment": "center",
+        "heading_size": "h2",
+        "heading_margin": 25,
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "baby-m-p-x-junior-edition",
+        "hide_sold_out": false,
+        "products_to_show": 24,
+        "columns_desktop": 3,
+        "full_width": true,
+        "enable_custom_spacing": false,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "section_full_width": true,
+        "desktop_padding_top": 52,
+        "desktop_padding_bottom": 36,
+        "desktop_padding_left": 32,
+        "desktop_padding_right": 32,
+        "mobile_padding_top": 32,
+        "mobile_padding_bottom": 36,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "disabled": true,
+      "settings": {
+        "products_per_page": 48,
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_overlay": false,
+        "enable_swatches": false,
+        "quick_add": "standard",
+        "enable_filtering": true,
+        "filter_type": "drawer",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "shogun-below": {
+      "type": "shogun-below",
+      "settings": {}
+    },
+    "shogun-optimizer": {
+      "type": "shogun-optimizer",
+      "settings": {}
+    }
+  },
+  "order": [
+    "shogun-helper",
+    "shogun-above",
+    "banner",
+    "rich_text_n8yiAy",
+    "buttons_6fy444",
+    "featured_collection_Nf9ban",
+    "featured_collection_aKRY9c",
+    "product-grid",
+    "shogun-below",
+    "shogun-optimizer"
+  ]
+}

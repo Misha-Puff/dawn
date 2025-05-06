@@ -9,19 +9,20 @@ slider-component {
 
 slider-component.slider-component-full-width {
   --desktop-margin-left-first-item: 1.5rem;
+  padding: 0 !important;
 }
 
-@media screen and (max-width: 749px) {
+/* @media screen and (max-width: 749px) {
   slider-component.page-width {
     padding: 0 1.5rem;
   }
-}
+} */
 
-@media screen and (min-width: 749px) and (max-width: 990px) {
+/* @media screen and (min-width: 749px) and (max-width: 990px) {
   slider-component.page-width {
     padding: 0 5rem;
   }
-}
+} */
 
 .slider__slide {
   --focus-outline-padding: 0.5rem;
@@ -99,7 +100,7 @@ slider-component.slider-component-full-width {
     content: '';
     width: 0;
     padding-left: 1.5rem;
-    margin-left: calc(-1 * var(--grid-desktop-horizontal-spacing));
+    /* margin-left: calc(-1 * var(--grid-desktop-horizontal-spacing)); */
   }
 
   .slider.slider--tablet .slider__slide {
@@ -117,6 +118,7 @@ slider-component.slider-component-full-width {
   }
 }
 
+quick-add-modal .slider--mobile,
 .slider--everywhere {
   position: relative;
   flex-wrap: inherit;
@@ -127,9 +129,14 @@ slider-component.slider-component-full-width {
   margin-bottom: 1rem;
 }
 
+quick-add-modal .slider.slider--mobile .slider__slide, 
 .slider.slider--everywhere .slider__slide {
   margin-bottom: 0;
   scroll-snap-align: center;
+}
+
+quick-add-modal .slider--mobile + .slider-buttons {
+  display: flex;
 }
 
 @media screen and (min-width: 990px) {
@@ -162,19 +169,19 @@ slider-component.slider-component-full-width {
     padding-bottom: max(var(--focus-outline-padding), var(--shadow-padding-bottom));
   }
 
-  .slider--desktop .slider__slide:first-child {
+  /* .slider--desktop .slider__slide:first-child {
     margin-left: var(--desktop-margin-left-first-item);
     scroll-margin-left: var(--desktop-margin-left-first-item);
-  }
+  } */
 
   .slider-component-full-width .slider--desktop {
     scroll-padding-left: 1.5rem;
   }
 
-  .slider-component-full-width .slider--desktop .slider__slide:first-child {
+  /* .slider-component-full-width .slider--desktop .slider__slide:first-child {
     margin-left: 1.5rem;
     scroll-margin-left: 1.5rem;
-  }
+  } */
 
   /* Fix to show some space at the end of our sliders in all browsers */
   .slider-component-full-width .slider--desktop:after {
@@ -316,6 +323,7 @@ slider-component.slider-component-full-width {
   align-items: center;
   justify-content: center;
 }
+
 
 @media screen and (min-width: 990px) {
   .slider:not(.slider--everywhere):not(.slider--desktop) + .slider-buttons {

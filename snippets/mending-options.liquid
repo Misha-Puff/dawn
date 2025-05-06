@@ -41,7 +41,9 @@
           <option value="Wool">Wool</option>
           <option value="Cotton">Cotton</option>
         </select>
-        {% render 'icon-caret' %}
+        <span class="svg-wrapper">
+          {{- 'icon-caret.svg' | inline_asset_content -}}
+        </span>
       </div>
     </div>
 
@@ -59,7 +61,9 @@
             <option value="{{color.Name}}">{{ color.Name }}</option>
           {% endfor %}
         </select>
-        {% render 'icon-caret' %}
+        <span class="svg-wrapper">
+          {{- 'icon-caret.svg' | inline_asset_content -}}
+        </span>
       </div>
     </div>
   </div>

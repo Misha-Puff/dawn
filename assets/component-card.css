@@ -63,10 +63,10 @@
 }
 
 /* Needed for gradient continuity with or without animation, the transform scopes the gradient to its container which happens already when animation are turned on */
-.card--card.gradient,
+/* .card--card.gradient,
 .card__inner.gradient {
   transform: perspective(0);
-}
+} */
 
 /* Needed for gradient continuity with or without animation so that transparent PNG images come up as we would expect */
 .card__inner.color-scheme-1 {
@@ -136,7 +136,7 @@
 
 .card__information {
   grid-row-start: 2;
-  padding: 1.3rem 1rem;
+  padding: 0.7rem 1rem;
 }
 
 .card:not(.ratio) > .card__content {
@@ -263,12 +263,12 @@
   }
 }
 
-@media screen and (min-width: 750px) {
+/* @media screen and (min-width: 750px) {
   .card__information {
     padding-bottom: 1.7rem;
     padding-top: 1.7rem;
   }
-}
+} */
 
 .card__badge {
   align-self: flex-end;
@@ -303,6 +303,8 @@
 .card__heading {
   margin-top: 0;
   margin-bottom: 0;
+  font-size: 12px;
+  line-height: 20px;
 }
 
 .card__heading:last-child {
@@ -455,15 +457,16 @@
 }
 
 .card .icon-wrap {
-  margin-left: 0.8rem;
+  margin-left: 0.4rem;
+  margin-right: 0.4rem;
   white-space: nowrap;
   transition: transform var(--duration-short) ease;
   overflow: hidden;
 }
 
-.card-information > * + * {
+/* .card-information > * + * {
   margin-top: 0.5rem;
-}
+} */
 
 .card-information {
   width: 100%;
@@ -494,9 +497,9 @@
   margin-top: 0;
 }
 
-.card-information > *:not(.visually-hidden:first-child) + *:not(.rating):not(.card__information-volume-pricing-note) {
+/* .card-information > *:not(.visually-hidden:first-child) + *:not(.rating):not(.card__information-volume-pricing-note) {
   margin-top: 0.7rem;
-}
+} */
 
 .card-information .caption {
   letter-spacing: 0.07rem;
@@ -591,5 +594,53 @@
 
   .grid__item:nth-child(8n) .product-card-wrapper:hover .shape--blob {
     clip-path: polygon(var(--shape--blob-5));
+  }
+}
+
+.card__inner {
+  overflow: hidden;
+}
+
+.popup-overlay {
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100%);
+  width: 100%;
+  z-index: 2;
+  transition: transform var(--duration-default);
+  padding: 1rem 1rem 2rem;
+  text-align: center;
+}
+
+.popup-overlay.background {
+  background-color: rgba(var(--color-background), 0.6);
+}
+
+@media only screen and (min-width: 990px) {
+  .card-wrapper:hover .popup-overlay {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform var(--duration-default);
+  }
+}
+
+.variant-selects {
+  margin-top: 0 !important;
+}
+
+.variant-availability span {
+  font-size: 12px;
+  margin-right: 4px;
+}
+
+.variant-availability .unavailable {
+  opacity: 0.3;
+  text-decoration: line-through;
+  cursor: default;
+}
+
+@media screen and (max-width: 989px) {
+  .card__content .card__information {
+    padding-left: 1rem !important;
   }
 }

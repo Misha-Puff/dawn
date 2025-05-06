@@ -1,0 +1,138 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_DQdTKX": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_g8ihVz": {
+          "type": "heading",
+          "settings": {
+            "heading": "Current Promotions",
+            "heading_size": "h2"
+          }
+        },
+        "text_jM9GUT": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>GIFT WITH PURCHASE</strong></p><p>Choose a free Gift with Purchase (GWP) on all orders through January 31 at 11:59 PM ET — while supplies last!</p><p>• Spend under $200 and choose a hair accessory<br/>• Spend $200+ and choose a bag or scarf<br/>• Spend $300 and choose mittens or a hat</p><p>Online or visit us at our <a href=\"https://ctrk.klclick.com/l/01JHRB98A6PQY93SFPDF8VF096_2\">Brooklyn</a> and <a href=\"https://ctrk.klclick.com/l/01JHRB98A6PQY93SFPDF8VF096_3\">Newburyport</a> stores.<br/><br/>At checkout, select and add your free gift from a curated selection of options. No code necessary.</p>",
+            "line_height": 22
+          }
+        },
+        "button_3k6igj": {
+          "type": "button",
+          "settings": {
+            "button_label": "BACK TO SHOPPING",
+            "button_link": "https://shop.misha-and-puff.com/",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_g8ihVz",
+        "text_jM9GUT",
+        "button_3k6igj"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 40,
+        "padding_left": 0,
+        "padding_right": 0
+      }
+    },
+    "divider_wjYxCk": {
+      "type": "divider",
+      "settings": {
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 28,
+        "desktop_padding_left": 76,
+        "desktop_padding_right": 76,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 8,
+        "mobile_padding_left": 20,
+        "mobile_padding_right": 20
+      }
+    },
+    "rich_text_CrF3FE": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_QdXmhQ": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "text_QhGc3A": {
+          "type": "text",
+          "settings": {
+            "text": "<p>If you prefer not to receive the GWP, simply proceed to checkout without adding the gift.</p><p>Note: If you add the GWP to your cart and continue shopping before checking out, you will need to re-add the gift once again.</p><p>Questions? Contact us <a href=\"https://shop.misha-and-puff.com/pages/contact-form\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/pages/contact-form\">here</a>.<br/><br/><br/><em>The Gift with Purchase (GWP) promotion ends Thursday, January 31, 2025, at 11:59 PM ET. Valid online and in our retail stores—while supplies last. Supplies are limited. Prices as marked. Exclusions apply. All Sale, Markdown, and Limited styles are final sale and are not eligible for return, exchange, or store credit. Limit one GWP per customer. This offer cannot be combined with other discounts, and gifts cannot be returned or redeemed for cash or credit. No adjustments to previous purchases. Misha & Puff reserves the right to modify or cancel this promotion at any time.</em></p>",
+            "line_height": 22
+          }
+        },
+        "button_HrTcTW": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_QdXmhQ",
+        "text_QhGc3A",
+        "button_HrTcTW"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 40,
+        "padding_left": 0,
+        "padding_right": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_DQdTKX",
+    "divider_wjYxCk",
+    "rich_text_CrF3FE"
+  ]
+}

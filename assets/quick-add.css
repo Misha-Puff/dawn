@@ -1,8 +1,9 @@
 .quick-add {
-  position: relative;
-  grid-row-start: 4;
-  margin: 0 0 1rem;
-  z-index: 1;
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  right: 0;
+  margin: 1rem;
 }
 
 .card--card .quick-add {
@@ -59,7 +60,6 @@
 
 @media screen and (min-width: 750px) {
   .quick-add-modal__content {
-    --modal-height-offset: 10rem;
     margin-top: var(--modal-height-offset);
     width: 80%;
     max-height: calc(100% - var(--modal-height-offset) * 2);
@@ -214,6 +214,7 @@
   padding-right: 4.4rem;
   display: flex;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: var(--modal-padding);
   height: 100%;
 }
@@ -284,14 +285,13 @@ quick-add-modal .product:not(.featured-product) .product__view-details {
 }
 
 quick-add-modal .quick-add-hidden,
-quick-add-modal .product__modal-opener:not(.product__modal-opener--image),
-quick-add-modal .product__media-item:not(:first-child) {
+quick-add-modal .product__modal-opener:not(.product__modal-opener--image) {
   display: none !important;
 }
 
-quick-add-modal .slider.slider--mobile {
+/* quick-add-modal .slider.slider--mobile {
   overflow: visible;
-}
+} */
 
 quick-add-modal .product__column-sticky .product__media-list {
   margin-bottom: 0;
@@ -325,20 +325,20 @@ quick-add-modal .product__column-sticky {
     width: 100%;
   }
 
-  quick-add-modal .thumbnail-slider .thumbnail-list.slider--tablet-up {
+  /* quick-add-modal .thumbnail-slider .thumbnail-list.slider--tablet-up {
     display: none;
-  }
+  } */
 }
 
 quick-add-modal .page-width {
   padding: 0;
 }
 
-quick-add-modal .product__title > h1 {
+/* quick-add-modal .product__title > h1 {
   display: none;
-}
+} */
 
-quick-add-modal .product__title > a {
+/* quick-add-modal .product__title > a {
   display: block;
   text-decoration: none;
 }
@@ -348,17 +348,21 @@ quick-add-modal .product__title > a:hover {
   text-decoration: underline;
   text-underline-offset: 0.2rem;
   text-decoration-thickness: 0.3rem;
-}
+} */
 
 quick-add-modal .product-form__buttons {
   max-width: initial;
 }
 
 .quick-add__submit {
-  padding: 0.8rem;
-  min-width: 100%;
-  box-sizing: border-box;
+  padding: 1rem;
 }
+
+.quick-add__submit svg {
+  width: 1rem;
+  pointer-events: none;
+}
+
 
 quick-add-modal .product-media-container.constrain-height {
   --viewport-offset: calc((var(--modal-height-offset) + var(--modal-padding) + var(--popup-border-width)) * 2);

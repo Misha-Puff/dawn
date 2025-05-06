@@ -1,0 +1,52 @@
+#swym-vs-wishlist-container .swym-variant-selector-wishlist-item,
+#swym-images-container-2 #swym-custom-image-blob-container-2 img,
+div.swym-variant-selector-lists-btn-container button,
+ul li.swym-variant-selector-wishlist-item img,
+ul li.swym-variant-selector-wishlist-item,
+.swym-collections-variant-popup-parent,
+button#swym-custom-confirm-list-button,
+div#swym-custom-create-list-container,
+input#swym-custom-new-list-name-input,
+div#swym-custom-wishlist-actions,
+.swym-add-to-wishlist-single,
+label.swym-filter-labels,
+.swym-add-to-wishlist-1 {
+  border-radius: 0 !important;
+}
+
+ul li div.swym-variant-selector-wishlist-info div.swym-vs-img-container-1 img,
+.swym-variant-selector-wishlist-info-default img,
+.swym-variant-selector-wishlist-info-default {
+  height: auto !important;
+}
+
+span.swym-variant-selector-status {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+span.swym-variant-selector-status svg path {
+  fill: #e5e5e5;
+}
+
+.swym-collections-variant-popup-header-title,
+#swym-custom-confirm-list-button,
+#swym-vs-add-to-wishlist-text,
+#swym-create-list-title {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#swym-vs-actions-container {
+  margin-top: 20px;
+}
+
+#swym-custom-wishlist-actions-title {
+  visibility: hidden;
+}
+
+#swym-custom-wishlist-actions-title::before {
+  content: 'My Wishlist(s)';
+  visibility: visible;
+}

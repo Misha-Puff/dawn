@@ -141,7 +141,9 @@
                             <div class="summary__title">
                               <h2 class="h4 accordion__title inline-richtext">{{- block.settings.heading -}}</h2>
                             </div>
-                            {% render 'icon-caret' %}
+                            <span class="svg-wrapper">
+                              {{- 'icon-caret.svg' | inline_asset_content -}}
+                            </span>
                           </summary>
                           <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
                             {%- for link in block.settings.menu.links -%}
@@ -269,7 +271,9 @@
                               </div>
                               {%- if form.errors -%}
                                 <small class="newsletter-form__message form__message" id="ContactFooter-error">
-                                  {%- render 'icon-error' -%}
+                                  <span class="svg-wrapper">
+                                    {{- 'icon-error.svg' | inline_asset_content -}}
+                                  </span>
                                   {{- form.errors.translated_fields.email | capitalize }}
                                   {{ form.errors.messages.email -}}
                                 </small>
@@ -283,7 +287,11 @@
                               aria-label="{{ 'newsletter.button_label' | t }}"
                             >
                               Subscribe
-                              {% comment %} {% render 'icon-arrow' %} {% endcomment %}
+                              {% comment %}
+                                <span class="svg-wrapper">
+                                  {{- 'icon-arrow.svg' | inline_asset_content -}}
+                                </span>
+                              {% endcomment %}
                             </button>
 
                             {%- if form.posted_successfully? -%}
@@ -293,7 +301,9 @@
                                 tabindex="-1"
                                 autofocus
                               >
-                                {% render 'icon-success' -%}
+                                <span class="svg-wrapper">
+                                  {{- 'icon-success.svg' | inline_asset_content -}}
+                                </span>
                                 {{- 'newsletter.success' | t }}
                               </h3>
                             {%- endif -%}
@@ -320,12 +330,7 @@
     {%- endunless -%}
   {%- endif -%}
 
-  <div
-    class="footer__content-bottom{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-    {% if settings.animations_reveal_on_scroll %}
-      data-cascade
-    {% endif %}
-  >
+  <div class="footer__content-bottom">
     <div class="footer__content-bottom-wrapper page-width">
       <div class="footer__column footer__localization isolate">
         {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
@@ -414,8 +419,7 @@
           "type": "link_list",
           "id": "menu",
           "default": "footer",
-          "label": "t:sections.footer.blocks.link_list.settings.menu.label",
-          "info": "t:sections.footer.blocks.link_list.settings.menu.info"
+          "label": "t:sections.footer.blocks.link_list.settings.menu.label"
         }
       ]
     },
@@ -426,10 +430,6 @@
         {
           "type": "paragraph",
           "content": "t:sections.footer.blocks.brand_information.settings.paragraph.content"
-        },
-        {
-          "type": "header",
-          "content": "t:sections.footer.blocks.brand_information.settings.header__1.content"
         },
         {
           "type": "checkbox",
@@ -474,13 +474,13 @@
           "max": 550,
           "step": 5,
           "unit": "px",
-          "label": "Image width",
+          "label": "Width",
           "default": 100
         },
         {
           "type": "select",
           "id": "alignment",
-          "label": "Image alignment on large screen",
+          "label": "Alignment",
           "options": [
             {
               "value": "",
@@ -526,51 +526,35 @@
     },
     {
       "type": "header",
-      "content": "t:sections.footer.settings.header__9.content",
-      "info": "t:sections.footer.settings.header__9.info"
+      "content": "t:sections.footer.settings.header__9.content"
     },
     {
       "type": "checkbox",
       "id": "enable_follow_on_shop",
       "default": true,
-      "label": "t:sections.footer.settings.enable_follow_on_shop.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.footer.settings.header__2.content",
-      "info": "t:sections.footer.settings.header__2.info"
+      "label": "t:sections.footer.settings.enable_follow_on_shop.label",
+      "info": "t:sections.footer.settings.enable_follow_on_shop.info"
     },
     {
       "type": "checkbox",
       "id": "show_social",
       "default": true,
-      "label": "t:sections.footer.settings.show_social.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.footer.settings.header__3.content",
-      "info": "t:sections.footer.settings.header__4.info"
+      "label": "t:sections.footer.settings.show_social.label",
+      "info": "t:sections.footer.settings.show_social.info"
     },
     {
       "type": "checkbox",
       "id": "enable_country_selector",
       "default": true,
-      "label": "t:sections.footer.settings.enable_country_selector.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.footer.settings.header__5.content",
-      "info": "t:sections.footer.settings.header__6.info"
+      "label": "t:sections.footer.settings.enable_country_selector.label",
+      "info": "t:sections.footer.settings.enable_country_selector.info"
     },
     {
       "type": "checkbox",
       "id": "enable_language_selector",
       "default": true,
-      "label": "t:sections.footer.settings.enable_language_selector.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.footer.settings.header__7.content"
+      "label": "t:sections.footer.settings.enable_language_selector.label",
+      "info": "t:sections.footer.settings.enable_language_selector.info"
     },
     {
       "type": "checkbox",
@@ -579,15 +563,11 @@
       "label": "t:sections.footer.settings.payment_enable.label"
     },
     {
-      "type": "header",
-      "content": "t:sections.footer.settings.header__8.content",
-      "info": "t:sections.footer.settings.header__8.info"
-    },
-    {
       "type": "checkbox",
       "id": "show_policy",
       "default": true,
-      "label": "t:sections.footer.settings.show_policy.label"
+      "label": "t:sections.footer.settings.show_policy.label",
+      "info": "t:sections.footer.settings.show_policy.info"
     },
     {
       "type": "header",
