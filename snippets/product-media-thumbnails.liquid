@@ -1,0 +1,62 @@
+<section
+  id="ProductThumbnail-{{ section.id }}"
+  class="product__thumbnail-container small-hide{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
+>
+  <ul
+    id="Slider-Thumbnails-{{ section.id }}"
+    class="thumbnail-list list-unstyled"
+  >
+    {%- for media in product.media -%}
+      <li
+        class="grid__item {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+        data-target="{{ section.id }}-{{ media.id }}"
+      >
+        {%- liquid
+          assign media_position = media_position | default: 0 | plus: 1
+          assign lazy_load = false
+          if media_position > 1
+            assign lazy_load = true
+          endif
+          assign ratio = 1
+          if media_aspect_ratio == 'portrait'
+            assign ratio = 0.8
+          elsif media_aspect_ratio == 'adapt'
+            assign ratio = media.aspect_ratio
+          endif
+          if ratio == 0 or ratio == null
+            assign ratio = 1
+          endif
+        -%}
+
+        {% render 'product-thumbnail',
+          media: media,
+          media_count: media_count,
+          position: media_position,
+          desktop_layout: section.settings.gallery_layout,
+          mobile_layout: section.settings.mobile_thumbnails,
+          loop: section.settings.enable_video_looping,
+          modal_id: section.id,
+          xr_button: true,
+          media_width: media_width,
+          media_fit: section.settings.media_fit,
+          constrain_to_viewport: section.settings.constrain_to_viewport,
+          lazy_load: lazy_load,
+          media_aspect_ratio: ratio,
+          hide_model_nodes: true
+        %}
+      </li>
+    {%- endfor -%}
+  </ul>
+</section>
+<script>
+  document.querySelectorAll('#Slider-Thumbnails-{{ section.id }} .grid__item').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      const target = e.currentTarget.dataset.target;
+      const scrollToEl = document.querySelector(`[data-media-id="${target}"]`);
+
+      if (scrollToEl) {
+        scrollToEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  });
+</script>
