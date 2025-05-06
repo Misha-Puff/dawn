@@ -10,29 +10,29 @@
 {
   "sections": {
     "gp_section_564577728477528883": {
-      "type": "gp-section-564577728477528883",
       "settings": {
-        "section_preload": "true",
-        "checksum": "57b7f72c2e9ee80b62ccc0f1f363f98769c2bda38ca3a579c1b0437a6bbdd507_1_1"
-      }
+        "checksum": "57b7f72c2e9ee80b62ccc0f1f363f98769c2bda38ca3a579c1b0437a6bbdd507_1_0_0_0_",
+        "section_preload": "true"
+      },
+      "type": "gp-section-564577728477528883"
     },
     "gp_section_564577728477594419": {
-      "type": "gp-section-564577728477594419",
       "settings": {
-        "checksum": "514836532a7336fe2881db240a597ce829e39e92be72f9920bbad61e70af3386_1_1"
-      }
-    },
-    "gp_section_564577728477725491": {
-      "type": "gp-section-564577728477725491",
-      "settings": {
-        "checksum": "26fc19ea34f909c97a002a8c47524cb9a1890a2fae9e5a0c22cd043605679928_1_1"
-      }
+        "checksum": "514836532a7336fe2881db240a597ce829e39e92be72f9920bbad61e70af3386_1_0_0_0_"
+      },
+      "type": "gp-section-564577728477594419"
     },
     "gp_section_564577728477659955": {
-      "type": "gp-section-564577728477659955",
       "settings": {
-        "checksum": "8417c9eb05550bd29a62a649b163ce992f76937d528eef509fcfe7968c5149ee_1_1"
-      }
+        "checksum": "8417c9eb05550bd29a62a649b163ce992f76937d528eef509fcfe7968c5149ee_1_0_0_0_"
+      },
+      "type": "gp-section-564577728477659955"
+    },
+    "gp_section_564577728477725491": {
+      "settings": {
+        "checksum": "26fc19ea34f909c97a002a8c47524cb9a1890a2fae9e5a0c22cd043605679928_1_0_0_0_"
+      },
+      "type": "gp-section-564577728477725491"
     }
   },
   "order": [
