@@ -529,7 +529,8 @@ a.product__text {
 
 @media screen and (min-width: 990px) {
   .product--stacked .product__media-item {
-    max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+    width: 100%;
+    max-width: 100%;
   }
 
   .product:not(.product--columns) .product__media-list .product__media-item:first-child,
@@ -1577,4 +1578,21 @@ a.product__text {
 
 .size-chart table tr th {
   font-weight: normal;
+}
+
+@media screen and (min-width: 990px) {
+  media-gallery[data-desktop-layout='stacked'] {
+    display: flex;
+  }
+
+  media-gallery[data-desktop-layout='stacked'] slider-component {
+    width: 100%;
+  }
+
+  .product__thumbnails-sticky {
+    display: block;
+    position: sticky;
+    top: 500px;
+    z-index: 2;
+  }
 }

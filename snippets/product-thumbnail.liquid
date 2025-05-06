@@ -182,7 +182,9 @@
       </deferred-media>
     {%- endif -%}
   {%- endif -%}
-  {%- if model_note != null -%}
-    <p class="model-note">{{ model_note }}</p>
-  {%- endif -%}
+  {% unless hide_model_nodes %}
+    {%- if model_note != null -%}
+      <p class="model-note">{{ model_note }}</p>
+    {%- endif -%}
+  {% endunless %}
 </div>
