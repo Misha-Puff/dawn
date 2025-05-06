@@ -20,8 +20,6 @@
     "swym_custom_wishlist_bMRQfE": {
       "type": "swym-custom-wishlist",
       "settings": {
-        "swym_wishlist_primary_button_color": "#000000",
-        "swym_wishlist_primary_button_text_color": "#ffffff",
         "swym_wishlist_title": "MY FAVORITES",
         "swym_wishlist_show_price": true,
         "swym_wishlist_show_addtocart": true,
@@ -29,10 +27,7 @@
         "swym_wishlist_item_cta_addtocart": "Add to cart",
         "swym_wishlist_item_cta_addingtocart": "Adding to cart",
         "swym_wishlist_item_cta_addedtocart": "Added to cart",
-        "swym_wishlist_item_cta_soldout": "Sold out",
-        "swym_wishlist_item_cta_unavailable": "Unavailable",
-        "swym_wishlist_empty_description": "Your wishlist is empty.",
-        "swym_wishlist_empty_action_button_cta": "SHOP NOW"
+        "swym_wishlist_item_cta_soldout": "Sold out"
       }
     }
   },
