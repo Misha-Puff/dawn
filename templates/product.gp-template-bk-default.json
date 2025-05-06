@@ -199,9 +199,10 @@
         "variant_picker",
         "inventory_PfG9Nk",
         "custom_liquid_X9miCe",
+        "custom_liquid_ExpagB",
         "bis_form_iQ4kYG",
         "buy_buttons",
-        "swish_formerly_wishlist_king_wishlist_button_block_BQcWBQ",
+        "wishlist_plus_wishlist_pdp_button_NBkk6K",
         "custom_liquid_mPzed7",
         "description",
         "collapsible_tab_JNhcga",
@@ -257,9 +258,15 @@
           },
           "type": "collapsible_tab"
         },
+        "custom_liquid_ExpagB": {
+          "settings": {
+            "custom_liquid": "{% if product.available and product.tags contains 'Badge-Preorder' and product.metafields.product_page.preorder_message != blank %}\n<p style=\"color: blue; line-height: normal;\">{{ product.metafields.product_page.preorder_message }}</p>\n{% endif %}"
+          },
+          "type": "custom_liquid"
+        },
         "custom_liquid_X9miCe": {
           "settings": {
-            "custom_liquid": "{% if product.available and product.tags contains 'Badge-Preorder' %}\n<p style=\"color: blue; line-height: normal;\">Pre-order: Expected to ship within six to eight weeks.</p>\n{% elsif product.tags contains 'Badge-Exclusive Collab' %}\n<p style=\"color: blue; line-height: normal;\">Misha & Puff x Isetan Collaboration</p>\n{% elsif product.tags contains 'Badge-Exclusive' %}\n<p style=\"color: blue; line-height: normal;\">This style is exclusive to Misha & Puff</p>\n{% endif %}"
+            "custom_liquid": "{% if product.tags contains 'Badge-Exclusive Collab' %}\n<p style=\"color: blue; line-height: normal;\">Misha & Puff x Isetan Collaboration</p>\n{% elsif product.tags contains 'Badge-Exclusive' %}\n<p style=\"color: blue; line-height: normal;\">This style is exclusive to Misha & Puff</p>\n{% endif %}"
           },
           "type": "custom_liquid"
         },
@@ -285,24 +292,6 @@
           "settings": {},
           "type": "price"
         },
-        "swish_formerly_wishlist_king_wishlist_button_block_BQcWBQ": {
-          "settings": {
-            "button_alignment": "left",
-            "button_content_alignment": "left",
-            "button_full_width": true,
-            "button_margin_bottom": 0,
-            "button_margin_top": 0,
-            "button_max_width": 0,
-            "button_padding_horizontal": 15,
-            "button_show_icon": true,
-            "button_show_text": true,
-            "button_style": "plain_accent_1",
-            "icon_offset_vertical": 0,
-            "icon_size": 18,
-            "icon_stroke_width": 1
-          },
-          "type": "shopify://apps/swish-formerly-wishlist-king/blocks/wishlist-button-block/194f5011-a43c-4b22-b12e-eaf20dc4506a"
-        },
         "title": {
           "settings": {},
           "type": "title"
@@ -315,6 +304,32 @@
             "swatch_shape": "square"
           },
           "type": "variant_picker"
+        },
+        "wishlist_plus_wishlist_pdp_button_NBkk6K": {
+          "settings": {
+            "swym_add_to_wishlist_color": "#ffffff",
+            "swym_added_to_wishlist_color": "#ffffff",
+            "swym_atw_border_color": "#000000",
+            "swym_atw_border_thickness": 0,
+            "swym_atw_button_alignment": "left",
+            "swym_atw_button_border_radius": 0,
+            "swym_atw_button_icon": "heart",
+            "swym_atw_button_vertical_offset": 0,
+            "swym_atw_display_btn_text": true,
+            "swym_atw_full_width": false,
+            "swym_atw_icon_thickness": 1,
+            "swym_button_position": "default",
+            "swym_button_text_color": "#000000",
+            "swym_custom_css": "#swym-atw-pdp-button {\npadding-left: 0 !important;\ntext-transform: uppercase !important;\nfont-weight: normal !important;\nfont-size: 12px !important;\n}",
+            "swym_enable_hover_customization": false,
+            "swym_hover_add_to_wishlist_color": "#ffffff",
+            "swym_hover_added_to_wishlist_color": "#ffffff",
+            "swym_hover_atw_border_color": "#000000",
+            "swym_hover_atw_border_thickness": 0,
+            "swym_hover_atw_button_border_radius": 0,
+            "swym_hover_button_text_color": "#000000"
+          },
+          "type": "shopify://apps/wishlist-plus/blocks/wishlist-pdp-button/80c3b1fc-3a8f-407e-8367-ffdeebb8b612"
         }
       },
       "settings": {
