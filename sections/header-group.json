@@ -17,7 +17,7 @@
         "announcement_4MwKwV": {
           "type": "announcement",
           "settings": {
-            "text": "<p>ENDS SUNDAY — 20% off Adult Pia Tank + Ballet Tee when you buy 2+. Checkout code: ADULT20PIMA</p>"
+            "text": "<p>ENDS SUNDAY - 20% off Spring Collections with code: SPRING20 |  <a href=\"https://shop.misha-and-puff.com/pages/current-promotions\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/pages/current-promotions\">Details</a> </p>"
           }
         }
       },
@@ -26,8 +26,8 @@
       ],
       "disabled": true,
       "settings": {
-        "desktop_height": 40,
-        "mobile_height": 50,
+        "desktop_height": 36,
+        "mobile_height": 46,
         "auto_rotate": false,
         "change_slides_speed": 5,
         "color_scheme": "",
