@@ -26,16 +26,16 @@
             "custom_liquid": "{% if product.metafields.product_page.custom_message != null %}\n<p class=\"custom-message\">{{ product.metafields.product_page.custom_message }}</p>\n{% endif %}"
           }
         },
-        "custom_liquid_TwxkfW": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% if product.tags contains 'no-returns' %}\n<p class=\"custom-message\"><b>Final Sale:</b> This item cannot be exchanged or returned.</p>\n{% endif %}"
-          }
-        },
         "custom_liquid_8fBjhc": {
           "type": "custom_liquid",
           "settings": {
             "custom_liquid": "{% if product.tags contains 'Adult' %}\n<p class=\"custom-message\" style=\"color: blue;\"><b>NEW:</b> Free returns on domestic Adult orders</p>\n{% endif %}"
+          }
+        },
+        "custom_liquid_TwxkfW": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% if product.tags contains 'no-returns' %}\n<p class=\"custom-message\"><b>Final Sale:</b> This item cannot be exchanged or returned.</p>\n{% endif %}"
           }
         },
         "variant_picker": {
@@ -155,8 +155,8 @@
         "title",
         "price",
         "custom_liquid_rGEXWA",
-        "custom_liquid_TwxkfW",
         "custom_liquid_8fBjhc",
+        "custom_liquid_TwxkfW",
         "variant_picker",
         "inventory_PfG9Nk",
         "custom_liquid_X9miCe",
