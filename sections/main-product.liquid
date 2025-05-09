@@ -197,12 +197,6 @@
                   {%- render 'price', product: product, use_variant: true, show_badges: true -%}
 
                   {% render 'globale-message' %}
-
-                  {% if product.tags contains 'no-returns' %}
-                    {% render 'final-sale' %}
-                  {% elsif product.tags contains 'Adult' %}
-                    <p class="free-returns" style="color: blue;">NEW: Free returns on domestic Adult orders</p>
-                  {% endif %}
                 </div>
                 {%- if product.quantity_price_breaks_configured? -%}
                   <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
@@ -780,9 +774,10 @@
 
     {% assign popups = section.blocks | where: 'type', 'popup' %}
     {%- for block in popups -%}
-      {%- comment %}<locksmith:fae5>{% endcomment -%}
-        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-      {%- comment %}</locksmith:fae5>{% endcomment -%}
+      {%- comment %}<locksmith:fae5>{%- endcomment %}
+      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block, variable: 'transparent' %}{% endcapture -%}
+      {%- if var == 'true' %}{% else %}{% continue %}{% endif -%}
+      {%- comment %}</locksmith:fae5>{%- endcomment %}
       <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
         <div
           role="dialog"
