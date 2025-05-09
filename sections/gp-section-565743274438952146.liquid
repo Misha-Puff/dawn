@@ -68,11 +68,11 @@
       if request.page_type == 'collection' or preview_page_type == 'collection'
         assign target_collection = collection
         if target_collection == empty or target_collection == null
-          if '289435287603' == 'latest'
+          if '275649527859' == 'latest'
             assign target_collection = collections | sort: 'updated_at'  | first
           else
             for collection in collections
-              if collection.id == 289435287603
+              if collection.id == 275649527859
                 assign target_collection = collection
                 break
               endif
@@ -103,11 +103,11 @@
             endif
           endunless
         else
-          if '289435287603' == 'latest'
+          if '275649527859' == 'latest'
             assign target_collection = collections | sort: 'updated_at'  | first
           else
             for collection in collections
-              if collection.id == 289435287603
+              if collection.id == 275649527859
                 assign target_collection = collection
                 break
               endif
