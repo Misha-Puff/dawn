@@ -24,6 +24,7 @@
       "block_order": [
         "announcement_4MwKwV"
       ],
+      "disabled": true,
       "settings": {
         "desktop_height": 36,
         "mobile_height": 46,
