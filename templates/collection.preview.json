@@ -39,7 +39,7 @@
         "text_bdVDk3": {
           "type": "text",
           "settings": {
-            "text": "<p>This release features styles that are at the heart of summer — cotton terry. From hats and totes to ponchos and tees, these are the pieces made for seaside strolls, poolside lounging, and every sun-soaked day in between.<br/><br/>This season channels the quiet charm of the coastal summer — a soft-spoken study in sun-bleached tones, rich textures, and storied tradition. Crafted in soft knits, Pima cotton, cotton poplin, linen, and terry, the collection features silhouettes and prints that nod to long days by the sea. Hand-worked details and thoughtful baby-and-child crossovers create a world both grounded and quietly transportive.</p><p>Get inspired by viewing the <a href=\"/blogs/journal/child-su-25\" target=\"_blank\" title=\"Child Summer 2025\">lookbook</a>. Part 2 of the collection — launching to all soon.</p>",
+            "text": "<p>This release features styles that are at the heart of summer — cotton terry. From hats and totes to ponchos and tees, these are the pieces made for seaside strolls, poolside lounging, and every sun-soaked day in between.<br/><br/>This season channels the quiet charm of the coastal summer — a soft-spoken study in sun-bleached tones, rich textures, and storied tradition. Crafted in soft knits, Pima cotton, cotton poplin, linen, and terry, the collection features silhouettes and prints that nod to long days by the sea. Hand-worked details and thoughtful baby-and-child crossovers create a world both grounded and quietly transportive. Get inspired by viewing the <a href=\"/blogs/journal/child-su-25\" target=\"_blank\" title=\"Child Summer 2025\">lookbook</a>. </p><p>Early Access ends Thursday, May 15 at 9 AM ET. Part 2 of the collection launches to all on Friday, May 16 at 11 AM ET. </p>",
             "line_height": 22
           }
         },
@@ -80,8 +80,8 @@
         "full_width": true,
         "padding_top": 32,
         "padding_bottom": 20,
-        "padding_left": 20,
-        "padding_right": 20
+        "padding_left": 60,
+        "padding_right": 60
       }
     },
     "buttons_eEATqX": {
