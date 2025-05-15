@@ -61,12 +61,6 @@
             "custom_liquid": "{% if product.tags contains 'Badge-Exclusive Collab' %}\n<p style=\"color: blue; line-height: normal;\">Misha & Puff x Isetan Collaboration</p>\n{% elsif product.tags contains 'Badge-Exclusive' %}\n<p style=\"color: blue; line-height: normal;\">This style is exclusive to Misha & Puff</p>\n{% endif %}"
           }
         },
-        "custom_liquid_ExpagB": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% if product.available and product.tags contains 'Badge-Preorder' and product.metafields.product_page.preorder_message != blank %}\n<p style=\"color: blue; line-height: normal;\">{{ product.metafields.product_page.preorder_message }}</p>\n{% endif %}"
-          }
-        },
         "bis_form_iQ4kYG": {
           "type": "bis_form",
           "settings": {}
@@ -160,7 +154,6 @@
         "variant_picker",
         "inventory_PfG9Nk",
         "custom_liquid_X9miCe",
-        "custom_liquid_ExpagB",
         "bis_form_iQ4kYG",
         "buy_buttons",
         "wishlist_plus_wishlist_pdp_button_NBkk6K",
