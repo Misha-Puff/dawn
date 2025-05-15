@@ -29,7 +29,7 @@
         "custom_liquid_8fBjhc": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "{% if product.tags contains 'Adult' %}\n<p class=\"custom-message\" style=\"color: blue;\"><b>NEW:</b> Free returns on domestic Adult orders</p>\n{% endif %}"
+            "custom_liquid": "{% unless product.tags contains 'no-returns' %}\n{% if product.tags contains 'Adult' %}\n<p class=\"custom-message\" style=\"color: blue;\"><b>NEW:</b> Free returns on domestic Adult orders</p>\n{% endif %}\n{% endunless %}"
           }
         },
         "custom_liquid_TwxkfW": {
