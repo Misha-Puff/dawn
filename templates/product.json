@@ -22,25 +22,28 @@
         },
         "custom_liquid_7DkrmT": {
           "type": "custom_liquid",
-          "disabled": true,
+          "name": "No Duties + Taxes Message",
           "settings": {
-            "custom_liquid": "{% unless localization.country.iso_code == 'US' %}\n    <modal-opener\n      class=\"product-popup-modal__opener quick-add-hidden\"\n      data-modal=\"#PopupModal-duties-taxes\"\n    >\n      Duty and taxes not included.\n      <button\n        id=\"ProductPopup-duties-taxes\"\n        class=\"product-popup-modal__button link\"\n        type=\"button\"\n        aria-haspopup=\"dialog\"\n      >\n        Read about\n      </button>\n      our temporary pricing update.\n    </modal-opener>\n    <modal-dialog id=\"PopupModal-duties-taxes\" class=\"product-popup-modal\">\n      <div\n        role=\"dialog\"\n        aria-label=\"Product Measurements\"\n        aria-modal=\"true\"\n        class=\"product-popup-modal__content\"\n        tabindex=\"-1\"\n      >\n        <button\n          id=\"ModalClose-duties-taxes\"\n          type=\"button\"\n          class=\"product-popup-modal__toggle\"\n          aria-label=\"{{ 'accessibility.close' | t }}\"\n        >\n          <span class=\"svg-wrapper\">{{- 'icon-close.svg' | inline_asset_content -}}</span>\n        </button>\n        <div class=\"product-popup-modal__content-info\">\n          <p>\n            Prices shown do not include duties or taxes. We are temporarily unable to offer duties and tax-inclusive pricing, but are actively working to reinstate this option soon. Depending on your country's customs policies, you may be required to pay applicable import fees upon delivery.\n          </p>\n        </div>\n      </div>\n    </modal-dialog>\n  {% endunless %}"
+            "custom_liquid": "{% unless localization.country.iso_code == 'US' %}\n    <modal-opener\n      class=\"product-popup-modal__opener quick-add-hidden\"\n      data-modal=\"#PopupModal-duties-taxes\"\n    >\n      Duty and taxes not included.\n      <button\n        id=\"ProductPopup-duties-taxes\"\n        class=\"product-popup-modal__button link\"\n        type=\"button\"\n        aria-haspopup=\"dialog\"\n      >\n        Read about\n      </button>\n      our temporary pricing update.\n    </modal-opener>\n    <modal-dialog id=\"PopupModal-duties-taxes\" class=\"product-popup-modal\">\n      <div\n        role=\"dialog\"\n        aria-label=\"Product Measurements\"\n        aria-modal=\"true\"\n        class=\"product-popup-modal__content\"\n        tabindex=\"-1\"\n      >\n        <button\n          id=\"ModalClose-duties-taxes\"\n          type=\"button\"\n          class=\"product-popup-modal__toggle\"\n          aria-label=\"{{ 'accessibility.close' | t }}\"\n        >\n          <span class=\"svg-wrapper\">{{- 'icon-close.svg' | inline_asset_content -}}</span>\n        </button>\n        <div class=\"product-popup-modal__content-info\" style=\"margin-top: 32px;\">\n          Prices shown do not include duties or taxes. We are temporarily unable to offer duties and tax-inclusive pricing, but are actively working to reinstate this option soon. Depending on your country's customs policies, you may be required to pay applicable import fees upon delivery.\n        </div>\n      </div>\n    </modal-dialog>\n  {% endunless %}"
           }
         },
         "custom_liquid_rGEXWA": {
           "type": "custom_liquid",
+          "name": "Custom Metafield Message",
           "settings": {
             "custom_liquid": "{% if product.metafields.product_page.custom_message != null %}\n<p class=\"custom-message\">{{ product.metafields.product_page.custom_message }}</p>\n{% endif %}"
           }
         },
         "custom_liquid_8fBjhc": {
           "type": "custom_liquid",
+          "name": "Adult Free Shipping",
           "settings": {
             "custom_liquid": "{% unless product.tags contains 'no-returns' %}\n{% if product.tags contains 'Adult' %}\n<p class=\"custom-message\" style=\"color: blue;\"><b>NEW:</b> Free returns on domestic Adult orders</p>\n{% endif %}\n{% endunless %}"
           }
         },
         "custom_liquid_TwxkfW": {
           "type": "custom_liquid",
+          "name": "Final Sale Message",
           "settings": {
             "custom_liquid": "{% if product.tags contains 'no-returns' %}\n<p class=\"custom-message\"><b>Final Sale:</b> This item cannot be exchanged or returned.</p>\n{% endif %}"
           }
@@ -64,6 +67,7 @@
         },
         "custom_liquid_X9miCe": {
           "type": "custom_liquid",
+          "name": "Exclusive Message",
           "settings": {
             "custom_liquid": "{% if product.tags contains 'Badge-Exclusive Collab' %}\n<p style=\"color: blue; line-height: normal;\">Misha & Puff x Isetan Collaboration</p>\n{% elsif product.tags contains 'Badge-Exclusive' %}\n<p style=\"color: blue; line-height: normal;\">This style is exclusive to Misha & Puff</p>\n{% endif %}"
           }
@@ -107,6 +111,7 @@
         },
         "custom_liquid_mPzed7": {
           "type": "custom_liquid",
+          "name": "Divider",
           "settings": {
             "custom_liquid": "<div class=\"divider-wrapper\">\n<div class=\"divider\">\n<span class=\"visually-hidden\">divider</span></div></div>"
           }
@@ -174,8 +179,7 @@
       ],
       "custom_css": [
         ".custom-message,[data-modal=\"#PopupModal-duties-taxes\"] {margin: 0;}",
-        "#ProductPopup-duties-taxes {padding-right: 0; min-height: auto;}",
-        ".product-popup-modal__content-info p {margin-top: 32px;}"
+        "#ProductPopup-duties-taxes {padding-right: 0; min-height: auto;}"
       ],
       "settings": {
         "enable_sticky_info": true,
