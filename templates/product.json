@@ -179,7 +179,7 @@
       ],
       "custom_css": [
         ".custom-message,[data-modal=\"#PopupModal-duties-taxes\"] {margin: 0;}",
-        "#ProductPopup-duties-taxes {padding-right: 0; min-height: auto;}"
+        "#ProductPopup-duties-taxes {padding-right: 0; min-height: auto; color: rgba(var(--color-foreground), 0.75); font-size: 13px;}"
       ],
       "settings": {
         "enable_sticky_info": true,
