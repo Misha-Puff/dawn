@@ -20,7 +20,6 @@
     },
     "product-grid": {
       "type": "main-collection-product-grid",
-      "disabled": true,
       "settings": {
         "products_per_page": 36,
         "columns_desktop": 3,
@@ -373,9 +372,9 @@
   },
   "order": [
     "banner",
-    "product-grid",
     "rich_text_Qzf3YT",
     "buttons_HHBh8y",
+    "product-grid",
     "custom_liquid_bKixf9",
     "featured_collection_cNRwXY",
     "divider_QNP8CF",
