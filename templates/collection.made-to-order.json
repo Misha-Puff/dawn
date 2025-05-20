@@ -234,14 +234,14 @@
     "divider_QNP8CF": {
       "type": "divider",
       "settings": {
-        "desktop_padding_top": 36,
-        "desktop_padding_bottom": 36,
+        "desktop_padding_top": 40,
+        "desktop_padding_bottom": 40,
         "desktop_padding_left": 52,
         "desktop_padding_right": 52,
         "mobile_padding_top": 36,
         "mobile_padding_bottom": 36,
-        "mobile_padding_left": 32,
-        "mobile_padding_right": 32
+        "mobile_padding_left": 24,
+        "mobile_padding_right": 24
       }
     },
     "rich_text_Jak7Gh": {
@@ -250,7 +250,7 @@
         "text_jhkXDN": {
           "type": "text",
           "settings": {
-            "text": "<h4>WHAT TO EXPECT</h4><p>Our Made-to-Order program is an initiative that we are very proud of — and at the heart of why we do what we do. This program introduces the ability to custom shop some of your favorite Misha & Puff styles in a limited small-batch capsule outside of our seasonal collections, while delivering on our promise to support our knitting community year-round.<br/><br/>Every piece we create blends craftsmanship, heritage, and quality and each of our treasured partners provides unique contributions that amplify our appreciation of time-honored processes. Supporting handmade means supporting the local communities behind these crafts. Learn more about our sustainability efforts and our incredible artisanal knitting partners.</p>",
+            "text": "<h3>WHAT TO EXPECT</h3><p>Our Made-to-Order program is an initiative that we are very proud of — and at the heart of why we do what we do. This program introduces the ability to custom shop some of your favorite Misha & Puff styles in a limited small-batch capsule outside of our seasonal collections, while delivering on our promise to support our vendors and knitting partners year-round.<br/><br/>Every piece we create blends craftsmanship, heritage, and quality and each of our treasured partners provides unique contributions that amplify our appreciation of time-honored processes. Supporting handmade means supporting the local communities behind these crafts. Learn more about our <a href=\"/pages/values\" target=\"_blank\" title=\"Values\">sustainability efforts</a> and our incredible <a href=\"/pages/people\" target=\"_blank\" title=\"People\">artisanal partners</a>.</p>",
             "line_height": 22
           }
         }
@@ -264,7 +264,7 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 12,
-        "padding_bottom": 12,
+        "padding_bottom": 20,
         "padding_left": 0,
         "padding_right": 0
       }
@@ -275,8 +275,8 @@
         "column_bNVh4e": {
           "type": "column",
           "settings": {
-            "title": "",
-            "text": "<p><strong>OPEN/CLOSED</strong></p><p>Ordering is open when our knitting partners have extra capacity</p>",
+            "title": "OPEN/CLOSED",
+            "text": "<p>Ordering is open when our knitting partners have extra capacity or on set dates</p>",
             "link_label": "",
             "link": "",
             "new_tab": false,
@@ -294,8 +294,8 @@
         "column_7GxhG4": {
           "type": "column",
           "settings": {
-            "title": "",
-            "text": "<p><strong>SELECT COLORS</strong></p><p>Each run offers beloved archival colors, repurposing our stock of excess or rejected yarns</p>",
+            "title": "SELECT COLORS",
+            "text": "<p>Each run offers beloved archival prints or yarn colors, repurposing our stock of excess or rejected yarns</p>",
             "link_label": "",
             "link": "",
             "new_tab": false,
@@ -313,8 +313,8 @@
         "column_hjKR7q": {
           "type": "column",
           "settings": {
-            "title": "",
-            "text": "<p><strong>LIMITED CAPACITY</strong></p><p>Handcrafted pieces and limited yarns mean a scarce supply and limited production capacity</p>",
+            "title": "LIMITED CAPACITY",
+            "text": "<p>Handcrafted pieces and limited yarns mean a scarce supply and limited production capacity</p>",
             "link_label": "",
             "link": "",
             "new_tab": false,
@@ -332,8 +332,8 @@
         "column_rA7bPF": {
           "type": "column",
           "settings": {
-            "title": "",
-            "text": "<p><strong>LEAD TIMES</strong></p><p>Our repurposed yarn colors may be in stock or require custom dyeing, leading to a 3-5 month lead time</p>",
+            "title": "LEAD TIMES",
+            "text": "<p>With knits, our repurposed yarn colors may be in stock or require custom dyeing, requiring a 3-5 month lead time</p>",
             "link_label": "",
             "link": "",
             "new_tab": false,
@@ -364,10 +364,10 @@
         "enable_desktop_full_width": false,
         "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 20,
+        "horizontal_spacing_desktop": 0,
         "vertical_spacing_desktop": 20,
-        "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 10,
+        "horizontal_spacing_mobile": 16,
+        "vertical_spacing_mobile": 0,
         "image_width": "full",
         "image_ratio": "adapt",
         "button_label": "",
