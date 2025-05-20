@@ -234,10 +234,10 @@
     "divider_QNP8CF": {
       "type": "divider",
       "settings": {
-        "desktop_padding_top": 40,
-        "desktop_padding_bottom": 40,
+        "desktop_padding_top": 52,
+        "desktop_padding_bottom": 52,
         "desktop_padding_left": 52,
-        "desktop_padding_right": 52,
+        "desktop_padding_right": 20,
         "mobile_padding_top": 36,
         "mobile_padding_bottom": 36,
         "mobile_padding_left": 24,
@@ -379,9 +379,9 @@
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "desktop_padding_top": 30,
-        "desktop_padding_bottom": 30,
+        "desktop_padding_bottom": 52,
         "mobile_padding_top": 20,
-        "mobile_padding_bottom": 30
+        "mobile_padding_bottom": 42
       }
     },
     "shogun_custom_6740e893fc6c7f89abe638e3_LT8dkN": {
