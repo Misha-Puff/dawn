@@ -84,7 +84,7 @@
           "settings": {
             "label": "CHILD STYLES",
             "open_new_tab": false,
-            "link": "",
+            "link": "/collections/made-to-order?filter.p.m.taxonomy.division=Child&sort_by=manual",
             "type": "secondary",
             "on_click": ""
           }
