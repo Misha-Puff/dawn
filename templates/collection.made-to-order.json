@@ -39,8 +39,8 @@
         "text_WCkKMA": {
           "type": "text",
           "settings": {
-            "text": "<p>We absolutely loved hearing your thoughts on your all-time favorite Misha & Puff prints on Anna’s Instagram — so we’re bringing some of them back, just for you!</p><p>This Made-to-Order (MTO) collection will feature a selection of the most beloved and requested archival prints — treasures spanning across the years, with Baby, Child, and Adult offerings. All styles are expected to ship in mid-Fall 2025.</p><p>This MTO will close Tuesday, May 27, at 11:59 PM ET.</p>",
-            "line_height": 24
+            "text": "<p>We absolutely loved hearing your thoughts on your all-time favorite Misha & Puff prints on <a href=\"https://www.instagram.com/anna_mishaandpuff\" target=\"_blank\" title=\"https://www.instagram.com/anna_mishaandpuff\">Anna’s Instagram</a> — so we’re bringing some of them back, just for you!</p><p>This Made-to-Order (MTO) collection features a selection of the most beloved and requested archival prints — treasures from across the years — available in Baby, Child, and Adult styles.</p><p>All orders are expected to ship in mid-Fall 2025. This MTO will close on Tuesday, May 27, at 11:59 PM ET.</p>",
+            "line_height": 22
           }
         },
         "button_9DxNK6": {
@@ -72,8 +72,8 @@
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 24,
-        "padding_left": 60,
-        "padding_right": 60
+        "padding_left": 44,
+        "padding_right": 44
       }
     },
     "buttons_HHBh8y": {
