@@ -38,14 +38,14 @@
           "type": "custom_liquid",
           "name": "Adult Free Shipping",
           "settings": {
-            "custom_liquid": "{% unless product.tags contains 'no-returns' %}\n{% if product.tags contains 'Adult' %}\n<p class=\"custom-message\" style=\"color: blue;\"><b>NEW:</b> Free returns on domestic Adult orders</p>\n{% endif %}\n{% endunless %}"
+            "custom_liquid": "{% unless product.tags contains 'no-returns' %}\n{% if product.tags contains 'Adult' %}\n<p class=\"custom-message\" style=\"color: blue;\">NEW:  Free returns on domestic Adult orders</p>\n{% endif %}\n{% endunless %}"
           }
         },
         "custom_liquid_TwxkfW": {
           "type": "custom_liquid",
           "name": "Final Sale Message",
           "settings": {
-            "custom_liquid": "{% if product.tags contains 'no-returns' %}\n<p class=\"custom-message\"><b>Final Sale:</b> This item cannot be exchanged or returned.</p>\n{% endif %}"
+            "custom_liquid": "{% if product.tags contains 'no-returns' %}\n<p class=\"custom-message\">Final Sale: This item cannot be exchanged or returned.</p>\n{% endif %}"
           }
         },
         "variant_picker": {
