@@ -604,7 +604,7 @@
   },
   "platform_customizations": {
     "custom_css": [
-      "@media screen and (min-width: 750px){#PopupModal-duties-taxes .product-popup-modal__content {width: 50%;} }"
+      "@media screen and (min-width: 750px) {#PopupModal-duties-taxes .product-popup-modal__content {width: 50%; font-size: 16px; }}"
     ]
   }
 }
