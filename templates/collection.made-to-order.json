@@ -365,8 +365,8 @@
         "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 0,
-        "vertical_spacing_desktop": 20,
-        "horizontal_spacing_mobile": 16,
+        "vertical_spacing_desktop": 0,
+        "horizontal_spacing_mobile": 12,
         "vertical_spacing_mobile": 0,
         "image_width": "full",
         "image_ratio": "adapt",
@@ -381,7 +381,7 @@
         "desktop_padding_top": 30,
         "desktop_padding_bottom": 52,
         "mobile_padding_top": 20,
-        "mobile_padding_bottom": 42
+        "mobile_padding_bottom": 48
       }
     },
     "shogun_custom_6740e893fc6c7f89abe638e3_LT8dkN": {
