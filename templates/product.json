@@ -45,7 +45,7 @@
           "type": "custom_liquid",
           "name": "Final Sale Message",
           "settings": {
-            "custom_liquid": "{% if product.tags contains 'no-returns' %}\n<p class=\"custom-message\">Final Sale: This item cannot be exchanged or returned.</p>\n{% endif %}"
+            "custom_liquid": "{% if product.tags contains 'no-returns' %}\n<p class=\"custom-message\">Final Sale: This item cannot be exchanged or returned</p>\n{% endif %}"
           }
         },
         "variant_picker": {
