@@ -32,7 +32,6 @@
         "announcement_4MwKwV",
         "announcement_YVezxm"
       ],
-      "disabled": true,
       "settings": {
         "desktop_height": 36,
         "mobile_height": 46,
@@ -51,7 +50,7 @@
         "#HeaderMenu-archive {color: red;}"
       ],
       "settings": {
-        "logo_position": "top-center",
+        "logo_position": "middle-left",
         "mobile_logo_position": "center",
         "menu": "dawn-nav-1",
         "menu_type_desktop": "mega",
