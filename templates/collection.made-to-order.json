@@ -18,29 +18,6 @@
         "color_scheme": "scheme-1"
       }
     },
-    "product-grid": {
-      "type": "main-collection-product-grid",
-      "disabled": true,
-      "settings": {
-        "products_per_page": 36,
-        "columns_desktop": 3,
-        "color_scheme": "",
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "enable_overlay": false,
-        "enable_swatches": false,
-        "quick_add": "standard",
-        "enable_filtering": true,
-        "filter_type": "drawer",
-        "enable_sorting": true,
-        "columns_mobile": "2",
-        "padding_top": 0,
-        "padding_bottom": 36
-      }
-    },
     "rich_text_Qzf3YT": {
       "type": "rich-text",
       "blocks": {
@@ -53,8 +30,16 @@
         },
         "text_MDgMVV": {
           "type": "text",
+          "disabled": true,
           "settings": {
-            "text": "<p>Our most recent MTO program has reached capacity and is now closed. Check your order status and sign up to be notified for future MTO collections below.</p>",
+            "text": "<p>Check your order status below and sign up to be notified for future MTO collections below.</p>",
+            "line_height": 22
+          }
+        },
+        "text_WCkKMA": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We loved hearing which Misha & Puff prints have stayed with you — your responses on <a href=\"https://www.instagram.com/anna_mishaandpuff\" target=\"_blank\" title=\"https://www.instagram.com/anna_mishaandpuff\">Anna’s Instagram</a> were a reminder of the thoughtful community we’re lucky to be part of. By popular request, a few favorites are coming back.</p><p>Our MTO process is rooted in care — for the hands who make, the pace we keep, and those who ask for pieces long after they’re gone. It ensures steady work for our artisan partners and access to special, often-requested archival styles. With this Pima release, we’re able to offer more than we typically can with our limited knitwear runs. We can’t promise it won’t sell out, but we’ve done our best to meet the moment. We’re grateful you’ve noticed — and we’re listening.</p><p>This Made-to-Order collection features beloved archival prints for Baby, Child, and Adult, with all styles expected to ship mid-Fall 2025. Ordering closes Tuesday, May 27, at 11:59 PM ET.</p>",
             "line_height": 22
           }
         },
@@ -77,6 +62,7 @@
       "block_order": [
         "heading_hgV8GR",
         "text_MDgMVV",
+        "text_WCkKMA",
         "button_9DxNK6"
       ],
       "settings": {
@@ -86,15 +72,46 @@
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 28,
-        "padding_left": 0,
-        "padding_right": 0
+        "padding_left": 20,
+        "padding_right": 20
       }
     },
     "buttons_HHBh8y": {
       "type": "buttons",
       "blocks": {
+        "button_GhV3DG": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD STYLES",
+            "open_new_tab": false,
+            "link": "/collections/made-to-order?filter.p.m.taxonomy.division=Child&sort_by=manual",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_G9Uf6f": {
+          "type": "button",
+          "settings": {
+            "label": "BABY STYLES",
+            "open_new_tab": false,
+            "link": "/collections/made-to-order?filter.p.m.taxonomy.division=Baby&sort_by=manual",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_eAVnFG": {
+          "type": "button",
+          "settings": {
+            "label": "ADULT STYLES",
+            "open_new_tab": false,
+            "link": "/collections/made-to-order?filter.p.m.taxonomy.division=Adult&sort_by=manual",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
         "button_hBT4RJ": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "label": "MTO STATUS UPDATES",
             "open_new_tab": false,
@@ -105,6 +122,7 @@
         },
         "button_KMMLGQ": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "label": "GET MTO ALERTS",
             "open_new_tab": true,
@@ -115,6 +133,9 @@
         }
       },
       "block_order": [
+        "button_GhV3DG",
+        "button_G9Uf6f",
+        "button_eAVnFG",
         "button_hBT4RJ",
         "button_KMMLGQ"
       ],
@@ -127,6 +148,28 @@
         "desktop_padding_bottom": 58,
         "mobile_padding_top": 10,
         "mobile_padding_bottom": 40
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 36,
+        "columns_desktop": 3,
+        "columns_mobile": "2",
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_overlay": false,
+        "enable_swatches": false,
+        "quick_add": "standard",
+        "enable_filtering": true,
+        "filter_type": "drawer",
+        "enable_sorting": true,
+        "padding_top": 0,
+        "padding_bottom": 36
       }
     },
     "custom_liquid_bKixf9": {
@@ -142,17 +185,63 @@
         "padding_bottom": 52
       }
     },
+    "featured_collection_cNRwXY": {
+      "type": "featured-collection",
+      "disabled": true,
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "made-to-order",
+        "products_to_show": 4,
+        "title": "",
+        "heading_alignment": "center",
+        "heading_size": "h2",
+        "heading_margin": 0,
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "hide_sold_out": false,
+        "hide_content": false,
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": true,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "section_full_width": false,
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 36,
+        "desktop_padding_left": 36,
+        "desktop_padding_right": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36,
+        "mobile_padding_left": 36,
+        "mobile_padding_right": 36
+      }
+    },
     "divider_QNP8CF": {
       "type": "divider",
       "settings": {
-        "desktop_padding_top": 36,
-        "desktop_padding_bottom": 36,
-        "desktop_padding_left": 52,
-        "desktop_padding_right": 52,
+        "desktop_padding_top": 52,
+        "desktop_padding_bottom": 52,
+        "desktop_padding_left": 36,
+        "desktop_padding_right": 36,
         "mobile_padding_top": 36,
         "mobile_padding_bottom": 36,
-        "mobile_padding_left": 32,
-        "mobile_padding_right": 32
+        "mobile_padding_left": 24,
+        "mobile_padding_right": 24
       }
     },
     "rich_text_Jak7Gh": {
@@ -161,7 +250,7 @@
         "text_jhkXDN": {
           "type": "text",
           "settings": {
-            "text": "<h4>WHAT TO EXPECT</h4><p>Our Made-to-Order program is an initiative that we are very proud of — and at the heart of why we do what we do. This program introduces the ability to custom shop some of your favorite Misha & Puff styles in a limited small-batch capsule outside of our seasonal collections, while delivering on our promise to support our knitting community year-round.<br/><br/>Every piece we create blends craftsmanship, heritage, and quality and each of our treasured partners provides unique contributions that amplify our appreciation of time-honored processes. Supporting handmade means supporting the local communities behind these crafts. Learn more about our sustainability efforts and our incredible artisanal knitting partners.</p>",
+            "text": "<h3>WHAT TO EXPECT</h3><p>Our Made-to-Order program is an initiative that we are very proud of — and at the heart of why we do what we do. This program introduces the ability to shop some of your favorite Misha & Puff styles in a limited small-batch capsule outside of our seasonal collections, while supporting our artisan partners year-round.<br/><br/>Every piece we create blends craftsmanship, heritage, and quality and each of our treasured partners provides unique contributions that amplify our appreciation of time-honored processes. Supporting handmade means supporting the local communities behind these crafts. Learn more about our <a href=\"/pages/values\" target=\"_blank\" title=\"Values\">sustainability efforts</a> and our incredible <a href=\"/pages/people\" target=\"_blank\" title=\"People\">artisanal partners</a>.</p>",
             "line_height": 22
           }
         }
@@ -175,7 +264,7 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 12,
-        "padding_bottom": 12,
+        "padding_bottom": 20,
         "padding_left": 0,
         "padding_right": 0
       }
@@ -187,7 +276,7 @@
           "type": "column",
           "settings": {
             "title": "",
-            "text": "<p><strong>OPEN/CLOSED</strong></p><p>Ordering is open when our knitting partners have extra capacity</p>",
+            "text": "<p>OPEN/CLOSED<br/>Ordering is open when<br/>our partners have<br/>extra capacity</p>",
             "link_label": "",
             "link": "",
             "new_tab": false,
@@ -195,7 +284,7 @@
             "enable_overlay": false,
             "content_position": "middle-center",
             "tb_overlay_padding": 26,
-            "lr_overlay_padding": 26,
+            "lr_overlay_padding": 52,
             "link_type": "link",
             "link_color": "#000000",
             "link_style": "none",
@@ -206,7 +295,7 @@
           "type": "column",
           "settings": {
             "title": "",
-            "text": "<p><strong>SELECT COLORS</strong></p><p>Each run offers beloved archival colors, repurposing our stock of excess or rejected yarns</p>",
+            "text": "<p>SELECT COLORS<br/>Each run offers beloved<br/>archival prints or yarn<br/>colors, using excess or<br/>rejected yarns from<br/>our stock</p>",
             "link_label": "",
             "link": "",
             "new_tab": false,
@@ -214,7 +303,7 @@
             "enable_overlay": false,
             "content_position": "middle-center",
             "tb_overlay_padding": 26,
-            "lr_overlay_padding": 26,
+            "lr_overlay_padding": 52,
             "link_type": "link",
             "link_color": "#000000",
             "link_style": "none",
@@ -225,7 +314,7 @@
           "type": "column",
           "settings": {
             "title": "",
-            "text": "<p><strong>LIMITED CAPACITY</strong></p><p>Handcrafted pieces and limited yarns mean a scarce supply and limited production capacity</p>",
+            "text": "<p>LIMITED CAPACITY<br/>Handcrafted pieces and<br/>limited yarns mean a<br/>scarce supply and limited<br/>production capacity</p>",
             "link_label": "",
             "link": "",
             "new_tab": false,
@@ -233,7 +322,7 @@
             "enable_overlay": false,
             "content_position": "middle-center",
             "tb_overlay_padding": 26,
-            "lr_overlay_padding": 26,
+            "lr_overlay_padding": 52,
             "link_type": "link",
             "link_color": "#000000",
             "link_style": "none",
@@ -244,7 +333,7 @@
           "type": "column",
           "settings": {
             "title": "",
-            "text": "<p><strong>LEAD TIMES</strong></p><p>Our repurposed yarn colors may be in stock or require custom dyeing, leading to a 3-5 month lead time</p>",
+            "text": "<p>LEAD TIMES<br/>Knits may use in-stock or custom-dyed yarns, and cut-and-sewn Pima pieces share the same 3–5 month lead time</p>",
             "link_label": "",
             "link": "",
             "new_tab": false,
@@ -252,7 +341,7 @@
             "enable_overlay": false,
             "content_position": "middle-center",
             "tb_overlay_padding": 26,
-            "lr_overlay_padding": 26,
+            "lr_overlay_padding": 52,
             "link_type": "link",
             "link_color": "#000000",
             "link_style": "none",
@@ -275,24 +364,24 @@
         "enable_desktop_full_width": false,
         "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 20,
-        "vertical_spacing_desktop": 20,
-        "horizontal_spacing_mobile": 10,
-        "vertical_spacing_mobile": 10,
+        "horizontal_spacing_desktop": 0,
+        "vertical_spacing_desktop": 0,
+        "horizontal_spacing_mobile": 12,
+        "vertical_spacing_mobile": 0,
         "image_width": "full",
         "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
         "columns_desktop": 4,
         "column_alignment": "left",
         "background_style": "none",
-        "button_label": "",
-        "button_link": "",
         "color_scheme": "",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "desktop_padding_top": 30,
-        "desktop_padding_bottom": 30,
+        "desktop_padding_bottom": 52,
         "mobile_padding_top": 20,
-        "mobile_padding_bottom": 30
+        "mobile_padding_bottom": 48
       }
     },
     "shogun_custom_6740e893fc6c7f89abe638e3_LT8dkN": {
@@ -327,10 +416,11 @@
   },
   "order": [
     "banner",
-    "product-grid",
     "rich_text_Qzf3YT",
     "buttons_HHBh8y",
+    "product-grid",
     "custom_liquid_bKixf9",
+    "featured_collection_cNRwXY",
     "divider_QNP8CF",
     "rich_text_Jak7Gh",
     "multicolumn_mePegM",

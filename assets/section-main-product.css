@@ -1534,10 +1534,7 @@ a.product__text {
   margin-bottom: 10px;
 }
 
-.final-sale,
-.globale,
-.free-returns {
-  margin-top: 0;
+.custom-message {
   font-size: 12px;
 }
 

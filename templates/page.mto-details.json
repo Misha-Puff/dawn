@@ -26,8 +26,16 @@
             "heading_size": "h2"
           }
         },
+        "text_mfnL3i": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This Made-to-Order closes Tuesday, May 27, at 11:59 pm ET. All styles are expected to ship by mid-Fall 2025.</p>",
+            "line_height": 22
+          }
+        },
         "text_WF8qEV": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>Our Adult Log Cabin MTO will be open from Monday, November 25, at 11 am ET, through Wednesday, November 27, at 11:59 pm ET, <em><strong>OR</strong></em> until we reach capacity. Expected shipping is February 2025.<br/></p>",
             "line_height": 22
@@ -50,6 +58,7 @@
       },
       "block_order": [
         "heading_W46kU4",
+        "text_mfnL3i",
         "text_WF8qEV",
         "button_b486yq"
       ],
@@ -78,7 +87,7 @@
         "text_HKRrd4": {
           "type": "text",
           "settings": {
-            "text": "<p>Made-to-Order styles are available for a limited time and have capacity limits due to their handcrafted nature. Once a style reaches capacity, it will show as “Unavailable.”</p><p>All Made-to-Order purchases are final sale—no cancellations or returns, even if delays occur.</p><p>The estimated ship date is February 2025. While we strive to meet this timeline, it is subject to change. Updates will be provided as production progresses.</p><p>You can update your shipping address until your order begins processing via the link in your confirmation email.</p><p>You can check the status of the MTO <a href=\"/pages/mto-status\" target=\"_blank\" title=\"Made to Order Status\">here</a>. For further assitance, visit our <a href=\"https://help.misha-and-puff.com/en-US#category-14398\" target=\"_blank\" title=\"https://help.misha-and-puff.com/en-US#category-14398\">Support Portal</a> or explore FAQs <a href=\"https://help.misha-and-puff.com/en-US\" target=\"_blank\" title=\"https://help.misha-and-puff.com/en-US\">here</a>.</p>",
+            "text": "<p>Made-to-Order styles are available for a limited time and often have capacity limits due to their handcrafted nature. If applicable, once a style reaches capacity, it will show as “Unavailable.”</p><p>All Made-to-Order purchases are final sale—no cancellations or returns, even if delays occur.</p><p>The estimated ship date is mid-Fall 2025. While we strive to meet this timeline, it is subject to change. Updates will be provided as production progresses.</p><p>You can update your shipping address until your order begins processing via the link in your confirmation email.</p><p>You can check the status of the MTO <a href=\"/pages/mto-status\" target=\"_blank\" title=\"Made to Order Status\">here</a>. For further assitance, visit our <a href=\"https://help.misha-and-puff.com/en-US#category-14398\" target=\"_blank\" title=\"https://help.misha-and-puff.com/en-US#category-14398\">Support Portal</a> or explore FAQs <a href=\"https://help.misha-and-puff.com/en-US\" target=\"_blank\" title=\"https://help.misha-and-puff.com/en-US\">here</a>.</p>",
             "line_height": 22
           }
         },
@@ -108,15 +117,24 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 0,
-        "padding_bottom": 60,
+        "padding_top": 20,
+        "padding_bottom": 52,
         "padding_left": 52,
         "padding_right": 52
       }
     },
     "divider_KRexyr": {
       "type": "divider",
-      "settings": {}
+      "settings": {
+        "desktop_padding_top": 52,
+        "desktop_padding_bottom": 52,
+        "desktop_padding_left": 84,
+        "desktop_padding_right": 100,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36,
+        "mobile_padding_left": 24,
+        "mobile_padding_right": 24
+      }
     },
     "rich_text_yzN863": {
       "type": "rich-text",
@@ -162,7 +180,7 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 32,
+        "padding_top": 0,
         "padding_bottom": 52,
         "padding_left": 52,
         "padding_right": 52
