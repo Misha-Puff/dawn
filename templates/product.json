@@ -83,31 +83,9 @@
             "show_gift_card_recipient": true
           }
         },
-        "wishlist_plus_wishlist_pdp_button_NBkk6K": {
-          "type": "shopify://apps/wishlist-plus/blocks/wishlist-pdp-button/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
-          "settings": {
-            "swym_atw_button_icon": "heart",
-            "swym_atw_icon_thickness": 1,
-            "swym_atw_display_btn_text": true,
-            "swym_button_position": "default",
-            "swym_atw_button_vertical_offset": 0,
-            "swym_atw_full_width": false,
-            "swym_atw_button_alignment": "left",
-            "swym_add_to_wishlist_color": "#ffffff",
-            "swym_added_to_wishlist_color": "#ffffff",
-            "swym_button_text_color": "#000000",
-            "swym_atw_border_color": "#000000",
-            "swym_atw_border_thickness": 0,
-            "swym_atw_button_border_radius": 0,
-            "swym_enable_hover_customization": false,
-            "swym_hover_add_to_wishlist_color": "#ffffff",
-            "swym_hover_added_to_wishlist_color": "#ffffff",
-            "swym_hover_button_text_color": "#000000",
-            "swym_hover_atw_border_color": "#000000",
-            "swym_hover_atw_border_thickness": 0,
-            "swym_hover_atw_button_border_radius": 0,
-            "swym_custom_css": "#swym-atw-pdp-button {\npadding-left: 0 !important;\ntext-transform: uppercase !important;\nfont-weight: normal !important;\nfont-size: 12px !important;\n}"
-          }
+        "multi_location_inv_location_inventory_FLfhG9": {
+          "type": "shopify://apps/multi-location-inv/blocks/location-inventory/982328e1-99f7-4a7e-8266-6aed71bf0021",
+          "settings": {}
         },
         "custom_liquid_mPzed7": {
           "type": "custom_liquid",
@@ -155,6 +133,32 @@
             "content": "",
             "page": ""
           }
+        },
+        "wishlist_plus_wishlist_pdp_button_NBkk6K": {
+          "type": "shopify://apps/wishlist-plus/blocks/wishlist-pdp-button/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
+          "settings": {
+            "swym_atw_button_icon": "heart",
+            "swym_atw_icon_thickness": 1,
+            "swym_atw_display_btn_text": true,
+            "swym_button_position": "default",
+            "swym_atw_button_vertical_offset": 0,
+            "swym_atw_full_width": false,
+            "swym_atw_button_alignment": "left",
+            "swym_add_to_wishlist_color": "#ffffff",
+            "swym_added_to_wishlist_color": "#ffffff",
+            "swym_button_text_color": "#000000",
+            "swym_atw_border_color": "#000000",
+            "swym_atw_border_thickness": 0,
+            "swym_atw_button_border_radius": 0,
+            "swym_enable_hover_customization": false,
+            "swym_hover_add_to_wishlist_color": "#ffffff",
+            "swym_hover_added_to_wishlist_color": "#ffffff",
+            "swym_hover_button_text_color": "#000000",
+            "swym_hover_atw_border_color": "#000000",
+            "swym_hover_atw_border_thickness": 0,
+            "swym_hover_atw_button_border_radius": 0,
+            "swym_custom_css": "#swym-atw-pdp-button {\npadding-left: 0 !important;\ntext-transform: uppercase !important;\nfont-weight: normal !important;\nfont-size: 12px !important;\n}"
+          }
         }
       },
       "block_order": [
@@ -169,13 +173,14 @@
         "custom_liquid_X9miCe",
         "bis_form_iQ4kYG",
         "buy_buttons",
-        "wishlist_plus_wishlist_pdp_button_NBkk6K",
+        "multi_location_inv_location_inventory_FLfhG9",
         "custom_liquid_mPzed7",
         "description",
         "collapsible_tab_JNhcga",
         "collapsible-row-0",
         "collapsible-row-1",
-        "collapsible-row-2"
+        "collapsible-row-2",
+        "wishlist_plus_wishlist_pdp_button_NBkk6K"
       ],
       "custom_css": [
         ".custom-message,[data-modal=\"#PopupModal-duties-taxes\"] {margin: 0;}",
