@@ -239,6 +239,16 @@
         "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
         "disabled": false,
         "settings": {}
+      },
+      "5803399549441092565": {
+        "type": "shopify://apps/multi-location-inv/blocks/app-embed/982328e1-99f7-4a7e-8266-6aed71bf0021",
+        "disabled": false,
+        "settings": {
+          "syncLoad": true,
+          "collectionMapping": true,
+          "customerTagMapping": false,
+          "collectionPages": false
+        }
       }
     },
     "color_schemes": {
