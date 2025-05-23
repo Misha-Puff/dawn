@@ -562,13 +562,16 @@
                     section_id: section.id,
                     show_pickup_availability: true
                   -%}
-                  <div {{ block.shopify_attributes }}>
-                    {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
-                    {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
-                      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                      {{ form | payment_terms }}
-                    {%- endform -%}
-                  </div>
+                  {% comment %}
+                    Whoops :)
+                    <div {{ block.shopify_attributes }}>
+                      {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
+                      {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
+                        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                        {{ form | payment_terms }}
+                      {%- endform -%}
+                    </div>
+                  {% endcomment %}
                 {% endunless %}
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
@@ -774,9 +777,10 @@
 
     {% assign popups = section.blocks | where: 'type', 'popup' %}
     {%- for block in popups -%}
-      {%- comment %}<locksmith:a563>{% endcomment -%}
-        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-      {%- comment %}</locksmith:a563>{% endcomment -%}
+      {%- comment %}<locksmith:a563>{%- endcomment %}
+      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block, variable: 'transparent' %}{% endcapture -%}
+      {%- if var == 'true' %}{% else %}{% continue %}{% endif -%}
+      {%- comment %}</locksmith:a563>{%- endcomment %}
       <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
         <div
           role="dialog"
