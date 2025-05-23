@@ -108,12 +108,6 @@
       max-width: {{ settings.mobile_logo_width }}px;
     }
   }
-
-  {% if settings.enable_sticky_bar %}
-    .shopify-section-header-sticky {
-      top: 40px;
-    }
-  {% endif %}
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
@@ -138,7 +132,7 @@
   {% if header_tag == 'sticky-header' %}
     data-sticky-type="{{ section.settings.sticky_header_type }}"
   {% endif %}
-  class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}"
+  class="header-wrapper color-{{ section.settings.color_scheme }} {% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}"
 >
   {%- liquid
     assign social_links = false
@@ -159,9 +153,7 @@
           render 'header-drawer'
         endif
 
-        if section.settings.logo_position == 'top-center' or section.settings.menu == blank
-          render 'header-search', input_id: 'Search-In-Modal-1'
-        endif
+        render 'header-search', input_id: 'Search-In-Modal-1'
       -%}
     </div>
 

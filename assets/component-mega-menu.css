@@ -56,6 +56,7 @@
   font-weight: bold;
 } */
 
+.header--middle-left .mega-menu__list,
 .header--top-center .mega-menu__list {
   display: flex;
   justify-content: center;
@@ -63,6 +64,7 @@
   column-gap: 0;
 }
 
+.header--middle-left .mega-menu__list > li,
 .header--top-center .mega-menu__list > li {
   width: fit-content;
   padding: 0 4rem;

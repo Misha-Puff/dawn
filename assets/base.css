@@ -2350,7 +2350,13 @@ input[type='checkbox'] {
 /* Main Header Layout */
 .header-wrapper {
   display: block;
-  position: relative;
+  position: fixed;
+  width: 100%;
+  background: transparent;
+}
+
+.header-wrapper:hover,
+.scrolled-past-header .header-wrapper {
   background-color: rgb(var(--color-background));
 }
 

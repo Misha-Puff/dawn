@@ -2,6 +2,7 @@
   justify-content: left;
   margin-left: 24rem;
 }
+
 .scrolled-past-header .header:not(.header--middle-left, .header--middle-center) .header__inline-menu {
   margin-top: 0;
 }
@@ -49,10 +50,6 @@
     grid-template-areas: 'heading navigation icons';
     grid-template-columns: auto auto 1fr;
     column-gap: 2rem;
-  }
-
-  .scrolled-past-header .header:not(.header--top-center, .header--middle-center) .header__inline-menu {
-    margin-top: 2rem;
   }
 
   .scrolled-past-header .header--top-center .header__heading-link {
