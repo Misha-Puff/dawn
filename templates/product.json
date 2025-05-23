@@ -41,6 +41,13 @@
             "custom_liquid": "{% unless product.tags contains 'no-returns' %}\n{% if product.tags contains 'Adult' %}\n<p class=\"custom-message\" style=\"color: blue;\">NEW:  Free returns on domestic Adult orders</p>\n{% endif %}\n{% endunless %}"
           }
         },
+        "custom_liquid_X9miCe": {
+          "type": "custom_liquid",
+          "name": "Exclusive Message",
+          "settings": {
+            "custom_liquid": "{% if product.tags contains 'Badge-Exclusive Collab' %}\n<p style=\"color: blue; line-height: normal;\">Misha & Puff x Isetan Collaboration</p>\n{% elsif product.tags contains 'Badge-Exclusive' %}\n<p style=\"color: blue; line-height: normal;\">This style is exclusive to Misha & Puff</p>\n{% endif %}"
+          }
+        },
         "custom_liquid_TwxkfW": {
           "type": "custom_liquid",
           "name": "Final Sale Message",
@@ -63,13 +70,6 @@
             "text_style": "uppercase",
             "inventory_threshold": 6,
             "show_inventory_quantity": false
-          }
-        },
-        "custom_liquid_X9miCe": {
-          "type": "custom_liquid",
-          "name": "Exclusive Message",
-          "settings": {
-            "custom_liquid": "{% if product.tags contains 'Badge-Exclusive Collab' %}\n<p style=\"color: blue; line-height: normal;\">Misha & Puff x Isetan Collaboration</p>\n{% elsif product.tags contains 'Badge-Exclusive' %}\n<p style=\"color: blue; line-height: normal;\">This style is exclusive to Misha & Puff</p>\n{% endif %}"
           }
         },
         "bis_form_iQ4kYG": {
@@ -167,10 +167,10 @@
         "custom_liquid_7DkrmT",
         "custom_liquid_rGEXWA",
         "custom_liquid_8fBjhc",
+        "custom_liquid_X9miCe",
         "custom_liquid_TwxkfW",
         "variant_picker",
         "inventory_PfG9Nk",
-        "custom_liquid_X9miCe",
         "bis_form_iQ4kYG",
         "buy_buttons",
         "multi_location_inv_location_inventory_qT7XKi",
