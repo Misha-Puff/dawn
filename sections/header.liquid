@@ -128,7 +128,7 @@
   and section.settings.transparent_announcement_bar_templates != blank
 %}
   {% assign templates = section.settings.transparent_announcement_bar_templates | split: ',' %}
-  {% if templates contains template.name %}
+  {% if templates contains template %}
     <style>
       .header-wrapper {
         position: fixed;
