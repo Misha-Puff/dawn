@@ -22,6 +22,8 @@
         "menu": "dawn-nav-1",
         "menu_type_desktop": "mega",
         "sticky_header_type": "always",
+        "transparent_header": true,
+        "transparent_header_templates": "index,page.gp-template-565435366471894001,page.gp-template-565435429101241412,page.gp-template-565435452505457824",
         "show_line_separator": false,
         "color_scheme": "scheme-1",
         "menu_color_scheme": "",
