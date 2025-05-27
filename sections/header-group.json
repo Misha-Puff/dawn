@@ -11,39 +11,6 @@
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
-    "announcement-bar": {
-      "type": "announcement-bar",
-      "blocks": {
-        "announcement_4MwKwV": {
-          "type": "announcement",
-          "disabled": true,
-          "settings": {
-            "text": "<p>ENDS SUNDAY - 20% off Spring Collections with code: SPRING20 |  <a href=\"https://shop.misha-and-puff.com/pages/current-promotions\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/pages/current-promotions\">Details</a> </p>"
-          }
-        },
-        "announcement_YVezxm": {
-          "type": "announcement",
-          "settings": {
-            "text": "<p><a href=\"/collections/made-to-order\" title=\"Made to Order\">SHOP PIMA MADE-TO-ORDER</a>  |  Closes Tuesday 5.27 at 11:59 PM ET</p>"
-          }
-        }
-      },
-      "block_order": [
-        "announcement_4MwKwV",
-        "announcement_YVezxm"
-      ],
-      "settings": {
-        "desktop_height": 36,
-        "mobile_height": 46,
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "color_scheme": "",
-        "show_line_separator": false,
-        "show_social": false,
-        "enable_country_selector": false,
-        "enable_language_selector": false
-      }
-    },
     "header": {
       "type": "header",
       "custom_css": [
@@ -63,12 +30,18 @@
         "enable_customer_avatar": true,
         "margin_bottom": 0,
         "padding_top": 20,
-        "padding_bottom": 16
+        "padding_bottom": 16,
+        "enable_announcement_bar": true,
+        "desktop_height": 40,
+        "mobile_height": 40,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "color_scheme_announcement_bar": "",
+        "show_social": false
       }
     }
   },
   "order": [
-    "announcement-bar",
     "header"
   ]
 }
