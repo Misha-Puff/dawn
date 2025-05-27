@@ -123,11 +123,8 @@
   }
 {%- endstyle -%}
 
-{% if section.settings.enable_announcement_bar
-  and section.settings.transparent_announcement_bar
-  and section.settings.transparent_announcement_bar_templates != blank
-%}
-  {% assign templates = section.settings.transparent_announcement_bar_templates | split: ',' %}
+{% if section.settings.transparent_header and section.settings.transparent_header_templates != blank %}
+  {% assign templates = section.settings.transparent_header_templates | split: ',' %}
   {% if templates contains template %}
     <style>
       .header-wrapper {
@@ -192,7 +189,7 @@
       assign localization_forms = true
     endif
   -%}
-  {% if section.settings.enable_announcement_bar %}
+  {% if section.settings.enable_announcement_bar and announcement_bar %}
     <div
       class="utility-bar color-{{ section.settings.color_scheme_announcement_bar }} gradient{% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% elsif section.settings.show_line_separator and section.settings.show_social and social_icons%} utility-bar--bottom-border-social-only{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header-localization{% endif %}"
     >
@@ -751,6 +748,18 @@
     },
     {
       "type": "checkbox",
+      "id": "transparent_header",
+      "label": "Transparent header",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "transparent_header_templates",
+      "label": "Pages with Transparency",
+      "default": "index"
+    },
+    {
+      "type": "checkbox",
       "id": "show_line_separator",
       "default": true,
       "label": "t:sections.header.settings.show_line_separator.label"
@@ -843,18 +852,6 @@
       "id": "enable_announcement_bar",
       "label": "Enable Announcement Bar",
       "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "transparent_announcement_bar",
-      "label": "Transparent",
-      "default": false
-    },
-    {
-      "type": "text",
-      "id": "transparent_announcement_bar_templates",
-      "label": "Pages with Transparency",
-      "default": "index"
     },
     {
       "type": "range",
