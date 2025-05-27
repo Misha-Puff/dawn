@@ -20,6 +20,41 @@
           "type": "price",
           "settings": {}
         },
+        "custom_liquid_7DkrmT": {
+          "type": "custom_liquid",
+          "name": "No Duties + Taxes Message",
+          "settings": {
+            "custom_liquid": "{% unless localization.country.iso_code == 'US' %}\n  <modal-opener\n    class=\"product-popup-modal__opener quick-add-hidden\"\n    data-modal=\"#PopupModal-duties-taxes\"\n  >\n    Duty and taxes not included.\n    <button\n      id=\"ProductPopup-duties-taxes\"\n      class=\"product-popup-modal__button link\"\n      type=\"button\"\n      aria-haspopup=\"dialog\"\n    >\n      Read about\n    </button>\n    our temporary pricing update.\n  </modal-opener>\n  <modal-dialog id=\"PopupModal-duties-taxes\" class=\"product-popup-modal\">\n    <div\n      role=\"dialog\"\n      aria-label=\"Product Measurements\"\n      aria-modal=\"true\"\n      class=\"product-popup-modal__content\"\n      tabindex=\"-1\"\n      style=\"border: none; height: fit-content; margin-top: 10rem;\"\n    >\n      <button\n        id=\"ModalClose-duties-taxes\"\n        type=\"button\"\n        class=\"product-popup-modal__toggle\"\n        aria-label=\"{{ 'accessibility.close' | t }}\"\n        style=\"border: none;\"\n      >\n        <span class=\"svg-wrapper\">{{- 'icon-close.svg' | inline_asset_content -}}</span>\n      </button>\n      <div class=\"product-popup-modal__content-info\" style=\"margin-top: 32px; margin-bottom: 64px;\">\n        Prices shown do not include duties or taxes. We are temporarily unable to offer duties and tax-inclusive\n        pricing, but are actively working to reinstate this option soon. Depending on your country's customs policies,\n        you may be required to pay applicable import fees upon delivery.\n      </div>\n    </div>\n  </modal-dialog>\n{% endunless %}"
+          }
+        },
+        "custom_liquid_rGEXWA": {
+          "type": "custom_liquid",
+          "name": "Custom Metafield Message",
+          "settings": {
+            "custom_liquid": "{% if product.metafields.product_page.custom_message != null %}\n<p class=\"custom-message\">{{ product.metafields.product_page.custom_message }}</p>\n{% endif %}"
+          }
+        },
+        "custom_liquid_8fBjhc": {
+          "type": "custom_liquid",
+          "name": "Adult Free Shipping",
+          "settings": {
+            "custom_liquid": "{% unless product.tags contains 'no-returns' %}\n{% if product.tags contains 'Adult' %}\n<p class=\"custom-message\" style=\"color: blue;\">NEW:  Free returns on domestic Adult orders</p>\n{% endif %}\n{% endunless %}"
+          }
+        },
+        "custom_liquid_X9miCe": {
+          "type": "custom_liquid",
+          "name": "Exclusive Message",
+          "settings": {
+            "custom_liquid": "{% if product.tags contains 'Badge-Exclusive Collab' %}\n<p style=\"color: blue; line-height: normal;\">Misha & Puff x Isetan Collaboration</p>\n{% elsif product.tags contains 'Badge-Exclusive' %}\n<p style=\"color: blue; line-height: normal;\">This style is exclusive to Misha & Puff</p>\n{% endif %}"
+          }
+        },
+        "custom_liquid_TwxkfW": {
+          "type": "custom_liquid",
+          "name": "Final Sale Message",
+          "settings": {
+            "custom_liquid": "{% if product.tags contains 'no-returns' %}\n<p class=\"custom-message\">Final Sale: This item cannot be exchanged or returned</p>\n{% endif %}"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -37,18 +72,6 @@
             "show_inventory_quantity": false
           }
         },
-        "custom_liquid_X9miCe": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% if product.tags contains 'Badge-Exclusive Collab' %}\n<p style=\"color: blue; line-height: normal;\">Misha & Puff x Isetan Collaboration</p>\n{% elsif product.tags contains 'Badge-Exclusive' %}\n<p style=\"color: blue; line-height: normal;\">This style is exclusive to Misha & Puff</p>\n{% endif %}"
-          }
-        },
-        "custom_liquid_ExpagB": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% if product.available and product.tags contains 'Badge-Preorder' and product.metafields.product_page.preorder_message != blank %}\n<p style=\"color: blue; line-height: normal;\">{{ product.metafields.product_page.preorder_message }}</p>\n{% endif %}"
-          }
-        },
         "bis_form_iQ4kYG": {
           "type": "bis_form",
           "settings": {}
@@ -60,34 +83,13 @@
             "show_gift_card_recipient": true
           }
         },
-        "wishlist_plus_wishlist_pdp_button_NBkk6K": {
-          "type": "shopify://apps/wishlist-plus/blocks/wishlist-pdp-button/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
-          "settings": {
-            "swym_atw_button_icon": "heart",
-            "swym_atw_icon_thickness": 1,
-            "swym_atw_display_btn_text": true,
-            "swym_button_position": "default",
-            "swym_atw_button_vertical_offset": 0,
-            "swym_atw_full_width": false,
-            "swym_atw_button_alignment": "left",
-            "swym_add_to_wishlist_color": "#ffffff",
-            "swym_added_to_wishlist_color": "#ffffff",
-            "swym_button_text_color": "#000000",
-            "swym_atw_border_color": "#000000",
-            "swym_atw_border_thickness": 0,
-            "swym_atw_button_border_radius": 0,
-            "swym_enable_hover_customization": false,
-            "swym_hover_add_to_wishlist_color": "#ffffff",
-            "swym_hover_added_to_wishlist_color": "#ffffff",
-            "swym_hover_button_text_color": "#000000",
-            "swym_hover_atw_border_color": "#000000",
-            "swym_hover_atw_border_thickness": 0,
-            "swym_hover_atw_button_border_radius": 0,
-            "swym_custom_css": "#swym-atw-pdp-button {\npadding-left: 0 !important;\ntext-transform: uppercase !important;\nfont-weight: normal !important;\nfont-size: 12px !important;\n}"
-          }
+        "multi_location_inv_location_inventory_qT7XKi": {
+          "type": "shopify://apps/multi-location-inv/blocks/location-inventory/982328e1-99f7-4a7e-8266-6aed71bf0021",
+          "settings": {}
         },
         "custom_liquid_mPzed7": {
           "type": "custom_liquid",
+          "name": "Divider",
           "settings": {
             "custom_liquid": "<div class=\"divider-wrapper\">\n<div class=\"divider\">\n<span class=\"visually-hidden\">divider</span></div></div>"
           }
@@ -131,24 +133,58 @@
             "content": "",
             "page": ""
           }
+        },
+        "wishlist_plus_wishlist_pdp_button_NBkk6K": {
+          "type": "shopify://apps/wishlist-plus/blocks/wishlist-pdp-button/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
+          "settings": {
+            "swym_atw_button_icon": "heart",
+            "swym_atw_icon_thickness": 1,
+            "swym_atw_display_btn_text": true,
+            "swym_button_position": "default",
+            "swym_atw_button_vertical_offset": 0,
+            "swym_atw_full_width": false,
+            "swym_atw_button_alignment": "left",
+            "swym_add_to_wishlist_color": "#ffffff",
+            "swym_added_to_wishlist_color": "#ffffff",
+            "swym_button_text_color": "#000000",
+            "swym_atw_border_color": "#000000",
+            "swym_atw_border_thickness": 0,
+            "swym_atw_button_border_radius": 0,
+            "swym_enable_hover_customization": false,
+            "swym_hover_add_to_wishlist_color": "#ffffff",
+            "swym_hover_added_to_wishlist_color": "#ffffff",
+            "swym_hover_button_text_color": "#000000",
+            "swym_hover_atw_border_color": "#000000",
+            "swym_hover_atw_border_thickness": 0,
+            "swym_hover_atw_button_border_radius": 0,
+            "swym_custom_css": "#swym-atw-pdp-button {\npadding-left: 0 !important;\ntext-transform: uppercase !important;\nfont-weight: normal !important;\nfont-size: 12px !important;\n}"
+          }
         }
       },
       "block_order": [
         "title",
         "price",
+        "custom_liquid_7DkrmT",
+        "custom_liquid_rGEXWA",
+        "custom_liquid_8fBjhc",
+        "custom_liquid_X9miCe",
+        "custom_liquid_TwxkfW",
         "variant_picker",
         "inventory_PfG9Nk",
-        "custom_liquid_X9miCe",
-        "custom_liquid_ExpagB",
         "bis_form_iQ4kYG",
         "buy_buttons",
-        "wishlist_plus_wishlist_pdp_button_NBkk6K",
+        "multi_location_inv_location_inventory_qT7XKi",
         "custom_liquid_mPzed7",
         "description",
         "collapsible_tab_JNhcga",
         "collapsible-row-0",
         "collapsible-row-1",
-        "collapsible-row-2"
+        "collapsible-row-2",
+        "wishlist_plus_wishlist_pdp_button_NBkk6K"
+      ],
+      "custom_css": [
+        ".custom-message,[data-modal=\"#PopupModal-duties-taxes\"] {margin: 0;}",
+        "#ProductPopup-duties-taxes {padding-right: 0; min-height: auto; color: rgba(var(--color-foreground), 0.75); font-size: 13px;}"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -386,11 +422,11 @@
         "show_rating": false,
         "columns_mobile": "2",
         "swipe_on_mobile": true,
-        "desktop_padding_top": 16,
+        "desktop_padding_top": 52,
         "desktop_padding_bottom": 28,
         "desktop_padding_left": 40,
         "desktop_padding_right": 40,
-        "mobile_padding_top": 24,
+        "mobile_padding_top": 52,
         "mobile_padding_bottom": 20,
         "mobile_padding_left": 12,
         "mobile_padding_right": 12
@@ -432,11 +468,11 @@
         "vertical_spacing_mobile": 0,
         "color_scheme": "",
         "columns_mobile": "2",
-        "desktop_padding_top": 16,
+        "desktop_padding_top": 52,
         "desktop_padding_bottom": 28,
         "desktop_padding_left": 40,
         "desktop_padding_right": 40,
-        "mobile_padding_top": 24,
+        "mobile_padding_top": 52,
         "mobile_padding_bottom": 20,
         "mobile_padding_left": 12,
         "mobile_padding_right": 12
