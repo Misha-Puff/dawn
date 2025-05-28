@@ -81,6 +81,7 @@
       "blocks": {
         "button_GhV3DG": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "label": "CHILD STYLES",
             "open_new_tab": false,
@@ -91,6 +92,7 @@
         },
         "button_G9Uf6f": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "label": "BABY STYLES",
             "open_new_tab": false,
@@ -101,6 +103,7 @@
         },
         "button_eAVnFG": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "label": "ADULT STYLES",
             "open_new_tab": false,
@@ -111,10 +114,9 @@
         },
         "button_hBT4RJ": {
           "type": "button",
-          "disabled": true,
           "settings": {
             "label": "MTO STATUS UPDATES",
-            "open_new_tab": false,
+            "open_new_tab": true,
             "link": "shopify://pages/mto-status",
             "type": "secondary",
             "on_click": ""
@@ -122,7 +124,6 @@
         },
         "button_KMMLGQ": {
           "type": "button",
-          "disabled": true,
           "settings": {
             "label": "GET MTO ALERTS",
             "open_new_tab": true,
@@ -139,14 +140,13 @@
         "button_hBT4RJ",
         "button_KMMLGQ"
       ],
-      "disabled": true,
       "settings": {
         "title": "",
         "button_gap": 10,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,
-        "desktop_padding_bottom": 58,
+        "desktop_padding_bottom": 40,
         "mobile_padding_top": 10,
         "mobile_padding_bottom": 40
       }
