@@ -39,7 +39,7 @@
         "text_WCkKMA": {
           "type": "text",
           "settings": {
-            "text": "<p>We loved hearing which Misha & Puff prints have stayed with you — your responses on <a href=\"https://www.instagram.com/anna_mishaandpuff\" target=\"_blank\" title=\"https://www.instagram.com/anna_mishaandpuff\">Anna’s Instagram</a> were a reminder of the thoughtful community we’re lucky to be part of. By popular request, a few favorites are coming back.</p><p>Our MTO process is rooted in care — for the hands who make, the pace we keep, and those who ask for pieces long after they’re gone. It ensures steady work for our artisan partners and access to special, often-requested archival styles. With this Pima release, we’re able to offer more than we typically can with our limited knitwear runs. We can’t promise it won’t sell out, but we’ve done our best to meet the moment. We’re grateful you’ve noticed — and we’re listening.</p><p>This Made-to-Order collection features beloved archival prints for Baby, Child, and Adult, with all styles expected to ship mid-Fall 2025. Ordering closes Tuesday, May 27, at 11:59 PM ET.</p>",
+            "text": "<p>Our Made-to-Order process is rooted in care — for the hands who make, the pace we keep, and those who ask for pieces long after they’re gone. It ensures steady work for our artisan partners and access to special, often-requested archival styles. </p><p>The latest MTO collection  is now closed and expected to ship mid-Fall 2025. </p>",
             "line_height": 22
           }
         },
@@ -188,7 +188,6 @@
     "featured_collection_cNRwXY": {
       "type": "featured-collection",
       "disabled": true,
-      "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "collection": "made-to-order",
         "products_to_show": 4,
