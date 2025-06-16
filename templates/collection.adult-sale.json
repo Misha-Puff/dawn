@@ -13,6 +13,7 @@
     "shogun-above",
     "banner",
     "rich_text_YJeCaw",
+    "buttons_M37kaV",
     "product-grid",
     "shogun-below",
     "shogun-optimizer",
@@ -83,6 +84,57 @@
         "padding_bottom": 28,
         "padding_left": 152,
         "padding_right": 152
+      }
+    },
+    "buttons_M37kaV": {
+      "type": "buttons",
+      "blocks": {
+        "button_pbL67b": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP CHILD SALE",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-sale",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_bxQdMr": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP BABY SALE",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-sale",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_8bwQdG": {
+          "type": "button",
+          "settings": {
+            "label": "SALE TOPS",
+            "open_new_tab": true,
+            "link": "https://shop.misha-and-puff.com/collections/adult-sale?filter.p.m.taxonomy.sub_classification=Cardigans&filter.p.m.taxonomy.sub_classification=Long+Sleeve+Tops&filter.p.m.taxonomy.sub_classification=Sweaters&sort_by=manual",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_pbL67b",
+        "button_bxQdMr",
+        "button_8bwQdG"
+      ],
+      "name": "Buttons",
+      "settings": {
+        "title": "",
+        "button_gap": 10,
+        "heading_size": "h1",
+        "color_scheme": "",
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 40,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 30
       }
     },
     "product-grid": {
