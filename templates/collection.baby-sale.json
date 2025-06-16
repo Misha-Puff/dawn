@@ -19,6 +19,7 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
@@ -38,7 +39,7 @@
         "text_Jc6nei": {
           "type": "text",
           "settings": {
-            "text": "<p><a href=\"/collections/baby-sale\" title=\"Baby - Sale\">Baby Sale</a> is now up to 50% off. Past season favorites + most coveted styles, including the <a href=\"/collections/baby-winter-b\" target=\"_blank\" title=\"Baby - The Winter Collection\">Winter Collection</a>.</p>",
+            "text": "<p>Past season favorites, including the most coveted styles from the <a href=\"https://shop.misha-and-puff.com/collections/baby-spring-collection\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/collections/baby-spring-collection\">Spring</a>, <a href=\"/collections/baby-the-winter-collection\" target=\"_blank\" title=\"Baby - The Winter Collection\">Winter</a> and <a href=\"https://shop.misha-and-puff.com/collections/baby-fall-24?filter.v.availability=1&sort_by=manual\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/collections/baby-fall-24?filter.v.availability=1&sort_by=manual\">Fall</a> Collections.</p>",
             "line_height": 22
           }
         },
@@ -68,8 +69,8 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 0,
-        "padding_bottom": 32,
+        "padding_top": 40,
+        "padding_bottom": 28,
         "padding_left": 152,
         "padding_right": 152
       }
@@ -80,9 +81,9 @@
         "button_Uiz3YF": {
           "type": "button",
           "settings": {
-            "label": "SWEATERS + CARDIGANS",
+            "label": "CHILD SALE",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-sweaters-cardigans",
+            "link": "shopify://collections/child-sale",
             "type": "secondary",
             "on_click": ""
           }
@@ -90,9 +91,9 @@
         "button_9jbVL8": {
           "type": "button",
           "settings": {
-            "label": "ONE-PIECES",
+            "label": "ADULT SALE",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-one-piece",
+            "link": "shopify://collections/adult-sale",
             "type": "secondary",
             "on_click": ""
           }
@@ -100,39 +101,9 @@
         "button_Tgk7UQ": {
           "type": "button",
           "settings": {
-            "label": "BOTTOMS",
+            "label": "ONE-PIECES",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-bottoms",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_tf9BgH": {
-          "type": "button",
-          "settings": {
-            "label": "TOPS",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-tops",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_JJMFF3": {
-          "type": "button",
-          "settings": {
-            "label": "ACCESSORIES",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-accessories",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_PB3qCQ": {
-          "type": "button",
-          "settings": {
-            "label": "PIMA",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-pima-staples",
+            "link": "https://shop.misha-and-puff.com/collections/baby-sale?filter.p.m.taxonomy.sub_classification=Onesie&filter.p.m.taxonomy.sub_classification=Rompers&filter.v.availability=1&sort_by=manual",
             "type": "secondary",
             "on_click": ""
           }
@@ -141,21 +112,17 @@
       "block_order": [
         "button_Uiz3YF",
         "button_9jbVL8",
-        "button_Tgk7UQ",
-        "button_tf9BgH",
-        "button_JJMFF3",
-        "button_PB3qCQ"
+        "button_Tgk7UQ"
       ],
-      "disabled": true,
       "settings": {
         "title": "",
         "button_gap": 10,
         "heading_size": "h1",
         "color_scheme": "",
-        "desktop_padding_top": 28,
-        "desktop_padding_bottom": 30,
-        "mobile_padding_top": 20,
-        "mobile_padding_bottom": 20
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 40,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 30
       }
     },
     "product-grid": {
