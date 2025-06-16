@@ -19,6 +19,7 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
@@ -38,7 +39,7 @@
         "text_CJWyqe": {
           "type": "text",
           "settings": {
-            "text": "<p><a href=\"/collections/child-sale\" target=\"_blank\" title=\"Child - Sale\">Child Sale</a> is now up to 50% off. Past season favorites + most coveted styles, including the <a href=\"/collections/child-winter-b\" target=\"_blank\" title=\"Child - The Winter Collection\">Winter Collection</a>.</p>",
+            "text": "<p>Past season favorites, including the most coveted styles from the <a href=\"https://shop.misha-and-puff.com/collections/child-spring-collection\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/collections/child-spring-collection\">Spring</a>, <a href=\"https://shop.misha-and-puff.com/collections/child-fall-24\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/collections/child-fall-24\">Fall</a>, and <a href=\"/collections/child-winter-b\" target=\"_blank\" title=\"Child - The Winter Collection\">Winter</a> Collections.</p>",
             "line_height": 22
           }
         }
@@ -52,8 +53,8 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 0,
-        "padding_bottom": 20,
+        "padding_top": 40,
+        "padding_bottom": 28,
         "padding_left": 152,
         "padding_right": 152
       }
@@ -136,7 +137,7 @@
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,
-        "desktop_padding_bottom": 30,
+        "desktop_padding_bottom": 40,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 20
       }
