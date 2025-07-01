@@ -1,23 +1,21 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "shogun-helper": {
       "type": "shogun-helper",
-      "settings": {
-      }
+      "settings": {}
     },
     "shogun-above": {
       "type": "shogun-above",
-      "settings": {
-      }
+      "settings": {}
     },
     "banner": {
       "type": "main-collection-banner",
@@ -41,8 +39,8 @@
         "text_BbpNBn": {
           "type": "text",
           "settings": {
-            "text": "<p>Introducing Mystery Bundles, an exclusive selection of Child styles at a very special price.<\/p><p>Each bundle contains five (5) surprise pieces that could include past season favorites, samples, and seconds. Every Mystery Bundle is thoughtfully curated and guaranteed to include at least one knit (either wool or cotton) and one accessory. These bundles feature a versatile mix of seasons and styles. The average retail value per bundle is approximately $400, and in some cases, it can be even higher.<\/p><p>Mystery Bundles are available in two categories:<br\/><strong>Girl<\/strong> — May include at least one skirt, ruffle style, pink piece, or dress<br\/><strong>Unisex<\/strong> — Does not include any of the styles listed in the “Girls” category<\/p>",
-            "line_height": 20
+            "text": "<p>Mystery Bundles are Back! Enjoy an exclusive selection of Child styles at a very special price.</p><p>Each bundle contains five (5) surprise pieces, which may include signature styles and past-season favorites. Every Mystery Bundle is thoughtfully curated and guaranteed to include at least one knit (wool or cotton), one accessory, and one Pima cotton or woven piece. Bundles feature a versatile mix of seasons and styles. The average retail value per bundle is approximately $500—and in some cases, even higher.</p><p>Mystery Bundles are available in two categories:<br/><strong>Girl</strong> — May include at least one skirt, ruffle style, pink piece, or dress<br/><strong>Unisex</strong> — Will not include any of the styles listed in the “Girl” category</p>",
+            "line_height": 22
           }
         },
         "button_YNhfEz": {
@@ -71,10 +69,10 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
+        "padding_top": 40,
         "padding_bottom": 40,
-        "padding_left": 100,
-        "padding_right": 100
+        "padding_left": 32,
+        "padding_right": 32
       }
     },
     "product-grid": {
@@ -83,8 +81,11 @@
         "image_P9aHGr": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Tezza-8151.jpg",
+            "image": "shopify://shop_images/Tezza-8151.jpg",
             "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
             "row_start_desktop": 1,
             "row_span_desktop": 1,
             "col_start_desktop": 3,
@@ -102,31 +103,30 @@
       "settings": {
         "products_per_page": 48,
         "columns_desktop": 3,
+        "columns_mobile": "2",
         "color_scheme": "",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        
+        "enable_overlay": false,
+        "enable_swatches": false,
         "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "drawer",
         "enable_sorting": true,
-        "columns_mobile": "2",
         "padding_top": 0,
         "padding_bottom": 36
       }
     },
     "shogun-below": {
       "type": "shogun-below",
-      "settings": {
-      }
+      "settings": {}
     },
     "shogun-optimizer": {
       "type": "shogun-optimizer",
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [
