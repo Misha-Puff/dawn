@@ -1,0 +1,347 @@
+{% liquid
+  assign outfits = product.metafields.product_page.shop_the_look_outfits.value
+  assign num_outfits = 0
+
+  for outfit in outfits
+    assign num_outfits = num_outfits | plus: 1
+  endfor
+%}
+
+{% if num_outfits > 0 %}
+  <style>
+    @media screen and (max-width: 990px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.mobile_padding_top }}px;
+        padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+        {% if section.settings.mobile_padding_left > 0 %}
+          padding-left: {{ section.settings.mobile_padding_left  }}px;
+        {% endif %}
+        {% if section.settings.mobile_padding_right > 0 %}
+          padding-right: {{ section.settings.mobile_padding_right  }}px;
+        {% endif %}
+      }
+    }
+
+    @media screen and (min-width: 990px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.desktop_padding_top }}px;
+        padding-bottom: {{ section.settings.desktop_padding_bottom }}px;
+        {% if section.settings.desktop_padding_left > 0 %}
+          padding-left: {{ section.settings.desktop_padding_left  }}px;
+        {% endif %}
+        {% if section.settings.desktop_padding_right > 0 %}
+          padding-right: {{ section.settings.desktop_padding_right  }}px;
+        {% endif %}
+      }
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 100%;
+    }
+
+    .carousel {
+      position: relative;
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-slide {
+      width: {{ section.settings.desktop_slide_width }}%;
+      position: relative;
+      flex-shrink: 0;
+      margin: 0 {{ section.settings.desktop_slide_margin }}px;
+      overflow: hidden;
+      scroll-snap-align: center;
+    }
+
+    .slide-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: {{ section.settings.desktop_grid_gap }}px;
+    }
+
+    .main-box,
+    .sub-box {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .sub-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: {{ section.settings.desktop_grid_gap }}px;
+    }
+
+    .main-box img,
+    .sub-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 989px) {
+      .carousel-slide {
+        width: {{ section.settings.mobile_slide_width }}%;
+        margin: 0 {{ section.settings.mobile_slide_margin }}px;
+      }
+
+      .slide-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        gap: {{ section.settings.mobile_grid_gap }}px;
+      }
+
+      .sub-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr;
+        gap: {{ section.settings.mobile_grid_gap }}px;
+      }
+    }
+  </style>
+  <div class="section-{{ section.id }}-padding">
+    <div class="carousel-container">
+      <div class="carousel">
+        {% for outfit in outfits %}
+          {% liquid
+            assign lead_image = outfit.lead_image.value
+            assign products = outfit.products.value
+            assign flats = outfit.flats.value
+          %}
+          <div class="carousel-slide">
+            <div class="slide-grid">
+              <div class="main-box">
+                <img
+                  srcset="
+                    {%- if lead_image.width >= 550 -%}{{ lead_image | image_url: width: 550 }} 550w,{%- endif -%}
+                    {%- if lead_image.width >= 1100 -%}{{ lead_image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                    {%- if lead_image.width >= 1445 -%}{{ lead_image | image_url: width: 1445 }} 1445w,{%- endif -%}
+                    {%- if lead_image.width >= 1680 -%}{{ lead_image | image_url: width: 1680 }} 1680w,{%- endif -%}
+                    {%- if lead_image.width >= 2048 -%}{{ lead_image | image_url: width: 2048 }} 2048w,{%- endif -%}
+                    {%- if lead_image.width >= 2200 -%}{{ lead_image | image_url: width: 2200 }} 2200w,{%- endif -%}
+                    {%- if lead_image.width >= 2890 -%}{{ lead_image | image_url: width: 2890 }} 2890w,{%- endif -%}
+                    {%- if lead_image.width >= 4096 -%}{{ lead_image | image_url: width: 4096 }} 4096w,{%- endif -%}
+                    {{ lead_image | image_url }} {{ lead_image.width }}w
+                  "
+                  sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
+                  src="{{ lead_image | image_url: width: 1445 }}"
+                  alt="{{ lead_image.alt | escape }}"
+                  loading="lazy"
+                  width="1100"
+                  height="{{ 1100 | divided_by: lead_image.aspect_ratio | ceil }}"
+                >
+              </div>
+              <div class="sub-grid">
+                {% for product in products limit: 4 %}
+                  {% assign outer = forloop.index0 %}
+                  {% for flat in flats %}
+                    {% assign inner = forloop.index0 %}
+                    {% if outer == inner %}
+                      <div class="sub-box">
+                        <img
+                          srcset="
+                            {%- if flat.width >= 550 -%}{{ flat | image_url: width: 550 }} 550w,{%- endif -%}
+                            {%- if flat.width >= 1100 -%}{{ flat | image_url: width: 1100 }} 1100w,{%- endif -%}
+                            {%- if flat.width >= 1445 -%}{{ flat | image_url: width: 1445 }} 1445w,{%- endif -%}
+                            {%- if flat.width >= 1680 -%}{{ flat | image_url: width: 1680 }} 1680w,{%- endif -%}
+                            {%- if flat.width >= 2048 -%}{{ flat | image_url: width: 2048 }} 2048w,{%- endif -%}
+                            {%- if flat.width >= 2200 -%}{{ flat | image_url: width: 2200 }} 2200w,{%- endif -%}
+                            {%- if flat.width >= 2890 -%}{{ flat | image_url: width: 2890 }} 2890w,{%- endif -%}
+                            {%- if flat.width >= 4096 -%}{{ flat | image_url: width: 4096 }} 4096w,{%- endif -%}
+                            {{ flat | image_url }} {{ flat.width }}w
+                          "
+                          sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
+                          src="{{ flat | image_url: width: 1445 }}"
+                          alt="{{ flat.alt | escape }}"
+                          loading="lazy"
+                          width="1100"
+                          height="{{ 1100 | divided_by: flat.aspect_ratio | ceil }}"
+                        >
+                      </div>
+                      {% break %}
+                    {% endif %}
+                  {% endfor %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Shop the Look Outfits",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_slide_width",
+      "min": 50,
+      "max": 100,
+      "step": 2,
+      "label": "Desktop Slide width (%)",
+      "default": 90
+    },
+    {
+      "type": "range",
+      "id": "desktop_slide_margin",
+      "min": 0,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "label": "Desktop Slide margin",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "desktop_grid_gap",
+      "min": 0,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "label": "Desktop Grid Gap",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "mobile_slide_width",
+      "min": 50,
+      "max": 100,
+      "step": 2,
+      "label": "Mobile Slide width (%)",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "mobile_slide_margin",
+      "min": 0,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Slide margin",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_grid_gap",
+      "min": 0,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Grid Gap",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop Top Padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop Bottom Padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_left",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop Left Padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_right",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop Right Padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile Top Padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile Bottom Padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_left",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile Left Padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_right",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile Right Padding",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop the Look Outfits"
+    }
+  ]
+}
+{% endschema %}
