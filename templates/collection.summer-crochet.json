@@ -13,167 +13,218 @@
     "shogun-above",
     "banner",
     "rich_text_YJeCaw",
+    "buttons_AjhJGQ",
     "product-grid",
     "shogun-below",
     "shogun-optimizer",
     "collapsible_rich_text_wL8x3p"
   ],
   "sections": {
+    "shogun-helper": {
+      "type": "shogun-helper",
+      "settings": {}
+    },
+    "shogun-above": {
+      "type": "shogun-above",
+      "settings": {}
+    },
     "banner": {
+      "type": "main-collection-banner",
       "settings": {
-        "color_scheme": "scheme-1",
         "show_collection_description": true,
-        "show_collection_image": false
-      },
-      "type": "main-collection-banner"
-    },
-    "collapsible_rich_text_wL8x3p": {
-      "settings": {
-        "color_scheme": "",
-        "content_alignment": "center",
-        "desktop_content_position": "center",
-        "full_width": true,
-        "line_height": 24,
-        "max_character_count": 200,
-        "padding_bottom": 52,
-        "padding_left": 0,
-        "padding_right": 0,
-        "padding_top": 40,
-        "text": "{{ collection.metafields.seo.description | metafield_tag }}"
-      },
-      "type": "collapsible-rich-text"
-    },
-    "product-grid": {
-      "block_order": [
-        "image_f8UJrh",
-        "image_gkgQFt"
-      ],
-      "blocks": {
-        "image_f8UJrh": {
-          "disabled": true,
-          "settings": {
-            "col_span_desktop": 2,
-            "col_span_mobile": "2",
-            "col_start_desktop": 1,
-            "col_start_mobile": "1",
-            "content": "",
-            "content_position": "middle-center",
-            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
-            "link": "",
-            "row_span_desktop": 1,
-            "row_span_mobile": 1,
-            "row_start_desktop": 1,
-            "row_start_mobile": 1,
-            "text_color": "#000000"
-          },
-          "type": "image"
-        },
-        "image_gkgQFt": {
-          "disabled": true,
-          "settings": {
-            "col_span_desktop": 3,
-            "col_span_mobile": "1",
-            "col_start_desktop": 1,
-            "col_start_mobile": "1",
-            "content": "",
-            "content_position": "middle-center",
-            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
-            "link": "",
-            "row_span_desktop": 1,
-            "row_span_mobile": 1,
-            "row_start_desktop": 6,
-            "row_start_mobile": 1,
-            "text_color": "#000000"
-          },
-          "type": "image"
-        }
-      },
-      "settings": {
-        "color_scheme": "",
-        "columns_desktop": 3,
-        "columns_mobile": "2",
-        "enable_filtering": true,
-        "enable_overlay": false,
-        "enable_sorting": true,
-        "enable_swatches": false,
-        "filter_type": "drawer",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "padding_bottom": 36,
-        "padding_top": 0,
-        "products_per_page": 48,
-        "quick_add": "standard",
-        "show_rating": false,
-        "show_secondary_image": true,
-        "show_vendor": false
-      },
-      "type": "main-collection-product-grid"
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
     },
     "rich_text_YJeCaw": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_LbXhKd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Summer Crochet",
+            "heading_size": "h2"
+          }
+        },
+        "text_PGqAmF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Entirely hand-crocheted pieces in our hand-dyed yarns — a testament to the skill and dedication of the artisan makers we work with. Made with care in Peru. Read more about our <a href=\"https://shop.misha-and-puff.com/pages/people\" target=\"_blank\" title=\"People\">artisan partners</a>.</p>",
+            "line_height": 22
+          }
+        },
+        "button_Yh3Xhh": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
       "block_order": [
         "heading_LbXhKd",
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 20,
+        "padding_left": 100,
+        "padding_right": 100
+      }
+    },
+    "buttons_AjhJGQ": {
+      "type": "buttons",
       "blocks": {
-        "button_Yh3Xhh": {
-          "disabled": true,
+        "button_QmaqwQ": {
+          "type": "button",
           "settings": {
-            "button_label": "Button label",
-            "button_label_2": "",
-            "button_label_3": "",
-            "button_link": "",
-            "button_link_2": "",
-            "button_link_3": "",
-            "button_style_secondary": false,
-            "button_style_secondary_2": false,
-            "button_style_secondary_3": false
-          },
-          "type": "button"
+            "label": "SHOP ALL SUMMER",
+            "open_new_tab": false,
+            "link": "shopify://collections/child-summer-collection",
+            "type": "secondary",
+            "on_click": ""
+          }
         },
-        "heading_LbXhKd": {
+        "button_ayzGf7": {
+          "type": "button",
           "settings": {
-            "heading": "Limited Yarn",
-            "heading_size": "h2"
-          },
-          "type": "heading"
+            "label": "BABY SUMMER",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-summer-collection",
+            "type": "secondary",
+            "on_click": ""
+          }
         },
-        "text_PGqAmF": {
+        "button_HMntFH": {
+          "type": "button",
           "settings": {
-            "line_height": 20,
-            "text": "<p>Limited quantities - this yarn is made from our apparel production overages. 100% hand-dyed Merino Wool in light worsted weight.</p>"
-          },
-          "type": "text"
+            "label": "ALL HAND-MADE STYLES",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-hand-knit",
+            "type": "secondary",
+            "on_click": ""
+          }
         }
       },
-      "disabled": true,
+      "block_order": [
+        "button_QmaqwQ",
+        "button_ayzGf7",
+        "button_HMntFH"
+      ],
+      "name": "Buttons",
       "settings": {
+        "title": "",
+        "button_gap": 13,
+        "heading_size": "h1",
         "color_scheme": "",
-        "content_alignment": "center",
-        "desktop_content_position": "center",
-        "full_width": true,
-        "padding_bottom": 40,
-        "padding_left": 100,
-        "padding_right": 100,
-        "padding_top": 52
-      },
-      "type": "rich-text"
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 40,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 30
+      }
     },
-    "shogun-above": {
-      "settings": {},
-      "type": "shogun-above"
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "blocks": {
+        "image_f8UJrh": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
+            "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
+            "row_start_desktop": 1,
+            "row_span_desktop": 1,
+            "col_start_desktop": 1,
+            "col_span_desktop": 2,
+            "row_start_mobile": 1,
+            "row_span_mobile": 1,
+            "col_start_mobile": "1",
+            "col_span_mobile": "2"
+          }
+        },
+        "image_gkgQFt": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
+            "link": "",
+            "content": "",
+            "text_color": "#000000",
+            "content_position": "middle-center",
+            "row_start_desktop": 6,
+            "row_span_desktop": 1,
+            "col_start_desktop": 1,
+            "col_span_desktop": 3,
+            "row_start_mobile": 1,
+            "row_span_mobile": 1,
+            "col_start_mobile": "1",
+            "col_span_mobile": "1"
+          }
+        }
+      },
+      "block_order": [
+        "image_f8UJrh",
+        "image_gkgQFt"
+      ],
+      "settings": {
+        "products_per_page": 48,
+        "columns_desktop": 3,
+        "columns_mobile": "2",
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_overlay": false,
+        "enable_swatches": false,
+        "quick_add": "standard",
+        "enable_filtering": true,
+        "filter_type": "drawer",
+        "enable_sorting": true,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
     },
     "shogun-below": {
-      "settings": {},
-      "type": "shogun-below"
-    },
-    "shogun-helper": {
-      "settings": {},
-      "type": "shogun-helper"
+      "type": "shogun-below",
+      "settings": {}
     },
     "shogun-optimizer": {
-      "settings": {},
-      "type": "shogun-optimizer"
+      "type": "shogun-optimizer",
+      "settings": {}
+    },
+    "collapsible_rich_text_wL8x3p": {
+      "type": "collapsible-rich-text",
+      "settings": {
+        "text": "{{ collection.metafields.seo.description | metafield_tag }}",
+        "line_height": 24,
+        "max_character_count": 200,
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_left": 0,
+        "padding_right": 0
+      }
     }
   }
 }
