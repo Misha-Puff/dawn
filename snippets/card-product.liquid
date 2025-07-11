@@ -65,7 +65,30 @@
         class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}"
         style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
       >
-        {%- if card_product.featured_media -%}
+        {%- if custom_media -%}
+          <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
+            <div class="media media--transparent media--hover-effect">
+              <img
+                srcset="
+                  {%- if custom_media.width >= 165 -%}{{ custom_media | image_url: width: 165 }} 165w,{%- endif -%}
+                  {%- if custom_media.width >= 360 -%}{{ custom_media | image_url: width: 360 }} 360w,{%- endif -%}
+                  {%- if custom_media.width >= 533 -%}{{ custom_media | image_url: width: 533 }} 533w,{%- endif -%}
+                  {%- if custom_media.width >= 720 -%}{{ custom_media | image_url: width: 720 }} 720w,{%- endif -%}
+                  {%- if custom_media.width >= 940 -%}{{ custom_media | image_url: width: 940 }} 940w,{%- endif -%}
+                  {%- if custom_media.width >= 1066 -%}{{ custom_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                  {{ custom_media | image_url }} {{ custom_media.width }}w
+                "
+                src="{{ custom_media | image_url: width: 533 }}"
+                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                alt="{{ custom_media.alt | escape }}"
+                class="motion-reduce"
+                loading="lazy"
+                width="{{ custom_media.width }}"
+                height="{{ custom_media.height }}"
+              >
+            </div>
+          </div>
+        {%- elsif card_product.featured_media -%}
           <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
             <div class="media media--transparent media--hover-effect">
               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
