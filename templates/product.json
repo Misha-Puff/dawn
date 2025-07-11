@@ -357,6 +357,9 @@
       "type": "shop-the-look-outfits",
       "name": "Shop the Look Outfits",
       "settings": {
+        "title_text": "How to Wear",
+        "title_margin_bottom": 16,
+        "title_font_size": 24,
         "desktop_slide_width": 90,
         "desktop_slide_margin": 10,
         "desktop_grid_gap": 20,
@@ -412,6 +415,7 @@
     },
     "metafield_product_slider_8x6YUj": {
       "type": "metafield-product-slider",
+      "disabled": true,
       "settings": {
         "title": "COMPLETE THE LOOK",
         "heading_alignment": "left",
