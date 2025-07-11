@@ -355,6 +355,7 @@
     },
     "shop_the_look_outfits_7Vw8xb": {
       "type": "shop-the-look-outfits",
+      "disabled": true,
       "name": "Shop the Look Outfits",
       "settings": {
         "title_text": "How to Wear",
@@ -416,6 +417,7 @@
     "metafield_product_slider_8x6YUj": {
       "type": "metafield-product-slider",
       "disabled": true,
+      "name": "Complete the Look",
       "settings": {
         "title": "COMPLETE THE LOOK",
         "heading_alignment": "left",
