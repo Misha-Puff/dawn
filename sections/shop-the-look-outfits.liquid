@@ -7,7 +7,14 @@
   endfor
 %}
 
-{% if num_outfits > 0 %}
+{% unless num_outfits == 0 %}
+  {{ 'component-card.css' | asset_url | stylesheet_tag }}
+  {{ 'component-price.css' | asset_url | stylesheet_tag }}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
   <style>
     @media screen and (max-width: 990px) {
       .section-{{ section.id }}-padding {
@@ -205,7 +212,7 @@
       </div>
     </div>
   </div>
-{% endif %}
+{% endunless %}
 
 {% schema %}
 {
