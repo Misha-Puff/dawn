@@ -353,6 +353,26 @@
         "show_section_tag": "prism-space-dye"
       }
     },
+    "shop_the_look_outfits_7Vw8xb": {
+      "type": "shop-the-look-outfits",
+      "name": "Shop the Look Outfits",
+      "settings": {
+        "desktop_slide_width": 90,
+        "desktop_slide_margin": 10,
+        "desktop_grid_gap": 20,
+        "mobile_slide_width": 80,
+        "mobile_slide_margin": 20,
+        "mobile_grid_gap": 10,
+        "desktop_padding_top": 52,
+        "desktop_padding_bottom": 28,
+        "desktop_padding_left": 64,
+        "desktop_padding_right": 64,
+        "mobile_padding_top": 52,
+        "mobile_padding_bottom": 20,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
+      }
+    },
     "metafield_product_slider_bbMG9V": {
       "type": "metafield-product-slider",
       "settings": {
@@ -496,6 +516,7 @@
     "image_with_text_PbwkAd",
     "image_with_text_eWw7Gi",
     "image_with_text_HPJEfp",
+    "shop_the_look_outfits_7Vw8xb",
     "metafield_product_slider_bbMG9V",
     "metafield_product_slider_8x6YUj",
     "related-products",

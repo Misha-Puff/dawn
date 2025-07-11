@@ -7,7 +7,14 @@
   endfor
 %}
 
-{% if num_outfits > 0 %}
+{% unless num_outfits == 0 %}
+  {{ 'component-card.css' | asset_url | stylesheet_tag }}
+  {{ 'component-price.css' | asset_url | stylesheet_tag }}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
   <style>
     @media screen and (max-width: 990px) {
       .section-{{ section.id }}-padding {
@@ -49,6 +56,12 @@
       -webkit-overflow-scrolling: touch;
       -ms-overflow-style: none;
       scrollbar-width: none;
+    }
+
+    .carousel-title {
+      margin-left: 16px;
+      margin-bottom: {{ section.settings.title_margin_bottom }}px;
+      font-size: {{ section.settings.title_font_size }}px;
     }
 
     .carousel::-webkit-scrollbar {
@@ -111,6 +124,9 @@
     }
   </style>
   <div class="section-{{ section.id }}-padding">
+    {% if section.settings.title_text != blank %}
+      <h1 class="carousel-title">{{ section.settings.title_text }}</h1>
+    {% endif %}
     <div class="carousel-container">
       <div class="carousel">
         {% for outfit in outfits %}
@@ -143,37 +159,69 @@
                 >
               </div>
               <div class="sub-grid">
-                {%- comment %}<locksmith:3368>{% endcomment -%}
-                  {%- assign locksmith_1eba_forloop__size = 0 %}{% for product in products limit: 4 %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_1eba_forloop__size = locksmith_1eba_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_1eba_forloop__index = nil -%}
-                {%- comment %}</locksmith:3368>{% endcomment -%}
+                {%- comment %}<locksmith:3368>{%- endcomment %}
+                {%- assign locksmith_1eba_forloop__size = 0 -%}
+                {%- for product in products limit: 4 %}
+                  {% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, variable: 'transparent' %}{% endcapture -%}
+                  {%- if var == 'true' -%}
+                    {%- assign locksmith_1eba_forloop__size = locksmith_1eba_forloop__size | plus: 1 -%}
+                  {%- endif -%}
+                {%- endfor -%}
+                {%- assign locksmith_1eba_forloop__index = null -%}
+                {%- comment %}</locksmith:3368>{%- endcomment %}
                 {% for product in products limit: 4 %}
-                  {%- comment %}<locksmith:26d0>{% endcomment -%}
-                    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_1eba_forloop__index == nil %}{% assign locksmith_1eba_forloop__index = 1 %}{% assign locksmith_1eba_forloop__index0 = 0 %}{% else %}{% assign locksmith_1eba_forloop__index = locksmith_1eba_forloop__index | plus: 1 %}{% assign locksmith_1eba_forloop__index0 = locksmith_1eba_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_1eba_forloop__index == 1 %}{% assign locksmith_1eba_forloop__first = true %}{% else %}{% assign locksmith_1eba_forloop__first = false %}{% endif %}{% if locksmith_1eba_forloop__index == locksmith_1eba_forloop__size %}{% assign locksmith_1eba_forloop__last = true %}{% else %}{% assign locksmith_1eba_forloop__last = false %}{% endif %}{% assign locksmith_1eba_forloop__rindex = locksmith_1eba_forloop__size | minus: locksmith_1eba_forloop__index | minus: 1 %}{% assign locksmith_1eba_forloop__rindex0 = locksmith_1eba_forloop__size | minus: locksmith_1eba_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
-                  {%- comment %}</locksmith:26d0>{% endcomment -%}
+                  {% assign skip_card_product_styles = false %}
+                  {% assign outer = forloop.index0 %}
+                  {%- comment %}<locksmith:26d0>{%- endcomment %}
+                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, variable: 'transparent' %}{% endcapture -%}
+                  {%- if var == 'true' -%}
+                    {%- if locksmith_1eba_forloop__index == null -%}
+                      {%- assign locksmith_1eba_forloop__index = 1 -%}
+                      {%- assign locksmith_1eba_forloop__index0 = 0 -%}
+                    {%- else -%}
+                      {%- assign locksmith_1eba_forloop__index = locksmith_1eba_forloop__index | plus: 1 -%}
+                      {%- assign locksmith_1eba_forloop__index0 = locksmith_1eba_forloop__index0 | plus: 1 -%}
+                    {%- endif -%}
+                    {%- if locksmith_1eba_forloop__index == 1 -%}
+                      {%- assign locksmith_1eba_forloop__first = true -%}
+                    {%- else -%}
+                      {%- assign locksmith_1eba_forloop__first = false -%}
+                    {%- endif -%}
+                    {%- if locksmith_1eba_forloop__index == locksmith_1eba_forloop__size -%}
+                      {%- assign locksmith_1eba_forloop__last = true -%}
+                    {%- else -%}
+                      {%- assign locksmith_1eba_forloop__last = false -%}
+                    {%- endif -%}
+                    {%- assign locksmith_1eba_forloop__rindex = locksmith_1eba_forloop__size
+                      | minus: locksmith_1eba_forloop__index
+                      | minus: 1
+                    -%}
+                    {%- assign locksmith_1eba_forloop__rindex0 = locksmith_1eba_forloop__size
+                      | minus: locksmith_1eba_forloop__index0
+                      | minus: 1
+                    -%}
+                  {%- else -%}
+                    {%- continue -%}
+                  {%- endif -%}
+                  {%- comment %}</locksmith:26d0>{%- endcomment %}
                   {% assign outer = locksmith_1eba_forloop__index0 %}
                   {% for flat in flats %}
                     {% assign inner = forloop.index0 %}
                     {% if outer == inner %}
                       <div class="sub-box">
-                        <img
-                          srcset="
-                            {%- if flat.width >= 550 -%}{{ flat | image_url: width: 550 }} 550w,{%- endif -%}
-                            {%- if flat.width >= 1100 -%}{{ flat | image_url: width: 1100 }} 1100w,{%- endif -%}
-                            {%- if flat.width >= 1445 -%}{{ flat | image_url: width: 1445 }} 1445w,{%- endif -%}
-                            {%- if flat.width >= 1680 -%}{{ flat | image_url: width: 1680 }} 1680w,{%- endif -%}
-                            {%- if flat.width >= 2048 -%}{{ flat | image_url: width: 2048 }} 2048w,{%- endif -%}
-                            {%- if flat.width >= 2200 -%}{{ flat | image_url: width: 2200 }} 2200w,{%- endif -%}
-                            {%- if flat.width >= 2890 -%}{{ flat | image_url: width: 2890 }} 2890w,{%- endif -%}
-                            {%- if flat.width >= 4096 -%}{{ flat | image_url: width: 4096 }} 4096w,{%- endif -%}
-                            {{ flat | image_url }} {{ flat.width }}w
-                          "
-                          sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
-                          src="{{ flat | image_url: width: 1445 }}"
-                          alt="{{ flat.alt | escape }}"
-                          loading="lazy"
-                          width="1100"
-                          height="{{ 1100 | divided_by: flat.aspect_ratio | ceil }}"
-                        >
+                        {% render 'card-product',
+                          card_product: product,
+                          media_aspect_ratio: 'adapt',
+                          image_shape: 'default',
+                          show_secondary_image: false,
+                          show_vendor: section.settings.show_vendor,
+                          show_rating: section.settings.show_rating,
+                          skip_styles: skip_card_product_styles,
+                          section_id: section.id,
+                          quick_add: 'standard',
+                          custom_media: flat
+                        %}
+                        {% assign skip_card_product_styles = true %}
                       </div>
                       {% break %}
                     {% endif %}
@@ -186,7 +234,7 @@
       </div>
     </div>
   </div>
-{% endif %}
+{% endunless %}
 
 {% schema %}
 {
@@ -197,6 +245,32 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "text",
+      "id": "title_text",
+      "label": "Title",
+      "default": "How to Wear"
+    },
+    {
+      "type": "range",
+      "id": "title_margin_bottom",
+      "min": 0,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "label": "Title Margin Bottom",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "min": 16,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "label": "Title Font Size",
+      "default": 24
+    },
     {
       "type": "header",
       "content": "Layout"
