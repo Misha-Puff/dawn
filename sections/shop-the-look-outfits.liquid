@@ -166,27 +166,6 @@
                     {% assign inner = forloop.index0 %}
                     {% if outer == inner %}
                       <div class="sub-box">
-                        {% comment %}
-                          <img
-                            srcset="
-                              {%- if flat.width >= 550 -%}{{ flat | image_url: width: 550 }} 550w,{%- endif -%}
-                              {%- if flat.width >= 1100 -%}{{ flat | image_url: width: 1100 }} 1100w,{%- endif -%}
-                              {%- if flat.width >= 1445 -%}{{ flat | image_url: width: 1445 }} 1445w,{%- endif -%}
-                              {%- if flat.width >= 1680 -%}{{ flat | image_url: width: 1680 }} 1680w,{%- endif -%}
-                              {%- if flat.width >= 2048 -%}{{ flat | image_url: width: 2048 }} 2048w,{%- endif -%}
-                              {%- if flat.width >= 2200 -%}{{ flat | image_url: width: 2200 }} 2200w,{%- endif -%}
-                              {%- if flat.width >= 2890 -%}{{ flat | image_url: width: 2890 }} 2890w,{%- endif -%}
-                              {%- if flat.width >= 4096 -%}{{ flat | image_url: width: 4096 }} 4096w,{%- endif -%}
-                              {{ flat | image_url }} {{ flat.width }}w
-                            "
-                            sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
-                            src="{{ flat | image_url: width: 1445 }}"
-                            alt="{{ flat.alt | escape }}"
-                            loading="lazy"
-                            width="1100"
-                            height="{{ 1100 | divided_by: flat.aspect_ratio | ceil }}"
-                          >
-                        {% endcomment %}
                         {% render 'card-product',
                           card_product: product,
                           media_aspect_ratio: 'adapt',
