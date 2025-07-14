@@ -3,7 +3,18 @@
   assign num_outfits = 0
 
   for outfit in outfits
-    assign num_outfits = num_outfits | plus: 1
+    if section.settings.enforce_product_minimum
+      assign num_products = 0
+      for product in outfit.products
+        assign num_products = num_products | plus: 1
+      endfor
+
+      if num_products >= 4
+        assign num_outfits = num_outfits | plus: 1
+      endif
+    else
+      assign num_outfits = num_outfits | plus: 1
+    endif
   endfor
 %}
 
@@ -134,6 +145,18 @@
             assign lead_image = outfit.lead_image.value
             assign products = outfit.products.value
             assign flats = outfit.flats.value
+
+            if section.settings.enforce_product_minimum
+              assign num_products = 0
+
+              for product in outfit.products
+                assign num_products = num_products | plus: 1
+              endfor
+
+              if num_products < 4
+                continue
+              endif
+            endif
           %}
           <div class="carousel-slide">
             <div class="slide-grid">
@@ -159,13 +182,49 @@
                 >
               </div>
               <div class="sub-grid">
-                {%- comment %}<locksmith:2f97>{% endcomment -%}
-                  {%- assign locksmith_1769_forloop__size = 0 %}{% for product in products limit: 4 %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_1769_forloop__size = locksmith_1769_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_1769_forloop__index = nil -%}
-                {%- comment %}</locksmith:2f97>{% endcomment -%}
+                {%- comment %}<locksmith:2f97>{%- endcomment %}
+                {%- assign locksmith_1769_forloop__size = 0 -%}
+                {%- for product in products limit: 4 %}
+                  {% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, variable: 'transparent' %}{% endcapture -%}
+                  {%- if var == 'true' -%}
+                    {%- assign locksmith_1769_forloop__size = locksmith_1769_forloop__size | plus: 1 -%}
+                  {%- endif -%}
+                {%- endfor -%}
+                {%- assign locksmith_1769_forloop__index = null -%}
+                {%- comment %}</locksmith:2f97>{%- endcomment %}
                 {% for product in products limit: 4 %}
-                  {%- comment %}<locksmith:1dca>{% endcomment -%}
-                    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_1769_forloop__index == nil %}{% assign locksmith_1769_forloop__index = 1 %}{% assign locksmith_1769_forloop__index0 = 0 %}{% else %}{% assign locksmith_1769_forloop__index = locksmith_1769_forloop__index | plus: 1 %}{% assign locksmith_1769_forloop__index0 = locksmith_1769_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_1769_forloop__index == 1 %}{% assign locksmith_1769_forloop__first = true %}{% else %}{% assign locksmith_1769_forloop__first = false %}{% endif %}{% if locksmith_1769_forloop__index == locksmith_1769_forloop__size %}{% assign locksmith_1769_forloop__last = true %}{% else %}{% assign locksmith_1769_forloop__last = false %}{% endif %}{% assign locksmith_1769_forloop__rindex = locksmith_1769_forloop__size | minus: locksmith_1769_forloop__index | minus: 1 %}{% assign locksmith_1769_forloop__rindex0 = locksmith_1769_forloop__size | minus: locksmith_1769_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
-                  {%- comment %}</locksmith:1dca>{% endcomment -%}
+                  {%- comment %}<locksmith:1dca>{%- endcomment %}
+                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, variable: 'transparent' %}{% endcapture -%}
+                  {%- if var == 'true' -%}
+                    {%- if locksmith_1769_forloop__index == null -%}
+                      {%- assign locksmith_1769_forloop__index = 1 -%}
+                      {%- assign locksmith_1769_forloop__index0 = 0 -%}
+                    {%- else -%}
+                      {%- assign locksmith_1769_forloop__index = locksmith_1769_forloop__index | plus: 1 -%}
+                      {%- assign locksmith_1769_forloop__index0 = locksmith_1769_forloop__index0 | plus: 1 -%}
+                    {%- endif -%}
+                    {%- if locksmith_1769_forloop__index == 1 -%}
+                      {%- assign locksmith_1769_forloop__first = true -%}
+                    {%- else -%}
+                      {%- assign locksmith_1769_forloop__first = false -%}
+                    {%- endif -%}
+                    {%- if locksmith_1769_forloop__index == locksmith_1769_forloop__size -%}
+                      {%- assign locksmith_1769_forloop__last = true -%}
+                    {%- else -%}
+                      {%- assign locksmith_1769_forloop__last = false -%}
+                    {%- endif -%}
+                    {%- assign locksmith_1769_forloop__rindex = locksmith_1769_forloop__size
+                      | minus: locksmith_1769_forloop__index
+                      | minus: 1
+                    -%}
+                    {%- assign locksmith_1769_forloop__rindex0 = locksmith_1769_forloop__size
+                      | minus: locksmith_1769_forloop__index0
+                      | minus: 1
+                    -%}
+                  {%- else -%}
+                    {%- continue -%}
+                  {%- endif -%}
+                  {%- comment %}</locksmith:1dca>{%- endcomment %}
                   {% assign skip_card_product_styles = false %}
                   {% assign outer = locksmith_1769_forloop__index0 %}
                   {% assign outer = locksmith_1769_forloop__index0 %}
@@ -234,6 +293,13 @@
       "unit": "px",
       "label": "Title Font Size",
       "default": 24
+    },
+    {
+      "type": "checkbox",
+      "id": "enforce_product_minimum",
+      "label": "Enforce product minimum",
+      "info": "If enabled, this will only display outfits with atleast 4 products",
+      "default": false
     },
     {
       "type": "header",
