@@ -160,7 +160,7 @@
           "settings": {
             "label": "NEW ARRIVALS",
             "open_new_tab": false,
-            "link": "shopify://collections/adult-new",
+            "link": "shopify://collections/adult-new-legacy",
             "type": "secondary",
             "on_click": ""
           }
