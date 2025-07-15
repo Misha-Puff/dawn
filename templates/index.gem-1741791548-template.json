@@ -406,7 +406,7 @@
           "settings": {
             "label": "ADULT BEST SELLERS",
             "open_new_tab": false,
-            "link": "shopify://collections/adult-best-sellers",
+            "link": "shopify://collections/adult-best-sellers-legacy",
             "type": "secondary",
             "on_click": ""
           }
