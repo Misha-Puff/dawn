@@ -212,6 +212,8 @@
     "featured_collection_UCmpWg": {
       "type": "featured-collection",
       "settings": {
+        "collection": "child-mama-owl",
+        "products_to_show": 50,
         "title": "",
         "heading_alignment": "left",
         "heading_size": "h2",
@@ -219,10 +221,9 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "child-mama-owl",
         "hide_sold_out": false,
-        "products_to_show": 50,
         "columns_desktop": 3,
+        "enable_desktop_slider": false,
         "full_width": true,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 18,
@@ -231,7 +232,6 @@
         "vertical_spacing_mobile": 0,
         "show_view_all": false,
         "view_all_style": "solid",
-        "enable_desktop_slider": false,
         "color_scheme": "",
         "image_ratio": "adapt",
         "image_shape": "default",
@@ -305,6 +305,8 @@
     "featured_collection_xQ84JX": {
       "type": "featured-collection",
       "settings": {
+        "collection": "baby-mama-owl",
+        "products_to_show": 50,
         "title": "",
         "heading_alignment": "left",
         "heading_size": "h1",
@@ -312,10 +314,9 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "baby-mama-owl",
         "hide_sold_out": false,
-        "products_to_show": 50,
         "columns_desktop": 3,
+        "enable_desktop_slider": false,
         "full_width": true,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 18,
@@ -324,7 +325,6 @@
         "vertical_spacing_mobile": 0,
         "show_view_all": true,
         "view_all_style": "solid",
-        "enable_desktop_slider": false,
         "color_scheme": "",
         "image_ratio": "adapt",
         "image_shape": "default",
@@ -398,6 +398,8 @@
     "featured_collection_GGmw48": {
       "type": "featured-collection",
       "settings": {
+        "collection": "adult-mama-owl",
+        "products_to_show": 50,
         "title": "",
         "heading_alignment": "left",
         "heading_size": "h1",
@@ -405,10 +407,9 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "adult-mama-owl",
         "hide_sold_out": false,
-        "products_to_show": 50,
         "columns_desktop": 3,
+        "enable_desktop_slider": false,
         "full_width": true,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 18,
@@ -417,7 +418,6 @@
         "vertical_spacing_mobile": 0,
         "show_view_all": false,
         "view_all_style": "solid",
-        "enable_desktop_slider": false,
         "color_scheme": "",
         "image_ratio": "adapt",
         "image_shape": "default",
@@ -488,6 +488,7 @@
       "settings": {
         "products_per_page": 48,
         "columns_desktop": 3,
+        "columns_mobile": "2",
         "color_scheme": "",
         "image_ratio": "adapt",
         "image_shape": "default",
@@ -500,7 +501,6 @@
         "enable_filtering": true,
         "filter_type": "drawer",
         "enable_sorting": true,
-        "columns_mobile": "2",
         "padding_top": 0,
         "padding_bottom": 36
       }
@@ -521,7 +521,7 @@
           "settings": {
             "label": "CHILD NEW",
             "open_new_tab": true,
-            "link": "shopify://collections/child-new",
+            "link": "shopify://collections/child-new-legacy-v2",
             "type": "secondary",
             "on_click": ""
           }
