@@ -189,7 +189,7 @@
           "type": "button",
           "settings": {
             "label": "CHILD SALE",
-            "link": "shopify://collections/child-sale",
+            "link": "shopify://collections/child-sale-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -288,7 +288,7 @@
             "title": "",
             "text": "",
             "link_label": "Sale / Further Markdowns up to 40% off —",
-            "link": "shopify://collections/child-sale"
+            "link": "shopify://collections/child-sale-legacy"
           }
         },
         "column_mcCDRB": {
