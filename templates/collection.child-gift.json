@@ -393,7 +393,7 @@
           "settings": {
             "label": "NEW ARRIVALS",
             "open_new_tab": false,
-            "link": "shopify://collections/child-new",
+            "link": "shopify://collections/child-new-legacy-v2",
             "type": "secondary",
             "on_click": ""
           }
