@@ -393,7 +393,7 @@
           "settings": {
             "label": "CHILD DRESSES",
             "open_new_tab": false,
-            "link": "shopify://collections/child-dresses",
+            "link": "shopify://collections/child-dresses-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -821,7 +821,7 @@
             "title": "",
             "text": "",
             "link_label": "DRESSES",
-            "link": "shopify://collections/child-dresses",
+            "link": "shopify://collections/child-dresses-legacy",
             "new_tab": false,
             "link_margin": 15,
             "enable_overlay": false,
