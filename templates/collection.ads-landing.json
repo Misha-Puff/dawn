@@ -212,7 +212,7 @@
             "title": "",
             "text": "",
             "link_label": "TOPS",
-            "link": "shopify://collections/child-tops",
+            "link": "shopify://collections/child-tops-legacy",
             "new_tab": false,
             "enable_overlay": true,
             "content_position": "middle-center",
