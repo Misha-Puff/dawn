@@ -116,7 +116,7 @@
             "link_color": "#ffffff",
             "link_size": 13,
             "button_label_1": "SHOP SPRING",
-            "button_link_1": "shopify://collections/adult-spring-summer",
+            "button_link_1": "shopify://collections/adult-spring-summer-legacy",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -132,7 +132,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/MP_SP25_Leader_Adult_3.12.25_bc7a4f8b-ace0-4836-a25b-56b0f6aa8f44.jpg",
-        "banner_link": "shopify://collections/adult-spring-summer",
+        "banner_link": "shopify://collections/adult-spring-summer-legacy",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
         "image_behavior": "none",

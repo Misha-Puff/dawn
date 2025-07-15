@@ -187,7 +187,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/MP_SP25_Leader_3.7.25_Adult_2_ea6b1730-e3b5-4a25-8986-ce74ad3e7040.jpg",
-        "banner_link": "shopify://collections/adult-spring-summer",
+        "banner_link": "shopify://collections/adult-spring-summer-legacy",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "image_behavior": "none",
