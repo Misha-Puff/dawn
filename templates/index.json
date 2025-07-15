@@ -367,7 +367,7 @@
           "type": "button",
           "settings": {
             "label": "CHILD SALE",
-            "link": "shopify://collections/child-sale",
+            "link": "shopify://collections/child-sale-legacy",
             "type": "secondary",
             "on_click": ""
           }
