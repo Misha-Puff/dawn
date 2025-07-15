@@ -11,13 +11,11 @@
   "sections": {
     "shogun-helper": {
       "type": "shogun-helper",
-      "settings": {
-      }
+      "settings": {}
     },
     "shogun-above": {
       "type": "shogun-above",
-      "settings": {
-      }
+      "settings": {}
     },
     "banner": {
       "type": "main-collection-banner",
@@ -189,7 +187,7 @@
         "description": "<p>BEST SELLERS</p>",
         "show_description": false,
         "description_style": "body",
-        "collection": "child-best-sellers",
+        "collection": "child-best-sellers-legacy",
         "products_to_show": 4,
         "columns_desktop": 4,
         "full_width": true,
@@ -358,7 +356,7 @@
             "title": "",
             "text": "",
             "link_label": "Best Sellers —",
-            "link": "shopify://collections/child-best-sellers"
+            "link": "shopify://collections/child-best-sellers-legacy"
           }
         },
         "column_RkFMtr": {
@@ -486,13 +484,11 @@
     },
     "shogun-below": {
       "type": "shogun-below",
-      "settings": {
-      }
+      "settings": {}
     },
     "shogun-optimizer": {
       "type": "shogun-optimizer",
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [
