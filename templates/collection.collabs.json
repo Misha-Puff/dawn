@@ -521,7 +521,7 @@
           "settings": {
             "label": "CHILD NEW",
             "open_new_tab": true,
-            "link": "shopify://collections/child-new",
+            "link": "shopify://collections/child-new-legacy-v2",
             "type": "secondary",
             "on_click": ""
           }
