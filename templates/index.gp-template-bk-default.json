@@ -310,7 +310,7 @@
             "title": "",
             "text": "",
             "link_label": "BEST SELLERS",
-            "link": "shopify://collections/child-best-sellers",
+            "link": "shopify://collections/child-best-sellers-legacy",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
