@@ -82,7 +82,7 @@
           "settings": {
             "label": "BACK TO ALL SALE",
             "open_new_tab": false,
-            "link": "shopify://collections/child-sale",
+            "link": "shopify://collections/child-sale-legacy",
             "type": "secondary",
             "on_click": ""
           }

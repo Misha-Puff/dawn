@@ -225,7 +225,7 @@
           "type": "button",
           "settings": {
             "button_label": "CHILD SALE",
-            "button_link": "shopify://collections/child-sale",
+            "button_link": "shopify://collections/child-sale-legacy",
             "button_style_secondary": true,
             "button_label_2": "BABY SALE",
             "button_link_2": "shopify://collections/baby-sale",
@@ -329,7 +329,7 @@
           "settings": {
             "label": "CHILD SALE",
             "open_new_tab": false,
-            "link": "shopify://collections/child-sale",
+            "link": "shopify://collections/child-sale-legacy",
             "type": "secondary",
             "on_click": ""
           }
