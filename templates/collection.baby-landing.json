@@ -175,7 +175,7 @@
         "description": "<p>NEW ARRIVALS</p>",
         "show_description": false,
         "description_style": "body",
-        "collection": "baby-new",
+        "collection": "baby-new-legacy",
         "products_to_show": 20,
         "columns_desktop": 4,
         "full_width": true,
