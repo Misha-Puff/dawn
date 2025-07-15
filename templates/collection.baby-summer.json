@@ -93,7 +93,7 @@
           "settings": {
             "label": "ONESIES",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-one-piece",
+            "link": "shopify://collections/baby-one-piece-legacy",
             "type": "secondary",
             "on_click": ""
           }
