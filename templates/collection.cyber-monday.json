@@ -339,7 +339,7 @@
           "settings": {
             "label": "CHILD SALE",
             "open_new_tab": true,
-            "link": "shopify://collections/child-sale",
+            "link": "shopify://collections/child-sale-legacy",
             "type": "secondary",
             "on_click": ""
           }
