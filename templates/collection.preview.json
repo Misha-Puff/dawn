@@ -396,7 +396,7 @@
           "settings": {
             "label": "SWEATERS",
             "open_new_tab": true,
-            "link": "shopify://collections/child-sweaters-cardigans",
+            "link": "shopify://collections/child-sweaters-cardigans-legacy",
             "type": "secondary",
             "on_click": ""
           }
