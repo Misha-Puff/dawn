@@ -247,7 +247,7 @@
             "title": "",
             "text": "",
             "link_label": "ONESIES",
-            "link": "shopify://collections/baby-one-piece"
+            "link": "shopify://collections/baby-one-piece-legacy"
           }
         },
         "column_PjhVYH": {
@@ -362,7 +362,7 @@
           "type": "button",
           "settings": {
             "label": "BABY ONESIES",
-            "link": "shopify://collections/baby-one-piece",
+            "link": "shopify://collections/baby-one-piece-legacy",
             "type": "secondary",
             "on_click": ""
           }
