@@ -247,7 +247,7 @@
           "type": "button",
           "settings": {
             "label": "NEW ARRIVALS",
-            "link": "shopify://collections/child-new",
+            "link": "shopify://collections/child-new-legacy-v2",
             "type": "secondary",
             "on_click": ""
           }
