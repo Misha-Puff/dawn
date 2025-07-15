@@ -199,7 +199,7 @@
             "title": "",
             "text": "",
             "link_label": "CHILD NEW ARRIVALS",
-            "link": "shopify://collections/child-new",
+            "link": "shopify://collections/child-new-legacy-v2",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
