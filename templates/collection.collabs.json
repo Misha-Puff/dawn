@@ -531,7 +531,7 @@
           "settings": {
             "label": "BABY NEW",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-new",
+            "link": "shopify://collections/baby-new-legacy",
             "type": "secondary",
             "on_click": ""
           }

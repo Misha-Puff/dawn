@@ -209,7 +209,7 @@
     "featured_collection_8G4PAp": {
       "type": "featured-collection",
       "settings": {
-        "collection": "baby-new",
+        "collection": "baby-new-legacy",
         "products_to_show": 20,
         "title": "",
         "heading_alignment": "left",
