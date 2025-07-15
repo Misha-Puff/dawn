@@ -95,7 +95,7 @@
             "title": "",
             "text": "",
             "link_label": "SWEATERS + CARDIS",
-            "link": "shopify://collections/child-sweaters-cardigans",
+            "link": "shopify://collections/child-sweaters-cardigans-legacy",
             "new_tab": true
           }
         },
@@ -374,7 +374,7 @@
           "settings": {
             "label": "SWEATERS",
             "open_new_tab": false,
-            "link": "shopify://collections/child-sweaters-cardigans",
+            "link": "shopify://collections/child-sweaters-cardigans-legacy",
             "type": "secondary",
             "on_click": ""
           }
