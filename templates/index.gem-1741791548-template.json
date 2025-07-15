@@ -88,7 +88,7 @@
             "title": "",
             "text": "<p>CHILD SPRING</p>",
             "link_label": "",
-            "link": "shopify://collections/child-spring-collection",
+            "link": "shopify://collections/child-spring-collection-legacy",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -207,7 +207,7 @@
       "type": "featured-collection",
       "disabled": true,
       "settings": {
-        "collection": "child-spring-collection",
+        "collection": "child-spring-collection-legacy",
         "products_to_show": 20,
         "title": "",
         "heading_alignment": "left",

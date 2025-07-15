@@ -78,7 +78,7 @@
             "link_color": "#ffffff",
             "link_size": 13,
             "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/child-spring-collection",
+            "button_link_1": "shopify://collections/child-spring-collection-legacy",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -94,7 +94,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/MP_SP25_Leader_4.25.25_Child_LP.jpg",
-        "banner_link": "shopify://collections/child-spring-collection",
+        "banner_link": "shopify://collections/child-spring-collection-legacy",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
         "image_behavior": "none",
