@@ -387,7 +387,7 @@
             "title": "",
             "text": "",
             "link_label": "best sellers",
-            "link": "shopify://collections/child-best-sellers"
+            "link": "shopify://collections/child-best-sellers-legacy"
           }
         }
       },
