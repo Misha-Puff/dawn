@@ -209,7 +209,7 @@
             "title": "",
             "text": "",
             "link_label": "SWEATERS",
-            "link": "shopify://collections/baby-sweaters-cardigans"
+            "link": "shopify://collections/baby-sweaters-cardigans-legacy"
           }
         },
         "column_WjaK8r": {
@@ -337,7 +337,7 @@
           "type": "button",
           "settings": {
             "label": "BABY SWEATERS",
-            "link": "shopify://collections/baby-sweaters-cardigans",
+            "link": "shopify://collections/baby-sweaters-cardigans-legacy",
             "type": "secondary",
             "on_click": ""
           }
