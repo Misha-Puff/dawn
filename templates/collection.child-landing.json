@@ -148,7 +148,7 @@
             "title": "",
             "text": "<p>EXTRA 20% OFF SELECT SALE — ENDS MONDAY</p>",
             "link_label": "",
-            "link": "shopify://collections/child-sale",
+            "link": "shopify://collections/child-sale-legacy",
             "new_tab": true,
             "link_margin": 8,
             "enable_overlay": false,
