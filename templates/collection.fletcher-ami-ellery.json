@@ -113,7 +113,7 @@
           "settings": {
             "label": "DENIM",
             "open_new_tab": false,
-            "link": "shopify://collections/child-denim",
+            "link": "shopify://collections/child-denim-legacy",
             "type": "secondary",
             "on_click": ""
           }
