@@ -234,7 +234,7 @@
         "description": "<p>JUST IN</p>",
         "show_description": false,
         "description_style": "body",
-        "collection": "adult-new",
+        "collection": "adult-new-legacy",
         "hide_sold_out": true,
         "hide_content": false,
         "products_to_show": 20,
