@@ -356,7 +356,7 @@
           "settings": {
             "label": "SHOP SPRING",
             "open_new_tab": true,
-            "link": "shopify://collections/child-spring-collection",
+            "link": "shopify://collections/child-spring-collection-legacy",
             "type": "secondary",
             "on_click": ""
           }
