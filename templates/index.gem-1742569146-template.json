@@ -37,7 +37,7 @@
             "link_color": "#ffffff",
             "link_size": 13,
             "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/adult-spring-summer",
+            "button_link_1": "shopify://collections/adult-spring-summer-legacy",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -53,7 +53,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/MP_SP25_Leader_3.21.25_Adult_1.jpg",
-        "banner_link": "shopify://collections/adult-spring-summer",
+        "banner_link": "shopify://collections/adult-spring-summer-legacy",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
         "image_behavior": "none",
@@ -80,7 +80,7 @@
     "featured_collection_YrgjwD": {
       "type": "featured-collection",
       "settings": {
-        "collection": "adult-spring-summer",
+        "collection": "adult-spring-summer-legacy",
         "products_to_show": 20,
         "title": "",
         "heading_alignment": "left",
