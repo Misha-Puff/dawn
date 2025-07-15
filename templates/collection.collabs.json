@@ -541,7 +541,7 @@
           "settings": {
             "label": "ADULT NEW",
             "open_new_tab": true,
-            "link": "shopify://collections/adult-new",
+            "link": "shopify://collections/adult-new-legacy",
             "type": "secondary",
             "on_click": ""
           }
