@@ -113,7 +113,7 @@
           "settings": {
             "label": "BOTTOMS",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-bottoms",
+            "link": "shopify://collections/baby-bottoms-legacy",
             "type": "secondary",
             "on_click": ""
           }
