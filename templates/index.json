@@ -354,7 +354,7 @@
             "title": "",
             "text": "",
             "link_label": "BEST SELLERS",
-            "link": "shopify://collections/child-best-sellers",
+            "link": "shopify://collections/child-best-sellers-legacy",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -426,7 +426,7 @@
           "settings": {
             "label": "CHILD BEST SELLERS",
             "open_new_tab": false,
-            "link": "shopify://collections/child-best-sellers",
+            "link": "shopify://collections/child-best-sellers-legacy",
             "type": "secondary",
             "on_click": ""
           }
