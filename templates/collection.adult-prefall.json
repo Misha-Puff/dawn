@@ -94,7 +94,7 @@
           "settings": {
             "label": "SWEATERS",
             "open_new_tab": true,
-            "link": "shopify://collections/adult-sweaters-cardigans",
+            "link": "shopify://collections/adult-sweaters-cardigans-legacy",
             "type": "secondary",
             "on_click": ""
           }
