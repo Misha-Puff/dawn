@@ -387,7 +387,7 @@
             "title": "",
             "text": "",
             "link_label": "DRESSES",
-            "link": "shopify://collections/child-dresses",
+            "link": "shopify://collections/child-dresses-legacy",
             "new_tab": false,
             "link_margin": 15,
             "enable_overlay": false,
