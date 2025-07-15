@@ -276,7 +276,7 @@
     "featured_collection_UUyGYb": {
       "type": "featured-collection",
       "settings": {
-        "collection": "child-new",
+        "collection": "child-new-legacy-v2",
         "products_to_show": 20,
         "title": "",
         "heading_alignment": "left",
