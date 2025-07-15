@@ -193,7 +193,7 @@
             "title": "",
             "text": "",
             "link_label": "Best Sellers —",
-            "link": "shopify://collections/child-best-sellers",
+            "link": "shopify://collections/child-best-sellers-legacy",
             "new_tab": false,
             "enable_overlay": false,
             "content_position": "middle-center",

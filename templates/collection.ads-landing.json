@@ -151,7 +151,7 @@
         "description": "<p>Fall's Best Sellers</p>",
         "show_description": false,
         "description_style": "uppercase",
-        "collection": "child-best-sellers",
+        "collection": "child-best-sellers-legacy",
         "hide_sold_out": false,
         "products_to_show": 5,
         "columns_desktop": 5,
