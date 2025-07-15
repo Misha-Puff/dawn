@@ -364,7 +364,7 @@
           "settings": {
             "label": "BABY SPRING PART 1",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-spring-collection",
+            "link": "shopify://collections/baby-spring-collection-legacy",
             "type": "secondary",
             "on_click": ""
           }
