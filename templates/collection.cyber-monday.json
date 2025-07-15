@@ -349,7 +349,7 @@
           "settings": {
             "label": "BABY SALE",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-sale",
+            "link": "shopify://collections/baby-sale-legacy",
             "type": "secondary",
             "on_click": ""
           }
