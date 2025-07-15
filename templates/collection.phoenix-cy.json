@@ -93,7 +93,7 @@
           "settings": {
             "label": "SHOP BABY SPRING",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-spring-collection",
+            "link": "shopify://collections/baby-spring-collection-legacy",
             "type": "secondary",
             "on_click": ""
           }
