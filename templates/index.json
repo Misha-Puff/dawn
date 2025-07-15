@@ -218,7 +218,7 @@
           "type": "button",
           "settings": {
             "label": "CHILD BEST SELLERS",
-            "link": "shopify://collections/child-best-sellers",
+            "link": "shopify://collections/child-best-sellers-legacy",
             "type": "secondary",
             "on_click": ""
           }
