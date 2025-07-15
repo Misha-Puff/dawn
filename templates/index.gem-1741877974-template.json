@@ -414,7 +414,7 @@
           "settings": {
             "label": "BABY ONESIES",
             "open_new_tab": false,
-            "link": "shopify://collections/baby-one-piece",
+            "link": "shopify://collections/baby-one-piece-legacy",
             "type": "secondary",
             "on_click": ""
           }
