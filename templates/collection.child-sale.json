@@ -86,7 +86,7 @@
           "settings": {
             "label": "BOTTOMS",
             "open_new_tab": true,
-            "link": "shopify://collections/child-bottoms",
+            "link": "shopify://collections/child-bottoms-legacy",
             "type": "secondary",
             "on_click": ""
           }
