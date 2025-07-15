@@ -239,7 +239,7 @@
             "title": "",
             "text": "",
             "link_label": "TOPS",
-            "link": "shopify://collections/child-tops"
+            "link": "shopify://collections/child-tops-legacy"
           }
         },
         "column_fqtCKn": {
@@ -508,7 +508,7 @@
           "type": "button",
           "settings": {
             "label": "CHILD TOPS",
-            "link": "shopify://collections/child-tops",
+            "link": "shopify://collections/child-tops-legacy",
             "type": "secondary",
             "on_click": ""
           }
