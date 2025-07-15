@@ -95,7 +95,7 @@
           "settings": {
             "label": "SHOP ALL SUMMER",
             "open_new_tab": true,
-            "link": "shopify://collections/child-summer-collection",
+            "link": "shopify://collections/child-summer-collection-legacy-v2",
             "type": "secondary",
             "on_click": ""
           }
