@@ -233,7 +233,7 @@
     "featured_collection_JqiqGp": {
       "type": "featured-collection",
       "settings": {
-        "collection": "adult-new",
+        "collection": "adult-new-legacy",
         "products_to_show": 20,
         "title": "",
         "heading_alignment": "left",
