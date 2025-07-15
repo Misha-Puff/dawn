@@ -140,7 +140,7 @@
             "title": "",
             "text": "<p>NEW ARRIVALS</p>",
             "link_label": "",
-            "link": "shopify://collections/baby-new",
+            "link": "shopify://collections/baby-new-legacy",
             "new_tab": true,
             "link_margin": 8,
             "enable_overlay": false,
