@@ -120,7 +120,7 @@
             "title": "",
             "text": "<p>SPRING ONE-PIECES</p>",
             "link_label": "",
-            "link": "shopify://collections/baby-one-piece",
+            "link": "shopify://collections/baby-one-piece-legacy",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -320,7 +320,7 @@
             "title": "",
             "text": "",
             "link_label": "ONESIES",
-            "link": "shopify://collections/baby-one-piece",
+            "link": "shopify://collections/baby-one-piece-legacy",
             "new_tab": false,
             "link_margin": 15,
             "enable_overlay": false,
@@ -455,7 +455,7 @@
           "settings": {
             "label": "BABY ONESIES",
             "open_new_tab": false,
-            "link": "shopify://collections/baby-one-piece",
+            "link": "shopify://collections/baby-one-piece-legacy",
             "type": "secondary",
             "on_click": ""
           }
