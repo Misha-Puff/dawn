@@ -354,7 +354,7 @@
             "title": "",
             "text": "",
             "link_label": "JACKETS",
-            "link": "shopify://collections/child-jackets",
+            "link": "shopify://collections/child-jackets-legacy",
             "new_tab": false,
             "link_margin": 15,
             "enable_overlay": false,
