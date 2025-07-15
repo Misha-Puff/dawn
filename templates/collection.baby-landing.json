@@ -139,7 +139,7 @@
             "title": "",
             "text": "<p>ALL SALE — UP TO 70% OFF</p>",
             "link_label": "",
-            "link": "shopify://collections/baby-sale",
+            "link": "shopify://collections/baby-sale-legacy",
             "new_tab": true,
             "link_margin": 8,
             "enable_overlay": false,
