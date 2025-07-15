@@ -165,7 +165,7 @@
           "type": "button",
           "settings": {
             "label": "BEST SELLERS",
-            "link": "shopify://collections/baby-best-sellers",
+            "link": "shopify://collections/baby-best-sellers-legeacy",
             "type": "secondary",
             "on_click": ""
           }
