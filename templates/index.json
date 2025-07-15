@@ -338,7 +338,7 @@
           "settings": {
             "label": "CHILD SWEATERS",
             "open_new_tab": false,
-            "link": "shopify://collections/child-sweaters-cardigans",
+            "link": "shopify://collections/child-sweaters-cardigans-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -800,7 +800,7 @@
             "title": "",
             "text": "",
             "link_label": "SWEATERS",
-            "link": "shopify://collections/child-sweaters-cardigans",
+            "link": "shopify://collections/child-sweaters-cardigans-legacy",
             "new_tab": false,
             "link_margin": 15,
             "enable_overlay": false,
