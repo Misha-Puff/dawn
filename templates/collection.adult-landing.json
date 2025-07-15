@@ -300,7 +300,7 @@
           "settings": {
             "label": "COZY PANTS",
             "open_new_tab": false,
-            "link": "shopify://collections/adult-bottoms",
+            "link": "shopify://collections/adult-bottoms-legacy",
             "type": "secondary",
             "on_click": ""
           }
