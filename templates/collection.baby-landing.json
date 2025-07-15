@@ -245,7 +245,7 @@
             "title": "",
             "text": "",
             "link_label": "TOPS",
-            "link": "shopify://collections/baby-tops",
+            "link": "shopify://collections/baby-tops-legacy",
             "new_tab": false
           }
         },
@@ -397,7 +397,7 @@
           "settings": {
             "label": "BABY TOPS",
             "open_new_tab": false,
-            "link": "shopify://collections/baby-tops",
+            "link": "shopify://collections/baby-tops-legacy",
             "type": "secondary",
             "on_click": ""
           }
