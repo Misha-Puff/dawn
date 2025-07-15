@@ -131,13 +131,6 @@
       "settings": {
         "title": "",
         "heading_size": "h2",
-        "enable_overlay": false,
-        "content_position": "middle-center",
-        "overlay_padding": 14,
-        "link_type": "link",
-        "link_color": "#000000",
-        "link_style": "underline",
-        "button_type": "primary",
         "enable_desktop_full_width": false,
         "enable_mobile_full_width": false,
         "enable_custom_spacing": true,
@@ -206,7 +199,6 @@
         "banner_link": "",
         "image_overlay_opacity": 0,
         "image_height": "small",
-        "desktop_content_position": "middle-center",
         "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "",
@@ -401,7 +393,7 @@
           "settings": {
             "label": "NEW ARRIVALS",
             "open_new_tab": false,
-            "link": "shopify://collections/child-new",
+            "link": "shopify://collections/child-new-legacy-v2",
             "type": "secondary",
             "on_click": ""
           }
