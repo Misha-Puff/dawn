@@ -138,7 +138,7 @@
             "title": "",
             "text": "",
             "link_label": "SALE — NOW UP TO 70% OFF",
-            "link": "shopify://collections/baby-sale",
+            "link": "shopify://collections/baby-sale-legacy",
             "new_tab": true,
             "link_margin": 8,
             "enable_overlay": false,
