@@ -224,7 +224,7 @@
         "description": "<p>NEW ARRIVALS</p>",
         "show_description": false,
         "description_style": "body",
-        "collection": "child-new",
+        "collection": "child-new-legacy-v2",
         "hide_sold_out": true,
         "hide_content": false,
         "products_to_show": 20,
