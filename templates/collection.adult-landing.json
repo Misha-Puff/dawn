@@ -184,7 +184,7 @@
             "title": "",
             "text": "<p>NEW ARRIVALS</p>",
             "link_label": "",
-            "link": "shopify://collections/adult-new",
+            "link": "shopify://collections/adult-new-legacy",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -231,7 +231,7 @@
     "featured_collection_JqiqGp": {
       "type": "featured-collection",
       "settings": {
-        "collection": "adult-new",
+        "collection": "adult-new-legacy",
         "products_to_show": 20,
         "title": "",
         "heading_alignment": "left",
