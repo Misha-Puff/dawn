@@ -245,7 +245,7 @@
           "settings": {
             "label": "BEST SELLERS",
             "open_new_tab": false,
-            "link": "shopify://collections/baby-best-sellers",
+            "link": "shopify://collections/baby-best-sellers-legeacy",
             "type": "secondary",
             "on_click": ""
           }
