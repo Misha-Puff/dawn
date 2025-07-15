@@ -764,7 +764,7 @@
             "title": "",
             "text": "",
             "link_label": "BOTTOMS",
-            "link": "shopify://collections/child-bottoms",
+            "link": "shopify://collections/child-bottoms-legacy",
             "new_tab": false,
             "link_margin": 15,
             "enable_overlay": false,
