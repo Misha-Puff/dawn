@@ -276,7 +276,7 @@
             "title": "",
             "text": "",
             "link_label": "dresses",
-            "link": "shopify://collections/child-dresses",
+            "link": "shopify://collections/child-dresses-legacy",
             "new_tab": false,
             "enable_overlay": true,
             "content_position": "middle-center",
