@@ -115,7 +115,7 @@
             "title": "",
             "text": "",
             "link_label": "SWEATERS + CARDIGANS",
-            "link": "shopify://collections/baby-sweaters-cardigans",
+            "link": "shopify://collections/baby-sweaters-cardigans-legacy",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -251,7 +251,7 @@
             "title": "",
             "text": "",
             "link_label": "SWEATERS",
-            "link": "shopify://collections/baby-sweaters-cardigans",
+            "link": "shopify://collections/baby-sweaters-cardigans-legacy",
             "new_tab": false,
             "link_margin": 15,
             "enable_overlay": false,
@@ -427,7 +427,7 @@
           "settings": {
             "label": "BABY SWEATERS",
             "open_new_tab": false,
-            "link": "shopify://collections/baby-sweaters-cardigans",
+            "link": "shopify://collections/baby-sweaters-cardigans-legacy",
             "type": "secondary",
             "on_click": ""
           }
