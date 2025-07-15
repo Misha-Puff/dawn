@@ -192,7 +192,7 @@
           "type": "button",
           "settings": {
             "label": "NEW ARRIVALS",
-            "link": "shopify://collections/baby-new",
+            "link": "shopify://collections/baby-new-legacy",
             "type": "secondary",
             "on_click": ""
           }
