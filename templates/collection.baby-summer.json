@@ -103,7 +103,7 @@
           "settings": {
             "label": "TOPS",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-tops",
+            "link": "shopify://collections/baby-tops-legacy",
             "type": "secondary",
             "on_click": ""
           }
