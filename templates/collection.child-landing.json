@@ -303,7 +303,7 @@
             "title": "",
             "text": "",
             "link_label": "BOTTOMS",
-            "link": "shopify://collections/child-bottoms",
+            "link": "shopify://collections/child-bottoms-legacy",
             "new_tab": false,
             "link_margin": 15,
             "enable_overlay": false,
@@ -658,7 +658,7 @@
           "settings": {
             "label": "CHILD BOTTOMS",
             "open_new_tab": false,
-            "link": "shopify://collections/child-bottoms",
+            "link": "shopify://collections/child-bottoms-legacy",
             "type": "secondary",
             "on_click": ""
           }
