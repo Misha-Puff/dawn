@@ -214,7 +214,7 @@
         "description": "<p>BEST SELLERS</p>",
         "show_description": false,
         "description_style": "body",
-        "collection": "baby-best-sellers",
+        "collection": "baby-best-sellers-legeacy",
         "hide_sold_out": true,
         "hide_content": false,
         "products_to_show": 20,
