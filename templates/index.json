@@ -276,7 +276,7 @@
             "title": "",
             "text": "",
             "link_label": "SWEATERS",
-            "link": "shopify://collections/child-sweaters-cardigans"
+            "link": "shopify://collections/child-sweaters-cardigans-legacy"
           }
         },
         "column_prW6et": {
@@ -477,7 +477,7 @@
           "type": "button",
           "settings": {
             "label": "CHILD SWEATERS",
-            "link": "shopify://collections/child-sweaters-cardigans",
+            "link": "shopify://collections/child-sweaters-cardigans-legacy",
             "type": "secondary",
             "on_click": ""
           }
