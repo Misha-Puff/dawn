@@ -313,7 +313,7 @@
             "title": "",
             "text": "",
             "link_label": "SALE",
-            "link": "shopify://collections/child-sale",
+            "link": "shopify://collections/child-sale-legacy",
             "new_tab": false,
             "enable_overlay": true,
             "content_position": "middle-center",
