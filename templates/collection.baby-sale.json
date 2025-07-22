@@ -122,7 +122,7 @@
           "settings": {
             "label": "ACCESSORIES",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-accessories",
+            "link": "shopify://collections/baby-accessories-legacy",
             "type": "secondary",
             "on_click": ""
           }
