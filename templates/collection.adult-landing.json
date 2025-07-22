@@ -276,7 +276,7 @@
           "settings": {
             "label": "winter ACCESSORIES",
             "open_new_tab": false,
-            "link": "shopify://collections/adult-accessories",
+            "link": "shopify://collections/adult-accessories-legacy",
             "type": "secondary",
             "on_click": ""
           }
