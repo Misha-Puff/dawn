@@ -12,5 +12,17 @@
   "context": {
     "market": "swap-jp-market"
   },
-  "sections": {}
+  "sections": {
+    "main": {
+      "settings": {},
+      "blocks": {
+        "custom_liquid_7DkrmT": {
+          "disabled": false,
+          "settings": {
+            "custom_liquid": "{% unless localization.country.iso_code == 'US' %}\n\nDuty and Tax Inclusive<br />\nTaxes Included. <p />\n  \n\n{% endunless %}"
+          }
+        }
+      }
+    }
+  }
 }
