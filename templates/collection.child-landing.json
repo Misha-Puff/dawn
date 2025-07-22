@@ -148,7 +148,7 @@
             "title": "",
             "text": "<p>NEW — ACCESSORIES</p>",
             "link_label": "",
-            "link": "shopify://collections/child-accessories",
+            "link": "shopify://collections/child-accessories-legacy",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -348,7 +348,7 @@
             "title": "",
             "text": "",
             "link_label": "ACCESSORIES",
-            "link": "shopify://collections/child-accessories",
+            "link": "shopify://collections/child-accessories-legacy",
             "new_tab": false,
             "link_margin": 15,
             "enable_overlay": false,
@@ -677,7 +677,7 @@
           "settings": {
             "label": "WINTER ACCESSORIES",
             "open_new_tab": false,
-            "link": "shopify://collections/child-accessories",
+            "link": "shopify://collections/child-accessories-legacy",
             "type": "secondary",
             "on_click": ""
           }
