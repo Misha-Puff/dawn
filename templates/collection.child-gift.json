@@ -384,7 +384,7 @@
           "settings": {
             "label": "ACCESSORIES",
             "open_new_tab": false,
-            "link": "shopify://collections/child-accessories",
+            "link": "shopify://collections/child-accessories-legacy",
             "type": "secondary",
             "on_click": ""
           }
