@@ -286,7 +286,7 @@
             "title": "",
             "text": "",
             "link_label": "ACCESSORIES",
-            "link": "shopify://collections/child-accessories",
+            "link": "shopify://collections/child-accessories-legacy",
             "new_tab": false
           }
         },
@@ -571,7 +571,7 @@
           "settings": {
             "label": "WINTER ACCESSORIES",
             "open_new_tab": false,
-            "link": "shopify://collections/child-accessories",
+            "link": "shopify://collections/child-accessories-legacy",
             "type": "secondary",
             "on_click": ""
           }
