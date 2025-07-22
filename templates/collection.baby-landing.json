@@ -258,7 +258,7 @@
             "title": "",
             "text": "",
             "link_label": "ACCESSORIES",
-            "link": "shopify://collections/baby-accessories"
+            "link": "shopify://collections/baby-accessories-legacy"
           }
         }
       },
@@ -389,7 +389,7 @@
           "type": "button",
           "settings": {
             "label": "BABY ACCESSORIES",
-            "link": "shopify://collections/baby-accessories",
+            "link": "shopify://collections/baby-accessories-legacy",
             "type": "secondary",
             "on_click": ""
           }
