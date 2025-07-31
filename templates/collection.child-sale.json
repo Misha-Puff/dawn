@@ -104,6 +104,7 @@
         },
         "button_mRrVGy": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "label": "JACKETS",
             "open_new_tab": true,
