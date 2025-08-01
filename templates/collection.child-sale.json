@@ -77,7 +77,7 @@
           "settings": {
             "label": "ADULT SALE",
             "open_new_tab": true,
-            "link": "shopify://collections/adult-sale-legacy",
+            "link": "shopify://collections/adult-sale",
             "type": "secondary",
             "on_click": ""
           }
