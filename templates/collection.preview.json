@@ -32,14 +32,14 @@
         "heading_4bAnVw": {
           "type": "heading",
           "settings": {
-            "heading": "The Summer Collection — Part 2",
+            "heading": "Fall Collection — Part 1",
             "heading_size": "h2"
           }
         },
         "text_bdVDk3": {
           "type": "text",
           "settings": {
-            "text": "<p>This release features styles that are at the heart of summer — organic cotton terry. From hats and totes to ponchos and tees, these are the pieces made for seaside strolls, poolside lounging, and every sun-soaked day in between. </p><p>Get inspired by viewing the <a href=\"https://ctrk.klclick.com/l/01JT3NPRSNN9EYNC72QZZFN4JK_11\" target=\"_blank\">lookbook</a>, and browse, favorite, and plan your looks. These exclusive, limited styles will be available only at <a href=\"https://shop.misha-and-puff.com/\">misha-and-puff.com</a> and at our <a href=\"https://shop.misha-and-puff.com/pages/brooklyn-store\">Brooklyn store</a>.</p><p>Part 2 of the collection launches Friday, May 16 at 11 AM ET.</p>",
+            "text": "<p>Insider Access — Enjoy early access to shop Part 1 of the Fall Collection.</p><p>This collection is shaped by the art of Craft. Cross-stitch threads its way through hand-worked details and prints — the rhythm of the season. Soft Pima cotton and Merino knits meet rich velvet, denim, and wovens in a textured palette. Bright, saturated colors grounded by the earthy tones of Fall. Silhouettes old and new come together in a balance of heritage and modern spirit.<br/><br/>Get inspired by viewing the <a href=\"https://shop.misha-and-puff.com/blogs/journal/child-fall-25\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/blogs/journal/child-fall-25\">lookbook</a> — and browse, favorite, and plan your looks. Early access ends Friday, August 15, at 5 PM ET. The Fall Collection opens to all on Tuesday, August 18, at 8 AM ET.</p>",
             "line_height": 22
           }
         },
@@ -56,7 +56,7 @@
           "disabled": true,
           "settings": {
             "button_label": "VIEW LOOKBOOK",
-            "button_link": "shopify://blogs/journal/child-spring-25",
+            "button_link": "shopify://blogs/journal/child-fall-25",
             "button_style_secondary": true,
             "button_label_2": "",
             "button_link_2": "",
