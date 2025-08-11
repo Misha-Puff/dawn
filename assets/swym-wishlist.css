@@ -168,7 +168,7 @@ select.swym-mutliple-list {
   display: flex;
   flex-wrap: wrap;
   gap: 45px 15px;
-  margin-top: 100px;
+  margin-top: 10px;
 }
 
 .swymcs-wishlistplus-item {
