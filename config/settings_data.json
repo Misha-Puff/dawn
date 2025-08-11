@@ -226,7 +226,7 @@
           "swym_collections_add_icon": "shopify://shop_images/heart-outline.svg",
           "swym_collections_added_icon": "shopify://shop_images/heart-fill.svg",
           "swym_collections_position": "top-right",
-          "swym_collections_vertical_offset": -2,
+          "swym_collections_vertical_offset": 0,
           "swym_collections_horizontal_offset": -11,
           "swym_collections_button_size": 13,
           "swym_collections_icon_color": "#000000",
