@@ -221,7 +221,7 @@
         "image": "shopify://shop_images/MP_F25_Look_56_0338_Denim.jpg",
         "height": "adapt",
         "desktop_image_width": "small",
-        "layout": "text_first",
+        "layout": "image_first",
         "image_behavior": "none",
         "content_layout": "no-overlap",
         "desktop_content_position": "top",
@@ -229,8 +229,8 @@
         "mobile_content_alignment": "left",
         "section_color_scheme": "",
         "color_scheme": "",
-        "padding_top": 80,
-        "padding_bottom": 40,
+        "padding_top": 100,
+        "padding_bottom": 52,
         "show_section_tag": "denim"
       }
     },
