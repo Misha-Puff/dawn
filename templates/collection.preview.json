@@ -406,9 +406,9 @@
         "button_8mmyyM": {
           "type": "button",
           "settings": {
-            "label": "SHOP SPRING",
+            "label": "SHOP SALE",
             "open_new_tab": true,
-            "link": "shopify://collections/child-spring-collection-legacy",
+            "link": "shopify://collections/child-sale",
             "type": "secondary",
             "on_click": ""
           }
@@ -416,9 +416,9 @@
         "button_QmyM6w": {
           "type": "button",
           "settings": {
-            "label": "SHOP BABY SPRING",
+            "label": "BABY SALE",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-spring-collection-legacy",
+            "link": "shopify://collections/baby-sale",
             "type": "secondary",
             "on_click": ""
           }
@@ -428,7 +428,7 @@
           "settings": {
             "label": "DENIM",
             "open_new_tab": true,
-            "link": "shopify://collections/child-denim-legacy",
+            "link": "shopify://collections/child-denim",
             "type": "secondary",
             "on_click": ""
           }
@@ -466,7 +466,7 @@
         "button_gap": 10,
         "heading_size": "h2",
         "color_scheme": "",
-        "desktop_padding_top": 10,
+        "desktop_padding_top": 20,
         "desktop_padding_bottom": 50,
         "mobile_padding_top": 20,
         "mobile_padding_bottom": 40
