@@ -25,7 +25,7 @@
     "spacing_grid_horizontal": 20,
     "spacing_grid_vertical": 28,
     "animations_reveal_on_scroll": true,
-    "button_vertical_padding": 8,
+    "button_vertical_padding": 6,
     "button_horizontal_padding": 14,
     "buttons_border_thickness": 1,
     "buttons_border_opacity": 100,
