@@ -91,6 +91,7 @@
       "blocks": {
         "button_h4KETd": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "label": "SHOP TOPS",
             "open_new_tab": true,
