@@ -119,16 +119,6 @@
             "on_click": ""
           }
         },
-        "button_RtQ6RG": {
-          "type": "button",
-          "settings": {
-            "label": "DRESSES",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-dresses",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
         "button_pPHEdG": {
           "type": "button",
           "settings": {
@@ -138,14 +128,24 @@
             "type": "secondary",
             "on_click": ""
           }
+        },
+        "button_RtQ6RG": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP BABY FALL",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-fall",
+            "type": "secondary",
+            "on_click": ""
+          }
         }
       },
       "block_order": [
         "button_MPb6rP",
         "button_jY7GWc",
         "button_i4FCmB",
-        "button_RtQ6RG",
-        "button_pPHEdG"
+        "button_pPHEdG",
+        "button_RtQ6RG"
       ],
       "name": "Buttons",
       "settings": {
