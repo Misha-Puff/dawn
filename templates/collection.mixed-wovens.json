@@ -91,9 +91,9 @@
         "button_7mEYxx": {
           "type": "button",
           "settings": {
-            "label": "SHOP ALL SUMMER",
+            "label": "SHOP ALL FALL",
             "open_new_tab": true,
-            "link": "shopify://collections/child-summer-collection-legacy-v2",
+            "link": "shopify://collections/child-fall",
             "type": "secondary",
             "on_click": ""
           }
@@ -101,39 +101,9 @@
         "button_pgJ3Yf": {
           "type": "button",
           "settings": {
-            "label": "BABY SUMMER",
+            "label": "SHOP BABY FALL",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-summer-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_The9Q4": {
-          "type": "button",
-          "settings": {
-            "label": "PIMA STAPLES",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-pima-staples",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_3zFtWw": {
-          "type": "button",
-          "settings": {
-            "label": "DENIM",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-denim-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_mdfLJf": {
-          "type": "button",
-          "settings": {
-            "label": "ACCESSORIES",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-accessories-legacy",
+            "link": "shopify://collections/baby-fall",
             "type": "secondary",
             "on_click": ""
           }
@@ -141,10 +111,7 @@
       },
       "block_order": [
         "button_7mEYxx",
-        "button_pgJ3Yf",
-        "button_The9Q4",
-        "button_3zFtWw",
-        "button_mdfLJf"
+        "button_pgJ3Yf"
       ],
       "name": "Buttons",
       "settings": {
