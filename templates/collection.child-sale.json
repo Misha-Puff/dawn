@@ -67,7 +67,7 @@
           "settings": {
             "label": "BABY SALE",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-sale-legacy",
+            "link": "shopify://collections/baby-sale",
             "type": "secondary",
             "on_click": ""
           }
