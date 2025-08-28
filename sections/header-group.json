@@ -14,22 +14,14 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "announcement_4MwKwV": {
-          "type": "announcement",
-          "disabled": true,
-          "settings": {
-            "text": "<p>ENDS SUNDAY - 20% off Spring Collections with code: SPRING20 |  <a href=\"https://shop.misha-and-puff.com/pages/current-promotions\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/pages/current-promotions\">Details</a> </p>"
-          }
-        },
         "announcement_YVezxm": {
           "type": "announcement",
           "settings": {
-            "text": "<p>NEW: Pre-Fall - <a href=\"/collections/adult-prefall\" title=\"Adult - Prefall\">Shop Adult</a></p>"
+            "text": "<p>EXTRA 10% OFF SALE W/ CODE EXTRA10 — Ends Monday 9/1 11:59 PM ET</p>"
           }
         }
       },
       "block_order": [
-        "announcement_4MwKwV",
         "announcement_YVezxm"
       ],
       "disabled": true,
