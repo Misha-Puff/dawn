@@ -16,6 +16,7 @@
       "blocks": {
         "announcement_YVezxm": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "<p>EXTRA 10% OFF SALE W/ CODE EXTRA10 — Ends Monday 9/1 11:59 PM ET</p>"
           }
@@ -24,6 +25,7 @@
       "block_order": [
         "announcement_YVezxm"
       ],
+      "disabled": true,
       "settings": {
         "desktop_height": 36,
         "mobile_height": 46,
