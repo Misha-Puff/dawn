@@ -127,9 +127,13 @@
       display: block;
     }
 
-     .mobile-look-title {
-        margin-bottom: 0;
-      }
+    .mobile-look-title {
+      margin: 0;
+    }
+
+    .desktop-look-title {
+      margin-top: 0;
+    }
 
     @media (max-width: 989px) {
       .carousel-title {
@@ -189,7 +193,7 @@
             endif
           %}
           <div class="carousel-slide">
-            <p class="is-hidden-mobile-only desktop-look-title">Look # {{ forloop.index }}</p>
+            <p class="is-hidden-mobile-only desktop-look-title">LOOK # {{ forloop.index }}</p>
             <div class="slide-grid">
               <div class="main-box">
                 <img
@@ -212,7 +216,7 @@
                   height="{{ 1100 | divided_by: lead_image.aspect_ratio | ceil }}"
                 >
               </div>
-              <p class="is-hidden-desktop-only mobile-look-title">Look # {{ forloop.index }}</p>
+              <p class="is-hidden-desktop-only mobile-look-title">LOOK # {{ forloop.index }}</p>
               <div class="sub-grid">
                 {%- comment %}<locksmith:0eb8>{%- endcomment %}
                 {%- assign locksmith_4d7e_forloop__size = 0 -%}
