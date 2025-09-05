@@ -12,7 +12,7 @@
         capture var
           render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: outfit, variable: 'transparent'
         endcapture
-        if var == "true"
+        if var == 'true'
         else
           continue
         endif
@@ -83,7 +83,7 @@
     }
 
     .carousel-title {
-      margin-left: 16px;
+      margin-left: {{ section.settings.desktop_slide_margin }}px;
       margin-bottom: {{ section.settings.title_margin_bottom }}px;
       font-size: {{ section.settings.title_font_size }}px;
     }
@@ -127,7 +127,15 @@
       display: block;
     }
 
+     .mobile-look-title {
+        margin-bottom: 0;
+      }
+
     @media (max-width: 989px) {
+      .carousel-title {
+        margin-left: {{ section.settings.mobile_slide_margin }}px;
+      }
+
       .carousel-slide {
         width: {{ section.settings.mobile_slide_width }}%;
         margin: 0 {{ section.settings.mobile_slide_margin }}px;
@@ -165,7 +173,7 @@
                 capture var
                   render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: outfit, variable: 'transparent'
                 endcapture
-                if var == "true"
+                if var == 'true'
                 else
                   continue
                 endif
@@ -181,6 +189,7 @@
             endif
           %}
           <div class="carousel-slide">
+            <p class="is-hidden-mobile-only desktop-look-title">Look # {{ forloop.index }}</p>
             <div class="slide-grid">
               <div class="main-box">
                 <img
@@ -203,14 +212,51 @@
                   height="{{ 1100 | divided_by: lead_image.aspect_ratio | ceil }}"
                 >
               </div>
+              <p class="is-hidden-desktop-only mobile-look-title">Look # {{ forloop.index }}</p>
               <div class="sub-grid">
-                {%- comment %}<locksmith:0eb8>{% endcomment -%}
-                  {%- assign locksmith_4d7e_forloop__size = 0 %}{% for product in products limit: 4 %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_4d7e_forloop__size = locksmith_4d7e_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_4d7e_forloop__index = nil -%}
-                {%- comment %}</locksmith:0eb8>{% endcomment -%}
+                {%- comment %}<locksmith:0eb8>{%- endcomment %}
+                {%- assign locksmith_4d7e_forloop__size = 0 -%}
+                {%- for product in products limit: 4 %}
+                  {% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, variable: 'transparent' %}{% endcapture -%}
+                  {%- if var == 'true' -%}
+                    {%- assign locksmith_4d7e_forloop__size = locksmith_4d7e_forloop__size | plus: 1 -%}
+                  {%- endif -%}
+                {%- endfor -%}
+                {%- assign locksmith_4d7e_forloop__index = null -%}
+                {%- comment %}</locksmith:0eb8>{%- endcomment %}
                 {% for product in products limit: 4 %}
-                  {%- comment %}<locksmith:775d>{% endcomment -%}
-                    {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_4d7e_forloop__index == nil %}{% assign locksmith_4d7e_forloop__index = 1 %}{% assign locksmith_4d7e_forloop__index0 = 0 %}{% else %}{% assign locksmith_4d7e_forloop__index = locksmith_4d7e_forloop__index | plus: 1 %}{% assign locksmith_4d7e_forloop__index0 = locksmith_4d7e_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_4d7e_forloop__index == 1 %}{% assign locksmith_4d7e_forloop__first = true %}{% else %}{% assign locksmith_4d7e_forloop__first = false %}{% endif %}{% if locksmith_4d7e_forloop__index == locksmith_4d7e_forloop__size %}{% assign locksmith_4d7e_forloop__last = true %}{% else %}{% assign locksmith_4d7e_forloop__last = false %}{% endif %}{% assign locksmith_4d7e_forloop__rindex = locksmith_4d7e_forloop__size | minus: locksmith_4d7e_forloop__index | minus: 1 %}{% assign locksmith_4d7e_forloop__rindex0 = locksmith_4d7e_forloop__size | minus: locksmith_4d7e_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
-                  {%- comment %}</locksmith:775d>{% endcomment -%}
+                  {%- comment %}<locksmith:775d>{%- endcomment %}
+                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, variable: 'transparent' %}{% endcapture -%}
+                  {%- if var == 'true' -%}
+                    {%- if locksmith_4d7e_forloop__index == null -%}
+                      {%- assign locksmith_4d7e_forloop__index = 1 -%}
+                      {%- assign locksmith_4d7e_forloop__index0 = 0 -%}
+                    {%- else -%}
+                      {%- assign locksmith_4d7e_forloop__index = locksmith_4d7e_forloop__index | plus: 1 -%}
+                      {%- assign locksmith_4d7e_forloop__index0 = locksmith_4d7e_forloop__index0 | plus: 1 -%}
+                    {%- endif -%}
+                    {%- if locksmith_4d7e_forloop__index == 1 -%}
+                      {%- assign locksmith_4d7e_forloop__first = true -%}
+                    {%- else -%}
+                      {%- assign locksmith_4d7e_forloop__first = false -%}
+                    {%- endif -%}
+                    {%- if locksmith_4d7e_forloop__index == locksmith_4d7e_forloop__size -%}
+                      {%- assign locksmith_4d7e_forloop__last = true -%}
+                    {%- else -%}
+                      {%- assign locksmith_4d7e_forloop__last = false -%}
+                    {%- endif -%}
+                    {%- assign locksmith_4d7e_forloop__rindex = locksmith_4d7e_forloop__size
+                      | minus: locksmith_4d7e_forloop__index
+                      | minus: 1
+                    -%}
+                    {%- assign locksmith_4d7e_forloop__rindex0 = locksmith_4d7e_forloop__size
+                      | minus: locksmith_4d7e_forloop__index0
+                      | minus: 1
+                    -%}
+                  {%- else -%}
+                    {%- continue -%}
+                  {%- endif -%}
+                  {%- comment %}</locksmith:775d>{%- endcomment %}
                   {% assign skip_card_product_styles = false %}
                   {% assign outer = locksmith_4d7e_forloop__index0 %}
                   {% assign outer = locksmith_4d7e_forloop__index0 %}
@@ -228,7 +274,8 @@
                           skip_styles: skip_card_product_styles,
                           section_id: section.id,
                           quick_add: 'standard',
-                          custom_media: flat
+                          custom_media: flat,
+                          hide_content: true
                         %}
                         {% assign skip_card_product_styles = true %}
                       </div>
