@@ -93,7 +93,7 @@
           "settings": {
             "label": "ACCESSORIES",
             "open_new_tab": true,
-            "link": "shopify://collections/child-accessories-legacy",
+            "link": "shopify://collections/child-accessories",
             "type": "secondary",
             "on_click": ""
           }
@@ -103,7 +103,7 @@
           "settings": {
             "label": "TOPS",
             "open_new_tab": true,
-            "link": "shopify://collections/child-tops-legacy",
+            "link": "shopify://collections/child-tops",
             "type": "secondary",
             "on_click": ""
           }
@@ -113,7 +113,7 @@
           "settings": {
             "label": "DRESSES",
             "open_new_tab": true,
-            "link": "shopify://collections/child-dresses-legacy",
+            "link": "shopify://collections/child-dresses",
             "type": "secondary",
             "on_click": ""
           }
@@ -123,7 +123,7 @@
           "settings": {
             "label": "SHOP BABY SUMMER",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-summer-collection-legacy",
+            "link": "shopify://collections/baby-summer-collection",
             "type": "secondary",
             "on_click": ""
           }
