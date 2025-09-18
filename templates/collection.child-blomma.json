@@ -81,7 +81,7 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 44,
-        "padding_bottom": 20,
+        "padding_bottom": 28,
         "padding_left": 100,
         "padding_right": 100
       }
@@ -132,9 +132,9 @@
         "heading_size": "h1",
         "color_scheme": "",
         "desktop_padding_top": 0,
-        "desktop_padding_bottom": 42,
+        "desktop_padding_bottom": 48,
         "mobile_padding_top": 0,
-        "mobile_padding_bottom": 32
+        "mobile_padding_bottom": 38
       }
     },
     "product-grid": {
