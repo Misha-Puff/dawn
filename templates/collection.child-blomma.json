@@ -30,6 +30,7 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
@@ -42,14 +43,14 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Cerulean",
+            "heading": "Styling Blomma",
             "heading_size": "h2"
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>A true star of the Fall Collection — Cerulean. A vibrant blue, dyed to a rich, saturated finish. A playful hue that brightens every style.</p>",
+            "text": "<p>Meet <em>Blomma </em>— a celebration of hand-crocheted craft and vintage-inspired charm. Explore how we styled the new group below.</p>",
             "line_height": 24
           }
         },
@@ -74,14 +75,13 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
+        "padding_top": 44,
+        "padding_bottom": 20,
         "padding_left": 100,
         "padding_right": 100
       }
@@ -92,10 +92,10 @@
         "button_XaxzBy": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "SHOP ALL FALL",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-fall",
+            "type": "secondary",
             "on_click": ""
           }
         },
@@ -125,17 +125,16 @@
         "button_C99g3E",
         "button_NGpAit"
       ],
-      "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
         "button_gap": 10,
         "heading_size": "h1",
         "color_scheme": "",
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 30,
-        "mobile_padding_top": 30,
-        "mobile_padding_bottom": 30
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 42,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 32
       }
     },
     "product-grid": {
