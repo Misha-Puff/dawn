@@ -83,7 +83,7 @@
           "settings": {
             "label": "SHOP LIMITED YARN",
             "open_new_tab": true,
-            "link": "shopify://collections/limited-yarn-skeins",
+            "link": "shopify://collections/limited-yarn",
             "type": "secondary",
             "on_click": ""
           }
