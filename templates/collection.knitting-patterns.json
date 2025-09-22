@@ -47,7 +47,7 @@
           "type": "button",
           "settings": {
             "button_label": "shop yarn",
-            "button_link": "shopify://collections/all-yarn",
+            "button_link": "shopify://collections/limited-yarn",
             "button_style_secondary": true,
             "button_label_2": "",
             "button_link_2": "",
