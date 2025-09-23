@@ -35,7 +35,7 @@
   }
 }
 
-@media screen and (min-width: 750px) and (max-width: 989px) {
+@media screen and (min-width: 750px) and (max-width: 1099px) {
   .slider.collection-list--1-items,
   .slider.collection-list--2-items,
   .slider.collection-list--3-items,
@@ -50,7 +50,7 @@
   }
 }
 
-@media screen and (max-width: 989px) {
+@media screen and (max-width: 1099px) {
   .collection-list.slider .collection-list__item {
     max-width: 100%;
   }

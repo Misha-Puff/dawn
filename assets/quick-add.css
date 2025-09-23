@@ -72,7 +72,7 @@
   }
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 1100px) {
   .quick-add-modal__content {
     width: 70%;
   }
@@ -112,7 +112,7 @@
   }
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 1100px) {
   .quick-add-modal__content-info.quick-add-modal__content-info--bulk {
     overflow-y: initial;
   }
@@ -145,7 +145,7 @@
   text-underline-offset: 0.3rem;
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 1100px) {
   .quick-add-modal__content-info--bulk .quick-add__product-media,
   .quick-add-modal__content-info--bulk .quick-add__product-container,
   .quick-add-modal__content-info--bulk .quick-add__info {
@@ -177,7 +177,7 @@
   width: auto;
 }
 
-@media screen and (max-width: 989px) {
+@media screen and (max-width: 1099px) {
   .quick-add-modal__content-info--bulk .quick-add__content-info__media {
     display: flex;
     margin: 0;
@@ -193,7 +193,7 @@
   }
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 1100px) {
   .quick-add-modal__content-info--bulk .quick-add__info {
     flex-direction: column;
     position: sticky;
@@ -203,7 +203,7 @@
   }
 }
 
-@media screen and (max-width: 989px) {
+@media screen and (max-width: 1099px) {
   .quick-add-modal__content-info--bulk {
     flex-direction: column;
   }
@@ -362,7 +362,6 @@ quick-add-modal .product-form__buttons {
   width: 1rem;
   pointer-events: none;
 }
-
 
 quick-add-modal .product-media-container.constrain-height {
   --viewport-offset: calc((var(--modal-height-offset) + var(--modal-padding) + var(--popup-border-width)) * 2);

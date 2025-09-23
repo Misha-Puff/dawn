@@ -2,7 +2,7 @@
   height: 100%;
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 1100px) {
   .grid--1-col-desktop .article-card .card__content {
     text-align: center;
   }
@@ -16,7 +16,7 @@
   margin-bottom: 1rem;
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 1100px) {
   .blog__posts.articles-wrapper {
     margin-bottom: 0;
   }

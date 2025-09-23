@@ -42,7 +42,7 @@ quick-order-list .pagination-wrapper {
   content: none;
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 1100px) {
   .quick-order-list__total {
     position: sticky;
     bottom: 0;
@@ -120,7 +120,7 @@ quick-order-list .pagination-wrapper {
   object-fit: cover;
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 1100px) {
   .variant-item__image {
     max-width: 100%;
   }
@@ -213,7 +213,7 @@ quick-order-list .pagination-wrapper {
   letter-spacing: 0.06rem;
 }
 
-@media screen and (min-width: 750px) and (max-width: 989px) {
+@media screen and (min-width: 750px) and (max-width: 1099px) {
   .quick-order-list-remove-button {
     width: 1.5rem;
     height: 1.5rem;
@@ -299,7 +299,7 @@ quick-order-list .pagination-wrapper {
   align-self: flex-start;
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 1100px) {
   .variant-item .loading__spinner {
     padding-top: 3rem;
     bottom: auto;
@@ -314,7 +314,7 @@ quick-order-list .pagination-wrapper {
     top: 1.2rem;
   }
 
- .variant-remove-total--empty .loading__spinner {
+  .variant-remove-total--empty .loading__spinner {
     top: -1rem;
   }
 }
@@ -375,7 +375,7 @@ quick-order-list .pagination-wrapper {
   border: 0;
 }
 
-@media screen and (max-width: 989px) {
+@media screen and (max-width: 1099px) {
   .quick-order-list-total__info {
     flex-direction: column;
     align-items: center;
@@ -469,7 +469,7 @@ quick-order-list .pagination-wrapper {
   margin-top: -2rem;
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 1100px) {
   .quick-order-list__table {
     border-spacing: 0;
     border-collapse: separate;
@@ -532,7 +532,7 @@ quick-order-list .pagination-wrapper {
   }
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 1100px) {
   .quick-order-list__table thead th:first-child,
   .quick-order-list-total__column {
     width: 37%;
@@ -602,7 +602,7 @@ quick-order-list .pagination-wrapper {
   margin-right: 2rem;
 }
 
-@media screen and (max-width: 989px) {
+@media screen and (max-width: 1099px) {
   .quick-order-list-total__price {
     justify-content: center;
     text-align: center;
