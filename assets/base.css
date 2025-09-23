@@ -2812,7 +2812,7 @@ details[open] > .header__submenu {
 }
 
 .header__menu-item {
-  font-size: 12px;
+  font-size: 13px;
   padding: 0 8px;
   text-decoration: none;
   color: rgba(var(--color-foreground));
