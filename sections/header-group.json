@@ -20,10 +20,17 @@
           "settings": {
             "text": "<p>EXTRA 10% OFF SALE W/ CODE EXTRA10 — Ends Monday 9/1 11:59 PM ET</p>"
           }
+        },
+        "announcement_dDUTp6": {
+          "type": "announcement",
+          "settings": {
+            "text": "<p>NEW: Evergreen Collection — <a href=\"/collections/evergreen\" target=\"_blank\" title=\"Evergreen\">Shop</a></p>"
+          }
         }
       },
       "block_order": [
-        "announcement_YVezxm"
+        "announcement_YVezxm",
+        "announcement_dDUTp6"
       ],
       "disabled": true,
       "settings": {
