@@ -71,8 +71,9 @@
 
 .mega-menu__link:hover,
 .mega-menu__link--active {
-  color: rgb(var(--color-foreground), 0.85);
-  /* text-decoration: underline; */
+  /* color: rgb(var(--color-foreground), 0.85); */
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
 }
 
 .mega-menu__link--active:hover {
