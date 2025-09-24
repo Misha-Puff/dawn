@@ -486,6 +486,7 @@ h6:empty {
 
 .link,
 .customer a,
+.custom_message a,
 .announcement-bar__message a {
   cursor: pointer;
   display: inline-block;
