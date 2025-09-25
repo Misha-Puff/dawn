@@ -9,43 +9,52 @@
  */
 {
   "sections": {
-    "gp_section_583705951576589123": {
+    "gp_section_585746714380469021": {
       "settings": {
-        "checksum": "e58002d093c1d449a87c242520c985199d3e1546f76f0a1a9b164d22d3c5e3a7_1_1_1_0_"
+        "checksum": "a07248a48c1e7c4c717b50a3a833fcf5c6b8393cc88392ba71a673ca45353a52_1_1_1_0__1",
+        "gggAnF3Dn1-_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\" target=\"_blank\"><u>JOURNAL</u></a></p>"
       },
-      "type": "gp-section-583705951576589123"
+      "type": "gp-section-585746714380469021"
     },
-    "gp_section_583705951576654659": {
+    "gp_section_585746714380534557": {
       "settings": {
-        "checksum": "d7616d020bf3b20d2d1074d720b657cc3e0acd6203a6b38c0dbcb6fa3f57f1d6_1_1_1_0_",
+        "checksum": "4ddee4bdeafbfaa62ece35576427ebadee36be8dc8a8fd75dc4710c3be3a1670_1_1_1_0__1",
+        "ggHJFhFMV6S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-prefall\"><span style=\"font-size:12px;\">ADULT PRE-FALL</span></a></p>",
+        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-prefall\"><span style=\"font-size:12px;\">BABY FALL COLLECTION</span></a></p>"
+      },
+      "type": "gp-section-585746714380534557"
+    },
+    "gp_section_585746714380600093": {
+      "settings": {
+        "checksum": "2c32cd026cc96935d62dbe6117cc0b54db44aa102e342a43c585d4e90d5dbead_1_1_1_0__1",
+        "gg4ldLf4Ry9_text": "<p><span style=\"color:#101820;font-size:13px;\">Essential styles you’ll reach for again and again — signature colors, timeless design, available year-round. Made to mix, layer, and last through every season.</span></p><p>&nbsp;</p><p><a href=\"https://shop.misha-and-puff.com/collections/evergreen\"><span style=\"background-color:rgb(255,255,255);color:rgb(16,24,32);font-size:13px;\"><u>SHOP NOW</u></span></a></p>",
+        "gg8Fb4FlZUt_text": "<span style=\"color:#101820;font-size:13px;\">NEW — EVERGREEN COLLECTION</span>"
+      },
+      "type": "gp-section-585746714380600093"
+    },
+    "gp_section_585746714380665629": {
+      "settings": {
+        "checksum": "cecf51ddccd9159f2e12aab19311cff825321a7008a3bd9b042a3b7433624041_1_1_1_0__1",
+        "ggLQajLucpx_text": "<p><span style=\"color:#101820;font-size:13px;\">Essential styles you’ll reach for again and again — signature colors, timeless design, available year-round. Made to mix, layer, and last through every season.</span></p><p>&nbsp;</p><p><a href=\"https://shop.misha-and-puff.com/collections/evergreen\"><span style=\"background-color:rgb(255,255,255);color:rgb(16,24,32);font-size:13px;\"><u>SHOP NOW</u></span></a></p>",
+        "ggnhezkjC1t_text": "<span style=\"color:#101820;font-size:12px;\">NEW — EVERGREEN COLLECTION</span>"
+      },
+      "type": "gp-section-585746714380665629"
+    },
+    "gp_section_585746714380731165": {
+      "settings": {
+        "checksum": "b602d475a997d6de092247480c9ebbcf97e571abf11c440646790abd3392f4bf_1_1_1_0__1",
+        "gg8FKQDARoC_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-fall\"><span style=\"font-size:12px;\"><u>SHOP NOW</u></span></a></p>",
+        "ggI3y0d4fQY_text": "<span style=\"font-size:15px;\">THE FALL COLLECTION</span>",
         "section_preload": "true"
       },
-      "type": "gp-section-583705951576654659"
-    },
-    "gp_section_583705951576720195": {
-      "settings": {
-        "checksum": "76841d9e5bd1e5732db121a826c80464bf2c3b3b56243e3468d40b7e63d1a2b9_1_1_1_0_"
-      },
-      "type": "gp-section-583705951576720195"
-    },
-    "gp_section_583716307245990740": {
-      "settings": {
-        "checksum": "a7ea5d0f8f9ad274f927c56330f3e517385341e5c09b0b68d95da5dc9bb613c5_1_1_1_0_"
-      },
-      "type": "gp-section-583716307245990740"
-    },
-    "gp_section_583719542195225428": {
-      "settings": {
-        "checksum": "2e3476c9e3ed127dd190dab15d3538bc69bfbcb2f3cc3337850191b6d5e20827_1_1_1_0_"
-      },
-      "type": "gp-section-583719542195225428"
+      "type": "gp-section-585746714380731165"
     }
   },
   "order": [
-    "gp_section_583705951576654659",
-    "gp_section_583705951576589123",
-    "gp_section_583716307245990740",
-    "gp_section_583719542195225428",
-    "gp_section_583705951576720195"
+    "gp_section_585746714380731165",
+    "gp_section_585746714380534557",
+    "gp_section_585746714380600093",
+    "gp_section_585746714380665629",
+    "gp_section_585746714380469021"
   ]
 }
