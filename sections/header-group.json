@@ -24,7 +24,7 @@
         "announcement_dDUTp6": {
           "type": "announcement",
           "settings": {
-            "text": "<p>NEW: Evergreen Collection — <a href=\"/collections/evergreen\" target=\"_blank\" title=\"Evergreen\">Shop</a></p>"
+            "text": "<p>NEW: Evergreen Collection — <a href=\"/collections/evergreen\" target=\"_blank\" title=\"Evergreen\">Shop Now</a></p>"
           }
         }
       },
@@ -32,10 +32,9 @@
         "announcement_YVezxm",
         "announcement_dDUTp6"
       ],
-      "disabled": true,
       "settings": {
-        "desktop_height": 36,
-        "mobile_height": 46,
+        "desktop_height": 34,
+        "mobile_height": 40,
         "auto_rotate": false,
         "change_slides_speed": 5,
         "color_scheme": "",
