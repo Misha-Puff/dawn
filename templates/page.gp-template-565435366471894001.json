@@ -11,37 +11,53 @@
   "sections": {
     "gp_section_565435366572557297": {
       "settings": {
-        "checksum": "bac7229697bd0615b086ba8017d592c114dba0c5c7c0f946cfc59161697f6382_1_1_1_0_"
+        "checksum": "bac7229697bd0615b086ba8017d592c114dba0c5c7c0f946cfc59161697f6382_1_1_1_0__1",
+        "ggNQ0ZFxflA_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\" target=\"_blank\"><u>JOURNAL</u></a></p>"
       },
       "type": "gp-section-565435366572557297"
     },
     "gp_section_565435366572622833": {
       "settings": {
-        "checksum": "83d53a7980e6bfc1af6d2bc86dfd42f577f959476582f52cead775998135a922_1_1_1_0_"
+        "checksum": "83d53a7980e6bfc1af6d2bc86dfd42f577f959476582f52cead775998135a922_1_1_1_0__1"
       },
       "type": "gp-section-565435366572622833"
     },
     "gp_section_565435366572753905": {
       "settings": {
-        "checksum": "9b650075d8ab88edb2fccc444cdbe51b1103be39c7a30004de54819fd1767dfe_1_1_1_0_"
+        "checksum": "9b650075d8ab88edb2fccc444cdbe51b1103be39c7a30004de54819fd1767dfe_1_1_1_0__1",
+        "gg8CanJZH7q_text": "Explore More",
+        "gg8xf4mbVAe_label": "<p>TOPS</p>",
+        "ggD3Rt-KqFS_label": "<p>DENIM</p>",
+        "ggItr6GRAXk_label": "<p>BOTTOMS</p>",
+        "ggj3P0_sj3y_label": "<p>SALE</p>",
+        "ggsvvtQF5lu_label": "<p>PIMA STAPLES</p>"
       },
       "type": "gp-section-565435366572753905"
     },
     "gp_section_565435366572819441": {
       "settings": {
-        "checksum": "9d511798d182dcc9e8b590b2c690f9d8983cb8f2596b2a225a1ba1eed84b6a18_1_1_1_0_"
+        "checksum": "f3f0bb9d5c9df4473d0b02b4c2ab8ba111b4e58beb881d9a091de90eb537e610_1_1_1_0__1",
+        "ggHJFhFMV6S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/evergreen\"><span style=\"font-size:12px;\">NEW — EVERGREEN COLLECTION</span></a></p>",
+        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-sweaters-cardigans\" target=\"_blank\"><span style=\"font-size:12px;\">SWEATERS + CARDIGANS</span></a></p>"
       },
       "type": "gp-section-565435366572819441"
     },
     "gp_section_565742999678485659": {
       "settings": {
-        "checksum": "c2f81851c687d04abdafb3fab7f990a2ff0c163954a29c4f2de48b6013825d8b_1_1_1_0_"
+        "checksum": "c2f81851c687d04abdafb3fab7f990a2ff0c163954a29c4f2de48b6013825d8b_1_1_1_0__1",
+        "ggSB_9sxwQ6_label": "ADD TO CART",
+        "ggSB_9sxwQ6_outOfStockLabel": "Out of stock",
+        "ggSB_9sxwQ6_unavailableLabel": "Unavailable",
+        "ggSB_9sxwQ6_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
+        "ggT-TYiC6nr_text": "<span style=\"font-size:12px;\">NEW ARRIVALS</span>"
       },
       "type": "gp-section-565742999678485659"
     },
     "gp_section_583720142567899879": {
       "settings": {
-        "checksum": "04f9439f59e5e5678c32d3337d9bd5716b869a698084b918e424f233eb921c8d_1_1_1_0_",
+        "checksum": "597de41faee37b8f77875b6bf1229f877e37f129d33d33af842f39f42cbf2ce7_1_1_1_0__1",
+        "ggnXLQM-s4u_text": "<span style=\"font-size:15px;\">THE FALL COLLECTION</span>",
+        "ggw4qmKo4Fs_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-FALL\" target=\"_blank\"><span style=\"font-size:12px;\"><u>SHOP NOW</u></span></a></p>",
         "section_preload": "true"
       },
       "type": "gp-section-583720142567899879"
