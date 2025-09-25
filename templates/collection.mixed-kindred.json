@@ -30,6 +30,7 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
@@ -42,14 +43,14 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Cerulean",
+            "heading": "Kindred Silhouettes",
             "heading_size": "h2"
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>A true star of the Fall Collection — Cerulean. A vibrant blue, dyed to a rich, saturated finish. A playful hue that brightens every style.</p>",
+            "text": "<p>This season, our Adult and Child collections align — our first crossover that reflects the spirit of children’s styles, carefully adapted with elegance and ease for adult. From silhouette to palette to texture, these are pieces that echo from one generation to the next.</p>",
             "line_height": 24
           }
         },
@@ -74,16 +75,15 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
-        "padding_left": 100,
-        "padding_right": 100
+        "padding_top": 60,
+        "padding_bottom": 32,
+        "padding_left": 72,
+        "padding_right": 72
       }
     },
     "buttons_Mn3bJP": {
@@ -92,20 +92,20 @@
         "button_XaxzBy": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "CHILD FALL COLLECTION",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-fall",
+            "type": "secondary",
             "on_click": ""
           }
         },
         "button_C99g3E": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "ADULT FALL COLLECTION",
+            "open_new_tab": true,
+            "link": "shopify://collections/adult-fall",
+            "type": "secondary",
             "on_click": ""
           }
         },
@@ -125,15 +125,14 @@
         "button_C99g3E",
         "button_NGpAit"
       ],
-      "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
         "button_gap": 10,
         "heading_size": "h1",
         "color_scheme": "",
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 30,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 40,
         "mobile_padding_top": 30,
         "mobile_padding_bottom": 30
       }
