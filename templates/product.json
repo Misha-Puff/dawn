@@ -526,6 +526,53 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "featured_collection_BqjfdT": {
+      "type": "featured-collection",
+      "disabled": true,
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "mixed-kindred-silhouettes",
+        "products_to_show": 50,
+        "show_section_tag": "kindred-silhouettes",
+        "title": "",
+        "heading_alignment": "left",
+        "heading_size": "h1",
+        "heading_margin": 25,
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "hide_sold_out": false,
+        "hide_content": false,
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "full_width": false,
+        "enable_custom_spacing": false,
+        "horizontal_spacing_desktop": 20,
+        "vertical_spacing_desktop": 20,
+        "horizontal_spacing_mobile": 10,
+        "vertical_spacing_mobile": 10,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "section_full_width": false,
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 36,
+        "desktop_padding_left": 36,
+        "desktop_padding_right": 36,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36,
+        "mobile_padding_left": 36,
+        "mobile_padding_right": 36
+      }
     }
   },
   "order": [
@@ -540,6 +587,7 @@
     "metafield_product_slider_8x6YUj",
     "related-products",
     "recently_viewed_slider_QcHtbc",
-    "17224329362434f250"
+    "17224329362434f250",
+    "featured_collection_BqjfdT"
   ]
 }
