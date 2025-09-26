@@ -11,39 +11,73 @@
   "sections": {
     "gp_section_565435452589343904": {
       "settings": {
-        "checksum": "956682a5060319593c060efe92fdc90ca539238c38f7b58b5afd4f5dc8a582e4_1_1_1_0_"
+        "checksum": "956682a5060319593c060efe92fdc90ca539238c38f7b58b5afd4f5dc8a582e4_1_1_1_0__1",
+        "ggK0AfVBMiV_label": "<p>BOTTOMS</p>",
+        "ggSFNG5Xr-f_label": "<p>BEST SELLERS</p>",
+        "ggW-o9tY_db_label": "<p>PIMA STAPLES</p>",
+        "ggYxZAOpYG6_label": "<p>SWEATERS</p>",
+        "ggfWVmN1Elc_label": "<p>SALE</p>",
+        "ggjiZ0PuduM_text": "Explore More"
       },
       "type": "gp-section-565435452589343904"
     },
     "gp_section_565435452589409440": {
       "settings": {
-        "checksum": "c1a522400b8d5ff7d2425dc2360be7641cb981a1e6ce85ba7817272bc2971c31_1_1_1_0_"
+        "checksum": "46ea5503e5a585ceb5701874c8662a20f33436205d62cd1fae5cc9184d925f7b_1_1_1_0__1",
+        "ggHJFhFMV6S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-sweaters-cardigans\"><span style=\"font-size:12px;\">NEW — SWEATERS + CARDIGANS</span></a></p>",
+        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-prefall\"><span style=\"font-size:12px;\">PRE-FALL COLLECTION</span></a></p>"
       },
       "type": "gp-section-565435452589409440"
     },
     "gp_section_565435452589474976": {
       "settings": {
-        "checksum": "69fbaa501f64246d85cf4596804fffcbb51bca14a798efc056ee44cb8f6ec232_1_1_1_0_"
+        "checksum": "69fbaa501f64246d85cf4596804fffcbb51bca14a798efc056ee44cb8f6ec232_1_1_1_0__1"
       },
       "type": "gp-section-565435452589474976"
     },
     "gp_section_565743354969654482": {
       "settings": {
-        "checksum": "74b0890185accf56fc7ee4225c4d48016605d73c026f682c04e0ae6b2d04fe51_1_1_1_0_"
+        "checksum": "74b0890185accf56fc7ee4225c4d48016605d73c026f682c04e0ae6b2d04fe51_1_1_1_0__1",
+        "ggCFij8kVJX_text": "<span style=\"font-size:12px;\">BEST SELLERS</span>",
+        "ggjkEChLl3S_label": "ADD TO CART",
+        "ggjkEChLl3S_outOfStockLabel": "Out of stock",
+        "ggjkEChLl3S_unavailableLabel": "Unavailable",
+        "ggjkEChLl3S_variantSelectionRequiredMessage": "Please select a variant to add product to cart"
       },
       "type": "gp-section-565743354969654482"
     },
     "gp_section_570806090636198784": {
       "settings": {
-        "checksum": "561576f4ca8cddb22a17001a6432bd9ca011047bda249d44e2d993f4c3e3ac9e_1_1_1_0_",
+        "checksum": "c06df62604fa34b4114c2839cbf05f34981c98937f9dbf3aa0cce9a9389a8b7d_1_1_1_0__1",
+        "gg5SzBJ5td8_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-fall\"><span style=\"font-size:12px;\"><u>SHOP NOW</u></span></a></p>",
+        "gg9pD34rKYq_text": "ADULT FALL COLLECTION",
+        "ggQk3iZ68mu_text": "<p><span style=\"font-size:12px;\"><strong>PART 1</strong></span></p>",
         "section_preload": "true"
       },
       "type": "gp-section-570806090636198784"
+    },
+    "gp_section_586131798111552285": {
+      "settings": {
+        "checksum": "126664532171cee037841d694dd2f44ee4f5218b3a9cfe0293bac20fb4aa56fa_1_1_1_0__1",
+        "gg7oaXdVP_X_text": "<span style=\"color:#101820;font-size:13px;\">KINDRED SILHOUETTES</span>",
+        "ggqU3CugTAJ_text": "<p><span style=\"font-size:13px;\">Essential styles you’ll reach for again and again — signature colors, timeless design, available year-round. Made to mix, layer, and last through every season. This season, our Adult and Child collections align — our first crossover that reflects the spirit of children’s styles, carefully adapted with elegance and ease for adult. From silhouette to palette to texture, these are pieces that echo from one generation to the next. Stay tuned for more.</span></p><p>&nbsp;</p><p><a href=\"https://shop.misha-and-puff.com/collections/mixed-kindred-silhouettes\"><span style=\"background-color:rgb(255,255,255);color:rgb(16,24,32);font-size:12px;\"><u>SHOP NOW</u></span></a></p>"
+      },
+      "type": "gp-section-586131798111552285"
+    },
+    "gp_section_586131883239146179": {
+      "settings": {
+        "checksum": "d35b61f2ee4280b5d310850a466c0c47094a5de4d19088b3b56130f4046f6eaf_1_1_1_0__1",
+        "ggBF9CTLBPw_text": "<span style=\"color:#101820;font-size:12px;\">KINDRED SILHOUETTES</span>",
+        "ggu1lS0lynG_text": "<p><span style=\"color:#101820;font-size:13px;\">Essential styles you’ll reach for again and again — signature colors, timeless design, available year-round. Made to mix, layer, and last through every season. This season, our Adult and Child collections align — our first crossover that reflects the spirit of children’s styles, carefully adapted with elegance and ease for adult. From silhouette to palette to texture, these are pieces that echo from one generation to the next. Stay tuned for more.</span></p><p>&nbsp;</p><p><a href=\"https://shop.misha-and-puff.com/collections/mixed-kindred-silhouettes\"><span style=\"background-color:rgb(255,255,255);color:#101820;font-size:12px;\"><u>SHOP NOW</u></span></a></p>"
+      },
+      "type": "gp-section-586131883239146179"
     }
   },
   "order": [
     "gp_section_570806090636198784",
     "gp_section_565435452589409440",
+    "gp_section_586131798111552285",
+    "gp_section_586131883239146179",
     "gp_section_565743354969654482",
     "gp_section_565435452589343904",
     "gp_section_565435452589474976"
