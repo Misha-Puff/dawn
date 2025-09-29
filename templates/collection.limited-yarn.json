@@ -83,7 +83,7 @@
           "settings": {
             "label": "SHOP RWS YARN",
             "open_new_tab": true,
-            "link": "shopify://collections/rws-yarn-skeins",
+            "link": "shopify://collections/studio-rws-yarn",
             "type": "secondary",
             "on_click": ""
           }
