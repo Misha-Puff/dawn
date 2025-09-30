@@ -92,30 +92,30 @@
         "button_XaxzBy": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "SHOP ALL FALL",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-fall",
+            "type": "secondary",
             "on_click": ""
           }
         },
         "button_C99g3E": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "LAYERABLE PIMA",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-pima-staples",
+            "type": "secondary",
             "on_click": ""
           }
         },
         "button_NGpAit": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "ACCESSORIES",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-accessories",
+            "type": "secondary",
             "on_click": ""
           }
         }
@@ -131,10 +131,10 @@
         "button_gap": 10,
         "heading_size": "h1",
         "color_scheme": "",
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 30,
-        "mobile_padding_top": 30,
-        "mobile_padding_bottom": 30
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 48,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 38
       }
     },
     "product-grid": {
