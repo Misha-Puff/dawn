@@ -24,6 +24,22 @@
           "type": "price",
           "settings": {}
         },
+        "variant_picker_bFRmag": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "color_picker_type": "button",
+            "size_picker_type": "dropdown",
+            "swatch_shape": "square",
+            "swatch_message": "",
+            "swatch_message_padding_top": 10,
+            "swatch_message_padding_bottom": 10
+          }
+        },
+        "quantity_selector_qaKBkM": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
         "inventory_PfG9Nk": {
           "type": "inventory",
           "settings": {
@@ -32,8 +48,8 @@
             "show_inventory_quantity": false
           }
         },
-        "quantity_selector_qaKBkM": {
-          "type": "quantity_selector",
+        "bis_form_BBMrzi": {
+          "type": "bis_form",
           "settings": {}
         },
         "buy_buttons": {
@@ -66,8 +82,10 @@
         "title",
         "rating_fBYWfr",
         "price",
-        "inventory_PfG9Nk",
+        "variant_picker_bFRmag",
         "quantity_selector_qaKBkM",
+        "inventory_PfG9Nk",
+        "bis_form_BBMrzi",
         "buy_buttons",
         "description",
         "text_GCGqn4",
@@ -163,7 +181,10 @@
       "blocks": {
         "judge_me_reviews_review_widget_Xzqy7K": {
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200
+          }
         }
       },
       "block_order": [
