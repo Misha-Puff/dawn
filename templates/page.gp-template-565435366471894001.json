@@ -9,6 +9,13 @@
  */
 {
   "sections": {
+    "gp_global_section_586131278688944987-1": {
+      "settings": {
+        "checksum": "",
+        "section_preload": "false"
+      },
+      "type": "gp-global-section-586131278688944987"
+    },
     "gp_section_565435366572557297": {
       "settings": {
         "checksum": "bac7229697bd0615b086ba8017d592c114dba0c5c7c0f946cfc59161697f6382_1_1_1_0__1",
@@ -36,7 +43,7 @@
     },
     "gp_section_565435366572819441": {
       "settings": {
-        "checksum": "f3f0bb9d5c9df4473d0b02b4c2ab8ba111b4e58beb881d9a091de90eb537e610_1_1_1_0__1",
+        "checksum": "840a1cbb9392356cdcf37ad2a820e43ff2eb50a7d99d3b02284d05fd2933e256_1_1_1_0__1",
         "ggHJFhFMV6S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/evergreen\"><span style=\"font-size:12px;\">NEW — EVERGREEN COLLECTION</span></a></p>",
         "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-sweaters-cardigans\" target=\"_blank\"><span style=\"font-size:12px;\">SWEATERS + CARDIGANS</span></a></p>"
       },
@@ -61,11 +68,21 @@
         "section_preload": "true"
       },
       "type": "gp-section-583720142567899879"
+    },
+    "gp_section_586043268232381275": {
+      "settings": {
+        "checksum": "5dc7dbd03545e8a544d9c18074cd0222427b98d552fe821953b84de741b34695_1_1_1_0__1",
+        "ggQuPCe8BRj_text": "<p><span style=\"color:#101820;font-size:13px;\">Essential styles you’ll reach for again and again — signature colors, timeless design, available year-round. Made to mix, layer, and last through every season. This season, our Adult and Child collections align — our first crossover that reflects the spirit of children’s styles, carefully adapted with elegance and ease for adult. From silhouette to palette to texture, these are pieces that echo from one generation to the next. Stay tuned for more.</span></p><p>&nbsp;</p><p><a href=\"https://shop.misha-and-puff.com/collections/mixed-kindred-silhouettes\"><span style=\"background-color:rgb(255,255,255);color:#101820;font-size:12px;\"><u>SHOP NOW</u></span></a></p>",
+        "ggT2zKEP_EA_text": "<span style=\"color:#101820;font-size:12px;\">KINDRED SILHOUETTES</span>"
+      },
+      "type": "gp-section-586043268232381275"
     }
   },
   "order": [
     "gp_section_583720142567899879",
     "gp_section_565435366572819441",
+    "gp_global_section_586131278688944987-1",
+    "gp_section_586043268232381275",
     "gp_section_565742999678485659",
     "gp_section_565435366572557297",
     "gp_section_565435366572753905",
