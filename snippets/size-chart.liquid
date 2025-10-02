@@ -1,41 +1,246 @@
 {% if product.metafields.product_page.json_size_chart != blank %}
+  {% comment %}
+    This single block contains two different HTML layouts for the size chart.
+    They are both controlled by the unified CSS and JavaScript below.
+  {% endcomment %}
+
   {% assign size_chart = product.metafields.product_page.json_size_chart.value %}
   {% assign sizes = size_chart.sizes | split: ',' %}
   {% assign measurements = size_chart.measurements %}
-  <div class="size-chart" id="size-chart{{ product_id }}">
-    <table>
-      <tbody>
-        <tr>
-          <th></th>
-          <th></th>
-          {% for size in sizes %}
-            <th>{{ size }}</th>
-          {% endfor %}
-        </tr>
-        {% for measurement in measurements %}
-          {% assign label = measurement.label %}
-          {% assign cms = measurement.cm | split: ',' %}
-          {% assign ins = measurement.in | split: ',' %}
 
+  <style>
+    /* --- Combined Toggle Styles --- */
+    .v1-unit-toggle input[type='radio'],
+    .v2-unit-toggle input[type='radio'] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .v1-unit-toggle__label,
+    .v2-unit-toggle__label {
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 5px 10px;
+      margin-right: 0;
+      color: #555;
+      font-family: monospace;
+      font-size: 16px;
+      user-select: none;
+    }
+    .v1-unit-toggle__label::before,
+    .v2-unit-toggle__label::before {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 1px solid #555;
+      margin-right: 8px;
+      box-sizing: border-box;
+      vertical-align: middle;
+    }
+    .v1-unit-toggle input[type='radio']:checked + .v1-unit-toggle__label,
+    .v2-unit-toggle input[type='radio']:checked + .v2-unit-toggle__label {
+      color: #000;
+    }
+    .v1-unit-toggle input[type='radio']:checked + .v1-unit-toggle__label::before,
+    .v2-unit-toggle input[type='radio']:checked + .v2-unit-toggle__label::before {
+      background-color: #000;
+      border-color: #000;
+    }
+    .v1-unit-toggle {
+      margin-bottom: 0;
+      padding: 0;
+    }
+    .v2-unit-toggle {
+      margin-bottom: 20px;
+      padding: 0;
+    }
+
+    /* --- Combined Table Styles --- */
+    .v1-size-chart td,
+    .v1-size-chart th,
+    .v2-size-chart td,
+    .v2-size-chart th {
+      white-space: nowrap;
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    .v2-size-chart table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+    }
+    .v2-size-chart th {
+      background-color: #f2f2f2;
+      white-space: normal; /* This allows the header text to wrap */
+    }
+
+    /* --- Logic for Version 1 (Measurements as Rows) --- */
+    .v1-size-chart .unit-row {
+      display: none;
+    }
+    .v1-size-chart .unit-row.is-active {
+      display: table-row;
+    }
+
+    /* --- Logic for Version 2 (Sizes as Rows) --- */
+    .v2-size-chart .unit-value.unit-in {
+      display: none;
+    }
+    .v2-size-chart-container.show-in .unit-value.unit-in {
+      display: inline;
+    }
+    .v2-size-chart-container.show-in .unit-value.unit-cm {
+      display: none;
+    }
+  </style>
+
+  <h2>Version 1: Measurements as Rows</h2>
+  <div class="v1-size-chart-container">
+    <div class="v1-unit-toggle">
+      <input type="radio" id="v1-unit-cm-{{ product.id }}" name="v1-unit-selector-{{ product.id }}" value="cm" checked>
+      <label for="v1-unit-cm-{{ product.id }}" class="v1-unit-toggle__label" data-unit="cm">CM</label>
+      <input type="radio" id="v1-unit-in-{{ product.id }}" name="v1-unit-selector-{{ product.id }}" value="in">
+      <label for="v1-unit-in-{{ product.id }}" class="v1-unit-toggle__label" data-unit="in">IN</label>
+    </div>
+    <div class="v1-size-chart" id="v1-size-chart-{{ product.id }}">
+      <table>
+        <thead>
           <tr>
-            <td rowspan="2">{{ label }}</td>
-            <td>CM</td>
-            {% for cm in cms %}
-              <td>{{ cm }}</td>
+            <th></th>
+            {% for size in sizes %}
+              <th>{{ size }}</th>
             {% endfor %}
           </tr>
-          <tr>
-            <td>IN</td>
-            {% for inch in ins %}
-              <td>{{ inch }}</td>
-            {% endfor %}
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {% for measurement in measurements %}
+            {% assign label = measurement.label %}
+            {% assign cms = measurement.cm | split: ',' %}
+            {% assign ins = measurement.in | split: ',' %}
+            <tr class="unit-row" data-unit="cm">
+              <td>{{ label }}</td>
+              {% for cm in cms %}
+                <td>{{ cm }} cm</td>
+              {% endfor %}
+            </tr>
+            <tr class="unit-row" data-unit="in">
+              <td>{{ label }}</td>
+              {% for inch in ins %}
+                <td>{{ inch }} in</td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </div>
+
+  <br>
+  <hr>
+  <br>
+
+  <h2>Version 2: Sizes as Rows</h2>
+  <div class="v2-size-chart-container">
+    <div class="v2-unit-toggle">
+      <input type="radio" id="v2-unit-cm-{{ product.id }}" name="v2-unit-selector-{{ product.id }}" value="cm" checked>
+      <label for="v2-unit-cm-{{ product.id }}" class="v2-unit-toggle__label">CM</label>
+      <input type="radio" id="v2-unit-in-{{ product.id }}" name="v2-unit-selector-{{ product.id }}" value="in">
+      <label for="v2-unit-in-{{ product.id }}" class="v2-unit-toggle__label">IN</label>
+    </div>
+    <div class="v2-size-chart" id="v2-size-chart-{{ product.id }}">
+      <table>
+        <thead>
+          <tr>
+            <th>Size</th>
+            {% for measurement in measurements %}
+              <th>{{ measurement.label }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for size in sizes %}
+            {% assign current_index = forloop.index0 %}
+            <tr>
+              <td>{{ size }}</td>
+              {% for measurement in measurements %}
+                {% assign cms = measurement.cm | split: ',' %}
+                {% assign ins = measurement.in | split: ',' %}
+                <td>
+                  <span class="unit-value unit-cm">{{ cms[current_index] }} cm</span>
+                  <span class="unit-value unit-in">{{ ins[current_index] }} in</span>
+                </td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // --- Logic for Version 1 ---
+      const allV1Containers = document.querySelectorAll('.v1-size-chart-container');
+      allV1Containers.forEach((container) => {
+        const unitRadios = container.querySelectorAll('input[name^="v1-unit-selector-"]');
+        const allRows = container.querySelectorAll('.unit-row');
+        unitRadios.forEach((radio) => {
+          radio.addEventListener('change', function () {
+            if (this.checked) {
+              const unitToShow = this.value;
+              allRows.forEach((row) => {
+                row.classList.remove('is-active');
+                if (row.getAttribute('data-unit') === unitToShow) {
+                  row.classList.add('is-active');
+                }
+              });
+            }
+          });
+        });
+        const initialCheckedRadio = container.querySelector('input[name^="v1-unit-selector-"]:checked');
+        if (initialCheckedRadio) {
+          const initialUnit = initialCheckedRadio.value;
+          allRows.forEach((row) => {
+            if (row.getAttribute('data-unit') === initialUnit) {
+              row.classList.add('is-active');
+            } else {
+              row.classList.remove('is-active');
+            }
+          });
+        }
+      });
+
+      // --- Logic for Version 2 ---
+      const allV2Containers = document.querySelectorAll('.v2-size-chart-container');
+      allV2Containers.forEach((container) => {
+        const unitRadios = container.querySelectorAll('input[name^="v2-unit-selector-"]');
+        const updateView = (selectedUnit) => {
+          if (selectedUnit === 'in') {
+            container.classList.add('show-in');
+          } else {
+            container.classList.remove('show-in');
+          }
+        };
+        unitRadios.forEach((radio) => {
+          radio.addEventListener('change', function () {
+            if (this.checked) {
+              updateView(this.value);
+            }
+          });
+        });
+        const initialCheckedRadio = container.querySelector('input[name^="v2-unit-selector-"]:checked');
+        if (initialCheckedRadio) {
+          updateView(initialCheckedRadio.value);
+        }
+      });
+    });
+  </script>
+
 {% elsif product.metafields.product_page.size_chart != blank %}
-  <div class="size-chart" id="size-chart{{ product_id }}">
+  <div class="size-chart" id="size-chart{{ product.id }}">
     <div class="size-chart-wrap content container {% if settings.table_styles_enabled %} table is-striped is-bordered {% endif %}">
       <div class="one-whole column">
         <div class="feature_divider"></div>
