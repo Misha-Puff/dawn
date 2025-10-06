@@ -68,12 +68,6 @@
             "swatch_message_padding_bottom": 10
           }
         },
-        "size_chart_zfV9wR": {
-          "type": "size-chart",
-          "settings": {
-            "cta_text": "SIZE GUIDE"
-          }
-        },
         "inventory_PfG9Nk": {
           "type": "inventory",
           "settings": {
@@ -91,6 +85,12 @@
           "settings": {
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": true
+          }
+        },
+        "size_chart_zfV9wR": {
+          "type": "size-chart",
+          "settings": {
+            "cta_text": "SIZE GUIDE"
           }
         },
         "multi_location_inv_location_inventory_qT7XKi": {
@@ -171,10 +171,10 @@
         "custom_liquid_X9miCe",
         "custom_liquid_TwxkfW",
         "variant_picker",
-        "size_chart_zfV9wR",
         "inventory_PfG9Nk",
         "bis_form_iQ4kYG",
         "buy_buttons",
+        "size_chart_zfV9wR",
         "multi_location_inv_location_inventory_qT7XKi",
         "custom_liquid_mPzed7",
         "description",
