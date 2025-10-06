@@ -80,12 +80,6 @@
           "type": "bis_form",
           "settings": {}
         },
-        "size_chart_zfV9wR": {
-          "type": "size-chart",
-          "settings": {
-            "cta_text": "SIZE GUIDE"
-          }
-        },
         "multi_location_inv_location_inventory_qT7XKi": {
           "type": "shopify://apps/multi-location-inv/blocks/location-inventory/982328e1-99f7-4a7e-8266-6aed71bf0021",
           "settings": {}
@@ -107,6 +101,12 @@
         "description": {
           "type": "description",
           "settings": {}
+        },
+        "size_chart_zfV9wR": {
+          "type": "size-chart",
+          "settings": {
+            "cta_text": "Size Guide"
+          }
         },
         "collapsible_tab_JNhcga": {
           "type": "collapsible_tab",
@@ -173,11 +173,11 @@
         "variant_picker",
         "inventory_PfG9Nk",
         "bis_form_iQ4kYG",
-        "size_chart_zfV9wR",
         "multi_location_inv_location_inventory_qT7XKi",
         "buy_buttons",
         "custom_liquid_mPzed7",
         "description",
+        "size_chart_zfV9wR",
         "collapsible_tab_JNhcga",
         "collapsible-row-0",
         "collapsible-row-2",
