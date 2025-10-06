@@ -80,16 +80,16 @@
           "type": "bis_form",
           "settings": {}
         },
-        "multi_location_inv_location_inventory_qT7XKi": {
-          "type": "shopify://apps/multi-location-inv/blocks/location-inventory/982328e1-99f7-4a7e-8266-6aed71bf0021",
-          "settings": {}
-        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": true
           }
+        },
+        "multi_location_inv_location_inventory_qT7XKi": {
+          "type": "shopify://apps/multi-location-inv/blocks/location-inventory/982328e1-99f7-4a7e-8266-6aed71bf0021",
+          "settings": {}
         },
         "custom_liquid_mPzed7": {
           "type": "custom_liquid",
@@ -173,8 +173,8 @@
         "variant_picker",
         "inventory_PfG9Nk",
         "bis_form_iQ4kYG",
-        "multi_location_inv_location_inventory_qT7XKi",
         "buy_buttons",
+        "multi_location_inv_location_inventory_qT7XKi",
         "custom_liquid_mPzed7",
         "description",
         "size_chart_zfV9wR",
