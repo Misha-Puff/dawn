@@ -314,17 +314,7 @@
     {% render 'shogun-head' %}
     {% render 'schemas' %}
   </head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DLJ3XBN6Q9"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
 
-    gtag('config', 'G-DLJ3XBN6Q9');
-  </script>
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
@@ -436,6 +426,18 @@
 
     <!-- - Skimlinks Embed - -->
     <script type="text/javascript" src="https://s.skimresources.com/js/288797X1775567.skimlinks.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DLJ3XBN6Q9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-DLJ3XBN6Q9');
+    </script>
   </body>
 </html>
 
