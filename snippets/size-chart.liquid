@@ -1,12 +1,24 @@
 {% if product.metafields.product_page.json_size_chart != blank %}
-  {% assign size_chart = product.metafields.product_page.json_size_chart.value %}
-  {% assign sizes = size_chart.sizes | split: ',' %}
-  {% assign measurements = size_chart.measurements %}
+  {% liquid
+    assign size_chart = product.metafields.product_page.json_size_chart.value
+    assign sizes = size_chart.sizes | split: ','
+    assign measurements = size_chart.measurements
+    assign show_legend = false
+
+    for measurement in measurements
+      assign translation = measurement.translation
+
+      if translation != ''
+        assign show_legend = true
+        break
+      endif
+    endfor
+  %}
 
   <style>
     .size-chart-header {
       display: flex;
-      justify-content: flex-start;
+      justify-content: center;
       align-items: center;
       margin-bottom: 20px;
       gap: 20px;
@@ -89,6 +101,23 @@
       font-size: 12px;
     }
 
+    .size-chart-container .divider-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    .size-chart-container .divider {
+      width: 100%;
+      border-top: 1px solid rgb(1, 1, 1, 0.25);
+    }
+
+    .size-chart-legend .item {
+      margin: 0;
+      font-size: 11px;
+    }
+
     /* --- Responsive Styles for smaller screens --- */
     @media (max-width: 750px) {
       .size-chart td:not(:first-child),
@@ -137,13 +166,28 @@
         </tbody>
       </table>
     </div>
+    {% if show_legend %}
+      <div class="divider-wrapper">
+        <div class="divider">
+          <span class="visually-hidden">divider</span>
+        </div>
+      </div>
+
+      <div class="size-chart-legend">
+        {% for measurement in measurements %}
+          {% assign translation = measurement.translation %}
+          {% assign label = measurement.label %}
+          {% if translation != null %}
+            <p class="item">{{ label }}: {{ translation }}</p>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
   </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const allSizeChartContainers = document.querySelectorAll('.size-chart-container');
-      allSizeChartContainers.forEach((container) => {
-        const unitRadios = container.querySelectorAll('input[name^="unit-selector-"]');
+      document.querySelectorAll('.size-chart-container')?.forEach((container) => {
         const updateView = (selectedUnit) => {
           if (selectedUnit === 'in') {
             container.classList.add('show-in');
@@ -151,17 +195,20 @@
             container.classList.remove('show-in');
           }
         };
-        unitRadios.forEach((radio) => {
+
+        const initialCheckedRadio = container.querySelector('input[name^="unit-selector-"]:checked');
+
+        if (initialCheckedRadio) {
+          updateView(initialCheckedRadio.value);
+        }
+
+        container.querySelectorAll('input[name^="unit-selector-"]')?.forEach((radio) => {
           radio.addEventListener('change', function () {
             if (this.checked) {
               updateView(this.value);
             }
           });
         });
-        const initialCheckedRadio = container.querySelector('input[name^="unit-selector-"]:checked');
-        if (initialCheckedRadio) {
-          updateView(initialCheckedRadio.value);
-        }
       });
     });
   </script>
