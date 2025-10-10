@@ -1,41 +1,226 @@
 {% if product.metafields.product_page.json_size_chart != blank %}
-  {% assign size_chart = product.metafields.product_page.json_size_chart.value %}
-  {% assign sizes = size_chart.sizes | split: ',' %}
-  {% assign measurements = size_chart.measurements %}
-  <div class="size-chart" id="size-chart{{ product_id }}">
-    <table>
-      <tbody>
-        <tr>
-          <th></th>
-          <th></th>
-          {% for size in sizes %}
-            <th>{{ size }}</th>
-          {% endfor %}
-        </tr>
-        {% for measurement in measurements %}
-          {% assign label = measurement.label %}
-          {% assign cms = measurement.cm | split: ',' %}
-          {% assign ins = measurement.in | split: ',' %}
+  {% liquid
+    assign size_chart = product.metafields.product_page.json_size_chart.value
+    assign sizes = size_chart.sizes | split: ','
+    assign measurements = size_chart.measurements
+    assign show_legend = false
 
+    for measurement in measurements
+      assign translation = measurement.translation
+
+      if translation != ''
+        assign show_legend = true
+        break
+      endif
+    endfor
+  %}
+
+  <style>
+    .size-chart-container {
+      padding-left: 15rem;
+      padding-right: 15rem;
+    }
+    .size-chart-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      gap: 20px;
+    }
+    .size-chart-header h2 {
+      margin: 0;
+    }
+    .unit-toggle input[type='radio'] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .unit-toggle__label {
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 5px 10px;
+      margin-right: 0;
+      color: #555;
+      font-size: 16px;
+      user-select: none;
+    }
+    .unit-toggle__label::before {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 1px solid #555;
+      margin-right: 8px;
+      box-sizing: border-box;
+      vertical-align: middle;
+    }
+    .unit-toggle input[type='radio']:checked + .unit-toggle__label {
+      color: #000;
+    }
+    .unit-toggle input[type='radio']:checked + .unit-toggle__label::before {
+      background-color: #000;
+      border-color: #000;
+    }
+    .unit-toggle {
+      margin-bottom: 0;
+      padding: 0;
+    }
+    .size-chart {
+      display: flex;
+      justify-content: center;
+    }
+    .size-chart td,
+    .size-chart th {
+      border: 1px solid black !important;
+      padding: 8px;
+    }
+    .size-chart table {
+      width: fit-content;
+      border-collapse: collapse;
+      text-align: center;
+    }
+    .size-chart th {
+      background-color: #f2f2f2;
+      white-space: normal;
+    }
+    .size-chart td:not(:first-child),
+    .size-chart th:not(:first-child) {
+      width: 1%;
+      white-space: nowrap;
+    }
+    .size-chart .unit-value.unit-in {
+      display: none;
+    }
+    .size-chart-container.show-in .unit-value.unit-in {
+      display: inline;
+    }
+    .size-chart-container.show-in .unit-value.unit-cm {
+      display: none;
+    }
+    .unit-toggle__label,
+    .size-chart th,
+    .size-chart td {
+      font-size: 12px;
+    }
+
+    .size-chart-container .divider-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 18px;
+      margin-bottom: 15px;
+    }
+
+    .size-chart-container .divider {
+      width: 100%;
+      border-top: 1px solid black;
+    }
+
+    .size-chart-legend .item {
+      margin: 0;
+      font-size: 11px;
+    }
+
+    @media (max-width: 750px) {
+      .size-chart-container {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .size-chart td:not(:first-child),
+      .size-chart th:not(:first-child) {
+        width: 1%;
+        white-space: nowrap;
+      }
+    }
+  </style>
+
+  <div class="size-chart-container">
+    <div class="size-chart-header">
+      <h2>Product Measurements</h2>
+      <div class="unit-toggle">
+        <input type="radio" id="unit-cm-{{ product.id }}" name="unit-selector-{{ product.id }}" value="cm" checked>
+        <label for="unit-cm-{{ product.id }}" class="unit-toggle__label">CM</label>
+        <input type="radio" id="unit-in-{{ product.id }}" name="unit-selector-{{ product.id }}" value="in">
+        <label for="unit-in-{{ product.id }}" class="unit-toggle__label">IN</label>
+      </div>
+    </div>
+    <div class="size-chart" id="size-chart-{{ product.id }}">
+      <table>
+        <thead>
           <tr>
-            <td rowspan="2">{{ label }}</td>
-            <td>CM</td>
-            {% for cm in cms %}
-              <td>{{ cm }}</td>
+            <th>Size</th>
+            {% for measurement in measurements %}
+              <th>{{ measurement.label }}</th>
             {% endfor %}
           </tr>
-          <tr>
-            <td>IN</td>
-            {% for inch in ins %}
-              <td>{{ inch }}</td>
-            {% endfor %}
-          </tr>
+        </thead>
+        <tbody>
+          {% for size in sizes %}
+            {% assign current_index = forloop.index0 %}
+            <tr>
+              <td>{{ size }}</td>
+              {% for measurement in measurements %}
+                {% assign cms = measurement.cm | split: ',' %}
+                {% assign ins = measurement.in | split: ',' %}
+                <td>
+                  <span class="unit-value unit-cm">{{ cms[current_index] }} cm</span>
+                  <span class="unit-value unit-in">{{ ins[current_index] }} in</span>
+                </td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% if show_legend %}
+      <div class="divider-wrapper">
+        <div class="divider">
+          <span class="visually-hidden">divider</span>
+        </div>
+      </div>
+
+      <div class="size-chart-legend">
+        {% for measurement in measurements %}
+          {% assign translation = measurement.translation %}
+          {% assign label = measurement.label %}
+          {% if translation != null %}
+            <p class="item">{{ label }}: {{ translation }}</p>
+          {% endif %}
         {% endfor %}
-      </tbody>
-    </table>
+      </div>
+    {% endif %}
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.size-chart-container')?.forEach((container) => {
+        const updateView = (selectedUnit) => {
+          if (selectedUnit === 'in') {
+            container.classList.add('show-in');
+          } else {
+            container.classList.remove('show-in');
+          }
+        };
+
+        const initialCheckedRadio = container.querySelector('input[name^="unit-selector-"]:checked');
+
+        if (initialCheckedRadio) {
+          updateView(initialCheckedRadio.value);
+        }
+
+        container.querySelectorAll('input[name^="unit-selector-"]')?.forEach((radio) => {
+          radio.addEventListener('change', function () {
+            if (this.checked) {
+              updateView(this.value);
+            }
+          });
+        });
+      });
+    });
+  </script>
 {% elsif product.metafields.product_page.size_chart != blank %}
-  <div class="size-chart" id="size-chart{{ product_id }}">
+  <div class="size-chart" id="size-chart{{ product.id }}">
     <div class="size-chart-wrap content container {% if settings.table_styles_enabled %} table is-striped is-bordered {% endif %}">
       <div class="one-whole column">
         <div class="feature_divider"></div>

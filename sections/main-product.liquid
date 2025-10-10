@@ -789,6 +789,78 @@
                 {% render 'icon-with-text', block: block %}
               {%- when 'bis_form' -%}
                 {% render 'klaviyo-bis-form' %}
+              {%- when 'size-chart' -%}
+                {% if product.metafields.product_page.json_size_chart != blank
+                  or product.metafields.product_page.size_chart != blank
+                %}
+                  <style>
+                    .Block-{{ block.id }} {
+                      margin: 0;
+                    }
+
+                    #ProductPopup-{{ block.id }} {
+                      font-size: 11px;
+                    }
+
+                    #PopupModal-{{ block.id }} .product-popup-modal__content {
+                      width: fit-content;
+                      height: fit-content;
+                      max-width: 80%;
+                      max-height: 80%;
+                      padding: 0 1.5rem 4rem 1.5rem
+                    }
+
+                    #ModalClose-{{ block.id }} {
+                      border: 0;
+                      color black;
+                    }
+
+                    @media (max-width: 750px) {
+                      #PopupModal-{{ block.id }} .product-popup-modal__content {
+                        max-width: 95%;
+                      }
+                    }
+                  </style>
+                  <modal-opener
+                    class="Block-{{ block.id }} product-popup-modal__opener quick-add-hidden"
+                    data-modal="#PopupModal-{{ block.id }}"
+                    {{ block.shopify_attributes }}
+                  >
+                    <button
+                      id="ProductPopup-{{ block.id }}"
+                      class="product-popup-modal__button link"
+                      type="button"
+                      aria-haspopup="dialog"
+                    >
+                      {{ block.settings.cta_text }}
+                    </button>
+                  </modal-opener>
+                  <modal-dialog
+                    id="PopupModal-{{ block.id }}"
+                    class="product-popup-modal"
+                    {{ block.shopify_attributes }}
+                  >
+                    <div
+                      role="dialog"
+                      aria-label="{{ block.settings.text }}"
+                      aria-modal="true"
+                      class="product-popup-modal__content"
+                      tabindex="-1"
+                    >
+                      <button
+                        id="ModalClose-{{ block.id }}"
+                        type="button"
+                        class="product-popup-modal__toggle"
+                        aria-label="{{ 'accessibility.close' | t }}"
+                      >
+                        {{- 'icon-close.svg' | inline_asset_content -}}
+                      </button>
+                      <div class="product-popup-modal__content-info">
+                        {% render 'size-chart' %}
+                      </div>
+                    </div>
+                  </modal-dialog>
+                {% endif %}
             {%- endcase -%}
           {%- endfor -%}
           <a href="{{ product.url }}" class="link product__view-details animate-arrow">
@@ -803,9 +875,10 @@
 
     {% assign popups = section.blocks | where: 'type', 'popup' %}
     {%- for block in popups -%}
-      {%- comment %}<locksmith:967c>{% endcomment -%}
-        {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-      {%- comment %}</locksmith:967c>{% endcomment -%}
+      {%- comment %}<locksmith:967c>{%- endcomment %}
+      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: block, variable: 'transparent' %}{% endcapture -%}
+      {%- if var == 'true' %}{% else %}{% continue %}{% endif -%}
+      {%- comment %}</locksmith:967c>{%- endcomment %}
       <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
         <div
           role="dialog"
@@ -2270,6 +2343,19 @@
       "type": "bis_form",
       "name": "BIS Form",
       "limit": 1
+    },
+    {
+      "type": "size-chart",
+      "name": "Size Chart",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Text",
+          "default": "Size Guide"
+        }
+      ]
     }
   ],
   "settings": [
