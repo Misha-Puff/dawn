@@ -807,12 +807,15 @@
                       height: fit-content;
                       max-width: 80%;
                       max-height: 80%;
-                      padding: 0 1.5rem 4rem 1.5rem
+                      padding: 0 1.5rem 4rem 1.5rem;
+                      box-shadow: none !important;
+                      outline: none !important;
                     }
 
                     #ModalClose-{{ block.id }} {
                       border: 0;
-                      color black;
+                      color: black !important;
+                      margin-top: 1rem;
                     }
 
                     @media (max-width: 750px) {
