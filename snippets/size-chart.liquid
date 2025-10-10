@@ -16,6 +16,10 @@
   %}
 
   <style>
+    .size-chart-container {
+      padding-left: 15rem;
+      padding-right: 15rem;
+    }
     .size-chart-header {
       display: flex;
       justify-content: center;
@@ -69,7 +73,7 @@
     }
     .size-chart td,
     .size-chart th {
-      border: 1px solid #ddd;
+      border: 1px solid black !important;
       padding: 8px;
     }
     .size-chart table {
@@ -104,13 +108,13 @@
     .size-chart-container .divider-wrapper {
       display: flex;
       justify-content: center;
-      margin-top: 15px;
+      margin-top: 18px;
       margin-bottom: 15px;
     }
 
     .size-chart-container .divider {
       width: 100%;
-      border-top: 1px solid rgb(1, 1, 1, 0.25);
+      border-top: 1px solid black;
     }
 
     .size-chart-legend .item {
@@ -118,8 +122,11 @@
       font-size: 11px;
     }
 
-    /* --- Responsive Styles for smaller screens --- */
     @media (max-width: 750px) {
+      .size-chart-container {
+        padding-left: 0;
+        padding-right: 0;
+      }
       .size-chart td:not(:first-child),
       .size-chart th:not(:first-child) {
         width: 1%;

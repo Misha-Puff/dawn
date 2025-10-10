@@ -807,12 +807,18 @@
                       height: fit-content;
                       max-width: 80%;
                       max-height: 80%;
-                      padding-bottom: 3rem;
+                      padding: 0 1.5rem 4rem 1.5rem
                     }
 
                     #ModalClose-{{ block.id }} {
                       border: 0;
                       color black;
+                    }
+
+                    @media (max-width: 750px) {
+                      #PopupModal-{{ block.id }} .product-popup-modal__content {
+                        max-width: 95%;
+                      }
                     }
                   </style>
                   <modal-opener
