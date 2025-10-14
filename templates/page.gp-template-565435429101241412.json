@@ -11,32 +11,47 @@
   "sections": {
     "gp_section_565435429168350276": {
       "settings": {
-        "checksum": "6ef8673abf3005ce9c7cfba1e4518d5395491f7fd113d41eadddaffa19e6806c_1_1_1_0_"
+        "checksum": "6ef8673abf3005ce9c7cfba1e4518d5395491f7fd113d41eadddaffa19e6806c_1_1_1_0__1",
+        "gg5_GEvhnAz_label": "<p>SALE</p>",
+        "ggHLnNHWcjZ_label": "<p>TOPS</p>",
+        "ggHLv-ZKTlu_label": "<p>PIMA STAPLES</p>",
+        "ggkAY6Ejd6O_label": "<p>BOTTOMS</p>",
+        "ggxxCQfjKeQ_text": "Explore More",
+        "ggzFH-jXWZh_label": "<p>ONESIES</p>"
       },
       "type": "gp-section-565435429168350276"
     },
     "gp_section_565435429168415812": {
       "settings": {
-        "checksum": "478553fe7cb087bdea0e43edad8b6aa6d0ec6ab359f85a30ddbeb33d97dfca93_1_1_1_0_"
+        "checksum": "478553fe7cb087bdea0e43edad8b6aa6d0ec6ab359f85a30ddbeb33d97dfca93_1_1_1_0__1"
       },
       "type": "gp-section-565435429168415812"
     },
     "gp_section_565435429168481348": {
       "settings": {
-        "checksum": "a8a6050dde92c8feeb7ad35a4fdddb175cfb59b00ace9e21e26a052ec6db8b3e_1_1_1_0_",
+        "checksum": "a8a6050dde92c8feeb7ad35a4fdddb175cfb59b00ace9e21e26a052ec6db8b3e_1_1_1_0__1",
+        "ggOt4t8g-Rc_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-fall\" target=\"_blank\"><span style=\"font-size:12px;\"><u>SHOP NOW</u></span></a></p>",
+        "gguRPskvs_w_text": "<span style=\"font-size:15px;\">THE FALL COLLECTION</span>",
         "section_preload": "true"
       },
       "type": "gp-section-565435429168481348"
     },
     "gp_section_565435429168546884": {
       "settings": {
-        "checksum": "0eb7a610e9f8c9a2b17ddc1e89fd9e6fa3d30d2656aac862bff76aafb0a05dbf_1_1_1_0_"
+        "checksum": "b652de04d16f9c6e126fac901a3b50a28f9976e781f00e3c984b4032365bfc7b_1_1_1_0__1",
+        "ggHJFhFMV6S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-one-piece\"><span style=\"font-size:12px;\">ONE-PIECES</span></a></p>",
+        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/preview\"><span style=\"font-size:12px;\">PREVIEW THE WINTER COLLECTION</span></a></p>"
       },
       "type": "gp-section-565435429168546884"
     },
     "gp_section_565743274438952146": {
       "settings": {
-        "checksum": "d7e0cc14ab894910a73a1719de8276aac822e88e37031598e70132b81cbdcb9c_1_1_1_0_"
+        "checksum": "d7e0cc14ab894910a73a1719de8276aac822e88e37031598e70132b81cbdcb9c_1_1_1_0__1",
+        "ggNIzGr-zG6_text": "<span style=\"font-size:12px;\">NEW ARRIVALS</span>",
+        "ggfEg-ZUUju_label": "ADD TO CART",
+        "ggfEg-ZUUju_outOfStockLabel": "Out of stock",
+        "ggfEg-ZUUju_unavailableLabel": "Unavailable",
+        "ggfEg-ZUUju_variantSelectionRequiredMessage": "Please select a variant to add product to cart"
       },
       "type": "gp-section-565743274438952146"
     }
