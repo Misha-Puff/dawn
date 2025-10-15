@@ -30,6 +30,7 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
@@ -42,14 +43,14 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Cerulean",
+            "heading": "The Winter Collection",
             "heading_size": "h2"
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>A true star of the Fall Collection — Cerulean. A vibrant blue, dyed to a rich, saturated finish. A playful hue that brightens every style.</p>",
+            "text": "<p>Where holiday nostalgia drifts through a landscape of Western light. Cozy Merino knits, lush velvet and corduroy, and inspired jacquards and intarsia designs in a dreamy holiday palette. New silhouettes and accessories to layer, to gather, to celebrate — finished with refined hand-worked details. Festive heirlooms for winters to come.</p>",
             "line_height": 24
           }
         },
@@ -74,16 +75,15 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
-        "padding_left": 100,
-        "padding_right": 100
+        "padding_top": 60,
+        "padding_bottom": 32,
+        "padding_left": 52,
+        "padding_right": 52
       }
     },
     "buttons_Mn3bJP": {
@@ -92,30 +92,50 @@
         "button_XaxzBy": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "SHOP BABY WINTER",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-winter",
+            "type": "secondary",
             "on_click": ""
           }
         },
         "button_C99g3E": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "SWEATERS",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-sweaters-cardigans",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_W3y8Jb": {
+          "type": "button",
+          "settings": {
+            "label": "DRESSES",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-dresses",
+            "type": "secondary",
             "on_click": ""
           }
         },
         "button_NGpAit": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "JACKETS",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-jackets",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_7NgxBw": {
+          "type": "button",
+          "settings": {
+            "label": "ACCESSORIES",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-accessories",
+            "type": "secondary",
             "on_click": ""
           }
         }
@@ -123,19 +143,20 @@
       "block_order": [
         "button_XaxzBy",
         "button_C99g3E",
-        "button_NGpAit"
+        "button_W3y8Jb",
+        "button_NGpAit",
+        "button_7NgxBw"
       ],
-      "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
         "button_gap": 10,
         "heading_size": "h1",
         "color_scheme": "",
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 30,
-        "mobile_padding_top": 30,
-        "mobile_padding_bottom": 30
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 48,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 38
       }
     },
     "product-grid": {
