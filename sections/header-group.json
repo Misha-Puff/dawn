@@ -16,7 +16,6 @@
       "blocks": {
         "announcement_YVezxm": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
             "text": "<p>GIFT WITH PURCHASE on orders $500+. Ends Friday 10/17. <a href=\"https://shop.misha-and-puff.com/pages/current-promotions\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/pages/current-promotions\">See details</a>.</p>"
           }
@@ -33,7 +32,6 @@
         "announcement_YVezxm",
         "announcement_dDUTp6"
       ],
-      "disabled": true,
       "settings": {
         "desktop_height": 34,
         "mobile_height": 40,
