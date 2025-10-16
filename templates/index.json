@@ -9,63 +9,60 @@
  */
 {
   "sections": {
-    "gp_section_588179244891243459": {
+    "gp_section_588772620409766555": {
       "settings": {
-        "checksum": "ab2b750dbbc60ea7892178c15a4d135a2bc174a1e0fd38f5a5d5278305c3a577_1_1_1_0__1",
-        "gg8FKQDARoC_text": "<p><span style=\"font-size:12px;\"><u>SHOP NOW</u></span></p>",
-        "ggI3y0d4fQY_text": "<span style=\"font-size:15px;\">ADULT FALL COLLECTION</span>",
+        "checksum": "858bb2463388e4b86b38134150ad03a1daea25c7167b5ae2e899fe3901cfeb02_1_1_1_0__1",
+        "gg-Y6akhjPy_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-fall\">THE ADULT COLLECTION</a></p>",
+        "gglv94RH8qJ_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/preview\">BABY WINTER COLLECTION</a></p>"
+      },
+      "type": "gp-section-588772620409766555"
+    },
+    "gp_section_588772620409832091": {
+      "settings": {
+        "checksum": "4da6f2b6bee61fc6ff2a41287496ffe21d80d6a830f33ebde7651419d60bc8ab_1_1_1_0__1",
+        "gggAnF3Dn1-_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\" target=\"_blank\"><u>JOURNAL</u></a></p>"
+      },
+      "type": "gp-section-588772620409832091"
+    },
+    "gp_section_588772620409897627": {
+      "settings": {
+        "checksum": "b84d02526d95e41f7efdcc45af352ee9c53ec342dd919156ef050066c3b3b4ec_1_1_1_0__1",
+        "gg8FKQDARoC_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-winter\"><span style=\"font-size:12px;\"><u>SHOP NOW</u></span></a></p>",
+        "ggI3y0d4fQY_text": "<span style=\"font-size:15px;\">THE WINTER COLLECTION</span>",
         "ggVuqTyy9kV_text": "<span style=\"font-size:11px;\">NEW ARRIVALS</span>",
         "section_preload": "true"
       },
-      "type": "gp-section-588179244891243459"
+      "type": "gp-section-588772620409897627"
     },
-    "gp_section_588179244891308995": {
+    "gp_section_588772620410028699": {
       "settings": {
-        "checksum": "cf5549b4681cb7916228027af0805a685a2529c0df86354ee239369c1922c925_1_1_1_0__1",
-        "gggAnF3Dn1-_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\" target=\"_blank\"><u>JOURNAL</u></a></p>"
-      },
-      "type": "gp-section-588179244891308995"
-    },
-    "gp_section_588179244891374531": {
-      "settings": {
-        "checksum": "8cb727800630c3ccb7ed8c9c588869beec33171ecc5b0fba8deca85bd9ccc3a9_1_1_1_0__1",
-        "ggHJFhFMV6S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/evergreen\">EVERGREEN COLLECTION</a></p>",
-        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/mixed-kindred-silhouettes\"><span style=\"font-size:12px;\">KINDRED STYLES — For Kids + Adults</span></a></p>"
-      },
-      "type": "gp-section-588179244891374531"
-    },
-    "gp_section_588179244891505603": {
-      "settings": {
-        "checksum": "91dc7c2fa7805c9d067f604095f9d5159378d73a2eaa8193429250e5cb60f3ef_1_1_1_0__1",
+        "checksum": "55d93a91c0d2fd160c38872910eaab03dd72c03bdf1d41dacd8e5508f2c7da3b_1_1_1_0__1",
         "gg4ldLf4Ry9_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(0,0,0);font-size:12px;\">Designed in New England and handcrafted by a network of highly skilled knitters and artisans around the world, Misha &amp; Puff is built on a shared love of craft and material integrity. With our partners, we've scaled handcrafted knits responsibly and respectfully, honoring our values and vision for the future.</span></p><p>&nbsp;</p><p>&nbsp;</p><p><a href=\"https://shop.misha-and-puff.com/pages/people\" target=\"_blank\"><span style=\"background-color:rgb(255,255,255);color:rgb(16,24,32);font-size:13px;\"><u>READ MORE</u></span></a></p>",
         "gg8Fb4FlZUt_text": "DESIGNED BY ARTISTS, MADE BY ARTISANS"
       },
-      "type": "gp-section-588179244891505603"
+      "type": "gp-section-588772620410028699"
     },
-    "gp_section_588184603953464259": {
+    "gp_section_588772620410094235": {
       "settings": {
-        "checksum": "63e9591d882e4edf7d32970345b7d77123786037a245591e6d4e92ade6e6fcf7_1_1_1_0__1",
-        "gg-Y6akhjPy_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-fall\"><span style=\"font-size:12px;\">BABY FALL COLLECTION</span></a></p>",
-        "gg7kwlicYsU_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-fall\"><span style=\"font-size:12px;\">CHILD FALL COLLECTION</span></a></p>",
-        "gglv94RH8qJ_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/preview\">PREVIEW THE WINTER COLLECTION</a></p>"
-      },
-      "type": "gp-section-588184603953464259"
-    },
-    "gp_section_588194753833599803": {
-      "settings": {
-        "checksum": "907e4f3704f1b1959763f654aea7783a34053b5bba5cb455b29b8c071b19b358_1_1_1_0__1",
+        "checksum": "272c548c06eb599b190db1b2515f34880f63a730a49f91789bd6d8cde0a859d4_1_1_1_0__1",
         "ggKrKi_lEU4_text": "<span style=\"color:#101820;font-size:12px;\">DESIGNED BY ARTISTS, MADE BY ARTISANS</span>",
         "ggWNccNUpx0_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(0,0,0);font-size:12px;\">Designed in New England and handcrafted by a network of highly skilled knitters and artisans around the world, Misha &amp; Puff is built on a shared love of craft and material integrity. With our partners, we've scaled handcrafted knits responsibly and respectfully, honoring our values and vision for the future.</span><br>&nbsp;</p><p>&nbsp;</p><p><a href=\"https://shop.misha-and-puff.com/pages/people\" target=\"_blank\"><span style=\"background-color:rgb(255,255,255);color:rgb(16,24,32);font-size:13px;\"><u>READ MORE</u></span></a></p>"
       },
-      "type": "gp-section-588194753833599803"
+      "type": "gp-section-588772620410094235"
+    },
+    "gp_section_588782466773287825": {
+      "settings": {
+        "checksum": "5f42b8a75ff9598db8a8c6b1444de3ff05936f19ea26922c168155d64186c1be_1_1_1_0__1"
+      },
+      "type": "gp-section-588782466773287825"
     }
   },
   "order": [
-    "gp_section_588179244891243459",
-    "gp_section_588184603953464259",
-    "gp_section_588194753833599803",
-    "gp_section_588179244891505603",
-    "gp_section_588179244891374531",
-    "gp_section_588179244891308995"
+    "gp_section_588772620409897627",
+    "gp_section_588772620409766555",
+    "gp_section_588772620410094235",
+    "gp_section_588772620410028699",
+    "gp_section_588772620409832091",
+    "gp_section_588782466773287825"
   ]
 }
