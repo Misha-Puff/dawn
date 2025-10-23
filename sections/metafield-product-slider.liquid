@@ -1,5 +1,10 @@
 {% liquid
-  assign products = section.settings.product_list
+  if section.settings.collection.products.length > 0
+    assign products = section.settings.collection.products
+  else
+    assign products = section.settings.product_list
+  endif
+
   assign num_products = 0
 
   for product in products
@@ -331,6 +336,11 @@
       "id": "product_list",
       "label": "Products",
       "limit": 50
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
     },
     {
       "type": "checkbox",
