@@ -16,13 +16,13 @@
       "blocks": {
         "announcement_YVezxm": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
-            "text": "<p>EXTRA 10% OFF SALE W/ CODE EXTRA10 — Ends Monday 9/1 11:59 PM ET</p>"
+            "text": "<p>GIFT WITH PURCHASE on orders $500+. Ends Friday 10/17. <a href=\"https://shop.misha-and-puff.com/pages/current-promotions\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/pages/current-promotions\">See details</a>.</p>"
           }
         },
         "announcement_dDUTp6": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "<p>NEW: Evergreen Collection — <a href=\"/collections/evergreen\" target=\"_blank\" title=\"Evergreen\">Shop Now</a></p>"
           }

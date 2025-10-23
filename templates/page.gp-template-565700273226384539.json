@@ -11,20 +11,27 @@
   "sections": {
     "gp_section_565700346895140050": {
       "settings": {
-        "checksum": "fe47130c6a3f7536ca04edf044d463cdf4ce57ca0f592728bebed0165807803b_1_1_1_0_",
+        "checksum": "fc7a5c838fe24bac7fc42dd3eb308bb118a7355a0fc23d1a4c4c148f77dde9ac_1_1_1_0__1",
+        "ggLKSnfxqPV_text": "CURRENT PROMOTIONS",
         "section_preload": "true"
       },
       "type": "gp-section-565700346895140050"
     },
     "gp_section_565704544823018303": {
       "settings": {
-        "checksum": "a08e7ca25264580c6ab18eae4a3942cd4ce6b4095719c983343393801cc945df_1_1_1_0_"
+        "checksum": "b3993d962e855fbdc22ea8f8b2cded4a60e18901407a685fdff5d3fb7c8f808e_1_1_1_0__1",
+        "ggNUavHgpfx_text": "<p>WINTER COLLECTION GIFT WITH PURCHASE<br>&nbsp;</p><p>As a thank you to our community, enjoy a&nbsp;free gift with purchase with online orders over $500. Promotion runs from Thursday, October 16 at 8 AM ET and ends Friday, October 17, at 8 AM ET.<br>&nbsp;</p><p><i>Spend $500+</i>: Choose a select Pima cotton top<br><i>Spend $1000+</i>: Choose a select Signature knit style<br>&nbsp;</p><p>A pop-up prompt will appear when your order qualifies for a gift.<br>&nbsp;</p><p>Gift with Purchase promotion ends Friday, October 17 at 8 AM ET. Valid online only while supplies last. Offer applies to qualifying purchases only. Only styles shown as available to add as a gift are eligible — no substitutions for other items. This promotion cannot be combined with other discounts or applied to combined orders. Gifts cannot be returned or redeemed for cash or credit. No adjustments to previous purchases. Exclusions apply. Misha &amp; Puff reserves the right to modify or cancel this promotion at any time.</p>"
       },
       "type": "gp-section-565704544823018303"
     },
     "gp_section_565706019255092054": {
       "settings": {
-        "checksum": "0c9eb56f09ff4e2c5d3d6aa45ad77234f09411d74dffe1952cb51dea66ab97b0_1_1_1_0_"
+        "checksum": "c63f719870ba1e9991b6a19aca94efc2797d51e79c96fb4186cbe9d0627473d8_1_1_1_0__1",
+        "ggOxzCHo6QF_label": "<p>SHOP CHILD</p>",
+        "ggSDU6X4TA8_label": "<p>SHOP ADULT</p>",
+        "ggUhrlo0oul_label": "<p>SHOP BABY</p>",
+        "ggXUTG8poYu_text": "<span style=\"font-size:20px;\">Shop Now</span>",
+        "ggsBb4vWXmx_label": "<p>SALE</p>"
       },
       "type": "gp-section-565706019255092054"
     }

@@ -1,0 +1,71 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_588179244891243459": {
+      "settings": {
+        "checksum": "ab2b750dbbc60ea7892178c15a4d135a2bc174a1e0fd38f5a5d5278305c3a577_1_1_1_0__1",
+        "gg8FKQDARoC_text": "<p><span style=\"font-size:12px;\"><u>SHOP NOW</u></span></p>",
+        "ggI3y0d4fQY_text": "<span style=\"font-size:15px;\">ADULT FALL COLLECTION</span>",
+        "ggVuqTyy9kV_text": "<span style=\"font-size:11px;\">NEW ARRIVALS</span>",
+        "section_preload": "true"
+      },
+      "type": "gp-section-588179244891243459"
+    },
+    "gp_section_588179244891308995": {
+      "settings": {
+        "checksum": "cf5549b4681cb7916228027af0805a685a2529c0df86354ee239369c1922c925_1_1_1_0__1",
+        "gggAnF3Dn1-_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\" target=\"_blank\"><u>JOURNAL</u></a></p>"
+      },
+      "type": "gp-section-588179244891308995"
+    },
+    "gp_section_588179244891374531": {
+      "settings": {
+        "checksum": "8cb727800630c3ccb7ed8c9c588869beec33171ecc5b0fba8deca85bd9ccc3a9_1_1_1_0__1",
+        "ggHJFhFMV6S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/evergreen\">EVERGREEN COLLECTION</a></p>",
+        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/mixed-kindred-silhouettes\"><span style=\"font-size:12px;\">KINDRED STYLES — For Kids + Adults</span></a></p>"
+      },
+      "type": "gp-section-588179244891374531"
+    },
+    "gp_section_588179244891505603": {
+      "settings": {
+        "checksum": "91dc7c2fa7805c9d067f604095f9d5159378d73a2eaa8193429250e5cb60f3ef_1_1_1_0__1",
+        "gg4ldLf4Ry9_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(0,0,0);font-size:12px;\">Designed in New England and handcrafted by a network of highly skilled knitters and artisans around the world, Misha &amp; Puff is built on a shared love of craft and material integrity. With our partners, we've scaled handcrafted knits responsibly and respectfully, honoring our values and vision for the future.</span></p><p>&nbsp;</p><p>&nbsp;</p><p><a href=\"https://shop.misha-and-puff.com/pages/people\" target=\"_blank\"><span style=\"background-color:rgb(255,255,255);color:rgb(16,24,32);font-size:13px;\"><u>READ MORE</u></span></a></p>",
+        "gg8Fb4FlZUt_text": "DESIGNED BY ARTISTS, MADE BY ARTISANS"
+      },
+      "type": "gp-section-588179244891505603"
+    },
+    "gp_section_588184603953464259": {
+      "settings": {
+        "checksum": "63e9591d882e4edf7d32970345b7d77123786037a245591e6d4e92ade6e6fcf7_1_1_1_0__1",
+        "gg-Y6akhjPy_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-fall\"><span style=\"font-size:12px;\">BABY FALL COLLECTION</span></a></p>",
+        "gg7kwlicYsU_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-fall\"><span style=\"font-size:12px;\">CHILD FALL COLLECTION</span></a></p>",
+        "gglv94RH8qJ_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/preview\">PREVIEW THE WINTER COLLECTION</a></p>"
+      },
+      "type": "gp-section-588184603953464259"
+    },
+    "gp_section_588194753833599803": {
+      "settings": {
+        "checksum": "907e4f3704f1b1959763f654aea7783a34053b5bba5cb455b29b8c071b19b358_1_1_1_0__1",
+        "ggKrKi_lEU4_text": "<span style=\"color:#101820;font-size:12px;\">DESIGNED BY ARTISTS, MADE BY ARTISANS</span>",
+        "ggWNccNUpx0_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(0,0,0);font-size:12px;\">Designed in New England and handcrafted by a network of highly skilled knitters and artisans around the world, Misha &amp; Puff is built on a shared love of craft and material integrity. With our partners, we've scaled handcrafted knits responsibly and respectfully, honoring our values and vision for the future.</span><br>&nbsp;</p><p>&nbsp;</p><p><a href=\"https://shop.misha-and-puff.com/pages/people\" target=\"_blank\"><span style=\"background-color:rgb(255,255,255);color:rgb(16,24,32);font-size:13px;\"><u>READ MORE</u></span></a></p>"
+      },
+      "type": "gp-section-588194753833599803"
+    }
+  },
+  "order": [
+    "gp_section_588179244891243459",
+    "gp_section_588184603953464259",
+    "gp_section_588194753833599803",
+    "gp_section_588179244891505603",
+    "gp_section_588179244891374531",
+    "gp_section_588179244891308995"
+  ]
+}

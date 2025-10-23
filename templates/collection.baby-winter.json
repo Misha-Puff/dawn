@@ -8,6 +8,17 @@
  * ------------------------------------------------------------
  */
 {
+  "order": [
+    "shogun-helper",
+    "shogun-above",
+    "banner",
+    "rich_text_YJeCaw",
+    "buttons_Mn3bJP",
+    "product-grid",
+    "shogun-below",
+    "shogun-optimizer",
+    "collapsible_rich_text_wL8x3p"
+  ],
   "sections": {
     "shogun-helper": {
       "type": "shogun-helper",
@@ -26,24 +37,24 @@
         "color_scheme": "scheme-1"
       }
     },
-    "rich_text_abmThF": {
+    "rich_text_YJeCaw": {
       "type": "rich-text",
       "blocks": {
-        "heading_RxmqGU": {
+        "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "RWS Yarn",
+            "heading": "The Baby Winter Collection",
             "heading_size": "h2"
           }
         },
-        "text_89pzk9": {
+        "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>In 2023, Misha & Puff achieved <a href=\"https://textileexchange.org/responsible-wool-standard/\" target=\"_blank\">Responsible Wool Standard</a> (RWS) certification on all of our new yarn skeins. The Responsible Wool Standard guarantees high standards of care for animals across the entire production chain, from farms to transporters.</p>",
-            "line_height": 22
+            "text": "<p>Where holiday nostalgia drifts through a landscape of Western light. Cozy Merino knits, lush velvet and corduroy, and inspired jacquards and intarsia designs in a dreamy holiday palette. New silhouettes and accessories to layer, to gather, to celebrate — finished with refined hand-worked details. Festive heirlooms for winters to come.</p>",
+            "line_height": 24
           }
         },
-        "button_xPFHNc": {
+        "button_Yh3Xhh": {
           "type": "button",
           "disabled": true,
           "settings": {
@@ -60,9 +71,9 @@
         }
       },
       "block_order": [
-        "heading_RxmqGU",
-        "text_89pzk9",
-        "button_xPFHNc"
+        "heading_LbXhKd",
+        "text_PGqAmF",
+        "button_Yh3Xhh"
       ],
       "settings": {
         "desktop_content_position": "center",
@@ -71,49 +82,72 @@
         "full_width": true,
         "padding_top": 60,
         "padding_bottom": 32,
-        "padding_left": 80,
-        "padding_right": 80
+        "padding_left": 52,
+        "padding_right": 52
       }
     },
-    "buttons_C6aMKP": {
+    "buttons_Mn3bJP": {
       "type": "buttons",
       "blocks": {
-        "button_PahprF": {
+        "button_XaxzBy": {
           "type": "button",
           "settings": {
-            "label": "SHOP LIMITED YARN",
+            "label": "SHOP CHILD WINTER",
             "open_new_tab": true,
-            "link": "shopify://collections/limited-yarn",
+            "link": "shopify://collections/child-winter",
             "type": "secondary",
             "on_click": ""
           }
         },
-        "button_aqE7ie": {
+        "button_C99g3E": {
           "type": "button",
           "settings": {
-            "label": "SHOP KNITTING PATTERNS",
+            "label": "SWEATERS",
             "open_new_tab": true,
-            "link": "shopify://collections/knitting-patterns",
+            "link": "shopify://collections/baby-sweaters-and-cardigan",
             "type": "secondary",
             "on_click": ""
           }
         },
-        "button_ycfKpJ": {
+        "button_NGpAit": {
           "type": "button",
           "settings": {
-            "label": "MENDING SERVICES",
+            "label": "ONE-PIECES",
             "open_new_tab": true,
-            "link": "shopify://collections/mending-services",
+            "link": "shopify://collections/baby-one-piece",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_kaALGy": {
+          "type": "button",
+          "settings": {
+            "label": "DRESSES",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-dresses",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_qr4KXn": {
+          "type": "button",
+          "settings": {
+            "label": "ACCESSORIES",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-accessories",
             "type": "secondary",
             "on_click": ""
           }
         }
       },
       "block_order": [
-        "button_PahprF",
-        "button_aqE7ie",
-        "button_ycfKpJ"
+        "button_XaxzBy",
+        "button_C99g3E",
+        "button_NGpAit",
+        "button_kaALGy",
+        "button_qr4KXn"
       ],
+      "name": "Buttons",
       "settings": {
         "title": "",
         "button_gap": 10,
@@ -198,16 +232,22 @@
     "shogun-optimizer": {
       "type": "shogun-optimizer",
       "settings": {}
+    },
+    "collapsible_rich_text_wL8x3p": {
+      "type": "collapsible-rich-text",
+      "settings": {
+        "text": "{{ collection.metafields.seo.description | metafield_tag }}",
+        "line_height": 24,
+        "max_character_count": 200,
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding_left": 0,
+        "padding_right": 0
+      }
     }
-  },
-  "order": [
-    "shogun-helper",
-    "shogun-above",
-    "banner",
-    "rich_text_abmThF",
-    "buttons_C6aMKP",
-    "product-grid",
-    "shogun-below",
-    "shogun-optimizer"
-  ]
+  }
 }

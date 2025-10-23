@@ -18,7 +18,7 @@
     },
     "gp_section_565435366572557297": {
       "settings": {
-        "checksum": "bac7229697bd0615b086ba8017d592c114dba0c5c7c0f946cfc59161697f6382_1_1_1_0__1",
+        "checksum": "835935ce2e964300f12ee48757f69727f1b3991a3ee437a332d1d4a77b0fdff3_1_1_1_0__1",
         "ggNQ0ZFxflA_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\" target=\"_blank\"><u>JOURNAL</u></a></p>"
       },
       "type": "gp-section-565435366572557297"
@@ -43,9 +43,9 @@
     },
     "gp_section_565435366572819441": {
       "settings": {
-        "checksum": "840a1cbb9392356cdcf37ad2a820e43ff2eb50a7d99d3b02284d05fd2933e256_1_1_1_0__1",
-        "ggHJFhFMV6S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/evergreen\"><span style=\"font-size:12px;\">NEW — EVERGREEN COLLECTION</span></a></p>",
-        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-sweaters-cardigans\" target=\"_blank\"><span style=\"font-size:12px;\">SWEATERS + CARDIGANS</span></a></p>"
+        "checksum": "e6434c3adf35f666973f786c5dcec82854c792bb4d946bbb09e67dfc2fbfcb0e_1_1_1_0__1",
+        "ggHJFhFMV6S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-new\"><span style=\"font-size:12px;\">NEW ARRIVALS</span></a></p>",
+        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal/child-winter-25\">WINTER LOOKBOOK</a></p>"
       },
       "type": "gp-section-565435366572819441"
     },
@@ -62,9 +62,9 @@
     },
     "gp_section_583720142567899879": {
       "settings": {
-        "checksum": "9b9984c9c679d5699c739c0fc58e69e8737364e0064657a0f7aa0f5c030d6f9d_1_1_1_0__1",
-        "ggnXLQM-s4u_text": "<span style=\"font-size:15px;\">THE FALL COLLECTION</span>",
-        "ggw4qmKo4Fs_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-FALL\" target=\"_blank\"><span style=\"font-size:12px;\"><u>SHOP NOW</u></span></a></p>",
+        "checksum": "caf4024bd02bbbb97cd9207939640b8d5f81e6422ac3d13e4226c70baa5e8261_1_1_1_0__1",
+        "ggnXLQM-s4u_text": "<span style=\"font-size:15px;\">THE WINTER COLLECTION</span>",
+        "ggw4qmKo4Fs_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-winter\" target=\"_blank\"><span style=\"font-size:12px;\"><u>SHOP NOW</u></span></a></p>",
         "section_preload": "true"
       },
       "type": "gp-section-583720142567899879"
