@@ -368,6 +368,7 @@
         "heading_size": "h2",
         "heading_margin": 14,
         "product_list": "{{ product.metafields.product_page.color_siblings.value }}",
+        "collection": "",
         "hide_sold_out": true,
         "products_to_show": 20,
         "columns_desktop": 4,
@@ -405,7 +406,8 @@
         "heading_alignment": "left",
         "heading_size": "h2",
         "heading_margin": 14,
-        "product_list": "{{ product.metafields.product_page.kindred_silhouettes.value }}",
+        "product_list": [],
+        "collection": "{{ product.metafields.product_page.dynamic_collection.value }}",
         "hide_sold_out": true,
         "products_to_show": 20,
         "columns_desktop": 4,
@@ -469,6 +471,7 @@
         "heading_size": "h1",
         "heading_margin": 14,
         "product_list": "{{ product.metafields.product_page.complete_the_look.value }}",
+        "collection": "",
         "hide_sold_out": true,
         "products_to_show": 20,
         "columns_desktop": 4,
@@ -551,6 +554,8 @@
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
             "review_data": "sample_data",
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget",
             "max_width": 1200
           }
         }
