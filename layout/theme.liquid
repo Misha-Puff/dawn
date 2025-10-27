@@ -1,6 +1,6 @@
-{%- comment %}<locksmith:ad16>{% endcomment -%}
-  {%- include 'locksmith' -%}
-{%- comment %}</locksmith:ad16>{% endcomment -%}
+{%- comment %}<locksmith:ad16>{%- endcomment %}
+{%- include 'locksmith' -%}
+{%- comment %}</locksmith:ad16>{%- endcomment %}
 
 {% include 'shogun-content-handler' %}
 
@@ -8,7 +8,6 @@
 {% render 'signature' %}
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
-
     {{ locksmith_initializations }}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,10 +32,11 @@
     </title>
 
     {% if page_description %}
-      {%- comment %}<locksmith:3cae>{% endcomment -%}
-        {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
-        {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-      {%- comment %}</locksmith:3cae>{% endcomment -%}
+      {%- comment %}<locksmith:3cae>{%- endcomment %}
+      {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture -%}
+      {%- if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
+      {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
+      {%- comment %}</locksmith:3cae>{%- endcomment %}
     {% endif %}
 
     {% render 'meta-tags' %}
@@ -399,6 +399,14 @@
           freeShippingThreshold: null
         {% endif %}
       };
+
+      // Redirect direct mail
+      if (window.location.search.includes('utm_source=direct') &&
+          window.location.search.includes('utm_medium=directmail') &&
+          window.location.search.includes('utm_campaign=fall25')
+        ) {
+        window.location.href = '/collections/child-winter';
+      }
     </script>
 
     {%- if settings.predictive_search_enabled -%}
