@@ -1,14 +1,9 @@
-{%- comment %}<locksmith:f24a>{% endcomment -%}
-  {%- include 'locksmith' -%}
-{%- comment %}</locksmith:f24a>{% endcomment -%}
-
 {% include 'shogun-content-handler' %}
 
 <!doctype html>
 {% render 'signature' %}
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
-    {{ locksmith_initializations }}
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -47,10 +42,7 @@
     </title>
 
     {% if page_description %}
-      {%- comment %}<locksmith:1e2d>{% endcomment -%}
-        {%- capture var %}{% render 'locksmith-variables', variable: 'transparent', hiding_scope: 'resource' %}{% endcapture %}{% if var == 'true' %}<meta name="description" content="{{ page_description | escape }}">{% endif -%}
-        {%- comment %}original: <meta name="description" content="{{ page_description | escape }}">{%- endcomment %}
-      {%- comment %}</locksmith:1e2d>{% endcomment -%}
+      <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
 
     {% render 'meta-tags' %}
