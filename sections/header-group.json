@@ -53,7 +53,7 @@
       "settings": {
         "logo_position": "middle-center",
         "mobile_logo_position": "center",
-        "menu": "dawn-nav-1",
+        "menu": "dawn-nav-w-o-limited",
         "menu_type_desktop": "mega",
         "sticky_header_type": "always",
         "show_line_separator": false,
