@@ -277,12 +277,6 @@
     "popular_countries_regions": "Popular countries/regions",
     "country_results_count": "{{ count }} countries/regions found"
   },
-  "locksmith": {
-    "forms": {
-      "submit_button_text": "Continue",
-      "loading_text": "One moment..."
-    }
-  },
   "newsletter": {
     "label": "Email",
     "success": "Thanks for subscribing",
