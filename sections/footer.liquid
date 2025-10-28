@@ -147,6 +147,9 @@
                           </summary>
                           <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
                             {%- for link in block.settings.menu.links -%}
+                              {%- comment %}<locksmith:b761>{% endcomment -%}
+                                {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: block.settings.menu, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                              {%- comment %}</locksmith:b761>{% endcomment -%}
                               <li>
                                 <a
                                   href="{{ link.url }}"
@@ -164,6 +167,9 @@
                       </h2>
                       <ul class="footer-block__details-content list-unstyled is-hidden-mobile-only">
                         {%- for link in block.settings.menu.links -%}
+                          {%- comment %}<locksmith:a077>{% endcomment -%}
+                            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: block.settings.menu, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+                          {%- comment %}</locksmith:a077>{% endcomment -%}
                           <li>
                             <a
                               href="{{ link.url }}"
