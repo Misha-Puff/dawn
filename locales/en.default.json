@@ -576,5 +576,11 @@
         "error_heading": "Please adjust the following:"
       }
     }
+  },
+  "locksmith": {
+    "forms": {
+      "submit_button_text": "Continue",
+      "loading_text": "One moment..."
+    }
   }
 }
