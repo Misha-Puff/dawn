@@ -21,13 +21,7 @@
         <div class="menu-drawer__navigation-container">
           <nav class="menu-drawer__navigation">
             <ul class="menu-drawer__menu has-submenu list-menu" role="list">
-              {%- comment %}<locksmith:0abe>{% endcomment -%}
-                {%- assign locksmith_deac_forloop__size = 0 %}{%- for link in section.settings.menu.links -%}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: section.settings.menu, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_deac_forloop__size = locksmith_deac_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_deac_forloop__index = nil -%}
-              {%- comment %}</locksmith:0abe>{% endcomment -%}
               {%- for link in section.settings.menu.links -%}
-                {%- comment %}<locksmith:d3a8>{% endcomment -%}
-                  {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: section.settings.menu, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_deac_forloop__index == nil %}{% assign locksmith_deac_forloop__index = 1 %}{% assign locksmith_deac_forloop__index0 = 0 %}{% else %}{% assign locksmith_deac_forloop__index = locksmith_deac_forloop__index | plus: 1 %}{% assign locksmith_deac_forloop__index0 = locksmith_deac_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_deac_forloop__index == 1 %}{% assign locksmith_deac_forloop__first = true %}{% else %}{% assign locksmith_deac_forloop__first = false %}{% endif %}{% if locksmith_deac_forloop__index == locksmith_deac_forloop__size %}{% assign locksmith_deac_forloop__last = true %}{% else %}{% assign locksmith_deac_forloop__last = false %}{% endif %}{% assign locksmith_deac_forloop__rindex = locksmith_deac_forloop__size | minus: locksmith_deac_forloop__index | minus: 1 %}{% assign locksmith_deac_forloop__rindex0 = locksmith_deac_forloop__size | minus: locksmith_deac_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
-                {%- comment %}</locksmith:d3a8>{% endcomment -%}
                 <li>
                   {%- if link.links != blank -%}
                     {% if link.handle == 'child' or link.handle == 'baby' or link.handle == 'adult' %}
@@ -42,7 +36,7 @@
                         {{ link.title | escape }}
                       </a>
                     {% else %}
-                      <details id="Details-menu-drawer-menu-item-{{ locksmith_deac_forloop__index }}">
+                      <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
                         <summary
                           id="HeaderDrawer-{{ link.handle }}"
                           class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}"
@@ -74,9 +68,6 @@
                         {% endcomment %}
                         <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
                           {%- for childlink in link.links -%}
-                            {%- comment %}<locksmith:ed5d>{% endcomment -%}
-                              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: childlink, subject_parent: link, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-                            {%- comment %}</locksmith:ed5d>{% endcomment -%}
                             <li>
                               {%- if childlink.links == blank -%}
                                 <a
@@ -126,9 +117,6 @@
                                       tabindex="-1"
                                     >
                                       {%- for grandchildlink in childlink.links -%}
-                                        {%- comment %}<locksmith:c064>{% endcomment -%}
-                                          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: grandchildlink, subject_parent: childlink, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
-                                        {%- comment %}</locksmith:c064>{% endcomment -%}
                                         <li>
                                           <a
                                             id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
