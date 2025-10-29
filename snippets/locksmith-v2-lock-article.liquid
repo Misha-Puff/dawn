@@ -1,0 +1,23 @@
+{% liquid
+  assign lock_content = 'false'
+
+  # Locks articles tagged with `block-unlogged`
+  if article.tags contains 'block-unlogged'
+    assign lock_content = 'true'
+
+    if customer
+      assign lock_content = 'false'
+    endif
+  endif
+
+  # Locks articles tagged with `vip`
+  if article.tags contains 'vip'
+    assign lock_content = 'true'
+
+    if customer.tags contains 'staff' or customer.metafields.clienteling.vip
+      assign lock_content = 'false'
+    endif
+  endif
+
+  echo lock_content
+%}

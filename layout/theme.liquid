@@ -326,8 +326,32 @@
 
     {% sections 'header-group' %}
 
+    {%- capture lock_content -%}{%- render 'locksmith-v2-lock-content' -%}{%- endcapture -%}
+    {% assign lock_content = lock_content | strip %}
+
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
-      {{ content_for_layout }}
+      {% if lock_content == 'true' %}
+        <style>
+          .locksmith-v2-content-wrapper {
+            margin-top: {{ settings.locksmith_v2_margin_top }}px;
+            margin-bottom: {{ settings.locksmith_v2_margin_bottom }}px;
+          }
+        </style>
+        {% if customer == null %}
+          <div class="locksmith-v2-content-wrapper center">
+            <p class="locksmith-v2-login-message">
+              {{ settings.locksmith_v2_login_text }}
+            </p>
+            <a class="button link" href="{{routes.storefront_login_url}}">Login</a>
+          </div>
+        {% else %}
+          <div class="locksmith-v2-content-wrapper">
+            {{ settings.locksmith_v2_locked_content_text }}
+          </div>
+        {% endif %}
+      {% else %}
+        {{ content_for_layout }}
+      {% endif %}
     </main>
 
     {% sections 'footer-group' %}

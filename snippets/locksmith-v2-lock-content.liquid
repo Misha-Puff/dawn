@@ -1,0 +1,26 @@
+{% liquid
+  assign lock_content = 'false'
+
+  case template
+    when 'article'
+      capture lock_content
+        render 'locksmith-v2-lock-article', article: article
+      endcapture
+    when 'collection'
+      capture lock_content
+        render 'locksmith-v2-lock-collection', collection: collection
+      endcapture
+    when 'page'
+      capture lock_content
+        render 'locksmith-v2-lock-page', page: page
+      endcapture
+    when 'product'
+      capture lock_content
+        render 'locksmith-v2-lock-product', product: product
+      endcapture
+    else
+      assign lock_content = 'false'
+  endcase
+
+  echo lock_content
+%}
