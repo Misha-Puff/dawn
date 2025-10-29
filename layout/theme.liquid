@@ -337,18 +337,25 @@
             margin-bottom: {{ settings.locksmith_v2_margin_bottom }}px;
           }
         </style>
-        {% if customer == null %}
-          <div class="locksmith-v2-content-wrapper center">
-            <p class="locksmith-v2-login-message">
+        <div class="locksmith-v2-content-wrapper center">
+          {% if page.metafields.lock.password != '' %}
+            <p>
+              {{ settings.locksmith_v2_password_text }}
+            </p>
+            <form method="get">
+              <input type="text" name="password">
+              <button class="button link" type="submit">Submit</button>
+            </form>
+          {% elsif customer == null %}
+            <p>
               {{ settings.locksmith_v2_login_text }}
             </p>
             <a class="button link" href="{{routes.storefront_login_url}}">Login</a>
-          </div>
-        {% else %}
-          <div class="locksmith-v2-content-wrapper">
+          {% else %}
             {{ settings.locksmith_v2_locked_content_text }}
-          </div>
-        {% endif %}
+          {% endif %}
+        </div>
+
       {% else %}
         {{ content_for_layout }}
       {% endif %}

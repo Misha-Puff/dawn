@@ -1,5 +1,22 @@
 {% liquid
   assign lock_content = 'false'
 
+  # Locks pages with the `lock.password` metafield set
+  if page.metafields.lock.password != ''
+    assign lock_content = 'true'
+    # theme-check-disable ContentForHeaderModification
+    assign page_params = content_for_header | split: '"pageurl":"' | last | split: '"' | first | split: '.myshopify.com' | last | split: '?' | last | replace: '\/', '/' | replace: '%20', ' ' | replace: '\u0026', '&' | split: '&'
+
+    for param in page_params
+      if param contains 'password='
+        assign password = param | split: '=' | last
+      endif
+    endfor
+
+    if password == page.metafields.lock.password
+      assign lock_content = 'false'
+    endif
+  endif
+
   echo lock_content
 %}

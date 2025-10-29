@@ -1549,8 +1549,14 @@
       {
         "type": "text",
         "id": "locksmith_v2_locked_content_text",
-        "default": "This page is protected.  It doesn't look like you have access.",
+        "default": "This page is protected. It doesn't look like you have access.",
         "label": "Message to display when user is logged in, but doesn't have access to the page"
+      },
+      {
+        "type": "text",
+        "id": "locksmith_v2_password_text",
+        "default": "This page is protected. Please enter the password to continue.",
+        "label": "Message to display a page is password protected"
       },
       {
         "type": "range",
