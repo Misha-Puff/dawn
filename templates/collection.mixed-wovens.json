@@ -50,7 +50,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>Cotton poplin, twill, and woven linen — fabrics that move with them, wherever the day leads.</p>",
+            "text": "<p>Cotton poplin, twill, flannel, and woven linen — fabrics that move with them, wherever the day leads.</p>",
             "line_height": 24
           }
         },
@@ -82,8 +82,8 @@
         "full_width": true,
         "padding_top": 60,
         "padding_bottom": 32,
-        "padding_left": 72,
-        "padding_right": 72
+        "padding_left": 120,
+        "padding_right": 120
       }
     },
     "buttons_DEm8GF": {
