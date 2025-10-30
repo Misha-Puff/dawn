@@ -43,12 +43,13 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Adult Fall Collection — Preview",
+            "heading": "Adult Winter Collection — Preview",
             "heading_size": "h2"
           }
         },
         "text_PGqAmF": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>This season, the Adult Fall Collection expands with new silhouettes — our first to echo the spirit of children’s styles, thoughtfully adapted with elegance and ease. Vivid, saturated colors and hand-dyes with spectacular nuance are set in conversation with the deep, earthy hues of fall. Highland wool, Merino wool, and Pima cotton bring warmth, structure, and texture — with a wealth of accessories for layering through the shifting season.</p><p>Part 1 of Adult Collection launches Friday, September 26, with more to follow.</p>",
             "line_height": 24
@@ -81,7 +82,7 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 44,
-        "padding_bottom": 28,
+        "padding_bottom": 44,
         "padding_left": 72,
         "padding_right": 72
       }
@@ -125,6 +126,7 @@
         "button_C99g3E",
         "button_NGpAit"
       ],
+      "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
@@ -132,7 +134,7 @@
         "heading_size": "h1",
         "color_scheme": "",
         "desktop_padding_top": 0,
-        "desktop_padding_bottom": 58,
+        "desktop_padding_bottom": 48,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 38
       }
