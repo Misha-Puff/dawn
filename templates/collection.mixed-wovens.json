@@ -50,7 +50,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>Cotton poplin, twill, and woven linen — fabrics that move with them, wherever the day leads.</p>",
+            "text": "<p>Cotton poplin, twill, flannel, and woven linen — fabrics that move with them, wherever the day leads.</p>",
             "line_height": 24
           }
         },
@@ -82,13 +82,23 @@
         "full_width": true,
         "padding_top": 60,
         "padding_bottom": 32,
-        "padding_left": 72,
-        "padding_right": 72
+        "padding_left": 120,
+        "padding_right": 120
       }
     },
     "buttons_DEm8GF": {
       "type": "buttons",
       "blocks": {
+        "button_DBfQAC": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP ALL WINTER",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-winter",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
         "button_7mEYxx": {
           "type": "button",
           "settings": {
@@ -99,10 +109,20 @@
             "on_click": ""
           }
         },
+        "button_9BtkX4": {
+          "type": "button",
+          "settings": {
+            "label": "BABY WINTER",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-winter",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
         "button_pgJ3Yf": {
           "type": "button",
           "settings": {
-            "label": "SHOP BABY FALL",
+            "label": "BABY FALL",
             "open_new_tab": true,
             "link": "shopify://collections/baby-fall",
             "type": "secondary",
@@ -111,7 +131,9 @@
         }
       },
       "block_order": [
+        "button_DBfQAC",
         "button_7mEYxx",
+        "button_9BtkX4",
         "button_pgJ3Yf"
       ],
       "name": "Buttons",

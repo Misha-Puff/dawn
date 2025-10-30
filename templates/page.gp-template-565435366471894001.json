@@ -9,20 +9,6 @@
  */
 {
   "sections": {
-    "gp_global_section_586131278688944987-1": {
-      "settings": {
-        "checksum": "",
-        "section_preload": "false"
-      },
-      "type": "gp-global-section-586131278688944987"
-    },
-    "gp_section_565435366572557297": {
-      "settings": {
-        "checksum": "c67c5088c8b037caf4b9464893d0fefe05f47003da397da3766a4a11b4fcaf04_1_1_1_0__1",
-        "ggNQ0ZFxflA_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\" target=\"_blank\"><u>JOURNAL</u></a></p>"
-      },
-      "type": "gp-section-565435366572557297"
-    },
     "gp_section_565435366572622833": {
       "settings": {
         "checksum": "83d53a7980e6bfc1af6d2bc86dfd42f577f959476582f52cead775998135a922_1_1_1_0__1"
@@ -43,15 +29,15 @@
     },
     "gp_section_565435366572819441": {
       "settings": {
-        "checksum": "36e0a6a805008c74e9626a31235f8ad1bf5f73bb0cba563372209e09fab07ca5_1_1_1_0__1",
+        "checksum": "1738c1798a023053e27a5ea8eb473cfca9819f892cc3fae29a48587ed44a6454_1_1_1_0__1",
         "ggHJFhFMV6S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-new\"><span style=\"font-size:12px;\">NEW ARRIVALS</span></a></p>",
-        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/preview\">WINTER COLLECTION, PART 2 — PREVIEW</a></p>"
+        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-accessories\">WINTER ACCESSORIES</a></p>"
       },
       "type": "gp-section-565435366572819441"
     },
     "gp_section_565742999678485659": {
       "settings": {
-        "checksum": "a56cbf121aa7f00fb0a4880861337ed23c8e9bc08935e7fc73594bb13dae0e88_1_1_1_0__1",
+        "checksum": "0060aa33be7d9d5703af17937572da89ff3b7d293f84c762d92aa25e3e5db8a0_1_1_1_0__1",
         "ggSB_9sxwQ6_label": "ADD TO CART",
         "ggSB_9sxwQ6_outOfStockLabel": "Out of stock",
         "ggSB_9sxwQ6_unavailableLabel": "Unavailable",
@@ -62,29 +48,26 @@
     },
     "gp_section_583720142567899879": {
       "settings": {
-        "checksum": "d4e0ad99196772c28a4610cb615254d0653a34e11e26f53751f65a4de758aabb_1_1_1_0__1",
+        "checksum": "4e43f8b371970efb977150633943edf92a2e5627fdc30547f08579a0e8600ad3_1_1_1_0__1",
         "ggnXLQM-s4u_text": "<span style=\"font-size:14px;\">THE WINTER COLLECTION</span>",
         "ggw4qmKo4Fs_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-winter\" target=\"_blank\"><span style=\"font-size:12px;\"><u>SHOP NOW</u></span></a></p>",
         "section_preload": "true"
       },
       "type": "gp-section-583720142567899879"
     },
-    "gp_section_586043268232381275": {
+    "gp_section_590806325609366184": {
       "settings": {
-        "checksum": "d114bd247f6cbea919ccd75e8d2ccbe19ffc2c95c88537474ee03346b3ab4fd4_1_1_1_0__1",
-        "ggQuPCe8BRj_text": "<p><span style=\"color:#101820;font-size:13px;\">Essential styles you’ll reach for again and again — signature colors, timeless design, available year-round. Made to mix, layer, and last through every season. This season, our Adult and Child collections align — our first crossover that reflects the spirit of children’s styles, carefully adapted with elegance and ease for adult. From silhouette to palette to texture, these are pieces that echo from one generation to the next. Stay tuned for more.</span></p><p>&nbsp;</p><p><a href=\"https://shop.misha-and-puff.com/collections/mixed-kindred-silhouettes\"><span style=\"background-color:rgb(255,255,255);color:#101820;font-size:12px;\"><u>SHOP NOW</u></span></a></p>",
-        "ggT2zKEP_EA_text": "<span style=\"color:#101820;font-size:12px;\">KINDRED SILHOUETTES</span>"
+        "checksum": "282ac5fa076892f6b99a898f39c41ab07d9a272dca48e39990bd3ed3ccd351d0_1_1_1_0__1",
+        "ggiYCTl0FL7_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-new\"><span style=\"font-size:12px;\">JOURNAL</span></a></p>"
       },
-      "type": "gp-section-586043268232381275"
+      "type": "gp-section-590806325609366184"
     }
   },
   "order": [
     "gp_section_583720142567899879",
     "gp_section_565435366572819441",
-    "gp_global_section_586131278688944987-1",
-    "gp_section_586043268232381275",
     "gp_section_565742999678485659",
-    "gp_section_565435366572557297",
+    "gp_section_590806325609366184",
     "gp_section_565435366572753905",
     "gp_section_565435366572622833"
   ]
