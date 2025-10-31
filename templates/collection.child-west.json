@@ -112,9 +112,9 @@
         "button_Xb33j8": {
           "type": "button",
           "settings": {
-            "label": "DENIM",
+            "label": "MADE BY HAND STYLES",
             "open_new_tab": true,
-            "link": "shopify://collections/child-denim",
+            "link": "shopify://collections/child-hand-knit",
             "type": "secondary",
             "on_click": ""
           }
