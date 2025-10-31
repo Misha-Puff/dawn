@@ -338,7 +338,7 @@
           }
         </style>
         <div class="locksmith-v2-content-wrapper center">
-          {% if page.metafields.lock.password != '' %}
+          {% if template.name == 'page' and page.metafields.lock.password != '' %}
             <p>
               {{ settings.locksmith_v2_password_text }}
             </p>

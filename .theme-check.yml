@@ -9,9 +9,6 @@ ignore:
   - sections/shogun-*.liquid
   - sections/gp-*.liquid
   - snippets/shogun-*.liquid
-  - snippets/locksmith.liquid 
-  - snippets/locksmith-variables.liquid
-  - snippets/locksmith-content-variables.liquid
 
 AssetSizeJavaScript:
   enabled: false

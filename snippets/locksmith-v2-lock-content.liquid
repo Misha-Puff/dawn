@@ -1,7 +1,7 @@
 {% liquid
   assign lock_content = 'false'
 
-  case template
+  case template.name
     when 'article'
       capture lock_content
         render 'locksmith-v2-lock-article', article: article
