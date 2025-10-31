@@ -1535,5 +1535,49 @@
         "info": "For use during Free Shipping promotions"
       }
     ]
+  },
+  
+  {
+    "name": "Locksmith v2",
+    "settings": [
+      {
+        "type": "text",
+        "id": "locksmith_v2_login_text",
+        "default": "This content is protected. Please log in with your customer account to continue.",
+        "label": "Message to display when user is not logged in"
+      },
+      {
+        "type": "text",
+        "id": "locksmith_v2_locked_content_text",
+        "default": "This page is protected. It doesn't look like you have access.",
+        "label": "Message to display when user is logged in, but doesn't have access to the page"
+      },
+      {
+        "type": "text",
+        "id": "locksmith_v2_password_text",
+        "default": "This page is protected. Please enter the password to continue.",
+        "label": "Message to display a page is password protected"
+      },
+      {
+        "type": "range",
+        "id": "locksmith_v2_margin_top",
+        "min": 0,
+        "max": 120,
+        "step": 10,
+        "default": 60,
+        "unit": "px",
+        "label": "Margin top"
+      },
+      {
+        "type": "range",
+        "id": "locksmith_v2_margin_bottom",
+        "min": 0,
+        "max": 120,
+        "step": 10,
+        "default": 60,
+        "unit": "px",
+        "label": "Margin bottom"
+      }
+    ]
   }
 ]

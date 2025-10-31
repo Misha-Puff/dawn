@@ -1,0 +1,32 @@
+{% liquid
+  assign lock_content = 'false'
+
+  # Locks collections with the `lock.internal_preview` metafield set
+  if collection.metafields.lock.internal_preview
+    assign lock_content = 'true'
+
+    if customer.tags contains 'staff'
+      assign lock_content = 'false'
+    endif
+  endif
+
+  # Locks collections with the `lock.super_vip` metafield set
+  if collection.metafields.lock.super_vip
+    assign lock_content = 'true'
+
+    if customer.tags contains 'staff' or customer.metafields.clienteling.very_important_customer
+      assign lock_content = 'false'
+    endif
+  endif
+
+  # Locks collections with the `lock.vip` metafield set
+  if collection.metafields.lock.vip
+    assign lock_content = 'true'
+
+    if customer.tags contains 'staff' or customer.metafields.clienteling.very_important_customer or customer.metafields.clienteling.vip
+      assign lock_content = 'false'
+    endif
+  endif
+
+  echo lock_content
+%}

@@ -699,6 +699,11 @@
                                   {%- for product in recommendations.products
                                     limit: block.settings.products_per_page
                                   -%}
+                                    {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: product -%}{%- endcapture -%}
+                                    {% assign lock_content = lock_content | strip %}
+                                    {% if lock_content == 'true' %}
+                                      {% continue %}
+                                    {% endif %}
                                     <li>
                                       {%- if block.settings.enable_quick_add -%}
                                         {% assign quick_add = 'standard' %}

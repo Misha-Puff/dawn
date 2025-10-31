@@ -1,0 +1,32 @@
+{% liquid
+  assign lock_content = 'false'
+
+  # Locks products tagged `preview-product`
+  if product.tags contains 'preview-product'
+    assign lock_content = 'true'
+
+    if customer.tags contains 'staff'
+      assign lock_content = 'false'
+    endif
+  endif
+
+  # Locks products tagged `supervip-product`
+  if product.tags contains 'supervip-product'
+    assign lock_content = 'true'
+
+    if customer.tags contains 'staff' or customer.metafields.clienteling.very_important_customer
+      assign lock_content = 'false'
+    endif
+  endif
+
+  # Locks products tagged `vip-product`
+  if product.tags contains 'vip-product'
+    assign lock_content = 'true'
+
+    if customer.tags contains 'staff' or customer.metafields.clienteling.very_important_customer or customer.metafields.clienteling.vip
+      assign lock_content = 'false'
+    endif
+  endif
+
+  echo lock_content
+%}

@@ -271,6 +271,11 @@
                   >
                     {%- case item.object_type -%}
                       {%- when 'product' -%}
+                        {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: product -%}{%- endcapture -%}
+                        {% assign lock_content = lock_content | strip %}
+                        {% if lock_content == 'true' %}
+                          {% continue %}
+                        {% endif %}
                         {% comment %} {%- capture product_settings -%}{%- if section.settings.product_show_vendor -%}vendor,{%- endif -%}title,price{%- endcapture -%} {% endcomment %}
                         {% render 'card-product',
                           card_product: item,
@@ -284,6 +289,11 @@
                         %}
                         {%- assign skip_card_product_styles = true -%}
                       {%- when 'article' -%}
+                        {%- capture lock_content -%}{%- render 'locksmith-v2-lock-article' article: article -%}{%- endcapture -%}
+                        {% assign lock_content = lock_content | strip %}
+                        {% if lock_content == 'true' %}
+                          {% continue %}
+                        {% endif %}
                         {% render 'article-card',
                           article: item,
                           show_image: true,
@@ -294,6 +304,11 @@
                           lazy_load: lazy_load
                         %}
                       {%- when 'page' -%}
+                        {%- capture lock_content -%}{%- render 'locksmith-v2-lock-page' page: page -%}{%- endcapture -%}
+                        {% assign lock_content = lock_content | strip %}
+                        {% if lock_content == 'true' %}
+                          {% continue %}
+                        {% endif %}
                         <div class="article-card-wrapper card-wrapper underline-links-hover">
                           <div
                             class="card card--card card--text ratio color-{{ settings.blog_card_color_scheme }}"
@@ -363,7 +378,7 @@
           "label": "t:sections.main-search.settings.columns_mobile.options__2.label"
         }
       ]
-    },    
+    },
     {
       "type": "header",
       "content": "t:sections.main-search.settings.header__1.content"

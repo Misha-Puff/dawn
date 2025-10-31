@@ -46,6 +46,11 @@
             </li>
           {%- endfor -%}
           {%- for collection in predictive_search.resources.collections -%}
+            {%- capture lock_content -%}{%- render 'locksmith-v2-lock-collection' collection: collection -%}{%- endcapture -%}
+            {% assign lock_content = lock_content | strip %}
+            {% if lock_content == 'true' %}
+              {% continue %}
+            {% endif %}
             <li
               id="predictive-search-option-collection-{{ forloop.index }}"
               class="predictive-search__list-item"
@@ -77,6 +82,11 @@
           aria-labelledby="predictive-search-pages-desktop"
         >
           {%- for page in predictive_search.resources.pages -%}
+            {%- capture lock_content -%}{%- render 'locksmith-v2-lock-page' page: page -%}{%- endcapture -%}
+            {% assign lock_content = lock_content | strip %}
+            {% if lock_content == 'true' %}
+              {% continue %}
+            {% endif %}
             <li
               id="predictive-search-option-page-desktop-{{ forloop.index }}"
               class="predictive-search__list-item"
@@ -91,6 +101,11 @@
             </li>
           {%- endfor -%}
           {%- for article in predictive_search.resources.articles -%}
+            {%- capture lock_content -%}{%- render 'locksmith-v2-lock-article' article: article -%}{%- endcapture -%}
+            {% assign lock_content = lock_content | strip %}
+            {% if lock_content == 'true' %}
+              {% continue %}
+            {% endif %}
             <li
               id="predictive-search-option-article-desktop-{{ forloop.index }}"
               class="predictive-search__list-item"
@@ -130,6 +145,11 @@
               aria-labelledby="predictive-search-products"
             >
               {%- for product in predictive_search.resources.products -%}
+                {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: product -%}{%- endcapture -%}
+                {% assign lock_content = lock_content | strip %}
+                {% if lock_content == 'true' %}
+                  {% continue %}
+                {% endif %}
                 <li
                   id="predictive-search-option-product-{{ forloop.index }}"
                   class="predictive-search__list-item"
@@ -183,6 +203,11 @@
               aria-labelledby="predictive-search-pages-mobile"
             >
               {%- for page in predictive_search.resources.pages -%}
+                {%- capture lock_content -%}{%- render 'locksmith-v2-lock-page' page: page -%}{%- endcapture -%}
+                {% assign lock_content = lock_content | strip %}
+                {% if lock_content == 'true' %}
+                  {% continue %}
+                {% endif %}
                 <li
                   id="predictive-search-option-page-mobile-{{ forloop.index }}"
                   class="predictive-search__list-item"
@@ -197,6 +222,11 @@
                 </li>
               {%- endfor -%}
               {%- for article in predictive_search.resources.articles -%}
+                {%- capture lock_content -%}{%- render 'locksmith-v2-lock-article' article: article -%}{%- endcapture -%}
+                {% assign lock_content = lock_content | strip %}
+                {% if lock_content == 'true' %}
+                  {% continue %}
+                {% endif %}
                 <li
                   id="predictive-search-option-article-mobile-{{ forloop.index }}"
                   class="predictive-search__list-item"
