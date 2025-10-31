@@ -29,18 +29,12 @@
     {% endcomment %}
 
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
-      {%- comment %}<locksmith:bd89>{% endcomment -%}
-        {%- assign locksmith_cc07_forloop__size = 0 %}{%- for article in blog.articles -%}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: article, subject_parent: blog, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_cc07_forloop__size = locksmith_cc07_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_cc07_forloop__index = nil -%}
-      {%- comment %}</locksmith:bd89>{% endcomment -%}
       {%- for article in blog.articles -%}
-        {%- comment %}<locksmith:ed2d>{% endcomment -%}
-          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: article, subject_parent: blog, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_cc07_forloop__index == nil %}{% assign locksmith_cc07_forloop__index = 1 %}{% assign locksmith_cc07_forloop__index0 = 0 %}{% else %}{% assign locksmith_cc07_forloop__index = locksmith_cc07_forloop__index | plus: 1 %}{% assign locksmith_cc07_forloop__index0 = locksmith_cc07_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_cc07_forloop__index == 1 %}{% assign locksmith_cc07_forloop__first = true %}{% else %}{% assign locksmith_cc07_forloop__first = false %}{% endif %}{% if locksmith_cc07_forloop__index == locksmith_cc07_forloop__size %}{% assign locksmith_cc07_forloop__last = true %}{% else %}{% assign locksmith_cc07_forloop__last = false %}{% endif %}{% assign locksmith_cc07_forloop__rindex = locksmith_cc07_forloop__size | minus: locksmith_cc07_forloop__index | minus: 1 %}{% assign locksmith_cc07_forloop__rindex0 = locksmith_cc07_forloop__size | minus: locksmith_cc07_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
-        {%- comment %}</locksmith:ed2d>{% endcomment -%}
         <div
           class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
           {% if settings.animations_reveal_on_scroll %}
             data-cascade
-            style="--animation-order: {{ locksmith_cc07_forloop__index }};"
+            style="--animation-order: {{ forloop.index }};"
           {% endif %}
         >
           {%- render 'article-card',
