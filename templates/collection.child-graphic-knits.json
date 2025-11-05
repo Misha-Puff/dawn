@@ -30,6 +30,7 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
@@ -42,14 +43,14 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Cerulean",
+            "heading": "Graphic Knits",
             "heading_size": "h2"
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>A true star of the Fall Collection — Cerulean. A vibrant blue, dyed to a rich, saturated finish. A playful hue that brightens every style.</p>",
+            "text": "<p>Cozy graphic Merino knits, inspired jacquards, and intarsia designs in a dreamy holiday palette. Heirlooms for winters to come.</p>",
             "line_height": 24
           }
         },
@@ -74,14 +75,13 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
+        "padding_top": 60,
+        "padding_bottom": 32,
         "padding_left": 100,
         "padding_right": 100
       }
@@ -89,53 +89,52 @@
     "buttons_Mn3bJP": {
       "type": "buttons",
       "blocks": {
+        "button_NGpAit": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP ALL WINTER COLLECTION",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-winter",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
         "button_XaxzBy": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "ALL SWEATERS",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-sweaters-cardigans",
+            "type": "secondary",
             "on_click": ""
           }
         },
         "button_C99g3E": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
-        },
-        "button_NGpAit": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "BABY SWEATERS",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-sweaters-and-cardigan",
+            "type": "secondary",
             "on_click": ""
           }
         }
       },
       "block_order": [
+        "button_NGpAit",
         "button_XaxzBy",
-        "button_C99g3E",
-        "button_NGpAit"
+        "button_C99g3E"
       ],
-      "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
         "button_gap": 10,
         "heading_size": "h1",
         "color_scheme": "",
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 30,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 48,
         "mobile_padding_top": 30,
-        "mobile_padding_bottom": 30
+        "mobile_padding_bottom": 38
       }
     },
     "product-grid": {
