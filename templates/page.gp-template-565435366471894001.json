@@ -17,7 +17,7 @@
     },
     "gp_section_565435366572753905": {
       "settings": {
-        "checksum": "1238368b26d0d3b1bf43e0b9f595d796c3c9af4495034a23d075177462740435_1_1_1_0__1",
+        "checksum": "379f3183fa782ab31edf79dc5e11c8f2b47dc3ab68ba89270d1098e240197689_1_1_1_0__1",
         "gg8CanJZH7q_text": "Explore More",
         "gg8xf4mbVAe_label": "<p>TOPS</p>",
         "ggD3Rt-KqFS_label": "<p>DENIM</p>",
@@ -29,7 +29,7 @@
     },
     "gp_section_565435366572819441": {
       "settings": {
-        "checksum": "1738c1798a023053e27a5ea8eb473cfca9819f892cc3fae29a48587ed44a6454_1_1_1_0__1",
+        "checksum": "17f476e5a845c57181022fbaf585f9df7cb0e9a8428552a3460deb8378b3422d_1_1_1_0__1",
         "ggHJFhFMV6S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-new\"><span style=\"font-size:12px;\">NEW ARRIVALS</span></a></p>",
         "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-accessories\">WINTER ACCESSORIES</a></p>"
       },
@@ -37,7 +37,7 @@
     },
     "gp_section_565742999678485659": {
       "settings": {
-        "checksum": "0060aa33be7d9d5703af17937572da89ff3b7d293f84c762d92aa25e3e5db8a0_1_1_1_0__1",
+        "checksum": "b865066bba3daa1398fcd237abeade57bd85e2aed3f5d25a44ac6279a95eaa9c_1_1_1_0__1",
         "ggSB_9sxwQ6_label": "ADD TO CART",
         "ggSB_9sxwQ6_outOfStockLabel": "Out of stock",
         "ggSB_9sxwQ6_unavailableLabel": "Unavailable",
@@ -48,17 +48,16 @@
     },
     "gp_section_583720142567899879": {
       "settings": {
-        "checksum": "4e43f8b371970efb977150633943edf92a2e5627fdc30547f08579a0e8600ad3_1_1_1_0__1",
-        "ggnXLQM-s4u_text": "<span style=\"font-size:14px;\">THE WINTER COLLECTION</span>",
-        "ggw4qmKo4Fs_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-winter\" target=\"_blank\"><span style=\"font-size:12px;\"><u>SHOP NOW</u></span></a></p>",
+        "checksum": "e239c9061c835ef118b8c1996b5a0e9d30466781f2f2d77cffbc72aa89af7284_1_1_1_0__1",
+        "ggOYzsnHtg0_label": "<p><span style=\"font-size:12px;\">THE WINTER COLLECTION</span></p>",
         "section_preload": "true"
       },
       "type": "gp-section-583720142567899879"
     },
     "gp_section_590806325609366184": {
       "settings": {
-        "checksum": "282ac5fa076892f6b99a898f39c41ab07d9a272dca48e39990bd3ed3ccd351d0_1_1_1_0__1",
-        "ggiYCTl0FL7_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-new\"><span style=\"font-size:12px;\">JOURNAL</span></a></p>"
+        "checksum": "da9201d579978de202949fe49b35ae39bbb83311130959df783fec265fce006e_1_1_1_0__1",
+        "gg-h_n3x_Jl_label": "<p>JOURNAL</p>"
       },
       "type": "gp-section-590806325609366184"
     }
