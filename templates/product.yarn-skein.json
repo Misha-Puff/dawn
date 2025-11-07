@@ -142,9 +142,9 @@
         "button_9zqJpg"
       ],
       "settings": {
-        "image": "shopify://shop_images/M_P_Peru_M_P_Peru_M14A4408_1224x_2x.progressive_handdye2_cba5ccc4-e41e-47f4-930f-5186bae522b3.jpg",
+        "image": "shopify://shop_images/MP_Hand-Dye_25.gif",
         "height": "adapt",
-        "desktop_image_width": "medium",
+        "desktop_image_width": "small",
         "layout": "text_first",
         "image_behavior": "none",
         "content_layout": "no-overlap",
