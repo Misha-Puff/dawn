@@ -250,6 +250,7 @@
       "block_order": [
         "text_Eqkbw6"
       ],
+      "disabled": true,
       "name": "Ocean Space Dye",
       "settings": {
         "image": "shopify://shop_images/bluestack_web.jpg",
@@ -282,6 +283,7 @@
       "block_order": [
         "text_Dh6Hb4"
       ],
+      "disabled": true,
       "name": "Fig Wool",
       "settings": {
         "image": "shopify://shop_images/fig_variation_web.jpg",
@@ -314,6 +316,7 @@
       "block_order": [
         "text_Qkxx8W"
       ],
+      "disabled": true,
       "name": "Prism Group",
       "settings": {
         "image": "shopify://shop_images/MP_SP25_Prism.jpg",
@@ -346,6 +349,7 @@
       "block_order": [
         "text_LbmpDK"
       ],
+      "disabled": true,
       "name": "Prism Space Dye",
       "settings": {
         "image": "shopify://shop_images/MP_SP25_PrismSpaceDye.jpg",
