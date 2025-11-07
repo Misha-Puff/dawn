@@ -28,8 +28,15 @@
   #bis-form-wrapper .field input {
     height: 35px;
   }
+
   #bis-form-wrapper .field .field__label {
     top: calc(8px + var(--inputs-border-width));
+  }
+
+  #bis-form-wrapper .field__input:focus ~ .field__label,
+  #bis-form-wrapper .field__input:not(:placeholder-shown) ~ .field__label,
+  #bis-form-wrapper .field__input:-webkit-autofill ~ .field__label {
+    top: calc(var(--inputs-border-width) + 1px);
   }
 </style>
 <div
