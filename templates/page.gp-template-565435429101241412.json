@@ -11,7 +11,7 @@
   "sections": {
     "gp_section_565435429168350276": {
       "settings": {
-        "checksum": "84bb3fd50f2f55346b4ce7bd99a65107ab7bb82aa87e07dfd003b6e58c00d4ce_1_1_1_0__1",
+        "checksum": "a3bdb72df0686950c5e5129c68394fdb390e616218cfb45b64d392650249c88d_1_1_1_0__1",
         "gg5_GEvhnAz_label": "<p>SALE</p>",
         "ggHLnNHWcjZ_label": "<p>TOPS</p>",
         "ggHLv-ZKTlu_label": "<p>PIMA STAPLES</p>",
@@ -29,16 +29,15 @@
     },
     "gp_section_565435429168481348": {
       "settings": {
-        "checksum": "9eee9b629e57077285d93fba4142fc05f0d61f1fac23e08eb198b981b4953bb1_1_1_1_0__1",
-        "ggOt4t8g-Rc_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-winter\" target=\"_blank\"><span style=\"font-size:12px;\"><u>SHOP NOW</u></span></a></p>",
-        "gguRPskvs_w_text": "<span style=\"font-size:14px;\">THE WINTER COLLECTION</span>",
+        "checksum": "c207e0afcdc366853a8b2cd741ab8f6c3cc2a6740896264d6e083c2eaa8dde98_1_1_1_0__1",
+        "ggcg5TdllnY_label": "<p><span style=\"font-size:12px;\">THE WINTER COLLECTION</span></p>",
         "section_preload": "true"
       },
       "type": "gp-section-565435429168481348"
     },
     "gp_section_565435429168546884": {
       "settings": {
-        "checksum": "513e6dc15d935a109bca84a120e648912169c130327502389d8a9b2ce7c67916_1_1_1_0__1",
+        "checksum": "baa9a86f232ceab97dc90ddf8b6ec16949481e995c4d2bcc88c9ce098386b858_1_1_1_0__1",
         "ggHJFhFMV6S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-new\"><span style=\"font-size:12px;\">NEW ARRIVALS</span></a></p>",
         "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-sweaters-and-cardigan\">SWEATERS + CARDIGANS</a></p>"
       },
@@ -46,7 +45,7 @@
     },
     "gp_section_565743274438952146": {
       "settings": {
-        "checksum": "ef149d1c2e7b5a4601f6f737edbfa9eb334ce1dba3fc6d5b0827af504d467ae9_1_1_1_0__1",
+        "checksum": "f8b2dea05fc83c2a24833ff212426d0606f0fba4c47d4afb46a04253f5026b86_1_1_1_0__1",
         "ggNIzGr-zG6_text": "<span style=\"font-size:12px;\">NEW ARRIVALS</span>",
         "ggfEg-ZUUju_label": "ADD TO CART",
         "ggfEg-ZUUju_outOfStockLabel": "Out of stock",
@@ -57,8 +56,8 @@
     },
     "gp_section_590806405385028264": {
       "settings": {
-        "checksum": "34fd2d760f9f2ea8111e8ecac4c4606ae5dc08ca6d9d36017f7b5b4a4f69431a_1_1_1_0__1",
-        "gg0__vdszhZ_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-new\"><span style=\"font-size:12px;\">JOURNAL</span></a></p>"
+        "checksum": "0d0d23a516a868dfd927d5db1cdae67b296b7f7fca1e31d302b6e008cdb3c5c8_1_1_1_0__1",
+        "ggvbRwbJl1o_label": "<p>JOURNAL</p>"
       },
       "type": "gp-section-590806405385028264"
     }
