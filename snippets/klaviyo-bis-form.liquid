@@ -14,15 +14,33 @@
   {% endif %}
 {% endunless %}
 
+<style>
+  #bis-form-wrapper .subtitle {
+    color: black;
+    margin-top: 10px;
+  }
+
+  #bis-form-wrapper .title {
+    color: black;
+    font-size: 14px;
+  }
+
+  #bis-form-wrapper .field input {
+    height: 35px;
+  }
+  #bis-form-wrapper .field .field__label {
+    top: calc(8px + var(--inputs-border-width));
+  }
+</style>
 <div
   id="bis-form-wrapper"
   class="color-{{ section.settings.color_scheme }} gradient{% unless show_bis %} hidden{% endunless %}"
 >
   <h3 class="title {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-    Be the first to know
+    Be the first to know.
   </h3>
   <h4 class="subtitle subtitle--small{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-    Get in-stock alerts
+    Sign up for in-stock alerts and we'll notify you if it becomes available or if we make more.
   </h4>
 
   {%- liquid
@@ -56,10 +74,7 @@
           placeholder="{% if customer %}{{ customer.email }}{% else %}Email{% endif %}"
           required
         >
-        <label class="field__label" for="bis-email">
-          Email
-          <span aria-hidden="true">*</span></label
-        >
+        <label class="field__label" for="bis-email">Email<span aria-hidden="true">*</span></label>
       </div>
       <button class="button" id="submit-btn">
         Notify Me
