@@ -147,7 +147,7 @@
         "text_K8DbnC": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>INFINITE VARIATIONS — THE MAGIC OF HAND-DYE<br/><br/></strong>Our hand-dyed Superwash Merino wool is sustainably and ethically crafted by skilled artisans in Peru using premium natural fibers and low-impact dyes. This yarn is truly special, with each strand unique due to the hand-dye process, introducing subtle nuances to every garment. The hand-dyed variation and natural patterns the yarn creates when knit mean no two garments are the same, and that’s exactly why we love it. With this process, we embrace unpredictability and celebrate the presence of the hand.</p><p>For those reasons, we can’t guarantee that the garment you knit will look <em>exactly</em> like the swatch shown, but whatever you make will truly be a one-of-a-kind heirloom.</p>",
+            "text": "<p>INFINITE VARIATIONS — THE MAGIC OF HAND-DYE<strong><br/><br/></strong>Our hand-dyed Superwash Merino wool and Pima cotton yarn is ethically crafted by skilled artisans in Peru using premium fibers and low-impact dyes. Each strand is unique, with subtle nuances from the hand-dye process that make every garment one of a kind. These natural variations mean no two pieces are the same — a celebration of craft and the presence of the hand, and exactly why we love it. Because of this, we can’t guarantee your finished garment will match the swatch exactly, but it will be a true one-of-a-kind heirloom. Read more about our materials <a href=\"https://shop.misha-and-puff.com/pages/materials\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/pages/materials\">here</a>.</p>",
             "text_style": "body"
           }
         },
@@ -169,7 +169,7 @@
       "settings": {
         "image": "shopify://shop_images/M_P_Peru_M_P_Peru_M14A4408_1224x_2x.progressive_5d0cbecd-14cd-4c4f-b5a8-4cba72327da2_handdye2.jpg",
         "height": "adapt",
-        "desktop_image_width": "small",
+        "desktop_image_width": "medium",
         "layout": "text_first",
         "image_behavior": "none",
         "content_layout": "no-overlap",
