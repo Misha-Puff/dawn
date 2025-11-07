@@ -218,6 +218,7 @@
       "block_order": [
         "text_mRz8Ek"
       ],
+      "name": "Denim",
       "settings": {
         "image": "shopify://shop_images/MP_F25_Look_56_0338_Denim.jpg",
         "height": "adapt",
@@ -249,6 +250,7 @@
       "block_order": [
         "text_Eqkbw6"
       ],
+      "name": "Ocean Space Dye",
       "settings": {
         "image": "shopify://shop_images/bluestack_web.jpg",
         "height": "adapt",
@@ -280,6 +282,7 @@
       "block_order": [
         "text_Dh6Hb4"
       ],
+      "name": "Fig Wool",
       "settings": {
         "image": "shopify://shop_images/fig_variation_web.jpg",
         "height": "adapt",
@@ -311,6 +314,7 @@
       "block_order": [
         "text_Qkxx8W"
       ],
+      "name": "Prism Group",
       "settings": {
         "image": "shopify://shop_images/MP_SP25_Prism.jpg",
         "height": "adapt",
@@ -342,6 +346,7 @@
       "block_order": [
         "text_LbmpDK"
       ],
+      "name": "Prism Space Dye",
       "settings": {
         "image": "shopify://shop_images/MP_SP25_PrismSpaceDye.jpg",
         "height": "adapt",
@@ -554,9 +559,9 @@
           "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
             "review_data": "sample_data",
+            "max_width": 1200,
             "show_shop_reviews": false,
-            "empty_state": "empty_widget",
-            "max_width": 1200
+            "empty_state": "empty_widget"
           }
         }
       },
