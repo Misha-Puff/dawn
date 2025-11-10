@@ -11,10 +11,13 @@
   "order": [
     "shogun-helper",
     "shogun-above",
-    "banner",
     "rich_text_YJeCaw",
-    "buttons_Mn3bJP",
+    "image_banner_j6fRCM",
+    "multicolumn_DArWcW",
+    "banner",
     "product-grid",
+    "rich_text_PFwcpc",
+    "buttons_Mn3bJP",
     "shogun-below",
     "shogun-optimizer",
     "collapsible_rich_text_wL8x3p"
@@ -28,26 +31,19 @@
       "type": "shogun-above",
       "settings": {}
     },
-    "banner": {
-      "type": "main-collection-banner",
-      "settings": {
-        "show_collection_description": true,
-        "show_collection_image": false,
-        "color_scheme": "scheme-1"
-      }
-    },
     "rich_text_YJeCaw": {
       "type": "rich-text",
       "blocks": {
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Cerulean",
+            "heading": "The Gift Guide",
             "heading_size": "h2"
           }
         },
         "text_PGqAmF": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>A true star of the Fall Collection — Cerulean. A vibrant blue, dyed to a rich, saturated finish. A playful hue that brightens every style.</p>",
             "line_height": 24
@@ -74,68 +70,170 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
+        "padding_top": 60,
+        "padding_bottom": 28,
         "padding_left": 100,
         "padding_right": 100
       }
     },
-    "buttons_Mn3bJP": {
-      "type": "buttons",
+    "image_banner_j6fRCM": {
+      "type": "image-banner",
       "blocks": {
-        "button_XaxzBy": {
-          "type": "button",
+        "heading_Xp6i4z": {
+          "type": "heading",
+          "disabled": true,
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
+            "heading": "Image banner",
+            "desktop_heading_size": "h1",
+            "mobile_heading_size": "h1",
+            "heading_color": "#000000"
           }
         },
-        "button_C99g3E": {
-          "type": "button",
+        "text_yNDdQf": {
+          "type": "text",
+          "disabled": true,
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_color": "#000000",
+            "text_style": "body",
+            "text_top_margin": 10
           }
         },
-        "button_NGpAit": {
-          "type": "button",
+        "buttons_ERYyEJ": {
+          "type": "buttons",
+          "disabled": true,
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
+            "link_type": "button",
+            "link_color": "#000000",
+            "link_size": 13,
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "buttons_top_margin": 20
           }
         }
       },
       "block_order": [
-        "button_XaxzBy",
-        "button_C99g3E",
-        "button_NGpAit"
+        "heading_Xp6i4z",
+        "text_yNDdQf",
+        "buttons_ERYyEJ"
       ],
-      "disabled": true,
-      "name": "Buttons",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/MP_Gift25_1.jpg",
+        "banner_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "content_position": "middle-center",
+        "tb_overlay_padding": 32,
+        "lr_overlay_padding": 0,
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "",
+        "mobile_image": "shopify://shop_images/MP_Gift25_1.jpg",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 36,
+        "desktop_padding_left": 16,
+        "desktop_padding_right": 16,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 24,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
+      }
+    },
+    "multicolumn_DArWcW": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_BaHQyy": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/MP_Pillows_Gift_edbaf80d-8259-4d8c-99ec-d35907943eb1.jpg",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": "",
+            "new_tab": false,
+            "link_margin": 0,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 25,
+            "lr_overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        },
+        "column_atC73C": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p>NEW FOR HOME<br/>Pillows, knit from our luxe hand-dyed Merino wool. <br/><br/>SHOP NOW</p>",
+            "link_label": "",
+            "link": "",
+            "new_tab": false,
+            "link_margin": 50,
+            "enable_overlay": false,
+            "content_position": "middle-center",
+            "tb_overlay_padding": 25,
+            "lr_overlay_padding": 25,
+            "link_type": "link",
+            "link_color": "#000000",
+            "link_style": "none",
+            "button_type": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "column_BaHQyy",
+        "column_atC73C"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
       "settings": {
         "title": "",
-        "button_gap": 10,
-        "heading_size": "h1",
+        "heading_size": "h2",
+        "enable_desktop_full_width": false,
+        "enable_mobile_full_width": true,
+        "enable_custom_spacing": true,
+        "horizontal_spacing_desktop": 40,
+        "vertical_spacing_desktop": 2,
+        "horizontal_spacing_mobile": 20,
+        "vertical_spacing_mobile": 0,
+        "image_width": "full",
+        "image_ratio": "portrait",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
         "color_scheme": "",
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 30,
-        "mobile_padding_top": 30,
-        "mobile_padding_bottom": 30
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "desktop_padding_top": 60,
+        "desktop_padding_bottom": 80,
+        "mobile_padding_top": 32,
+        "mobile_padding_bottom": 50
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
       }
     },
     "product-grid": {
@@ -202,6 +300,108 @@
         "enable_sorting": true,
         "padding_top": 0,
         "padding_bottom": 36
+      }
+    },
+    "rich_text_PFwcpc": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_tHWmBF": {
+          "type": "heading",
+          "settings": {
+            "heading": "More to Explore",
+            "heading_size": "h2"
+          }
+        },
+        "text_CLNhRa": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+            "line_height": 24
+          }
+        },
+        "button_rXPDAX": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_tHWmBF",
+        "text_CLNhRa",
+        "button_rXPDAX"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0
+      }
+    },
+    "buttons_Mn3bJP": {
+      "type": "buttons",
+      "blocks": {
+        "button_XaxzBy": {
+          "type": "button",
+          "settings": {
+            "label": "CHILD WINTER COLLECTION",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-winter",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_C99g3E": {
+          "type": "button",
+          "settings": {
+            "label": "BABY WINTER",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-winter",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_NGpAit": {
+          "type": "button",
+          "settings": {
+            "label": "ADULT WINTER",
+            "open_new_tab": true,
+            "link": "shopify://collections/adult-fall",
+            "type": "secondary",
+            "on_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_XaxzBy",
+        "button_C99g3E",
+        "button_NGpAit"
+      ],
+      "name": "Buttons",
+      "settings": {
+        "title": "",
+        "button_gap": 10,
+        "heading_size": "h1",
+        "color_scheme": "",
+        "desktop_padding_top": 28,
+        "desktop_padding_bottom": 60,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
       }
     },
     "shogun-below": {
