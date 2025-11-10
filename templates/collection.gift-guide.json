@@ -222,7 +222,7 @@
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "desktop_padding_top": 60,
-        "desktop_padding_bottom": 80,
+        "desktop_padding_bottom": 100,
         "mobile_padding_top": 32,
         "mobile_padding_bottom": 50
       }
