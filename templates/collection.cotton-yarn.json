@@ -42,14 +42,14 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Cerulean",
+            "heading": "Cotton Yarn",
             "heading_size": "h2"
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>A true star of the Fall Collection — Cerulean. A vibrant blue, dyed to a rich, saturated finish. A playful hue that brightens every style.</p>",
+            "text": "<p>Our cotton yarn is made from apparel production overages and is available in small batches. Crafted in 100% hand-dyed Pima cotton, this sport weight yarn is endlessly versatile for your projects, and a reflection of our commitment to sustainable yarn practices. Read more about our materials <a href=\"https://shop.misha-and-puff.com/pages/materials\" target=\"_blank\" title=\"Materials\">here</a>.</p>",
             "line_height": 24
           }
         },
@@ -74,14 +74,13 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
+        "padding_top": 60,
+        "padding_bottom": 32,
         "padding_left": 100,
         "padding_right": 100
       }
