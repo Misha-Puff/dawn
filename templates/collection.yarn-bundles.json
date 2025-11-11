@@ -30,6 +30,7 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
@@ -42,15 +43,15 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Cerulean",
+            "heading": "Mini Yarn Bundle",
             "heading_size": "h2"
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>A true star of the Fall Collection — Cerulean. A vibrant blue, dyed to a rich, saturated finish. A playful hue that brightens every style.</p>",
-            "line_height": 24
+            "text": "<p>A bundle of five mini, hand-dyed 100% Merino wool skeins in sport weight — perfect for small knitting projects, mending, and all of your crafting needs. Read more about our materials <a href=\"/pages/materials\">here</a>.</p>",
+            "line_height": 22
           }
         },
         "button_Yh3Xhh": {
@@ -74,14 +75,13 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
+        "padding_top": 60,
+        "padding_bottom": 32,
         "padding_left": 100,
         "padding_right": 100
       }
@@ -92,30 +92,50 @@
         "button_XaxzBy": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "SHOP LIMITED YARN",
+            "open_new_tab": true,
+            "link": "shopify://collections/limited-yarn",
+            "type": "secondary",
             "on_click": ""
           }
         },
         "button_C99g3E": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "COTTON YARN",
+            "open_new_tab": true,
+            "link": "shopify://collections/studio-cotton-yarn",
+            "type": "secondary",
             "on_click": ""
           }
         },
         "button_NGpAit": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "RWS YARN",
+            "open_new_tab": true,
+            "link": "shopify://collections/rws-yarn-skeins",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_FYYCRp": {
+          "type": "button",
+          "settings": {
+            "label": "PATTERNS",
+            "open_new_tab": true,
+            "link": "shopify://collections/knitting-patterns",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_T7Bm37": {
+          "type": "button",
+          "settings": {
+            "label": "MENDING SERVICES",
+            "open_new_tab": true,
+            "link": "shopify://collections/mending-services",
+            "type": "secondary",
             "on_click": ""
           }
         }
@@ -123,19 +143,20 @@
       "block_order": [
         "button_XaxzBy",
         "button_C99g3E",
-        "button_NGpAit"
+        "button_NGpAit",
+        "button_FYYCRp",
+        "button_T7Bm37"
       ],
-      "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
         "button_gap": 10,
         "heading_size": "h1",
         "color_scheme": "",
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 30,
-        "mobile_padding_top": 30,
-        "mobile_padding_bottom": 30
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 48,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 38
       }
     },
     "product-grid": {
