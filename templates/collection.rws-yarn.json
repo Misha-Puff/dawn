@@ -78,10 +78,20 @@
     "buttons_C6aMKP": {
       "type": "buttons",
       "blocks": {
+        "button_K7JRDB": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP ALL YARN",
+            "open_new_tab": true,
+            "link": "shopify://collections/all-yarn",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
         "button_PahprF": {
           "type": "button",
           "settings": {
-            "label": "SHOP LIMITED YARN",
+            "label": "LIMITED YARN",
             "open_new_tab": true,
             "link": "shopify://collections/limited-yarn",
             "type": "secondary",
@@ -130,6 +140,7 @@
         }
       },
       "block_order": [
+        "button_K7JRDB",
         "button_PahprF",
         "button_tVWjME",
         "button_kg6XXX",
