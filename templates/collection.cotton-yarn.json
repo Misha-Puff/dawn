@@ -92,30 +92,50 @@
         "button_XaxzBy": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "SHOP LIMITED YARN",
+            "open_new_tab": true,
+            "link": "shopify://collections/limited-yarn",
+            "type": "secondary",
             "on_click": ""
           }
         },
         "button_C99g3E": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "MINI BUNDLES",
+            "open_new_tab": true,
+            "link": "shopify://collections/studio-yarn-bundles",
+            "type": "secondary",
             "on_click": ""
           }
         },
         "button_NGpAit": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "RWS YARN",
+            "open_new_tab": true,
+            "link": "shopify://collections/rws-yarn-skeins",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_QHYitK": {
+          "type": "button",
+          "settings": {
+            "label": "PATTERNS",
+            "open_new_tab": true,
+            "link": "shopify://collections/knitting-patterns",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_ajQQnD": {
+          "type": "button",
+          "settings": {
+            "label": "MENDING SERVICES",
+            "open_new_tab": true,
+            "link": "shopify://collections/mending-services",
+            "type": "secondary",
             "on_click": ""
           }
         }
@@ -123,19 +143,20 @@
       "block_order": [
         "button_XaxzBy",
         "button_C99g3E",
-        "button_NGpAit"
+        "button_NGpAit",
+        "button_QHYitK",
+        "button_ajQQnD"
       ],
-      "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
         "button_gap": 10,
         "heading_size": "h1",
         "color_scheme": "",
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 30,
-        "mobile_padding_top": 30,
-        "mobile_padding_bottom": 30
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 48,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 38
       }
     },
     "product-grid": {
