@@ -39,8 +39,8 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>Our yarn skeins are 100% hand-dyed Merino wool yarn, available in both RWS-certified and Limited varieties.</p><p>Our RWS yarn, introduced in 2023, meets the Responsible Wool Standard (RWS), ensuring high standards of animal welfare and ethical production from farm to fiber. Our Limited yarn is made from apparel production overages and available in small batches — once it’s gone, it’s gone. Read more about our materials <a href=\"/pages/materials\" target=\"_blank\" title=\"Materials\">here</a>.</p>",
-            "line_height": 22
+            "text": "<p>All of our yarn skeins are 100% hand-dyed Merino wool or Pima cotton.</p><p>We’re excited to introduce Pima cotton as the newest addition to our yarn collection. Like our Merino Limited yarn, it’s made from apparel production overages and offered in small batches.</p><p>Our RWS skeins meet the Responsible Wool Standard (RWS), ensuring high standards of animal welfare and ethical production from farm to fiber.</p><p>Read more about our materials <a href=\"/pages/materials\" target=\"_blank\" title=\"Materials\">here</a>.</p>",
+            "line_height": 24
           }
         },
         "button_Yh3Xhh": {
@@ -70,14 +70,24 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 60,
-        "padding_bottom": 32,
-        "padding_left": 76,
-        "padding_right": 76
+        "padding_bottom": 36,
+        "padding_left": 52,
+        "padding_right": 52
       }
     },
     "buttons_JtrEW4": {
       "type": "buttons",
       "blocks": {
+        "button_NjBN3m": {
+          "type": "button",
+          "settings": {
+            "label": "LIMITED YARN",
+            "open_new_tab": true,
+            "link": "shopify://collections/limited-yarn-skeins",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
         "button_EjbnbT": {
           "type": "button",
           "settings": {
@@ -88,12 +98,22 @@
             "on_click": ""
           }
         },
-        "button_NjBN3m": {
+        "button_qpCnLF": {
           "type": "button",
           "settings": {
-            "label": "SHOP LIMITED YARN",
+            "label": "COTTON YARN",
             "open_new_tab": true,
-            "link": "shopify://collections/limited-yarn-skeins",
+            "link": "shopify://collections/studio-cotton-yarn",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_NQChkN": {
+          "type": "button",
+          "settings": {
+            "label": "MINI SKEIN BUNDLE",
+            "open_new_tab": true,
+            "link": "shopify://collections/studio-yarn-bundles",
             "type": "secondary",
             "on_click": ""
           }
@@ -101,7 +121,7 @@
         "button_AGmAfc": {
           "type": "button",
           "settings": {
-            "label": "SHOP KNITTING PATTERNS",
+            "label": "KNITTING PATTERNS",
             "open_new_tab": true,
             "link": "shopify://collections/knitting-patterns",
             "type": "secondary",
@@ -120,8 +140,10 @@
         }
       },
       "block_order": [
-        "button_EjbnbT",
         "button_NjBN3m",
+        "button_EjbnbT",
+        "button_qpCnLF",
+        "button_NQChkN",
         "button_AGmAfc",
         "button_UM4A6D"
       ],
