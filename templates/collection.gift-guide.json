@@ -17,6 +17,7 @@
     "multicolumn_DArWcW",
     "banner",
     "product-grid",
+    "gp_global_section_592816782889190205_QydXR8",
     "rich_text_PFwcpc",
     "buttons_Mn3bJP",
     "shogun-below",
@@ -31,6 +32,20 @@
     "shogun-above": {
       "type": "shogun-above",
       "settings": {}
+    },
+    "gp_global_section_592809896160789363_BHGxWt": {
+      "type": "gp-global-section-592809896160789363",
+      "name": "Gift Guide - Nov 25",
+      "settings": {
+        "section_preload": "off_lazy_script",
+        "checksum": "",
+        "gggOiZ-oC1J_text": "<p>THE</p>",
+        "gg3Jv0sDf9Z_text": "<span style=\"color:#FFFFFF;font-size:36px;\">GIFT GUIDE</span>",
+        "gg3ofOCLJGd_text": "<p>CURATED AND COVETABLE</p>",
+        "gg05c4TXNcI_text": "NEW FOR HOME",
+        "ggauUS8CbgB_text": "<p><span style=\"font-size:13px;\">Pillows are here! Hand-knit heirlooms for your home, crafted in our luxe hand-dyed Merino wool.</span></p>",
+        "ggyPaJfov0k_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/mixed-kindred-silhouettes\"><span style=\"background-color:rgb(255,255,255);color:rgb(16,24,32);font-size:14px;\"><u>SHOP NOW</u></span></a></p>"
+      }
     },
     "rich_text_YJeCaw": {
       "type": "rich-text",
@@ -306,6 +321,17 @@
         "padding_bottom": 36
       }
     },
+    "gp_global_section_592816782889190205_QydXR8": {
+      "type": "gp-global-section-592816782889190205",
+      "name": "Gift Guide Footer - 25",
+      "settings": {
+        "section_preload": "off_lazy_script",
+        "checksum": "",
+        "ggM8iyVSMAI_label": "<p><span style=\"font-size:12px;\">SHOP CHILD GIFTS</span></p>",
+        "gggyBAEFP-z_label": "<p><span style=\"font-size:12px;\">SHOP BABY GIFTS</span></p>",
+        "ggk0GR_xJq4_label": "<p><span style=\"font-size:12px;\">SHOP ADULT GIFTS</span></p>"
+      }
+    },
     "rich_text_PFwcpc": {
       "type": "rich-text",
       "blocks": {
@@ -345,6 +371,7 @@
         "text_CLNhRa",
         "button_rXPDAX"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
@@ -396,6 +423,7 @@
         "button_C99g3E",
         "button_NGpAit"
       ],
+      "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
@@ -430,20 +458,6 @@
         "padding_bottom": 52,
         "padding_left": 0,
         "padding_right": 0
-      }
-    },
-    "gp_global_section_592809896160789363_BHGxWt": {
-      "type": "gp-global-section-592809896160789363",
-      "name": "Gift Guide - Nov 25",
-      "settings": {
-        "section_preload": "off_lazy_script",
-        "checksum": "",
-        "gggOiZ-oC1J_text": "<p>THE</p>",
-        "gg3Jv0sDf9Z_text": "<span style=\"color:#FFFFFF;font-size:36px;\">GIFT GUIDE</span>",
-        "gg3ofOCLJGd_text": "<p>CURATED AND COVETABLE</p>",
-        "gg05c4TXNcI_text": "NEW FOR HOME",
-        "ggauUS8CbgB_text": "<p><span style=\"font-size:13px;\">Pillows are here! Hand-knit heirlooms for your home, crafted in our luxe hand-dyed Merino wool.</span></p>",
-        "ggyPaJfov0k_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/mixed-kindred-silhouettes\"><span style=\"background-color:rgb(255,255,255);color:rgb(16,24,32);font-size:14px;\"><u>SHOP NOW</u></span></a></p>"
       }
     }
   }
