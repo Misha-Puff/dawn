@@ -88,16 +88,6 @@
             "on_click": ""
           }
         },
-        "button_EjbnbT": {
-          "type": "button",
-          "settings": {
-            "label": "RWS YARN",
-            "open_new_tab": true,
-            "link": "shopify://collections/rws-yarn-skeins",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
         "button_qpCnLF": {
           "type": "button",
           "settings": {
@@ -114,6 +104,16 @@
             "label": "MINIS BUNDLE",
             "open_new_tab": true,
             "link": "shopify://collections/studio-yarn-bundles",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_EjbnbT": {
+          "type": "button",
+          "settings": {
+            "label": "RWS YARN",
+            "open_new_tab": true,
+            "link": "shopify://collections/rws-yarn-skeins",
             "type": "secondary",
             "on_click": ""
           }
@@ -141,9 +141,9 @@
       },
       "block_order": [
         "button_NjBN3m",
-        "button_EjbnbT",
         "button_qpCnLF",
         "button_NQChkN",
+        "button_EjbnbT",
         "button_AGmAfc",
         "button_UM4A6D"
       ],
