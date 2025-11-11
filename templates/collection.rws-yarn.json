@@ -39,7 +39,7 @@
         "text_89pzk9": {
           "type": "text",
           "settings": {
-            "text": "<p>In 2023, Misha & Puff achieved <a href=\"https://textileexchange.org/responsible-wool-standard/\" target=\"_blank\">Responsible Wool Standard</a> (RWS) certification on all of our new yarn skeins. The Responsible Wool Standard guarantees high standards of care for animals across the entire production chain, from farms to transporters.</p>",
+            "text": "<p>In 2023, Misha & Puff achieved <a href=\"https://textileexchange.org/responsible-wool-standard/\" target=\"_blank\">Responsible Wool Standard</a> (RWS) certification on select yarn skeins. The Responsible Wool Standard guarantees high standards of care for animals across the entire production chain, from farms to transporters. Read more about our materials <a href=\"/pages/materials\">here</a>.</p>",
             "line_height": 22
           }
         },
@@ -88,10 +88,30 @@
             "on_click": ""
           }
         },
+        "button_tVWjME": {
+          "type": "button",
+          "settings": {
+            "label": "COTTON YARN",
+            "open_new_tab": true,
+            "link": "shopify://collections/studio-cotton-yarn",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_kg6XXX": {
+          "type": "button",
+          "settings": {
+            "label": "MINI BUNDLES",
+            "open_new_tab": true,
+            "link": "shopify://collections/studio-yarn-bundles",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
         "button_aqE7ie": {
           "type": "button",
           "settings": {
-            "label": "SHOP KNITTING PATTERNS",
+            "label": "PATTERNS",
             "open_new_tab": true,
             "link": "shopify://collections/knitting-patterns",
             "type": "secondary",
@@ -111,6 +131,8 @@
       },
       "block_order": [
         "button_PahprF",
+        "button_tVWjME",
+        "button_kg6XXX",
         "button_aqE7ie",
         "button_ycfKpJ"
       ],
