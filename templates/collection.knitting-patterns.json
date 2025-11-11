@@ -46,8 +46,8 @@
         "button_zKjgA7": {
           "type": "button",
           "settings": {
-            "button_label": "shop yarn",
-            "button_link": "shopify://collections/limited-yarn",
+            "button_label": "SHOP ALL YARN",
+            "button_link": "shopify://collections/all-yarn",
             "button_style_secondary": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -70,8 +70,8 @@
         "full_width": true,
         "padding_top": 60,
         "padding_bottom": 48,
-        "padding_left": 80,
-        "padding_right": 80
+        "padding_left": 100,
+        "padding_right": 100
       }
     },
     "product-grid": {
