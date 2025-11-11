@@ -70,6 +70,7 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
+      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -126,6 +127,7 @@
         "text_yNDdQf",
         "buttons_ERYyEJ"
       ],
+      "disabled": true,
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/MP_Gift25_1.jpg",
@@ -200,6 +202,7 @@
         "column_BaHQyy",
         "column_atC73C"
       ],
+      "disabled": true,
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
         "title": "",
