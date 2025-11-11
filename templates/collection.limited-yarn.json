@@ -78,10 +78,20 @@
     "buttons_idAy9m": {
       "type": "buttons",
       "blocks": {
+        "button_HVemiH": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP ALL YARN",
+            "open_new_tab": true,
+            "link": "shopify://collections/all-yarn",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
         "button_MRie7E": {
           "type": "button",
           "settings": {
-            "label": "SHOP COTTON YARN",
+            "label": "COTTON YARN",
             "open_new_tab": true,
             "link": "shopify://collections/studio-cotton-yarn",
             "type": "secondary",
@@ -130,6 +140,7 @@
         }
       },
       "block_order": [
+        "button_HVemiH",
         "button_MRie7E",
         "button_hqghRa",
         "button_a8bgbY",
