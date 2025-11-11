@@ -40,7 +40,7 @@
           "type": "text",
           "settings": {
             "text": "<p>Our garments are made to last, but we know life happens. That’s why we created a repair program to help your item live on. Extending its life instead of buying new reduces its carbon footprint by 82%—something to wear and feel great about.</p><p></p>",
-            "line_height": 20
+            "line_height": 22
           }
         },
         "button_kyEBKP": {
@@ -70,8 +70,8 @@
         "full_width": true,
         "padding_top": 60,
         "padding_bottom": 48,
-        "padding_left": 80,
-        "padding_right": 80
+        "padding_left": 100,
+        "padding_right": 100
       }
     },
     "buttons_irahck": {
