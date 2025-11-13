@@ -1,6 +1,9 @@
 {% unless product.type == 'Yarn Skein' or product.type == 'Pattern' or product.type == 'Repair' %}
   <div class="variant-availability">
     {% for variant in product.variants %}
+      {% if variant.option1 == 'Default Title' %}
+        {% continue %}
+      {% endif %}
       <span class="{% unless variant.available %}unavailable{% endunless %}">
         {% if variant.option2 %}
           {{ variant.option2 }}
