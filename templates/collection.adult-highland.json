@@ -30,6 +30,7 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
@@ -42,14 +43,14 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Cerulean",
+            "heading": "Highland Wool Styles",
             "heading_size": "h2"
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>A true star of the Fall Collection — Cerulean. A vibrant blue, dyed to a rich, saturated finish. A playful hue that brightens every style.</p>",
+            "text": "<p>Since we introduced our Andean Highland wool last winter, it’s become an instant favorite — unassuming yet full of character. Lofty, a little rustic, and very hard-working.</p><p>Thoughtfully crafted in both hand-knit and machine-knit styles, depending on intention. Hand-knit brings a touch of craft and irresistible squish; machine-knit offers structure and a smooth, low-pill finish. Both deliver lasting warmth and comfort.</p>",
             "line_height": 24
           }
         },
@@ -74,16 +75,15 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
-        "padding_left": 100,
-        "padding_right": 100
+        "padding_top": 60,
+        "padding_bottom": 32,
+        "padding_left": 72,
+        "padding_right": 72
       }
     },
     "buttons_Mn3bJP": {
@@ -92,30 +92,30 @@
         "button_XaxzBy": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "SHOP FALL/WINTER COLLECTION",
+            "open_new_tab": true,
+            "link": "shopify://collections/adult-fall",
+            "type": "secondary",
             "on_click": ""
           }
         },
         "button_C99g3E": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "ALL SWEATERS",
+            "open_new_tab": true,
+            "link": "shopify://collections/adult-sweaters-cardigans",
+            "type": "secondary",
             "on_click": ""
           }
         },
         "button_NGpAit": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "PIMA LAYERS",
+            "open_new_tab": true,
+            "link": "shopify://collections/adult-pima-cotton",
+            "type": "secondary",
             "on_click": ""
           }
         }
@@ -125,17 +125,16 @@
         "button_C99g3E",
         "button_NGpAit"
       ],
-      "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
         "button_gap": 10,
         "heading_size": "h1",
         "color_scheme": "",
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 30,
-        "mobile_padding_top": 30,
-        "mobile_padding_bottom": 30
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 48,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 38
       }
     },
     "product-grid": {
