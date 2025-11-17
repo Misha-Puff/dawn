@@ -17,7 +17,7 @@
         "announcement_YVezxm": {
           "type": "announcement",
           "settings": {
-            "text": "<p>GIFT WITH PURCHASE on orders $500+. Ends Friday 10/17. <a href=\"https://shop.misha-and-puff.com/pages/current-promotions\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/pages/current-promotions\">See details</a>.</p>"
+            "text": "<p>The Gift Guide is here — <a href=\"/collections/winter-25-gift-guide\" title=\"Winter 25 - Gift Guide\">SHOP NOW</a></p>"
           }
         },
         "announcement_dDUTp6": {
@@ -32,7 +32,6 @@
         "announcement_YVezxm",
         "announcement_dDUTp6"
       ],
-      "disabled": true,
       "settings": {
         "desktop_height": 34,
         "mobile_height": 40,
