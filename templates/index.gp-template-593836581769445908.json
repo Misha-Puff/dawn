@@ -1,0 +1,78 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_593836581853331988": {
+      "settings": {
+        "checksum": "ff814016d33b4dc3bb929201a0eb491560854a50cb2e9b7b5c005f4ee0ffda55_1_1_1_0__1",
+        "ggZzEkzK0NV_text": "<span style=\"color:#101820;font-size:12px;\">KINDRED SILHOUETTES</span>",
+        "ggsjutnBVlB_text": "<p><span style=\"color:#101820;font-size:13px;\">This season, our Adult and Child collections align — our first crossover that reflects the spirit of children’s styles, carefully adapted with elegance and ease for adult. From silhouette to palette to texture, these are pieces that echo from one generation to the next. Stay tuned for more.</span></p><p>&nbsp;</p><p><a href=\"https://shop.misha-and-puff.com/collections/mixed-kindred-silhouettes\"><span style=\"background-color:rgb(255,255,255);color:#101820;font-size:12px;\"><u>SHOP NOW</u></span></a></p>"
+      },
+      "type": "gp-section-593836581853331988"
+    },
+    "gp_section_593836581853397524": {
+      "settings": {
+        "checksum": "44d0ee4190e1f3d440ba389ea8c9d37397d854dfbbba2fa2efe472ce842a6acb_1_1_1_0__1",
+        "ggG2H8KzFcY_text": "<p><span style=\"font-size:13px;\">This season, our Adult and Child collections align — our first crossover that reflects the spirit of children’s styles, carefully adapted with elegance and ease for adult. From silhouette to palette to texture, these are pieces that echo from one generation to the next. Stay tuned for more.</span></p><p>&nbsp;</p><p><a href=\"https://shop.misha-and-puff.com/collections/mixed-kindred-silhouettes\"><span style=\"background-color:rgb(255,255,255);color:rgb(16,24,32);font-size:12px;\"><u>SHOP NOW</u></span></a></p>",
+        "ggMEDvFw7Pc_text": "<span style=\"color:#101820;font-size:13px;\">KINDRED SILHOUETTES</span>"
+      },
+      "type": "gp-section-593836581853397524"
+    },
+    "gp_section_593836581853463060": {
+      "settings": {
+        "checksum": "fb32d9b2d85e5058fa6cd9c81833e48aaaf2de0090e028a9e8bb19e5bb5d5a78_1_1_1_0__1",
+        "gg-Y6akhjPy_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-fall\">ADULT COLLECTION</a></p>",
+        "ggiHErRSUSC_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-WINTER\">BABY WINTER COLLECTION</a></p>",
+        "gglv94RH8qJ_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/winter-25-gift-guide\">THE GIFT GUIDE</a></p>"
+      },
+      "type": "gp-section-593836581853463060"
+    },
+    "gp_section_593836581853528596": {
+      "settings": {
+        "checksum": "41fa619604a728d07799dd0c7d67d1bfea53a4dc8f04d7b63be607b039e33e2f_1_1_1_0__1",
+        "ggS8exw2JLC_label": "<p><span style=\"font-size:12px;\">THE WINTER COLLECTION</span></p>",
+        "section_preload": "true"
+      },
+      "type": "gp-section-593836581853528596"
+    },
+    "gp_section_593836581853594132": {
+      "settings": {
+        "checksum": "23e433eaf37a588e6830d89ed6056bfea760590c239228304760930f2c9dcdea_1_1_1_0__1",
+        "gg78Is0ZrXv_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-sweaters-cardigans\">SWEATERS + CARDIGANS</a></p>",
+        "ggkI-Zy3HaG_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-sale\">SALE — Spring/Summer Up to 40% Off</a></p>",
+        "ggz5Vv5XxMI_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/evergreen\">EVERGREEN COLLECTION</a></p>"
+      },
+      "type": "gp-section-593836581853594132"
+    },
+    "gp_section_593836581853659668": {
+      "settings": {
+        "checksum": "32771b531f8d4523b7d8d72ec5731f4723be613845815927515290d94f9722be_1_1_1_0__1",
+        "ggmKjQ6fm2Y_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\">JOURNAL</a></p>"
+      },
+      "type": "gp-section-593836581853659668"
+    },
+    "gp_section_593836581853725204": {
+      "settings": {
+        "checksum": "7007899d05da58361cef8b7d8aabbdde8478734f68ff6b0cc932a08f6701d7ac_1_1_1_0__1",
+        "gghaUfJw_c4_label": "<p><span style=\"font-size:12px;\">JOURNAL</span></p>"
+      },
+      "type": "gp-section-593836581853725204"
+    }
+  },
+  "order": [
+    "gp_section_593836581853528596",
+    "gp_section_593836581853463060",
+    "gp_section_593836581853397524",
+    "gp_section_593836581853331988",
+    "gp_section_593836581853594132",
+    "gp_section_593836581853659668",
+    "gp_section_593836581853725204"
+  ]
+}
