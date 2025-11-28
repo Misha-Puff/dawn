@@ -29,16 +29,16 @@
     },
     "gp_section_565435366572819441": {
       "settings": {
-        "checksum": "109fbbbed64e3c5c3090fa6bde558daafb2a0f36496818d56279f08811b37b1b_1_1_1_0__1",
+        "checksum": "80d0e30f2867a12e9e491d9b596bc921c6e1c187dd1cac844debb33f7cd2ab18_1_1_1_0__1",
         "gg8an1cY-ID_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/winter-25-gift-guide\">GIFT GUIDE</a></p>",
-        "ggHJFhFMV6S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-new\"><span style=\"font-size:12px;\">NEW ARRIVALS</span></a></p>",
+        "ggHJFhFMV6S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-sale\"><span style=\"font-size:12px;\">SALE — Up to 50% Off, Including Fall Collections</span></a></p>",
         "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-accessories\">WINTER ACCESSORIES</a></p>"
       },
       "type": "gp-section-565435366572819441"
     },
     "gp_section_565742999678485659": {
       "settings": {
-        "checksum": "1d0baadd9569d3978b469bd5fcc9ca08345ef5e21df9eaa378809e4a67e89b38_1_1_1_0__1",
+        "checksum": "f2304d47b256c680d5f57c0dded1fa2284c8723e0f850b4771d6064369db2297_1_1_1_0__1",
         "ggSB_9sxwQ6_label": "ADD TO CART",
         "ggSB_9sxwQ6_outOfStockLabel": "Out of stock",
         "ggSB_9sxwQ6_unavailableLabel": "Unavailable",
@@ -49,18 +49,11 @@
     },
     "gp_section_583720142567899879": {
       "settings": {
-        "checksum": "8f3fbadeb2eaec928dc3cb6512b3e3840c5cb241615ef89ee693ba089461383b_1_1_1_0__1",
+        "checksum": "7c54f328ab11b15590ca96a4d2c845f2e97e87dcd36d3bb71668a3a7f193f22e_1_1_1_0__1",
         "ggOYzsnHtg0_label": "<p><span style=\"font-size:12px;\">THE WINTER COLLECTION</span></p>",
         "section_preload": "true"
       },
       "type": "gp-section-583720142567899879"
-    },
-    "gp_section_592891526997082995": {
-      "settings": {
-        "checksum": "b180f14a11c518ce8066a97f3f55551538684fc7bf17322658c84f025f4d1fe7_1_1_1_0__1",
-        "ggvLlyoi-pq_label": "<p><span style=\"font-size:12px;\">JOURNAL</span></p>"
-      },
-      "type": "gp-section-592891526997082995"
     },
     "gp_section_592891683713057388": {
       "settings": {
@@ -69,19 +62,19 @@
       },
       "type": "gp-section-592891683713057388"
     },
-    "gp_section_592891725823869641": {
+    "gp_section_594874653571285777": {
       "settings": {
-        "checksum": "67bc75d2e379ea2cd7fe0143379ae4f6eceefcb9deaafb684e5e0077f74fe36e_1_1_1_0__1"
+        "checksum": "3f9cad7145f0200e8714c5a485feb6d0f1ea7f0c03fef4aaf92764f0ef39edbe_1_1_1_0__1",
+        "ggF-V9spKq0_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\">JOURNAL</a></p>"
       },
-      "type": "gp-section-592891725823869641"
+      "type": "gp-section-594874653571285777"
     }
   },
   "order": [
     "gp_section_583720142567899879",
     "gp_section_565435366572819441",
     "gp_section_565742999678485659",
-    "gp_section_592891725823869641",
-    "gp_section_592891526997082995",
+    "gp_section_594874653571285777",
     "gp_section_565435366572753905",
     "gp_section_565435366572622833",
     "gp_section_592891683713057388"
