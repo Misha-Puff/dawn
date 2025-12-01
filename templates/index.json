@@ -68,7 +68,7 @@
         "image": "shopify://shop_images/MPxApolina_Vids_flowers_teaser11-ezgif.com-video-to-gif-converter_8872e125-9658-40c6-9497-1866fba8550e.gif",
         "banner_link": "",
         "image_overlay_opacity": 0,
-        "image_height": "medium",
+        "image_height": "adapt",
         "image_behavior": "none",
         "content_position": "middle-center",
         "tb_overlay_padding": 26,
