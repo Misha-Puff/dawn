@@ -62,6 +62,7 @@
         "heading_64UxUz",
         "buttons_m7fUtB"
       ],
+      "disabled": true,
       "custom_css": [
         ".banner__text {letter-spacing: 1px; font-size: 12px;}"
       ],
