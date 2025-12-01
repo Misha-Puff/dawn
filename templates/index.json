@@ -98,8 +98,8 @@
           "settings": {
             "image": "shopify://shop_images/MP_WI25_SiteMobile_12.2_Child_1.jpg",
             "title": "",
-            "text": "<p>CHILD WINTER COLLECTION</p>",
-            "link_label": "",
+            "text": "",
+            "link_label": "CHILD WINTER COLLECTION",
             "link": "https://shop.misha-and-puff.com/collections/child-winter",
             "new_tab": false,
             "link_margin": 6,
@@ -118,8 +118,8 @@
           "settings": {
             "image": "shopify://shop_images/MP_WI25_SiteMobile_11.28_Baby_3_a0c3bff6-bc62-417f-a0c9-3bf01d70cb62.jpg",
             "title": "",
-            "text": "<p>BABY WINTER COLLECTION</p>",
-            "link_label": "",
+            "text": "",
+            "link_label": "BABY WINTER COLLECTION",
             "link": "https://shop.misha-and-puff.com/collections/baby-WINTER",
             "new_tab": false,
             "link_margin": 6,
@@ -138,8 +138,8 @@
           "settings": {
             "image": "shopify://shop_images/MP_WI25_SiteMobile_11.28_Adult_1_ca812426-bf2d-4312-84b7-1b34a18a4931.jpg",
             "title": "",
-            "text": "<p>ADULT COLLECTION</p>",
-            "link_label": "",
+            "text": "",
+            "link_label": "ADULT COLLECTION",
             "link": "https://shop.misha-and-puff.com/collections/adult-fall",
             "new_tab": false,
             "link_margin": 6,
