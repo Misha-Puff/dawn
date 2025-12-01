@@ -511,7 +511,7 @@
     "custom_css": [
       "@media screen and (min-width: 750px) {#PopupModal-duties-taxes .product-popup-modal__content {width: 50%; font-size: 16px; }}",
       ".Banner-template--18100910456883__image_banner_rLc49y .Block-text_DnC79V {margin-top: 20px !important;}",
-      "@media screen and (max-width: 1099px) {.Banner-template--18100910456883__image_banner_rLc49y .Block-text_DnC79V {margin-top: 200px !important;}}"
+      "@media screen and (max-width: 1099px) {.Banner-template--18100910456883__image_banner_rLc49y .Block-text_DnC79V {margin-bottom: 300px !important; }}"
     ]
   }
 }
