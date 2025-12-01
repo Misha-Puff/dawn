@@ -160,7 +160,7 @@
         "column_QPmyBz"
       ],
       "custom_css": [
-        ".multicolumn-card__info {padding-left: 8px;}"
+        ".multicolumn-card__info {padding-left: 8px !important;}"
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
