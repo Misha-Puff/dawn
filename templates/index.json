@@ -92,6 +92,22 @@
         "mobile_padding_right": 0
       }
     },
+    "video_CDRBTF": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "",
+        "heading_size": "h2",
+        "enable_video_looping": true,
+        "video": "shopify://files/videos/MPxApolina_Vids_flowers_teaser-2.mp4",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": true,
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "multicolumn_PMaRdD": {
       "type": "multicolumn",
       "blocks": {
@@ -226,32 +242,16 @@
         "ggRzArRZUz6_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-accessories\">ACCESSORIES</a></p>",
         "gg2NAAt5DbD_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\">JOURNAL</a></p>"
       }
-    },
-    "video_CDRBTF": {
-      "type": "video",
-      "name": "t:sections.video.presets.name",
-      "settings": {
-        "heading": "",
-        "heading_size": "h2",
-        "enable_video_looping": true,
-        "video": "shopify://files/videos/MPxApolina_Vids_flowers_teaser-2.mp4",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "description": "",
-        "full_width": true,
-        "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
     }
   },
   "order": [
     "gp_section_594863566398620433",
     "image_banner_rLc49y",
+    "video_CDRBTF",
     "multicolumn_PMaRdD",
     "gp_section_594863566398554897",
     "gp_section_594863566398685969",
     "gp_section_594868477139878834",
-    "gp_section_594869636965597794",
-    "video_CDRBTF"
+    "gp_section_594869636965597794"
   ]
 }
