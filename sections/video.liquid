@@ -109,10 +109,10 @@
             section.settings.video
             | video_tag:
               image_size: '1100x',
-              autoplay: true,
+              autoplay: section.settings.enable_video_autoplay,
               loop: section.settings.enable_video_looping,
               controls: true,
-              muted: false
+              muted: section.settings.enable_video_autoplay
           }}
         {%- endif -%}
       </template>
@@ -167,6 +167,12 @@
       "type": "checkbox",
       "id": "enable_video_looping",
       "label": "t:sections.video.settings.enable_video_looping.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_video_autoplay",
+      "label": "Autoplay video",
       "default": false
     },
     {
