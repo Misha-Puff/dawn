@@ -159,6 +159,9 @@
         "column_BFRMLK",
         "column_QPmyBz"
       ],
+      "custom_css": [
+        ".multicolumn-card__info {padding-left: 8px;}"
+      ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
         "title": "",
