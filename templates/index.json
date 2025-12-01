@@ -62,6 +62,9 @@
         "heading_64UxUz",
         "buttons_m7fUtB"
       ],
+      "custom_css": [
+        ".banner__text {letter-spacing: 1px; font-size: 12px;}"
+      ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/MPxApolina_Vids_flowers_teaser11-ezgif.com-video-to-gif-converter_8872e125-9658-40c6-9497-1866fba8550e.gif",
