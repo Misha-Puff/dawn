@@ -21,6 +21,15 @@
     "image_banner_rLc49y": {
       "type": "image-banner",
       "blocks": {
+        "text_DnC79V": {
+          "type": "text",
+          "settings": {
+            "text": "DECEMBER 4 AT 9 AM ET",
+            "text_color": "#ffffff",
+            "text_style": "body",
+            "text_top_margin": 0
+          }
+        },
         "heading_64UxUz": {
           "type": "heading",
           "disabled": true,
@@ -29,16 +38,6 @@
             "desktop_heading_size": "h1",
             "mobile_heading_size": "h1",
             "heading_color": "#000000"
-          }
-        },
-        "text_DnC79V": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_color": "#000000",
-            "text_style": "body",
-            "text_top_margin": 10
           }
         },
         "buttons_m7fUtB": {
@@ -59,8 +58,8 @@
         }
       },
       "block_order": [
-        "heading_64UxUz",
         "text_DnC79V",
+        "heading_64UxUz",
         "buttons_m7fUtB"
       ],
       "name": "t:sections.image-banner.presets.name",
@@ -70,11 +69,11 @@
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "image_behavior": "none",
-        "content_position": "middle-center",
-        "tb_overlay_padding": 26,
-        "lr_overlay_padding": 26,
+        "content_position": "top-center",
+        "tb_overlay_padding": 148,
+        "lr_overlay_padding": 0,
         "desktop_content_alignment": "center",
-        "show_text_box": true,
+        "show_text_box": false,
         "color_scheme": "",
         "mobile_image": "shopify://shop_images/MPxApolina_Vids_reel_lanscape_teaser-ezgif.com-optimize.gif",
         "stack_images_on_mobile": true,
