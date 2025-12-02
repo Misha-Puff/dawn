@@ -16,13 +16,13 @@
       "blocks": {
         "announcement_YVezxm": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
             "text": "<p>The Gift Guide is here — <a href=\"/collections/winter-25-gift-guide\" title=\"Winter 25 - Gift Guide\">SHOP NOW</a></p>"
           }
         },
         "announcement_dDUTp6": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "<p>SALE: Fall Collections up to 30% off — <a href=\"/collections/child-sale\" target=\"_blank\" title=\"Child - Sale\">Shop Now</a></p>"
           }
