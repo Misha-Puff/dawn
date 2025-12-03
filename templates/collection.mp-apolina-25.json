@@ -12,6 +12,7 @@
     "shogun-helper",
     "shogun-above",
     "banner",
+    "image_banner_hAb6Wh",
     "rich_text_YJeCaw",
     "buttons_Mn3bJP",
     "product-grid",
@@ -30,10 +31,83 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
         "color_scheme": "scheme-1"
+      }
+    },
+    "image_banner_hAb6Wh": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_f7cWeM": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Image banner",
+            "desktop_heading_size": "h1",
+            "mobile_heading_size": "h1",
+            "heading_color": "#000000"
+          }
+        },
+        "text_eGkJKH": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_color": "#000000",
+            "text_style": "body",
+            "text_top_margin": 10
+          }
+        },
+        "buttons_zcdeDy": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "link_type": "button",
+            "link_color": "#000000",
+            "link_size": 13,
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "buttons_top_margin": 20
+          }
+        }
+      },
+      "block_order": [
+        "heading_f7cWeM",
+        "text_eGkJKH",
+        "buttons_zcdeDy"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/MP_WI25_Site_12.4_Collection.jpg",
+        "banner_link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "content_position": "middle-center",
+        "tb_overlay_padding": 26,
+        "lr_overlay_padding": 26,
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "",
+        "mobile_image": "shopify://shop_images/MP_WI25_SiteMobile_12.4_Collection.jpg",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": true,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 0,
+        "desktop_padding_right": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
       }
     },
     "rich_text_YJeCaw": {
@@ -42,15 +116,15 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Cerulean",
+            "heading": "Apolina + Misha & Puff",
             "heading_size": "h2"
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>A true star of the Fall Collection — Cerulean. A vibrant blue, dyed to a rich, saturated finish. A playful hue that brightens every style.</p>",
-            "line_height": 24
+            "text": "<p>This collaboration began with a shared love of craft — at the heart of both Apolina and Misha & Puff. Inspired by vintage sources and folk handicraft, the collection celebrates handwork, artistry, and tradition.<br/><br/>Drawing on Apolina’s bohemian spirit and Misha & Puff’s textured, color-forward approach, the pieces share a cohesive palette and thoughtful designs that layer, mix, and complement one another effortlessly.</p>",
+            "line_height": 22
           }
         },
         "button_Yh3Xhh": {
@@ -74,16 +148,15 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
-        "padding_left": 100,
-        "padding_right": 100
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_left": 52,
+        "padding_right": 52
       }
     },
     "buttons_Mn3bJP": {
