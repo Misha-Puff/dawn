@@ -271,7 +271,7 @@
                   >
                     {%- case item.object_type -%}
                       {%- when 'product' -%}
-                        {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: product -%}{%- endcapture -%}
+                        {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: item -%}{%- endcapture -%}
                         {% assign lock_content = lock_content | strip %}
                         {% if lock_content == 'true' %}
                           {% continue %}
@@ -289,7 +289,7 @@
                         %}
                         {%- assign skip_card_product_styles = true -%}
                       {%- when 'article' -%}
-                        {%- capture lock_content -%}{%- render 'locksmith-v2-lock-article' article: article -%}{%- endcapture -%}
+                        {%- capture lock_content -%}{%- render 'locksmith-v2-lock-article' article: item -%}{%- endcapture -%}
                         {% assign lock_content = lock_content | strip %}
                         {% if lock_content == 'true' %}
                           {% continue %}
@@ -304,7 +304,7 @@
                           lazy_load: lazy_load
                         %}
                       {%- when 'page' -%}
-                        {%- capture lock_content -%}{%- render 'locksmith-v2-lock-page' page: page -%}{%- endcapture -%}
+                        {%- capture lock_content -%}{%- render 'locksmith-v2-lock-page' page: item -%}{%- endcapture -%}
                         {% assign lock_content = lock_content | strip %}
                         {% if lock_content == 'true' %}
                           {% continue %}
