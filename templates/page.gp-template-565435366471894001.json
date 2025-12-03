@@ -9,6 +9,20 @@
  */
 {
   "sections": {
+    "gp_global_section_595863519392433074-1": {
+      "settings": {
+        "checksum": "",
+        "section_preload": "true"
+      },
+      "type": "gp-global-section-595863519392433074"
+    },
+    "gp_global_section_595863570109957042-2": {
+      "settings": {
+        "checksum": "",
+        "section_preload": "false"
+      },
+      "type": "gp-global-section-595863570109957042"
+    },
     "gp_section_565435366572622833": {
       "settings": {
         "checksum": "83d53a7980e6bfc1af6d2bc86dfd42f577f959476582f52cead775998135a922_1_1_1_0__1"
@@ -29,10 +43,10 @@
     },
     "gp_section_565435366572819441": {
       "settings": {
-        "checksum": "4ec2ab91dd43c3799cbe94f7f51cd72d0bed1cc7ebcb8fcefc0bdad92bd250ba_1_1_1_0__1",
+        "checksum": "25c9ac4cb3d98afb08e552cc95b0ad89f196061ad90f971f82d2a7d24a2d61c6_1_1_1_0__1",
         "gg8an1cY-ID_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/winter-25-gift-guide\">GIFT GUIDE</a></p>",
         "ggSHGb3d4tQ_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-accessories\">WINTER ACCESSORIES</a></p>",
-        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-winter\">SEASONAL LAYERS</a></p>"
+        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-winter\">THE WINTER COLLECTION</a></p>"
       },
       "type": "gp-section-565435366572819441"
     },
@@ -46,14 +60,6 @@
         "ggT-TYiC6nr_text": "<span style=\"font-size:12px;\">NEW ARRIVALS</span>"
       },
       "type": "gp-section-565742999678485659"
-    },
-    "gp_section_583720142567899879": {
-      "settings": {
-        "checksum": "7c54f328ab11b15590ca96a4d2c845f2e97e87dcd36d3bb71668a3a7f193f22e_1_1_1_0__1",
-        "ggOYzsnHtg0_label": "<p><span style=\"font-size:12px;\">THE WINTER COLLECTION</span></p>",
-        "section_preload": "true"
-      },
-      "type": "gp-section-583720142567899879"
     },
     "gp_section_592891683713057388": {
       "settings": {
@@ -71,7 +77,8 @@
     }
   },
   "order": [
-    "gp_section_583720142567899879",
+    "gp_global_section_595863519392433074-1",
+    "gp_global_section_595863570109957042-2",
     "gp_section_565435366572819441",
     "gp_section_565742999678485659",
     "gp_section_594874653571285777",
