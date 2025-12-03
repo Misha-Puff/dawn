@@ -9,6 +9,20 @@
  */
 {
   "sections": {
+    "gp_global_section_595863519392433074-1": {
+      "settings": {
+        "checksum": "",
+        "section_preload": "true"
+      },
+      "type": "gp-global-section-595863519392433074"
+    },
+    "gp_global_section_595863570109957042-2": {
+      "settings": {
+        "checksum": "",
+        "section_preload": "false"
+      },
+      "type": "gp-global-section-595863570109957042"
+    },
     "gp_section_565435429168350276": {
       "settings": {
         "checksum": "0d5ace2a35e91a4794d2cd0fec202a00e32545923143638b9403200ad15da50f_1_1_1_0__1",
@@ -27,17 +41,10 @@
       },
       "type": "gp-section-565435429168415812"
     },
-    "gp_section_565435429168481348": {
-      "settings": {
-        "checksum": "6539a2f684c5e52b174a4582602af7e170054abe733c0554f04f4610606ff550_1_1_1_0__1",
-        "ggcg5TdllnY_label": "<p><span style=\"font-size:12px;\">THE WINTER COLLECTION</span></p>",
-        "section_preload": "true"
-      },
-      "type": "gp-section-565435429168481348"
-    },
     "gp_section_565435429168546884": {
       "settings": {
-        "checksum": "483c55882c41b27d76e908f8c96d15849403f3b6e59130588a088a2794f60c00_1_1_1_0__1",
+        "checksum": "fb17beb2243ca69634aa30bf97af13753ee1035a7e897fedadb81cf9b48bc565_1_1_1_0__1",
+        "gg6_e-f8sKV_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-WINTER\">THE WINTER COLLECTION</a></p>",
         "ggHJFhFMV6S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/winter-25-gift-guide\"><span style=\"font-size:12px;\">GIFT GUIDE</span></a></p>",
         "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-sweaters-and-cardigan\">SWEATERS + CARDIGANS</a></p>"
       },
@@ -63,7 +70,8 @@
     }
   },
   "order": [
-    "gp_section_565435429168481348",
+    "gp_global_section_595863519392433074-1",
+    "gp_global_section_595863570109957042-2",
     "gp_section_565435429168546884",
     "gp_section_565743274438952146",
     "gp_section_594874688266568465",
