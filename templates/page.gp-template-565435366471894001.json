@@ -9,20 +9,6 @@
  */
 {
   "sections": {
-    "gp_global_section_595863519392433074-1": {
-      "settings": {
-        "checksum": "",
-        "section_preload": "true"
-      },
-      "type": "gp-global-section-595863519392433074"
-    },
-    "gp_global_section_595863570109957042-2": {
-      "settings": {
-        "checksum": "",
-        "section_preload": "false"
-      },
-      "type": "gp-global-section-595863570109957042"
-    },
     "gp_section_565435366572622833": {
       "settings": {
         "checksum": "83d53a7980e6bfc1af6d2bc86dfd42f577f959476582f52cead775998135a922_1_1_1_0__1"
@@ -74,16 +60,30 @@
         "ggF-V9spKq0_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\">JOURNAL</a></p>"
       },
       "type": "gp-section-594874653571285777"
+    },
+    "gp_section_596022522688832405": {
+      "settings": {
+        "checksum": "d467e64628ec506a170bc9a2b0d29d2463ed5f27d06f0daa678c65a0ecc5d645_1_1_1_0__1",
+        "ggCFr1-fVlI_label": "<p><span style=\"font-size:10px;\">SHOP COLLABORATION</span></p>",
+        "section_preload": "true"
+      },
+      "type": "gp-section-596022522688832405"
+    },
+    "gp_section_596022700527322005": {
+      "settings": {
+        "checksum": "beff637f1814c8928f772f94cf8456e015ad38a857f6d28c67ab3d4f18d33009_1_1_1_0__1"
+      },
+      "type": "gp-section-596022700527322005"
     }
   },
   "order": [
-    "gp_global_section_595863519392433074-1",
-    "gp_global_section_595863570109957042-2",
+    "gp_section_596022522688832405",
     "gp_section_565435366572819441",
     "gp_section_565742999678485659",
     "gp_section_594874653571285777",
     "gp_section_565435366572753905",
     "gp_section_565435366572622833",
-    "gp_section_592891683713057388"
+    "gp_section_592891683713057388",
+    "gp_section_596022700527322005"
   ]
 }
