@@ -57,17 +57,18 @@
     </span>
   {%- endcapture -%}
 
+  {% assign escaped_value = value | escape %}
+
   {%- if picker_type == 'swatch' -%}
     <a href="{{ product.url }}">
       {%- capture help_text -%}
-        <span class="visually-hidden">{{ value | escape }}</span>
+        <span class="visually-hidden">{{ escaped_value }}</span>
         {{ label_unavailable }}
       {%- endcapture -%}
-      {%
-        render 'swatch-input',
+      {% render 'swatch-input',
         id: input_id,
         name: input_name,
-        value: value | escape,
+        value: escaped_value,
         swatch: value.swatch,
         product_form_id: product_form_id,
         checked: option_selected,
@@ -83,7 +84,7 @@
         type="radio"
         id="{{ input_id }}"
         name="{{ input_name }}"
-        value="{{ value | escape }}"
+        value="{{ escaped_value }}"
         form="{{ product_form_id }}"
         {% if option_selected %}
           checked
@@ -145,14 +146,13 @@
     {%- if picker_type == 'swatch' -%}
       <a href="{{ sibling.url }}">
         {%- capture help_text -%}
-        <span class="visually-hidden">{{ value | escape }}</span>
+        <span class="visually-hidden">{{ escaped_value }}</span>
         {{ label_unavailable }}
       {%- endcapture -%}
-        {%
-          render 'swatch-input',
+        {% render 'swatch-input',
           id: input_id,
           name: input_name,
-          value: value | escape,
+          value: escaped_value,
           swatch: value.swatch,
           product_form_id: product_form_id,
           checked: option_selected,
@@ -168,7 +168,7 @@
           type="radio"
           id="{{ input_id }}"
           name="{{ input_name }}"
-          value="{{ value | escape }}"
+          value="{{ escaped_value }}"
           form="{{ product_form_id }}"
           {% if option_selected %}
             checked
@@ -227,15 +227,14 @@
     {%- if picker_type == 'swatch' -%}
       {% # theme-check-disable UnusedAssign %}
       {%- capture help_text -%}
-        <span class="visually-hidden">{{ value | escape }}</span>
+        <span class="visually-hidden">{{ escaped_value }}</span>
         {{ label_unavailable }}
       {%- endcapture -%}
       {% # theme-check-enable UnusedAssign %}
-      {%
-        render 'swatch-input',
+      {% render 'swatch-input',
         id: input_id,
         name: input_name,
-        value: value | escape,
+        value: escaped_value,
         swatch: value.swatch,
         product_form_id: product_form_id,
         checked: value.selected,
@@ -249,7 +248,7 @@
         type="radio"
         id="{{ input_id }}"
         name="{{ input_name }}"
-        value="{{ value | escape }}"
+        value="{{ escaped_value }}"
         form="{{ product_form_id }}"
         {% if value.selected %}
           checked
@@ -266,7 +265,7 @@
     {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}
       <option
         id="{{ input_id }}"
-        value="{{ value | escape }}"
+        value="{{ escaped_value }}"
         {% if value.selected %}
           selected="selected"
         {% endif %}
