@@ -1,14 +1,17 @@
 {% if product.metafields.product_page.json_size_chart != blank %}
   {% liquid
+    assign additional_size_guide_details = product.metafields.product_page.additional_size_guide_details
     assign size_chart = product.metafields.product_page.json_size_chart.value
     assign sizes = size_chart.sizes | split: ','
     assign measurements = size_chart.measurements
     assign show_legend = false
 
-    for measurement in measurements
-      assign translation = measurement.translation
+    if additional_size_guide_details != null
+      assign show_legend = true
+    endif
 
-      if translation != ''
+    for measurement in measurements
+      if measurement.translation != null
         assign show_legend = true
         break
       endif
@@ -189,6 +192,9 @@
             <p class="item">{{ label }}: {{ translation }}</p>
           {% endif %}
         {% endfor %}
+        {% if additional_size_guide_details != null %}
+          {{ additional_size_guide_details }}
+        {% endif %}
       </div>
     {% endif %}
   </div>
