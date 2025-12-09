@@ -330,7 +330,9 @@
     {% assign lock_content = lock_content | strip %}
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
-      {% if lock_content == 'true' %}
+      {% if request.design_mode or lock_content == 'false' %}
+        {{ content_for_layout }}
+      {% else %}
         <style>
           .locksmith-v2-content-wrapper {
             margin-top: {{ settings.locksmith_v2_margin_top }}px;
@@ -355,9 +357,6 @@
             {{ settings.locksmith_v2_locked_content_text }}
           {% endif %}
         </div>
-
-      {% else %}
-        {{ content_for_layout }}
       {% endif %}
     </main>
 
