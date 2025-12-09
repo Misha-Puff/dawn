@@ -81,53 +81,52 @@
       "blocks": {
         "button_GhV3DG": {
           "type": "button",
-          "disabled": true,
           "settings": {
             "label": "CHILD STYLES",
-            "open_new_tab": false,
-            "link": "/collections/made-to-order?filter.p.m.taxonomy.division=Child&sort_by=manual",
+            "open_new_tab": true,
+            "link": "https://shop.misha-and-puff.com/collections/made-to-order?filter.p.m.taxonomy.division=Child&sort_by=manual",
             "type": "secondary",
             "on_click": ""
           }
         },
         "button_G9Uf6f": {
           "type": "button",
-          "disabled": true,
           "settings": {
             "label": "BABY STYLES",
-            "open_new_tab": false,
-            "link": "/collections/made-to-order?filter.p.m.taxonomy.division=Baby&sort_by=manual",
+            "open_new_tab": true,
+            "link": "https://shop.misha-and-puff.com/collections/made-to-order?filter.p.m.taxonomy.division=Baby&sort_by=manual",
             "type": "secondary",
             "on_click": ""
           }
         },
         "button_eAVnFG": {
           "type": "button",
-          "disabled": true,
           "settings": {
             "label": "ADULT STYLES",
-            "open_new_tab": false,
+            "open_new_tab": true,
             "link": "/collections/made-to-order?filter.p.m.taxonomy.division=Adult&sort_by=manual",
             "type": "secondary",
             "on_click": ""
           }
         },
+        "button_cXi8W4": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "label": "",
+            "open_new_tab": false,
+            "link": "",
+            "type": "primary",
+            "on_click": ""
+          }
+        },
         "button_hBT4RJ": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "label": "MTO STATUS UPDATES",
             "open_new_tab": true,
             "link": "shopify://pages/mto-status",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_KMMLGQ": {
-          "type": "button",
-          "settings": {
-            "label": "GET MTO ALERTS",
-            "open_new_tab": true,
-            "link": "shopify://pages/newsletter-signup",
             "type": "secondary",
             "on_click": ""
           }
@@ -137,8 +136,8 @@
         "button_GhV3DG",
         "button_G9Uf6f",
         "button_eAVnFG",
-        "button_hBT4RJ",
-        "button_KMMLGQ"
+        "button_cXi8W4",
+        "button_hBT4RJ"
       ],
       "settings": {
         "title": "",
@@ -146,9 +145,9 @@
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,
-        "desktop_padding_bottom": 40,
+        "desktop_padding_bottom": 48,
         "mobile_padding_top": 10,
-        "mobile_padding_bottom": 40
+        "mobile_padding_bottom": 44
       }
     },
     "product-grid": {
