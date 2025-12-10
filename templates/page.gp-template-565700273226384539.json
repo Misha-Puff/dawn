@@ -19,19 +19,21 @@
     },
     "gp_section_565704544823018303": {
       "settings": {
-        "checksum": "b3993d962e855fbdc22ea8f8b2cded4a60e18901407a685fdff5d3fb7c8f808e_1_1_1_0__1",
-        "ggNUavHgpfx_text": "<p>WINTER COLLECTION GIFT WITH PURCHASE<br>&nbsp;</p><p>As a thank you to our community, enjoy a&nbsp;free gift with purchase with online orders over $500. Promotion runs from Thursday, October 16 at 8 AM ET and ends Friday, October 17, at 8 AM ET.<br>&nbsp;</p><p><i>Spend $500+</i>: Choose a select Pima cotton top<br><i>Spend $1000+</i>: Choose a select Signature knit style<br>&nbsp;</p><p>A pop-up prompt will appear when your order qualifies for a gift.<br>&nbsp;</p><p>Gift with Purchase promotion ends Friday, October 17 at 8 AM ET. Valid online only while supplies last. Offer applies to qualifying purchases only. Only styles shown as available to add as a gift are eligible — no substitutions for other items. This promotion cannot be combined with other discounts or applied to combined orders. Gifts cannot be returned or redeemed for cash or credit. No adjustments to previous purchases. Exclusions apply. Misha &amp; Puff reserves the right to modify or cancel this promotion at any time.</p>"
+        "checksum": "7c4ee82b5e9939a422ee0fea49b5be3c46422c192c02831f7976080b973d91cc_1_1_1_0__1",
+        "ggNUavHgpfx_text": "<p>FREE SHIPPING, LIMITED TIME ONLY</p><p>&nbsp;</p><p>Enjoy free shipping on all orders of $100 or more at misha-and-puff.com — automatically applied at checkout. Free shipping applies to <strong>standard shipping methods only</strong>. Promotion ends Sunday, December 14 at 11:59 PM ET.<br><br>Exclusions apply: all Sale, Markdown, and Limited styles are final sale and not eligible for return, exchange, or store credit. No adjustments to previous purchases. Misha &amp; Puff reserves the right to modify or cancel this promotion at any time.<br>&nbsp;</p><p>Please Note:<br><i>Due to increased order volume and slower parcel carriers this time of year, shipments may take a bit longer than usual, and tracking can be less reliable. We appreciate your patience as our small team works to get your order to you as quickly as possible. You’ll receive an email confirmation once it ships, and for urgent needs, don’t hesitate to reach out — we’re here to help.</i></p><p><br><i>Broader holiday-season disruptions are beyond our control, so we cannot guarantee delivery by the holidays. Once your package is with the carrier, we cannot control its movement, and tracking updates may be delayed.</i></p>",
+        "section_preload": "true"
       },
       "type": "gp-section-565704544823018303"
     },
     "gp_section_565706019255092054": {
       "settings": {
-        "checksum": "c63f719870ba1e9991b6a19aca94efc2797d51e79c96fb4186cbe9d0627473d8_1_1_1_0__1",
+        "checksum": "61dcd9e48ebb461da76bf194f0ea0169845973378df7245bb1c726f96c6791c1_1_1_1_0__1",
         "ggOxzCHo6QF_label": "<p>SHOP CHILD</p>",
         "ggSDU6X4TA8_label": "<p>SHOP ADULT</p>",
         "ggUhrlo0oul_label": "<p>SHOP BABY</p>",
         "ggXUTG8poYu_text": "<span style=\"font-size:20px;\">Shop Now</span>",
-        "ggsBb4vWXmx_label": "<p>SALE</p>"
+        "ggsBb4vWXmx_label": "<p>SALE</p>",
+        "section_preload": "true"
       },
       "type": "gp-section-565706019255092054"
     }
