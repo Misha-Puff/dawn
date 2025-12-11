@@ -16,15 +16,15 @@
       "blocks": {
         "announcement_YVezxm": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "<p>The Gift Guide is here — <a href=\"/collections/winter-25-gift-guide\" title=\"Winter 25 - Gift Guide\">SHOP NOW</a></p>"
           }
         },
         "announcement_dDUTp6": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
-            "text": "<p>SALE: Fall Collections up to 30% off — <a href=\"/collections/child-sale\" target=\"_blank\" title=\"Child - Sale\">Shop Now</a></p>"
+            "text": "<p>FREE SHIPPING on orders of $100+. Ends 12/14. <a href=\"https://shop.misha-and-puff.com/pages/current-promotions\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/pages/current-promotions\">Details</a>.</p>"
           }
         }
       },
