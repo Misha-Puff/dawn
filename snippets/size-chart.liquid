@@ -1,12 +1,17 @@
 {% if product.metafields.product_page.json_size_chart != blank %}
   {% liquid
     assign additional_size_guide_details = product.metafields.product_page.additional_size_guide_details
+    assign size_guide_note = product.metafields.product_page.size_guide_note
     assign size_chart = product.metafields.product_page.json_size_chart.value
     assign sizes = size_chart.sizes | split: ','
     assign measurements = size_chart.measurements
     assign show_legend = false
 
     if additional_size_guide_details != null
+      assign show_legend = true
+    endif
+
+    if size_guide_note != null
       assign show_legend = true
     endif
 
@@ -121,6 +126,10 @@
       border-top: 1px solid black;
     }
 
+    .size-chart-legend .note {
+      font-size: 11px;
+    }
+
     .size-chart-legend .item {
       margin: 0;
       font-size: 11px;
@@ -185,6 +194,9 @@
       </div>
 
       <div class="size-chart-legend">
+        {% if size_guide_note != null %}
+          {{ size_guide_note }}
+        {% endif %}
         {% for measurement in measurements %}
           {% assign translation = measurement.translation %}
           {% assign label = measurement.label %}
