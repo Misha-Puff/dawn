@@ -12,8 +12,8 @@
     "main": {
       "type": "main-page",
       "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "rich_text_89RfhN": {
@@ -29,7 +29,7 @@
         "text_mfnL3i": {
           "type": "text",
           "settings": {
-            "text": "<p>This Made-to-Order closes Tuesday, May 27, at 11:59 pm ET. All styles are expected to ship by mid-Fall 2025.</p>",
+            "text": "<p>This Made-to-Order closes Friday, December 19 at 12 PM ET. Each piece will be crafted to order, with delivery expected summer 2026.</p>",
             "line_height": 22
           }
         },
@@ -43,6 +43,7 @@
         },
         "button_b486yq": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "button_label": "SHOP MTO",
             "button_link": "shopify://collections/made-to-order",
@@ -67,10 +68,24 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 0,
+        "padding_top": 60,
         "padding_bottom": 20,
-        "padding_left": 52,
-        "padding_right": 52
+        "padding_left": 88,
+        "padding_right": 88
+      }
+    },
+    "divider_KRexyr": {
+      "type": "divider",
+      "disabled": true,
+      "settings": {
+        "desktop_padding_top": 52,
+        "desktop_padding_bottom": 52,
+        "desktop_padding_left": 100,
+        "desktop_padding_right": 100,
+        "mobile_padding_top": 36,
+        "mobile_padding_bottom": 36,
+        "mobile_padding_left": 24,
+        "mobile_padding_right": 24
       }
     },
     "rich_text_6UiM93": {
@@ -87,7 +102,7 @@
         "text_HKRrd4": {
           "type": "text",
           "settings": {
-            "text": "<p>Made-to-Order styles are available for a limited time and often have capacity limits due to their handcrafted nature. If applicable, once a style reaches capacity, it will show as “Unavailable.”</p><p>All Made-to-Order purchases are final sale—no cancellations or returns, even if delays occur.</p><p>The estimated ship date is mid-Fall 2025. While we strive to meet this timeline, it is subject to change. Updates will be provided as production progresses.</p><p>You can update your shipping address until your order begins processing via the link in your confirmation email.</p><p>You can check the status of the MTO <a href=\"/pages/mto-status\" target=\"_blank\" title=\"Made to Order Status\">here</a>. For further assitance, visit our <a href=\"https://help.misha-and-puff.com/en-US#category-14398\" target=\"_blank\" title=\"https://help.misha-and-puff.com/en-US#category-14398\">Support Portal</a> or explore FAQs <a href=\"https://help.misha-and-puff.com/en-US\" target=\"_blank\" title=\"https://help.misha-and-puff.com/en-US\">here</a>.</p>",
+            "text": "<p><strong>YOUR MADE-TO-ORDER GUIDE</strong><br/><br/>Made-to-Order styles are available for a limited time and may have capacity limits due to their handcrafted nature. When a style reaches capacity, it will appear as “Unavailable.”</p><p>All Made-to-Order purchases are final sale — no cancellations or returns, even in the event of delays.</p><p>The estimated ship date is summer 2026. While we strive to meet this timeline, it may shift as production evolves. We’ll share updates along the way.</p><p>You may update your shipping address until your order begins processing, using the link in your confirmation email.</p><p>You can check the status of the MTO <a href=\"/pages/mto-status\" target=\"_blank\" title=\"Made to Order Status\">here</a>. For further assistance, visit our <a href=\"https://help.misha-and-puff.com/en-US#category-14398\" target=\"_blank\" title=\"https://help.misha-and-puff.com/en-US#category-14398\">Support Portal</a> or explore FAQs <a href=\"https://help.misha-and-puff.com/en-US\" target=\"_blank\" title=\"https://help.misha-and-puff.com/en-US\">here</a>.</p>",
             "line_height": 22
           }
         },
@@ -114,26 +129,13 @@
       ],
       "settings": {
         "desktop_content_position": "center",
-        "content_alignment": "center",
+        "content_alignment": "left",
         "color_scheme": "",
         "full_width": true,
         "padding_top": 20,
-        "padding_bottom": 52,
-        "padding_left": 52,
-        "padding_right": 52
-      }
-    },
-    "divider_KRexyr": {
-      "type": "divider",
-      "settings": {
-        "desktop_padding_top": 52,
-        "desktop_padding_bottom": 52,
-        "desktop_padding_left": 84,
-        "desktop_padding_right": 100,
-        "mobile_padding_top": 36,
-        "mobile_padding_bottom": 36,
-        "mobile_padding_left": 24,
-        "mobile_padding_right": 24
+        "padding_bottom": 48,
+        "padding_left": 88,
+        "padding_right": 88
       }
     },
     "rich_text_yzN863": {
@@ -150,7 +152,7 @@
         "text_jKg8pG": {
           "type": "text",
           "settings": {
-            "text": "<p>MTO ADDRESS CHANGES<br/><br/>While address changes are generally not permitted, you may update your shipping address before your order is scheduled to ship. Use the unique link in your order confirmation email and follow the instructions <a href=\"https://help.misha-and-puff.com/en-US#article-62381\" target=\"_blank\" title=\"https://help.misha-and-puff.com/en-US#article-62381\">here</a>. If you encounter any issues, please submit a <a href=\"https://shop.misha-and-puff.com/pages/contact-form\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/pages/contact-form\">support ticket</a>.</p><p><em>Note:</em><em><strong> </strong></em><em>Changes to the destination country are not supported. Shipping charges and taxes will remain unchanged, as shipping fees are non-refundable.</em></p><p><br/><br/>ON MTO RETURNS, EXCHANGES, CANCELLATIONS</p><p>Since these items are custom-made, all Made-to-Order purchases are final sale—no cancellations or returns. Please review the sizing information on the product page carefully before placing your order.</p><p>If your Made-to-Order garment has a defect, we’re happy to issue a refund and accept the return. If a replacement is possible and you’d prefer that option, we’ll do our best to accommodate.</p>",
+            "text": "<p><strong>ON ADDRESS CHANGES</strong><br/><br/>While address changes are generally not permitted, you may update your shipping address before your order is scheduled to ship. Use the unique link in your order confirmation email and follow the instructions <a href=\"https://help.misha-and-puff.com/en-US#article-62381\" target=\"_blank\" title=\"https://help.misha-and-puff.com/en-US#article-62381\">here</a>. If you encounter any issues, please submit a <a href=\"https://shop.misha-and-puff.com/pages/contact-form\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/pages/contact-form\">support ticket</a>.</p><p><em>Note:</em><em><strong> </strong></em><em>Changes to the destination country are not supported. Shipping charges and taxes will remain unchanged, as all shipping fees are non-refundable.</em></p>",
             "line_height": 22
           }
         },
@@ -177,21 +179,72 @@
       ],
       "settings": {
         "desktop_content_position": "center",
-        "content_alignment": "center",
+        "content_alignment": "left",
         "color_scheme": "",
         "full_width": true,
         "padding_top": 0,
-        "padding_bottom": 52,
-        "padding_left": 52,
-        "padding_right": 52
+        "padding_bottom": 48,
+        "padding_left": 88,
+        "padding_right": 88
+      }
+    },
+    "rich_text_bT47p6": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_wNWNTN": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "text_dmW3BR": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>MTO RETURNS, EXCHANGES, CANCELLATIONS</strong></p><p>Since these items are custom-made, all Made-to-Order purchases are final sale—no cancellations or returns. Please review the sizing information on the product page carefully before placing your order.</p><p>If your Made-to-Order garment arrives with a defect, we’re happy to accept a return and issue a refund. If a replacement is possible and you’d prefer that option, we’ll make every effort to accommodate.</p>",
+            "line_height": 22
+          }
+        },
+        "button_MLJRTe": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "button_label_3": "",
+            "button_link_3": "",
+            "button_style_secondary_3": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_wNWNTN",
+        "text_dmW3BR",
+        "button_MLJRTe"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 60,
+        "padding_left": 88,
+        "padding_right": 88
       }
     }
   },
   "order": [
     "main",
     "rich_text_89RfhN",
-    "rich_text_6UiM93",
     "divider_KRexyr",
-    "rich_text_yzN863"
+    "rich_text_6UiM93",
+    "rich_text_yzN863",
+    "rich_text_bT47p6"
   ]
 }
