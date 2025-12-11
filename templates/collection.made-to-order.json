@@ -251,7 +251,7 @@
           "type": "text",
           "settings": {
             "text": "<h3>WHAT TO EXPECT</h3><p>Our Made-to-Order program is an initiative that we are very proud of — and at the heart of why we do what we do. This program introduces the ability to shop some of your favorite Misha & Puff styles in a limited small-batch capsule outside of our seasonal collections, while supporting our artisan partners year-round.<br/><br/>Every piece we create blends craftsmanship, heritage, and quality and each of our treasured partners provides unique contributions that amplify our appreciation of time-honored processes. Supporting handmade means supporting the local communities behind these crafts. Learn more about our <a href=\"/pages/values\" target=\"_blank\" title=\"Values\">sustainability efforts</a> and our incredible <a href=\"/pages/people\" target=\"_blank\" title=\"People\">artisanal partners</a>.</p>",
-            "line_height": 22
+            "line_height": 24
           }
         }
       },
@@ -265,8 +265,8 @@
         "full_width": true,
         "padding_top": 12,
         "padding_bottom": 20,
-        "padding_left": 0,
-        "padding_right": 0
+        "padding_left": 40,
+        "padding_right": 40
       }
     },
     "multicolumn_mePegM": {
@@ -373,7 +373,7 @@
         "button_label": "",
         "button_link": "",
         "columns_desktop": 4,
-        "column_alignment": "left",
+        "column_alignment": "center",
         "background_style": "none",
         "color_scheme": "",
         "columns_mobile": "2",
