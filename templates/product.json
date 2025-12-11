@@ -126,15 +126,6 @@
             "page": ""
           }
         },
-        "collapsible-row-2": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "SHIPPING AND RETURNS",
-            "icon": "none",
-            "content": "",
-            "page": ""
-          }
-        },
         "wishlist_plus_wishlist_pdp_button_NBkk6K": {
           "type": "shopify://apps/wishlist-plus/blocks/wishlist-pdp-button/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
           "settings": {
@@ -180,7 +171,6 @@
         "size_chart_zfV9wR",
         "collapsible_tab_JNhcga",
         "collapsible-row-0",
-        "collapsible-row-2",
         "wishlist_plus_wishlist_pdp_button_NBkk6K"
       ],
       "custom_css": [
