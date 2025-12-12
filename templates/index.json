@@ -19,7 +19,7 @@
     },
     "gp_section_596144081940447846": {
       "settings": {
-        "checksum": "9b0743207bba2ed51c8c8effd35feaa6b31b4ed202f693655754ed22eb0b8031_1_1_1_0__1",
+        "checksum": "c48610a2e97f2097672f44ca56dabe0d7ad079db8f7b077459568e27de2d1ef5_1_1_1_0__1",
         "gg2NAAt5DbD_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\">JOURNAL</a></p>",
         "ggRzArRZUz6_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-adult-holiday-dressing\">ADULT HOLIDAY DRESSING</a></p>"
       },
@@ -34,11 +34,18 @@
         "section_preload": "true"
       },
       "type": "gp-section-596144081940513382"
+    },
+    "gp_section_597350945688388540": {
+      "settings": {
+        "checksum": "7812861351e0bfcbaa135b7d812f46b3dcd8314dc445ba5e1b9fd55d956c0e28_1_1_1_0__1"
+      },
+      "type": "gp-section-597350945688388540"
     }
   },
   "order": [
     "gp_section_596144081940251238",
     "gp_section_596144081940513382",
-    "gp_section_596144081940447846"
+    "gp_section_596144081940447846",
+    "gp_section_597350945688388540"
   ]
 }
