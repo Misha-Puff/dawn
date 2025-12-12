@@ -34,26 +34,11 @@
         "section_preload": "true"
       },
       "type": "gp-section-596144081940513382"
-    },
-    "gp_section_597334878148625292": {
-      "settings": {
-        "checksum": "6aeb5a37b1509015f6d0f712cfabe368073aba6ddf6b39734d1786353bbc9f9d_1_1_1_0__1"
-      },
-      "type": "gp-section-597334878148625292"
-    },
-    "gp_section_597335168461636185": {
-      "settings": {
-        "checksum": "5033aeb7701f68914461e13a3c6824bb639d23fa49f34477e28c724fe87d505e_1_1_1_0__1",
-        "ggoOic78K_J_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/mp-apolina\">APOLINA + MISHA &amp; PUFF</a></p>"
-      },
-      "type": "gp-section-597335168461636185"
     }
   },
   "order": [
     "gp_section_596144081940251238",
     "gp_section_596144081940513382",
-    "gp_section_597334878148625292",
-    "gp_section_597335168461636185",
     "gp_section_596144081940447846"
   ]
 }
