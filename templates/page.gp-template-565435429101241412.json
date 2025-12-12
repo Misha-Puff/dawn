@@ -29,35 +29,37 @@
     },
     "gp_section_565435429168546884": {
       "settings": {
-        "checksum": "fb17beb2243ca69634aa30bf97af13753ee1035a7e897fedadb81cf9b48bc565_1_1_1_0__1",
-        "gg6_e-f8sKV_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-WINTER\">THE WINTER COLLECTION</a></p>",
-        "ggHJFhFMV6S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/winter-25-gift-guide\"><span style=\"font-size:12px;\">GIFT GUIDE</span></a></p>",
-        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-sweaters-and-cardigan\">SWEATERS + CARDIGANS</a></p>"
+        "checksum": "a98d26f6551265d2400cc3e8ab9e81f4067cec0e6be7528b72665f700b3cf490_1_1_1_0__1",
+        "gg6_e-f8sKV_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/mp-apolina\"><span style=\"font-size:11px;\">APOLINA + MISHA &amp; PUFF</span></a></p>",
+        "ggHJFhFMV6S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/winter-25-gift-guide\"><span style=\"font-size:11px;\">GIFT GUIDE</span></a></p>",
+        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-sweaters-and-cardigan\"><span style=\"font-size:11px;\">SWEATERS + CARDIGANS</span></a></p>",
+        "section_preload": "true"
       },
       "type": "gp-section-565435429168546884"
     },
     "gp_section_565743274438952146": {
       "settings": {
-        "checksum": "be43289afa9f2cf1ddbe003a0f905bc31b5e966071ebb599ed64f8e90214f980_1_1_1_0__1",
-        "ggNIzGr-zG6_text": "<span style=\"font-size:12px;\">NEW ARRIVALS</span>",
+        "checksum": "62403839c27f8c02cf92d07fa8682c2d0ccc34f0a240266d0477cf47b4f51d82_1_1_1_0__1",
+        "ggNIzGr-zG6_text": "<span style=\"font-size:11px;\">NEW ARRIVALS</span>",
         "ggfEg-ZUUju_label": "ADD TO CART",
         "ggfEg-ZUUju_outOfStockLabel": "Out of stock",
         "ggfEg-ZUUju_unavailableLabel": "Unavailable",
-        "ggfEg-ZUUju_variantSelectionRequiredMessage": "Please select a variant to add product to cart"
+        "ggfEg-ZUUju_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
+        "section_preload": "true"
       },
       "type": "gp-section-565743274438952146"
     },
     "gp_section_594874688266568465": {
       "settings": {
-        "checksum": "7c2fa9ab9153951c7c42de9821c901fdb08806613ba9cad7d3e4c7b1c91d0796_1_1_1_0__1",
-        "ggSHGSCkCi3_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\">JOURNAL</a></p>"
+        "checksum": "94dfcfe4aa9e23aa59717aa8699c61155884028628d83519338f448ee3376bda_1_1_1_0__1",
+        "ggSHGSCkCi3_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\"><span style=\"font-size:11px;\">JOURNAL</span></a></p>"
       },
       "type": "gp-section-594874688266568465"
     },
     "gp_section_596025365923627744": {
       "settings": {
-        "checksum": "47e7b5684b34022edbcf934a9ce550db3f2ce4f8bcddcd77fdb109bd321b4b63_1_1_1_0__1",
-        "ggdgeUM21Hs_label": "<p><span style=\"font-size:10px;\">SHOP COLLABORATION</span></p>",
+        "checksum": "5159c7aac8c35a60d08e82fff8dab4de2ae3ea0ef2a0de27e61f60ea7ae366ae_1_1_1_0__1",
+        "ggdgeUM21Hs_label": "<p><span style=\"font-size:10px;\">WINTER COLLECTION</span></p>",
         "section_preload": "true"
       },
       "type": "gp-section-596025365923627744"
