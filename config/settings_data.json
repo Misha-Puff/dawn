@@ -248,7 +248,7 @@
       },
       "14195606141958520928": {
         "type": "shopify://apps/crowdhandler-waiting-room/blocks/crowdhandler-waiting-room/d550f2bb-2eea-4a75-9db7-e95d345f6c90",
-        "disabled": false,
+        "disabled": true,
         "settings": {}
       }
     },
