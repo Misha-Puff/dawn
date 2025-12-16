@@ -29,7 +29,7 @@
         "text_mfnL3i": {
           "type": "text",
           "settings": {
-            "text": "<p>This Made-to-Order closes Friday, December 19 at 12 PM ET. Each piece will be crafted to order, with delivery expected summer 2026.</p>",
+            "text": "<p>This Made-to-Order closes Friday, December 19 at 12 PM ET, unless capacity is reached sooner. Each piece will be crafted to order, with delivery expected summer 2026.</p>",
             "line_height": 22
           }
         },
