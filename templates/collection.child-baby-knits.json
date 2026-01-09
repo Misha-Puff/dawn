@@ -150,7 +150,7 @@
             "text_color": "#000000",
             "content_position": "middle-center",
             "row_start_desktop": 1,
-            "row_span_desktop": 1,
+            "row_span_desktop": 2,
             "col_start_desktop": 1,
             "col_span_desktop": 2,
             "row_start_mobile": 1,
