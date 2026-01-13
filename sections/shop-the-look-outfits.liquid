@@ -153,6 +153,7 @@
         {% for outfit in outfits %}
           {% liquid
             assign lead_image = outfit.lead_image.value
+            assign lead_image_link = outfit.lead_image_link
             assign products = outfit.products.value
             assign flats = outfit.flats.value
 
@@ -168,10 +169,12 @@
               endif
             endif
           %}
+
           <div class="carousel-slide">
             <p class="is-hidden-mobile-only desktop-look-title">LOOK #{{ forloop.index }}</p>
             <div class="slide-grid">
               <div class="main-box">
+                {% if lead_image_link %}<a href="{{ lead_image_link }}">{% endif %}
                 <img
                   srcset="
                     {%- if lead_image.width >= 550 -%}{{ lead_image | image_url: width: 550 }} 550w,{%- endif -%}
@@ -191,6 +194,7 @@
                   width="1100"
                   height="{{ 1100 | divided_by: lead_image.aspect_ratio | ceil }}"
                 >
+                {% if lead_image_link %}</a>{% endif %}
               </div>
               <p class="is-hidden-desktop-only mobile-look-title">LOOK #{{ forloop.index }}</p>
               <div class="sub-grid">
