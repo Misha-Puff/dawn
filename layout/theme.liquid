@@ -410,24 +410,17 @@
         recipientFormCollapsed: `{{ 'recipient.form.collapsed' | t }}`,
         countrySelectorSearchCount: `{{ 'localization.country_results_count' | t: count: '[count]' }}`,
       };
+    </script>
 
-      window.customVars = {
-        {% if settings.cart_free_shipping_override != nil %}
-          freeShippingThresholdOverrideEnabled: true,
-          freeShippingThreshold: {{ settings.cart_free_shipping_override }}
-        {% else %}
-          freeShippingThresholdOverrideEnabled: false,
-          freeShippingThreshold: null
-        {% endif %}
-      };
-
-      // // Redirect direct mail
-      // if (window.location.search.includes('utm_source=direct') &&
-      //     window.location.search.includes('utm_medium=directmail') &&
-      //     window.location.search.includes('utm_campaign=fall25')
-      //   ) {
-      //   window.location.href = '/collections/child-winter?utm_source=direct&utm_medium=directmail&utm_campaign=fall25';
-      // }
+    <script id="free-shipping-thresholds" type="application/json">
+      {
+        {% assign thresholds = metaobjects.free_shipping_thresholds['free-shipping-thresholds'].thresholds.value %}
+        {% for threshold in thresholds %}
+          {% assign country_code = threshold.country_code %}
+          {% assign threshold_value = threshold.threshold_usd %}
+          "{{ country_code }}": {{ threshold_value }}{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      }
     </script>
 
     {%- if settings.predictive_search_enabled -%}
