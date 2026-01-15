@@ -388,32 +388,36 @@
           {%- if enable_sorting -%}
             <div class="facet-filters sorting caption">
               <div class="facet-filters__field">
-                <h2 class="facet-filters__label caption-large text-body">
-                  <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
-                </h2>
-                <div class="select">
-                  {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
-                  <select
-                    name="sort_by"
-                    class="facet-filters__sort facet-filters__sort--hidden-value select__select caption-large"
-                    id="SortBy"
-                    aria-describedby="a11y-refresh-page-message"
-                  >
-                    {%- for option in results.sort_options -%}
-                      <option
-                        value="{{ option.value | escape }}"
-                        {% if option.value == sort_by %}
-                          selected="selected"
-                        {% endif %}
-                      >
-                        {{ option.name | escape }}
-                      </option>
-                    {%- endfor -%}
-                  </select>
-                  <span class="svg-wrapper">
-                    {{- 'icon-caret.svg' | inline_asset_content -}}
-                  </span>
-                </div>
+                <details
+                  id="Details-SortBy-{{ section.id }}"
+                  class="disclosure-has-popup facets__disclosure js-filter"
+                >
+                  <summary class="facets__summary caption-large focus-offset">
+                    <div>
+                      <span class="facets__summary-label">{{ 'products.facets.sort_by_label' | t }}</span>
+                    </div>
+                  </summary>
+                  <div id="Facet-SortBy-{{ section.id }}" class="facets__display">
+                    <ul class="facets__list list-unstyled" role="list">
+                      {%- for option in results.sort_options -%}
+                        <li class="list-menu__item facets__item">
+                          <label class="facet-checkbox">
+                            <input
+                              type="radio"
+                              name="sort_by"
+                              value="{{ option.value | escape }}"
+                              {% if option.value == sort_by %}
+                                checked
+                              {% endif %}
+                              class="visually-hidden"
+                            >
+                            <span class="facet-checkbox__text">{{ option.name | escape }}</span>
+                          </label>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  </div>
+                </details>
               </div>
             </div>
           {%- endif -%}
@@ -487,32 +491,36 @@
       <form id="FacetSortDrawerForm" class="facets__form">
         <div class="facet-filters sorting caption small-hide">
           <div class="facet-filters__field">
-            <h2 class="facet-filters__label caption-large text-body">
-              <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
-            </h2>
-            <div class="select">
-              {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
-              <select
-                name="sort_by"
-                class="facet-filters__sort facet-filters__sort--hidden-value select__select caption-large"
-                id="SortBy"
-                aria-describedby="a11y-refresh-page-message"
-              >
-                {%- for option in results.sort_options -%}
-                  <option
-                    value="{{ option.value | escape }}"
-                    {% if option.value == sort_by %}
-                      selected="selected"
-                    {% endif %}
-                  >
-                    {{ option.name | escape }}
-                  </option>
-                {%- endfor -%}
-              </select>
-              <span class="svg-wrapper">
-                {{- 'icon-caret.svg' | inline_asset_content -}}
-              </span>
-            </div>
+            <details
+              id="Details-SortBy-Drawer-{{ section.id }}"
+              class="disclosure-has-popup facets__disclosure js-filter"
+            >
+              <summary class="facets__summary caption-large focus-offset">
+                <div>
+                  <span class="facets__summary-label">{{ 'products.facets.sort_by_label' | t }}</span>
+                </div>
+              </summary>
+              <div id="Facet-SortBy-Drawer-{{ section.id }}" class="facets__display">
+                <ul class="facets__list list-unstyled" role="list">
+                  {%- for option in results.sort_options -%}
+                    <li class="list-menu__item facets__item">
+                      <label class="facet-checkbox">
+                        <input
+                          type="radio"
+                          name="sort_by"
+                          value="{{ option.value | escape }}"
+                          {% if option.value == sort_by %}
+                            checked
+                          {% endif %}
+                          class="visually-hidden"
+                        >
+                        <span class="facet-checkbox__text">{{ option.name | escape }}</span>
+                      </label>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            </details>
           </div>
         </div>
 
@@ -819,7 +827,7 @@
                       <div class="select">
                         <select
                           name="sort_by"
-                          class="select__select facet-filters__sort--hidden-value"
+                          class="select__select"
                           id="SortBy-mobile"
                           aria-describedby="a11y-refresh-page-message"
                         >
