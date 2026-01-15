@@ -128,7 +128,7 @@
             "title": "",
             "text": "<p>LAYERING STAPLES</p>",
             "link_label": "",
-            "link": "shopify://collections/child-pima-staples",
+            "link": "shopify://collections/child-cotton-staples",
             "new_tab": true,
             "link_margin": 8,
             "enable_overlay": false,
@@ -647,7 +647,7 @@
           "settings": {
             "label": "CHILD PIMA COTTON",
             "open_new_tab": false,
-            "link": "shopify://collections/child-pima-staples",
+            "link": "shopify://collections/child-cotton-staples",
             "type": "secondary",
             "on_click": ""
           }
