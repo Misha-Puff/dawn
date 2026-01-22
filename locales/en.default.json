@@ -163,7 +163,7 @@
     },
     "Newsletter": {
       "err_msg_default": "Can’t send email. Please try again later.",
-      "success_msg_default": "Thanks for contacting us. We'll get back to you as soon as possible."
+      "success_msg_default": "Thanks for subscribing"
     },
     "IconListV2": {
       "icons_not_found": "Icons not found"
@@ -193,6 +193,14 @@
     },
     "Breadcrumb": {
       "home": "Home"
+    },
+    "CarouselV3": {
+      "no_slider": "No Slider"
+    },
+    "ProductListV3": {
+      "product_not_found": "Product Not Found!",
+      "no_products_found": "No products found!",
+      "no_related_products": "No related products!"
     }
   },
   "general": {
