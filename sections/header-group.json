@@ -32,9 +32,8 @@
         "announcement_YVezxm",
         "announcement_dDUTp6"
       ],
-      "disabled": true,
       "settings": {
-        "desktop_height": 34,
+        "desktop_height": 32,
         "mobile_height": 40,
         "auto_rotate": false,
         "change_slides_speed": 5,
