@@ -14,9 +14,9 @@
     "mobile_logo_width": 220,
     "favicon": "shopify://shop_images/spark.jpg",
     "type_header_font": "arial_n4",
-    "heading_scale": 100,
+    "heading_scale": 75,
     "type_body_font": "arial_n4",
-    "body_scale": 100,
+    "body_scale": 90,
     "enable_sticky_bar": false,
     "page_width": 1600,
     "page_width_padding": 30,
@@ -507,7 +507,7 @@
   },
   "platform_customizations": {
     "custom_css": [
-      "@media screen and (min-width: 750px) {#PopupModal-duties-taxes .product-popup-modal__content {width: 50%; font-size: 16px; }}"
+      "@media screen and (min-width: 750px) {#PopupModal-duties-taxes .product-popup-modal__content {width: 50%; font-size: 15px; }}"
     ]
   }
 }

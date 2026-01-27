@@ -39,7 +39,7 @@
         "text_BbpNBn": {
           "type": "text",
           "settings": {
-            "text": "<p>Mystery Bundles are Back! Enjoy an exclusive selection of Child styles at a very special price. Each bundle contains five (5) surprise pieces, which may include signature styles and past-season favorites.</p><p>Every Mystery Bundle is thoughtfully curated and guaranteed to include at least one knit (wool or cotton), one accessory, and one Pima cotton or woven piece. Bundles feature a versatile mix of seasons and styles. The average retail value per bundle is approximately $500 — and in some cases, even higher.</p><p>Mystery Bundles are available in two categories:<br/><strong>Girl</strong> — May include at least one skirt, ruffle style, pink piece, or dress<br/><strong>Unisex</strong> — Will not include any of the styles listed in the “Girl” category</p>",
+            "text": "<p>Enjoy an exclusive selection of Child styles at a very special price. <br/><br/>Each bundle contains five (5) surprise pieces, which may include signature styles and past-season favorites. Every bundle is thoughtfully curated —  a versatile mix of seasons and silhouettes — and includes at least two knit pieces (wool or cotton), alongside two to three cotton or woven styles; select bundles may also include an accessory (no hair accessories). The average retail value per bundle is approximately $550 — and in some cases, even higher. Quantities are limited.</p><p>Mystery Bundles are available in two categories:<br/><strong>Girl</strong> — May include at least one skirt, ruffle style, pink piece, or dress<br/><strong>Unisex</strong> — Will not include any of the styles listed in the “Girl” category</p>",
             "line_height": 22
           }
         },
@@ -69,7 +69,7 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 40,
+        "padding_top": 60,
         "padding_bottom": 40,
         "padding_left": 28,
         "padding_right": 28
@@ -81,7 +81,7 @@
         "image_P9aHGr": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Tezza-1940_copy.jpg",
+            "image": "shopify://shop_images/Untitled_1_15757639-38f5-4f08-8157-43c48005a7a0.gif",
             "link": "",
             "content": "",
             "text_color": "#000000",

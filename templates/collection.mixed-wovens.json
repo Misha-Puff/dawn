@@ -89,52 +89,41 @@
     "buttons_DEm8GF": {
       "type": "buttons",
       "blocks": {
-        "button_DBfQAC": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP ALL WINTER",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-winter",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
         "button_7mEYxx": {
           "type": "button",
           "settings": {
-            "label": "SHOP ALL FALL",
+            "label": "SHOP KNITS",
             "open_new_tab": true,
-            "link": "shopify://collections/child-fall",
+            "link": "shopify://collections/child-baby-knits",
             "type": "secondary",
             "on_click": ""
           }
         },
-        "button_9BtkX4": {
+        "button_DBfQAC": {
           "type": "button",
           "settings": {
-            "label": "BABY WINTER",
+            "label": "SHOP COTTON STAPLES",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-winter",
+            "link": "shopify://collections/child-cotton-staples",
             "type": "secondary",
             "on_click": ""
           }
         },
-        "button_pgJ3Yf": {
+        "button_gLDzza": {
           "type": "button",
           "settings": {
-            "label": "BABY FALL",
+            "label": "BABY COTTON STAPLES",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-fall",
+            "link": "shopify://collections/baby-cotton-staples",
             "type": "secondary",
             "on_click": ""
           }
         }
       },
       "block_order": [
-        "button_DBfQAC",
         "button_7mEYxx",
-        "button_9BtkX4",
-        "button_pgJ3Yf"
+        "button_DBfQAC",
+        "button_gLDzza"
       ],
       "name": "Buttons",
       "settings": {
