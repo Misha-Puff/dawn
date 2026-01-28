@@ -24,7 +24,8 @@
       "custom_css": [
         "#product-grid {padding-left: 0;}",
         ".swym-button.swym-add-to-wishlist-view-product {position: absolute; top: 15px; right: 15px;}",
-        ".description-wrapper {padding-bottom: 48px;}"
+        ".description-wrapper {padding-bottom: 48px;}",
+        ".title.title--primary {margin-bottom: 2rem;}"
       ],
       "settings": {
         "page_width": "full",
