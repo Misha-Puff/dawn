@@ -21,6 +21,9 @@
     },
     "main": {
       "type": "main-page",
+      "custom_css": [
+        "#product-grid {padding-left: 0;}"
+      ],
       "settings": {
         "page_width": "full",
         "padding_top": 28,
