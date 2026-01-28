@@ -22,7 +22,8 @@
     "main": {
       "type": "main-page",
       "custom_css": [
-        "#product-grid {padding-left: 0;}"
+        "#product-grid {padding-left: 0;}",
+        ".swym-button.swym-add-to-wishlist-view-product {position: absolute; top: 15px; right: 15px;}"
       ],
       "settings": {
         "page_width": "full",
