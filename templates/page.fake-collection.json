@@ -13,7 +13,7 @@
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "custom_liquid": "{{ 'template-collection.css' | asset_url | stylesheet_tag }}\n{{ 'component-card.css' | asset_url | stylesheet_tag }}\n{{ 'component-price.css' | asset_url | stylesheet_tag }}",
+        "custom_liquid": "{{ 'template-collection.css' | asset_url | stylesheet_tag }}\n\n{{ 'component-card.css' | asset_url | stylesheet_tag }}\n\n{{ 'component-price.css' | asset_url | stylesheet_tag }}\n\n{{ page.metafields.content.custom_html }}",
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 0
@@ -21,6 +21,7 @@
     },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "custom_css": [
         "#product-grid {padding-left: 0;}",
         ".swym-button.swym-add-to-wishlist-view-product {position: absolute; top: 15px; right: 15px;}",
