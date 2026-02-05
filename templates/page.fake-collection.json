@@ -13,7 +13,7 @@
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
-        "custom_liquid": "{{ 'template-collection.css' | asset_url | stylesheet_tag }}\n\n{{ 'component-card.css' | asset_url | stylesheet_tag }}\n\n{{ 'component-price.css' | asset_url | stylesheet_tag }}\n\n{{ page.metafields.content.custom_html.html }}",
+        "custom_liquid": "{{ 'template-collection.css' | asset_url | stylesheet_tag }}\n\n{{ 'component-card.css' | asset_url | stylesheet_tag }}\n\n{{ 'component-price.css' | asset_url | stylesheet_tag }}\n\n{{ page.metafields.content.custom_html.value.html }}",
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 0
