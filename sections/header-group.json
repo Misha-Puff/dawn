@@ -16,13 +16,13 @@
       "blocks": {
         "announcement_YVezxm": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
-            "text": "<p>The Gift Guide is here — <a href=\"/collections/winter-25-gift-guide\" title=\"Winter 25 - Gift Guide\">SHOP NOW</a></p>"
+            "text": "<p>Limited Time: Apolina + Misha & Puff Collaboration 20% Off — <a href=\"https://shop.misha-and-puff.com/collections/mp-apolina\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/collections/mp-apolina\">SHOP NOW</a></p>"
           }
         },
         "announcement_dDUTp6": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "<p>FREE SHIPPING on all orders $100+ w/ code FREESHIP100 — Ends Sunday<a href=\"/pages/current-promotions\" target=\"_blank\" title=\"Current Promotions\">*</a></p>"
           }
@@ -32,7 +32,6 @@
         "announcement_YVezxm",
         "announcement_dDUTp6"
       ],
-      "disabled": true,
       "settings": {
         "desktop_height": 32,
         "mobile_height": 40,
