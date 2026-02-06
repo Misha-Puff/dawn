@@ -43,7 +43,7 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Baby — Spring Collection",
+            "heading": "Baby Spring Collection",
             "heading_size": "h2"
           }
         },
@@ -82,8 +82,8 @@
         "full_width": true,
         "padding_top": 60,
         "padding_bottom": 32,
-        "padding_left": 36,
-        "padding_right": 36
+        "padding_left": 28,
+        "padding_right": 28
       }
     },
     "buttons_Mn3bJP": {
