@@ -110,7 +110,7 @@
 
   {% if settings.enable_sticky_bar %}
     .shopify-section-header-sticky {
-      top: 36px;
+      top: {{ settings.sticky_bar_offset }}px;
     }
   {% endif %}
 {%- endstyle -%}

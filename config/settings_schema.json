@@ -167,6 +167,16 @@
       },
       {
         "type": "range",
+        "id": "sticky_bar_offset",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "default": 32,
+        "unit": "px",
+        "label": "Sticky Bar Offset"
+      },
+      {
+        "type": "range",
         "id": "page_width",
         "min": 1000,
         "max": 1600,
