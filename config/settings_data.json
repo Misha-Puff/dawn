@@ -17,7 +17,7 @@
     "heading_scale": 85,
     "type_body_font": "arial_n4",
     "body_scale": 90,
-    "enable_sticky_bar": false,
+    "enable_sticky_bar": true,
     "page_width": 1600,
     "page_width_padding": 30,
     "mobile_page_width_padding": 10,
