@@ -9,22 +9,6 @@
  */
 {
   "sections": {
-    "custom_liquid_6yKB9W": {
-      "type": "custom-liquid",
-      "custom_css": [
-        "#product-grid {padding-left: 0;}",
-        ".swym-button.swym-add-to-wishlist-view-product {position: absolute; top: 15px; right: 15px;}",
-        ".description-wrapper {padding-bottom: 48px;}",
-        ".title.title--primary {margin-bottom: 2rem;}"
-      ],
-      "name": "t:sections.custom-liquid.presets.name",
-      "settings": {
-        "custom_liquid": "{{ 'template-collection.css' | asset_url | stylesheet_tag }}\n\n{{ 'component-card.css' | asset_url | stylesheet_tag }}\n\n{{ 'component-price.css' | asset_url | stylesheet_tag }}\n\n{{ page.metafields.content.custom_html.value.html }}",
-        "color_scheme": "",
-        "padding_top": 60,
-        "padding_bottom": 0
-      }
-    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -34,10 +18,18 @@
         "padding_top": 60,
         "padding_bottom": 28
       }
+    },
+    "fake_collection_wWqKjM": {
+      "type": "fake-collection",
+      "name": "Fake Product Grid",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
-    "custom_liquid_6yKB9W",
-    "main"
+    "main",
+    "fake_collection_wWqKjM"
   ]
 }
