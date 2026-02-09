@@ -29,7 +29,7 @@
     },
     "gp_section_565435429168546884": {
       "settings": {
-        "checksum": "75dd9c4d7289c30811f12e2d0729d95c7e086e8dd2b03e742cbb519d56299842_1_1_1_0__1",
+        "checksum": "cb283b156ded148a7d68a232055dc90e18231ed4b78b09382405f08477bc76f9_1_1_1_0__1",
         "gg6_e-f8sKV_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal/child-spring-26\"><span style=\"font-size:11px;\">SPRING LOOKBOOK — View the Upcoming Season</span></a></p>",
         "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-baby-knits?filter.p.m.taxonomy.division=Baby&amp;sort_by=manual\"><span style=\"font-size:11px;\">KNITWEAR</span></a></p>",
         "section_preload": "true"
@@ -55,17 +55,19 @@
       },
       "type": "gp-section-594874688266568465"
     },
-    "gp_section_596025365923627744": {
+    "gp_section_605470085745738326": {
       "settings": {
-        "checksum": "b5e5bd95210756c8bd9b4a887a079fedc6a4e01b705363fecc68f160b91d5f99_1_1_1_0__1",
-        "ggdgeUM21Hs_label": "<p><span style=\"font-size:10px;\">WINTER COLLECTION</span></p>",
+        "checksum": "7fea646950667d55c1000de9589d617d13c3f3f9cf5006d0e316af4337928e7d_1_1_1_0__1",
+        "ggKqnWfxDgA_label": "<p>PREVIEW NOW</p>",
+        "ggjgczRDtdR_text": "<p><span style=\"font-size:11px;\"><strong>PART 1</strong></span></p>",
+        "ggx5JmAEZLe_text": "<p><span style=\"font-size:13px;\">SPRING COLLECTION</span></p>",
         "section_preload": "true"
       },
-      "type": "gp-section-596025365923627744"
+      "type": "gp-section-605470085745738326"
     }
   },
   "order": [
-    "gp_section_596025365923627744",
+    "gp_section_605470085745738326",
     "gp_section_565435429168546884",
     "gp_section_565743274438952146",
     "gp_section_594874688266568465",
