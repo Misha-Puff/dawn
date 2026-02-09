@@ -14,7 +14,7 @@
   if collection.metafields.lock.super_vip
     assign lock_content = 'true'
 
-    if customer.tags contains 'staff' or customer.metafields.clienteling.very_important_customer
+    if customer.tags contains 'staff' or customer.metafields.clienteling.very_important_customer or customer.metafields.clienteling.super_vip
       assign lock_content = 'false'
     endif
   endif
@@ -23,7 +23,7 @@
   if collection.metafields.lock.vip
     assign lock_content = 'true'
 
-    if customer.tags contains 'staff' or customer.metafields.clienteling.very_important_customer or customer.metafields.clienteling.vip
+    if customer.tags contains 'staff' or customer.metafields.clienteling.very_important_customer or customer.metafields.clienteling.super_vip or customer.metafields.clienteling.vip
       assign lock_content = 'false'
     endif
   endif
