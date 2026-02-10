@@ -95,7 +95,7 @@
             "title": "",
             "text": "",
             "link_label": "SWEATERS + CARDIS",
-            "link": "shopify://collections/child-sweaters-cardigans",
+            "link": "shopify://collections/child-sweaters-cardigans-legacy",
             "new_tab": true
           }
         },
@@ -117,7 +117,7 @@
             "title": "",
             "text": "",
             "link_label": "OUTERWEAR",
-            "link": "shopify://collections/child-jackets",
+            "link": "shopify://collections/child-jackets-legacy",
             "new_tab": true
           }
         }
@@ -363,7 +363,7 @@
           "settings": {
             "label": "BEST SELLERS",
             "open_new_tab": false,
-            "link": "shopify://collections/child-best-sellers",
+            "link": "shopify://collections/child-best-sellers-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -373,7 +373,7 @@
           "settings": {
             "label": "SWEATERS",
             "open_new_tab": false,
-            "link": "shopify://collections/child-sweaters-cardigans",
+            "link": "shopify://collections/child-sweaters-cardigans-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -383,7 +383,7 @@
           "settings": {
             "label": "ACCESSORIES",
             "open_new_tab": false,
-            "link": "shopify://collections/child-accessories",
+            "link": "shopify://collections/child-accessories-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -393,7 +393,7 @@
           "settings": {
             "label": "NEW ARRIVALS",
             "open_new_tab": false,
-            "link": "shopify://collections/child-new",
+            "link": "shopify://collections/child-new-legacy-v2",
             "type": "secondary",
             "on_click": ""
           }

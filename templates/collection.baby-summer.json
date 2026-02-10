@@ -93,7 +93,7 @@
           "settings": {
             "label": "ONESIES",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-one-piece",
+            "link": "shopify://collections/baby-one-piece-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -103,7 +103,7 @@
           "settings": {
             "label": "TOPS",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-tops",
+            "link": "shopify://collections/baby-tops-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -113,7 +113,7 @@
           "settings": {
             "label": "BOTTOMS",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-bottoms",
+            "link": "shopify://collections/baby-bottoms-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -123,7 +123,7 @@
           "settings": {
             "label": "ACCESSORIES",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-accessories",
+            "link": "shopify://collections/baby-accessories-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -133,7 +133,7 @@
           "settings": {
             "label": "SHOP CHILD SUMMER",
             "open_new_tab": true,
-            "link": "shopify://collections/child-summer-collection",
+            "link": "shopify://collections/child-summer-collection-legacy-v2",
             "type": "secondary",
             "on_click": ""
           }

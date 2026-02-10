@@ -82,7 +82,7 @@
           "settings": {
             "label": "SWEATERS + CARDIGANS",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-sweaters-cardigans",
+            "link": "shopify://collections/baby-sweaters-cardigans-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -92,7 +92,7 @@
           "settings": {
             "label": "ONE-PIECES",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-one-piece",
+            "link": "shopify://collections/baby-one-piece-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -102,7 +102,7 @@
           "settings": {
             "label": "BOTTOMS",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-bottoms",
+            "link": "shopify://collections/baby-bottoms-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -112,7 +112,7 @@
           "settings": {
             "label": "TOPS",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-tops",
+            "link": "shopify://collections/baby-tops-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -122,7 +122,7 @@
           "settings": {
             "label": "ACCESSORIES",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-accessories",
+            "link": "shopify://collections/baby-accessories-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -132,7 +132,7 @@
           "settings": {
             "label": "PIMA",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-pima-staples",
+            "link": "shopify://collections/baby-cotton-staples",
             "type": "secondary",
             "on_click": ""
           }

@@ -95,7 +95,7 @@
             "title": "",
             "text": "",
             "link_label": "SWEATERS + CARDIS",
-            "link": "shopify://collections/baby-sweaters-cardigans",
+            "link": "shopify://collections/baby-sweaters-cardigans-legacy",
             "new_tab": true
           }
         },
@@ -117,7 +117,7 @@
             "title": "",
             "text": "",
             "link_label": "ONE-PIECES",
-            "link": "shopify://collections/baby-one-piece",
+            "link": "shopify://collections/baby-one-piece-legacy",
             "new_tab": true
           }
         }
@@ -245,7 +245,7 @@
           "settings": {
             "label": "BEST SELLERS",
             "open_new_tab": false,
-            "link": "shopify://collections/baby-best-sellers",
+            "link": "shopify://collections/baby-best-sellers-legeacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -255,7 +255,7 @@
           "settings": {
             "label": "SWEATERS",
             "open_new_tab": false,
-            "link": "shopify://collections/baby-sweaters-cardigans",
+            "link": "shopify://collections/baby-sweaters-cardigans-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -275,7 +275,7 @@
           "settings": {
             "label": "NEW ARRIVALS",
             "open_new_tab": false,
-            "link": "shopify://collections/baby-new",
+            "link": "shopify://collections/baby-new-legacy",
             "type": "secondary",
             "on_click": ""
           }

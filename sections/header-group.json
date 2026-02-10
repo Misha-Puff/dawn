@@ -17,7 +17,7 @@
         "#HeaderMenu-archive {color: red;}"
       ],
       "settings": {
-        "logo_position": "middle-left",
+        "logo_position": "middle-center",
         "mobile_logo_position": "center",
         "menu": "dawn-nav-1",
         "menu_type_desktop": "mega",

@@ -88,7 +88,7 @@
             "title": "",
             "text": "<p>CHILD SPRING</p>",
             "link_label": "",
-            "link": "shopify://collections/child-spring-collection",
+            "link": "shopify://collections/child-spring-collection-legacy",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -108,7 +108,7 @@
             "title": "",
             "text": "<p>BABY SPRING</p>",
             "link_label": "",
-            "link": "shopify://collections/baby-spring-collection",
+            "link": "shopify://collections/baby-spring-collection-legacy",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -207,7 +207,7 @@
       "type": "featured-collection",
       "disabled": true,
       "settings": {
-        "collection": "child-spring-collection",
+        "collection": "child-spring-collection-legacy",
         "products_to_show": 20,
         "title": "",
         "heading_alignment": "left",
@@ -270,10 +270,10 @@
           "type": "button",
           "settings": {
             "button_label": "CHILD SALE",
-            "button_link": "shopify://collections/child-sale",
+            "button_link": "shopify://collections/child-sale-legacy",
             "button_style_secondary": true,
             "button_label_2": "BABY SALE",
-            "button_link_2": "shopify://collections/baby-sale",
+            "button_link_2": "shopify://collections/baby-sale-legacy",
             "button_style_secondary_2": true,
             "button_label_3": "",
             "button_link_3": "",
@@ -344,7 +344,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/MP_SP25_Leader_3.7.25_Adult_2_ea6b1730-e3b5-4a25-8986-ce74ad3e7040.jpg",
-        "banner_link": "shopify://collections/adult-spring-summer",
+        "banner_link": "shopify://collections/adult-spring-summer-legacy",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "image_behavior": "none",
@@ -376,7 +376,7 @@
           "settings": {
             "label": "CHILD SALE",
             "open_new_tab": false,
-            "link": "shopify://collections/child-sale",
+            "link": "shopify://collections/child-sale-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -386,7 +386,7 @@
           "settings": {
             "label": "CHILD SWEATERS",
             "open_new_tab": false,
-            "link": "shopify://collections/child-sweaters-cardigans",
+            "link": "shopify://collections/child-sweaters-cardigans-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -396,7 +396,7 @@
           "settings": {
             "label": "CHILD DRESSES",
             "open_new_tab": false,
-            "link": "shopify://collections/child-dresses",
+            "link": "shopify://collections/child-dresses-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -406,7 +406,7 @@
           "settings": {
             "label": "ADULT BEST SELLERS",
             "open_new_tab": false,
-            "link": "shopify://collections/adult-best-sellers",
+            "link": "shopify://collections/adult-best-sellers-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -416,7 +416,7 @@
           "settings": {
             "label": "BABY ONESIES",
             "open_new_tab": false,
-            "link": "shopify://collections/baby-one-piece",
+            "link": "shopify://collections/baby-one-piece-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -525,7 +525,7 @@
             "title": "",
             "text": "",
             "link_label": "WINTER ACCESSORIES",
-            "link": "shopify://collections/child-accessories",
+            "link": "shopify://collections/child-accessories-legacy",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -621,7 +621,7 @@
             "title": "",
             "text": "",
             "link_label": "WINTER ACCESSORIES",
-            "link": "shopify://collections/child-accessories",
+            "link": "shopify://collections/child-accessories-legacy",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -642,7 +642,7 @@
             "title": "",
             "text": "",
             "link_label": "BEST SELLERS",
-            "link": "shopify://collections/child-best-sellers",
+            "link": "shopify://collections/child-best-sellers-legacy",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -744,7 +744,7 @@
             "title": "",
             "text": "",
             "link_label": "TOPS",
-            "link": "shopify://collections/child-tops",
+            "link": "shopify://collections/child-tops-legacy",
             "new_tab": false,
             "link_margin": 15,
             "enable_overlay": false,
@@ -764,7 +764,7 @@
             "title": "",
             "text": "",
             "link_label": "BOTTOMS",
-            "link": "shopify://collections/child-bottoms",
+            "link": "shopify://collections/child-bottoms-legacy",
             "new_tab": false,
             "link_margin": 15,
             "enable_overlay": false,
@@ -784,7 +784,7 @@
             "title": "",
             "text": "",
             "link_label": "SWEATERS",
-            "link": "shopify://collections/child-sweaters-cardigans",
+            "link": "shopify://collections/child-sweaters-cardigans-legacy",
             "new_tab": false,
             "link_margin": 15,
             "enable_overlay": false,
@@ -804,7 +804,7 @@
             "title": "",
             "text": "",
             "link_label": "ACCESSORIES",
-            "link": "shopify://collections/child-accessories",
+            "link": "shopify://collections/child-accessories-legacy",
             "new_tab": false,
             "link_margin": 15,
             "enable_overlay": false,
@@ -824,7 +824,7 @@
             "title": "",
             "text": "",
             "link_label": "DRESSES",
-            "link": "shopify://collections/child-dresses",
+            "link": "shopify://collections/child-dresses-legacy",
             "new_tab": false,
             "link_margin": 15,
             "enable_overlay": false,
@@ -864,7 +864,7 @@
             "title": "",
             "text": "",
             "link_label": "ACCESSORIES",
-            "link": "shopify://collections/child-accessories",
+            "link": "shopify://collections/child-accessories-legacy",
             "new_tab": false,
             "link_margin": 15,
             "enable_overlay": false,
@@ -884,7 +884,7 @@
             "title": "",
             "text": "",
             "link_label": "JACKETS",
-            "link": "shopify://collections/child-jackets",
+            "link": "shopify://collections/child-jackets-legacy",
             "new_tab": false,
             "link_margin": 15,
             "enable_overlay": false,

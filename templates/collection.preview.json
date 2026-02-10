@@ -408,7 +408,7 @@
           "settings": {
             "label": "SHOP SPRING",
             "open_new_tab": true,
-            "link": "shopify://collections/child-spring-collection",
+            "link": "shopify://collections/child-spring-collection-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -418,7 +418,7 @@
           "settings": {
             "label": "SHOP BABY SPRING",
             "open_new_tab": true,
-            "link": "shopify://collections/baby-spring-collection",
+            "link": "shopify://collections/baby-spring-collection-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -428,7 +428,7 @@
           "settings": {
             "label": "DENIM",
             "open_new_tab": true,
-            "link": "shopify://collections/child-denim",
+            "link": "shopify://collections/child-denim-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -438,7 +438,7 @@
           "settings": {
             "label": "PIMA COTTON STAPLES",
             "open_new_tab": true,
-            "link": "shopify://collections/child-pima-staples",
+            "link": "shopify://collections/child-cotton-staples",
             "type": "secondary",
             "on_click": ""
           }
@@ -448,7 +448,7 @@
           "settings": {
             "label": "SWEATERS",
             "open_new_tab": true,
-            "link": "shopify://collections/child-sweaters-cardigans",
+            "link": "shopify://collections/child-sweaters-cardigans-legacy",
             "type": "secondary",
             "on_click": ""
           }

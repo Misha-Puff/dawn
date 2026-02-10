@@ -82,7 +82,7 @@
           "settings": {
             "label": "SHOP ALL SPRING",
             "open_new_tab": true,
-            "link": "shopify://collections/adult-spring-summer",
+            "link": "shopify://collections/adult-spring-summer-legacy",
             "type": "secondary",
             "on_click": ""
           }

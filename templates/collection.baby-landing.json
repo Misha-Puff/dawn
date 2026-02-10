@@ -70,7 +70,7 @@
             "link_color": "#ffffff",
             "link_size": 13,
             "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/baby-spring-collection",
+            "button_link_1": "shopify://collections/baby-spring-collection-legacy",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -86,7 +86,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/MP_SP25_Leader_3.13.25_Baby_LP.jpg",
-        "banner_link": "shopify://collections/baby-spring-collection",
+        "banner_link": "shopify://collections/baby-spring-collection-legacy",
         "image_overlay_opacity": 10,
         "image_height": "adapt",
         "image_behavior": "none",
@@ -120,7 +120,7 @@
             "title": "",
             "text": "<p>SPRING ONE-PIECES</p>",
             "link_label": "",
-            "link": "shopify://collections/baby-one-piece",
+            "link": "shopify://collections/baby-one-piece-legacy",
             "new_tab": false,
             "link_margin": 8,
             "enable_overlay": false,
@@ -140,7 +140,7 @@
             "title": "",
             "text": "<p>NEW ARRIVALS</p>",
             "link_label": "",
-            "link": "shopify://collections/baby-new",
+            "link": "shopify://collections/baby-new-legacy",
             "new_tab": true,
             "link_margin": 8,
             "enable_overlay": false,
@@ -209,7 +209,7 @@
     "featured_collection_8G4PAp": {
       "type": "featured-collection",
       "settings": {
-        "collection": "baby-best-sellers",
+        "collection": "baby-best-sellers-legeacy",
         "products_to_show": 20,
         "title": "",
         "heading_alignment": "left",
@@ -260,7 +260,7 @@
             "title": "",
             "text": "",
             "link_label": "SWEATERS",
-            "link": "shopify://collections/baby-sweaters-cardigans",
+            "link": "shopify://collections/baby-sweaters-cardigans-legacy",
             "new_tab": false,
             "link_margin": 15,
             "enable_overlay": false,
@@ -280,7 +280,7 @@
             "title": "",
             "text": "",
             "link_label": "TOPS",
-            "link": "shopify://collections/baby-tops",
+            "link": "shopify://collections/baby-tops-legacy",
             "new_tab": false,
             "link_margin": 15,
             "enable_overlay": false,
@@ -300,7 +300,7 @@
             "title": "",
             "text": "",
             "link_label": "BOTTOMS",
-            "link": "shopify://collections/baby-bottoms",
+            "link": "shopify://collections/baby-bottoms-legacy",
             "new_tab": false,
             "link_margin": 15,
             "enable_overlay": false,
@@ -320,7 +320,7 @@
             "title": "",
             "text": "",
             "link_label": "ONESIES",
-            "link": "shopify://collections/baby-one-piece",
+            "link": "shopify://collections/baby-one-piece-legacy",
             "new_tab": false,
             "link_margin": 15,
             "enable_overlay": false,
@@ -341,7 +341,7 @@
             "title": "",
             "text": "",
             "link_label": "ACCESSORIES",
-            "link": "shopify://collections/baby-accessories",
+            "link": "shopify://collections/baby-accessories-legacy",
             "new_tab": false,
             "link_margin": 15,
             "enable_overlay": false,
@@ -445,7 +445,7 @@
           "settings": {
             "label": "BABY PIMA COTTON",
             "open_new_tab": false,
-            "link": "shopify://collections/baby-pima-staples",
+            "link": "shopify://collections/baby-cotton-staples",
             "type": "secondary",
             "on_click": ""
           }
@@ -455,7 +455,7 @@
           "settings": {
             "label": "BABY ONESIES",
             "open_new_tab": false,
-            "link": "shopify://collections/baby-one-piece",
+            "link": "shopify://collections/baby-one-piece-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -465,7 +465,7 @@
           "settings": {
             "label": "BABY TOPS",
             "open_new_tab": false,
-            "link": "shopify://collections/baby-tops",
+            "link": "shopify://collections/baby-tops-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -475,7 +475,7 @@
           "settings": {
             "label": "BABY BOTTOMS",
             "open_new_tab": false,
-            "link": "shopify://collections/baby-bottoms",
+            "link": "shopify://collections/baby-bottoms-legacy",
             "type": "secondary",
             "on_click": ""
           }
@@ -485,7 +485,7 @@
           "settings": {
             "label": "BABY ACCESSORIES",
             "open_new_tab": false,
-            "link": "shopify://collections/baby-accessories",
+            "link": "shopify://collections/baby-accessories-legacy",
             "type": "secondary",
             "on_click": ""
           }
