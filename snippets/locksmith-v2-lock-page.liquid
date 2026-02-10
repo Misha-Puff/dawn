@@ -18,5 +18,9 @@
     endif
   endif
 
-  echo lock_content
+  if request.design_mode
+    echo 'false'
+  else
+    echo lock_content
+  endif
 %}
