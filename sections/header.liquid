@@ -86,12 +86,20 @@
 
   .section-header {
     position: sticky; /* This is for fixing a Safari z-index issue. PR #2147 */
-    margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
+    {% if request.page_type == 'index' %}
+      margin-bottom: calc({{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px - var(--header-height, 0px));
+    {% else %}
+      margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
+    {% endif %}
   }
 
   @media screen and (min-width: 750px) {
     .section-header {
-      margin-bottom: {{ section.settings.margin_bottom }}px;
+      {% if request.page_type == 'index' %}
+        margin-bottom: calc({{ section.settings.margin_bottom }}px - var(--header-height, 0px));
+      {% else %}
+        margin-bottom: {{ section.settings.margin_bottom }}px;
+      {% endif %}
     }
   }
 
@@ -113,6 +121,80 @@
       top: {{ settings.sticky_bar_offset }}px;
     }
   {% endif %}
+
+  {% if request.page_type == 'index' %}
+    .section-header .header-wrapper {
+      background-color: transparent;
+    }
+
+    .section-header .header-wrapper.gradient {
+      background: transparent;
+    }
+
+    .scrolled-past-header .header-wrapper {
+      background-color: rgb(var(--color-background));
+    }
+
+    .scrolled-past-header .header-wrapper.gradient {
+      background: rgb(var(--color-background));
+      background: var(--gradient-background);
+      background-attachment: fixed;
+    }
+
+    .section-header .header-wrapper--border-bottom {
+      border-bottom-color: transparent;
+    }
+
+    .scrolled-past-header .header-wrapper--border-bottom {
+      border-bottom-color: rgba(var(--color-foreground), 0.08);
+    }
+
+    .section-header:not(.scrolled-past-header):not(:has(details[open])) .header-wrapper {
+      --color-foreground: var(--color-background);
+    }
+
+    .section-header:not(.scrolled-past-header):not(:has(details[open])) .header__heading-logo {
+      filter: invert(1);
+    }
+
+    .section-header:has(details[open]) .header-wrapper {
+      background-color: rgb(var(--color-background));
+    }
+
+    .section-header:has(details[open]) .header-wrapper.gradient {
+      background: rgb(var(--color-background));
+      background: var(--gradient-background);
+      background-attachment: fixed;
+    }
+
+    .section-header:has(details[open]) .header-wrapper--border-bottom {
+      border-bottom-color: rgba(var(--color-foreground), 0.08);
+    }
+
+    .section-header .mega-menu__content {
+      top: 100%;
+      background-color: transparent;
+    }
+
+    .scrolled-past-header .mega-menu__content,
+    .section-header:has(details[open]) .mega-menu__content {
+      background-color: rgb(var(--color-background));
+    }
+
+    .mega-menu__content {
+      top: 100%;
+    }
+
+    .header__icon .icon {
+      fill: currentColor;
+    }
+  {% endif %}
+
+  @media screen and (max-width: 1099px){
+    .header__icons .header__icon .svg-wrapper {
+      justify-content: flex-end;
+    }
+  }
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>

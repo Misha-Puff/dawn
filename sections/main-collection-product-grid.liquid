@@ -156,6 +156,8 @@
 
     .Block-{{ block.id }} .editorial-overlay {
       color: {{ block.settings.text_color }};
+      padding: {{ block.settings.text_vertical_padding }}px {{ block.settings.text_horizontal_padding }}px;
+      font-size: {{ block.settings.text_size }}px;
     }
   {% endfor %}
 
@@ -661,6 +663,15 @@
           "label": "Text"
         },
         {
+          "type": "range",
+          "id": "text_size",
+          "min": 10,
+          "max": 48,
+          "step": 1,
+          "default": 13,
+          "label": "Text Size"
+        },
+        {
           "type": "color",
           "id": "text_color",
           "label": "Text Color",
@@ -709,6 +720,24 @@
           ],
           "default": "middle-center",
           "label": "Text position"
+        },
+        {
+          "type": "range",
+          "id": "text_horizontal_padding",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "default": 16,
+          "label": "Text Horizontal Padding"
+        },
+        {
+          "type": "range",
+          "id": "text_vertical_padding",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "default": 16,
+          "label": "Text Vertical Padding"
         },
         {
           "type": "header",
