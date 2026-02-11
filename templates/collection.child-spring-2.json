@@ -143,18 +143,18 @@
       "blocks": {
         "image_f8UJrh": {
           "type": "image",
-          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
+            "image": "shopify://shop_images/MP_EditorialBlock_Desktop_2x_SP26_9427bab3-8214-4093-a648-f9828865c524.jpg",
+            "mobile_image": "shopify://shop_images/MP_EditorialBlock_Desktop_2x_SP26_9427bab3-8214-4093-a648-f9828865c524.jpg",
             "link": "",
             "content": "",
             "text_color": "#000000",
             "content_position": "middle-center",
             "row_start_desktop": 1,
-            "row_span_desktop": 1,
+            "row_span_desktop": 2,
             "col_start_desktop": 1,
             "col_span_desktop": 2,
-            "row_start_mobile": 1,
+            "row_start_mobile": 3,
             "row_span_mobile": 1,
             "col_start_mobile": "1",
             "col_span_mobile": "2"
