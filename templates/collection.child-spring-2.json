@@ -172,7 +172,7 @@
             "text_size": 14,
             "text_color": "#ffffff",
             "content_position": "bottom-left",
-            "text_horizontal_padding": 36,
+            "text_horizontal_padding": 32,
             "text_vertical_padding": 32,
             "row_start_desktop": 12,
             "row_span_desktop": 2,
