@@ -79,6 +79,15 @@
   }
 </style>
 
+{% liquid
+  assign paths = section.settings.transparency_enabled_paths | split: ','
+
+  for path in paths
+    if request.path == path
+      assign transparency_enabled = true
+    endif
+  endfor
+%}
 {%- style -%}
   .header {
     padding: 10px 1.4rem;
@@ -86,7 +95,7 @@
 
   .section-header {
     position: sticky; /* This is for fixing a Safari z-index issue. PR #2147 */
-    {% if request.page_type == 'index' %}
+    {% if transparency_enabled %}
       margin-bottom: calc({{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px - var(--header-height, 0px));
     {% else %}
       margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
@@ -95,7 +104,7 @@
 
   @media screen and (min-width: 750px) {
     .section-header {
-      {% if request.page_type == 'index' %}
+      {% if transparency_enabled %}
         margin-bottom: calc({{ section.settings.margin_bottom }}px - var(--header-height, 0px));
       {% else %}
         margin-bottom: {{ section.settings.margin_bottom }}px;
@@ -122,7 +131,7 @@
     }
   {% endif %}
 
-  {% if request.page_type == 'index' %}
+  {% if transparency_enabled %}
     .section-header .header-wrapper {
       background-color: transparent;
     }
@@ -669,6 +678,17 @@
       "id": "show_line_separator",
       "default": true,
       "label": "t:sections.header.settings.show_line_separator.label"
+    },
+    {
+      "type": "header",
+      "content": "Transparent Header"
+    },
+    {
+      "type": "text",
+      "id": "transparency_enabled_paths",
+      "default": "/,/pages/child,/pages/baby,/pages/adult",
+      "label": "Pages where transparency is enabled",
+      "info": "Comma separated list of paths"
     },
     {
       "type": "header",
