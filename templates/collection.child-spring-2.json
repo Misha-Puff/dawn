@@ -162,21 +162,20 @@
         },
         "image_gkgQFt": {
           "type": "image",
-          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
-            "link": "",
-            "content": "",
+            "image": "shopify://shop_images/MP_EditorialBlock_Desktop_2x_Long_Denim.jpg",
+            "link": "shopify://collections/child-denim",
+            "content": "NEW DENIM",
             "text_color": "#000000",
-            "content_position": "middle-center",
-            "row_start_desktop": 6,
-            "row_span_desktop": 1,
-            "col_start_desktop": 1,
-            "col_span_desktop": 3,
-            "row_start_mobile": 1,
+            "content_position": "bottom-left",
+            "row_start_desktop": 7,
+            "row_span_desktop": 2,
+            "col_start_desktop": 3,
+            "col_span_desktop": 2,
+            "row_start_mobile": 8,
             "row_span_mobile": 1,
             "col_start_mobile": "1",
-            "col_span_mobile": "1"
+            "col_span_mobile": "2"
           }
         }
       },
