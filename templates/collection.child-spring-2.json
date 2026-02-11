@@ -168,11 +168,11 @@
             "content": "NEW DENIM",
             "text_color": "#000000",
             "content_position": "bottom-left",
-            "row_start_desktop": 7,
+            "row_start_desktop": 9,
             "row_span_desktop": 2,
             "col_start_desktop": 3,
             "col_span_desktop": 2,
-            "row_start_mobile": 8,
+            "row_start_mobile": 16,
             "row_span_mobile": 1,
             "col_start_mobile": "1",
             "col_span_mobile": "2"
