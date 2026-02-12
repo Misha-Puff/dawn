@@ -17,7 +17,7 @@
     "heading_scale": 85,
     "type_body_font": "arial_n4",
     "body_scale": 90,
-    "enable_sticky_bar": true,
+    "enable_sticky_bar": false,
     "page_width": 1600,
     "page_width_padding": 30,
     "mobile_page_width_padding": 10,
@@ -246,6 +246,11 @@
       },
       "14195606141958520928": {
         "type": "shopify://apps/crowdhandler-waiting-room/blocks/crowdhandler-waiting-room/d550f2bb-2eea-4a75-9db7-e95d345f6c90",
+        "disabled": false,
+        "settings": {}
+      },
+      "6610233760104865948": {
+        "type": "shopify://apps/pushowl-brevo/blocks/pushowl-app-embed-3d2ff2b5/fa20c3ba-38bf-43e0-ba5c-431f6ae07d95",
         "disabled": false,
         "settings": {}
       }

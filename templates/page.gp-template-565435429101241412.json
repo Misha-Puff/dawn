@@ -29,17 +29,17 @@
     },
     "gp_section_565435429168546884": {
       "settings": {
-        "checksum": "cb283b156ded148a7d68a232055dc90e18231ed4b78b09382405f08477bc76f9_1_1_1_0__1",
+        "checksum": "ca18c56500c3dc97231a6f015703ac89f6086fbc1212565dce3059a77a91444d_1_1_1_0__1",
         "gg6_e-f8sKV_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal/child-spring-26\"><span style=\"font-size:11px;\">SPRING LOOKBOOK — View the Upcoming Season</span></a></p>",
-        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-baby-knits?filter.p.m.taxonomy.division=Baby&amp;sort_by=manual\"><span style=\"font-size:11px;\">KNITWEAR</span></a></p>",
+        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-new\"><span style=\"font-size:11px;\">NEW ARRIVALS</span></a></p>",
         "section_preload": "true"
       },
       "type": "gp-section-565435429168546884"
     },
     "gp_section_565743274438952146": {
       "settings": {
-        "checksum": "ada47e72ed08cfe7d0e7e1c4c10d600977b0b6163b56d5b5cf03976cecd7fef3_1_1_1_0__1",
-        "ggNIzGr-zG6_text": "<span style=\"font-size:11px;\">NEW ARRIVALS</span>",
+        "checksum": "e4ea549a9aaac425321319074a4f558a6338da47d172223b650fe57ad6604f2f_1_1_1_0__1",
+        "ggNIzGr-zG6_text": "<span style=\"font-size:11px;\">SPRING HIGHLIGHTS</span>",
         "ggfEg-ZUUju_label": "ADD TO CART",
         "ggfEg-ZUUju_outOfStockLabel": "Out of stock",
         "ggfEg-ZUUju_unavailableLabel": "Unavailable",
@@ -57,9 +57,9 @@
     },
     "gp_section_605470085745738326": {
       "settings": {
-        "checksum": "7fea646950667d55c1000de9589d617d13c3f3f9cf5006d0e316af4337928e7d_1_1_1_0__1",
-        "ggKqnWfxDgA_label": "<p>PREVIEW NOW</p>",
-        "ggjgczRDtdR_text": "<p><span style=\"font-size:11px;\"><strong>PART 1</strong></span></p>",
+        "checksum": "157d287d97e65c44007b51a534eff9a02610363bfcb923be00129a37073ec153_1_1_1_0__1",
+        "ggKqnWfxDgA_label": "<p>SHOP NOW</p>",
+        "ggjgczRDtdR_text": "<p>PART<span style=\"font-size:11px;\"> 1</span></p>",
         "ggx5JmAEZLe_text": "<p><span style=\"font-size:13px;\">SPRING COLLECTION</span></p>",
         "section_preload": "true"
       },

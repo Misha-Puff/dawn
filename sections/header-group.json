@@ -32,6 +32,7 @@
         "announcement_YVezxm",
         "announcement_dDUTp6"
       ],
+      "disabled": true,
       "settings": {
         "desktop_height": 32,
         "mobile_height": 40,
@@ -56,6 +57,7 @@
         "menu_type_desktop": "mega",
         "sticky_header_type": "always",
         "show_line_separator": false,
+        "transparency_enabled_paths": "",
         "color_scheme": "scheme-1",
         "menu_color_scheme": "",
         "enable_country_selector": false,
