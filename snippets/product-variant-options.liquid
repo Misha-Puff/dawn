@@ -101,7 +101,17 @@
     </a>
   {%- endif -%}
   {%- for sibling in siblings -%}
-    {% if product.id == sibling.id %}
+    {% assign skip_sibling = false %}
+
+    {% if sibling.id == product.id %}
+      {% assign skip_sibling = true %}
+    {% endif %}
+
+    {% if sibling.tags contains 'preview-product' or sibling.tags contains 'vip-product' %}
+      {% assign skip_sibling = true %}
+    {% endif %}
+
+    {% if skip_sibling %}
       {% continue %}
     {% endif %}
     {% assign value = sibling.options_by_name.color.values[0] %}
