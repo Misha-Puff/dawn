@@ -39,8 +39,8 @@
         "text_pgUK9t": {
           "type": "text",
           "settings": {
-            "text": "<p>Our garments are made to last, but we know life happens. That’s why we created a repair program to help your item live on. Extending its life instead of buying new reduces its carbon footprint by 82%—something to wear and feel great about.</p><p></p>",
-            "line_height": 22
+            "text": "<p>Our garments are made to last, but we know life happens. That’s why we created a repair program to help your item live on. Extending its life instead of buying new reduces its carbon footprint by 82% — something to wear and feel great about.</p><p></p>",
+            "line_height": 24
           }
         },
         "button_kyEBKP": {
@@ -70,8 +70,8 @@
         "full_width": true,
         "padding_top": 60,
         "padding_bottom": 48,
-        "padding_left": 100,
-        "padding_right": 100
+        "padding_left": 52,
+        "padding_right": 52
       }
     },
     "buttons_irahck": {
@@ -135,8 +135,11 @@
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
             "content": "",
+            "text_size": 13,
             "text_color": "#000000",
             "content_position": "middle-center",
+            "text_horizontal_padding": 16,
+            "text_vertical_padding": 16,
             "row_start_desktop": 1,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -154,8 +157,11 @@
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
             "content": "",
+            "text_size": 13,
             "text_color": "#000000",
             "content_position": "middle-center",
+            "text_horizontal_padding": 16,
+            "text_vertical_padding": 16,
             "row_start_desktop": 6,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
