@@ -40,7 +40,7 @@
           "type": "text",
           "settings": {
             "text": "<p>Discover our lovingly curated collection of knitting patterns from our archives, bringing you the essentials and signature pieces from our early collections.</p><p>Featuring child and baby knitting patterns, as well as womens’ knitwear patterns. These patterns are road maps to your own unique creation, letting you customize size, color, and embrace the magic of the creative process. </p>",
-            "line_height": 22
+            "line_height": 24
           }
         },
         "button_zKjgA7": {
@@ -70,8 +70,8 @@
         "full_width": true,
         "padding_top": 60,
         "padding_bottom": 48,
-        "padding_left": 100,
-        "padding_right": 100
+        "padding_left": 52,
+        "padding_right": 52
       }
     },
     "product-grid": {
@@ -84,8 +84,11 @@
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
             "content": "",
+            "text_size": 13,
             "text_color": "#000000",
             "content_position": "middle-center",
+            "text_horizontal_padding": 16,
+            "text_vertical_padding": 16,
             "row_start_desktop": 1,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -103,8 +106,11 @@
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
             "content": "",
+            "text_size": 13,
             "text_color": "#000000",
             "content_position": "middle-center",
+            "text_horizontal_padding": 16,
+            "text_vertical_padding": 16,
             "row_start_desktop": 6,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
