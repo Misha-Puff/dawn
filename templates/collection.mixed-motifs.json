@@ -164,7 +164,7 @@
         "image_gkgQFt": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/SP26_LOOK_87_3326_2.16_d8ca5420-47ea-4116-a616-43b82069a728.jpg",
+            "image": "shopify://shop_images/IMG_7228-1k.jpg",
             "link": "",
             "content": "",
             "text_size": 13,
@@ -172,11 +172,11 @@
             "content_position": "middle-center",
             "text_horizontal_padding": 16,
             "text_vertical_padding": 16,
-            "row_start_desktop": 6,
+            "row_start_desktop": 5,
             "row_span_desktop": 1,
             "col_start_desktop": 4,
             "col_span_desktop": 1,
-            "row_start_mobile": 11,
+            "row_start_mobile": 8,
             "row_span_mobile": 1,
             "col_start_mobile": "2",
             "col_span_mobile": "1"
