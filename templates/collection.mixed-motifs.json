@@ -163,9 +163,8 @@
         },
         "image_gkgQFt": {
           "type": "image",
-          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
+            "image": "shopify://shop_images/SP26_LOOK_87_3326_2.16_d8ca5420-47ea-4116-a616-43b82069a728.jpg",
             "link": "",
             "content": "",
             "text_size": 13,
@@ -175,11 +174,11 @@
             "text_vertical_padding": 16,
             "row_start_desktop": 6,
             "row_span_desktop": 1,
-            "col_start_desktop": 1,
-            "col_span_desktop": 3,
-            "row_start_mobile": 1,
+            "col_start_desktop": 4,
+            "col_span_desktop": 1,
+            "row_start_mobile": 11,
             "row_span_mobile": 1,
-            "col_start_mobile": "1",
+            "col_start_mobile": "2",
             "col_span_mobile": "1"
           }
         }
