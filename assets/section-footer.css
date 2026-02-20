@@ -519,7 +519,7 @@ localization-form {
 
 .footer__content-bottom-wrapper .grid__item,
 .copyright__content {
-  font-size: 13px !important;
+  font-size: 1.3rem !important;
   color: rgb(var(--color-foreground));
 }
 
