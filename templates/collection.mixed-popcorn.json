@@ -81,7 +81,7 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 60,
-        "padding_bottom": 40,
+        "padding_bottom": 32,
         "padding_left": 28,
         "padding_right": 28
       }
@@ -92,30 +92,40 @@
         "button_XaxzBy": {
           "type": "button",
           "settings": {
-            "label": "",
+            "label": "VIEW CHILD",
             "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "link": "https://shop.misha-and-puff.com/collections/mixed-popcorn-styles?filter.p.m.taxonomy.division=Child&sort_by=manual",
+            "type": "secondary",
             "on_click": ""
           }
         },
         "button_C99g3E": {
           "type": "button",
           "settings": {
-            "label": "",
+            "label": "VIEW BABY",
             "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "link": "https://shop.misha-and-puff.com/collections/mixed-popcorn-styles?filter.p.m.taxonomy.division=Baby&sort_by=manual",
+            "type": "secondary",
             "on_click": ""
           }
         },
         "button_NGpAit": {
           "type": "button",
           "settings": {
-            "label": "",
+            "label": "VIEW ADULT",
             "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "link": "https://shop.misha-and-puff.com/collections/mixed-popcorn-styles?filter.p.m.taxonomy.division=Adult&sort_by=manual",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_acdnW8": {
+          "type": "button",
+          "settings": {
+            "label": "KNITTING PATTERNS",
+            "open_new_tab": false,
+            "link": "https://shop.misha-and-puff.com/search?q=POPCORN+KNITTING+PATTERN&options%5Bprefix%5D=last",
+            "type": "secondary",
             "on_click": ""
           }
         }
@@ -123,7 +133,8 @@
       "block_order": [
         "button_XaxzBy",
         "button_C99g3E",
-        "button_NGpAit"
+        "button_NGpAit",
+        "button_acdnW8"
       ],
       "name": "Buttons",
       "settings": {
@@ -131,10 +142,10 @@
         "button_gap": 10,
         "heading_size": "h1",
         "color_scheme": "",
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 30,
-        "mobile_padding_top": 30,
-        "mobile_padding_bottom": 30
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 48,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 38
       }
     },
     "product-grid": {
