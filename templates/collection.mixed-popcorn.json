@@ -214,12 +214,34 @@
             "col_start_mobile": "1",
             "col_span_mobile": "2"
           }
+        },
+        "image_Cc8fXr": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/MP_EditorialBlock_Desktop_2x_Long_2.26_Popcorn_Adult.jpg",
+            "link": "https://shop.misha-and-puff.com/collections/mixed-popcorn-styles?filter.p.m.taxonomy.division=Baby&sort_by=manual",
+            "content": "SHOP BABY STYLES",
+            "text_size": 10,
+            "text_color": "#ffffff",
+            "content_position": "top-left",
+            "text_horizontal_padding": 22,
+            "text_vertical_padding": 40,
+            "row_start_desktop": 15,
+            "row_span_desktop": 2,
+            "col_start_desktop": 3,
+            "col_span_desktop": 2,
+            "row_start_mobile": 24,
+            "row_span_mobile": 2,
+            "col_start_mobile": "1",
+            "col_span_mobile": "2"
+          }
         }
       },
       "block_order": [
         "image_f8UJrh",
         "image_gkgQFt",
-        "image_NMFkV7"
+        "image_NMFkV7",
+        "image_Cc8fXr"
       ],
       "settings": {
         "products_per_page": 48,
