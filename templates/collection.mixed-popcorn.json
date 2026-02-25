@@ -89,22 +89,22 @@
     "buttons_Mn3bJP": {
       "type": "buttons",
       "blocks": {
-        "button_XaxzBy": {
-          "type": "button",
-          "settings": {
-            "label": "VIEW CHILD",
-            "open_new_tab": false,
-            "link": "https://shop.misha-and-puff.com/collections/mixed-popcorn-styles?filter.p.m.taxonomy.division=Child&sort_by=manual",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
         "button_C99g3E": {
           "type": "button",
           "settings": {
             "label": "VIEW BABY",
             "open_new_tab": false,
             "link": "https://shop.misha-and-puff.com/collections/mixed-popcorn-styles?filter.p.m.taxonomy.division=Baby&sort_by=manual",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_XaxzBy": {
+          "type": "button",
+          "settings": {
+            "label": "VIEW CHILD",
+            "open_new_tab": false,
+            "link": "https://shop.misha-and-puff.com/collections/mixed-popcorn-styles?filter.p.m.taxonomy.division=Child&sort_by=manual",
             "type": "secondary",
             "on_click": ""
           }
@@ -131,8 +131,8 @@
         }
       },
       "block_order": [
-        "button_XaxzBy",
         "button_C99g3E",
+        "button_XaxzBy",
         "button_NGpAit",
         "button_acdnW8"
       ],
