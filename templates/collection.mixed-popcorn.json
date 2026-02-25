@@ -123,7 +123,7 @@
           "type": "button",
           "settings": {
             "label": "KNITTING PATTERNS",
-            "open_new_tab": false,
+            "open_new_tab": true,
             "link": "https://shop.misha-and-puff.com/search?q=POPCORN+KNITTING+PATTERN&options%5Bprefix%5D=last",
             "type": "secondary",
             "on_click": ""
