@@ -303,20 +303,24 @@
     {{ 'swym-popup.css' | asset_url | stylesheet_tag }}
     {% render 'shogun-head' %}
     {% render 'schemas' %}
-  
-{%- comment -%} kimonix_markets_start {%- endcomment -%}
- {% assign collection_handle_to_redirect_to = collection.metafields.kimonix.market_to_collection_handle.value[localization.market.handle] %}
- {% if collection_handle_to_redirect_to %}
-    <script>window.location.replace("{{ collection_handle_to_redirect_to }}"+window.location.search+window.location.hash)</script>
- {% endif %}
 
- <script>
-  if (location.href.includes("-kmnx-mrkt-")){
-    history.replaceState('', '', document.referrer);
-  }
-</script>
-{%- comment -%} kimonix_markets_end {%- endcomment -%}
-</head>
+    {%- comment -%} kimonix_markets_start {%- endcomment -%}
+    {% assign collection_handle_to_redirect_to = collection.metafields.kimonix.market_to_collection_handle.value[localization.market.handle] %}
+    {% if collection_handle_to_redirect_to %}
+      <script>
+        window.location.replace(
+          '{{ collection_handle_to_redirect_to }}' + window.location.search + window.location.hash
+        );
+      </script>
+    {% endif %}
+
+    <script>
+      if (location.href.includes('-kmnx-mrkt-')) {
+        history.replaceState('', '', document.referrer);
+      }
+    </script>
+    {%- comment -%} kimonix_markets_end {%- endcomment -%}
+  </head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DLJ3XBN6Q9"></script>
   <script>
@@ -449,18 +453,6 @@
     {% render 'clarity' %}
 
     {% render 'gorgias-init' %}
-    {% # theme-check-disable RemoteAsset %}
-
-    <!-- Gorgias Chat Widget Start -->
-    {% comment %}
-      <script
-        defer="defer"
-        id="gorgias-chat-widget-install-v3"
-        src="https://config.gorgias.chat/bundle-loader/01GYCC2HKEFNC8EAS95H0C1H6V"
-      ></script>
-    {% endcomment %}
-    <!-- Gorgias Chat Widget End -->
-    {% # theme-check-enable RemoteAsset %}
 
     <!-- ACCESSIBILITYSPARK START -->
     {% render 'accessibility-spark-widget' %}

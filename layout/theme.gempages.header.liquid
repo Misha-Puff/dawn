@@ -334,7 +334,7 @@
     {% render 'schemas' %}
   </head>
 
-  <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">    
+  <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <!-- Google Tag Manager (noscript) -->
     <noscript
       ><iframe
@@ -358,8 +358,6 @@
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
-
-    
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
@@ -429,24 +427,8 @@
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    
-
-    
-
-    
-    {% # theme-check-disable RemoteAsset %}
-
-    <!-- Gorgias Chat Widget Start -->
-    <script
-      defer="defer"
-      id="gorgias-chat-widget-install-v3"
-      src="https://config.gorgias.chat/bundle-loader/01GYCC2HKEFNC8EAS95H0C1H6V"
-    ></script>
-    <!-- Gorgias Chat Widget End -->
-    {% # theme-check-enable RemoteAsset %}
-
     <!-- ACCESSIBILITYSPARK START -->
-    
+
     <!-- ACCESSIBILITYSPARK END -->
 
     <!-- Widget : Crochet Gift with Purchase -->
