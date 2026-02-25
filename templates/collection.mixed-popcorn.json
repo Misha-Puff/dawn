@@ -30,6 +30,7 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
@@ -42,14 +43,14 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Cerulean",
+            "heading": "Popcorn Styles",
             "heading_size": "h2"
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>A true star of the Fall Collection — Cerulean. A vibrant blue, dyed to a rich, saturated finish. A playful hue that brightens every style.</p>",
+            "text": "<p>Before there was a company, there was a living room. Anna began knitting for her first newborn, creating pieces she wished existed — clothes rooted in care, comfort, color, and handwork.</p><p>One of the first pieces: the Popcorn Sweater. Hand-knit with bobbles lovingly aligned all over, it’s now a beloved style across baby, child, and adult silhouettes. Always familiar, scaled differently, and now handcrafted by our incredible partners in Peru, yet carrying the same memory. Hand-made heirlooms — made with care, made to last.</p>",
             "line_height": 24
           }
         },
@@ -74,7 +75,6 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -82,8 +82,8 @@
         "full_width": true,
         "padding_top": 52,
         "padding_bottom": 40,
-        "padding_left": 100,
-        "padding_right": 100
+        "padding_left": 28,
+        "padding_right": 28
       }
     },
     "buttons_Mn3bJP": {
@@ -125,7 +125,6 @@
         "button_C99g3E",
         "button_NGpAit"
       ],
-      "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
@@ -148,8 +147,11 @@
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
             "content": "",
+            "text_size": 13,
             "text_color": "#000000",
             "content_position": "middle-center",
+            "text_horizontal_padding": 16,
+            "text_vertical_padding": 16,
             "row_start_desktop": 1,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -167,8 +169,11 @@
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
             "content": "",
+            "text_size": 13,
             "text_color": "#000000",
             "content_position": "middle-center",
+            "text_horizontal_padding": 16,
+            "text_vertical_padding": 16,
             "row_start_desktop": 6,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
