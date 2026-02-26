@@ -194,6 +194,22 @@
   {% endif %}
 {%- endstyle -%}
 
+{% assign has_filters = false %}
+
+{% for filter in collection.filters %}
+  {% if filter.type == 'price_range' %}
+    {% if filter.min_value.value or filter.max_value.value %}
+      {% assign has_filters = true %}
+      {% break %}
+    {% endif %}
+  {% else %}
+    {% if filter.active_values.size > 0 %}
+      {% assign has_filters = true %}
+      {% break %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
   {%- paginate collection.products by section.settings.products_per_page -%}
     {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
@@ -310,7 +326,7 @@
                 {% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %}
               "
             >
-              {%- if paginate.current_page == 1 -%}
+              {%- if paginate.current_page == 1 and has_filters == false -%}
                 {% for block in section.blocks %}
                   {% if block.settings.image != null %}
                     <li
@@ -747,7 +763,7 @@
           "type": "range",
           "id": "row_start_desktop",
           "min": 1,
-          "max": 16,
+          "max": 100,
           "step": 1,
           "default": 1,
           "label": "Starting Row"
@@ -787,7 +803,7 @@
           "type": "range",
           "id": "row_start_mobile",
           "min": 1,
-          "max": 24,
+          "max": 100,
           "step": 1,
           "default": 1,
           "label": "Starting Row"
