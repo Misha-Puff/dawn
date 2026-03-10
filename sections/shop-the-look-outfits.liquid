@@ -1,21 +1,48 @@
 {% liquid
-  assign outfits = product.metafields.product_page.shop_the_look_outfits.value
+  if section.blocks.size > 0
+    assign use_blocks = true
+  else
+    assign use_blocks = false
+    if section.settings.data_source == 'shop'
+      assign outfits = shop.metafields[section.settings.shop_metafield_namespace][section.settings.shop_metafield_key].value
+    else
+      assign outfits = product.metafields.product_page.shop_the_look_outfits.value
+    endif
+  endif
+
   assign num_outfits = 0
 
-  for outfit in outfits
-    if section.settings.enforce_product_minimum
-      assign num_products = 0
-      for product in outfit.products
-        assign num_products = num_products | plus: 1
-      endfor
-
-      if num_products >= 4
+  if use_blocks
+    for block in section.blocks
+      assign outfit = block.settings.outfit
+      if section.settings.enforce_product_minimum
+        assign num_products = 0
+        for product in outfit.products
+          assign num_products = num_products | plus: 1
+        endfor
+        if num_products >= 4
+          assign num_outfits = num_outfits | plus: 1
+        endif
+      else
         assign num_outfits = num_outfits | plus: 1
       endif
-    else
-      assign num_outfits = num_outfits | plus: 1
-    endif
-  endfor
+    endfor
+  else
+    for outfit in outfits
+      if section.settings.enforce_product_minimum
+        assign num_products = 0
+        for product in outfit.products
+          assign num_products = num_products | plus: 1
+        endfor
+
+        if num_products >= 4
+          assign num_outfits = num_outfits | plus: 1
+        endif
+      else
+        assign num_outfits = num_outfits | plus: 1
+      endif
+    endfor
+  endif
 %}
 
 {% unless num_outfits == 0 %}
@@ -124,6 +151,18 @@
       font-size: 12px;
     }
 
+    .carousel--stacked {
+      flex-wrap: wrap;
+      overflow-x: visible;
+      scroll-snap-type: none;
+      scroll-behavior: auto;
+    }
+
+    .carousel--stacked .carousel-slide {
+      width: 100%;
+      margin: 0 {{ section.settings.desktop_slide_margin }}px {{ section.settings.desktop_slide_margin }}px;
+    }
+
     @media (max-width: 1099px) {
       .carousel-title {
         margin-left: {{ section.settings.mobile_slide_margin }}px;
@@ -149,86 +188,165 @@
       <h1 class="carousel-title">{{ section.settings.title_text }}</h1>
     {% endif %}
     <div class="carousel-container">
-      <div class="carousel">
-        {% for outfit in outfits %}
-          {% liquid
-            assign lead_image = outfit.lead_image.value
-            assign lead_image_link = outfit.lead_image_link
-            assign products = outfit.products.value
-            assign flats = outfit.flats.value
+      <div class="carousel{% if section.settings.layout == 'stacked' %} carousel--stacked{% endif %}">
+        {% if use_blocks %}
+          {% for block in section.blocks %}
+            {% liquid
+              assign outfit = block.settings.outfit
+              assign lead_image = outfit.lead_image.value
+              assign lead_image_link = outfit.lead_image_link
+              assign products = outfit.products.value
+              assign flats = outfit.flats.value
 
-            if section.settings.enforce_product_minimum
-              assign num_products = 0
-
-              for product in outfit.products
-                assign num_products = num_products | plus: 1
-              endfor
-
-              if num_products < 4
-                continue
+              if section.settings.enforce_product_minimum
+                assign num_products = 0
+                for product in outfit.products
+                  assign num_products = num_products | plus: 1
+                endfor
+                if num_products < 4
+                  continue
+                endif
               endif
-            endif
-          %}
+            %}
 
-          <div class="carousel-slide">
-            <p class="is-hidden-mobile-only desktop-look-title">LOOK #{{ forloop.index }}</p>
-            <div class="slide-grid">
-              <div class="main-box">
-                {% if lead_image_link %}<a href="{{ lead_image_link }}">{% endif %}
-                <img
-                  srcset="
-                    {%- if lead_image.width >= 550 -%}{{ lead_image | image_url: width: 550 }} 550w,{%- endif -%}
-                    {%- if lead_image.width >= 1100 -%}{{ lead_image | image_url: width: 1100 }} 1100w,{%- endif -%}
-                    {%- if lead_image.width >= 1445 -%}{{ lead_image | image_url: width: 1445 }} 1445w,{%- endif -%}
-                    {%- if lead_image.width >= 1680 -%}{{ lead_image | image_url: width: 1680 }} 1680w,{%- endif -%}
-                    {%- if lead_image.width >= 2048 -%}{{ lead_image | image_url: width: 2048 }} 2048w,{%- endif -%}
-                    {%- if lead_image.width >= 2200 -%}{{ lead_image | image_url: width: 2200 }} 2200w,{%- endif -%}
-                    {%- if lead_image.width >= 2890 -%}{{ lead_image | image_url: width: 2890 }} 2890w,{%- endif -%}
-                    {%- if lead_image.width >= 4096 -%}{{ lead_image | image_url: width: 4096 }} 4096w,{%- endif -%}
-                    {{ lead_image | image_url }} {{ lead_image.width }}w
-                  "
-                  sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
-                  src="{{ lead_image | image_url: width: 1445 }}"
-                  alt="{{ lead_image.alt | escape }}"
-                  loading="lazy"
-                  width="1100"
-                  height="{{ 1100 | divided_by: lead_image.aspect_ratio | ceil }}"
-                >
-                {% if lead_image_link %}</a>{% endif %}
-              </div>
-              <p class="is-hidden-desktop-only mobile-look-title">LOOK #{{ forloop.index }}</p>
-              <div class="sub-grid">
-                {% for product in products limit: 4 %}
-                  {% assign skip_card_product_styles = false %}
-                  {% assign outer = forloop.index0 %}
-                  {% assign outer = forloop.index0 %}
-                  {% for flat in flats %}
-                    {% assign inner = forloop.index0 %}
-                    {% if outer == inner %}
-                      <div class="sub-box">
-                        {% render 'card-product',
-                          card_product: product,
-                          media_aspect_ratio: 'adapt',
-                          image_shape: 'default',
-                          show_secondary_image: false,
-                          show_vendor: section.settings.show_vendor,
-                          show_rating: section.settings.show_rating,
-                          skip_styles: skip_card_product_styles,
-                          section_id: section.id,
-                          quick_add: 'standard',
-                          custom_media: flat,
-                          hide_content: true
-                        %}
-                        {% assign skip_card_product_styles = true %}
-                      </div>
-                      {% break %}
-                    {% endif %}
+            <div class="carousel-slide" {{ block.shopify_attributes }}>
+              <p class="is-hidden-mobile-only desktop-look-title">LOOK #{{ forloop.index }}</p>
+              <div class="slide-grid">
+                <div class="main-box">
+                  {% if lead_image_link %}<a href="{{ lead_image_link }}">{% endif %}
+                  <img
+                    srcset="
+                      {%- if lead_image.width >= 550 -%}{{ lead_image | image_url: width: 550 }} 550w,{%- endif -%}
+                      {%- if lead_image.width >= 1100 -%}{{ lead_image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                      {%- if lead_image.width >= 1445 -%}{{ lead_image | image_url: width: 1445 }} 1445w,{%- endif -%}
+                      {%- if lead_image.width >= 1680 -%}{{ lead_image | image_url: width: 1680 }} 1680w,{%- endif -%}
+                      {%- if lead_image.width >= 2048 -%}{{ lead_image | image_url: width: 2048 }} 2048w,{%- endif -%}
+                      {%- if lead_image.width >= 2200 -%}{{ lead_image | image_url: width: 2200 }} 2200w,{%- endif -%}
+                      {%- if lead_image.width >= 2890 -%}{{ lead_image | image_url: width: 2890 }} 2890w,{%- endif -%}
+                      {%- if lead_image.width >= 4096 -%}{{ lead_image | image_url: width: 4096 }} 4096w,{%- endif -%}
+                      {{ lead_image | image_url }} {{ lead_image.width }}w
+                    "
+                    sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
+                    src="{{ lead_image | image_url: width: 1445 }}"
+                    alt="{{ lead_image.alt | escape }}"
+                    loading="lazy"
+                    width="1100"
+                    height="{{ 1100 | divided_by: lead_image.aspect_ratio | ceil }}"
+                  >
+                  {% if lead_image_link %}</a>{% endif %}
+                </div>
+                <p class="is-hidden-desktop-only mobile-look-title">LOOK #{{ forloop.index }}</p>
+                <div class="sub-grid">
+                  {% for product in products limit: 4 %}
+                    {% assign skip_card_product_styles = false %}
+                    {% assign outer = forloop.index0 %}
+                    {% for flat in flats %}
+                      {% assign inner = forloop.index0 %}
+                      {% if outer == inner %}
+                        <div class="sub-box">
+                          {% render 'card-product',
+                            card_product: product,
+                            media_aspect_ratio: 'adapt',
+                            image_shape: 'default',
+                            show_secondary_image: false,
+                            show_vendor: section.settings.show_vendor,
+                            show_rating: section.settings.show_rating,
+                            skip_styles: skip_card_product_styles,
+                            section_id: section.id,
+                            quick_add: 'standard',
+                            custom_media: flat,
+                            hide_content: true
+                          %}
+                          {% assign skip_card_product_styles = true %}
+                        </div>
+                        {% break %}
+                      {% endif %}
+                    {% endfor %}
                   {% endfor %}
-                {% endfor %}
+                </div>
               </div>
             </div>
-          </div>
-        {% endfor %}
+          {% endfor %}
+        {% else %}
+          {% for outfit in outfits %}
+            {% liquid
+              assign lead_image = outfit.lead_image.value
+              assign lead_image_link = outfit.lead_image_link
+              assign products = outfit.products.value
+              assign flats = outfit.flats.value
+
+              if section.settings.enforce_product_minimum
+                assign num_products = 0
+
+                for product in outfit.products
+                  assign num_products = num_products | plus: 1
+                endfor
+
+                if num_products < 4
+                  continue
+                endif
+              endif
+            %}
+
+            <div class="carousel-slide">
+              <p class="is-hidden-mobile-only desktop-look-title">LOOK #{{ forloop.index }}</p>
+              <div class="slide-grid">
+                <div class="main-box">
+                  {% if lead_image_link %}<a href="{{ lead_image_link }}">{% endif %}
+                  <img
+                    srcset="
+                      {%- if lead_image.width >= 550 -%}{{ lead_image | image_url: width: 550 }} 550w,{%- endif -%}
+                      {%- if lead_image.width >= 1100 -%}{{ lead_image | image_url: width: 1100 }} 1100w,{%- endif -%}
+                      {%- if lead_image.width >= 1445 -%}{{ lead_image | image_url: width: 1445 }} 1445w,{%- endif -%}
+                      {%- if lead_image.width >= 1680 -%}{{ lead_image | image_url: width: 1680 }} 1680w,{%- endif -%}
+                      {%- if lead_image.width >= 2048 -%}{{ lead_image | image_url: width: 2048 }} 2048w,{%- endif -%}
+                      {%- if lead_image.width >= 2200 -%}{{ lead_image | image_url: width: 2200 }} 2200w,{%- endif -%}
+                      {%- if lead_image.width >= 2890 -%}{{ lead_image | image_url: width: 2890 }} 2890w,{%- endif -%}
+                      {%- if lead_image.width >= 4096 -%}{{ lead_image | image_url: width: 4096 }} 4096w,{%- endif -%}
+                      {{ lead_image | image_url }} {{ lead_image.width }}w
+                    "
+                    sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
+                    src="{{ lead_image | image_url: width: 1445 }}"
+                    alt="{{ lead_image.alt | escape }}"
+                    loading="lazy"
+                    width="1100"
+                    height="{{ 1100 | divided_by: lead_image.aspect_ratio | ceil }}"
+                  >
+                  {% if lead_image_link %}</a>{% endif %}
+                </div>
+                <p class="is-hidden-desktop-only mobile-look-title">LOOK #{{ forloop.index }}</p>
+                <div class="sub-grid">
+                  {% for product in products limit: 4 %}
+                    {% assign skip_card_product_styles = false %}
+                    {% assign outer = forloop.index0 %}
+                    {% for flat in flats %}
+                      {% assign inner = forloop.index0 %}
+                      {% if outer == inner %}
+                        <div class="sub-box">
+                          {% render 'card-product',
+                            card_product: product,
+                            media_aspect_ratio: 'adapt',
+                            image_shape: 'default',
+                            show_secondary_image: false,
+                            show_vendor: section.settings.show_vendor,
+                            show_rating: section.settings.show_rating,
+                            skip_styles: skip_card_product_styles,
+                            section_id: section.id,
+                            quick_add: 'standard',
+                            custom_media: flat,
+                            hide_content: true
+                          %}
+                          {% assign skip_card_product_styles = true %}
+                        </div>
+                        {% break %}
+                      {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
       </div>
     </div>
   </div>
@@ -243,6 +361,32 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "header",
+      "content": "Data Source"
+    },
+    {
+      "type": "select",
+      "id": "data_source",
+      "label": "Source",
+      "options": [
+        { "value": "product", "label": "Product (current page)" },
+        { "value": "shop", "label": "Shop metafield" }
+      ],
+      "default": "product"
+    },
+    {
+      "type": "text",
+      "id": "shop_metafield_namespace",
+      "label": "Shop Metafield Namespace",
+      "info": "Only used when Source = Shop metafield"
+    },
+    {
+      "type": "text",
+      "id": "shop_metafield_key",
+      "label": "Shop Metafield Key",
+      "info": "Only used when Source = Shop metafield"
+    },
     {
       "type": "text",
       "id": "title_text",
@@ -279,6 +423,16 @@
     {
       "type": "header",
       "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        { "value": "scrolling", "label": "Scrolling" },
+        { "value": "stacked", "label": "Stacked" }
+      ],
+      "default": "scrolling"
     },
     {
       "type": "range",
@@ -421,6 +575,20 @@
       "unit": "px",
       "label": "Mobile Right Padding",
       "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "outfit",
+      "name": "Outfit",
+      "settings": [
+        {
+          "type": "metaobject",
+          "id": "outfit",
+          "label": "Outfit",
+          "metaobject_type": "shop_the_look_outfit"
+        }
+      ]
     }
   ],
   "presets": [
