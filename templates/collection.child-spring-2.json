@@ -143,10 +143,9 @@
       "blocks": {
         "image_f8UJrh": {
           "type": "image",
-          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/MP_EditorialBlock_Desktop_2x_2.20_New.jpg",
-            "mobile_image": "shopify://shop_images/MP_EditorialBlock_Desktop_2x_2.20_New_3e473f45-2ffc-4a8c-be6d-a790e7c25148.jpg",
+            "image": "shopify://shop_images/MP_EditorialBlock_Desktop_2x_Long_v2_3.12.jpg",
+            "mobile_image": "shopify://shop_images/MP_EditorialBlock_Desktop_2x_Long_v2_3.12.jpg",
             "link": "",
             "content": "",
             "text_size": 13,
@@ -166,7 +165,6 @@
         },
         "image_gkgQFt": {
           "type": "image",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/MP_EditorialBlock_Desktop_2x_Long_Denim.jpg",
             "link": "shopify://collections/child-denim",
