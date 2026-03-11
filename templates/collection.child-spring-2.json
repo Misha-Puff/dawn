@@ -143,6 +143,7 @@
       "blocks": {
         "image_f8UJrh": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/MP_EditorialBlock_Desktop_2x_Long_v2_3.12.jpg",
             "mobile_image": "shopify://shop_images/MP_EditorialBlock_Desktop_2x_Long_v2_3.12.jpg",
