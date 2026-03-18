@@ -23,8 +23,9 @@
     },
     "gp_section_565435452589409440": {
       "settings": {
-        "checksum": "1b7b05084c4b63de2abdbb0c9fb8416434e9907133d8c4f81116e844de2dfa90_1_1_1_0__1",
-        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-jackets-outerwear\"><span style=\"font-size:11px;\">OUTERWEAR</span></a></p>",
+        "checksum": "bcc93146f130fd903a394a5b5a9dbe7411784da147ecf7217f09ba7ac4c2122d_1_1_1_0__1",
+        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-fall\">FALL/WINTER COLLECTION</a></p>",
+        "ggsTJ7CdiHi_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-sale\">NEW WINTER MARKDOWNS</a></p>",
         "ggzDODThRb4_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-accessories\"><span style=\"font-size:11px;\">KNITWEAR</span></a></p>",
         "section_preload": "true"
       },
@@ -48,24 +49,26 @@
       },
       "type": "gp-section-565743354969654482"
     },
-    "gp_section_570806090636198784": {
-      "settings": {
-        "checksum": "1016f0bdc400253eba13beb39fc8acdf7fa130877ed0da07896b817e7f07a921_1_1_1_0__1",
-        "ggdln4axd2n_label": "<p><span style=\"font-size:11px;\">FALL/WINTER COLLECTION</span></p>",
-        "section_preload": "true"
-      },
-      "type": "gp-section-570806090636198784"
-    },
     "gp_section_594876262657295282": {
       "settings": {
-        "checksum": "b80bd1c18c69d53ea557cb824a730ed73026a4b7ac72d6235dffc26d1ba34672_1_1_1_0__1",
+        "checksum": "fa4e7181bb2348e86dc3db05d32f5e6f5862867600ebcb61b61f36bae45b1cc0_1_1_1_0__1",
         "ggY2NbVuFGf_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\"><span style=\"font-size:11px;\">JOURNAL</span></a></p>"
       },
       "type": "gp-section-594876262657295282"
+    },
+    "gp_section_611214031427994411": {
+      "settings": {
+        "checksum": "02cff8e1ed54a9b7079324b6dc6eeb4c94f29336ef5877c3e31e148a2c9cf6de_1_1_1_0__1",
+        "gg-ZfgEyhaM_text": "<p>ADULT SPRING/SUMMER</p>",
+        "ggrPziWmJ-o_label": "<p>VIEW LOOKBOOK</p>",
+        "ggwX19UUGXp_text": "<p><span style=\"font-size:11px;\">MARCH 19 @ 10 AM</span></p>",
+        "section_preload": "true"
+      },
+      "type": "gp-section-611214031427994411"
     }
   },
   "order": [
-    "gp_section_570806090636198784",
+    "gp_section_611214031427994411",
     "gp_section_565435452589409440",
     "gp_section_565743354969654482",
     "gp_section_594876262657295282",
