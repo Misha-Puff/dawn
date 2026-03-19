@@ -320,7 +320,9 @@
       }
     </script>
     {%- comment -%} kimonix_markets_end {%- endcomment -%}
-  </head>
+  
+{% if content_for_header contains "kimonix_void_script" %}<script async id="kimonix_elements_script" src="https://api.kimonix.com/kimonix_elements.js?shop=misha-and-puff.myshopify.com"></script>{% endif %}
+</head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DLJ3XBN6Q9"></script>
   <script>
