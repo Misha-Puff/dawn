@@ -35,14 +35,6 @@
       },
       "type": "gp-section-611217815025877523"
     },
-    "gp_section_611217815025943059": {
-      "settings": {
-        "checksum": "21b85978f6fae974870083e4ea5944fee71152224fc46c99c27545b3a15767a6_1_1_1_0__1",
-        "ggAVW0-K4AB_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal/adult-spring-summer-26\">COMING SOON — ADULT SPRING/SUMMER</a></p>",
-        "section_preload": "true"
-      },
-      "type": "gp-section-611217815025943059"
-    },
     "gp_section_611217815026008595": {
       "settings": {
         "checksum": "cde8ef80d7b0a1dd9b4a3b40bcce34b89cfcd44285e3a6dfef8dc3010d288196_1_1_1_0__1",
@@ -77,7 +69,6 @@
   "order": [
     "gp_section_611217815025877523",
     "gp_section_611217815026074131",
-    "gp_section_611217815025943059",
     "gp_section_611217815025811987",
     "gp_section_611217815025746451",
     "gp_section_611217815026008595",
