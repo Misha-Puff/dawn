@@ -94,7 +94,7 @@
           "type": "button",
           "settings": {
             "label": "SHOP CHILD",
-            "open_new_tab": true,
+            "open_new_tab": false,
             "link": "https://shop.misha-and-puff.com/collections/mixed-holiday-dressing?filter.p.m.taxonomy.division=Child&sort_by=manual",
             "type": "secondary",
             "on_click": ""
