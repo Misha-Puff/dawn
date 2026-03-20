@@ -43,14 +43,15 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Kindred Silhouettes",
+            "heading": "Holiday Dressing",
             "heading_size": "h2"
           }
         },
         "text_PGqAmF": {
           "type": "text",
+          "disabled": true,
           "settings": {
-            "text": "<p>This season, our Adult and Child collections align — our first crossover that reflects the spirit of children’s styles, carefully adapted with elegance and ease for adult. From silhouette to palette to texture, these are pieces that echo from one generation to the next. Stay tuned for more.</p>",
+            "text": "<p>A true star of the Fall Collection — Cerulean. A vibrant blue, dyed to a rich, saturated finish. A playful hue that brightens every style.</p>",
             "line_height": 24
           }
         },
@@ -80,31 +81,21 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 60,
-        "padding_bottom": 32,
-        "padding_left": 72,
-        "padding_right": 72
+        "padding_top": 68,
+        "padding_bottom": 28,
+        "padding_left": 0,
+        "padding_right": 0
       }
     },
     "buttons_Mn3bJP": {
       "type": "buttons",
       "blocks": {
-        "button_XaxzBy": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP CHILD FALL",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-fall",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
         "button_C99g3E": {
           "type": "button",
           "settings": {
-            "label": "SHOP ADULT FALL",
-            "open_new_tab": true,
-            "link": "shopify://collections/adult-fall",
+            "label": "VIEW CHILD",
+            "open_new_tab": false,
+            "link": "https://shop.misha-and-puff.com/collections/mixed-holiday-dressing?filter.p.m.taxonomy.division=Child&sort_by=manual",
             "type": "secondary",
             "on_click": ""
           }
@@ -112,29 +103,39 @@
         "button_NGpAit": {
           "type": "button",
           "settings": {
-            "label": "",
+            "label": "VIEW BABY",
             "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "link": "https://shop.misha-and-puff.com/collections/mixed-holiday-dressing?filter.p.m.taxonomy.division=Baby&sort_by=manual",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_XaxzBy": {
+          "type": "button",
+          "settings": {
+            "label": "VIEW ADULT",
+            "open_new_tab": false,
+            "link": "https://shop.misha-and-puff.com/collections/mixed-holiday-dressing?filter.p.m.taxonomy.division=Adult&sort_by=manual",
+            "type": "secondary",
             "on_click": ""
           }
         }
       },
       "block_order": [
-        "button_XaxzBy",
         "button_C99g3E",
-        "button_NGpAit"
+        "button_NGpAit",
+        "button_XaxzBy"
       ],
       "name": "Buttons",
       "settings": {
         "title": "",
         "button_gap": 10,
-        "heading_size": "h1",
+        "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,
-        "desktop_padding_bottom": 48,
+        "desktop_padding_bottom": 52,
         "mobile_padding_top": 0,
-        "mobile_padding_bottom": 38
+        "mobile_padding_bottom": 30
       }
     },
     "product-grid": {
@@ -142,9 +143,9 @@
       "blocks": {
         "image_f8UJrh": {
           "type": "image",
+          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/mp_kindred_bw1_9e958388-76b5-4eed-b872-27987a3e1b4d.jpg",
-            "mobile_image": "shopify://shop_images/MP_FA25_TransitionalLayers_Mobile_kindredbw.jpg",
+            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
             "content": "",
             "text_size": 13,
@@ -154,9 +155,9 @@
             "text_vertical_padding": 16,
             "row_start_desktop": 1,
             "row_span_desktop": 1,
-            "col_start_desktop": 4,
-            "col_span_desktop": 1,
-            "row_start_mobile": 10,
+            "col_start_desktop": 1,
+            "col_span_desktop": 2,
+            "row_start_mobile": 1,
             "row_span_mobile": 1,
             "col_start_mobile": "1",
             "col_span_mobile": "2"
@@ -174,10 +175,10 @@
             "content_position": "middle-center",
             "text_horizontal_padding": 16,
             "text_vertical_padding": 16,
-            "row_start_desktop": 13,
+            "row_start_desktop": 6,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
-            "col_span_desktop": 2,
+            "col_span_desktop": 3,
             "row_start_mobile": 1,
             "row_span_mobile": 1,
             "col_start_mobile": "1",
