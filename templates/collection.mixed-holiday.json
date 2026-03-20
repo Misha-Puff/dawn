@@ -30,6 +30,7 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
@@ -42,12 +43,13 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Cerulean",
+            "heading": "Holiday Dressing",
             "heading_size": "h2"
           }
         },
         "text_PGqAmF": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>A true star of the Fall Collection — Cerulean. A vibrant blue, dyed to a rich, saturated finish. A playful hue that brightens every style.</p>",
             "line_height": 24
@@ -74,66 +76,64 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
-        "padding_left": 100,
-        "padding_right": 100
+        "padding_top": 72,
+        "padding_bottom": 12,
+        "padding_left": 0,
+        "padding_right": 0
       }
     },
     "buttons_Mn3bJP": {
       "type": "buttons",
       "blocks": {
-        "button_XaxzBy": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
-        },
         "button_C99g3E": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "SHOP CHILD",
+            "open_new_tab": true,
+            "link": "https://shop.misha-and-puff.com/collections/mixed-holiday-dressing?filter.p.m.taxonomy.division=Child&sort_by=manual",
+            "type": "secondary",
             "on_click": ""
           }
         },
         "button_NGpAit": {
           "type": "button",
           "settings": {
-            "label": "",
+            "label": "SHOP BABY",
             "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "link": "https://shop.misha-and-puff.com/collections/mixed-holiday-dressing?filter.p.m.taxonomy.division=Baby&sort_by=manual",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_XaxzBy": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP ADULT",
+            "open_new_tab": false,
+            "link": "https://shop.misha-and-puff.com/collections/mixed-holiday-dressing?filter.p.m.taxonomy.division=Adult&sort_by=manual",
+            "type": "secondary",
             "on_click": ""
           }
         }
       },
       "block_order": [
-        "button_XaxzBy",
         "button_C99g3E",
-        "button_NGpAit"
+        "button_NGpAit",
+        "button_XaxzBy"
       ],
-      "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
         "button_gap": 10,
-        "heading_size": "h1",
+        "heading_size": "h2",
         "color_scheme": "",
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 30,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 38,
         "mobile_padding_top": 30,
         "mobile_padding_bottom": 30
       }
@@ -148,8 +148,11 @@
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
             "content": "",
+            "text_size": 13,
             "text_color": "#000000",
             "content_position": "middle-center",
+            "text_horizontal_padding": 16,
+            "text_vertical_padding": 16,
             "row_start_desktop": 1,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -167,8 +170,11 @@
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
             "content": "",
+            "text_size": 13,
             "text_color": "#000000",
             "content_position": "middle-center",
+            "text_horizontal_padding": 16,
+            "text_vertical_padding": 16,
             "row_start_desktop": 6,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
