@@ -54,7 +54,7 @@
           "type": "custom_liquid",
           "name": "Free Adult Returns Message",
           "settings": {
-            "custom_liquid": "{% unless product.tags contains 'no-returns' %}\n{% if product.tags contains 'Adult' %}\n<p class=\"custom-message\" style=\"color: blue;\">NEW:  Free returns on domestic Adult orders</p>\n{% endif %}\n{% endunless %}",
+            "custom_liquid": "{% unless product.tags contains 'no-returns' %}\n{% if product.tags contains 'Adult' %}\n<p class=\"custom-message\" style=\"color: blue;\">Free returns on domestic Adult orders</p>\n{% endif %}\n{% endunless %}",
             "padding_top": 0,
             "padding_bottom": 0,
             "font_size": 0,
