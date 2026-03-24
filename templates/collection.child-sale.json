@@ -116,9 +116,9 @@
         "button_PmqNBf": {
           "type": "button",
           "settings": {
-            "label": "TOPS",
+            "label": "MP + Apolina",
             "open_new_tab": true,
-            "link": "https://shop.misha-and-puff.com/collections/child-sale?filter.p.m.taxonomy.sub_classification=LS+Tops&filter.p.m.taxonomy.sub_classification=Sleeveless+Tops&filter.p.m.taxonomy.sub_classification=SS+Tops&filter.p.m.taxonomy.sub_classification=Tanks&filter.v.availability=1&sort_by=manual",
+            "link": "shopify://collections/mp-apolina",
             "type": "secondary",
             "on_click": ""
           }
@@ -153,8 +153,11 @@
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
             "content": "",
+            "text_size": 13,
             "text_color": "#000000",
             "content_position": "middle-center",
+            "text_horizontal_padding": 16,
+            "text_vertical_padding": 16,
             "row_start_desktop": 1,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -172,8 +175,11 @@
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
             "content": "",
+            "text_size": 13,
             "text_color": "#000000",
             "content_position": "middle-center",
+            "text_horizontal_padding": 16,
+            "text_vertical_padding": 16,
             "row_start_desktop": 6,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
