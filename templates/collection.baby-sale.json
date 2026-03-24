@@ -98,6 +98,16 @@
             "on_click": ""
           }
         },
+        "button_D9LYw6": {
+          "type": "button",
+          "settings": {
+            "label": "MP + Apolina",
+            "open_new_tab": true,
+            "link": "shopify://collections/mp-apolina",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
         "button_Tgk7UQ": {
           "type": "button",
           "settings": {
@@ -112,6 +122,7 @@
       "block_order": [
         "button_Uiz3YF",
         "button_9jbVL8",
+        "button_D9LYw6",
         "button_Tgk7UQ"
       ],
       "settings": {
@@ -135,8 +146,11 @@
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
             "content": "",
+            "text_size": 13,
             "text_color": "#000000",
             "content_position": "middle-center",
+            "text_horizontal_padding": 16,
+            "text_vertical_padding": 16,
             "row_start_desktop": 1,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -154,8 +168,11 @@
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
             "content": "",
+            "text_size": 13,
             "text_color": "#000000",
             "content_position": "middle-center",
+            "text_horizontal_padding": 16,
+            "text_vertical_padding": 16,
             "row_start_desktop": 6,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
