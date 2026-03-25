@@ -85,9 +85,9 @@
         "button_6ndqMx": {
           "type": "button",
           "settings": {
-            "label": "SWEATERS + CARDIGANS",
+            "label": "FALL ON SALE",
             "open_new_tab": true,
-            "link": "https://shop.misha-and-puff.com/collections/child-sale?filter.p.m.taxonomy.sub_classification=Cardigan&filter.p.m.taxonomy.sub_classification=Sweaters&filter.v.availability=1&sort_by=manual",
+            "link": "https://shop.misha-and-puff.com/collections/child-fall",
             "type": "secondary",
             "on_click": ""
           }
@@ -95,20 +95,9 @@
         "button_hcytFK": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
-        },
-        "button_mRrVGy": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "label": "JACKETS",
+            "label": "WINTER ON SALE",
             "open_new_tab": true,
-            "link": "https://shop.misha-and-puff.com/collections/child-sale?filter.p.m.taxonomy.sub_classification=Jacket&filter.v.availability=1&sort_by=manual",
+            "link": "shopify://collections/child-winter",
             "type": "secondary",
             "on_click": ""
           }
@@ -116,7 +105,7 @@
         "button_PmqNBf": {
           "type": "button",
           "settings": {
-            "label": "MP + Apolina",
+            "label": "MP + Apolina ON SALE",
             "open_new_tab": true,
             "link": "shopify://collections/mp-apolina",
             "type": "secondary",
@@ -129,7 +118,6 @@
         "button_Dyk9tj",
         "button_6ndqMx",
         "button_hcytFK",
-        "button_mRrVGy",
         "button_PmqNBf"
       ],
       "settings": {
