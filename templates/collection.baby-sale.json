@@ -102,7 +102,7 @@
           "type": "button",
           "settings": {
             "label": "FALL ON SALE",
-            "open_new_tab": true,
+            "open_new_tab": false,
             "link": "shopify://collections/baby-fall",
             "type": "secondary",
             "on_click": ""
@@ -112,7 +112,7 @@
           "type": "button",
           "settings": {
             "label": "WINTER ON SALE",
-            "open_new_tab": true,
+            "open_new_tab": false,
             "link": "shopify://collections/baby-winter",
             "type": "secondary",
             "on_click": ""
