@@ -98,22 +98,32 @@
             "on_click": ""
           }
         },
-        "button_D9LYw6": {
+        "button_Tgk7UQ": {
           "type": "button",
           "settings": {
-            "label": "MP + Apolina",
+            "label": "FALL ON SALE",
             "open_new_tab": true,
-            "link": "shopify://collections/mp-apolina",
+            "link": "shopify://collections/baby-fall",
             "type": "secondary",
             "on_click": ""
           }
         },
-        "button_Tgk7UQ": {
+        "button_WgwgdG": {
           "type": "button",
           "settings": {
-            "label": "ONE-PIECES",
+            "label": "WINTER ON SALE",
             "open_new_tab": true,
-            "link": "https://shop.misha-and-puff.com/collections/baby-sale?filter.p.m.taxonomy.sub_classification=Onesie&filter.p.m.taxonomy.sub_classification=Rompers&filter.v.availability=1&sort_by=manual",
+            "link": "shopify://collections/baby-winter",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_D9LYw6": {
+          "type": "button",
+          "settings": {
+            "label": "MP + Apolina ON SALE",
+            "open_new_tab": true,
+            "link": "shopify://collections/mp-apolina",
             "type": "secondary",
             "on_click": ""
           }
@@ -122,8 +132,9 @@
       "block_order": [
         "button_Uiz3YF",
         "button_9jbVL8",
-        "button_D9LYw6",
-        "button_Tgk7UQ"
+        "button_Tgk7UQ",
+        "button_WgwgdG",
+        "button_D9LYw6"
       ],
       "settings": {
         "title": "",
