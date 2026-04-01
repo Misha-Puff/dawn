@@ -101,9 +101,29 @@
         "button_Tgk7UQ": {
           "type": "button",
           "settings": {
-            "label": "ONE-PIECES",
+            "label": "FALL ON SALE",
+            "open_new_tab": false,
+            "link": "shopify://collections/baby-fall",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_WgwgdG": {
+          "type": "button",
+          "settings": {
+            "label": "WINTER ON SALE",
+            "open_new_tab": false,
+            "link": "shopify://collections/baby-winter",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_D9LYw6": {
+          "type": "button",
+          "settings": {
+            "label": "MP + Apolina ON SALE",
             "open_new_tab": true,
-            "link": "https://shop.misha-and-puff.com/collections/baby-sale?filter.p.m.taxonomy.sub_classification=Onesie&filter.p.m.taxonomy.sub_classification=Rompers&filter.v.availability=1&sort_by=manual",
+            "link": "shopify://collections/mp-apolina",
             "type": "secondary",
             "on_click": ""
           }
@@ -112,7 +132,9 @@
       "block_order": [
         "button_Uiz3YF",
         "button_9jbVL8",
-        "button_Tgk7UQ"
+        "button_Tgk7UQ",
+        "button_WgwgdG",
+        "button_D9LYw6"
       ],
       "settings": {
         "title": "",
@@ -135,8 +157,11 @@
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
             "content": "",
+            "text_size": 13,
             "text_color": "#000000",
             "content_position": "middle-center",
+            "text_horizontal_padding": 16,
+            "text_vertical_padding": 16,
             "row_start_desktop": 1,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -154,8 +179,11 @@
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
             "content": "",
+            "text_size": 13,
             "text_color": "#000000",
             "content_position": "middle-center",
+            "text_horizontal_padding": 16,
+            "text_vertical_padding": 16,
             "row_start_desktop": 6,
             "row_span_desktop": 1,
             "col_start_desktop": 1,

@@ -24,36 +24,75 @@
           "type": "custom_liquid",
           "name": "D&T Info",
           "settings": {
-            "custom_liquid": "{% unless localization.country.iso_code == 'US' %}\n<div>\n\nDuty and Tax Inclusive <br />\nTaxes Included. \n  \n   \n    </div>\n{% endunless %}"
+            "custom_liquid": "{% unless localization.country.iso_code == 'US' %}\n<div>\n\nDuty and Tax Inclusive <br />\nTaxes Included. \n  \n   \n    </div>\n{% endunless %}",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "font_size": 0,
+            "font_weight": "400",
+            "font_color": "",
+            "line_height": 0,
+            "letter_spacing": 0,
+            "text_align": "left"
           }
         },
         "custom_liquid_rGEXWA": {
           "type": "custom_liquid",
           "name": "Custom Message Metafield",
           "settings": {
-            "custom_liquid": "{% if product.metafields.product_page.custom_message != null %}\n<p class=\"custom-message\">{{ product.metafields.product_page.custom_message }}</p>\n{% endif %}"
+            "custom_liquid": "{% if product.metafields.product_page.custom_message != null %}\n<p class=\"custom-message\">{{ product.metafields.product_page.custom_message }}</p>\n{% endif %}",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "font_size": 0,
+            "font_weight": "400",
+            "font_color": "",
+            "line_height": 0,
+            "letter_spacing": 0,
+            "text_align": "left"
           }
         },
         "custom_liquid_8fBjhc": {
           "type": "custom_liquid",
           "name": "Free Adult Returns Message",
-          "disabled": true,
           "settings": {
-            "custom_liquid": "{% unless product.tags contains 'no-returns' %}\n{% if product.tags contains 'Adult' %}\n<p class=\"custom-message\" style=\"color: blue;\">NEW:  Free returns on domestic Adult orders</p>\n{% endif %}\n{% endunless %}"
+            "custom_liquid": "{% unless product.tags contains 'no-returns' %}\n{% if product.tags contains 'Adult' %}\n<p class=\"custom-message\" style=\"color: blue;\">Free returns on domestic Adult orders</p>\n{% endif %}\n{% endunless %}",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "font_size": 0,
+            "font_weight": "400",
+            "font_color": "",
+            "line_height": 0,
+            "letter_spacing": 0,
+            "text_align": "left"
           }
         },
         "custom_liquid_X9miCe": {
           "type": "custom_liquid",
           "name": "Exclusive Message",
           "settings": {
-            "custom_liquid": "{% if product.tags contains 'Badge-Exclusive Collab' %}\n<p style=\"color: blue; line-height: normal;\">Misha & Puff x Isetan Collaboration</p>\n{% elsif product.tags contains 'Badge-Exclusive' %}\n<p style=\"color: blue; line-height: normal;\">This style is exclusive to Misha & Puff</p>\n{% endif %}"
+            "custom_liquid": "{% if product.tags contains 'Badge-Exclusive Collab' %}\n<p style=\"color: blue; line-height: normal;\">Misha & Puff x Isetan Collaboration</p>\n{% elsif product.tags contains 'Badge-Exclusive' %}\n<p style=\"color: blue; line-height: normal;\">This style is exclusive to Misha & Puff</p>\n{% endif %}",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "font_size": 0,
+            "font_weight": "400",
+            "font_color": "",
+            "line_height": 0,
+            "letter_spacing": 0,
+            "text_align": "left"
           }
         },
         "custom_liquid_TwxkfW": {
           "type": "custom_liquid",
           "name": "Final Sale Message",
           "settings": {
-            "custom_liquid": "{% if product.tags contains 'no-returns' %}\n<p class=\"custom-message\">Final Sale: This item cannot be exchanged or returned</p>\n{% endif %}"
+            "custom_liquid": "{% if product.tags contains 'no-returns' %}\n<p class=\"custom-message\">Final Sale: This item cannot be exchanged or returned</p>\n{% endif %}",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "font_size": 0,
+            "font_weight": "400",
+            "font_color": "",
+            "line_height": 0,
+            "letter_spacing": 0,
+            "text_align": "left"
           }
         },
         "variant_picker": {
@@ -95,7 +134,15 @@
           "type": "custom_liquid",
           "name": "Divider",
           "settings": {
-            "custom_liquid": "<div class=\"divider-wrapper\">\n<div class=\"divider\">\n<span class=\"visually-hidden\">divider</span></div></div>"
+            "custom_liquid": "<div class=\"divider-wrapper\">\n<div class=\"divider\">\n<span class=\"visually-hidden\">divider</span></div></div>",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "font_size": 0,
+            "font_weight": "400",
+            "font_color": "",
+            "line_height": 0,
+            "letter_spacing": 0,
+            "text_align": "left"
           }
         },
         "description": {
@@ -440,10 +487,14 @@
       "type": "shop-the-look-outfits",
       "name": "Shop the Look Outfits",
       "settings": {
+        "data_source": "product",
+        "shop_metafield_namespace": "",
+        "shop_metafield_key": "",
         "title_text": "HOW TO WEAR",
         "title_margin_bottom": 14,
         "title_font_size": 16,
         "enforce_product_minimum": false,
+        "layout": "scrolling",
         "desktop_slide_width": 76,
         "desktop_slide_margin": 4,
         "desktop_grid_gap": 8,
