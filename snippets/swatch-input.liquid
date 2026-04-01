@@ -47,6 +47,6 @@
   title="{{ value }}"
   class="swatch-input__label{% if shape == 'square' %} swatch-input__label--square{% endif %}"
 >
-  {% render 'swatch', swatch: swatch, shape: shape %}
+  {% render 'swatch', swatch: swatch, swatch_image: swatch_image, swatch_color: swatch_color, shape: shape %}
   {{ help_text }}
 </label>

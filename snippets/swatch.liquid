@@ -19,6 +19,11 @@
     assign swatch_focal_point = swatch.image.presentation.focal_point
   elsif swatch.color
     assign swatch_value = 'rgb(' | append: swatch.color.rgb | append: ')'
+  elsif swatch_image
+    assign image_url = swatch_image | image_url: width: 50
+    assign swatch_value = 'url(' | append: image_url | append: ')'
+  elsif swatch_color
+    assign swatch_value = swatch_color
   endif
 -%}
 
