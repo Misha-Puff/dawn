@@ -19,6 +19,16 @@
 
       if option.name == 'Color'
         assign picker_type = block.settings.color_picker_type
+        assign swatch_count = 0
+        if product.metafields.shopify["color-pattern"].value != blank
+          assign swatch_count = 1
+        endif
+        assign siblings = product.metafields.product_page.style_siblings.value
+        for sibling in siblings
+          if sibling.id != product.id and sibling.metafields.shopify["color-pattern"].value != blank
+            assign swatch_count = swatch_count | plus: 1
+          endif
+        endfor
       elsif option.name == 'Size'
         assign picker_type = block.settings.size_picker_type
       else
