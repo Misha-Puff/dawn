@@ -23,7 +23,6 @@
 {% if option.name == 'Color' %}
   {% assign value = product.options_by_name.color.values[0] %}
   {% assign color_pattern = product.metafields.shopify["color-pattern"].value | first %}
-  {%- capture input_id -%}{{ section.id }}-{{ option.position }}-{{ product.handle }}{%- endcapture -%}
   {%- liquid
     assign option_disabled = true
     if product.available
@@ -108,7 +107,6 @@
     {% assign value = sibling.options_by_name.color.values[0] %}
     {% assign escaped_value = value | escape %}
     {% assign color_pattern = sibling.metafields.shopify["color-pattern"].value | first %}
-    {%- capture input_id -%}{{ section.id }}-{{ option.position }}-{{ sibling.handle }}{%- endcapture -%}
     {%- liquid
       assign option_disabled = true
       if sibling.available
