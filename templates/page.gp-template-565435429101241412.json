@@ -10,60 +10,63 @@
 {
   "sections": {
     "gp_section_565435429168350276": {
+      "type": "gp-section-565435429168350276",
       "settings": {
         "checksum": "0d5ace2a35e91a4794d2cd0fec202a00e32545923143638b9403200ad15da50f_1_1_1_0__1",
-        "gg5_GEvhnAz_label": "<p>SALE</p>",
-        "ggHLnNHWcjZ_label": "<p>TOPS</p>",
-        "ggHLv-ZKTlu_label": "<p>PIMA STAPLES</p>",
-        "ggkAY6Ejd6O_label": "<p>BOTTOMS</p>",
         "ggxxCQfjKeQ_text": "Explore More",
-        "ggzFH-jXWZh_label": "<p>ONESIES</p>"
-      },
-      "type": "gp-section-565435429168350276"
+        "ggHLv-ZKTlu_label": "<p>PIMA STAPLES</p>",
+        "ggzFH-jXWZh_label": "<p>ONESIES</p>",
+        "ggHLnNHWcjZ_label": "<p>TOPS</p>",
+        "ggkAY6Ejd6O_label": "<p>BOTTOMS</p>",
+        "gg5_GEvhnAz_label": "<p>SALE</p>"
+      }
     },
     "gp_section_565435429168415812": {
+      "type": "gp-section-565435429168415812",
       "settings": {
         "checksum": "478553fe7cb087bdea0e43edad8b6aa6d0ec6ab359f85a30ddbeb33d97dfca93_1_1_1_0__1"
-      },
-      "type": "gp-section-565435429168415812"
+      }
     },
     "gp_section_565435429168546884": {
+      "type": "gp-section-565435429168546884",
       "settings": {
-        "checksum": "9f063543360c74b134c131ef184fd7ffadeafdc1df749adff10a5ddb82e7ce23_1_1_1_0__1",
-        "ggAru6fM4U3_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-sale\"><span style=\"font-size:11px;\">NEW MARKDOWNS: NOW UP TO 40% OFF</span></a></p>",
-        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-new\"><span style=\"font-size:11px;\">NEW ARRIVALS</span></a></p>",
-        "section_preload": "true"
-      },
-      "type": "gp-section-565435429168546884"
+        "section_preload": "true",
+        "checksum": "cd60b9e12b61b9b66f0b840faad76b80d334f7a60d1d4cc726348cd36eafd41d_1_1_1_0__1",
+        "ggIGELazyYT_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_Site_Custom_4.6.26_Child.jpg",
+        "ggIGELazyYT_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_Site_Custom_4.6.26_Child.jpg",
+        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/pages/preview\"><span style=\"font-size:11px;\">SUMMER COLLECTION — PREVIEW</span></a></p>",
+        "ggwERI3h1Ic_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_SiteMobile_Custom_MD_BLUE.jpg",
+        "ggAru6fM4U3_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-sale\"><span style=\"font-size:11px;\">NEW MARKDOWNS: NOW UP TO 40% OFF</span></a></p>"
+      }
     },
     "gp_section_565743274438952146": {
+      "type": "gp-section-565743274438952146",
       "settings": {
+        "section_preload": "true",
         "checksum": "e4ea549a9aaac425321319074a4f558a6338da47d172223b650fe57ad6604f2f_1_1_1_0__1",
         "ggNIzGr-zG6_text": "<span style=\"font-size:11px;\">SPRING HIGHLIGHTS</span>",
         "ggfEg-ZUUju_label": "ADD TO CART",
         "ggfEg-ZUUju_outOfStockLabel": "Out of stock",
         "ggfEg-ZUUju_unavailableLabel": "Unavailable",
-        "ggfEg-ZUUju_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
-        "section_preload": "true"
-      },
-      "type": "gp-section-565743274438952146"
+        "ggfEg-ZUUju_variantSelectionRequiredMessage": "Please select a variant to add product to cart"
+      }
     },
     "gp_section_594874688266568465": {
+      "type": "gp-section-594874688266568465",
       "settings": {
         "checksum": "4ad2d5203d95953196989c3aed805b73ed8c2712934e95e1b0a855da0f15f332_1_1_1_0__1",
         "ggSHGSCkCi3_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\"><span style=\"font-size:11px;\">JOURNAL</span></a></p>"
-      },
-      "type": "gp-section-594874688266568465"
+      }
     },
     "gp_section_605470085745738326": {
+      "type": "gp-section-605470085745738326",
       "settings": {
+        "section_preload": "true",
         "checksum": "1d5d8422fd8b4aaa2ad4ac2493832151d67e2865222402a16c6f7dc2faf9ed0e_1_1_1_0__1",
-        "ggKqnWfxDgA_label": "<p>SHOP NOW</p>",
         "ggjgczRDtdR_text": "<p>NEW ARRIVALS</p>",
         "ggx5JmAEZLe_text": "<p><span style=\"font-size:13px;\">SPRING COLLECTION</span></p>",
-        "section_preload": "true"
-      },
-      "type": "gp-section-605470085745738326"
+        "ggKqnWfxDgA_label": "<p>SHOP NOW</p>"
+      }
     }
   },
   "order": [
