@@ -1,0 +1,193 @@
+{% doc %}
+  Renders a read-only product card with no links, IDs, or actionable elements.
+  Used on preview collections for non-VIP/non-staff customers.
+
+  @param {product} card_product - The product to render
+  @param {string} [media_aspect_ratio] - Image aspect ratio: "square", "portrait", or "adapt" (default)
+  @param {string} [image_shape] - Image mask shape
+  @param {boolean} [show_secondary_image] - Show secondary image on hover
+  @param {boolean} [lazy_load] - Lazy load images (default: true)
+  @param {boolean} [skip_styles] - Skip component styles
+
+  @example
+  {% render 'card-product-readonly', card_product: product, media_aspect_ratio: 'adapt' %}
+{% enddoc %}
+
+{%- unless skip_styles -%}
+  {{ 'component-price.css' | asset_url | stylesheet_tag }}
+{%- endunless -%}
+
+{%- if card_product and card_product != empty -%}
+  {%- liquid
+    assign ratio = 1
+    if card_product.featured_media and media_aspect_ratio == 'portrait'
+      assign ratio = 0.8
+    elsif card_product.featured_media and media_aspect_ratio == 'adapt'
+      assign ratio = card_product.featured_media.aspect_ratio
+    endif
+    if ratio == 0 or ratio == null
+      assign ratio = 1
+    endif
+  -%}
+  <div class="card-wrapper product-card-wrapper">
+    <div
+      class="
+        card card--{{ settings.card_style }}
+        {% if card_product.featured_media %} card--media{% else %} card--text{% endif %}
+        {% if settings.card_style == 'card' %} color-{{ settings.card_color_scheme }} gradient{% endif %}
+        {% if image_shape and image_shape != 'default' %} card--shape{% endif %}
+        card--extend-height
+        {% if card_product.featured_media == nil and settings.card_style == 'card' %} ratio{% endif %}
+      "
+      style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
+    >
+      <div
+        class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}"
+        style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
+      >
+        {%- if card_product.featured_media -%}
+          <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
+            <div class="media media--transparent media--hover-effect">
+              {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+              <img
+                srcset="
+                  {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+                  {%- if card_product.featured_media.width >= 360 -%}{{ card_product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+                  {%- if card_product.featured_media.width >= 533 -%}{{ card_product.featured_media | image_url: width: 533 }} 533w,{%- endif -%}
+                  {%- if card_product.featured_media.width >= 720 -%}{{ card_product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+                  {%- if card_product.featured_media.width >= 940 -%}{{ card_product.featured_media | image_url: width: 940 }} 940w,{%- endif -%}
+                  {%- if card_product.featured_media.width >= 1066 -%}{{ card_product.featured_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+                  {{ card_product.featured_media | image_url }} {{ card_product.featured_media.width }}w
+                "
+                src="{{ card_product.featured_media | image_url: width: 533 }}"
+                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 1100px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                alt="{{ card_product.featured_media.alt | escape }}"
+                class="motion-reduce"
+                {% unless lazy_load == false %}
+                  loading="lazy"
+                {% endunless %}
+                width="{{ card_product.featured_media.width }}"
+                height="{{ card_product.featured_media.height }}"
+              >
+              {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
+
+              {%- if card_product.media[1] != null and show_secondary_image -%}
+                <img
+                  srcset="
+                    {%- if card_product.media[1].width >= 165 -%}{{ card_product.media[1] | image_url: width: 165 }} 165w,{%- endif -%}
+                    {%- if card_product.media[1].width >= 360 -%}{{ card_product.media[1] | image_url: width: 360 }} 360w,{%- endif -%}
+                    {%- if card_product.media[1].width >= 533 -%}{{ card_product.media[1] | image_url: width: 533 }} 533w,{%- endif -%}
+                    {%- if card_product.media[1].width >= 720 -%}{{ card_product.media[1] | image_url: width: 720 }} 720w,{%- endif -%}
+                    {%- if card_product.media[1].width >= 940 -%}{{ card_product.media[1] | image_url: width: 940 }} 940w,{%- endif -%}
+                    {%- if card_product.media[1].width >= 1066 -%}{{ card_product.media[1] | image_url: width: 1066 }} 1066w,{%- endif -%}
+                    {{ card_product.media[1] | image_url }} {{ card_product.media[1].width }}w
+                  "
+                  src="{{ card_product.media[1] | image_url: width: 533 }}"
+                  sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 1100px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                  alt="{{ card_product.media[1].alt | escape }}"
+                  class="motion-reduce"
+                  loading="lazy"
+                  width="{{ card_product.media[1].width }}"
+                  height="{{ card_product.media[1].height }}"
+                >
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+        <div class="card__content">
+          <div class="card__information">
+            <h3
+              class="card__heading"
+            >
+              <span class="full-unstyled-link">
+                {{ card_product.title | escape }}
+              </span>
+            </h3>
+          </div>
+          <div class="card__badge {{ settings.badge_position }}">
+            {%- liquid
+              assign tags_str = card_product.tags | join: ','
+              assign coming_soon = false
+              if tags_str contains 'Badge-Coming Soon'
+                assign coming_soon = true
+              endif
+            -%}
+            {% if tags_str contains 'Badge-' %}
+              {% assign custom_tags = '' | split: '😉' %}
+              {% for tag in card_product.tags %}
+                {% if tag contains 'Badge-' %}
+                  {% assign custom_tag = tag | split: 'Badge-' | last | split: '😉' %}
+                  {% assign custom_tags = custom_tags | concat: custom_tag %}
+                {% endif %}
+              {% endfor %}
+              {%- if custom_tags.size > 0 -%}
+                {% for custom_tag in custom_tags %}
+                  <span class="badge badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}">
+                    {{ custom_tag }}
+                  </span>
+                {% endfor %}
+              {% endif %}
+            {% endif %}
+            {% if card_product.available == false and coming_soon == false %}
+              <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">
+                {{- 'products.product.sold_out' | t -}}
+              </span>
+            {% elsif card_product.compare_at_price > card_product.price %}
+              <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">
+                {{- 'products.product.on_sale' | t -}}
+              </span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="card__content">
+        <div class="card__information">
+          <h3
+            class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
+          >
+            <span class="full-unstyled-link">
+              {{ card_product.title | escape }}
+            </span>
+          </h3>
+          <div class="card-information">
+            {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+          </div>
+        </div>
+        <div class="card__badge {{ settings.badge_position }}">
+          {%- liquid
+            assign tags_str = card_product.tags | join: ','
+            assign coming_soon = false
+            if tags_str contains 'Badge-Coming Soon'
+              assign coming_soon = true
+            endif
+          -%}
+          {% if tags_str contains 'Badge-' %}
+            {% assign custom_tags = '' | split: '😉' %}
+            {% for tag in card_product.tags %}
+              {% if tag contains 'Badge-' %}
+                {% assign custom_tag = tag | split: 'Badge-' | last | split: '😉' %}
+                {% assign custom_tags = custom_tags | concat: custom_tag %}
+              {% endif %}
+            {% endfor %}
+            {%- if custom_tags.size > 0 -%}
+              {% for custom_tag in custom_tags %}
+                <span class="badge badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}">
+                  {{ custom_tag }}
+                </span>
+              {% endfor %}
+            {% endif %}
+          {% endif %}
+          {% if card_product.available == false and coming_soon == false %}
+            <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">
+              {{- 'products.product.sold_out' | t -}}
+            </span>
+          {% elsif card_product.compare_at_price > card_product.price %}
+            <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">
+              {{- 'products.product.on_sale' | t -}}
+            </span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
