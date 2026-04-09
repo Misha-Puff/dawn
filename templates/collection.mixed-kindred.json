@@ -143,8 +143,8 @@
         "image_f8UJrh": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/mp_kindred_bw1_9e958388-76b5-4eed-b872-27987a3e1b4d.jpg",
-            "mobile_image": "shopify://shop_images/MP_FA25_TransitionalLayers_Mobile_kindredbw.jpg",
+            "image": "shopify://shop_images/MP_EditorialBloc2x_v2_Kindred.jpg",
+            "mobile_image": "shopify://shop_images/MP_EditorialBloc2x_v2_Kindred.jpg",
             "link": "",
             "content": "",
             "text_size": 13,
@@ -153,10 +153,10 @@
             "text_horizontal_padding": 16,
             "text_vertical_padding": 16,
             "row_start_desktop": 1,
-            "row_span_desktop": 1,
-            "col_start_desktop": 4,
-            "col_span_desktop": 1,
-            "row_start_mobile": 10,
+            "row_span_desktop": 2,
+            "col_start_desktop": 3,
+            "col_span_desktop": 2,
+            "row_start_mobile": 5,
             "row_span_mobile": 1,
             "col_start_mobile": "1",
             "col_span_mobile": "2"
