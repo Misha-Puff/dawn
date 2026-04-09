@@ -50,8 +50,8 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>This season, our Adult and Child collections align — our first crossover that reflects the spirit of children’s styles, carefully adapted with elegance and ease for adult. From silhouette to palette to texture, these are pieces that echo from one generation to the next. Stay tuned for more.</p>",
-            "line_height": 24
+            "text": "<p>A shared thread across our baby, child, and adult collections — styles that reflect the spirit of children’s design, carefully adapted with elegance and ease for every size. From silhouette to palette to texture, these are pieces that echo from one generation to the next. Stay tuned for more.</p>",
+            "line_height": 22
           }
         },
         "button_Yh3Xhh": {
@@ -81,9 +81,9 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 60,
-        "padding_bottom": 32,
-        "padding_left": 72,
-        "padding_right": 72
+        "padding_bottom": 40,
+        "padding_left": 0,
+        "padding_right": 0
       }
     },
     "buttons_Mn3bJP": {
@@ -125,6 +125,7 @@
         "button_C99g3E",
         "button_NGpAit"
       ],
+      "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
