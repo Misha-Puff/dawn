@@ -174,7 +174,7 @@
             "text_horizontal_padding": 16,
             "text_vertical_padding": 16,
             "row_start_desktop": 2,
-            "row_span_desktop": 1,
+            "row_span_desktop": 2,
             "col_start_desktop": 3,
             "col_span_desktop": 2,
             "row_start_mobile": 3,
