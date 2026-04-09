@@ -100,6 +100,7 @@
 
 .collection-hero__title {
   font-size: 1.3rem;
+  text-transform: uppercase;
 }
 
 .product-card-wrapper .card__information .price {
