@@ -81,30 +81,30 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 60,
-        "padding_bottom": 32,
-        "padding_left": 72,
-        "padding_right": 72
+        "padding_bottom": 36,
+        "padding_left": 0,
+        "padding_right": 0
       }
     },
     "buttons_Y667Cy": {
       "type": "buttons",
       "blocks": {
-        "button_JBYUhC": {
-          "type": "button",
-          "settings": {
-            "label": "ACCESSORIES",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-accessories",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
         "button_NatF3b": {
           "type": "button",
           "settings": {
             "label": "TOPS",
             "open_new_tab": true,
             "link": "shopify://collections/child-tops",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_JBYUhC": {
+          "type": "button",
+          "settings": {
+            "label": "BOTTOMS",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-bottoms",
             "type": "secondary",
             "on_click": ""
           }
@@ -134,15 +134,15 @@
           "settings": {
             "label": "VIEW LOOKBOOK",
             "open_new_tab": true,
-            "link": "shopify://blogs/journal/child-su-25",
+            "link": "shopify://blogs/journal/child-summer-26",
             "type": "secondary",
             "on_click": ""
           }
         }
       },
       "block_order": [
-        "button_JBYUhC",
         "button_NatF3b",
+        "button_JBYUhC",
         "button_YkEgYX",
         "button_HKEnRa",
         "button_HWFEKG"

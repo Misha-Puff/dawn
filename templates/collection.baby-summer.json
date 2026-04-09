@@ -50,7 +50,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>This season channels the quiet charm of a coastal summer — a soft-spoken study in sun-bleached tones, rich textures, and storied tradition. A nod to long days by the sea. A world both grounded and quietly transportive.</p>",
+            "text": "<p>This collection was photographed at The Gallery Inn in Puerto Rico, a singular place layered with art, history, music, and the spirit of the sea. In its weathered walls, winding terraces, and stunning courtyards, we found a setting that reflects something familiar: the shared character of coastlines everywhere — sun-washed colors, patina, and the enduring ease of summer by the water.</p><p>This season turns toward the New England coast — a reflection on the place we call home, shaped by salt air, shoreline colors, and a long tradition of coastal summers.</p>",
             "line_height": 22
           }
         },
@@ -81,9 +81,9 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 60,
-        "padding_bottom": 32,
-        "padding_left": 72,
-        "padding_right": 72
+        "padding_bottom": 36,
+        "padding_left": 0,
+        "padding_right": 0
       }
     },
     "buttons_347mxP": {
@@ -169,8 +169,11 @@
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
             "content": "",
+            "text_size": 13,
             "text_color": "#000000",
             "content_position": "middle-center",
+            "text_horizontal_padding": 16,
+            "text_vertical_padding": 16,
             "row_start_desktop": 1,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -188,8 +191,11 @@
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
             "content": "",
+            "text_size": 13,
             "text_color": "#000000",
             "content_position": "middle-center",
+            "text_horizontal_padding": 16,
+            "text_vertical_padding": 16,
             "row_start_desktop": 6,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
