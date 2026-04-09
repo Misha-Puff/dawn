@@ -164,9 +164,28 @@
       "blocks": {
         "image_f8UJrh": {
           "type": "image",
-          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/MP_EditorialBloc2x_v2_4.9_Knits.jpg",
+            "image": "shopify://shop_images/MP_EditorialBloc2x_v2_Kindred.jpg",
+            "link": "shopify://collections/mixed-kindred-silhouettes",
+            "content": "SHOP KINDRED SILHOUETTES",
+            "text_size": 10,
+            "text_color": "#101820",
+            "content_position": "top-left",
+            "text_horizontal_padding": 20,
+            "text_vertical_padding": 20,
+            "row_start_desktop": 4,
+            "row_span_desktop": 2,
+            "col_start_desktop": 3,
+            "col_span_desktop": 2,
+            "row_start_mobile": 7,
+            "row_span_mobile": 1,
+            "col_start_mobile": "1",
+            "col_span_mobile": "2"
+          }
+        },
+        "image_EgeQ9n": {
+          "type": "image",
+          "settings": {
             "link": "",
             "content": "",
             "text_size": 13,
@@ -177,11 +196,11 @@
             "row_start_desktop": 1,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
-            "col_span_desktop": 2,
+            "col_span_desktop": 1,
             "row_start_mobile": 1,
             "row_span_mobile": 1,
             "col_start_mobile": "1",
-            "col_span_mobile": "2"
+            "col_span_mobile": "1"
           }
         },
         "image_gkgQFt": {
@@ -209,6 +228,7 @@
       },
       "block_order": [
         "image_f8UJrh",
+        "image_EgeQ9n",
         "image_gkgQFt"
       ],
       "settings": {
