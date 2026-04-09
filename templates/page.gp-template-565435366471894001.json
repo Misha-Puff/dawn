@@ -10,73 +10,82 @@
 {
   "sections": {
     "gp_section_565435366572622833": {
+      "type": "gp-section-565435366572622833",
       "settings": {
         "checksum": "83d53a7980e6bfc1af6d2bc86dfd42f577f959476582f52cead775998135a922_1_1_1_0__1"
-      },
-      "type": "gp-section-565435366572622833"
+      }
     },
     "gp_section_565435366572753905": {
+      "type": "gp-section-565435366572753905",
       "settings": {
         "checksum": "95b12322105c1a3ee8278bcdd421953e7a39a0b6e2582b32a2339432971a647b_1_1_1_0__1",
         "gg8CanJZH7q_text": "Explore More",
+        "ggsvvtQF5lu_label": "<p>PIMA STAPLES</p>",
         "gg8xf4mbVAe_label": "<p>TOPS</p>",
         "ggD3Rt-KqFS_label": "<p>DENIM</p>",
         "ggItr6GRAXk_label": "<p>BOTTOMS</p>",
-        "ggj3P0_sj3y_label": "<p>SALE</p>",
-        "ggsvvtQF5lu_label": "<p>PIMA STAPLES</p>"
-      },
-      "type": "gp-section-565435366572753905"
+        "ggj3P0_sj3y_label": "<p>SALE</p>"
+      }
     },
     "gp_section_565435366572819441": {
+      "type": "gp-section-565435366572819441",
       "settings": {
-        "checksum": "f785a7e5334a838bbaace0c30800f509913ca66aa9d9e80e62e6328c52471248_1_1_1_0__1",
-        "gg0u6y0Ix3h_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-denim\"><span style=\"font-size:11px;\">DENIM COLLECTION</span></a></p>",
-        "ggSHGb3d4tQ_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-sale\"><span style=\"font-size:11px;\">NEW MARKDOWNS: NOW UP TO 40% OFF</span></a></p>",
-        "section_preload": "true"
-      },
-      "type": "gp-section-565435366572819441"
+        "section_preload": "true",
+        "checksum": "b66a334a1adc6599796eaa1925984eb0f74b8a3a18867aefd8ac356006c4e1ce_1_1_1_0__1",
+        "ggHpeVtcFoA_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_4.9_New_3.jpg",
+        "ggHpeVtcFoA_srcSet_tablet_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_4.9_New_3.jpg",
+        "ggHpeVtcFoA_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_4.9_New_3.jpg",
+        "ggSHGb3d4tQ_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-accessories\">NEW ACCESSORIES</a></p>",
+        "gg9-Kh1-Dxa_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_Site_Custom_4.6.26_Child.jpg",
+        "gg9-Kh1-Dxa_srcSet_tablet_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_Site_Custom_4.6.26_Child.jpg",
+        "gg9-Kh1-Dxa_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_Site_Custom_4.6.26_Child.jpg",
+        "ggb8GVRg5np_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal/child-summer-26\">SUMMER LOOKBOOK</a></p>"
+      }
     },
     "gp_section_565742999678485659": {
+      "type": "gp-section-565742999678485659",
       "settings": {
+        "section_preload": "true",
         "checksum": "e1b2cc501eab86d617794aaea32faf20c72ae1dcea5f7dbf58fbe5e203a9206e_1_1_1_0__1",
+        "ggT-TYiC6nr_text": "<span style=\"font-size:11px;\">NEW ARRIVALS</span>",
         "ggSB_9sxwQ6_label": "ADD TO CART",
         "ggSB_9sxwQ6_outOfStockLabel": "Out of stock",
         "ggSB_9sxwQ6_unavailableLabel": "Unavailable",
-        "ggSB_9sxwQ6_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
-        "ggT-TYiC6nr_text": "<span style=\"font-size:11px;\">NEW ARRIVALS</span>",
-        "section_preload": "true"
-      },
-      "type": "gp-section-565742999678485659"
+        "ggSB_9sxwQ6_variantSelectionRequiredMessage": "Please select a variant to add product to cart"
+      }
     },
     "gp_section_592891683713057388": {
+      "type": "gp-section-592891683713057388",
       "settings": {
         "checksum": "64dc2bb4a67db742b2b6050df80a518c4f3823236467c9d2c8d7ad8b8bb97889_1_1_1_0__1",
         "ggn9OWBb600_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-new\"><span style=\"font-size:12px;\">JOURNAL</span></a></p>"
-      },
-      "type": "gp-section-592891683713057388"
+      }
     },
     "gp_section_594874653571285777": {
+      "type": "gp-section-594874653571285777",
       "settings": {
         "checksum": "dc32bf18f2d819938eeb6d3bb4414040eeee6ce3cd9bbde91fa0e813e7497058_1_1_1_0__1",
         "ggF-V9spKq0_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\"><span style=\"font-size:11px;\">JOURNAL</span></a></p>"
-      },
-      "type": "gp-section-594874653571285777"
+      }
     },
     "gp_section_596022700527322005": {
+      "type": "gp-section-596022700527322005",
       "settings": {
         "checksum": "2eb3e7f2ac0ec36a94846a985696a09e63503129a747f9eac59d42855d643796_1_1_1_0__1"
-      },
-      "type": "gp-section-596022700527322005"
+      }
     },
     "gp_section_605468970094429082": {
+      "type": "gp-section-605468970094429082",
       "settings": {
-        "checksum": "36bb0b72e447f0387e9091ca21281ed42a3741bf10bb35fdb7e1929d7785b4a2_1_1_1_0__1",
-        "ggPDQki8Uby_label": "<p>SHOP NOW</p>",
-        "gggIVZzXfNH_text": "<p><span style=\"font-size:13px;\">SPRING COLLECTION</span></p>",
-        "gguhqcH8rYX_text": "<p><span style=\"font-size:11px;\"><strong>NEW ARRIVALS</strong></span></p>",
-        "section_preload": "true"
-      },
-      "type": "gp-section-605468970094429082"
+        "section_preload": "true",
+        "checksum": "78274923c3338fa9a08bb9f0f2756b9f7e361c12e484dde05e8de1213c5f1f91_1_1_1_0__1",
+        "gg7pvlkGGCJ_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_SiteMP_SU26_Site_4.9_Child_5.jpg",
+        "gg7pvlkGGCJ_background_tablet_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_SiteMP_SU26_Site_4.9_Child_5.jpg",
+        "gg7pvlkGGCJ_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_CustomMP_SU26_Site_4.9_Child_5.jpg",
+        "gguhqcH8rYX_text": "<p><span style=\"font-size:11px;\"><strong>PART 1</strong></span></p>",
+        "gggIVZzXfNH_text": "<p>SUMMER COLLECTION</p>",
+        "ggPDQki8Uby_label": "<p>SHOP NOW</p>"
+      }
     }
   },
   "order": [

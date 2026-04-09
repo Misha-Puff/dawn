@@ -10,61 +10,64 @@
 {
   "sections": {
     "gp_section_565435452589343904": {
+      "type": "gp-section-565435452589343904",
       "settings": {
         "checksum": "4c83dc38807a384b3b62b675b44f0e9e9b58507dc062f55082bd8a471beeb083_1_1_1_0__1",
-        "ggK0AfVBMiV_label": "<p>BOTTOMS</p>",
-        "ggSFNG5Xr-f_label": "<p>BEST SELLERS</p>",
+        "ggjiZ0PuduM_text": "Explore More",
         "ggW-o9tY_db_label": "<p>PIMA STAPLES</p>",
+        "ggSFNG5Xr-f_label": "<p>BEST SELLERS</p>",
+        "ggK0AfVBMiV_label": "<p>BOTTOMS</p>",
         "ggYxZAOpYG6_label": "<p>SWEATERS</p>",
-        "ggfWVmN1Elc_label": "<p>SALE</p>",
-        "ggjiZ0PuduM_text": "Explore More"
-      },
-      "type": "gp-section-565435452589343904"
+        "ggfWVmN1Elc_label": "<p>SALE</p>"
+      }
     },
     "gp_section_565435452589409440": {
+      "type": "gp-section-565435452589409440",
       "settings": {
-        "checksum": "d6acca32b709a9335550796b1ff2ccf9e69e32f58739f11f9dd1fb5a61a53b16_1_1_1_0__1",
-        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-fall\">FALL/WINTER COLLECTION</a></p>",
-        "ggsTJ7CdiHi_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-sale\">NEW WINTER MARKDOWNS</a></p>",
-        "ggzDODThRb4_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-accessories\"><span style=\"font-size:11px;\">KNITWEAR</span></a></p>",
-        "section_preload": "true"
-      },
-      "type": "gp-section-565435452589409440"
+        "section_preload": "true",
+        "checksum": "feb46529c6a2456cca6d222a5863c0e9fbc82bbaab3727bc7cadffecb9a0b7c6_1_1_1_0__1",
+        "ggIGELazyYT_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_4.9_Adult_New.jpg",
+        "ggIGELazyYT_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_4.9_Adult_New.jpg",
+        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-new\">JUST IN</a></p>",
+        "gg1Ve0XA89y_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_Site_Custom_3.17_Adult_MD.jpg",
+        "gg1Ve0XA89y_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_Site_Custom_3.17_Adult_MD.jpg",
+        "ggsTJ7CdiHi_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-sale\">NEW WINTER MARKDOWNS</a></p>"
+      }
     },
     "gp_section_565435452589474976": {
+      "type": "gp-section-565435452589474976",
       "settings": {
         "checksum": "69fbaa501f64246d85cf4596804fffcbb51bca14a798efc056ee44cb8f6ec232_1_1_1_0__1"
-      },
-      "type": "gp-section-565435452589474976"
+      }
     },
     "gp_section_565743354969654482": {
+      "type": "gp-section-565743354969654482",
       "settings": {
+        "section_preload": "true",
         "checksum": "bf7631f29c73518da8abc62d1433deff48daf2a17d52a86ba3353fc077bf60fe_1_1_1_0__1",
         "ggCFij8kVJX_text": "<span style=\"font-size:11px;\">BEST SELLERS</span>",
         "ggjkEChLl3S_label": "ADD TO CART",
         "ggjkEChLl3S_outOfStockLabel": "Out of stock",
         "ggjkEChLl3S_unavailableLabel": "Unavailable",
-        "ggjkEChLl3S_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
-        "section_preload": "true"
-      },
-      "type": "gp-section-565743354969654482"
+        "ggjkEChLl3S_variantSelectionRequiredMessage": "Please select a variant to add product to cart"
+      }
     },
     "gp_section_594876262657295282": {
+      "type": "gp-section-594876262657295282",
       "settings": {
         "checksum": "fa4e7181bb2348e86dc3db05d32f5e6f5862867600ebcb61b61f36bae45b1cc0_1_1_1_0__1",
         "ggY2NbVuFGf_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\"><span style=\"font-size:11px;\">JOURNAL</span></a></p>"
-      },
-      "type": "gp-section-594876262657295282"
+      }
     },
     "gp_section_611214031427994411": {
+      "type": "gp-section-611214031427994411",
       "settings": {
+        "section_preload": "true",
         "checksum": "feb2c2e96b1a8cd2d90423d7fe2bc6950850e170c77ca5d65690531fe9e49a74_1_1_1_0__1",
-        "gg-ZfgEyhaM_text": "<p>ADULT SPRING/SUMMER</p>",
-        "ggrPziWmJ-o_label": "<p>SHOP NOW</p>",
         "ggwX19UUGXp_text": "<p><span style=\"font-size:11px;\">NEW ARRIVALS</span></p>",
-        "section_preload": "true"
-      },
-      "type": "gp-section-611214031427994411"
+        "gg-ZfgEyhaM_text": "<p>ADULT SPRING/SUMMER</p>",
+        "ggrPziWmJ-o_label": "<p>SHOP NOW</p>"
+      }
     }
   },
   "order": [
