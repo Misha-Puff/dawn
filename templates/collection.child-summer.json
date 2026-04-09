@@ -132,9 +132,9 @@
         "button_HWFEKG": {
           "type": "button",
           "settings": {
-            "label": "VIEW LOOKBOOK",
+            "label": "KINDRED SILHOUETTES",
             "open_new_tab": true,
-            "link": "shopify://blogs/journal/child-summer-26",
+            "link": "shopify://collections/mixed-kindred-silhouettes",
             "type": "secondary",
             "on_click": ""
           }
