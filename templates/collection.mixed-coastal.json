@@ -92,30 +92,40 @@
         "button_XaxzBy": {
           "type": "button",
           "settings": {
-            "label": "",
+            "label": "SHOP ALL SUMMER",
             "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "link": "shopify://collections/child-summer",
+            "type": "secondary",
             "on_click": ""
           }
         },
         "button_C99g3E": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "WOVENS",
+            "open_new_tab": true,
+            "link": "shopify://collections/mixed-wovens",
+            "type": "secondary",
             "on_click": ""
           }
         },
         "button_NGpAit": {
           "type": "button",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
+            "label": "SUMMER KNITS",
+            "open_new_tab": true,
+            "link": "shopify://collections/child-baby-knits",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_ahPDNK": {
+          "type": "button",
+          "settings": {
+            "label": "BABY SUMMER",
+            "open_new_tab": true,
+            "link": "shopify://collections/baby-summer",
+            "type": "secondary",
             "on_click": ""
           }
         }
@@ -123,7 +133,8 @@
       "block_order": [
         "button_XaxzBy",
         "button_C99g3E",
-        "button_NGpAit"
+        "button_NGpAit",
+        "button_ahPDNK"
       ],
       "name": "Buttons",
       "settings": {
@@ -131,9 +142,9 @@
         "button_gap": 10,
         "heading_size": "h1",
         "color_scheme": "",
-        "desktop_padding_top": 30,
+        "desktop_padding_top": 0,
         "desktop_padding_bottom": 30,
-        "mobile_padding_top": 30,
+        "mobile_padding_top": 0,
         "mobile_padding_bottom": 30
       }
     },
