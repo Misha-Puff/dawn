@@ -174,24 +174,23 @@
         },
         "image_gkgQFt": {
           "type": "image",
-          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
-            "link": "",
-            "content": "",
-            "text_size": 13,
-            "text_color": "#000000",
-            "content_position": "middle-center",
+            "image": "shopify://shop_images/MP_EditorialBloc2x_v2_Kindred.jpg",
+            "link": "shopify://collections/mixed-kindred-silhouettes",
+            "content": "SHOP KINDRED SILHOUETTES",
+            "text_size": 10,
+            "text_color": "#ffffff",
+            "content_position": "top-left",
             "text_horizontal_padding": 16,
             "text_vertical_padding": 16,
-            "row_start_desktop": 6,
-            "row_span_desktop": 1,
-            "col_start_desktop": 1,
-            "col_span_desktop": 3,
-            "row_start_mobile": 1,
-            "row_span_mobile": 1,
+            "row_start_desktop": 9,
+            "row_span_desktop": 2,
+            "col_start_desktop": 3,
+            "col_span_desktop": 2,
+            "row_start_mobile": 22,
+            "row_span_mobile": 2,
             "col_start_mobile": "1",
-            "col_span_mobile": "1"
+            "col_span_mobile": "2"
           }
         }
       },
