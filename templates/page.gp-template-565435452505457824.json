@@ -44,12 +44,14 @@
       "type": "gp-section-565743354969654482",
       "settings": {
         "section_preload": "true",
-        "checksum": "bf7631f29c73518da8abc62d1433deff48daf2a17d52a86ba3353fc077bf60fe_1_1_1_0__1",
+        "checksum": "72d3bd3bac81e56a71127ac66a502539eae723d22190b167aff2993900a4101d_1_1_1_0__1",
         "ggCFij8kVJX_text": "<span style=\"font-size:11px;\">BEST SELLERS</span>",
         "ggjkEChLl3S_label": "ADD TO CART",
         "ggjkEChLl3S_outOfStockLabel": "Out of stock",
         "ggjkEChLl3S_unavailableLabel": "Unavailable",
-        "ggjkEChLl3S_variantSelectionRequiredMessage": "Please select a variant to add product to cart"
+        "ggjkEChLl3S_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
+        "ggjkEChLl3S_successMessage": "Add product to cart successfully",
+        "ggjkEChLl3S_errorMessage": "Cannot add product to cart"
       }
     },
     "gp_section_594876262657295282": {
