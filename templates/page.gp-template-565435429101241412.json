@@ -10,67 +10,69 @@
 {
   "sections": {
     "gp_section_565435429168350276": {
-      "type": "gp-section-565435429168350276",
       "settings": {
         "checksum": "0d5ace2a35e91a4794d2cd0fec202a00e32545923143638b9403200ad15da50f_1_1_1_0__1",
-        "ggxxCQfjKeQ_text": "Explore More",
-        "ggHLv-ZKTlu_label": "<p>PIMA STAPLES</p>",
-        "ggzFH-jXWZh_label": "<p>ONESIES</p>",
+        "gg5_GEvhnAz_label": "<p>SALE</p>",
         "ggHLnNHWcjZ_label": "<p>TOPS</p>",
+        "ggHLv-ZKTlu_label": "<p>PIMA STAPLES</p>",
         "ggkAY6Ejd6O_label": "<p>BOTTOMS</p>",
-        "gg5_GEvhnAz_label": "<p>SALE</p>"
-      }
+        "ggxxCQfjKeQ_text": "Explore More",
+        "ggzFH-jXWZh_label": "<p>ONESIES</p>"
+      },
+      "type": "gp-section-565435429168350276"
     },
     "gp_section_565435429168415812": {
-      "type": "gp-section-565435429168415812",
       "settings": {
         "checksum": "478553fe7cb087bdea0e43edad8b6aa6d0ec6ab359f85a30ddbeb33d97dfca93_1_1_1_0__1"
-      }
+      },
+      "type": "gp-section-565435429168415812"
     },
     "gp_section_565435429168546884": {
-      "type": "gp-section-565435429168546884",
       "settings": {
-        "section_preload": "true",
-        "checksum": "7eb3211f57cc7525ad39bed819bb7f39aa4469b40dfee897fbc0261bcea92fe8_1_1_1_0__1",
-        "ggwERI3h1Ic_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_4.7_Baby_1.jpg",
+        "checksum": "45eea1122228e796f0c63ee89e2e77a42316f7d06fb3317163ea8677a66bed05_1_1_1_0__1",
         "ggAru6fM4U3_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-new\"><span style=\"font-size:11px;\">NEW ARRIVALS</span></a></p>",
         "ggIGELazyYT_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_Site_Custom_4.6.26_Child.jpg",
         "ggIGELazyYT_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_Site_Custom_4.6.26_Child.jpg",
-        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal/child-summer-26\"><span style=\"font-size:11px;\">SUMMER LOOKBOOK</span></a></p>"
-      }
+        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal/child-summer-26\"><span style=\"font-size:11px;\">SUMMER LOOKBOOK</span></a></p>",
+        "ggwERI3h1Ic_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_4.7_Baby_1.jpg",
+        "section_preload": "true"
+      },
+      "type": "gp-section-565435429168546884"
     },
     "gp_section_565743274438952146": {
-      "type": "gp-section-565743274438952146",
       "settings": {
-        "section_preload": "true",
         "checksum": "49f3e2f1c4a7c44c1a1cf94076a418880ad6adb40babebb82b155d727a259c90_1_1_1_0__1",
         "ggNIzGr-zG6_text": "<span style=\"font-size:11px;\">SUMMER FAVORITES</span>",
+        "ggfEg-ZUUju_errorMessage": "Cannot add product to cart",
         "ggfEg-ZUUju_label": "ADD TO CART",
         "ggfEg-ZUUju_outOfStockLabel": "Out of stock",
+        "ggfEg-ZUUju_successMessage": "Add product to cart successfully",
         "ggfEg-ZUUju_unavailableLabel": "Unavailable",
         "ggfEg-ZUUju_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
-        "ggfEg-ZUUju_successMessage": "Add product to cart successfully",
-        "ggfEg-ZUUju_errorMessage": "Cannot add product to cart"
-      }
+        "section_preload": "true"
+      },
+      "type": "gp-section-565743274438952146"
     },
     "gp_section_594874688266568465": {
-      "type": "gp-section-594874688266568465",
       "settings": {
-        "checksum": "4ad2d5203d95953196989c3aed805b73ed8c2712934e95e1b0a855da0f15f332_1_1_1_0__1",
-        "ggSHGSCkCi3_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\"><span style=\"font-size:11px;\">JOURNAL</span></a></p>"
-      }
+        "checksum": "48054d5b8f22f11fd23e4e721f7d545ad1fb13d950cfe6fece3131305aaccaf6_1_1_1_0__1",
+        "ggSHGSCkCi3_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\"><span style=\"font-size:11px;\">JOURNAL</span></a></p>",
+        "ggcoaIGj9mS_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_4.23_Journal_86c99fae-8a59-4a2d-ac9a-719006c8441b.jpg",
+        "ggcoaIGj9mS_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_4.23_Journal.jpg"
+      },
+      "type": "gp-section-594874688266568465"
     },
     "gp_section_605470085745738326": {
-      "type": "gp-section-605470085745738326",
       "settings": {
-        "section_preload": "true",
         "checksum": "2da584589cab3ffece5285f2bd94173f68c8eca0db4cdcee50f4eb1da47cbfb7_1_1_1_0__1",
+        "ggKqnWfxDgA_label": "<p>SHOP NOW</p>",
+        "ggjgczRDtdR_text": "<p>PART 1</p>",
         "ggupQe17ZbP_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_4.9_Baby_1.jpg",
         "ggupQe17ZbP_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_4.9_Baby_1.jpg",
-        "ggjgczRDtdR_text": "<p>PART 1</p>",
         "ggx5JmAEZLe_text": "<p><span style=\"font-size:13px;\">SUMMER COLLECTION</span></p>",
-        "ggKqnWfxDgA_label": "<p>SHOP NOW</p>"
-      }
+        "section_preload": "true"
+      },
+      "type": "gp-section-605470085745738326"
     }
   },
   "order": [
