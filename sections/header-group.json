@@ -17,7 +17,7 @@
         "announcement_YVezxm": {
           "type": "announcement",
           "settings": {
-            "text": "<p>Limited Time: Apolina + Misha & Puff Collaboration 20% Off — <a href=\"https://shop.misha-and-puff.com/collections/mp-apolina\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/collections/mp-apolina\">SHOP NOW</a></p>"
+            "text": "<p>Mother's Day Sale: For a limited time, up to 40% off select Adult — <a href=\"https://shop.misha-and-puff.com/collections/mothers-day\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/collections/mothers-day\">SHOP NOW</a></p>"
           }
         },
         "announcement_dDUTp6": {
@@ -38,7 +38,7 @@
         "mobile_height": 40,
         "auto_rotate": false,
         "change_slides_speed": 5,
-        "color_scheme": "",
+        "color_scheme": "scheme-09269f6c-1195-4fc4-8c4c-34c5964f0f2f",
         "show_line_separator": false,
         "show_social": false,
         "enable_country_selector": false,
