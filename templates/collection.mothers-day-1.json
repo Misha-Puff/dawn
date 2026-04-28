@@ -30,6 +30,7 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
@@ -74,16 +75,15 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
-        "padding_left": 100,
-        "padding_right": 100
+        "padding_top": 60,
+        "padding_bottom": 32,
+        "padding_left": 0,
+        "padding_right": 0
       }
     },
     "buttons_Mn3bJP": {
@@ -125,7 +125,6 @@
         "button_C99g3E",
         "button_NGpAit"
       ],
-      "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
@@ -192,7 +191,7 @@
       ],
       "settings": {
         "products_per_page": 48,
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "columns_mobile": "2",
         "color_scheme": "",
         "image_ratio": "adapt",
