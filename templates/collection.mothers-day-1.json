@@ -43,14 +43,14 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Cerulean",
+            "heading": "Mother's Day Sale",
             "heading_size": "h2"
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>A true star of the Fall Collection — Cerulean. A vibrant blue, dyed to a rich, saturated finish. A playful hue that brightens every style.</p>",
+            "text": "<p>To motherhood in all forms. For a limited time, enjoy 20% off styles in the Adult Spring/Summer Collection, and up to 40% off past-season adult favorites. Order by Friday, May 1 for U.S. Mother’s Day delivery.</p>",
             "line_height": 24
           }
         },
@@ -81,9 +81,9 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 60,
-        "padding_bottom": 32,
-        "padding_left": 0,
-        "padding_right": 0
+        "padding_bottom": 44,
+        "padding_left": 28,
+        "padding_right": 28
       }
     },
     "buttons_Mn3bJP": {
