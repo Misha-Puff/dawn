@@ -9,9 +9,9 @@
  */
 {
   "sections": {
-    "gp_section_616328537539871539": {
+    "gp_section_617185061275435713": {
       "settings": {
-        "checksum": "be4067a126e06b04d1848505738b4679865f9d775281b21c28c94f53dd10507c_1_1_1_0__1",
+        "checksum": "489b08650355fce9398d97391d34386adbbb9a969fba408a6b59f7e00c08b87f_1_1_1_0__1",
         "ggJnjFWfueJ_text": "<p><span style=\"font-size:11px;\">PART 1</span></p>",
         "ggeX__Np1yG_label": "<p>SHOP NOW</p>",
         "ggt967mmF3O_text": "<p>SUMMER COLLECTION</p>",
@@ -19,54 +19,56 @@
         "ggyG6ewl5Ve_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_4.23_Child_4.jpg",
         "section_preload": "true"
       },
-      "type": "gp-section-616328537539871539"
+      "type": "gp-section-617185061275435713"
     },
-    "gp_section_616328537539937075": {
+    "gp_section_617185061275501249": {
       "settings": {
-        "checksum": "1507d3b9e86caac4c445d5680b054731750b35feb59af4602a74564f20a6f23e_1_1_1_0__1",
-        "gg_y6cohRve_label": "<p>JOURNAL</p>",
-        "ggilZSAhHop_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_4.23_Journal_86c99fae-8a59-4a2d-ac9a-719006c8441b.jpg",
-        "ggilZSAhHop_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_4.23_Journal.jpg"
+        "checksum": "2d4e0fd8702a55dc2fb02c2344a8fae911917e1504fa8812e27e3c121f6bb2fd_1_1_1_0__1",
+        "ggTMWPIfl4D_label": "<p>ADULT COLLECTION</p>",
+        "ggdpYbMAj3D_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_4.23_Adult_1.jpg",
+        "ggdpYbMAj3D_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_SiteMobile_Custom_2.26_Journal.jpg"
       },
-      "type": "gp-section-616328537539937075"
+      "type": "gp-section-617185061275501249"
     },
-    "gp_section_616328537540002611": {
+    "gp_section_617185061275566785": {
       "settings": {
-        "checksum": "92bcb992f66b9e654f14b45809f42ac65cf6ed2fd204548787f8863195608692_1_1_1_0__1",
+        "checksum": "feabec744df496c1adbeb4ef70005e94e7f5f2125b2171f174513ff1f4229573_1_1_1_0__1",
         "ggkIPWk0doh_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_4.9_Adult_2.jpg",
         "ggkIPWk0doh_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_custom_4.23_Adult_1.jpg",
         "ggwh2FGlM_v_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-spring-summer\"><span style=\"font-size:11px;\">ADULT COLLECTION</span></a></p>",
         "section_preload": "true"
       },
-      "type": "gp-section-616328537540002611"
+      "type": "gp-section-617185061275566785"
     },
-    "gp_section_616328537540068147": {
+    "gp_section_617185061275632321": {
       "settings": {
-        "checksum": "dc5c609e23077125fdb720db64143839e132aecb235a8d7426a927da1fc19b25_1_1_1_0__1",
-        "ggTMWPIfl4D_label": "<p>ADULT COLLECTION</p>",
-        "ggdpYbMAj3D_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_4.23_Adult_1.jpg",
-        "ggdpYbMAj3D_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_SiteMobile_Custom_2.26_Journal.jpg"
-      },
-      "type": "gp-section-616328537540068147"
-    },
-    "gp_section_616328537540133683": {
-      "settings": {
-        "checksum": "78c4659891cbcfad802eb18c97333ff6db63754b7245a742ee1f24d0af9f57be_1_1_1_0__1",
+        "checksum": "dc3e72e559950e33b3f92ce38d2db11831f4d378a73306c9acee47f1f4fc7d7a_1_1_1_0__1",
         "gg-Y6akhjPy_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-cotton-staples\">NEW COTTON STAPLES</a></p>",
         "gg9P0PE5gnh_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_4.23_Baby_1.jpg",
         "gg9P0PE5gnh_srcSet_tablet_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_4.23_Baby_1.jpg",
+        "ggBVXF3fjUL_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_MomDay_1.jpg",
+        "ggSiHmj2Vqf_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/mothers-day\">MOTHER’S DAY SALE — LIMITED TIME, UP TO 40% OFF</a></p>",
         "ggkByHG1lk2_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_4.23_Cotton.jpg",
         "ggrG03rh4vt_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-summer\"><span style=\"font-size:11px;\">BABY COLLECTION</span></a></p>",
         "section_preload": "true"
       },
-      "type": "gp-section-616328537540133683"
+      "type": "gp-section-617185061275632321"
+    },
+    "gp_section_617185061275697857": {
+      "settings": {
+        "checksum": "bb3bb76943ea06b9abe22d767c69a9da9ff7bced5bfb8ac8a7b44ce82f30bdad_1_1_1_0__1",
+        "gg_y6cohRve_label": "<p>JOURNAL</p>",
+        "ggilZSAhHop_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_4.23_Journal_86c99fae-8a59-4a2d-ac9a-719006c8441b.jpg",
+        "ggilZSAhHop_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_4.23_Journal.jpg"
+      },
+      "type": "gp-section-617185061275697857"
     }
   },
   "order": [
-    "gp_section_616328537539871539",
-    "gp_section_616328537540133683",
-    "gp_section_616328537540002611",
-    "gp_section_616328537540068147",
-    "gp_section_616328537539937075"
+    "gp_section_617185061275435713",
+    "gp_section_617185061275632321",
+    "gp_section_617185061275566785",
+    "gp_section_617185061275501249",
+    "gp_section_617185061275697857"
   ]
 }
