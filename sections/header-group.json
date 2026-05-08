@@ -14,30 +14,23 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "announcement_YVezxm": {
-          "type": "announcement",
-          "settings": {
-            "text": "<p>Mother's Day Sale: For a limited time, up to 40% off select Adult — <a href=\"https://shop.misha-and-puff.com/collections/mothers-day\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/collections/mothers-day\">SHOP NOW</a></p>"
-          }
-        },
         "announcement_dDUTp6": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
             "text": "<p>Mother’s Day Sale — up to 50% off this weekend only, including 20% off Spring collections. Details <a href=\"/pages/promo-terms\" target=\"_blank\" title=\"Promo Terms\">here</a>.</p>"
           }
         }
       },
       "block_order": [
-        "announcement_YVezxm",
         "announcement_dDUTp6"
       ],
+      "disabled": true,
       "settings": {
         "desktop_height": 32,
         "mobile_height": 40,
         "auto_rotate": false,
         "change_slides_speed": 5,
-        "color_scheme": "scheme-09269f6c-1195-4fc4-8c4c-34c5964f0f2f",
+        "color_scheme": "scheme-3",
         "show_line_separator": false,
         "show_social": false,
         "enable_country_selector": false,
