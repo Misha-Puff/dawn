@@ -13,6 +13,7 @@
       "type": "main-page",
       "disabled": true,
       "settings": {
+        "page_width": "narrow",
         "padding_top": 28,
         "padding_bottom": 28
       }
@@ -30,7 +31,7 @@
         "text_jM9GUT": {
           "type": "text",
           "settings": {
-            "text": "<p>Enjoy free shipping on all orders of $100 or more at misha-and-puff.com — automatically applied at checkout. Free shipping applies to <strong>standard shipping methods only</strong>. Promotion ends Sunday, December 14 at 11:59 PM ET.<br/><br/>Exclusions apply: all Sale, Markdown, and Limited styles are final sale and not eligible for return, exchange, or store credit. No adjustments to previous purchases. Misha & Puff reserves the right to modify or cancel this promotion at any time.<br/><br/>***</p><p>Please Note:<br/><em>Due to increased order volume and slower parcel carriers this time of year, shipments may take a bit longer than usual, and tracking can be less reliable. We appreciate your patience as our small team works to get your order to you as quickly as possible. You’ll receive an email confirmation once it ships, and for urgent needs, don’t hesitate to reach out — we’re here to help.</em></p><p><em>Broader holiday-season disruptions are beyond our control, so we cannot guarantee delivery by the holidays. Once your package is with the carrier, we cannot control its movement, and tracking updates may be delayed.<br/><br/></em></p>",
+            "text": "<p>To motherhood in all forms — this weekend only, enjoy up to 50% off past seasons, and 20% off Spring collections. Online and at our Brooklyn store. <br/> <br/>At our Newburyport store, explore a curated selection of past-season favorites at special prices, plus receive an extra 15% off your purchase from May 8–10.<br/> <br/>Plus, with any qualifying purchase online or at our stores, earn a voucher for future shopping*:    <br/>Spend $300, receive a $30 voucher<br/>Spend $1000, receive a $150 voucher<br/> <br/>Offer ends Sunday, May 10 at 11:59 PM ET. Prices as marked. All sales final.<br/><br/>***</p><p>Please Note:<br/>Promotion is valid through Sunday, May 10, 2026 at 11:59 PM ET, online and at our Brooklyn store, while supplies last. Exclusions apply. All Spring Collection items purchased with this promotion, as well as any Sale items, are final sale and not eligible for return, exchange, or store credit.<br/><br/>The Newburyport store promotion is separate and valid May 8–10, 2026 in-store only, while supplies last. Exclusions apply.<br/> <br/>Voucher promotion applies to eligible customers who make a qualifying purchase between May 8 and May 10, 2026. Customers must provide a valid email address at checkout to receive voucher confirmation and redemption instructions by June 1, 2026. Vouchers are valid online and at our Brooklyn store only, from June 1 through June 30, 2026 at 11:59 PM ET. Voucher is valid for one-time use per customer, up to $150, and may not be applied toward Sample Sale purchases, gift cards, cash, or purchases at our Newburyport store.<br/> <br/>During sales and promotions, order fulfillment and shipping timelines may experience a delay due to high volume. Misha & Puff reserves the right to modify or cancel this promotion at any time.<em><br/><br/></em></p>",
             "line_height": 22
           }
         },
