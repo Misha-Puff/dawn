@@ -29,7 +29,7 @@
     },
     "gp_section_565435366572819441": {
       "settings": {
-        "checksum": "2beb94c9c2d4c1f5ce9dc798600872c07757ab81f7960d42ddfa277fb0798043_1_1_1_0__1",
+        "checksum": "2dcff89d9fed10e286361abc8eb64b21d08b611b85271fdd5e4d5bdd5cc9f451_1_1_1_0__1",
         "gg9-Kh1-Dxa_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_Site_Custom_4.6.26_Child.jpg",
         "gg9-Kh1-Dxa_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_Site_Custom_4.6.26_Child.jpg",
         "gg9-Kh1-Dxa_srcSet_tablet_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_Site_Custom_4.6.26_Child.jpg",
@@ -80,13 +80,13 @@
     },
     "gp_section_605468970094429082": {
       "settings": {
-        "checksum": "5bfb428a0f43625cc565f4fbd7edd1381c3c91e9b0c1ab8945fe60ce5f6a8ee3_1_1_1_0__1",
-        "gg7pvlkGGCJ_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_4.22_Child_1.jpg",
-        "gg7pvlkGGCJ_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_4.22_Child_1.jpg",
-        "gg7pvlkGGCJ_background_tablet_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_4.22_Child_1.jpg",
-        "ggPDQki8Uby_label": "<p>SHOP NOW</p>",
-        "gggIVZzXfNH_text": "<p>SUMMER COLLECTION</p>",
-        "gguhqcH8rYX_text": "<p><span style=\"font-size:11px;\"><strong>PART 1</strong></span></p>",
+        "checksum": "2d930a0482425df0d8656d468c5b3d13c80feb2462159bbdc8b536f083dc652d_1_1_1_0__1",
+        "gg7pvlkGGCJ_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_5.11_Child_2.jpg",
+        "gg7pvlkGGCJ_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_5.11_Child_2.jpg",
+        "gg7pvlkGGCJ_background_tablet_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_5.11_Child_2.jpg",
+        "ggPDQki8Uby_label": "<p>PREVIEW COLLECTION</p>",
+        "gggIVZzXfNH_text": "<p>SUMMER COLLECTION, PART 2</p>",
+        "gguhqcH8rYX_text": "<p><span style=\"font-size:11px;\"><strong>LAUNCHING MAY 14</strong></span></p>",
         "section_preload": "true"
       },
       "type": "gp-section-605468970094429082"
