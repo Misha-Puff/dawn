@@ -100,6 +100,16 @@
             {%- assign rendered = rendered | plus: 1 -%}
             {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: product -%}{%- endcapture -%}
             {%- assign lock_content = lock_content | strip -%}
+            {%- assign preview_badge = '' -%}
+            {%- if lock_content == 'true' -%}
+              {%- unless product.tags contains 'Badge-Coming Soon' -%}
+                {%- assign preview_badge = 'Coming Soon' -%}
+              {%- endunless -%}
+            {%- else -%}
+              {%- unless product.tags contains 'Badge-Early Access' -%}
+                {%- assign preview_badge = 'Early Access' -%}
+              {%- endunless -%}
+            {%- endif -%}
             {%- assign lazy_load = false -%}
             {%- if rendered > 2 -%}{%- assign lazy_load = true -%}{%- endif -%}
             <li
@@ -116,7 +126,8 @@
                   image_shape: section.settings.image_shape,
                   show_secondary_image: section.settings.show_secondary_image,
                   lazy_load: lazy_load,
-                  skip_styles: skip_card_product_styles
+                  skip_styles: skip_card_product_styles,
+                  preview_badge: preview_badge
                 %}
               {% else %}
                 {% render 'card-product',
@@ -129,7 +140,8 @@
                   lazy_load: lazy_load,
                   skip_styles: skip_card_product_styles,
                   quick_add: section.settings.quick_add,
-                  section_id: section.id
+                  section_id: section.id,
+                  preview_badge: preview_badge
                 %}
               {% endif %}
             </li>

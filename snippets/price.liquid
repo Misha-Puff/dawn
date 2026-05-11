@@ -8,6 +8,7 @@
   - show_badges: {Boolean} Renders 'Sale' and 'Sold Out' tags if the product matches the condition (optional)
   - price_class: {String} Adds a price class to the price element (optional)
   - show_compare_at_price: {Boolean} Renders the compare at price if the product matches the condition (optional)
+  - preview_badge: {String} Optional badge label rendered alongside other badges (e.g. "Coming Soon", "Early Access"). Requires show_badges (optional)
 
   Usage:
   {% render 'price', product: product %}
@@ -120,6 +121,11 @@
       {%- endif -%}
     </div>
     {%- if show_badges -%}
+      {% if preview_badge != blank %}
+        <span class="badge price__badge-coming-soon color-{{ settings.coming_soon_badge_color_scheme }}">
+          {{ preview_badge }}
+        </span>
+      {% endif %}
       {% if tags_str contains 'Badge-' %}
         {% assign custom_tags = '' | split: '😉' %}
 

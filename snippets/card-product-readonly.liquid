@@ -8,6 +8,7 @@
   @param {boolean} [show_secondary_image] - Show secondary image on hover
   @param {boolean} [lazy_load] - Lazy load images (default: true)
   @param {boolean} [skip_styles] - Skip component styles
+  @param {string} [preview_badge] - Optional badge label rendered alongside other badges (e.g. "Coming Soon", "Early Access")
 
   @example
   {% render 'card-product-readonly', card_product: product, media_aspect_ratio: 'adapt' %}
@@ -112,6 +113,11 @@
                 assign coming_soon = true
               endif
             -%}
+            {%- if preview_badge != blank -%}
+              <span class="badge badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}">
+                {{ preview_badge }}
+              </span>
+            {%- endif -%}
             {% if tags_str contains 'Badge-' %}
               {% assign custom_tags = '' | split: '😉' %}
               {% for tag in card_product.tags %}
@@ -161,6 +167,11 @@
               assign coming_soon = true
             endif
           -%}
+          {%- if preview_badge != blank -%}
+            <span class="badge badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}">
+              {{ preview_badge }}
+            </span>
+          {%- endif -%}
           {% if tags_str contains 'Badge-' %}
             {% assign custom_tags = '' | split: '😉' %}
             {% for tag in card_product.tags %}

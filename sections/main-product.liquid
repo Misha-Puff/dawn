@@ -156,6 +156,21 @@
 
   {% assign tags_str = product.tags | join: ',' %}
 
+  {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: product -%}{%- endcapture -%}
+  {%- assign lock_content = lock_content | strip -%}
+  {%- assign preview_badge = '' -%}
+  {%- if product.tags contains 'preview-product' or product.tags contains 'supervip-product' or product.tags contains 'vip-product' -%}
+    {%- if lock_content == 'true' -%}
+      {%- unless tags_str contains 'Badge-Coming Soon' -%}
+        {%- assign preview_badge = 'Coming Soon' -%}
+      {%- endunless -%}
+    {%- else -%}
+      {%- unless tags_str contains 'Badge-Early Access' -%}
+        {%- assign preview_badge = 'Early Access' -%}
+      {%- endunless -%}
+    {%- endif -%}
+  {%- endif -%}
+
   <div class="page-width">
     {% render 'breadcrumbs' %}
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
@@ -194,7 +209,7 @@
                 </div>
               {%- when 'price' -%}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
-                  {%- render 'price', product: product, use_variant: true, show_badges: true -%}
+                  {%- render 'price', product: product, use_variant: true, show_badges: true, preview_badge: preview_badge -%}
                 </div>
                 {%- if product.quantity_price_breaks_configured? -%}
                   <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">

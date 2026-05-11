@@ -8,6 +8,12 @@
 %}
 
 <div class="card__badge {{ settings.badge_position }}">
+  {%- if preview_badge != blank -%}
+    <span class="badge badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}">
+      {{ preview_badge }}
+    </span>
+  {%- endif -%}
+
   {% if tags_str contains 'Badge-' %}
     {% assign custom_tags = '' | split: '😉' %}
 
