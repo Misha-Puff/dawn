@@ -258,6 +258,11 @@
         "type": "shopify://apps/gorgias-live-chat-helpdesk/blocks/gorgias/a66db725-7b96-4e3f-916e-6c8e6f87aaaa",
         "disabled": false,
         "settings": {}
+      },
+      "9216205709425313739": {
+        "type": "shopify://apps/category-collection-sort-kx/blocks/kimonix-merch-utils/019d29cf-e108-7d99-ad0d-3da0f2b408e1",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
