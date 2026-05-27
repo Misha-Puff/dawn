@@ -304,22 +304,7 @@
     {% render 'shogun-head' %}
     {% render 'schemas' %}
 
-    {%- comment -%} kimonix_markets_start {%- endcomment -%}
-    {% assign collection_handle_to_redirect_to = collection.metafields.kimonix.market_to_collection_handle.value[localization.market.handle] %}
-    {% if collection_handle_to_redirect_to %}
-      <script>
-        window.location.replace(
-          '{{ collection_handle_to_redirect_to }}' + window.location.search + window.location.hash
-        );
-      </script>
-    {% endif %}
-
-    <script>
-      if (location.href.includes('-kmnx-mrkt-')) {
-        history.replaceState('', '', document.referrer);
-      }
-    </script>
-    {%- comment -%} kimonix_markets_end {%- endcomment -%}
+    
   
 
 </head>
