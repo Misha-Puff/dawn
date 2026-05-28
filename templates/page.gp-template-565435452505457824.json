@@ -23,12 +23,13 @@
     },
     "gp_section_565435452589409440": {
       "settings": {
-        "checksum": "0ce3c4dfdfb41e76cd6e36733c4be48bc268bae887c6f08a1bff1033d1b08539_1_1_1_0__1",
+        "checksum": "0c2dee52a61c51f2c396461c1f467a0dbf71622f4c2e92b9457e1e08f0092327_1_1_1_0__1",
         "gg1Ve0XA89y_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_5.11_Adult_Knits.jpg",
         "gg1Ve0XA89y_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_5.11_Adult_Knits.jpg",
-        "ggIGELazyYT_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_4.23_Adult_New.jpg",
-        "ggIGELazyYT_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_4.23_Adult_New.jpg",
-        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-new\">JUST IN</a></p>",
+        "ggIGELazyYT_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_5.13_Adult_block.jpg",
+        "ggIGELazyYT_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_5.13_Adult_block.jpg",
+        "ggIGELazyYT_srcSet_tablet_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_5.13_Adult_block.jpg",
+        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/mixed-kindred-silhouettes\">KINDRED STYLES</a></p>",
         "ggsTJ7CdiHi_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-knits\">EXPLORE ALL KNITWEAR</a></p>",
         "section_preload": "true"
       },
@@ -66,10 +67,10 @@
     },
     "gp_section_611214031427994411": {
       "settings": {
-        "checksum": "192174f81ebd2ddf427336bd0ef9a4fd673d41eb2c572566c8d06a2a7ef937cc_1_1_1_0__1",
+        "checksum": "6f3189cad71b70a4e2c5478e6b646a4c4b156cead88864f5a1189ea1e8fe9a7d_1_1_1_0__1",
         "gg-ZfgEyhaM_text": "<p>ADULT SPRING/SUMMER</p>",
-        "ggg8FkLUN8T_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_4.23_Adult_2.jpg",
-        "ggg8FkLUN8T_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_4.23_Adult_2.jpg",
+        "ggg8FkLUN8T_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_5.13_Adult_leader.jpg",
+        "ggg8FkLUN8T_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_5.13_Adult_mobil.jpg",
         "ggrPziWmJ-o_label": "<p>SHOP NOW</p>",
         "ggwX19UUGXp_text": "<p><span style=\"font-size:11px;\">NEW ARRIVALS</span></p>",
         "section_preload": "true"
