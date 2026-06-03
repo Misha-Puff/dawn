@@ -24,7 +24,7 @@
           "type": "custom_liquid",
           "name": "D&T Info",
           "settings": {
-            "custom_liquid": "{% unless localization.country.iso_code == 'US' %}\n  <div>\n  {% case localization.country.iso_code %}\n  {% when 'JP', 'AU', 'GB', 'DE' %}\n  Duties &amp; taxes not included and may be collected upon delivery.\n  {% else %}\n  Duties &amp; taxes included.\n  {% endcase %}\n  </div>\n  {% endunless %}",
+            "custom_liquid": "{% unless localization.country.iso_code == 'US' %}\n  <div>\n  {% case localization.country.iso_code %}\n  {% when 'JP', 'AU', 'GB', 'DE' %}\n  Duties &amp; taxes not included.\n  {% else %}\n  Duties &amp; taxes included.\n  {% endcase %}\n  </div>\n  {% endunless %}",
             "padding_top": 0,
             "padding_bottom": 0,
             "font_size": 0,
