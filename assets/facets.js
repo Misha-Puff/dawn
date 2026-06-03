@@ -267,7 +267,27 @@ class FacetFiltersForm extends HTMLElement {
       this.onSubmitForm(searchParams, event);
     } else {
       const forms = [];
-      const isMobile = event.target.closest('form').id === 'FacetFiltersFormMobile';
+      const changedForm = event.target.closest('form');
+      const isMobile = changedForm.id === 'FacetFiltersFormMobile';
+
+      // Drawer filter layout has no desktop FacetFiltersForm — every active
+      // filter lives in the drawer (FacetFiltersFormMobile). When the desktop
+      // sort (FacetSortDrawerForm) changes, the default !isMobile branch below
+      // would submit sort_by only and wipe those filters. Read the live filter
+      // state from the drawer form (kept in sync by renderFilters) and override
+      // its sort_by with the value just chosen on desktop. Using set() collapses
+      // the not-yet-synced mobile sort_by so it can't duplicate or override the
+      // desktop selection.
+      if (changedForm.id === 'FacetSortDrawerForm' && !document.getElementById('FacetFiltersForm')) {
+        const mobileForm = document.getElementById('FacetFiltersFormMobile');
+        if (mobileForm) {
+          const params = new URLSearchParams(this.createSearchParams(mobileForm));
+          const sortValue = new FormData(changedForm).get('sort_by');
+          if (sortValue) params.set('sort_by', sortValue);
+          this.onSubmitForm(params.toString(), event);
+          return;
+        }
+      }
 
       sortFilterForms.forEach((form) => {
         if (!isMobile) {
