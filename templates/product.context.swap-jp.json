@@ -12,5 +12,16 @@
     "market": "swap-jp"
   },
   "parent": "product.json",
-  "sections": {}
+  "sections": {
+    "main": {
+      "settings": {},
+      "blocks": {
+        "custom_liquid_7DkrmT": {
+          "settings": {
+            "custom_liquid": "{% unless localization.country.iso_code == 'US' %}\n  <div>\n  {% case localization.country.iso_code %}\n  {% when 'JP', 'AU', 'GB', 'DE' %}\n  Duties &amp; taxes not included and may be collected upon delivery.\n  {% else %}\n  Duty &amp; Tax Inclusive <br />\n  Taxes Included.\n  {% endcase %}\n  </div>\n  {% endunless %}"
+          }
+        }
+      }
+    }
+  }
 }
