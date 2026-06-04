@@ -11,9 +11,6 @@
   "markets": {
     "hk": {
       "parent": "@default"
-    },
-    "swap-jp": {
-      "parent": "@default"
     }
   }
 }
