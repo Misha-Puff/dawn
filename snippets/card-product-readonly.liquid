@@ -9,6 +9,7 @@
   @param {boolean} [lazy_load] - Lazy load images (default: true)
   @param {boolean} [skip_styles] - Skip component styles
   @param {string} [preview_badge] - Optional badge label rendered alongside other badges (e.g. "Coming Soon", "Early Access")
+  @param {boolean} [hide_sold_out_badge] - Suppress the "Sold out" badge (default: false)
 
   @example
   {% render 'card-product-readonly', card_product: product, media_aspect_ratio: 'adapt' %}
@@ -135,9 +136,11 @@
               {% endif %}
             {% endif %}
             {% if card_product.available == false and coming_soon == false %}
-              <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">
-                {{- 'products.product.sold_out' | t -}}
-              </span>
+              {%- unless hide_sold_out_badge -%}
+                <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">
+                  {{- 'products.product.sold_out' | t -}}
+                </span>
+              {%- endunless -%}
             {% elsif card_product.compare_at_price > card_product.price %}
               <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">
                 {{- 'products.product.on_sale' | t -}}
@@ -189,9 +192,11 @@
             {% endif %}
           {% endif %}
           {% if card_product.available == false and coming_soon == false %}
-            <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">
-              {{- 'products.product.sold_out' | t -}}
-            </span>
+            {%- unless hide_sold_out_badge -%}
+              <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">
+                {{- 'products.product.sold_out' | t -}}
+              </span>
+            {%- endunless -%}
           {% elsif card_product.compare_at_price > card_product.price %}
             <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">
               {{- 'products.product.on_sale' | t -}}

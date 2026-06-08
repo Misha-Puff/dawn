@@ -17,6 +17,7 @@
   - horizontal_quick_add: {Boolean} Changes the quick add button styles when set to true. Default: false (optional)
   - placeholder_image: {String} The placeholder image to use when no product exists. Default: 'product-apparel-2' (optional)
   - preview_badge: {String} Optional badge label rendered alongside other badges (e.g. "Coming Soon", "Early Access"). Default: blank (optional)
+  - hide_sold_out_badge: {Boolean} Suppress the "Sold out" badge. Default: false (optional)
 
   Usage:
   {% render 'card-product', show_vendor: section.settings.show_vendor %}
@@ -434,7 +435,7 @@
                 </a>
               </h3>
             </div>
-            {% render 'card-product-badges', card_product: card_product, preview_badge: preview_badge %}
+            {% render 'card-product-badges', card_product: card_product, preview_badge: preview_badge, hide_sold_out_badge: hide_sold_out_badge %}
           </div>
         {% endunless %}
       </div>
@@ -601,7 +602,7 @@
               {%- endif -%}
             </div>
           </div>
-          {% render 'card-product-badges', card_product: card_product, preview_badge: preview_badge %}
+          {% render 'card-product-badges', card_product: card_product, preview_badge: preview_badge, hide_sold_out_badge: hide_sold_out_badge %}
         </div>
       {% endunless %}
     </div>
