@@ -23,14 +23,14 @@
     },
     "gp_section_565435452589409440": {
       "settings": {
-        "checksum": "077a5692ee9db6e9eed23be244356433984b87f3065c8e59f953407bfd38c012_1_1_1_0__1",
-        "gg1Ve0XA89y_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_5.11_Adult_Knits.jpg",
-        "gg1Ve0XA89y_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_5.11_Adult_Knits.jpg",
-        "ggIGELazyYT_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.8_adult2_b519d10d-1b2c-4762-acb2-868157098ccd.jpg",
-        "ggIGELazyYT_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_5.13_Adult_block.jpg",
-        "ggIGELazyYT_srcSet_tablet_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_5.13_Adult_block.jpg",
-        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/mixed-kindred-silhouettes\">KINDRED STYLES</a></p>",
-        "ggsTJ7CdiHi_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-knits\">EXPLORE ALL KNITWEAR</a></p>",
+        "checksum": "d777f2f889feb81973c89d73adeeed103f8c2f14e1df6d0ba4ea2f080b14bf30_1_1_1_0__1",
+        "gg1Ve0XA89y_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_A4.jpg",
+        "gg1Ve0XA89y_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_A4.jpg",
+        "ggIGELazyYT_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_A3.jpg",
+        "ggIGELazyYT_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_A3.jpg",
+        "ggIGELazyYT_srcSet_tablet_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_A3.jpg",
+        "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-pima-cotton\">LOUNGEABLE LAYERS</a></p>",
+        "ggsTJ7CdiHi_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/mixed-kindred-silhouettes\">KINDRED SILHOUETTES</a></p>",
         "section_preload": "true"
       },
       "type": "gp-section-565435452589409440"
@@ -67,10 +67,11 @@
     },
     "gp_section_611214031427994411": {
       "settings": {
-        "checksum": "8ba56a1b251da95cdf5a7a6affafaf4d01de2ef0cdb7686ae75a5e8ec0d2d28d_1_1_1_0__1",
+        "checksum": "d453a2fe7b8ade640415dc1db42355bf2dc52a13c4c6c33d9279e3980de9a9cc_1_1_1_0__1",
         "gg-ZfgEyhaM_text": "<p>ADULT SPRING/SUMMER</p>",
-        "ggg8FkLUN8T_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_LEADER_6.8_adult.jpg",
-        "ggg8FkLUN8T_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_5.13_Adult_mobil.jpg",
+        "ggg8FkLUN8T_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_LEADER_6.11_ADULT.jpg",
+        "ggg8FkLUN8T_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_AH1_45f51a8a-63fd-4dac-ba46-8380c1b1f759.jpg",
+        "ggg8FkLUN8T_background_tablet_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_LEADER_6.11_ADULT_c8a7c85d-b8fb-4a3d-a4a0-cc38fc564d24.jpg",
         "ggrPziWmJ-o_label": "<p>SHOP NOW</p>",
         "ggwX19UUGXp_text": "<p><span style=\"font-size:11px;\">NEW ARRIVALS</span></p>",
         "section_preload": "true"
