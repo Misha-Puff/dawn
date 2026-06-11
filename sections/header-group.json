@@ -57,7 +57,7 @@
         "menu_type_desktop": "mega",
         "sticky_header_type": "always",
         "show_line_separator": false,
-        "transparency_enabled_paths": "/,/pages/child,/pages/baby,/pages/adult,/pages/test-1",
+        "transparency_enabled_paths": "/,/pages/child,/pages/baby,/pages/adult,/pages/test-1,/pages/test-2",
         "color_scheme": "scheme-1",
         "menu_color_scheme": "",
         "enable_country_selector": false,
