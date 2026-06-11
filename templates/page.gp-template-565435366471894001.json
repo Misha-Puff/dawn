@@ -29,15 +29,15 @@
     },
     "gp_section_565435366572819441": {
       "settings": {
-        "checksum": "db8b755c65fa4da1016b365519541006b01781e92e363b32afc4cffa55b88d26_1_1_1_0__1",
-        "gg9-Kh1-Dxa_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.8_sabah.jpg",
-        "gg9-Kh1-Dxa_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.8_sabah.jpg",
-        "gg9-Kh1-Dxa_srcSet_tablet_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.8_sabah.jpg",
-        "ggHpeVtcFoA_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.8_kids1.jpg",
-        "ggHpeVtcFoA_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.8_kids1.jpg",
-        "ggHpeVtcFoA_srcSet_tablet_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.8_kids1.jpg",
-        "ggSHGb3d4tQ_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-baby-knits\">SUMMER KNITS</a></p>",
-        "ggb8GVRg5np_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/sabah-x-misha-puff\">MISHA &amp; PUFF x SABAH</a></p>",
+        "checksum": "f7121bd7b39057884d4e30189cf47c348f27c10dc3df6f98181103798e94122c_1_1_1_0__1",
+        "gg9-Kh1-Dxa_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_C2.jpg",
+        "gg9-Kh1-Dxa_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_C2.jpg",
+        "gg9-Kh1-Dxa_srcSet_tablet_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_C2.jpg",
+        "ggHpeVtcFoA_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_C1.jpg",
+        "ggHpeVtcFoA_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_C1.jpg",
+        "ggHpeVtcFoA_srcSet_tablet_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_C1.jpg",
+        "ggSHGb3d4tQ_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-summer\">THE SUMMER COLLECTION</a></p>",
+        "ggb8GVRg5np_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-accessories\">ACCESSORIES</a></p>",
         "section_preload": "true"
       },
       "type": "gp-section-565435366572819441"
@@ -80,12 +80,12 @@
     },
     "gp_section_605468970094429082": {
       "settings": {
-        "checksum": "9ededbc0775761a883939e26ba61772282c125645e53fb54e0f0559e6273c93f_1_1_1_0__1",
-        "gg7pvlkGGCJ_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_LEADER_6.8_child_42d8c32b-3761-4f90-bca5-8a54e44ba659.jpg",
-        "gg7pvlkGGCJ_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_LEADER_6.8_child1_9fe59dde-9a0c-4161-9952-e8a4d0076cac.jpg",
-        "gg7pvlkGGCJ_background_tablet_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_LEADER_6.8_child_42d8c32b-3761-4f90-bca5-8a54e44ba659.jpg",
-        "ggPDQki8Uby_label": "<p>PREVIEW COLLECTION</p>",
-        "ggRh_R90XMs_text": "<p><span style=\"font-size:11px;\">LAUNCHING JUNE 11TH</span></p>",
+        "checksum": "014bb4992306af8a867b00fa65dcdb4d1f17bf38ba707293a48b7633c1c11177_1_1_1_0__1",
+        "gg7pvlkGGCJ_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_LEADER_6.11_CHILD1.jpg",
+        "gg7pvlkGGCJ_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_HC.jpg",
+        "gg7pvlkGGCJ_background_tablet_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_LEADER_6.11_CHILD1.jpg",
+        "ggPDQki8Uby_label": "<p>SHOP COLLECTION</p>",
+        "ggRh_R90XMs_text": "<p><span style=\"font-size:11px;\">NEW ARRIVALS</span></p>",
         "gggIVZzXfNH_text": "<p>SUMMER COLLECTION, PART 3</p>",
         "section_preload": "true"
       },
