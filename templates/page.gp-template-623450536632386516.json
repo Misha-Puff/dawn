@@ -1,0 +1,116 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_623451012249682900": {
+      "settings": {
+        "checksum": "96aed615a710481cb2e48fb25d392f88fc95a0bfe5c650ad9ae8356b432daad4_1_1_1_0__1",
+        "ggHUtj2Dofo_text": "SUMMER ARRIVALS",
+        "ggdWrN2HrKd_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Test_1.jpg",
+        "ggiXQf7uBEZ_text": "<p>SHOP NOW</p>",
+        "section_preload": "true"
+      },
+      "type": "gp-section-623451012249682900"
+    },
+    "gp_section_623451012283237192": {
+      "settings": {
+        "checksum": "ed9cf326fbc4e9938708c46138bc691cda7bb37c3c86756708ea7963a3dada02_1_1_1_0__1",
+        "ggZviEZQGXu_label": "<p>SHOP COLLECTION</p>",
+        "gguTQsw1j9X_srcSet_desktop_src": "https://ucarecdn.com/ee6d5074-1640-4cc7-8933-47c8589c3dee/-/format/auto/",
+        "giOlIYexhauRq_text": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.</p>",
+        "goZGTqJCJsXnJ_text": "STORYTELLING AREA",
+        "gyFcAUXMDcJbS_srcSet_desktop_src": "https://ucarecdn.com/ee6d5074-1640-4cc7-8933-47c8589c3dee/-/format/auto/"
+      },
+      "type": "gp-section-623451012283237192"
+    },
+    "gp_section_623451012283237332": {
+      "settings": {
+        "checksum": "ea25e861ea02c8d3f49ee8a11c0e3ff5c6e7496db35385eb7cf791caf9d80baf_1_1_1_0__1",
+        "gg7P4nz2fQ4_text": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit.&nbsp;</p>",
+        "ggIlN9tO_k9_srcSet_desktop_src": "https://ucarecdn.com/ee6d5074-1640-4cc7-8933-47c8589c3dee/-/format/auto/",
+        "ggpzo_1j63w_label": "<p>READ MORE</p>",
+        "ggyGriJ0zug_text": "STORY 3"
+      },
+      "type": "gp-section-623451012283237332"
+    },
+    "gp_section_623451032382407496": {
+      "settings": {
+        "checksum": "3adecef509e86eb112ec0ae45786a18f78e825a766d06dfa259cab253b6319fc_1_1_1_0__1",
+        "ggML3UllW8m_text": "<p><span style=\"font-size:11px;\">UPCOMING EVENT: SAMPLE SALE</span></p>",
+        "gxKeKUgwYBqme_srcSet_desktop_src": "https://ucarecdn.com/ee6d5074-1640-4cc7-8933-47c8589c3dee/-/format/auto/"
+      },
+      "type": "gp-section-623451032382407496"
+    },
+    "gp_section_623470204076163830": {
+      "settings": {
+        "checksum": "e66dc8820441b775659985366b53b914a7e1175e67265ff44e87e269d46974e4_1_1_1_0__1",
+        "ggV6oxQFASv_text": "STORY 2",
+        "ggaC2q2vSH7_srcSet_desktop_src": "https://ucarecdn.com/ee6d5074-1640-4cc7-8933-47c8589c3dee/-/format/auto/",
+        "gggo-6mgBek_label": "<p>ADULT COLLECTION</p>",
+        "ggioJBROS3k_text": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex.&nbsp;</p>"
+      },
+      "type": "gp-section-623470204076163830"
+    },
+    "gp_section_623480718055441364": {
+      "settings": {
+        "checksum": "b6ffe0b69e9b5be092c6036ed242d52dad6e03015155b18274d33a0718f0f2b0_1_1_1_0__1",
+        "ggTJbWA4rNl_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Test_6.jpg",
+        "ggTJbWA4rNl_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_Test_2.jpg"
+      },
+      "type": "gp-section-623480718055441364"
+    },
+    "gp_section_623487852180669256": {
+      "settings": {
+        "checksum": "8c3093b413153dedf2a3cabad2447895d0577e69be4b1a69e28b92eff05b9aec_1_1_1_0__1",
+        "ggr8yxxOCwS_text": "NEW ARRIVALS"
+      },
+      "type": "gp-section-623487852180669256"
+    },
+    "gp_section_623489014388753224": {
+      "settings": {
+        "checksum": "a9567aff0d46c2500de442a0b4343dac814b32b570b8f7d74b795bcde26ba6a3_1_1_1_0__1",
+        "ggHI9W8INKy_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Test_8.jpg",
+        "gg_CqOo3Rui_label": "<p>BABY COLLECTION</p>"
+      },
+      "type": "gp-section-623489014388753224"
+    },
+    "gp_section_623538246944555550": {
+      "settings": {
+        "checksum": "6eae27d0ab4593ca7c6e6389bcacbbd1189e734afd527334fc83e21f83da8795_1_1_1_0__1",
+        "ggGXKZPj1zU_srcSet_desktop_src": "https://ucarecdn.com/ee6d5074-1640-4cc7-8933-47c8589c3dee/-/format/auto/",
+        "ggnQY0HdRHf_text": "<p><span style=\"font-size:11px;\">WEARING MISHA &amp; PUFF</span></p>"
+      },
+      "type": "gp-section-623538246944555550"
+    },
+    "gp_section_623539005845144392": {
+      "settings": {
+        "checksum": "6fe8a78fd60098793590e8af94f3480d61947210e14181aefb959e81eebe0b90_1_1_1_0__1",
+        "gg8VtfLm_P3_srcSet_desktop_src": "https://ucarecdn.com/ee6d5074-1640-4cc7-8933-47c8589c3dee/-/format/auto/",
+        "ggDE79CjZXL_text": "<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.</p>",
+        "ggKA0wn6LLE_label": "<p>SHOP COLLECTION</p>",
+        "ggkIp6AyiJ9_text": "STORYTELLING AREA",
+        "ggtLKGecoNz_srcSet_desktop_src": "https://ucarecdn.com/ee6d5074-1640-4cc7-8933-47c8589c3dee/-/format/auto/"
+      },
+      "type": "gp-section-623539005845144392"
+    }
+  },
+  "order": [
+    "gp_section_623451012249682900",
+    "gp_section_623451012283237192",
+    "gp_section_623470204076163830",
+    "gp_section_623489014388753224",
+    "gp_section_623538246944555550",
+    "gp_section_623487852180669256",
+    "gp_section_623451012283237332",
+    "gp_section_623539005845144392",
+    "gp_section_623451032382407496",
+    "gp_section_623480718055441364"
+  ]
+}
