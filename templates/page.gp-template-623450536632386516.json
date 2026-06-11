@@ -99,14 +99,6 @@
         "ggtLKGecoNz_srcSet_desktop_src": "https://ucarecdn.com/ee6d5074-1640-4cc7-8933-47c8589c3dee/-/format/auto/"
       },
       "type": "gp-section-623539005845144392"
-    },
-    "gp_section_623544864633520968": {
-      "settings": {
-        "checksum": "997749c996fb0a98439b262988c7a7945ad7a400f546a3383bbfcc7b65c0b198_1_1_1_0__1",
-        "ggDsLnczBVf_vimeoUrl": "https://vimeo.com/969257580?share=copy&fl=sv&fe=ci",
-        "ggDsLnczBVf_youtubeUrl": "https://www.youtube.com/watch?v=NfASaHFN1zg"
-      },
-      "type": "gp-section-623544864633520968"
     }
   },
   "order": [
@@ -119,7 +111,6 @@
     "gp_section_623451012283237332",
     "gp_section_623539005845144392",
     "gp_section_623451032382407496",
-    "gp_section_623544864633520968",
     "gp_section_623480718055441364"
   ]
 }
