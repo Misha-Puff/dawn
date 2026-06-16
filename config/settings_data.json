@@ -165,11 +165,6 @@
         "disabled": false,
         "settings": {}
       },
-      "13650390699542216616": {
-        "type": "shopify://apps/accessibility-spark-ada-wcag/blocks/widget/36895fac-ec38-47a0-807c-7397daa6ec4e",
-        "disabled": false,
-        "settings": {}
-      },
       "14060646107696862457": {
         "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
@@ -262,6 +257,11 @@
       "9216205709425313739": {
         "type": "shopify://apps/category-collection-sort-kx/blocks/kimonix-merch-utils/019d29cf-e108-7d99-ad0d-3da0f2b408e1",
         "disabled": true,
+        "settings": {}
+      },
+      "13650390699542216616": {
+        "type": "shopify://apps/accessibility-spark-ada-wcag/blocks/widget/36895fac-ec38-47a0-807c-7397daa6ec4e",
+        "disabled": false,
         "settings": {}
       }
     },
