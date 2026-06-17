@@ -30,6 +30,7 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
@@ -42,12 +43,13 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Cerulean",
+            "heading": "Private Sale: Early Access",
             "heading_size": "h2"
           }
         },
         "text_PGqAmF": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>A true star of the Fall Collection — Cerulean. A vibrant blue, dyed to a rich, saturated finish. A playful hue that brightens every style.</p>",
             "line_height": 24
@@ -74,28 +76,47 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
-        "padding_bottom": 40,
-        "padding_left": 100,
-        "padding_right": 100
+        "padding_top": 60,
+        "padding_bottom": 36,
+        "padding_left": 0,
+        "padding_right": 0
       }
     },
     "buttons_Mn3bJP": {
       "type": "buttons",
       "blocks": {
+        "button_NqTP7D": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP CHILD STYLES",
+            "open_new_tab": false,
+            "link": "",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
         "button_XaxzBy": {
           "type": "button",
           "settings": {
-            "label": "",
+            "label": "SHOP BABY STYLES",
             "open_new_tab": false,
             "link": "",
-            "type": "primary",
+            "type": "secondary",
+            "on_click": ""
+          }
+        },
+        "button_CUBDVC": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP ADULT STYLES",
+            "open_new_tab": false,
+            "link": "",
+            "type": "secondary",
             "on_click": ""
           }
         },
@@ -108,34 +129,24 @@
             "type": "primary",
             "on_click": ""
           }
-        },
-        "button_NGpAit": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
         }
       },
       "block_order": [
+        "button_NqTP7D",
         "button_XaxzBy",
-        "button_C99g3E",
-        "button_NGpAit"
+        "button_CUBDVC",
+        "button_C99g3E"
       ],
-      "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
         "button_gap": 10,
         "heading_size": "h1",
         "color_scheme": "",
-        "desktop_padding_top": 30,
-        "desktop_padding_bottom": 30,
-        "mobile_padding_top": 30,
-        "mobile_padding_bottom": 30
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 48,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 38
       }
     },
     "product-grid": {
