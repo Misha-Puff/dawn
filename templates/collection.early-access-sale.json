@@ -95,7 +95,7 @@
           "settings": {
             "label": "SHOP CHILD STYLES",
             "open_new_tab": false,
-            "link": "",
+            "link": "https://shop.misha-and-puff.com/collections/private-sale-early-access?filter.v.availability=1&filter.p.m.taxonomy.division=Child&sort_by=best-selling",
             "type": "secondary",
             "on_click": ""
           }
@@ -105,7 +105,7 @@
           "settings": {
             "label": "SHOP BABY STYLES",
             "open_new_tab": false,
-            "link": "",
+            "link": "https://shop.misha-and-puff.com/collections/private-sale-early-access?filter.v.availability=1&filter.p.m.taxonomy.division=Baby&sort_by=best-selling",
             "type": "secondary",
             "on_click": ""
           }
@@ -119,23 +119,12 @@
             "type": "secondary",
             "on_click": ""
           }
-        },
-        "button_C99g3E": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
         }
       },
       "block_order": [
         "button_NqTP7D",
         "button_XaxzBy",
-        "button_CUBDVC",
-        "button_C99g3E"
+        "button_CUBDVC"
       ],
       "name": "Buttons",
       "settings": {
