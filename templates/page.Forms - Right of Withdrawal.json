@@ -59,15 +59,15 @@
           "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
           "settings": {
             "form_id": "1037469",
-            "text_color": "#202020",
-            "button_background_color": "#202020",
+            "text_color": "#101820",
+            "button_background_color": "#101820",
             "button_label_color": "#ffffff",
             "links_color": "#1878b9",
             "errors_color": "#e02229",
             "text_alignment": "center",
             "form_alignment": "center",
             "padding_top": 0,
-            "padding_bottom": 24,
+            "padding_bottom": 38,
             "padding_right": 0,
             "padding_left": 0
           }
@@ -86,8 +86,8 @@
         "text_xMyVHa": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Finding your order number:</strong> it's in your order confirmation email (e.g. #1234).<br/><br/><strong>Partial withdrawal:</strong> to withdraw from only some items, list them in the form; leave it blank to withdraw from the whole order.<br/><br/><strong>Exemptions:</strong> some products — for example made-to-order or personalized items — may not be eligible for withdrawal under EU law. We'll let you know if that applies to your order.<br/><br/><strong>What happens next:</strong> the confirmation email acknowledges that we've <em>received</em> your request. Eligibility and scope are reviewed separately by our team.</p>",
-            "line_height": 20
+            "text": "<p><strong>FINDING YOUR ORDER NUMBER:</strong> it's in your order confirmation email (e.g. #1234).<br/><br/><strong>PARTIAL WITHDRAWAL:</strong> to withdraw from only some items, list them in the form; leave it blank to withdraw from the whole order.<br/><br/><strong>EXEMPTIONS:</strong> some products — for example made-to-order or personalized items — may not be eligible for withdrawal under EU law. We'll let you know if that applies to your order.<br/><br/><strong>WHAT HAPPENS NEXT:</strong> the confirmation email acknowledges that we've <em>received</em> your request. Eligibility and scope are reviewed separately by our team.</p>",
+            "line_height": 22
           }
         }
       },
