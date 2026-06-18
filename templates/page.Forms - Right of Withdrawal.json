@@ -31,7 +31,7 @@
         "text_w9pkBL": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Your 14-day right of withdrawal.</strong> As an EU customer you can cancel your order within 14 days of receiving it, without giving a reason. Fill in the form below and confirm — we'll send a confirmation to your email and process any eligible refund or return within 14 days.</p>",
+            "text": "<p>As an EU customer you can cancel your order within 14 days of receiving it, without giving a reason. Fill in the form below and confirm — we'll send a confirmation to your email and process any eligible refund or return within 14 days.</p>",
             "line_height": 24
           }
         }
@@ -46,8 +46,8 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 20,
+        "padding_top": 60,
+        "padding_bottom": 28,
         "padding_left": 0,
         "padding_right": 0
       }
