@@ -9,28 +9,108 @@
  */
 {
   "sections": {
+    "b532801d-de99-462a-96da-64420fb858d2": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "page_width": "narrow",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_cmih9V": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_WkBnqN": {
+          "type": "heading",
+          "settings": {
+            "heading": "Right of Withdrawal",
+            "heading_size": "h2"
+          }
+        },
+        "text_w9pkBL": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Your 14-day right of withdrawal.</strong> As an EU customer you can cancel your order within 14 days of receiving it, without giving a reason. Fill in the form below and confirm — we'll send a confirmation to your email and process any eligible refund or return within 14 days.</p>",
+            "line_height": 24
+          }
+        }
+      },
+      "block_order": [
+        "heading_WkBnqN",
+        "text_w9pkBL"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20,
+        "padding_left": 0,
+        "padding_right": 0
+      }
+    },
     "forms": {
       "type": "apps",
       "blocks": {
         "154b5f53-9d57-4761-9ecb-82348ce51f55": {
           "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
           "settings": {
-            "form_id": "1037469"
+            "form_id": "1037469",
+            "text_color": "#202020",
+            "button_background_color": "#202020",
+            "button_label_color": "#ffffff",
+            "links_color": "#1878b9",
+            "errors_color": "#e02229",
+            "text_alignment": "center",
+            "form_alignment": "center",
+            "padding_top": 0,
+            "padding_bottom": 24,
+            "padding_right": 0,
+            "padding_left": 0
           }
         }
       },
       "block_order": [
         "154b5f53-9d57-4761-9ecb-82348ce51f55"
       ],
-      "settings": {}
+      "settings": {
+        "include_margins": true
+      }
     },
-    "b532801d-de99-462a-96da-64420fb858d2": {
-      "type": "main-page",
-      "settings": {}
+    "rich_text_wPAadY": {
+      "type": "rich-text",
+      "blocks": {
+        "text_xMyVHa": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Finding your order number:</strong> it's in your order confirmation email (e.g. #1234).<br/><br/><strong>Partial withdrawal:</strong> to withdraw from only some items, list them in the form; leave it blank to withdraw from the whole order.<br/><br/><strong>Exemptions:</strong> some products — for example made-to-order or personalized items — may not be eligible for withdrawal under EU law. We'll let you know if that applies to your order.<br/><br/><strong>What happens next:</strong> the confirmation email acknowledges that we've <em>received</em> your request. Eligibility and scope are reviewed separately by our team.</p>",
+            "line_height": 20
+          }
+        }
+      },
+      "block_order": [
+        "text_xMyVHa"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 52,
+        "padding_left": 0,
+        "padding_right": 0
+      }
     }
   },
   "order": [
     "b532801d-de99-462a-96da-64420fb858d2",
-    "forms"
+    "rich_text_cmih9V",
+    "forms",
+    "rich_text_wPAadY"
   ]
 }
