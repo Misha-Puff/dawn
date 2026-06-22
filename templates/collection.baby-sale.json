@@ -108,16 +108,6 @@
             "on_click": ""
           }
         },
-        "button_WgwgdG": {
-          "type": "button",
-          "settings": {
-            "label": "WINTER ON SALE",
-            "open_new_tab": false,
-            "link": "shopify://collections/baby-winter",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
         "button_D9LYw6": {
           "type": "button",
           "settings": {
@@ -133,7 +123,6 @@
         "button_Uiz3YF",
         "button_9jbVL8",
         "button_Tgk7UQ",
-        "button_WgwgdG",
         "button_D9LYw6"
       ],
       "settings": {
