@@ -92,16 +92,6 @@
             "on_click": ""
           }
         },
-        "button_hcytFK": {
-          "type": "button",
-          "settings": {
-            "label": "WINTER ON SALE",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-winter",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
         "button_PmqNBf": {
           "type": "button",
           "settings": {
@@ -117,7 +107,6 @@
         "button_wzaiq4",
         "button_Dyk9tj",
         "button_6ndqMx",
-        "button_hcytFK",
         "button_PmqNBf"
       ],
       "settings": {
