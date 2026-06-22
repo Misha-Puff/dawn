@@ -99,12 +99,19 @@
         "ggtLKGecoNz_srcSet_desktop_src": "https://ucarecdn.com/ee6d5074-1640-4cc7-8933-47c8589c3dee/-/format/auto/"
       },
       "type": "gp-section-623539005845144392"
+    },
+    "gp_section_625187686151357289": {
+      "settings": {
+        "checksum": "51c1bd7bbb4fcce27533a38350ce0903cf68142da80efc8d5aa1cfb0dadb92a3_1_1_1_0__1"
+      },
+      "type": "gp-section-625187686151357289"
     }
   },
   "order": [
     "gp_section_623451012249682900",
     "gp_section_623451012283237192",
     "gp_section_623470204076163830",
+    "gp_section_625187686151357289",
     "gp_section_623489014388753224",
     "gp_section_623538246944555550",
     "gp_section_623487852180669256",
