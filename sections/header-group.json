@@ -16,15 +16,15 @@
       "blocks": {
         "announcement_9YaAtT": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "<p>Misha & Puff x Sabah Collab  — <a href=\"https://shop.misha-and-puff.com/collections/sabah-x-misha-puff\" title=\"https://shop.misha-and-puff.com/collections/sabah-x-misha-puff\">SHOP NOW</a></p>"
           }
         },
         "announcement_dDUTp6": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
-            "text": "<p>Mother’s Day Sale — up to 50% off this weekend only, including 20% off Spring collections. Details <a href=\"/pages/promo-terms\" target=\"_blank\" title=\"Promo Terms\">here</a>.</p>"
+            "text": "<p>New Additions to Sale: Up to 60% Off. <a href=\"https://shop.misha-and-puff.com/collections/child-sale\" title=\"https://shop.misha-and-puff.com/collections/child-sale\">SHOP NOW</a>.</p>"
           }
         }
       },
@@ -32,10 +32,9 @@
         "announcement_9YaAtT",
         "announcement_dDUTp6"
       ],
-      "disabled": true,
       "settings": {
-        "desktop_height": 32,
-        "mobile_height": 40,
+        "desktop_height": 30,
+        "mobile_height": 32,
         "auto_rotate": false,
         "change_slides_speed": 5,
         "color_scheme": "scheme-2",
