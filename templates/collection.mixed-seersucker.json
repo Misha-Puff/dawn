@@ -142,9 +142,8 @@
       "blocks": {
         "image_f8UJrh": {
           "type": "image",
-          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
+            "image": "shopify://shop_images/MP_EditorialBlock_6.23.26_Seer_1.jpg",
             "link": "",
             "content": "",
             "text_size": 13,
@@ -153,7 +152,7 @@
             "text_horizontal_padding": 16,
             "text_vertical_padding": 16,
             "row_start_desktop": 1,
-            "row_span_desktop": 1,
+            "row_span_desktop": 2,
             "col_start_desktop": 1,
             "col_span_desktop": 2,
             "row_start_mobile": 1,
