@@ -30,6 +30,7 @@
     },
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
@@ -42,12 +43,13 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Cerulean",
+            "heading": "Wisteria",
             "heading_size": "h2"
           }
         },
         "text_PGqAmF": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>A true star of the Fall Collection — Cerulean. A vibrant blue, dyed to a rich, saturated finish. A playful hue that brightens every style.</p>",
             "line_height": 24
@@ -55,11 +57,10 @@
         },
         "button_Yh3Xhh": {
           "type": "button",
-          "disabled": true,
           "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
+            "button_label": "SHOP ALL SUMMER COLLECTION",
+            "button_link": "shopify://collections/child-summer",
+            "button_style_secondary": true,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false,
@@ -74,13 +75,12 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
-      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 52,
+        "padding_top": 60,
         "padding_bottom": 40,
         "padding_left": 100,
         "padding_right": 100
