@@ -127,6 +127,11 @@
             {%- if tg_pt > 0 %} padding-top: {{ tg_pt }}px;{% endif -%}
             {%- if tg_pb > 0 %} padding-bottom: {{ tg_pb }}px;{% endif -%}
           }
+          {%- comment -%} Wrapped (snippet) blocks: zero the inner root's own margin so padding is the sole spacing and does not stack with theme descendant margins (.product-form / .icon-with-text carry 2.5rem). {%- endcomment -%}
+          {%- case block.type -%}
+            {%- when 'variant_picker', 'buy_buttons', 'share', 'icon-with-text', 'bis_form' -%}
+              #{{ tg_scope }} .Block-{{ block.id }} > * { margin-top: 0; margin-bottom: 0; }
+          {%- endcase -%}
         {%- endif -%}
       {%- endif -%}
     {%- endfor -%}
@@ -373,14 +378,21 @@
                 {%- endcapture -%}
                 {%- if custom_liquid_output != blank -%}
                   {%- style -%}
+                    {%- if block.settings.enable_typography and block.settings.font_family != blank -%}{{ block.settings.font_family | font_face: font_display: 'swap' }}{%- endif -%}
                     .custom-liquid-block-{{ block.id }} {
-                      {%- if block.settings.padding_top > 0 -%}padding-top: {{ block.settings.padding_top }}px;{%- endif -%}
-                      {%- if block.settings.padding_bottom > 0 -%}padding-bottom: {{ block.settings.padding_bottom }}px;{%- endif -%}
-                      {%- if block.settings.font_size > 0 -%}font-size: {{ block.settings.font_size }}px;{%- endif -%}
+                      {%- if block.settings.enable_padding -%}
+                        {%- if block.settings.padding_top > 0 -%}padding-top: {{ block.settings.padding_top }}px;{%- endif -%}
+                        {%- if block.settings.padding_bottom > 0 -%}padding-bottom: {{ block.settings.padding_bottom }}px;{%- endif -%}
+                      {%- endif -%}
+                      {%- if block.settings.enable_typography -%}
+                        {%- if block.settings.font_family != blank -%}font-family: {{ block.settings.font_family.family }}, {{ block.settings.font_family.fallback_families }};{%- endif -%}
+                        {%- if block.settings.font_size > 0 -%}font-size: {{ block.settings.font_size }}px;{%- endif -%}
+                        {%- unless block.settings.font_color == blank -%}color: {{ block.settings.font_color }};{%- endunless -%}
+                        {%- if block.settings.line_height > 0 -%}line-height: {{ block.settings.line_height }};{%- endif -%}
+                        {%- if block.settings.letter_spacing != 0 -%}letter-spacing: {{ block.settings.letter_spacing }}em;{%- endif -%}
+                      {%- endif -%}
+                      {%- comment -%} Emitted unconditionally (as in the original) to guarantee byte-identical output for existing blocks. {%- endcomment -%}
                       font-weight: {{ block.settings.font_weight }};
-                      {%- unless block.settings.font_color == blank -%}color: {{ block.settings.font_color }};{%- endunless -%}
-                      {%- if block.settings.line_height > 0 -%}line-height: {{ block.settings.line_height }};{%- endif -%}
-                      {%- if block.settings.letter_spacing != 0 -%}letter-spacing: {{ block.settings.letter_spacing }}em;{%- endif -%}
                       text-align: {{ block.settings.text_align }};
                     }
                   {%- endstyle -%}
@@ -412,7 +424,7 @@
                 {% unless tags_str contains 'Badge-Coming Soon' %}
                   <div
                     id="Quantity-Form-{{ section.id }}"
-                    class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
+                    class="product-form__input Block-{{ block.id }} product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
                     {{ block.shopify_attributes }}
                   >
                     {% comment %} TODO: enable theme-check once `item_count_for_variant` is accepted as valid filter {% endcomment %}
@@ -639,7 +651,7 @@
                 {% endunless %}
               {%- when 'popup' -%}
                 <modal-opener
-                  class="product-popup-modal__opener quick-add-hidden"
+                  class="product-popup-modal__opener Block-{{ block.id }} quick-add-hidden"
                   data-modal="#PopupModal-{{ block.id }}"
                   {{ block.shopify_attributes }}
                 >
@@ -653,10 +665,10 @@
                   </button>
                 </modal-opener>
               {%- when 'share' -%}
-                {% liquid
-                  assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
-                  render 'share-button', block: block, share_link: share_url
-                %}
+                {%- assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin -%}
+                {%- if block.settings.tg_enable_padding -%}<div class="Block-{{ block.id }}">{%- endif -%}
+                {% render 'share-button', block: block, share_link: share_url %}
+                {%- if block.settings.tg_enable_padding -%}</div>{%- endif -%}
 
               {%- when 'variant_picker' -%}
                 {% if block.settings.swatch_message != '' %}
@@ -672,9 +684,12 @@
                     }
                   {% endstyle %}
                 {% endif %}
+                {%- if block.settings.tg_enable_padding -%}<div class="Block-{{ block.id }}">{%- endif -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+                {%- if block.settings.tg_enable_padding -%}</div>{%- endif -%}
               {%- when 'buy_buttons' -%}
                 {% unless tags_str contains 'Badge-Coming Soon' %}
+                  {%- if block.settings.tg_enable_padding -%}<div class="Block-{{ block.id }}">{%- endif -%}
                   {%- render 'buy-buttons',
                     block: block,
                     product: product,
@@ -682,6 +697,7 @@
                     section_id: section.id,
                     show_pickup_availability: true
                   -%}
+                  {%- if block.settings.tg_enable_padding -%}</div>{%- endif -%}
                   {% comment %}
                     Whoops :)
                     <div {{ block.shopify_attributes }}>
@@ -733,7 +749,7 @@
                 {%- endif -%}
               {%- when 'complementary' -%}
                 <product-recommendations
-                  class="complementary-products quick-add-hidden{% if block.settings.make_collapsible_row %} is-accordion{% endif %}{% if block.settings.enable_quick_add %} complementary-products-contains-quick-add{% endif %}"
+                  class="complementary-products Block-{{ block.id }} quick-add-hidden{% if block.settings.make_collapsible_row %} is-accordion{% endif %}{% if block.settings.enable_quick_add %} complementary-products-contains-quick-add{% endif %}"
                   data-url="{{ routes.product_recommendations_url }}?limit={{ block.settings.product_list_limit }}&intent=complementary"
                   data-section-id="{{ section.id }}"
                   data-product-id="{{ product.id }}"
@@ -885,9 +901,13 @@
                   {%- endif -%}
                 </product-recommendations>
               {%- when 'icon-with-text' -%}
+                {%- if block.settings.tg_enable_padding -%}<div class="Block-{{ block.id }}">{%- endif -%}
                 {% render 'icon-with-text', block: block %}
+                {%- if block.settings.tg_enable_padding -%}</div>{%- endif -%}
               {%- when 'bis_form' -%}
+                {%- if block.settings.tg_enable_padding -%}<div class="Block-{{ block.id }}">{%- endif -%}
                 {% render 'klaviyo-bis-form' %}
+                {%- if block.settings.tg_enable_padding -%}</div>{%- endif -%}
               {%- when 'size-chart' -%}
                 {% if product.metafields.product_page.json_size_chart != blank
                   or product.metafields.product_page.size_chart != blank
@@ -1523,7 +1543,41 @@
     {
       "type": "quantity_selector",
       "name": "t:sections.main-product.blocks.quantity_selector.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Padding"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_enable_padding",
+          "default": false,
+          "label": "Enable padding"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding top",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding bottom",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
+        }
+      ]
     },
     {
       "type": "variant_picker",
@@ -1623,6 +1677,38 @@
           "unit": "px",
           "label": "Message Bottom Padding",
           "default": 10
+        },
+        {
+          "type": "header",
+          "content": "Padding"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_enable_padding",
+          "default": false,
+          "label": "Enable padding"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding top",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding bottom",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
         }
       ]
     },
@@ -1644,6 +1730,38 @@
           "default": true,
           "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
           "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
+        },
+        {
+          "type": "header",
+          "content": "Padding"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_enable_padding",
+          "default": false,
+          "label": "Enable padding"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding top",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding bottom",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
         }
       ]
     },
@@ -1737,6 +1855,38 @@
           "id": "share_label",
           "label": "t:sections.main-product.blocks.share.settings.text.label",
           "default": "t:sections.main-product.blocks.share.settings.text.default"
+        },
+        {
+          "type": "header",
+          "content": "Padding"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_enable_padding",
+          "default": false,
+          "label": "Enable padding"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding top",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding bottom",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
         }
       ]
     },
@@ -1752,31 +1902,20 @@
         },
         {
           "type": "header",
-          "content": "Spacing"
-        },
-        {
-          "type": "range",
-          "id": "padding_top",
-          "min": 0,
-          "max": 100,
-          "step": 4,
-          "unit": "px",
-          "label": "Padding top",
-          "default": 0
-        },
-        {
-          "type": "range",
-          "id": "padding_bottom",
-          "min": 0,
-          "max": 100,
-          "step": 4,
-          "unit": "px",
-          "label": "Padding bottom",
-          "default": 0
-        },
-        {
-          "type": "header",
           "content": "Typography"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_typography",
+          "default": false,
+          "label": "Enable typography"
+        },
+        {
+          "type": "font_picker",
+          "id": "font_family",
+          "default": "assistant_n4",
+          "label": "Font",
+          "visible_if": "{{ block.settings.enable_typography }}"
         },
         {
           "type": "range",
@@ -1787,18 +1926,34 @@
           "unit": "px",
           "label": "Font size",
           "info": "Set to 0 to inherit theme default",
-          "default": 0
+          "default": 0,
+          "visible_if": "{{ block.settings.enable_typography }}"
         },
         {
           "type": "select",
           "id": "font_weight",
           "label": "Font weight",
           "options": [
-            { "value": "300", "label": "Light" },
-            { "value": "400", "label": "Regular" },
-            { "value": "500", "label": "Medium" },
-            { "value": "600", "label": "Semibold" },
-            { "value": "700", "label": "Bold" }
+            {
+              "value": "300",
+              "label": "Light"
+            },
+            {
+              "value": "400",
+              "label": "Regular"
+            },
+            {
+              "value": "500",
+              "label": "Medium"
+            },
+            {
+              "value": "600",
+              "label": "Semibold"
+            },
+            {
+              "value": "700",
+              "label": "Bold"
+            }
           ],
           "default": "400"
         },
@@ -1806,7 +1961,8 @@
           "type": "color",
           "id": "font_color",
           "label": "Font color",
-          "info": "Leave blank to inherit theme color"
+          "info": "Leave blank to inherit theme color",
+          "visible_if": "{{ block.settings.enable_typography }}"
         },
         {
           "type": "range",
@@ -1816,7 +1972,8 @@
           "step": 0.1,
           "label": "Line height",
           "info": "Set to 0 to inherit theme default",
-          "default": 0
+          "default": 0,
+          "visible_if": "{{ block.settings.enable_typography }}"
         },
         {
           "type": "range",
@@ -1826,18 +1983,60 @@
           "step": 0.1,
           "unit": "em",
           "label": "Letter spacing",
-          "default": 0
+          "default": 0,
+          "visible_if": "{{ block.settings.enable_typography }}"
         },
         {
           "type": "select",
           "id": "text_align",
           "label": "Text alignment",
           "options": [
-            { "value": "left", "label": "Left" },
-            { "value": "center", "label": "Center" },
-            { "value": "right", "label": "Right" }
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
           ],
           "default": "left"
+        },
+        {
+          "type": "header",
+          "content": "Padding"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_padding",
+          "default": false,
+          "label": "Enable padding"
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "Padding top",
+          "default": 0,
+          "visible_if": "{{ block.settings.enable_padding }}"
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "Padding bottom",
+          "default": 0,
+          "visible_if": "{{ block.settings.enable_padding }}"
         }
       ]
     },
@@ -2134,6 +2333,38 @@
           "id": "page",
           "type": "page",
           "label": "t:sections.main-product.blocks.popup.settings.page.label"
+        },
+        {
+          "type": "header",
+          "content": "Padding"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_enable_padding",
+          "default": false,
+          "label": "Enable padding"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding top",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding bottom",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
         }
       ]
     },
@@ -2490,6 +2721,38 @@
           "id": "enable_quick_add",
           "label": "t:sections.main-product.blocks.complementary_products.settings.enable_quick_add.label",
           "default": false
+        },
+        {
+          "type": "header",
+          "content": "Padding"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_enable_padding",
+          "default": false,
+          "label": "Enable padding"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding top",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding bottom",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
         }
       ]
     },
@@ -3113,13 +3376,79 @@
           "default": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.default",
           "label": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.label",
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
+        },
+        {
+          "type": "header",
+          "content": "Padding"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_enable_padding",
+          "default": false,
+          "label": "Enable padding"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding top",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding bottom",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
         }
       ]
     },
     {
       "type": "bis_form",
       "name": "BIS Form",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Padding"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_enable_padding",
+          "default": false,
+          "label": "Enable padding"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding top",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding bottom",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
+        }
+      ]
     },
     {
       "type": "size-chart",
@@ -3131,6 +3460,38 @@
           "id": "cta_text",
           "label": "CTA Text",
           "default": "Size Guide"
+        },
+        {
+          "type": "header",
+          "content": "Padding"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_enable_padding",
+          "default": false,
+          "label": "Enable padding"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding top",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding bottom",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
         }
       ]
     }
