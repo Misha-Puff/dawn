@@ -27,6 +27,15 @@
   <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
+{% comment %} Campaign view is offered only when the section has at least one campaign block. {% endcomment %}
+{% assign has_campaign = false %}
+{% for block in section.blocks %}
+  {% unless block.type == 'image' %}
+    {% assign has_campaign = true %}
+    {% break %}
+  {% endunless %}
+{% endfor %}
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -136,6 +145,7 @@
   }
 
   {% for block in section.blocks %}
+    {%- if block.type == 'image' -%}
     @media screen and (min-width: 1100px) {
       .Block-{{ block.id }} {
         grid-column-start: {{ block.settings.col_start_desktop }};
@@ -159,6 +169,7 @@
       padding: {{ block.settings.text_vertical_padding }}px {{ block.settings.text_horizontal_padding }}px;
       font-size: {{ block.settings.text_size }}px;
     }
+    {%- endif -%}
   {% endfor %}
 
   {% if section.settings.enable_swatches %}
@@ -192,6 +203,69 @@
       margin-right: 1rem;
     }
   {% endif %}
+
+  {%- if has_campaign -%}
+    .collection-views {
+      position: relative;
+    }
+
+    #view-collection-{{ section.id }},
+    #view-campaign-{{ section.id }} {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+
+    .collection-view-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 2.4rem;
+      margin-bottom: 2.4rem;
+      border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.15);
+    }
+
+    .collection-view-tabs__tab {
+      padding: 0 0 1.2rem;
+      margin-bottom: -0.1rem;
+      font-size: 1.3rem;
+      letter-spacing: 0.1rem;
+      text-transform: uppercase;
+      color: rgba(var(--color-foreground), 0.6);
+      border-bottom: 0.2rem solid transparent;
+      cursor: pointer;
+    }
+
+    /* Default view: campaign hidden, grid shown. */
+    .collection-view--campaign {
+      display: none;
+    }
+
+    #view-collection-{{ section.id }}:checked ~ .collection-view-tabs label[for="view-collection-{{ section.id }}"],
+    #view-campaign-{{ section.id }}:checked ~ .collection-view-tabs label[for="view-campaign-{{ section.id }}"] {
+      color: rgb(var(--color-foreground));
+      border-bottom-color: rgb(var(--color-foreground));
+    }
+
+    #view-campaign-{{ section.id }}:checked ~ .collection-view--grid {
+      display: none;
+    }
+
+    #view-campaign-{{ section.id }}:checked ~ .collection-view--campaign {
+      display: block;
+    }
+
+    #view-collection-{{ section.id }}:focus-visible ~ .collection-view-tabs label[for="view-collection-{{ section.id }}"],
+    #view-campaign-{{ section.id }}:focus-visible ~ .collection-view-tabs label[for="view-campaign-{{ section.id }}"] {
+      outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
+      outline-offset: 0.3rem;
+    }
+  {%- endif -%}
 {%- endstyle -%}
 
 {% assign has_filters = false %}
@@ -212,6 +286,38 @@
 
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
   {%- paginate collection.products by section.settings.products_per_page -%}
+    {%- comment -%}
+      Collection / Campaign toggle. The radios and the campaign view live OUTSIDE
+      #ProductGridContainer so facet AJAX (which swaps that element's innerHTML)
+      never touches the radios' :checked state or the campaign DOM. The radios,
+      tabs, grid view and campaign view are all direct siblings, so the toggle is
+      pure CSS (#view-*:checked ~ ...). No JS.
+    {%- endcomment -%}
+    {%- if has_campaign -%}
+      <div class="collection-views">
+        <input
+          type="radio"
+          class="collection-views__radio"
+          name="collection-view-{{ section.id }}"
+          id="view-collection-{{ section.id }}"
+          checked
+        >
+        <input
+          type="radio"
+          class="collection-views__radio"
+          name="collection-view-{{ section.id }}"
+          id="view-campaign-{{ section.id }}"
+        >
+        <div class="collection-view-tabs page-width">
+          <label class="collection-view-tabs__tab" for="view-collection-{{ section.id }}">
+            {{ 'sections.collection_template.view_collection' | t }}
+          </label>
+          <label class="collection-view-tabs__tab" for="view-campaign-{{ section.id }}">
+            {{ 'sections.collection_template.view_campaign' | t }}
+          </label>
+        </div>
+        <div class="collection-view collection-view--grid">
+    {%- endif -%}
     {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
     {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
       <facet-filters-form class="facets facets-vertical-sort page-width small-hide">
@@ -328,6 +434,7 @@
             >
               {%- if paginate.current_page == 1 and has_filters == false -%}
                 {% for block in section.blocks %}
+                  {%- if block.type == 'image' -%}
                   {% if block.settings.image != null %}
                     <li
                       class="editorial-content Block-{{ block.id }} grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}{% if block.settings.mobile_image != null %} is-hidden-mobile-only{% endif %}"
@@ -377,6 +484,7 @@
                       {% endif %}
                     </li>
                   {% endif %}
+                  {%- endif -%}
                 {% endfor %}
               {%- endif -%}
 
@@ -424,6 +532,146 @@
         {%- endif -%}
       </div>
     </div>
+    {%- if has_campaign -%}
+        </div>
+        {%- comment -%} /.collection-view--grid {%- endcomment -%}
+
+        <div class="collection-view collection-view--campaign page-width">
+          {%- assign campaign_styles_loaded = false -%}
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'campaign_hero' -%}
+                <div class="campaign-block campaign-hero" {{ block.shopify_attributes }}>
+                  <div class="campaign-hero__media">
+                    {%- if block.settings.video != blank -%}
+                      {%- assign hero_poster = block.settings.video.preview_image | default: block.settings.image -%}
+                      <video
+                        class="campaign-hero__video"
+                        controls
+                        playsinline
+                        preload="none"
+                        {% if hero_poster != blank %}poster="{{ hero_poster | image_url: width: 1500 }}"{% endif %}
+                      >
+                        {%- for source in block.settings.video.sources -%}
+                          <source src="{{ source.url }}" type="{{ source.mime_type }}">
+                        {%- endfor -%}
+                      </video>
+                    {%- elsif block.settings.image != blank -%}
+                      {{
+                        block.settings.image
+                        | image_url: width: 2000
+                        | image_tag:
+                          loading: 'lazy',
+                          sizes: '100vw',
+                          widths: '375, 750, 1100, 1500, 2000',
+                          class: 'campaign-hero__image'
+                      }}
+                    {%- endif -%}
+                  </div>
+                  {%- if block.settings.heading != blank or block.settings.text != blank or block.settings.button_label != blank -%}
+                    <div class="campaign-hero__content">
+                      {%- if block.settings.heading != blank -%}
+                        <h2 class="campaign-hero__heading inline-richtext {{ block.settings.heading_size }}">
+                          {{ block.settings.heading }}
+                        </h2>
+                      {%- endif -%}
+                      {%- if block.settings.text != blank -%}
+                        <div class="campaign-hero__text rte">{{ block.settings.text }}</div>
+                      {%- endif -%}
+                      {%- if block.settings.button_label != blank -%}
+                        <a
+                          class="button"
+                          {% if block.settings.button_link != blank %}
+                            href="{{ block.settings.button_link }}"
+                          {% else %}
+                            role="link" aria-disabled="true"
+                          {% endif %}
+                        >
+                          {{- block.settings.button_label | escape -}}
+                        </a>
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+                </div>
+              {%- when 'campaign_text' -%}
+                <div class="campaign-block campaign-text" {{ block.shopify_attributes }}>
+                  {%- if block.settings.heading != blank -%}
+                    <h2 class="campaign-text__heading inline-richtext {{ block.settings.heading_size }}">
+                      {{ block.settings.heading }}
+                    </h2>
+                  {%- endif -%}
+                  {%- if block.settings.text != blank -%}
+                    <div class="campaign-text__body rte">{{ block.settings.text }}</div>
+                  {%- endif -%}
+                </div>
+              {%- when 'campaign_lifestyle' -%}
+                <div class="campaign-block campaign-lifestyle" {{ block.shopify_attributes }}>
+                  {%- if block.settings.image != blank -%}
+                    <div class="campaign-lifestyle__media">
+                      {{
+                        block.settings.image
+                        | image_url: width: 2000
+                        | image_tag:
+                          loading: 'lazy',
+                          sizes: '100vw',
+                          widths: '375, 750, 1100, 1500, 2000',
+                          class: 'campaign-lifestyle__image'
+                      }}
+                    </div>
+                  {%- endif -%}
+                  {%- if block.settings.heading != blank -%}
+                    <h2 class="campaign-lifestyle__heading inline-richtext">{{ block.settings.heading }}</h2>
+                  {%- endif -%}
+                  {%- if block.settings.product_list != blank -%}
+                    <ul class="campaign-lifestyle__callouts list-unstyled" role="list">
+                      {%- for callout in block.settings.product_list -%}
+                        <li>
+                          <a class="campaign-lifestyle__callout" href="{{ callout.url }}">
+                            <span class="campaign-lifestyle__callout-title">{{ callout.title | escape }}</span>
+                            <span class="campaign-lifestyle__callout-price">{{ callout.price | money }}</span>
+                          </a>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+                </div>
+              {%- when 'campaign_products' -%}
+                <div class="campaign-block campaign-products" {{ block.shopify_attributes }}>
+                  {%- if block.settings.heading != blank -%}
+                    <h2 class="campaign-products__heading inline-richtext">{{ block.settings.heading }}</h2>
+                  {%- endif -%}
+                  {%- if block.settings.product_list != blank -%}
+                    <ul
+                      class="campaign-products__grid grid product-grid list-unstyled grid--{{ section.settings.columns_mobile }}-col-tablet-down grid--{{ block.settings.columns_desktop }}-col-desktop"
+                      role="list"
+                    >
+                      {%- for product in block.settings.product_list -%}
+                        <li class="grid__item">
+                          {% render 'card-product',
+                            card_product: product,
+                            media_aspect_ratio: section.settings.image_ratio,
+                            image_shape: section.settings.image_shape,
+                            show_secondary_image: section.settings.show_secondary_image,
+                            show_vendor: section.settings.show_vendor,
+                            show_rating: section.settings.show_rating,
+                            lazy_load: true,
+                            skip_styles: campaign_styles_loaded,
+                            quick_add: 'none',
+                            section_id: section.id,
+                            show_swatches_availability: true
+                          %}
+                        </li>
+                        {%- assign campaign_styles_loaded = true -%}
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+                </div>
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      </div>
+      {%- comment -%} /.collection-views {%- endcomment -%}
+    {%- endif -%}
   {%- endpaginate -%}
   {% if section.settings.image_shape == 'arch' %}
     {{ 'mask-arch.svg' | inline_asset_content }}
@@ -568,7 +816,7 @@
     {
       "type": "checkbox",
       "id": "enable_swatches",
-      "default": false,
+      "default": true,
       "label": "Enable Product Swatches"
     },
     {
@@ -848,6 +1096,155 @@
           ],
           "default": "1",
           "label": "Column Span"
+        }
+      ]
+    },
+    {
+      "type": "campaign_hero",
+      "name": "Campaign: Hero",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video",
+          "info": "Optional. Replaces the image. Plays on click — never autoplays."
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    },
+    {
+      "type": "campaign_text",
+      "name": "Campaign: Text",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "campaign_lifestyle",
+      "name": "Campaign: Lifestyle",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "product_list",
+          "id": "product_list",
+          "label": "Product callouts",
+          "limit": 6
+        }
+      ]
+    },
+    {
+      "type": "campaign_products",
+      "name": "Campaign: Shoppable products",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "product_list",
+          "id": "product_list",
+          "label": "Products",
+          "limit": 12
+        },
+        {
+          "type": "range",
+          "id": "columns_desktop",
+          "min": 2,
+          "max": 5,
+          "step": 1,
+          "default": 4,
+          "label": "Number of columns on desktop"
         }
       ]
     }

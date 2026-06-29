@@ -644,3 +644,56 @@
     padding-left: 1rem !important;
   }
 }
+
+/* Style-sibling color swatches on product cards */
+.card__swatches {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+}
+
+.card__swatch {
+  display: inline-flex;
+  line-height: 0;
+  text-decoration: none;
+  padding-bottom: 0.3rem;
+  border-bottom: 0.2rem solid transparent;
+}
+
+.card__swatch .swatch {
+  --swatch--size: 2rem;
+}
+
+.card__swatch--current {
+  border-bottom-color: rgb(var(--color-foreground));
+}
+
+.card__swatch-more {
+  align-self: center;
+  font-size: 1.1rem;
+  letter-spacing: 0.07rem;
+  color: rgba(var(--color-foreground), 0.7);
+}
+
+/* Underline-only badges relocated into the card details area */
+.card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.2rem;
+  margin-top: 0.6rem;
+  text-align: var(--text-alignment);
+}
+
+.badge--card {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  color: rgb(var(--color-foreground));
+  font-size: 1.1rem;
+  letter-spacing: 0.07rem;
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}

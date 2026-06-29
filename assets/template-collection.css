@@ -122,3 +122,68 @@
 [for='Filter-filter.v.availability-mobile-2'] {
   display: none;
 }
+
+/* Campaign view (editorial mix shown via the Collection / Campaign toggle) */
+.collection-view--campaign {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding-top: 1rem;
+}
+
+.campaign-block {
+  margin: 0;
+}
+
+.campaign-hero__image,
+.campaign-hero__video,
+.campaign-lifestyle__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.campaign-hero__content {
+  margin-top: 1.6rem;
+  text-align: center;
+}
+
+.campaign-hero__text {
+  margin: 1rem 0 2rem;
+}
+
+.campaign-text {
+  max-width: 72rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.campaign-text__body {
+  margin-top: 1rem;
+}
+
+.campaign-lifestyle__heading,
+.campaign-products__heading {
+  margin-bottom: 1.6rem;
+}
+
+.campaign-lifestyle__callouts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  margin-top: 1.6rem;
+}
+
+.campaign-lifestyle__callout {
+  display: inline-flex;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.campaign-lifestyle__callout-price {
+  color: rgba(var(--color-foreground), 0.7);
+}
+
+.campaign-products__grid {
+  margin-top: 1.6rem;
+}
