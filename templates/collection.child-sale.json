@@ -84,6 +84,7 @@
         },
         "button_6ndqMx": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "label": "FALL ON SALE",
             "open_new_tab": true,
