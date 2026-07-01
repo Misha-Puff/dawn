@@ -1,0 +1,17 @@
+{%- comment -%}
+  Renders border override CSS.
+
+  Uses `var(--color-border-rgb)` (space-separated R G B) from the horizon-blocks
+  foundation shim in `component-group.css`. See that file for the shim note.
+{%- endcomment -%}
+
+{% liquid
+
+%}
+--border-width: {{ settings.border_width }}px; --border-style: {{ settings.border }}; --border-color:
+{% if settings.border_color != blank -%}
+  rgb({{ settings.border_color.rgba }})
+{%- else -%}
+  rgb(var(--color-border-rgb) / {{ settings.border_opacity | divided_by: 100.0 }})
+{%- endif -%}
+; --border-radius: {{ settings.border_radius }}px; {% if settings.border_radius > 0 %} overflow: hidden; {% endif %}

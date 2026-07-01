@@ -1,0 +1,21 @@
+{%- doc -%}
+  Minimal stub of Horizon's background-media (68760d9) for horizon-blocks Phase 0.
+
+  Renders nothing. `group.liquid` always calls this, but the Phase 0 spike never
+  sets a background, so a no-op keeps `group.liquid` a verbatim lift without
+  pulling in Horizon's `video-background-component`, image srcset machinery, or
+  `placeholder_svg_tag`.
+
+  DEFERRED — restore full Horizon fidelity when the first container block needs a
+  background image or video. Reference:
+  `git -C ~/Desktop/Repos/horizon show 68760d9:snippets/background-media.liquid`.
+
+  @param {string} [background_media] - 'image' | 'video' | 'none'/blank (no-op).
+  @param {object} [background_video] - The background video.
+  @param {string} [background_video_position] - The background video position.
+  @param {object} [background_image] - The background image.
+  @param {string} [background_image_position] - The background image position.
+  @param {string} [placeholder] - The placeholder.
+{%- enddoc -%}
+
+{%- comment -%} No-op stub — see the doc block above. {%- endcomment -%}

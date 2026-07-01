@@ -1,0 +1,70 @@
+{%- doc -%}
+  Minimal port of Horizon's contrast-override (68760d9) for horizon-blocks Phase 0.
+
+  Emits scoped CSS custom properties for a custom background / text color on a
+  `.color-custom-{section_id}` surface. No-ops entirely when neither a background
+  nor a text color is provided (the Phase 0 spike state), so `group.liquid` can
+  call it unconditionally.
+
+  DEFERRED — restore full Horizon fidelity when the first container block sets a
+  custom background: smart palette-extreme contrast (`color_brightness` /
+  `color_contrast` against the global page text color), the `brightness-opacities`
+  opacity ramp, `--palette-*` extremes, form-token overrides, and the 'ui' preset.
+  Reference: `git -C ~/Desktop/Repos/horizon show 68760d9:snippets/contrast-override.liquid`.
+
+  @param {string} [background_color] - Custom background color. Nothing is output when blank or fully transparent (alpha == 0).
+  @param {string} [text_color] - Explicit text color.
+  @param {string} [border_color] - Optional border color.
+  @param {string} section_id - Unique identifier for scoping the CSS variables.
+  @param {boolean} [skip_contrast] - Accepted for parity with the full snippet; unused in this minimal port.
+  @param {string} [preset] - Accepted for parity with the full snippet; unused in this minimal port.
+
+  @example
+  {% render 'contrast-override', background_color: block.settings.background_color, section_id: block.id %}
+{%- enddoc -%}
+
+{%- liquid
+  assign has_background = false
+  if background_color != blank and background_color.alpha != 0
+    assign has_background = true
+  endif
+-%}
+
+{%- if has_background -%}
+  {% style %}
+    .color-custom-{{ section_id }},
+    .color-custom-{{ section_id }} .text-block {
+      --color-background: {{ background_color }};
+      --color-background-rgb: {{ background_color.rgb }};
+      {% if text_color != blank %}
+        --color: {{ text_color }};
+        --color-rgb: {{ text_color.rgb }};
+        --color-foreground: {{ text_color }};
+        --color-foreground-rgb: {{ text_color.rgb }};
+      {% endif %}
+      {% if border_color != blank %}
+        --color-border: {{ border_color }};
+        --color-border-rgb: {{ border_color.rgb }};
+      {% endif %}
+    }
+
+    .color-custom-{{ section_id }} {
+      color: var(--color, var(--color-foreground));
+      background-color: var(--color-background);
+    }
+  {% endstyle %}
+{%- elsif text_color != blank -%}
+  {% style %}
+    .color-custom-{{ section_id }},
+    .color-custom-{{ section_id }} .text-block {
+      --color: {{ text_color }};
+      --color-rgb: {{ text_color.rgb }};
+      --color-foreground: {{ text_color }};
+      --color-foreground-rgb: {{ text_color.rgb }};
+    }
+
+    .color-custom-{{ section_id }} {
+      color: var(--color, var(--color-foreground));
+    }
+  {% endstyle %}
+{%- endif -%}

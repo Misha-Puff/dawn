@@ -1,0 +1,265 @@
+/*
+ * component-group.css
+ * ---------------------------------------------------------------------------
+ * Horizon-blocks Phase 0 foundation: the `group` layout engine + style-helper
+ * CSS, extracted from Horizon v4.1.1 (68760d9) `assets/base.css`, plus a
+ * foundation CSS-variables shim for tokens Dawn does not define.
+ *
+ * Consumed by: snippets/group.liquid, layout-panel-style, spacing-style,
+ * size-style, border-override, gap-style, typography-style (custom preset).
+ *
+ * The `.layout-panel-flex*` / `.group-block*` rules are scoped classes and are
+ * inert on existing Dawn pages. The descendant rules for `.menu` / `.text-block`
+ * / `.image-block` / `.button` no-op until those Horizon blocks exist (Phase 1+).
+ */
+
+/* ===========================================================================
+ * Foundation variable shim
+ * ---------------------------------------------------------------------------
+ * Horizon defines these in theme-styles-variables.liquid / color-palette.liquid.
+ * Dawn has no equivalents, so we define sane constants matching Horizon's values.
+ *
+ * The spacing/gap scales are unitless multipliers (Horizon values verbatim).
+ *
+ * --color-border-rgb is SPACE-separated (R G B) so it can feed the modern
+ * `rgb(var(--color-border-rgb) / <alpha>)` syntax used by border-override.liquid.
+ * Dawn's own --color-foreground is COMMA-separated (R,G,B) and cannot be aliased
+ * into that syntax, so this is a fixed constant (Dawn's default text #121212) and
+ * does NOT yet track Dawn color schemes. Deferred alongside the full
+ * contrast-override color-system adaptation (first block with a custom background).
+ * =========================================================================== */
+:root {
+  --spacing-scale-sm: 0.6;
+  --spacing-scale-md: 0.7;
+  --spacing-scale-default: 1;
+  --spacing-scale: var(--spacing-scale-default);
+  --gap-scale: var(--spacing-scale-default);
+  --color-border-rgb: 18 18 18;
+}
+
+/* ===========================================================================
+ * Spacing style
+ * =========================================================================== */
+.spacing-style {
+  --spacing-scale: var(--spacing-scale-md);
+
+  @media screen and (min-width: 990px) {
+    --spacing-scale: var(--spacing-scale-default);
+  }
+
+  /* Must disable this, when you use these with calc and another unit type, things break. */
+  /* stylelint-disable length-zero-no-unit */
+  --padding-block: 0px;
+  --padding-block-start: var(--padding-block, 0px);
+  --padding-block-end: var(--padding-block, 0px);
+  --padding-inline: 0px;
+  --padding-inline-start: var(--padding-inline, 0px);
+  --padding-inline-end: var(--padding-inline, 0px);
+  --margin-block: 0px;
+  --margin-block-start: var(--margin-block, 0px);
+  --margin-block-end: var(--margin-block, 0px);
+  --margin-inline: 0px;
+  --margin-inline-start: var(--margin-inline, 0px);
+  --margin-inline-end: var(--margin-inline, 0px);
+}
+
+.spacing-style,
+.inherit-spacing {
+  padding-block: calc(var(--padding-block-start) + var(--section-top-offset, 0px)) var(--padding-block-end);
+  padding-inline: var(--padding-inline-start) var(--padding-inline-end);
+  margin-block: var(--margin-block-start) var(--margin-block-end);
+  margin-inline: var(--margin-inline-start) var(--margin-inline-end);
+}
+
+/* ===========================================================================
+ * Size style
+ * =========================================================================== */
+.size-style {
+  width: var(--size-style-width-mobile, var(--size-style-width));
+  height: var(--size-style-height-mobile, var(--size-style-height));
+
+  @media screen and (min-width: 750px) {
+    width: var(--size-style-width);
+    height: var(--size-style-height);
+  }
+}
+
+/* ===========================================================================
+ * Custom typography style (consumed by typography-style.liquid `custom` preset)
+ * =========================================================================== */
+.custom-typography,
+.custom-typography > * {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+  text-transform: var(--text-transform);
+  text-wrap: var(--text-wrap);
+  line-height: var(--line-height);
+  letter-spacing: var(--letter-spacing);
+}
+
+.custom-typography {
+  h1 {
+    line-height: var(--line-height--display, var(--line-height));
+  }
+
+  h2,
+  h3,
+  h4 {
+    line-height: var(--line-height--heading, var(--line-height));
+  }
+
+  p {
+    line-height: var(--line-height--body, var(--line-height));
+  }
+}
+
+.custom-font-size,
+.custom-font-size > * {
+  font-size: var(--font-size);
+}
+
+.custom-font-weight,
+.custom-font-weight > * {
+  font-weight: var(--font-weight);
+}
+
+/* ===========================================================================
+ * Border override style
+ * =========================================================================== */
+.border-style {
+  border-width: var(--border-width);
+  border-style: var(--border-style);
+  border-color: var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+/* ===========================================================================
+ * Gap scaling
+ * =========================================================================== */
+.gap-style,
+.layout-panel-flex {
+  --gap-scale: var(--spacing-scale-md);
+
+  @media screen and (min-width: 990px) {
+    --gap-scale: var(--spacing-scale-default);
+  }
+}
+
+/* ===========================================================================
+ * Layout panel (flex engine)
+ * =========================================================================== */
+.layout-panel-flex {
+  display: flex;
+  gap: var(--gap);
+  height: 100%;
+}
+
+.layout-panel-flex--row {
+  flex-flow: row var(--flex-wrap);
+  justify-content: var(--horizontal-alignment);
+  align-items: var(--vertical-alignment);
+}
+
+.layout-panel-flex--column {
+  flex-flow: column var(--flex-wrap);
+  align-items: var(--horizontal-alignment);
+  justify-content: var(--vertical-alignment);
+}
+
+@media screen and (max-width: 749px) {
+  .mobile-column {
+    flex-flow: column nowrap;
+    align-items: var(--horizontal-alignment);
+    justify-content: var(--vertical-alignment-mobile);
+  }
+
+  .layout-panel-flex--row:not(.mobile-column) {
+    flex-wrap: var(--flex-wrap-mobile);
+    height: auto;
+
+    > .menu {
+      flex: 1 1 min-content;
+    }
+
+    > .text-block {
+      flex: 1 1 var(--max-width--display-tight);
+    }
+
+    > .image-block {
+      flex: 1 1 var(--size-style-width-mobile-min);
+    }
+
+    > .button {
+      flex: 0 0 fit-content;
+    }
+
+    > .group-block--height-fill {
+      height: calc(var(--section-min-height, auto) - var(--section-height-offset, 0px));
+    }
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .layout-panel-flex {
+    flex-direction: var(--flex-direction);
+  }
+}
+
+/* ===========================================================================
+ * Group block
+ * =========================================================================== */
+.group-block,
+.group-block-content {
+  position: relative;
+}
+
+.group-block:has(> video-background-component),
+.group-block:has(> .background-image-container) {
+  overflow: hidden;
+}
+
+.group-block-content {
+  height: 100%;
+  width: 100%;
+}
+
+/* Container styles */
+.section-content-wrapper.section-content-wrapper:where(.layout-panel-flex) .group-block--fill {
+  flex: 1;
+}
+
+/* Flex behavior for width variants */
+.layout-panel-flex--row > .group-block--width-fit {
+  flex: 0;
+}
+
+.layout-panel-flex--row > .group-block--width-fill {
+  flex: 1;
+}
+
+.layout-panel-flex--row > .group-block--width-custom {
+  flex-basis: var(--size-style-width);
+}
+
+/* Dimension utilities - Height */
+.group-block--height-fit {
+  height: auto;
+}
+
+.group-block--height-custom,
+.group-block--height-fill {
+  height: var(--size-style-height);
+}
+
+/* Flex behavior for height variants */
+.layout-panel-flex--column > .group-block--height-fit {
+  flex: 0 1 auto;
+}
+
+.layout-panel-flex--column > .group-block--height-fill {
+  flex: 1;
+}
+
+.layout-panel-flex--column > .group-block--height-custom {
+  flex-basis: var(--size-style-height);
+}
