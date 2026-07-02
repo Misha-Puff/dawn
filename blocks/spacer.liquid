@@ -90,7 +90,10 @@
     .layout-panel-flex--column > .spacer-block--size-mobile-pixel,
     .mobile-column > .spacer-block--size-mobile-pixel {
       width: 100%;
-      flex: 0;
+      /* Horizon ships `flex: 0` here (= flex-basis 0%), which overrides the height
+         for column main-axis sizing and collapses the spacer to 0. Basis must stay
+         auto so the height governs; grow 0 still neutralizes a desktop percent flex. */
+      flex: 0 1 auto;
       height: var(--spacer-size-mobile);
     }
   }
