@@ -1,71 +1,103 @@
-{%- liquid
-  assign option = product.options_by_name.Color
-  assign siblings = product.metafields.product_page.style_siblings.value
-  assign max_swatches = 3
-  assign curr_swatches = 0
-  assign total_swatches = 0
+{% comment %}
+  Renders a row of style-sibling color swatches on a product card.
 
+  Swatches are static, linked (no JS) rectangles sourced from each sibling's
+  color-pattern metaobject. The current product's color is underlined.
+
+  Accepts:
+  - card_product: {Object} the product the card represents (required)
+  - section_id: {String} id of the host section (optional, for unique scoping)
+
+  Usage:
+  {% render 'product-sibling-swatches', card_product: card_product, section_id: section_id %}
+{% endcomment %}
+
+{%- liquid
+  assign siblings = card_product.metafields.product_page.style_siblings.value
+  assign max_swatches = 5
+
+  comment
+    Count renderable colors (current product + valid siblings) and detect
+    whether the current product is present in its own style_siblings list.
+  endcomment
+  assign self_present = false
+  assign other_count = 0
   for sibling in siblings
-    assign total_swatches = total_swatches | plus: 1
+    if sibling.id == card_product.id
+      assign self_present = true
+      continue
+    endif
+    if sibling.tags contains 'preview-product' or sibling.tags contains 'vip-product'
+      continue
+    endif
+    unless sibling.available
+      continue
+    endunless
+    assign other_count = other_count | plus: 1
   endfor
 -%}
 
-{% unless total_swatches == 1 %}
-  <variant-selects
-    id="variant-selects-{{ section.id }}"
-    data-section="{{ section.id }}"
-  >
-    <fieldset class="js product-form__input product-form__input--swatch">
-      {%- for sibling in siblings -%}
-        {% liquid
+{%- if other_count > 0 -%}
+  {%- liquid
+    assign total_swatches = other_count | plus: 1
+    assign shown = 0
+  -%}
+  <div class="card__swatches">
+    {%- comment -%} When the current product isn't in its own list, prepend it so the active color is always shown. {%- endcomment -%}
+    {%- unless self_present -%}
+      {%- liquid
+        assign self_cp = card_product.metafields.shopify["color-pattern"].value | first
+        assign self_color = card_product.options_by_name.color.values[0] | default: card_product.title
+        assign shown = 1
+      -%}
+      <a
+        class="card__swatch card__swatch--current"
+        href="{{ card_product.url }}"
+        aria-current="true"
+        title="{{ self_color | escape }}"
+      >
+        {% render 'swatch', swatch_image: self_cp.image.value, shape: 'square' %}
+        <span class="visually-hidden">{{ self_color | escape }}</span>
+      </a>
+    {%- endunless -%}
+
+    {%- for sibling in siblings -%}
+      {%- liquid
+        assign is_self = false
+        if sibling.id == card_product.id
+          assign is_self = true
+        endif
+
+        unless is_self
+          if sibling.tags contains 'preview-product' or sibling.tags contains 'vip-product'
+            continue
+          endif
           unless sibling.available
             continue
           endunless
+        endunless
 
-          assign curr_swatches = curr_swatches | plus: 1
+        if shown >= max_swatches
+          break
+        endif
 
-          if curr_swatches > max_swatches
-            break
-          endif
+        assign sib_cp = sibling.metafields.shopify["color-pattern"].value | first
+        assign sib_color = sibling.options_by_name.color.values[0] | default: sibling.title
+        assign shown = shown | plus: 1
+      -%}
+      <a
+        class="card__swatch{% if is_self %} card__swatch--current{% endif %}"
+        href="{{ sibling.url }}"
+        {% if is_self %}aria-current="true"{% endif %}
+        title="{{ sib_color | escape }}"
+      >
+        {% render 'swatch', swatch_image: sib_cp.image.value, shape: 'square' %}
+        <span class="visually-hidden">{{ sib_color | escape }}</span>
+      </a>
+    {%- endfor -%}
 
-          assign value = sibling.options_by_name.color.values[0]
-        %}
-
-        {%- capture input_name -%}
-          {{ option.name }}-{{ option.position }}
-        {%- endcapture -%}
-
-        {%- capture label_unavailable -%}
-          <span class="visually-hidden label-unavailable">
-            {{- 'products.product.variant_sold_out_or_unavailable' | t -}}
-          </span>
-        {%- endcapture -%}
-
-        {%- capture help_text -%}
-          <span class="visually-hidden">{{ value | escape }}</span>
-          {{ label_unavailable }}
-        {%- endcapture -%}
-
-        <a href="{{ sibling.url }}">
-          {%
-            render 'swatch-input',
-            id: input_id,
-            name: input_name,
-            value: value | escape,
-            swatch: value.swatch,
-            product_form_id: product_form_id,
-            checked: false,
-            visually_disabled: false,
-            shape: 'square',
-            help_text: help_text,
-            additional_props: input_dataset
-          %}
-        </a>
-      {%- endfor -%}
-
-      {% if curr_swatches > max_swatches %}
-        + {{ total_swatches | minus: max_swatches }}
-      {% endif %}
-    </fieldset>
-  </variant-selects>
-{% endunless %}
+    {%- if total_swatches > max_swatches -%}
+      <span class="card__swatch-more">+{{ total_swatches | minus: max_swatches }}</span>
+    {%- endif -%}
+  </div>
+{%- endif -%}

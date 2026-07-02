@@ -435,7 +435,6 @@
                 </a>
               </h3>
             </div>
-            {% render 'card-product-badges', card_product: card_product, preview_badge: preview_badge, hide_sold_out_badge: hide_sold_out_badge %}
           </div>
         {% endunless %}
       </div>
@@ -511,9 +510,17 @@
 
               {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
 
+              {% render 'card-product-badges',
+                card_product: card_product,
+                preview_badge: preview_badge,
+                hide_sold_out_badge: hide_sold_out_badge,
+                section_id: section_id,
+                card: true
+              %}
+
               {% if show_swatches_availability %}
                 {% if section.settings.enable_swatches %}
-                  {% render 'product-sibling-swatches', product: card_product %}
+                  {% render 'product-sibling-swatches', card_product: card_product, section_id: section_id %}
                 {% else %}
                   {% render 'variant-availability', product: card_product %}
                 {% endif %}
@@ -602,7 +609,6 @@
               {%- endif -%}
             </div>
           </div>
-          {% render 'card-product-badges', card_product: card_product, preview_badge: preview_badge, hide_sold_out_badge: hide_sold_out_badge %}
         </div>
       {% endunless %}
     </div>
