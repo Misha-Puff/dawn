@@ -1,0 +1,18 @@
+{%- comment -%}
+  Verbatim port of stock Horizon v4.1.1 (68760d9) snippets/spacing-padding.liquid
+  (horizon-blocks Phase 1b). Emits the four --padding-* inline vars consumed by
+  the .spacing-style class in the frozen assets/component-group.css.
+
+  Intended for blocks and sections that provide values for all the referenced settings.
+
+  <div style="{%  render 'spacing-padding', settings: section.settings %}">
+
+   Accepts:
+      settings: {block.settings || section.settings}
+{%- endcomment -%}
+
+--padding-block-start: {{ settings['padding-block-start'] | default: 0 }}px; --padding-block-end:
+{{- settings['padding-block-end'] | default: 0 -}}
+px; --padding-inline-start:{{ settings['padding-inline-start'] | default: 0 }}px; --padding-inline-end:
+{{- settings['padding-inline-end'] | default: 0 -}}
+px;

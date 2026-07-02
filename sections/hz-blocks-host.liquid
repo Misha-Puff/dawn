@@ -8,13 +8,18 @@
   (`component-group.css`), which the layout engine (`.layout-panel-flex*` /
   `.group-block*` / `.border-style` / `.size-style` / `.spacing-style`) depends on.
 
-  Blocks: `@theme` (all public blocks — group + image/button/icon/spacer) and
-  `@app`. The private `_divider` is not `@theme`-reachable, so it only appears
+  Blocks: `@theme` (all public blocks — group + text + image/button/icon/spacer)
+  and `@app`. The private `_divider` is not `@theme`-reachable, so it only appears
   inside a `group` (whose schema allowlists it). The preset inserts a `group` so
   the host is insertable and immediately exercises the nested-block path.
+
+  Phase 1b: the host also renders `hz-type-variables` (the --font-{preset}--*
+  token layer the text block and typography-style custom path consume) — same
+  ownership precedent as the engine CSS above.
 {%- endcomment -%}
 
 {{ 'component-group.css' | asset_url | stylesheet_tag }}
+{% render 'hz-type-variables' %}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <div class="hz-blocks-host page-width section-{{ section.id }}-padding">

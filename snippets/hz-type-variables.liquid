@@ -1,0 +1,183 @@
+{%- comment -%}
+  horizon-blocks Phase 1b — type-layer tokens.
+
+  Dawn-side equivalent of the type subset of stock Horizon v4.1.1 (68760d9)
+  snippets/theme-styles-variables.liquid: only the tokens our ported blocks
+  consume. Rendered by sections/hz-blocks-host.liquid — currently the only
+  entry point for hz blocks (no stock Dawn section accepts @theme blocks);
+  future phases render this same snippet from any new host.
+
+  ADAPT decision (Nathan, 2026-07-02): Horizon has 4 font settings
+  (body/subheading/heading/accent); Dawn has 2 (type_body_font /
+  type_header_font). Mapping: body -> type_body_font; heading, subheading and
+  accent all -> type_header_font. All four --font-{role}--* token sets are
+  still defined (subheading/accent alias heading) so verbatim Horizon
+  consumers resolve. Zero new theme settings.
+
+  Horizon's ~35 per-preset theme settings (type_size_h1: 72 ... type_case_h6)
+  do not exist in Dawn; the per-preset tokens below are precomputed at stock
+  Horizon defaults. NOTE: that means preset sizes are Horizon's scale
+  (h1 = 72px fluid), NOT Dawn's native heading scale — retune here (one file)
+  if the design team wants different preset sizes.
+
+  Fluid-size derivation (Horizon's Liquid loop, precomputed): sizes 72/48/32/
+  24/18/16/14px, fluid cutoff 48px, 4px buffer above the next smaller size.
+  - h1 = 72 >= 48 -> fluid; next smaller (48) is >= cutoff -> min = 48px.
+    Horizon emits clamp(3rem, 7.2vw, 4.5rem) -> here clamp(48px, 7.2vw, 72px)
+  - h2 = 48 >= 48 -> fluid; next smaller (32) < cutoff -> min = 32+4 = 36px.
+    Horizon emits clamp(2.25rem, 4.8vw, 3rem) -> here clamp(36px, 4.8vw, 48px)
+  - h3..paragraph < 48 -> static values.
+
+  UNIT DEVIATION — px, not rem: Horizon's root font-size is 16px, but Dawn
+  sets html { font-size: 62.5% * body_scale } (this store: 8.5px/rem), so
+  Horizon's rem values render ~half size on Dawn. All rem-denominated tokens
+  are converted to px at Horizon's 16px base — same normalization as the
+  Phase-0 engine (assets/component-group.css is px-only). em-denominated
+  tokens (letter-spacing, max-width, margin) are element-relative and port
+  verbatim.
+{%- endcomment -%}
+
+{% style %}
+  :root {
+    /* Font roles (Liquid — the only settings-dependent tokens) */
+    --font-body--family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+    --font-body--style: {{ settings.type_body_font.style }};
+    --font-body--weight: {{ settings.type_body_font.weight }};
+    --font-heading--family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+    --font-heading--style: {{ settings.type_header_font.style }};
+    --font-heading--weight: {{ settings.type_header_font.weight }};
+    --font-subheading--family: var(--font-heading--family);
+    --font-subheading--style: var(--font-heading--style);
+    --font-subheading--weight: var(--font-heading--weight);
+    --font-accent--family: var(--font-heading--family);
+    --font-accent--style: var(--font-heading--style);
+    --font-accent--weight: var(--font-heading--weight);
+
+    /* Margin sizes */
+    --font-heading--spacing: 0.25em;
+    --font-h1--spacing: var(--font-heading--spacing);
+    --font-h2--spacing: var(--font-heading--spacing);
+    --font-h3--spacing: var(--font-heading--spacing);
+    --font-h4--spacing: var(--font-heading--spacing);
+    --font-h5--spacing: var(--font-heading--spacing);
+    --font-h6--spacing: var(--font-heading--spacing);
+    --font-paragraph--spacing: 0.5em;
+
+    /* Max-width / Measure */
+    --max-width--body-normal: 32.5em;
+    --max-width--body-narrow: 22.75em;
+
+    --max-width--heading-normal: 32.5em;
+    --max-width--heading-narrow: 19.5em;
+
+    --max-width--display-normal: 13em;
+    --max-width--display-narrow: 9.75em;
+    --max-width--display-tight: 3.25em;
+
+    /* Letter-spacing / Tracking */
+    --letter-spacing--display-tight: -0.03em;
+    --letter-spacing--display-normal: 0em;
+    --letter-spacing--display-loose: 0.03em;
+
+    --letter-spacing--heading-tight: -0.03em;
+    --letter-spacing--heading-normal: 0em;
+    --letter-spacing--heading-loose: 0.03em;
+
+    --letter-spacing--body-tight: -0.03em;
+    --letter-spacing--body-normal: 0em;
+    --letter-spacing--body-loose: 0.03em;
+
+    /* Line height / Leading — Horizon's bare `--line-height: 1` is deliberately
+       NOT ported: unconsumed by our subset, and too generic a name to leak
+       onto every Dawn page. */
+    --line-height--display-tight: 1;
+    --line-height--display-normal: 1.1;
+    --line-height--display-loose: 1.2;
+
+    --line-height--heading-tight: 1.15;
+    --line-height--heading-normal: 1.25;
+    --line-height--heading-loose: 1.35;
+
+    --line-height--body-tight: 1.2;
+    --line-height--body-normal: 1.4;
+    --line-height--body-loose: 1.6;
+
+    /* Spacing (subset: only what the text block's background-padding calc
+       uses). px at 16px base — see UNIT DEVIATION in header. */
+    --padding-2xs: 4px;
+    --padding-xs: 8px;
+
+    /* Typography preset sizes (precomputed — see derivation and UNIT
+       DEVIATION in header) */
+    --font-size--h1: clamp(48px, 7.2vw, 72px);
+    --font-size--h2: clamp(36px, 4.8vw, 48px);
+    --font-size--h3: 32px;
+    --font-size--h4: 24px;
+    --font-size--h5: 18px;
+    --font-size--h6: 16px;
+    --font-size--paragraph: 14px;
+
+    /* Per-preset tokens (Horizon defaults: h1-h3 -> heading role,
+       h4-h6 -> subheading role; line-height display-normal, letter-spacing
+       heading-normal, case none). Token order per preset matches Horizon's
+       emission loop for diff-ability. */
+    --font-paragraph--weight: 400;
+    --font-paragraph--letter-spacing: var(--letter-spacing--body-normal);
+    --font-paragraph--size: var(--font-size--paragraph);
+    --font-paragraph--family: var(--font-body--family);
+    --font-paragraph--style: var(--font-body--style);
+    /* Deviation: Horizon's Liquid quirk emits an empty value here
+       (settings['--font-body--case'] is nil); `none` is computationally
+       identical. */
+    --font-paragraph--case: none;
+    --font-paragraph--line-height: var(--line-height--body-normal);
+
+    --font-h1--weight: var(--font-heading--weight);
+    --font-h1--letter-spacing: var(--letter-spacing--heading-normal);
+    --font-h1--size: var(--font-size--h1);
+    --font-h1--family: var(--font-heading--family);
+    --font-h1--style: var(--font-heading--style);
+    --font-h1--case: none;
+    --font-h1--line-height: var(--line-height--display-normal);
+
+    --font-h2--weight: var(--font-heading--weight);
+    --font-h2--letter-spacing: var(--letter-spacing--heading-normal);
+    --font-h2--size: var(--font-size--h2);
+    --font-h2--family: var(--font-heading--family);
+    --font-h2--style: var(--font-heading--style);
+    --font-h2--case: none;
+    --font-h2--line-height: var(--line-height--display-normal);
+
+    --font-h3--weight: var(--font-heading--weight);
+    --font-h3--letter-spacing: var(--letter-spacing--heading-normal);
+    --font-h3--size: var(--font-size--h3);
+    --font-h3--family: var(--font-heading--family);
+    --font-h3--style: var(--font-heading--style);
+    --font-h3--case: none;
+    --font-h3--line-height: var(--line-height--display-normal);
+
+    --font-h4--weight: var(--font-subheading--weight);
+    --font-h4--letter-spacing: var(--letter-spacing--heading-normal);
+    --font-h4--size: var(--font-size--h4);
+    --font-h4--family: var(--font-subheading--family);
+    --font-h4--style: var(--font-subheading--style);
+    --font-h4--case: none;
+    --font-h4--line-height: var(--line-height--display-normal);
+
+    --font-h5--weight: var(--font-subheading--weight);
+    --font-h5--letter-spacing: var(--letter-spacing--heading-normal);
+    --font-h5--size: var(--font-size--h5);
+    --font-h5--family: var(--font-subheading--family);
+    --font-h5--style: var(--font-subheading--style);
+    --font-h5--case: none;
+    --font-h5--line-height: var(--line-height--display-normal);
+
+    --font-h6--weight: var(--font-subheading--weight);
+    --font-h6--letter-spacing: var(--letter-spacing--heading-normal);
+    --font-h6--size: var(--font-size--h6);
+    --font-h6--family: var(--font-subheading--family);
+    --font-h6--style: var(--font-subheading--style);
+    --font-h6--case: none;
+    --font-h6--line-height: var(--line-height--display-normal);
+  }
+{% endstyle %}

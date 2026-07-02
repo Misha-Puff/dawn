@@ -1,0 +1,389 @@
+{%- doc -%}
+  Intended for use in a block similar to the text block.
+
+  Verbatim port of stock Horizon v4.1.1 (68760d9) snippets/text.liquid
+  (horizon-blocks Phase 1b). Port notes / deviations:
+
+  - Dawn rem-base correction in the style capture: re-emits the custom-preset
+    --font-size in px after the frozen typography-style render (Dawn's root
+    font-size is 62.5% * body_scale, not Horizon's 16px — see inline comment).
+
+  - `<rte-formatter>` element name kept, but its JS is NOT ported — it needs
+    Horizon's @theme/component module system, absent in Dawn. Without it the
+    element is an inert unknown-element container; the .text-block class
+    supplies display:flex. Only loss is the JS-added wrapper div around RTE
+    `<table>`s, and Dawn's own `.rte table` styling exists anyway.
+  - `--color-rgb` emits a SPACE-separated triplet (Horizon convention). Its
+    only Horizon consumer (an `.rte a:hover` base.css rule) is not ported, so
+    the token is inert here — kept verbatim. Never feed it into Dawn's
+    comma-triplet `rgba(var(...))` pattern.
+  - The stylesheet below appends Horizon base.css type-preset class rules
+    re-scoped under `.text-block` — see the constraint comment inline.
+
+  @param {string} [class] - custom class to define in addition to text-block classes
+  @param {string} [fallback_text] - fallback text if settings.text does not exist
+  @param {object} [block] - The block object
+  @param {string} [width] - width of the text block
+{%- enddoc -%}
+
+{% liquid
+  assign block_settings = block.settings
+  assign plain_text = block_settings.text | strip_newlines | strip
+  assign visible_text = plain_text | strip_html
+  assign text_width = width | default: block_settings.width
+
+  if block_settings.font_size contains 'heading-lg' or block_settings.font_size contains 'heading-xl'
+    assign type = 'display'
+  elsif block_settings.font_size contains 'heading'
+    assign type = 'heading'
+  else
+    assign type = 'body'
+  endif
+  if block_settings.type_preset == 'rte' or block_settings.type_preset == 'paragraph'
+    assign is_rte = true
+  endif
+
+  capture text_block_classes
+    if text_width == '100%'
+      echo 'text-block--align-' | append: block_settings.alignment
+      if block_settings.max_width == 'none'
+        echo ' text-block--full-width '
+      endif
+    endif
+    if block_settings.type_preset == 'custom'
+      echo ' custom-typography '
+      if block_settings.font_size != ''
+        echo ' custom-font-size '
+      endif
+      if block_settings.color != ''
+        echo ' custom-color '
+      endif
+    endif
+    if block_settings.background
+      echo ' text-block--background '
+    endif
+    if is_rte
+      echo ' rte '
+    endif
+  endcapture
+%}
+
+{% capture attributes %}
+  class="{{ class }} spacing-style text-block text-block--{{ block.id }} {{ block_settings.type_preset }}
+    {{ text_block_classes }}
+  "
+
+  style="
+    {% render 'spacing-padding', settings: block_settings %}
+    {% render 'typography-style', settings: block_settings %}
+    {%- liquid
+      # Dawn rem-base correction: the frozen typography-style emits --font-size
+      # in rem against Horizon's 16px root, but Dawn's root is
+      # 62.5% * body_scale (rem != 16px), so the labeled px sizes would render
+      # ~half size. Re-emit the value in px at 16px/rem — a later declaration
+      # in the same style attribute wins. Mirrors Horizon's fluid math (x16):
+      # >= 3rem -> clamp(48 + (rem/3 - 1)*4 px, px/1400*100 vw, px).
+      if block_settings.type_preset == 'custom' and block_settings.font_size != blank
+        assign hz_font_size_rem = block_settings.font_size | split: 'rem' | first | times: 1.0
+        assign hz_font_size_px = hz_font_size_rem | times: 16
+        if hz_font_size_rem >= 3.0
+          assign hz_vw_value = hz_font_size_px | divided_by: 1400.0 | times: 100
+          assign hz_min_px = hz_font_size_rem | divided_by: 3.0 | minus: 1 | times: 4 | plus: 48
+          echo '--font-size: clamp(' | append: hz_min_px | append: 'px, ' | append: hz_vw_value | append: 'vw, ' | append: hz_font_size_px | append: 'px);'
+        else
+          echo '--font-size: ' | append: hz_font_size_px | append: 'px;'
+        endif
+      endif
+    -%}
+    {% if block_settings.text_color != blank %}
+      --color: {{ block_settings.text_color }};
+      --color-rgb: {{ block_settings.text_color.rgb }};
+    {% endif %}
+
+    --width: {{ text_width }};
+    --max-width: var(--max-width--{{ type }}-{{ block_settings.max_width }});
+    {% if text_width == "100%" %}
+      --text-align: {{ block_settings.alignment }};
+    {% endif %}
+    {% if block_settings.background %}
+      --text-background-color: {{ block_settings.background_color | default: 'rgb(255 255 255 / 1.0)' }};
+      --text-corner-radius: {{ block_settings.corner_radius }}px;
+      --text-padding: max(var(--padding-2xs), calc((var(--text-corner-radius) + var(--padding-xs)) * (1 - cos(45deg))));
+    {% endif %}
+  "
+
+  {{ block.shopify_attributes }}
+{% endcapture %}
+
+{% liquid
+  # {{ attributes }} must be on the immediate HTML parent of the text to preserve
+  # the click-to-edit connection in the theme editor. Any break between the text,
+  # including if-statements, will break the connection.
+
+  # rte-formatter is an unknown element in Dawn (its JS is not ported — see doc
+  # header); it still works as a plain styled container.
+
+  assign element = 'div'
+  if is_rte
+    assign element = 'rte-formatter'
+  endif
+%}
+
+{% if fallback_text != blank and visible_text == blank %}
+  <div {{ attributes | strip_newlines | strip }}>
+    {{ fallback_text }}
+  </div>
+{% elsif plain_text != blank %}
+  <{{ element }} {{ attributes | strip_newlines | strip }}>
+    {{ block.settings.text }}
+  </{{ element }}>
+{% endif %}
+
+{% stylesheet %}
+  :root {
+    --text-align-default: left;
+  }
+
+  [style*='--horizontal-alignment: center'] .text-block {
+    --text-align-default: center;
+  }
+
+  [style*='--horizontal-alignment: flex-end'] .text-block {
+    --text-align-default: right;
+  }
+
+  [style*='--horizontal-alignment: flex-start'] > .text-block {
+    --text-align-default: left;
+  }
+
+  [style*='--horizontal-alignment: center'] > .text-block {
+    --text-align-default: center;
+  }
+
+  [style*='--horizontal-alignment: flex-end'] > .text-block {
+    --text-align-default: right;
+  }
+
+  /* Dawn note on the --color-foreground fallbacks (here and in the preset
+     rules below): Dawn's --color-foreground is a comma triplet (R,G,B), not
+     a color, so the fallback substitutes but is invalid at computed-value
+     time -> color becomes `unset` -> inherits the scheme text color. That IS
+     the desired Dawn-native behavior; do NOT "fix" by wrapping in
+     rgb(var(...)) — tripwire: Dawn comma triplets vs Horizon space triplets. */
+  .text-block {
+    width: var(--width);
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: var(--horizontal-alignment);
+    color: var(--color, var(--color-foreground));
+  }
+
+  .text-block > * {
+    width: var(--width);
+    max-inline-size: min(100%, var(--max-width, 100%));
+    text-align: var(--text-align, var(--text-align-default));
+    text-wrap: var(--text-wrap);
+  }
+
+  .text-block:not(.text-block--full-width).rte,
+  .text-block:not(.text-block--full-width).paragraph {
+    /* Safari doesn't support pretty, so fallback to balance */
+    text-wrap: balance;
+    text-wrap: pretty;
+  }
+
+  .text-block:not(.text-block--full-width):is(.h1, .h2, .h3, .h4, .h5, .h6) {
+    text-wrap: balance;
+  }
+
+  /* Hide underline unless text is using paragraph styles. */
+  .text-block.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) a {
+    text-decoration-line: none;
+    color: currentColor;
+
+    &:hover {
+      text-decoration-line: none;
+      color: currentColor;
+    }
+  }
+
+  .text-block h1,
+  .text-block.h1 > * {
+    margin-block: var(--font-h1--spacing);
+  }
+
+  .text-block h2,
+  .text-block.h2 > * {
+    margin-block: var(--font-h2--spacing);
+  }
+
+  .text-block h3,
+  .text-block.h3 > * {
+    margin-block: var(--font-h3--spacing);
+  }
+
+  .text-block h4,
+  .text-block.h4 > * {
+    margin-block: var(--font-h4--spacing);
+  }
+
+  .text-block h5,
+  .text-block.h5 > * {
+    margin-block: var(--font-h5--spacing);
+  }
+
+  .text-block h6,
+  .text-block.h6 > * {
+    margin-block: var(--font-h6--spacing);
+  }
+
+  .text-block p,
+  .text-block.p > * {
+    margin-block: var(--font-paragraph--spacing);
+  }
+
+  .text-block > *:first-child {
+    margin-block-start: 0;
+  }
+
+  .text-block > *:last-child {
+    margin-block-end: 0;
+  }
+
+  .text-block--align-center,
+  .text-block--align-center > * {
+    margin-inline: auto;
+  }
+
+  .text-block--align-right,
+  .text-block--align-right > * {
+    margin-inline-start: auto;
+  }
+
+  /* Dawn deviation — selector doubled: Horizon loads block CSS after
+     base.css, so this rule's padding beats .spacing-style's on order. In
+     Dawn the frozen component-group.css (which holds .spacing-style) is
+     loaded in the section body, AFTER the head-bundled block stylesheets —
+     same specificity (0,1,0), later wins, min-padding never applied. Doubling
+     the class (0,2,0) restores Horizon's outcome without touching the frozen
+     engine CSS. */
+  .text-block--background.text-block--background {
+    background-color: var(--text-background-color);
+    border-radius: var(--text-corner-radius);
+
+    /* To avoid text being cropped when using a border radius we add a minimum padding. */
+    padding-block-start: max(var(--text-padding), var(--padding-block-start, 0));
+    padding-block-end: max(var(--text-padding), var(--padding-block-end, 0));
+    padding-inline-start: max(var(--text-padding), var(--padding-inline-start, 0));
+    padding-inline-end: max(var(--text-padding), var(--padding-inline-end, 0));
+  }
+
+  .custom-color,
+  .custom-color > :is(h1, h2, h3, h4, h5, h6, p, *) {
+    color: var(--color);
+  }
+
+  /* Type-preset class rules, ported from Horizon base.css (68760d9, lines
+     679-828) and RE-SCOPED under .text-block: this stylesheet is bundled
+     theme-wide, so Horizon's unscoped .hN / .paragraph / bare-element legs
+     would restyle Dawn-native .h2 elements and headings on any page where
+     the bundle ships. Dropped legs: `body`, bare h1..h6 (rte-preset content
+     intentionally falls through to Dawn's native .rte/heading styles for
+     parity), the stray bare `.h3`, and the input/textarea/select mobile
+     rules (no form elements render in this block). */
+  .text-block.paragraph,
+  .text-block.paragraph > *,
+  .text-block.paragraph :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-paragraph--family);
+    font-style: var(--font-paragraph--style);
+    font-weight: var(--font-paragraph--weight);
+    font-size: var(--font-paragraph--size);
+    line-height: var(--font-paragraph--line-height);
+    text-transform: var(--font-paragraph--case);
+    -webkit-font-smoothing: antialiased;
+    color: var(--color, var(--color-foreground));
+  }
+
+  .text-block.paragraph > small {
+    font-size: smaller;
+  }
+
+  .text-block.h1,
+  .text-block.h1 > *,
+  .text-block.h1 :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-h1--family);
+    font-style: var(--font-h1--style);
+    font-weight: var(--font-h1--weight);
+    font-size: var(--font-h1--size);
+    line-height: var(--font-h1--line-height);
+    letter-spacing: var(--font-h1--letter-spacing);
+    text-transform: var(--font-h1--case);
+    color: var(--color);
+  }
+
+  .text-block.h2,
+  .text-block.h2 > *,
+  .text-block.h2 :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-h2--family);
+    font-style: var(--font-h2--style);
+    font-weight: var(--font-h2--weight);
+    font-size: var(--font-h2--size);
+    line-height: var(--font-h2--line-height);
+    letter-spacing: var(--font-h2--letter-spacing);
+    text-transform: var(--font-h2--case);
+    color: var(--color);
+  }
+
+  .text-block.h3,
+  .text-block.h3 > *,
+  .text-block.h3 :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-h3--family);
+    font-style: var(--font-h3--style);
+    font-weight: var(--font-h3--weight);
+    font-size: var(--font-h3--size);
+    line-height: var(--font-h3--line-height);
+    letter-spacing: var(--font-h3--letter-spacing);
+    text-transform: var(--font-h3--case);
+    color: var(--color);
+  }
+
+  .text-block.h4,
+  .text-block.h4 > *,
+  .text-block.h4 :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-h4--family);
+    font-style: var(--font-h4--style);
+    font-weight: var(--font-h4--weight);
+    font-size: var(--font-h4--size);
+    line-height: var(--font-h4--line-height);
+    letter-spacing: var(--font-h4--letter-spacing);
+    text-transform: var(--font-h4--case);
+    color: var(--color);
+  }
+
+  .text-block.h5,
+  .text-block.h5 > *,
+  .text-block.h5 :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-h5--family);
+    font-style: var(--font-h5--style);
+    font-weight: var(--font-h5--weight);
+    font-size: var(--font-h5--size);
+    line-height: var(--font-h5--line-height);
+    letter-spacing: var(--font-h5--letter-spacing);
+    text-transform: var(--font-h5--case);
+    color: var(--color);
+  }
+
+  .text-block.h6,
+  .text-block.h6 > *,
+  .text-block.h6 :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-h6--family);
+    font-style: var(--font-h6--style);
+    font-weight: var(--font-h6--weight);
+    font-size: var(--font-h6--size);
+    line-height: var(--font-h6--line-height);
+    letter-spacing: var(--font-h6--letter-spacing);
+    text-transform: var(--font-h6--case);
+    color: var(--color);
+  }
+{% endstylesheet %}
