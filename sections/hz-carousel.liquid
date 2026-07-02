@@ -1,0 +1,434 @@
+{%- comment -%}
+  horizon-blocks Phase 3 — port of stock Horizon v4.1.1 (68760d9)
+  sections/carousel.liquid. Markup, static content_for 'block' calls
+  (incl. closest.product: null) and schema verbatim; t: strings hardcoded
+  to Horizon's en.default.schema.json English. The appended {% stylesheet %}
+  is the Dawn adaptation of Horizon's base.css .section grid — Dawn has no
+  section grid, so it ships here scoped to .section-carousel.
+{%- endcomment -%}
+{%- comment -%}
+  Host-owned dependencies (precedent: sections/hz-blocks-host.liquid — "future
+  hosts render both"): the frozen Phase-0 engine CSS the group/_card/text
+  children depend on, plus the type + UI token layers. hz-carousel is a
+  standalone host, so it cannot rely on hz-blocks-host being on the page.
+{%- endcomment -%}
+{{ 'component-group.css' | asset_url | stylesheet_tag }}
+{% render 'hz-type-variables' %}
+{% render 'hz-ui-tokens' %}
+
+{% liquid
+  if section.settings.background_color != blank
+    render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
+  endif
+%}
+
+<div
+  class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+></div>
+<div
+  class="
+    section
+    section--{{ section.settings.section_width }}
+    {% if section.settings.background_color != blank %}color-custom-{{ section.id }}{% endif %}
+    section-carousel
+    spacing-style
+    gap-style
+  "
+  style="
+    {% render 'spacing-style', settings: section.settings %}
+    {% render 'gap-style', value: 12 %}
+  "
+  data-testid="carousel-section"
+>
+  {% content_for 'block', type: 'group', id: 'static-header' %}
+
+  {% content_for 'block', type: '_carousel-content', id: 'static-carousel-content', closest.product: null %}
+</div>
+
+{% stylesheet %}
+  /* Dawn adaptation of Horizon base.css .section grid (68760d9 base.css:333-419),
+     scoped to .section-carousel. This store's .page-width has max-width disabled
+     (base.css:81), so --util-page-margin-offset ≡ the page padding
+     (30px ≥1100px / 10px below — theme.liquid:132-133), and Horizon's max()
+     formula reduces exactly to the padding value. Deliberate breakpoint split:
+     gutters follow Dawn's 1100px page-padding breakpoint, column counts follow
+     Horizon's 750px — each internally consistent with what it aligns to. */
+  .section-carousel {
+    --util-page-margin-offset: var(--page-width-padding);
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns:
+      minmax(var(--util-page-margin-offset), 1fr)
+      minmax(0, calc(100% - var(--util-page-margin-offset) * 2))
+      minmax(var(--util-page-margin-offset), 1fr);
+    row-gap: var(--gap); /* Horizon base.css:3605-3608 */
+  }
+
+  @media screen and (max-width: 1099px) {
+    .section-carousel {
+      --util-page-margin-offset: var(--mobile-page-width-padding);
+    }
+  }
+
+  .section-carousel > * {
+    grid-column: 2;
+  }
+
+  .section-carousel.section--full-width > * {
+    grid-column: 1 / -1;
+  }
+
+  .section-carousel > .force-full-width {
+    grid-column: 1 / -1; /* Horizon base.css:418 */
+  }
+
+  /* section-background mechanism (Horizon base.css:370-383), scoped */
+  .shopify-section:has(> .section-carousel) {
+    position: relative;
+  }
+
+  /* (0,2,0) out-specifies .color-custom-{id} so the section itself stays
+     transparent and the .section-background sibling paints edge-to-edge */
+  .shopify-section:not(.header-section) .section-carousel {
+    background: transparent;
+  }
+
+  .shopify-section:has(> .section-carousel) > .section-background {
+    position: absolute;
+    inset: 0;
+    z-index: var(--layer-section-background);
+    background-color: var(--color-background);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Carousel",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Columns",
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "mobile_columns",
+      "label": "Mobile columns",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page"
+        },
+        {
+          "value": "full-width",
+          "label": "Full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "range",
+      "id": "columns_gap",
+      "label": "Horizontal gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "placeholder": "Default"
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "select",
+      "id": "icons_style",
+      "label": "Icon",
+      "options": [
+        {
+          "value": "arrow",
+          "label": "Arrows"
+        },
+        {
+          "value": "chevron",
+          "label": "Chevrons"
+        },
+        {
+          "value": "arrows_large",
+          "label": "Large arrows"
+        },
+        {
+          "value": "chevron_large",
+          "label": "Large chevrons"
+        },
+        {
+          "value": "none",
+          "label": "None"
+        }
+      ],
+      "default": "arrow"
+    },
+    {
+      "type": "select",
+      "id": "icons_shape",
+      "label": "Icon background",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.icons_style != 'none' }}"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Carousel",
+      "category": "Storytelling",
+      "settings": {
+        "columns": 3,
+        "columns_gap": 12,
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      },
+      "blocks": {
+        "static-header": {
+          "type": "group",
+          "name": "Header",
+          "static": true,
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": true,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 16,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "name": "Header",
+              "settings": {
+                "text": "<p>Discover elevated design </p>",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "wrap": "pretty",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left"
+              }
+            }
+          },
+          "block_order": ["heading"]
+        },
+        "static-carousel-content": {
+          "type": "_carousel-content",
+          "name": "Carousel content",
+          "static": true,
+          "settings": {
+            "position": "top",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "height": "fit"
+          },
+          "blocks": {
+            "card_1": {
+              "type": "_card",
+              "name": "Card",
+              "blocks": {
+                "image_1": {
+                  "type": "image",
+                  "name": "Image"
+                },
+                "heading_1": {
+                  "type": "text",
+                  "name": "Heading",
+                  "settings": {
+                    "text": "<p>Artistry in action </p>",
+                    "type_preset": "h5"
+                  }
+                },
+                "text_1": {
+                  "type": "text",
+                  "name": "Text",
+                  "settings": {
+                    "text": "<p>Bold style that's recognizable anywhere</p>"
+                  }
+                }
+              },
+              "block_order": ["image_1", "heading_1", "text_1"]
+            },
+            "card_2": {
+              "type": "_card",
+              "name": "Card",
+              "blocks": {
+                "image_2": {
+                  "type": "image",
+                  "name": "Image"
+                },
+                "heading_2": {
+                  "type": "text",
+                  "name": "Heading",
+                  "settings": {
+                    "text": "<p>Uncompromising standards </p>",
+                    "type_preset": "h5"
+                  }
+                },
+                "text_2": {
+                  "type": "text",
+                  "name": "Text",
+                  "settings": {
+                    "text": "<p>Expert construction and an impeccable finish</p>"
+                  }
+                }
+              },
+              "block_order": ["image_2", "heading_2", "text_2"]
+            },
+            "card_3": {
+              "type": "_card",
+              "name": "Card",
+              "blocks": {
+                "image_3": {
+                  "type": "image",
+                  "name": "Image"
+                },
+                "heading_3": {
+                  "type": "text",
+                  "name": "Heading",
+                  "settings": {
+                    "text": "<p>Made to last </p>",
+                    "type_preset": "h5"
+                  }
+                },
+                "text_3": {
+                  "type": "text",
+                  "name": "Text",
+                  "settings": {
+                    "text": "<p>Pieces that only get better with time and wear </p>"
+                  }
+                }
+              },
+              "block_order": ["image_3", "heading_3", "text_3"]
+            },
+            "card_4": {
+              "type": "_card",
+              "name": "Card",
+              "blocks": {
+                "image_4": {
+                  "type": "image",
+                  "name": "Image"
+                },
+                "heading_4": {
+                  "type": "text",
+                  "name": "Heading",
+                  "settings": {
+                    "text": "<h2>Quality you can feel</h2>",
+                    "type_preset": "h5"
+                  }
+                },
+                "text_4": {
+                  "type": "text",
+                  "name": "Text",
+                  "settings": {
+                    "text": "<p>Authentic materials, no compromises </p>"
+                  }
+                }
+              },
+              "block_order": ["image_4", "heading_4", "text_4"]
+            }
+          },
+          "block_order": ["card_1", "card_2", "card_3", "card_4"]
+        }
+      }
+    }
+  ]
+}
+{% endschema %}

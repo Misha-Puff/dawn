@@ -1,5 +1,6 @@
 {%- comment -%}
-  horizon-blocks Phase 2 — UI-layer tokens (z-index ramp + opacity constants).
+  horizon-blocks Phase 2+3 — UI-layer tokens (z-index ramp + opacity constants;
+  Phase 3 appends icon/slideshow/animation constants + primary-button shims).
 
   Dawn-side equivalent of the layering + opacity subset of stock Horizon
   v4.1.1 (68760d9) snippets/theme-styles-variables.liquid, values verbatim.
@@ -50,5 +51,36 @@
     --opacity-90: 0.9;
     --opacity-subdued-text: 0.8;
     --opacity-muted-text: 0.6;
+
+    /* --- Phase 3 (carousel slice) --- */
+    /* Icons (theme-styles-variables:552 — Horizon icon_stroke setting default) */
+    --icon-stroke-width: 1.5px;
+
+    /* Constants (tsv:377-378, 637) */
+    --color-white: #ffffff;
+    --color-white-rgb: 255 255 255;
+    --minimum-touch-target: 44px;
+
+    /* Slideshow sizes (tsv:631-632; Horizon rem = 16px) */
+    --slideshow-controls-icon: 32px; /* 2rem */
+    --peek-next-slide-size: 48px; /* 3rem */
+
+    /* Padding (tsv:424; 0.7rem) */
+    --padding-sm: 11.2px;
+
+    /* Animation (tsv:477, 480) — full ramp per this file's precedent */
+    --animation-speed-fast: 0.0625s;
+    --animation-speed: 0.125s;
+    --animation-speed-medium: 0.15s;
+    --animation-speed-slow: 0.2s;
+    --animation-easing: ease-in-out;
+
+    /* Primary button colors (Horizon snippets/color-palette.liquid:180-181,
+       fed there by theme settings). Dawn mapping shim: deliberate comma-triplet
+       composition at the shim boundary — Dawn's --color-button is a comma
+       triplet consumed via rgba()/rgb(). Consumed by the circle/square arrow
+       shapes; without this they render transparent (IACVT). */
+    --color-primary-button-background: rgba(var(--color-button), var(--alpha-button-background));
+    --color-primary-button-text: rgb(var(--color-button-text));
   }
 {% endstyle %}

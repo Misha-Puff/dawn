@@ -43,6 +43,21 @@
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
+    {%- comment -%} horizon-blocks Phase 3: importmap for the @theme/* module layer
+      (Horizon 68760d9 snippets/scripts.liquid, subset). Keeps the ported JS
+      assets import-verbatim with asset_url cache busting. Must precede any
+      module script, hence before content_for_header. {%- endcomment -%}
+    <script type="importmap">
+      {
+        "imports": {
+          "@theme/component": "{{ 'component.js' | asset_url }}",
+          "@theme/events": "{{ 'events.js' | asset_url }}",
+          "@theme/scrolling": "{{ 'scrolling.js' | asset_url }}",
+          "@theme/utilities": "{{ 'utilities.js' | asset_url }}"
+        }
+      }
+    </script>
+
     {{ content_for_header }}
 
     {%- liquid
