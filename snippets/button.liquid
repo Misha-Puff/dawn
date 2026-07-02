@@ -1,0 +1,76 @@
+{%- doc -%}
+  Renders a button link for the horizon-blocks `button` block, styled with Dawn's
+  native button system.
+
+  Adapted from stock Horizon v4.1.1 (68760d9) `snippets/button.liquid`. Horizon's
+  `style_class` values are mapped to Dawn classes; the `button-custom` and
+  `button-unstyled` color overrides are inlined here (Horizon split these into a
+  `button-custom-styles` snippet driving `--button-*` props, which Dawn's buttons
+  don't read — Dawn uses comma-triplet `--color-button` / `--color-button-text`).
+
+  @param {object} block - The button block (settings / id / shopify_attributes).
+  @param {string} link - The link URL to render.
+
+  @example
+  {% render 'button', block: block, link: block.settings.link %}
+{%- enddoc -%}
+
+{% assign block_settings = block.settings %}
+
+{%- liquid
+  case block_settings.style_class
+    when 'button-secondary'
+      assign button_class = 'button button--secondary'
+    when 'button-unstyled'
+      assign button_class = 'link button-unstyled'
+    when 'button-custom'
+      assign button_class = 'button button-custom'
+    else
+      assign button_class = 'button'
+  endcase
+-%}
+
+{%- if block_settings.style_class == 'button-custom' and block_settings.custom_button_background != blank and block_settings.custom_button_text != blank -%}
+  {%- assign bg = block_settings.custom_button_background -%}
+  {%- assign txt = block_settings.custom_button_text -%}
+  {% style %}
+    .button-custom--{{ block.id }} {
+      --color-button: {{ bg.red }}, {{ bg.green }}, {{ bg.blue }};
+      --alpha-button-background: {{ bg.alpha }};
+      --color-button-text: {{ txt.red }}, {{ txt.green }}, {{ txt.blue }};
+    }
+  {% endstyle %}
+{%- elsif block_settings.style_class == 'button-unstyled' and block_settings.link_text_color != blank -%}
+  {% style %}
+    .button-unstyled--{{ block.id }} {
+      color: {{ block_settings.link_text_color }};
+    }
+
+    .button-unstyled--{{ block.id }}:hover {
+      color: {{ block_settings.link_text_color }};
+      opacity: 0.7;
+    }
+  {% endstyle %}
+{%- endif -%}
+
+<a
+  {% if link == blank %}
+    role="link"
+    aria-disabled="true"
+  {% else %}
+    href="{{ link }}"
+  {% endif %}
+  class="
+    size-style
+    {{ button_class }}
+    {{ block_settings.style_class }}--{{ block.id }}
+  "
+  style="{% render 'size-style', settings: block_settings %}"
+  {%- if block_settings.open_in_new_tab -%}
+    target="_blank"
+    rel="noopener noreferrer"
+  {%- endif -%}
+  {{ block.shopify_attributes }}
+>
+  {{ block_settings.label }}
+</a>

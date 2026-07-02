@@ -1,0 +1,69 @@
+{%- doc -%}
+  Renders a divider line, used to visually separate content.
+
+  Faithful lift of stock Horizon v4.1.1 (68760d9) `snippets/divider.liquid`. The
+  only Dawn adaptation is the token shim in the bundled stylesheet below:
+  Horizon's `--color-border` and `--style-border-radius-sm` don't exist in Dawn,
+  so they're defaulted — scoped to `.divider` (not `:root`) to avoid leaking — off
+  Dawn's comma-triplet `--color-foreground`. When a merchant sets `divider_color`,
+  the inline `--color-border` value wins over the scoped fallback by specificity.
+
+  @param {string} id - A unique ID for the divider, linking it to a block or section.
+  @param {object} settings - An object containing style settings for the divider.
+
+  @param {string} [settings.alignment_horizontal] - The horizontal alignment of the divider ('left', 'center', or
+  'right'). Defaults to 'center'.
+  @param {number} [settings.thickness] - The thickness of the divider line in pixels.
+  @param {string} [settings.corner_radius] - The corner radius of the divider, e.g., 'rounded'.
+  @param {number} [settings.width_percent] - The width of the divider as a percentage of its container.
+  @param {string} [settings.divider_color] - The color of the divider line. Falls back to `--color-border` when blank.
+
+  @param {boolean} [full_width] - When `true`, the divider spans the full width of its container.
+  @param {boolean} [attributes] - When `true`, render block.shopify_attributes on the divider container.
+  @param {block} [block] - The block object, used for Shopify editor attributes when attributes are enabled.
+{%- enddoc -%}
+
+<div
+  class="divider divider-{{ id }} spacing-style"
+  style="
+    --divider-justify-content: {{ settings.alignment_horizontal | default: 'center' }};
+    {% if settings.divider_color != blank %}--color-border: {{ settings.divider_color }};{% endif %}
+    {% render 'spacing-style', settings: settings %}
+  "
+  {% if attributes %}
+    {{- block.shopify_attributes -}}
+  {% endif %}
+>
+  <span
+    class="divider__line"
+    style="
+      --divider-border-thickness: {{ settings.thickness }}px;
+      {% unless full_width %}
+        --divider-border-rounded: {% if settings.corner_radius == 'rounded' %}1{% else %}0{% endif %};
+      {% endunless %}
+      --divider-flex-basis: {{ settings.width_percent }}%;
+    "
+  ></span>
+</div>
+
+{% stylesheet %}
+  .divider {
+    /* Dawn shim — Horizon defines these per color scheme; Dawn has neither.
+       Scoped to .divider so nothing else in the theme inherits them. */
+    --color-border: rgba(var(--color-foreground), 0.2);
+    --style-border-radius-sm: 4px;
+
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: var(--divider-justify-content);
+  }
+
+  .divider__line {
+    border-bottom: var(--divider-border-thickness) solid var(--color-border);
+    border-right: var(--divider-border-thickness) solid var(--color-border);
+    border-radius: calc(var(--style-border-radius-sm) * var(--divider-border-rounded));
+    flex-basis: var(--divider-flex-basis);
+    min-height: var(--divider-flex-basis);
+  }
+{% endstylesheet %}

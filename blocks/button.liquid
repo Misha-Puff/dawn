@@ -1,0 +1,159 @@
+{%- comment -%}
+  horizon-blocks Phase 1 — `button` primitive.
+
+  Ported from stock Horizon v4.1.1 (68760d9) `blocks/button.liquid`, adapted onto
+  Dawn's native button system. Horizon's four styles map to Dawn classes in
+  snippets/button.liquid: primary -> .button, secondary -> .button .button--secondary,
+  link -> .link, custom -> .button + a scoped override of Dawn's --color-button /
+  --color-button-text (Dawn's comma-triplet model; Horizon's --button-* props and the
+  separate custom border color / resolved-hover machinery are intentionally dropped).
+
+  `block` is passed explicitly to the snippet — Dawn only guarantees product /
+  collection / section as snippet globals, not `block`.
+{%- endcomment -%}
+
+{% render 'button', block: block, link: block.settings.link %}
+
+{% schema %}
+{
+  "name": "Button",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "Button"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_in_new_tab",
+      "label": "Open in new tab",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "style_class",
+      "label": "Style",
+      "options": [
+        {
+          "value": "button",
+          "label": "Primary"
+        },
+        {
+          "value": "button-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "button-unstyled",
+          "label": "Link"
+        },
+        {
+          "value": "button-custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "button"
+    },
+    {
+      "type": "header",
+      "content": "Button colors",
+      "visible_if": "{{ block.settings.style_class == 'button-custom' }}"
+    },
+    {
+      "type": "color",
+      "id": "custom_button_background",
+      "label": "Background",
+      "default": "#121212",
+      "alpha": true,
+      "visible_if": "{{ block.settings.style_class == 'button-custom' }}"
+    },
+    {
+      "type": "color",
+      "id": "custom_button_text",
+      "label": "Text",
+      "default": "#ffffff",
+      "visible_if": "{{ block.settings.style_class == 'button-custom' }}"
+    },
+    {
+      "type": "color",
+      "id": "link_text_color",
+      "label": "Link text color",
+      "placeholder": "Default",
+      "visible_if": "{{ block.settings.style_class == 'button-unstyled' }}"
+    },
+    {
+      "type": "header",
+      "content": "Size"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "fit-content",
+          "label": "Fit content"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "fit-content"
+    },
+    {
+      "type": "range",
+      "id": "custom_width",
+      "label": "Custom width",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100,
+      "visible_if": "{{ block.settings.width == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "width_mobile",
+      "label": "Width (mobile)",
+      "options": [
+        {
+          "value": "fit-content",
+          "label": "Fit content"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "fit-content"
+    },
+    {
+      "type": "range",
+      "id": "custom_width_mobile",
+      "label": "Custom width",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100,
+      "visible_if": "{{ block.settings.width_mobile == 'custom' }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Button",
+      "category": "Basic",
+      "settings": {
+        "link": "shopify://collections/all"
+      }
+    }
+  ]
+}
+{% endschema %}

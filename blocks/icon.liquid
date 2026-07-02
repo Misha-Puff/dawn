@@ -1,0 +1,360 @@
+{%- comment -%}
+  horizon-blocks Phase 1 — `icon` primitive.
+
+  Ported from stock Horizon v4.1.1 (68760d9) `blocks/icon.liquid`, adapted for Dawn
+  only by hardcoding English schema strings (icon-name labels humanized from their
+  option values). Renders via icon-or-image -> icon: the full Horizon inline-SVG set
+  is ported verbatim in snippets/icon.liquid, keeping every schema icon name valid.
+  A merchant image upload overrides the SVG. Known Horizon quirk: caret / bluesky
+  are drawn for non-20x20 viewBoxes so they render slightly off (inherited, not new).
+{%- endcomment -%}
+
+{% assign block_settings = block.settings %}
+{% assign icon_block_class = 'icon-block__media icon-block-' | append: block.id %}
+
+{% if block_settings.icon_color != blank %}
+  {% style %}
+    .icon-block-{{ block.id }} {
+      color: {{ block_settings.icon_color }};
+    }
+  {% endstyle %}
+{% endif %}
+
+{% capture icon %}
+  {% render 'icon-or-image',
+    icon: block_settings.icon,
+    image_upload: block_settings.image_upload,
+    width: block_settings.width,
+    class_name: icon_block_class,
+    attributes: block.shopify_attributes
+  %}
+{% endcapture %}
+
+{%- if block_settings.link != blank -%}
+  <a
+    href="{{ block_settings.link }}"
+    class="text-inherit"
+    {% if block_settings.open_in_new_tab %}
+      target="_blank" rel="noopener"
+    {% endif %}
+  >
+    {{ icon }}
+  </a>
+{%- else -%}
+  {{ icon }}
+{%- endif -%}
+
+{% stylesheet %}
+  .icon-block {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  .icon-block__media {
+    height: auto;
+  }
+
+  /* Dawn shim — Horizon defines these utility classes in base.css; Dawn does not.
+     Without .icon-default the inline SVG would not honor the icon_color (currentColor). */
+  .icon-default {
+    fill: currentColor;
+  }
+
+  .text-inherit {
+    color: inherit;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Icon",
+  "class": "icon-block",
+  "settings": [
+    {
+      "type": "select",
+      "id": "icon",
+      "label": "Icon",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "apple",
+          "label": "Apple"
+        },
+        {
+          "value": "arrow",
+          "label": "Arrow"
+        },
+        {
+          "value": "banana",
+          "label": "Banana"
+        },
+        {
+          "value": "bottle",
+          "label": "Bottle"
+        },
+        {
+          "value": "box",
+          "label": "Box"
+        },
+        {
+          "value": "carrot",
+          "label": "Carrot"
+        },
+        {
+          "value": "chat_bubble",
+          "label": "Chat bubble"
+        },
+        {
+          "value": "check_box",
+          "label": "Check box"
+        },
+        {
+          "value": "clipboard",
+          "label": "Clipboard"
+        },
+        {
+          "value": "dairy",
+          "label": "Dairy"
+        },
+        {
+          "value": "dairy_free",
+          "label": "Dairy free"
+        },
+        {
+          "value": "dryer",
+          "label": "Dryer"
+        },
+        {
+          "value": "eye",
+          "label": "Eye"
+        },
+        {
+          "value": "fire",
+          "label": "Fire"
+        },
+        {
+          "value": "gluten_free",
+          "label": "Gluten free"
+        },
+        {
+          "value": "heart",
+          "label": "Heart"
+        },
+        {
+          "value": "iron",
+          "label": "Iron"
+        },
+        {
+          "value": "leaf",
+          "label": "Leaf"
+        },
+        {
+          "value": "leather",
+          "label": "Leather"
+        },
+        {
+          "value": "lightning_bolt",
+          "label": "Lightning bolt"
+        },
+        {
+          "value": "lipstick",
+          "label": "Lipstick"
+        },
+        {
+          "value": "lock",
+          "label": "Lock"
+        },
+        {
+          "value": "map_pin",
+          "label": "Map pin"
+        },
+        {
+          "value": "nut_free",
+          "label": "Nut free"
+        },
+        {
+          "value": "pants",
+          "label": "Pants"
+        },
+        {
+          "value": "paw_print",
+          "label": "Paw print"
+        },
+        {
+          "value": "pepper",
+          "label": "Pepper"
+        },
+        {
+          "value": "perfume",
+          "label": "Perfume"
+        },
+        {
+          "value": "plane",
+          "label": "Plane"
+        },
+        {
+          "value": "plant",
+          "label": "Plant"
+        },
+        {
+          "value": "price_tag",
+          "label": "Price tag"
+        },
+        {
+          "value": "question_mark",
+          "label": "Question mark"
+        },
+        {
+          "value": "recycle",
+          "label": "Recycle"
+        },
+        {
+          "value": "return",
+          "label": "Return"
+        },
+        {
+          "value": "ruler",
+          "label": "Ruler"
+        },
+        {
+          "value": "serving_dish",
+          "label": "Serving dish"
+        },
+        {
+          "value": "shirt",
+          "label": "Shirt"
+        },
+        {
+          "value": "shoe",
+          "label": "Shoe"
+        },
+        {
+          "value": "silhouette",
+          "label": "Silhouette"
+        },
+        {
+          "value": "bluesky",
+          "label": "Social bluesky"
+        },
+        {
+          "value": "facebook",
+          "label": "Social facebook"
+        },
+        {
+          "value": "instagram",
+          "label": "Social instagram"
+        },
+        {
+          "value": "linkedin",
+          "label": "Social linkedin"
+        },
+        {
+          "value": "pinterest",
+          "label": "Social pinterest"
+        },
+        {
+          "value": "snapchat",
+          "label": "Social snapchat"
+        },
+        {
+          "value": "spotify",
+          "label": "Social spotify"
+        },
+        {
+          "value": "threads",
+          "label": "Social threads"
+        },
+        {
+          "value": "tiktok",
+          "label": "Social tiktok"
+        },
+        {
+          "value": "tumblr",
+          "label": "Social tumblr"
+        },
+        {
+          "value": "twitter",
+          "label": "Social twitter"
+        },
+        {
+          "value": "vimeo",
+          "label": "Social vimeo"
+        },
+        {
+          "value": "youtube",
+          "label": "Social youtube"
+        },
+        {
+          "value": "whatsapp",
+          "label": "Social whatsapp"
+        },
+        {
+          "value": "snowflake",
+          "label": "Snowflake"
+        },
+        {
+          "value": "star",
+          "label": "Star"
+        },
+        {
+          "value": "stopwatch",
+          "label": "Stopwatch"
+        },
+        {
+          "value": "truck",
+          "label": "Truck"
+        },
+        {
+          "value": "washing",
+          "label": "Washing"
+        }
+      ],
+      "default": "apple"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_upload",
+      "label": "Custom image"
+    },
+    {
+      "type": "range",
+      "id": "width",
+      "label": "Width",
+      "min": 12,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_in_new_tab",
+      "label": "Open in new tab",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Color",
+      "placeholder": "Default"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon",
+      "category": "Basic",
+      "settings": {
+        "icon": "price_tag"
+      }
+    }
+  ]
+}
+{% endschema %}

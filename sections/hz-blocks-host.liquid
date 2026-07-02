@@ -1,0 +1,95 @@
+{%- comment -%}
+  hz-blocks-host — horizon-blocks Phase 1 generic host section.
+
+  A thin, isolated container that mirrors how stock Horizon hosts theme blocks:
+  a `page-width` wrapper around the block outlet. It is the reusable
+  Phase-2 container host and the replacement entry point for the retired
+  `hz-foundation-spike` — so it OWNS loading the frozen Phase-0 engine CSS asset
+  (`component-group.css`), which the layout engine (`.layout-panel-flex*` /
+  `.group-block*` / `.border-style` / `.size-style` / `.spacing-style`) depends on.
+
+  Blocks: `@theme` (all public blocks — group + image/button/icon/spacer) and
+  `@app`. The private `_divider` is not `@theme`-reachable, so it only appears
+  inside a `group` (whose schema allowlists it). The preset inserts a `group` so
+  the host is insertable and immediately exercises the nested-block path.
+{%- endcomment -%}
+
+{{ 'component-group.css' | asset_url | stylesheet_tag }}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="hz-blocks-host page-width section-{{ section.id }}-padding">
+    {% content_for 'blocks' %}
+  </div>
+</div>
+
+{% style %}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Blocks host",
+  "tag": "section",
+  "class": "section",
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    }
+  ],
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blocks host",
+      "blocks": [
+        {
+          "type": "group"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

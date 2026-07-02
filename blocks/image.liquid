@@ -1,0 +1,365 @@
+{%- comment -%}
+  horizon-blocks Phase 1 — `image` primitive.
+
+  Near-verbatim lift of stock Horizon v4.1.1 (68760d9) `blocks/image.liquid`. Reuses
+  the frozen Phase-0 helpers (size-style / spacing-style / border-override) and
+  native Dawn/Shopify filters (image_url / image_tag / placeholder_svg_tag).
+
+  Dawn adaptations: hardcoded English schema strings. The placeholder name
+  'detailed-apparel-1' is KEPT verbatim — it is already a valid Dawn placeholder
+  (Dawn's own multirow/collage sections use it), so the plan's suggested swap is
+  unnecessary and keeping it is the more faithful choice.
+{%- endcomment -%}
+
+{% liquid
+  assign block_settings = block.settings
+  assign ratio = 1
+
+  case block_settings.image_ratio
+    when 'landscape'
+      assign ratio = '16 / 9'
+    when 'portrait'
+      assign ratio = '4 / 5'
+    when 'adapt'
+      assign ratio = block_settings.image.aspect_ratio
+  endcase
+
+  if ratio == 0 or ratio == null
+    assign ratio = 1
+  endif
+%}
+
+{% capture class %}
+  image-block image-block--{{ block.id }} image-block--height-{{ block_settings.height }} spacing-style size-style
+{% endcapture %}
+
+{% capture style %}
+  --ratio: {{ ratio }};
+  {% render 'size-style', settings: block_settings %}
+  {% render 'spacing-style', settings: block_settings %}
+{% endcapture %}
+
+{% capture image_border_style %}
+  --ratio: {{ ratio }};
+  {% render 'border-override', settings: block_settings %}
+{% endcapture %}
+
+{% liquid
+  assign media_width_desktop = '100vw'
+  assign media_width_mobile = '100vw'
+  assign sizes = 'auto, (min-width: 750px) ' | append: media_width_desktop | append: ', ' | append: media_width_mobile
+  assign widths = '240, 352, 832, 1200, 1600, 1920, 2560, 3840'
+%}
+
+{% capture image %}
+  {%- if block_settings.image -%}
+    {{
+      block_settings.image
+      | image_url: width: 3840
+      | image_tag:
+        width: block_settings.image.width,
+        widths: widths,
+        height: block_settings.image.height,
+        class: 'image-block__image border-style',
+        style: image_border_style,
+        sizes: sizes
+    }}
+  {%- else -%}
+    <div class="placeholder-image border-style size-style" style="{{ image_border_style }}">
+      {{ 'detailed-apparel-1' | placeholder_svg_tag: 'image-block__placeholder' }}
+    </div>
+  {%- endif -%}
+{% endcapture %}
+
+{% if block_settings.link == blank %}
+  <div
+    class="{{ class }}"
+    style="{{ style }}"
+    {{ block.shopify_attributes }}
+  >
+    {{ image }}
+  </div>
+{% else %}
+  <a
+    href="{{ block_settings.link }}"
+    class="{{ class }}"
+    style="{{ style }}"
+    {{ block.shopify_attributes }}
+  >
+    {{ image }}
+  </a>
+{% endif %}
+
+{% stylesheet %}
+  .image-block__placeholder {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .placeholder-image {
+    position: relative;
+    aspect-ratio: var(--ratio);
+    overflow: hidden;
+  }
+
+  .image-block {
+    display: flex;
+
+    /* When the image is nested in a group, section, etc, respect the parent's horizontal alignment */
+    justify-content: var(--horizontal-alignment, 'inline-start');
+  }
+
+  .image-block--height-fill .image-block__image {
+    height: 100%;
+  }
+
+  .image-block__image {
+    object-fit: cover;
+    aspect-ratio: var(--ratio);
+
+    /* Horizon's base.css resets every img to width:100%/height:auto; Dawn has no such
+       reset, so the width/height attributes size the img and aspect-ratio is ignored.
+       Scoped port of that reset — height fill still wins via the rule above. */
+    width: 100%;
+    height: auto;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Image",
+  "tag": null,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Size"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Aspect ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "Adapt to image"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape"
+        }
+      ],
+      "default": "adapt"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "fit-content",
+          "label": "Fit content"
+        },
+        {
+          "value": "fill",
+          "label": "Fill"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "fill"
+    },
+    {
+      "type": "range",
+      "id": "custom_width",
+      "label": "Custom width",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100,
+      "visible_if": "{{ block.settings.width == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "width_mobile",
+      "label": "Width (mobile)",
+      "options": [
+        {
+          "value": "fit-content",
+          "label": "Fit content"
+        },
+        {
+          "value": "fill",
+          "label": "Fill"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "fill"
+    },
+    {
+      "type": "range",
+      "id": "custom_width_mobile",
+      "label": "Custom width",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100,
+      "visible_if": "{{ block.settings.width_mobile == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "label": "Height",
+      "options": [
+        {
+          "value": "fit",
+          "label": "Fit content"
+        },
+        {
+          "value": "fill",
+          "label": "Fill"
+        }
+      ],
+      "default": "fit",
+      "visible_if": "{{ block.settings.image_ratio == 'adapt' }}"
+    },
+    {
+      "type": "header",
+      "content": "Borders"
+    },
+    {
+      "type": "select",
+      "id": "border",
+      "label": "Style",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "solid",
+          "label": "Solid"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Thickness",
+      "default": 1,
+      "visible_if": "{{ block.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Opacity",
+      "default": 100,
+      "visible_if": "{{ block.settings.border != 'none' }}"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Color",
+      "placeholder": "Default",
+      "visible_if": "{{ block.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Corner radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image",
+      "category": "Basic"
+    }
+  ]
+}
+{% endschema %}
