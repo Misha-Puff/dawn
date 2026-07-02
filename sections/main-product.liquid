@@ -105,6 +105,8 @@
               #{{ tg_scope }} .Block-{{ block.id }} h1, #{{ tg_scope }} .Block-{{ block.id }} h2 { {{ tg_typedecl }} }
             {%- when 'price' -%}
               #{{ tg_scope }} .Block-{{ block.id }} .price, #{{ tg_scope }} .Block-{{ block.id }} .price-item { {{ tg_typedecl }} }
+            {%- when 'badges' -%}
+              #{{ tg_scope }} .Block-{{ block.id }} .badge { {{ tg_typedecl }} }
             {%- when 'collapsible_tab' -%}
               #{{ tg_scope }} .Block-{{ block.id }} .accordion__title, #{{ tg_scope }} .Block-{{ block.id }} .accordion__content { {{ tg_typedecl }} }
             {%- when 'rating' -%}
@@ -251,6 +253,23 @@
           class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
+          {%- liquid
+            assign title_block = section.blocks | where: 'type', 'title' | first
+            assign price_block = section.blocks | where: 'type', 'price' | first
+            assign price_beside_title = false
+            if title_block != blank and price_block != blank and price_block.settings.price_beside_title
+              assign price_beside_title = true
+            endif
+
+            comment
+              When a Badges block is present, badges render there instead of inside the price.
+            endcomment
+            assign badges_block = section.blocks | where: 'type', 'badges' | first
+            assign price_show_badges = true
+            if badges_block != blank
+              assign price_show_badges = false
+            endif
+          -%}
 
           {%- for block in section.blocks -%}
             {%- case block.type -%}
@@ -264,8 +283,13 @@
                   {{- block.settings.text -}}
                 </p>
               {%- when 'title' -%}
-                <div class="product__title Block-{{ block.id }}" {{ block.shopify_attributes }}>
+                <div class="product__title Block-{{ block.id }}{% if price_beside_title %} product__title--with-price{% endif %}" {{ block.shopify_attributes }}>
                   <h1>{{ product.title | escape }}</h1>
+                  {%- if price_beside_title -%}
+                    <div id="price-{{ section.id }}" class="product__title-price Block-{{ price_block.id }}" role="status" {{ price_block.shopify_attributes }}>
+                      {%- render 'price', product: product, use_variant: true, show_badges: price_show_badges, preview_badge: preview_badge -%}
+                    </div>
+                  {%- endif %}
                   <a href="{{ product.url }}" class="product__title">
                     <h2 class="h1">
                       {{ product.title | escape }}
@@ -273,9 +297,11 @@
                   </a>
                 </div>
               {%- when 'price' -%}
-                <div id="price-{{ section.id }}" class="Block-{{ block.id }}" role="status" {{ block.shopify_attributes }}>
-                  {%- render 'price', product: product, use_variant: true, show_badges: true, preview_badge: preview_badge -%}
-                </div>
+                {%- unless price_beside_title -%}
+                  <div id="price-{{ section.id }}" class="Block-{{ block.id }}" role="status" {{ block.shopify_attributes }}>
+                    {%- render 'price', product: product, use_variant: true, show_badges: price_show_badges, preview_badge: preview_badge -%}
+                  </div>
+                {%- endunless -%}
                 {%- if product.quantity_price_breaks_configured? -%}
                   <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
                     <span>{{ 'products.product.volume_pricing.note' | t }}</span>
@@ -297,6 +323,16 @@
                     </div>
                   {%- endif -%}
                 {% endcomment %}
+              {%- when 'badges' -%}
+                {%- capture badges_html -%}
+                  {%- render 'product-badges', product: product, preview_badge: preview_badge -%}
+                {%- endcapture -%}
+                {%- assign badges_html = badges_html | strip -%}
+                {%- if badges_html != blank -%}
+                  <div class="product__badges Block-{{ block.id }}" {{ block.shopify_attributes }}>
+                    {{ badges_html }}
+                  </div>
+                {%- endif -%}
               {%- when 'inventory' -%}
                 {% unless tags_str contains 'Badge-Coming Soon' %}
                   <p
@@ -1250,6 +1286,101 @@
       "name": "t:sections.main-product.blocks.price.name",
       "limit": 1,
       "settings": [
+        {
+          "type": "header",
+          "content": "Layout"
+        },
+        {
+          "type": "checkbox",
+          "id": "price_beside_title",
+          "default": false,
+          "label": "Show beside product title",
+          "info": "Places the price on the same row as the title, aligned right. Requires a Title block."
+        },
+        {
+          "type": "header",
+          "content": "Typography"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_enable_type",
+          "default": false,
+          "label": "Enable typography"
+        },
+        {
+          "type": "font_picker",
+          "id": "tg_font",
+          "default": "assistant_n4",
+          "label": "Font",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_font_size",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_line_height",
+          "min": 0,
+          "max": 250,
+          "step": 5,
+          "unit": "%",
+          "label": "Line height",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "header",
+          "content": "Padding"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_enable_padding",
+          "default": false,
+          "label": "Enable padding"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding top",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding bottom",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
+        }
+      ]
+    },
+    {
+      "type": "badges",
+      "name": "Badges",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Shows the product's badges (Sale, Sold out, Coming Soon, custom Badge- tags). While this block is present, badges no longer render inside the Price block."
+        },
         {
           "type": "header",
           "content": "Typography"

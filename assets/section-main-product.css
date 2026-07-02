@@ -258,6 +258,23 @@ a.product__text {
   display: none;
 }
 
+.product__title--with-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+}
+
+.product__title--with-price .product__title-price {
+  margin-left: auto;
+  text-align: right;
+}
+
+.product__title--with-price .product__title-price .price__container {
+  margin-bottom: 0;
+}
+
 .product__title + .product__text.caption-with-letter-spacing {
   margin-top: -1.5rem;
 }
@@ -272,6 +289,12 @@ a.product__text {
 
 .product .price .badge {
   margin-bottom: 0.5rem;
+}
+
+.product__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .product .price__container {
