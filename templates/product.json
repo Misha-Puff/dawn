@@ -14,25 +14,44 @@
       "blocks": {
         "title": {
           "type": "title",
-          "settings": {}
+          "settings": {
+            "tg_enable_type": true,
+            "tg_font": "inter_n4",
+            "tg_font_size": 13,
+            "tg_line_height": 0,
+            "tg_enable_padding": true,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
+          }
         },
         "price": {
           "type": "price",
-          "settings": {}
+          "settings": {
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_font_size": 13,
+            "tg_line_height": 0,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
+          }
         },
         "custom_liquid_7DkrmT": {
           "type": "custom_liquid",
           "name": "D&T Info",
           "settings": {
             "custom_liquid": "{% unless localization.country.iso_code == 'US' %}\n  <div>Duties &amp; taxes not included.</div>\n{% endunless %}",
-            "padding_top": 0,
-            "padding_bottom": 0,
+            "enable_typography": false,
+            "font_family": "assistant_n4",
             "font_size": 0,
             "font_weight": "400",
             "font_color": "",
             "line_height": 0,
             "letter_spacing": 0,
-            "text_align": "left"
+            "text_align": "left",
+            "enable_padding": false,
+            "padding_top": 0,
+            "padding_bottom": 0
           }
         },
         "custom_liquid_rGEXWA": {
@@ -40,14 +59,17 @@
           "name": "Custom Message Metafield",
           "settings": {
             "custom_liquid": "{% if product.metafields.product_page.custom_message != null %}\n<p class=\"custom-message\">{{ product.metafields.product_page.custom_message }}</p>\n{% endif %}",
-            "padding_top": 0,
-            "padding_bottom": 0,
+            "enable_typography": false,
+            "font_family": "assistant_n4",
             "font_size": 0,
             "font_weight": "400",
             "font_color": "",
             "line_height": 0,
             "letter_spacing": 0,
-            "text_align": "left"
+            "text_align": "left",
+            "enable_padding": false,
+            "padding_top": 0,
+            "padding_bottom": 0
           }
         },
         "custom_liquid_8fBjhc": {
@@ -55,14 +77,17 @@
           "name": "Free Adult Returns Message",
           "settings": {
             "custom_liquid": "{% unless product.tags contains 'no-returns' %}\n{% if product.tags contains 'Adult' %}\n<p class=\"custom-message\" style=\"color: blue;\">Free returns on domestic Adult orders</p>\n{% endif %}\n{% endunless %}",
-            "padding_top": 0,
-            "padding_bottom": 0,
+            "enable_typography": false,
+            "font_family": "assistant_n4",
             "font_size": 0,
             "font_weight": "400",
             "font_color": "",
             "line_height": 0,
             "letter_spacing": 0,
-            "text_align": "left"
+            "text_align": "left",
+            "enable_padding": false,
+            "padding_top": 0,
+            "padding_bottom": 0
           }
         },
         "custom_liquid_X9miCe": {
@@ -70,14 +95,17 @@
           "name": "Exclusive Message",
           "settings": {
             "custom_liquid": "{% if product.tags contains 'Badge-Exclusive Collab' %}\n<p style=\"color: blue; line-height: normal;\">Misha & Puff x Isetan Collaboration</p>\n{% elsif product.tags contains 'Badge-Exclusive' %}\n<p style=\"color: blue; line-height: normal;\">This style is exclusive to Misha & Puff</p>\n{% endif %}",
-            "padding_top": 0,
-            "padding_bottom": 0,
+            "enable_typography": false,
+            "font_family": "assistant_n4",
             "font_size": 0,
             "font_weight": "400",
             "font_color": "",
             "line_height": 0,
             "letter_spacing": 0,
-            "text_align": "left"
+            "text_align": "left",
+            "enable_padding": false,
+            "padding_top": 0,
+            "padding_bottom": 0
           }
         },
         "custom_liquid_TwxkfW": {
@@ -85,14 +113,17 @@
           "name": "Final Sale Message",
           "settings": {
             "custom_liquid": "{% if product.tags contains 'no-returns' %}\n<p class=\"custom-message\">Final Sale: This item cannot be exchanged or returned</p>\n{% endif %}",
-            "padding_top": 0,
-            "padding_bottom": 0,
+            "enable_typography": false,
+            "font_family": "assistant_n4",
             "font_size": 0,
             "font_weight": "400",
             "font_color": "",
             "line_height": 0,
             "letter_spacing": 0,
-            "text_align": "left"
+            "text_align": "left",
+            "enable_padding": false,
+            "padding_top": 0,
+            "padding_bottom": 0
           }
         },
         "variant_picker": {
@@ -104,7 +135,10 @@
             "swatch_shape": "square",
             "swatch_message": "{{ product.metafields.product_page.swatch_message | metafield_tag }}",
             "swatch_message_padding_top": 0,
-            "swatch_message_padding_bottom": 10
+            "swatch_message_padding_bottom": 10,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
           }
         },
         "inventory_PfG9Nk": {
@@ -112,18 +146,32 @@
           "settings": {
             "text_style": "uppercase",
             "inventory_threshold": 6,
-            "show_inventory_quantity": false
+            "show_inventory_quantity": false,
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
           }
         },
         "bis_form_iQ4kYG": {
           "type": "bis_form",
-          "settings": {}
+          "settings": {
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
+          }
         },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": false,
-            "show_gift_card_recipient": true
+            "show_gift_card_recipient": true,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
           }
         },
         "multi_location_inv_location_inventory_qT7XKi": {
@@ -135,24 +183,38 @@
           "name": "Divider",
           "settings": {
             "custom_liquid": "<div class=\"divider-wrapper\">\n<div class=\"divider\">\n<span class=\"visually-hidden\">divider</span></div></div>",
-            "padding_top": 0,
-            "padding_bottom": 0,
+            "enable_typography": false,
+            "font_family": "assistant_n4",
             "font_size": 0,
             "font_weight": "400",
             "font_color": "",
             "line_height": 0,
             "letter_spacing": 0,
-            "text_align": "left"
+            "text_align": "left",
+            "enable_padding": false,
+            "padding_top": 0,
+            "padding_bottom": 0
           }
         },
         "description": {
           "type": "description",
-          "settings": {}
+          "settings": {
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
+          }
         },
         "size_chart_zfV9wR": {
           "type": "size-chart",
           "settings": {
-            "cta_text": "Size Guide"
+            "cta_text": "Size Guide",
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
           }
         },
         "collapsible_tab_JNhcga": {
@@ -161,7 +223,14 @@
             "heading": "KEY FEATURES",
             "icon": "none",
             "content": "{% if product.metafields.product_page.key_features %}<p>{{ product.metafields.product_page.key_features | metafield_tag }}</p>\n{% endif %}",
-            "page": ""
+            "page": "",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
           }
         },
         "collapsible-row-0": {
@@ -170,7 +239,14 @@
             "heading": "MATERIALS AND CARE",
             "icon": "none",
             "content": "{%- if product.metafields.product_page.material_description -%}\n  <p>{{ product.metafields.product_page.material_description | metafield_tag }}</p>\n{%- endif -%}\n{%- if product.metafields.product_page.country_description -%}\n  <p>{{ product.metafields.product_page.country_description | metafield_tag }}</p>\n{%- endif -%}\n{%- if product.metafields.product_page.care_instructions -%}\n  <p>{{ product.metafields.product_page.care_instructions | metafield_tag }}</p>\n{%- endif -%}",
-            "page": ""
+            "page": "",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
           }
         },
         "wishlist_plus_wishlist_pdp_button_NBkk6K": {
@@ -248,7 +324,14 @@
           "type": "text",
           "settings": {
             "text": "<h4>WORN OFTEN, WORN IN, PASSED DOWN</h4><p>Handcrafted in Japan by skilled artisans, we use the highest quality Japanese denim and time-honored techniques, upholding responsible manufacturing methods that honor both people and the environment. Each piece is meticulously crafted, undergoing nearly 100 steps to produce a single garment.</p><p>Our denim is 100% cotton, with thoughtful touches like contrast topstitching, hand-tacked embroidery instead of rivets for softness, and adjustable waistbands and straps for long wear and the perfect fit. Our denim has no stretch — yet has a naturally soft hand-feel and is effortlessly versatile.</p><p>Designed for comfort and made for long wear — denim to be worn often, worn in, and passed down.</p>",
-            "text_style": "body"
+            "text_style": "body",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
           }
         }
       },
@@ -280,7 +363,14 @@
           "type": "text",
           "settings": {
             "text": "<p><strong>INFINITE VARIATIONS — THE MAGIC OF HAND-DYE</strong></p><p>Our hand-dyed Superwash Merino wool is sustainably and ethically crafted by skilled artisans in Peru using premium natural fibers and low-impact dyes. This yarn is truly special, with each strand unique due to the hand-dye process, introducing subtle nuances to every garment. The hand-dyed variation and natural patterns the yarn creates when knit mean no two garments are the same, and that’s exactly why we love it. With this process, we embrace unpredictability and celebrate the presence of the hand.</p><p>For those reasons, we can’t guarantee that the Space Dye garment you receive will have a pattern close to those pictured, but it will truly be a one-of-a-kind heirloom.</p>",
-            "text_style": "body"
+            "text_style": "body",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
           }
         }
       },
@@ -313,7 +403,14 @@
           "type": "text",
           "settings": {
             "text": "<p><strong>INFINITE VARIATIONS — THE MAGIC OF HAND-DYE</strong></p><p>Our hand-dyed Superwash Merino wool is sustainably and ethically crafted by skilled artisans in Peru using premium natural fibers and low-impact dyes. This yarn is truly special, with each strand unique due to the hand-dye process, introducing subtle nuances to every garment. The hand-dyed variation and natural patterns the yarn creates when knit mean no two garments are the same, and that’s exactly why we love it. With this process, we embrace unpredictability and celebrate the presence of the hand.</p><p>For those reasons, we can’t guarantee that the garment you receive will have the exact tone as the one pictured, but it will truly be a one-of-a-kind heirloom.</p>",
-            "text_style": "body"
+            "text_style": "body",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
           }
         }
       },
@@ -346,7 +443,14 @@
           "type": "text",
           "settings": {
             "text": "<p><strong>PRISM COLLECTION<br/></strong><br/>The Prism styles are meticulously handcrafted, with each garment requiring 30 to 50 hours of expert work. The striking hand-knit and hand-crocheted patchwork showcases the remarkable artistry of our skilled knitting partners.</p>",
-            "text_style": "subtitle"
+            "text_style": "subtitle",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
           }
         }
       },
@@ -379,7 +483,14 @@
           "type": "text",
           "settings": {
             "text": "<p><strong>INFINITE VARIATIONS — THE MAGIC OF HAND-DYE</strong></p><p>Our hand-dyed Superwash Merino wool is sustainably and ethically crafted by skilled artisans in Peru using premium natural fibers and low-impact dyes. This yarn is truly special, with each strand unique due to the hand-dye process, introducing subtle nuances to every garment. The hand-dyed variation and natural patterns the yarn creates when knit mean no two garments are the same, and that’s exactly why we love it. With this process, we embrace unpredictability and celebrate the presence of the hand.</p><p>For those reasons, we can’t guarantee that the Space Dye garment you receive will have a pattern close to those pictured, but it will truly be a one-of-a-kind heirloom.</p>",
-            "text_style": "body"
+            "text_style": "body",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
           }
         }
       },
