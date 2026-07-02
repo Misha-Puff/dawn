@@ -7,13 +7,23 @@
   in the frozen Phase-0 `snippets/group.liquid` + `assets/component-group.css`;
   this block is the thin `content_for 'blocks'` wrapper on top.
 
-  Children are real nested theme blocks (`@theme`/`@app`/`_divider`), captured and
-  handed to the group snippet. `background_color` paints today (contrast-override);
-  `background_media` (image/video) is a Phase-0 stub and stays inert until Phase 2.
+  Children are real nested theme blocks (`@theme`/`@app`/`_divider`/`_card`),
+  captured and handed to the group snippet. `background_color` paints via the
+  full contrast-override (Phase 2: smart palette-extreme contrast), and
+  `background_media` (image/video) + overlay are live — Phase 2 restored the
+  Phase-0 `background-media`/`contrast-override` stubs to full Horizon bodies.
 
-  The stylesheet below is a Dawn shim, kept in this block layer because the engine
-  snippet is frozen: Dawn's base.css hides empty anchors (a:empty → display:none),
-  which killed the block-link overlay the engine renders.
+  DEVIATION (Phase 2, ratified 2026-07-02): stock Horizon only allowlists
+  `_card` inside carousels (blocks/_carousel-content.liquid /
+  sections/carousel.liquid). It is allowlisted here so cards are insertable
+  before a carousel slice lands; the host allowlist stays `@theme`/`@app`.
+
+  The stylesheet below is a Dawn shim layer, kept in this block because the
+  engine snippets are frozen: Dawn's base.css hides empty-by-design elements
+  (a:empty/div:empty → display:none), which killed the block-link anchor the
+  engine renders (Phase 1) and would kill the overlay div the frozen
+  overlay.liquid renders (Phase 2). The class+:empty selectors (0,2,0)
+  out-specify Dawn's element-level reset (0,1,1).
 {%- endcomment -%}
 
 {%- capture children %}
@@ -32,6 +42,10 @@
   .group-block__link:empty {
     display: block;
   }
+
+  .overlay:empty {
+    display: block;
+  }
 {% endstylesheet %}
 
 {% schema %}
@@ -47,6 +61,9 @@
     },
     {
       "type": "_divider"
+    },
+    {
+      "type": "_card"
     }
   ],
   "settings": [

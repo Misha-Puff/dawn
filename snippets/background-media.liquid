@@ -1,21 +1,208 @@
 {%- doc -%}
-  Minimal stub of Horizon's background-media (68760d9) for horizon-blocks Phase 0.
+  Renders a background media
 
-  Renders nothing. `group.liquid` always calls this, but the Phase 0 spike never
-  sets a background, so a no-op keeps `group.liquid` a verbatim lift without
-  pulling in Horizon's `video-background-component`, image srcset machinery, or
-  `placeholder_svg_tag`.
+  Full-fidelity port of stock Horizon v4.1.1 (68760d9)
+  snippets/background-media.liquid — horizon-blocks Phase 2, the scheduled
+  restoration of the Phase-0 stub. Port notes / deviations:
 
-  DEFERRED — restore full Horizon fidelity when the first container block needs a
-  background image or video. Reference:
-  `git -C ~/Desktop/Repos/horizon show 68760d9:snippets/background-media.liquid`.
+  - Video JS: Horizon's <video-background-component> imports
+    '@theme/component' (an importmap module system Dawn lacks). The element
+    name and markup (ref attributes, data-video-source) are kept verbatim;
+    the behavior is reimplemented as a plain Dawn-style custom element in
+    assets/video-background.js, loaded from the video branch below with a
+    per-render defer script tag (duplicate tags are harmless behind its
+    customElements.get guard).
+  - The stylesheet below appends the Horizon base.css rules this markup
+    depends on (.background-image-container / .background-image-fit /
+    .video-background*), re-scoped verbatim — Dawn's base.css has no
+    equivalent. See the constraint comment inline.
+  - The `settings.page_width` case in the sizes logic never matches in Dawn
+    (Horizon's page_width is the string 'narrow'/'normal'/'wide'; Dawn's is
+    numeric), so sizes falls through to '100vw'. Inert branch, kept verbatim.
+  - 'hero-apparel-2' is a platform placeholder_svg_tag name — valid in Dawn.
 
-  @param {string} [background_media] - 'image' | 'video' | 'none'/blank (no-op).
-  @param {object} [background_video] - The background video.
-  @param {string} [background_video_position] - The background video position.
-  @param {object} [background_image] - The background image.
-  @param {string} [background_image_position] - The background image position.
-  @param {string} [placeholder] - The placeholder.
+  @param {string} [background_media] - The background media
+  @param {object} [background_video] - The background video
+  @param {string} [background_video_position] - The background video position
+  @param {object} [background_image] - The background image
+  @param {string} [background_image_position] - The background image position
+  @param {string} [placeholder] - The placeholder
+  @param {object} [block] - The block object
+  @param {object} [section] - The section object
+
+  @example
+  {% render 'background-media', background_media: background_media, background_video: background_video, background_video_position: background_video_position, background_image: background_image, background_image_position: background_image_position, placeholder: placeholder %}
 {%- enddoc -%}
 
-{%- comment -%} No-op stub — see the doc block above. {%- endcomment -%}
+{% if background_media == 'video' %}
+  {% liquid
+    assign video_classes = 'video-background video-background--' | append: background_video_position
+  %}
+  {%- if background_video != blank -%}
+    <script src="{{ 'video-background.js' | asset_url }}" defer="defer"></script>
+    <video-background-component
+      class="{{ video_classes }}"
+    >
+      {% liquid
+        assign media_width_desktop = 100 | append: 'vw'
+        assign media_width_mobile = '100vw'
+        assign sizes = '(min-width: 750px) ' | append: media_width_desktop | append: ', ' | append: media_width_mobile
+        assign widths = '240, 352, 832, 1200, 1600, 1920, 2560, 3840'
+        assign video_fetch_priority = 'auto'
+        assign video_loading = 'lazy'
+
+        if section and section.index == 1
+          assign video_fetch_priority = 'high'
+        endif
+
+        if section and section.index <= 3
+          assign video_loading = 'eager'
+        endif
+      %}
+      {{
+        background_video.preview_image
+        | image_url: width: 3840
+        | image_tag:
+          width: 1100,
+          widths: widths,
+          sizes: sizes,
+          loading: video_loading,
+          fetchpriority: video_fetch_priority
+      }}
+      <video
+        playsinline
+        muted
+        autoplay
+        loop
+        ref="videoElement"
+      >
+        {%- for sourceElement in background_video.sources -%}
+          <source
+            data-video-source="{{ sourceElement.url }}"
+            type="{{ sourceElement.mime_type }}"
+            ref="videoSources[]"
+          >
+        {%- endfor -%}
+      </video>
+    </video-background-component>
+  {%- else -%}
+    <div class="{{ video_classes }}">
+      {%- assign placeholder_name = placeholder | default: 'hero-apparel-2' -%}
+      {%- if placeholder_name == blank -%}
+        {%- assign placeholder_name = 'hero-apparel-2' -%}
+      {%- endif -%}
+      {{ placeholder_name | placeholder_svg_tag }}
+    </div>
+  {%- endif -%}
+{% elsif background_media == 'image' %}
+  <div
+    class="background-image-container{% if background_image_position == 'fit' %} background-image-fit{% endif %}"
+  >
+    {% liquid
+      # Define sizes based on page width setting whether this is called from a section or block
+
+      # Dawn: this branch is doubly inert — no caller here passes `block`, and
+      # settings.page_width is numeric in Dawn (never 'narrow'/'normal'/'wide'),
+      # so sizes always falls through to '100vw'. Kept verbatim for fidelity.
+      if block.settings
+        if section.settings.section_width == 'full-width'
+          assign sizes = '100vw'
+        else
+          case settings.page_width
+            when 'narrow'
+              # Narrow: max 90rem (1440px)
+              assign sizes = '(min-width: 1440px) 1440px, 100vw'
+            when 'normal'
+              # Normal: max 120rem (1920px)
+              assign sizes = '(min-width: 1920px) 1920px, 100vw'
+            when 'wide'
+              # Wide: max 150rem (2400px)
+              assign sizes = '(min-width: 2400px) 2400px, 100vw'
+            else
+              # Fallback to full width
+              assign sizes = '100vw'
+          endcase
+        endif
+      else
+        assign sizes = '100vw'
+      endif
+
+      assign widths = '832, 1200, 1600, 1920, 2560, 3840'
+    %}
+
+    {%- if background_image != blank -%}
+      {% liquid
+        assign fetch_priority = 'auto'
+        assign loading = 'lazy'
+        if section and section.index == 1
+          assign fetch_priority = 'high'
+        endif
+
+        if section and section.index <= 3
+          assign loading = 'eager'
+        endif
+      %}
+      {{
+        background_image
+        | image_url: width: 3840
+        | image_tag: sizes: sizes, widths: widths, loading: loading, fetchpriority: fetch_priority
+      }}
+    {%- else -%}
+      {%- assign placeholder_name = placeholder | default: 'hero-apparel-2' -%}
+      {%- if placeholder_name == blank -%}
+        {%- assign placeholder_name = 'hero-apparel-2' -%}
+      {%- endif -%}
+      {{ placeholder_name | placeholder_svg_tag }}
+    {%- endif -%}
+  </div>
+{% endif %}
+
+{% stylesheet %}
+  @media (prefers-reduced-motion: reduce) {
+    video-background-component video {
+      display: none;
+    }
+  }
+
+  /* Ported verbatim from Horizon base.css (68760d9: 605-622 and 1106-1122):
+     upstream keeps these in base.css; Dawn's base.css has no equivalent, so
+     this snippet carries them. --image-opacity is unset anywhere in Dawn ->
+     opacity computes to 1 (kept verbatim). */
+  .background-image-container {
+    overflow: hidden;
+    position: absolute;
+    inset: 0;
+    opacity: var(--image-opacity);
+  }
+
+  .background-image-container img,
+  .background-image-container svg {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .background-image-fit img,
+  .background-image-fit svg {
+    object-fit: contain;
+  }
+
+  /* Video background */
+  .video-background,
+  .video-background * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .video-background--cover * {
+    object-fit: cover;
+  }
+
+  .video-background--contain * {
+    object-fit: contain;
+  }
+{% endstylesheet %}

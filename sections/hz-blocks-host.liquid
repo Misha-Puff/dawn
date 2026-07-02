@@ -16,10 +16,14 @@
   Phase 1b: the host also renders `hz-type-variables` (the --font-{preset}--*
   token layer the text block and typography-style custom path consume) — same
   ownership precedent as the engine CSS above.
+
+  Phase 2: adds `hz-ui-tokens` (--layer-* / --opacity-* constants) — consumed
+  by the card block, contrast-override, and the overlay fallback color.
 {%- endcomment -%}
 
 {{ 'component-group.css' | asset_url | stylesheet_tag }}
 {% render 'hz-type-variables' %}
+{% render 'hz-ui-tokens' %}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <div class="hz-blocks-host page-width section-{{ section.id }}-padding">

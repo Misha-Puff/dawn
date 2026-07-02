@@ -1,0 +1,54 @@
+{%- comment -%}
+  horizon-blocks Phase 2 — UI-layer tokens (z-index ramp + opacity constants).
+
+  Dawn-side equivalent of the layering + opacity subset of stock Horizon
+  v4.1.1 (68760d9) snippets/theme-styles-variables.liquid, values verbatim.
+  Dawn has no equivalent tokens; the Phase-2 card slice consumes
+  --layer-flat / --layer-raised (card content/link stacking) and
+  --opacity-* (contrast-override's muted/subdued text + form tokens,
+  overlay fallback color). The FULL ramps are emitted, not just the
+  consumed subset, so future slices (sticky headers, drawers, popovers)
+  reuse this file instead of growing new partial copies.
+
+  Rendered by sections/hz-blocks-host.liquid next to hz-type-variables —
+  same ownership precedent; future hosts render both.
+
+  Emitted via {% style %} (Liquid tag) — exempt from Shopify's CSS
+  subsetting, so the tokens survive even when no static CSS references them.
+{%- endcomment -%}
+
+{% style %}
+  :root {
+    /** Z-Index / Layering */
+    --layer-section-background: -2;
+    --layer-lowest: -1;
+    --layer-base: 0;
+    --layer-flat: 1;
+    --layer-raised: 2;
+    --layer-heightened: 4;
+    --layer-sticky: 8;
+    --layer-window-overlay: 10;
+    --layer-header-menu: 12;
+    --layer-overlay: 16;
+    --layer-menu-drawer: 18;
+    --layer-temporary: 20;
+
+    /* Opacity */
+    --opacity-5: 0.05;
+    --opacity-8: 0.08;
+    --opacity-10: 0.1;
+    --opacity-15: 0.15;
+    --opacity-20: 0.2;
+    --opacity-25: 0.25;
+    --opacity-30: 0.3;
+    --opacity-40: 0.4;
+    --opacity-50: 0.5;
+    --opacity-60: 0.6;
+    --opacity-70: 0.7;
+    --opacity-80: 0.8;
+    --opacity-85: 0.85;
+    --opacity-90: 0.9;
+    --opacity-subdued-text: 0.8;
+    --opacity-muted-text: 0.6;
+  }
+{% endstyle %}
