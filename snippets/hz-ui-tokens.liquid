@@ -1,8 +1,9 @@
 {%- comment -%}
-  horizon-blocks Phase 2–4 — UI-layer tokens (z-index ramp + opacity constants;
+  horizon-blocks Phase 2–5 — UI-layer tokens (z-index ramp + opacity constants;
   Phase 3 appends icon/slideshow/animation constants + primary-button shims;
   Phase 4 appends accordion/menu/social sizes + popover tokens + the
-  --color-border fallback).
+  --color-border fallback; Phase 5 appends the slideshow-controls
+  dots/counter sizes).
 
   Dawn-side equivalent of the layering + opacity subset of stock Horizon
   v4.1.1 (68760d9) snippets/theme-styles-variables.liquid, values verbatim.
@@ -110,5 +111,11 @@
        ported contrast-override re-declares it (full-color Horizon model),
        and the accordion's inline divider_color overrides both. */
     --color-border: rgb(var(--color-foreground));
+
+    /* --- Phase 5 (hero slideshow slice; Horizon rem = 16px) --- */
+    --padding-lg: 16px; /* tsv:426; 1rem — dots pill inline padding */
+    --margin-sm: 11.2px; /* tsv:409; 0.7rem — counter pill inline margin */
+    --icon-size-sm: 20px; /* tsv:549; 1.25rem — slideshow-controls icon width */
+    --font-size--xs: 13px; /* tsv:351; 0.8125rem — counter text */
   }
 {% endstyle %}

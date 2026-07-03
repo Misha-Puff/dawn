@@ -1,0 +1,688 @@
+{%- comment -%}
+  horizon-blocks Phase 5 — port of stock Horizon v4.1.1 (68760d9)
+  sections/slideshow.liquid, RENAMED hz-slideshow (Dawn stock owns
+  sections/slideshow.liquid). Markup and schema verbatim; t: strings
+  hardcoded to Horizon's en.default English. Deviations:
+  - `slideshow-component` stylesheet selectors renamed
+    `hz-slideshow-component` (Phase 3 rename precedent).
+  - The appended {% stylesheet %} block is the Dawn adaptation of Horizon's
+    base.css .section grid + .section-background machinery, scoped to
+    .slideshow-section (hz-carousel precedent), plus the --page-margin
+    mapping the with_hints rules consume.
+  - `disable-section-top-offset` root class kept verbatim: it opts out of
+    Horizon's transparent-header first-section offset (base.css:3999) —
+    machinery Dawn doesn't have, so the class is inert here. No CSS ported.
+  - Schema `"class": "container-background-image"` kept verbatim: Horizon
+    base.css:874 gives the wrapper background-image sizing, but nothing in
+    this port sets a background image on the section wrapper, so the class
+    is inert in Dawn. No CSS ported.
+{%- endcomment -%}
+{%- comment -%}
+  Host-owned dependencies (precedent: sections/hz-blocks-host.liquid — "future
+  hosts render both"): the frozen Phase-0 engine CSS the group/text/button
+  children depend on, plus the type + UI token layers. hz-slideshow is a
+  standalone host, so it cannot rely on hz-blocks-host being on the page.
+{%- endcomment -%}
+{{ 'component-group.css' | asset_url | stylesheet_tag }}
+{% render 'hz-type-variables' %}
+{% render 'hz-ui-tokens' %}
+
+{% if section.blocks.size > 1 %}
+  {% if section.settings.display_mode == 'full_frame' %}
+    {% assign autoplay = section.settings.autoplay %}
+  {% else %}
+    {% assign autoplay = false %}
+  {% endif %}
+  {% capture controls %}
+    {%- render 'slideshow-controls',
+      style: section.settings.slideshow_controls_style,
+      autoplay: autoplay,
+      item_count: section.blocks.size,
+      show_arrows: false,
+      arrows_on_media: true,
+      controls_on_media: true,
+      pagination_position: 'center',
+      icon_style: section.settings.icons_style
+    -%}
+  {% endcapture %}
+{% endif %}
+
+{% capture slides %}
+  {% content_for 'blocks' %}
+{% endcapture %}
+
+{% liquid
+  assign section_width_class = ''
+  if section.settings.display_mode == 'with_hints'
+    assign section_width_class = 'section--page-width'
+    if section.settings.full_frame_on_mobile
+      assign section_width_class = section_width_class | append: ' section--mobile-full-width'
+    endif
+  else
+    assign section_width_class = 'section--' | append: section.settings.section_width
+  endif
+
+  assign slideshow_class = 'slideshow--content-' | append: section.settings.content_position
+  if section.blocks.size == 1
+    assign slideshow_class = slideshow_class | append: ' slideshow--single-media'
+  endif
+  if section.settings.display_mode == 'with_hints'
+    assign slideshow_class = slideshow_class | append: ' slideshow--with-hints'
+    if section.settings.full_frame_on_mobile
+      assign slideshow_class = slideshow_class | append: ' slideshow--with-hints--mobile-full-frame'
+    else
+      assign slideshow_class = slideshow_class | append: ' slideshow--with-hints--mobile-with-hints'
+    endif
+  endif
+
+  assign show_arrows = true
+  if section.settings.icons_style == 'none' or section.blocks.size <= 1
+    assign show_arrows = false
+  endif
+
+  assign rounded_slide_corners = false
+  if section.settings.display_mode == 'full_frame' and section.settings.section_width == 'page-width'
+    assign rounded_slide_corners = true
+  elsif section.settings.display_mode == 'with_hints' and section.settings.full_frame_on_mobile == false
+    assign rounded_slide_corners = true
+  endif
+%}
+
+{% liquid
+  if section.settings.background_color != blank
+    assign skip_section_contrast = false
+    if section.settings.content_position == 'on-media'
+      assign skip_section_contrast = true
+    endif
+    render 'contrast-override', background_color: section.settings.background_color, section_id: section.id, skip_contrast: skip_section_contrast
+  endif
+%}
+
+<div
+  class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+></div>
+<div
+  class="slideshow-section spacing-style section {{ section_width_class }}{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %} disable-section-top-offset"
+  style="{% render 'spacing-padding', settings: section.settings %}; --slideshow-gap: {{ section.settings.slideshow_gap }}px;{% if rounded_slide_corners %} --corner-radius: {{ section.settings.corner_radius }}px;{% endif %}"
+>
+  <h2 class="visually-hidden">Slideshow</h2>
+  {% render 'slideshow',
+    class: slideshow_class,
+    controls: controls,
+    show_arrows: show_arrows,
+    icon_style: section.settings.icons_style,
+    icon_shape: section.settings.icons_shape,
+    autoplay: autoplay,
+    autoplay_speed: section.settings.autoplay_speed,
+    slides: slides,
+    slide_count: section.blocks.size,
+    slide_size: section.settings.slide_height
+  %}
+</div>
+
+{% stylesheet %}
+  .slideshow-section {
+    slideshow-arrows .slideshow-control:first-of-type {
+      margin-inline-start: var(--padding-xs);
+    }
+
+    slideshow-arrows .slideshow-control:last-of-type {
+      margin-inline-end: var(--padding-xs);
+    }
+
+    .slideshow--with-hints--mobile-with-hints {
+      gap: var(--slideshow-gap, 0);
+      grid-column: 1 / -1;
+    }
+
+    /* Hide navigation arrows at boundaries for with-hints mode */
+    .slideshow--with-hints--mobile-with-hints slideshow-arrows .slideshow-control {
+      transition: opacity 0.3s ease;
+    }
+
+    /* Override animation for boundary arrows in with-hints mode on hover */
+    hz-slideshow-component.slideshow--with-hints--mobile-with-hints:has(
+        slideshow-slide:first-child:not([aria-hidden='true'])
+      )
+      > slideshow-container
+      > slideshow-arrows
+      .slideshow-control--previous,
+    hz-slideshow-component.slideshow--with-hints--mobile-with-hints:has(
+        slideshow-slide:last-child:not([aria-hidden='true'])
+      )
+      > slideshow-container
+      > slideshow-arrows
+      .slideshow-control--next {
+      animation: none;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    @media screen and (max-width: 749px) {
+      .slideshow--with-hints--mobile-with-hints slideshow-slides {
+        padding-inline: var(--page-margin);
+      }
+
+      .slideshow--with-hints--mobile-with-hints slideshow-slide {
+        width: 96%;
+      }
+
+      .slideshow--with-hints--mobile-with-hints slideshow-slides {
+        gap: min(var(--slideshow-gap, 0), 10px);
+      }
+    }
+
+    @media screen and (min-width: 750px) {
+      .slideshow--with-hints {
+        gap: var(--slideshow-gap, 0);
+        grid-column: 1 / -1;
+      }
+
+      .slideshow--with-hints slideshow-slides {
+        padding-inline: var(--page-margin);
+        gap: var(--slideshow-gap, 0);
+      }
+
+      .slideshow--with-hints slideshow-slide {
+        width: calc((100vw - var(--page-margin) * 2));
+        overflow: hidden;
+      }
+
+      .slideshow--with-hints slideshow-arrows .slideshow-control {
+        transition: opacity 0.3s ease;
+      }
+
+      hz-slideshow-component.slideshow--with-hints:has(slideshow-slide:first-child:not([aria-hidden='true']))
+        > slideshow-container
+        > slideshow-arrows
+        .slideshow-control--previous,
+      hz-slideshow-component.slideshow--with-hints:has(slideshow-slide:last-child:not([aria-hidden='true']))
+        > slideshow-container
+        > slideshow-arrows
+        .slideshow-control--next {
+        animation: none;
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
+
+  /* Dawn adaptation of Horizon base.css .section grid (68760d9
+     base.css:333-419), scoped to .slideshow-section (hz-carousel precedent).
+     This store's .page-width has max-width disabled (base.css:81), so
+     Horizon's central-column min() reduces exactly to the page padding
+     (30px ≥1100px / 10px below — theme.liquid:147-148). Unlike hz-carousel,
+     the variable is named --page-margin (not --util-page-margin-offset)
+     because the with_hints rules above consume var(--page-margin) directly
+     — same mapping, Horizon's own token name. Deliberate breakpoint split:
+     gutters follow Dawn's 1100px page-padding breakpoint, the with-hints
+     slide rules follow Horizon's 750px — each internally consistent with
+     what it aligns to. */
+  .slideshow-section {
+    --page-margin: var(--page-width-padding);
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns:
+      minmax(var(--page-margin), 1fr)
+      minmax(0, calc(100% - var(--page-margin) * 2))
+      minmax(var(--page-margin), 1fr);
+  }
+
+  @media screen and (max-width: 1099px) {
+    .slideshow-section {
+      --page-margin: var(--mobile-page-width-padding);
+    }
+  }
+
+  .slideshow-section > * {
+    grid-column: 2;
+  }
+
+  /* with_hints mode assigns .section--page-width (+ optional
+     .section--mobile-full-width) — Horizon base.css:387-401, scoped */
+  .slideshow-section.section--page-width > * {
+    grid-column: 2;
+  }
+
+  .slideshow-section.section--full-width > * {
+    grid-column: 1 / -1;
+  }
+
+  @media screen and (max-width: 749px) {
+    .slideshow-section.section--mobile-full-width > * {
+      grid-column: 1 / -1;
+    }
+  }
+
+  .slideshow-section > .force-full-width {
+    grid-column: 1 / -1; /* Horizon base.css:418 */
+  }
+
+  /* section-background mechanism (Horizon base.css:370-383), scoped */
+  .shopify-section:has(> .slideshow-section) {
+    position: relative;
+  }
+
+  /* (0,2,0) out-specifies .color-custom-{id} so the section itself stays
+     transparent and the .section-background sibling paints edge-to-edge */
+  .shopify-section:not(.header-section) .slideshow-section {
+    background: transparent;
+  }
+
+  .shopify-section:has(> .slideshow-section) > .section-background {
+    position: absolute;
+    inset: 0;
+    z-index: var(--layer-section-background);
+    background-color: var(--color-background);
+  }
+
+  /* Dawn :empty counter-shim (group/_card precedent) — Dawn base.css hides
+     empty elements (div:empty → display: none); .section-background is an
+     intentionally-empty sibling div, so without this it never paints. */
+  .shopify-section:has(> .slideshow-section) > .section-background:empty {
+    display: block;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Slideshow",
+  "class": "container-background-image",
+  "blocks": [
+    {
+      "type": "_slide"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "display_mode",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "full_frame",
+          "label": "Full frame"
+        },
+        {
+          "value": "with_hints",
+          "label": "With hints"
+        }
+      ],
+      "default": "full_frame"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page"
+        },
+        {
+          "value": "full-width",
+          "label": "Full"
+        }
+      ],
+      "default": "full-width",
+      "visible_if": "{{ section.settings.display_mode == 'full_frame' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_frame_on_mobile",
+      "label": "Full width on mobile",
+      "default": false,
+      "visible_if": "{{ section.settings.display_mode == 'with_hints' }}"
+    },
+    {
+      "type": "range",
+      "id": "slideshow_gap",
+      "label": "Gap",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 12,
+      "visible_if": "{{ section.settings.display_mode == 'with_hints' }}"
+    },
+    {
+      "type": "range",
+      "id": "corner_radius",
+      "label": "Corner radius",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 0,
+      "visible_if": "{{ section.settings.display_mode == 'with_hints' or section.settings.display_mode == 'full_frame' and section.settings.section_width == 'page-width' }}"
+    },
+    {
+      "type": "select",
+      "id": "slide_height",
+      "options": [
+        {
+          "value": "auto",
+          "label": "Auto"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "medium",
+      "label": "Media height"
+    },
+    {
+      "type": "select",
+      "id": "content_position",
+      "label": "Content position",
+      "options": [
+        {
+          "value": "on-media",
+          "label": "On media"
+        },
+        {
+          "value": "below-media",
+          "label": "Below media"
+        }
+      ],
+      "default": "on-media"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "placeholder": "Default"
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "select",
+      "id": "icons_style",
+      "label": "Icons",
+      "options": [
+        {
+          "value": "arrow",
+          "label": "Arrows"
+        },
+        {
+          "value": "chevron",
+          "label": "Chevrons"
+        },
+        {
+          "value": "arrows_large",
+          "label": "Large arrows"
+        },
+        {
+          "value": "chevron_large",
+          "label": "Large chevrons"
+        },
+        {
+          "value": "none",
+          "label": "None"
+        }
+      ],
+      "default": "arrows_large"
+    },
+    {
+      "type": "select",
+      "id": "icons_shape",
+      "label": "Icon background",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.icons_style != 'none' }}"
+    },
+    {
+      "type": "select",
+      "id": "slideshow_controls_style",
+      "label": "Pagination",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "dots",
+          "label": "Dots"
+        },
+        {
+          "value": "counter",
+          "label": "Counter"
+        }
+      ],
+      "default": "dots"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto-rotate slides",
+      "default": false,
+      "visible_if": "{{ section.settings.display_mode == 'full_frame' }}"
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "Speed",
+      "min": 3,
+      "max": 7,
+      "step": 1,
+      "unit": "s",
+      "default": 4,
+      "visible_if": "{{ section.settings.display_mode == 'full_frame' and section.settings.autoplay }}"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slideshow: Full frame",
+      "category": "Banners",
+      "blocks": {
+        "slide_1": {
+          "type": "_slide",
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "center",
+            "padding-inline-start": 48,
+            "padding-inline-end": 48,
+            "padding-block-start": 48,
+            "padding-block-end": 48
+          },
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "name": "Heading",
+              "settings": {
+                "text": "<h3>New arrivals</h3>"
+              }
+            },
+            "text": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Introducing our latest products, made especially for the season. Shop your favorites before they're gone!</p>",
+                "padding-block-end": 20
+              }
+            },
+            "button": {
+              "type": "button",
+              "settings": {
+                "label": "Shop now",
+                "link": "shopify://collections/all"
+              }
+            }
+          },
+          "block_order": ["heading", "text", "button"]
+        },
+        "slide_2": {
+          "type": "_slide",
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "center",
+            "padding-inline-start": 48,
+            "padding-inline-end": 48,
+            "padding-block-start": 48,
+            "padding-block-end": 48
+          },
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "name": "Heading",
+              "settings": {
+                "text": "<h2>Bestsellers</h2>"
+              }
+            },
+            "text": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Discover the bestsellers that have captured the hearts of our customers with their perfect blend of functionality and style.</p>",
+                "padding-block-end": 20
+              }
+            },
+            "button": {
+              "type": "button",
+              "settings": {
+                "label": "Shop now",
+                "link": "shopify://collections/all"
+              }
+            }
+          },
+          "block_order": ["heading", "text", "button"]
+        }
+      },
+      "block_order": ["slide_1", "slide_2"]
+    },
+    {
+      "name": "Slideshow: Inset",
+      "category": "Banners",
+      "blocks": {
+        "slide_1": {
+          "type": "_slide",
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "center",
+            "padding-inline-start": 48,
+            "padding-inline-end": 48,
+            "padding-block-start": 48,
+            "padding-block-end": 48
+          },
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "name": "Heading",
+              "settings": {
+                "text": "<h3>New arrivals</h3>"
+              }
+            },
+            "text": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Introducing our latest products, made especially for the season. Shop your favorites before they're gone!</p>",
+                "padding-block-end": 20
+              }
+            },
+            "button": {
+              "type": "button",
+              "settings": {
+                "label": "Shop now",
+                "link": "shopify://collections/all"
+              }
+            }
+          },
+          "block_order": ["heading", "text", "button"]
+        },
+        "slide_2": {
+          "type": "_slide",
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "center",
+            "padding-inline-start": 48,
+            "padding-inline-end": 48,
+            "padding-block-start": 48,
+            "padding-block-end": 48
+          },
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "name": "Heading",
+              "settings": {
+                "text": "<h2>Bestsellers</h2>"
+              }
+            },
+            "text": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Discover the bestsellers that have captured the hearts of our customers with their perfect blend of functionality and style.</p>",
+                "padding-block-end": 20
+              }
+            },
+            "button": {
+              "type": "button",
+              "settings": {
+                "label": "Shop now",
+                "link": "shopify://collections/all"
+              }
+            }
+          },
+          "block_order": ["heading", "text", "button"]
+        }
+      },
+      "block_order": ["slide_1", "slide_2"],
+      "settings": {
+        "display_mode": "with_hints",
+        "slideshow_gap": 18,
+        "corner_radius": 20,
+        "slide_height": "medium",
+        "content_position": "below-media",
+        "icons_style": "arrows_large",
+        "icons_shape": "none",
+        "slideshow_controls_style": "none"
+      }
+    }
+  ]
+}
+{% endschema %}
