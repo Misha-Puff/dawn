@@ -1,0 +1,150 @@
+{%- comment -%}
+  horizon-blocks Phase 4 — port of stock Horizon v4.1.1 (68760d9)
+  blocks/payment-icons.liquid. Liquid body + stylesheet verbatim (incl. the
+  doubled block_settings assign, an upstream quirk). The visually-hidden
+  label is hardcoded to Horizon's en.default.json English — established
+  convention: hardcode English, no locale-file keys. Schema t: strings
+  hardcoded likewise.
+{%- endcomment -%}
+{% assign block_settings = block.settings %}
+
+{%- assign block_settings = block.settings -%}
+
+<div
+  class="
+    payment-icons
+    spacing-style
+  "
+  style="
+    {% render 'spacing-padding', settings: block_settings %}
+    --icon-gap: {{ block_settings.gap }}px;
+    --alignment: {{ block_settings.horizontal_alignment }};
+  "
+  {{ block.shopify_attributes }}
+>
+  <span class="visually-hidden">Payment methods</span>
+  <ul
+    class="payment-icons__list"
+    role="list"
+  >
+    {%- for type in shop.enabled_payment_types -%}
+      <li class="payment-icons__item">
+        {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+      </li>
+    {%- endfor -%}
+  </ul>
+</div>
+
+{% stylesheet %}
+  .payment-icons {
+    width: 100%;
+  }
+
+  .payment-icons__list {
+    display: flex;
+    align-items: center;
+    justify-content: var(--alignment);
+    flex-wrap: wrap;
+    gap: var(--icon-gap);
+    margin: 0;
+    padding: 0;
+  }
+
+  .payment-icons__item {
+    display: flex;
+    align-items: center;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Payment icons",
+  "tag": null,
+  "settings": [
+    {
+      "type": "select",
+      "id": "horizontal_alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        },
+        {
+          "value": "space-between",
+          "label": "Space between"
+        }
+      ],
+      "default": "flex-start"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Payment icons",
+      "category": "Footer"
+    }
+  ]
+}
+{% endschema %}

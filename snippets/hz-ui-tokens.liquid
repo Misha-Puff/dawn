@@ -1,6 +1,8 @@
 {%- comment -%}
-  horizon-blocks Phase 2+3 — UI-layer tokens (z-index ramp + opacity constants;
-  Phase 3 appends icon/slideshow/animation constants + primary-button shims).
+  horizon-blocks Phase 2–4 — UI-layer tokens (z-index ramp + opacity constants;
+  Phase 3 appends icon/slideshow/animation constants + primary-button shims;
+  Phase 4 appends accordion/menu/social sizes + popover tokens + the
+  --color-border fallback).
 
   Dawn-side equivalent of the layering + opacity subset of stock Horizon
   v4.1.1 (68760d9) snippets/theme-styles-variables.liquid, values verbatim.
@@ -82,5 +84,31 @@
        shapes; without this they render transparent (IACVT). */
     --color-primary-button-background: rgba(var(--color-button), var(--alpha-button-background));
     --color-primary-button-text: rgb(var(--color-button-text));
+
+    /* --- Phase 4 (accordion + footer leaves; Horizon rem = 16px) --- */
+    --margin-xs: 8px; /* tsv:408; 0.5rem — accordion row icon end-margin */
+    --style-border-width: 1px; /* tsv:452 — accordion + menu dividers */
+    --gap-sm: 11.2px; /* tsv:437; 0.7rem — social-links icon gap */
+    --icon-size-xs: 13.6px; /* tsv:548; 0.85rem — summary caret/plus size */
+    --icon-size-lg: 24px; /* tsv:551; 1.5rem — social icons */
+    --ease-out-quad: cubic-bezier(0.32, 0.72, 0, 1); /* tsv:474 — popover */
+
+    /* Popover tokens, hardcoded at Horizon SCHEMA defaults (settings-driven
+       in stock: tsv:465 reads popover_border_radius, schema default 8 — the
+       shipped settings_data.json uses 14, but this token layer's precedent
+       is schema defaults, per hz-type-variables). Shadow formula:
+       color-palette.liquid:229 with popover_shadow_color at its default
+       (= palette foreground); comma-triplet composition at the shim
+       boundary like the primary-button colors above. */
+    --style-border-radius-popover: 8px;
+    --shadow-popover: 0px 4px 20px rgba(var(--color-foreground), var(--opacity-15));
+
+    /* Divider/border fallback (color-palette.liquid:172: --color-border =
+       page text color, full strength; Dawn never reads this name — safe at
+       :root). Same :root composition caveat as the button shim: resolves
+       against the DEFAULT Dawn scheme. Inside .color-custom-* scopes the
+       ported contrast-override re-declares it (full-color Horizon model),
+       and the accordion's inline divider_color overrides both. */
+    --color-border: rgb(var(--color-foreground));
   }
 {% endstyle %}

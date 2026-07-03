@@ -1,0 +1,195 @@
+{%- doc -%}
+  Accordion Custom Component
+
+  Renders the accordion-custom custom element wrapper with co-located styles.
+
+  @param {string} children - The content to render inside the component (typically a <details> element)
+  @param {string} [class] - Additional CSS classes
+  @param {boolean} [open] - Whether the accordion is open (marker attribute)
+  @param {boolean} [open_by_default_on_desktop] - Whether accordion opens by default on desktop
+  @param {boolean} [open_by_default_on_mobile] - Whether accordion opens by default on mobile
+  @param {boolean} [disable_on_desktop] - Disables accordion behavior on desktop
+  @param {boolean} [disable_on_mobile] - Disables accordion behavior on mobile
+  @param {boolean} [disable_animation_on_desktop] - Disables animation on desktop (for horizontal filters)
+  @param {boolean} [close_with_escape] - Enables closing with escape key
+  @param {string} [data_filter_param_name] - Filter param name for facet identification
+
+  @example
+  {% capture accordion_content %}
+    <details class="details">
+      <summary>Click to expand</summary>
+      <div class="details-content">Content here</div>
+    </details>
+  {% endcapture %}
+  {% render 'accordion-custom-component',
+    children: accordion_content,
+    open_by_default_on_desktop: true
+  %}
+{%- enddoc -%}
+
+{%- comment -%}
+  horizon-blocks Phase 4 — port of stock Horizon v4.1.1 (68760d9)
+  snippets/accordion-custom-component.liquid. Markup + stylesheet verbatim,
+  plus three Dawn adaptations:
+  - per-render module script tag for accordion-custom.js (Dawn has no
+    central module loader; Horizon loads it globally via scripts.liquid —
+    Phase 3 slideshow.liquid precedent). Living here it covers every
+    consumer: accordion rows AND the menu block.
+  - a scoped "summary support" block appended to the stylesheet: Horizon
+    styles summary + its icons globally in base.css (unported) — flex
+    layout + block padding (base.css:1454), hover dim (:1462), icon
+    end-alignment/sizing (:1466), caret rotate-on-open (:888) and the
+    plus-icon morph (:1473). Scoped under the accordion-custom element so
+    Dawn natives are untouched. The hover dim is comma-triplet-adapted to
+    Dawn's color model (Phase 3 shim-boundary precedent); inside
+    .color-custom-* scopes (Horizon full-color model) it goes IACVT and the
+    20% dim is skipped — cosmetic, accepted.
+  - a neutralizer for Dawn base.css:662 `summary .icon-caret` (an
+    absolute-positioned 0.6rem caret for Dawn's native details) which would
+    otherwise mis-position/mis-size this component's caret.
+{%- endcomment -%}
+
+<accordion-custom
+  {% if class %}
+    class="{{ class }}"
+  {% endif %}
+  {% if open %}
+    open
+  {% endif %}
+  {% if open_by_default_on_desktop %}
+    open-by-default-on-desktop
+  {% endif %}
+  {% if open_by_default_on_mobile %}
+    open-by-default-on-mobile
+  {% endif %}
+  {% if disable_on_desktop %}
+    data-disable-on-desktop="true"
+  {% endif %}
+  {% if disable_on_mobile %}
+    data-disable-on-mobile="true"
+  {% endif %}
+  {% if disable_animation_on_desktop %}
+    data-disable-animation-on-desktop="true"
+  {% endif %}
+  {% if close_with_escape %}
+    data-close-with-escape="true"
+  {% endif %}
+  {% if data_filter_param_name %}
+    data-filter-param-name="{{ data_filter_param_name }}"
+  {% endif %}
+>
+  {{ children }}
+</accordion-custom>
+
+<script type="module" src="{{ 'accordion-custom.js' | asset_url }}"></script>
+
+{% stylesheet %}
+  accordion-custom {
+    details {
+      &::details-content,
+      .details-content {
+        block-size: 0;
+        overflow-y: clip;
+        opacity: 0;
+        interpolate-size: allow-keywords;
+        transition: content-visibility var(--animation-speed-slow) allow-discrete,
+          padding-block var(--animation-speed-slow) var(--animation-easing),
+          opacity var(--animation-speed-slow) var(--animation-easing),
+          block-size var(--animation-speed-slow) var(--animation-easing);
+      }
+
+      /* Disable transitions when the content toggle is not caused by the direct user interaction, e.g. opening the filters on mobile. */
+      &:not(:focus-within)::details-content,
+      &:not(:focus-within) .details-content {
+        transition: none;
+      }
+
+      &:not([open]) {
+        &::details-content,
+        .details-content {
+          padding-block: 0;
+        }
+      }
+
+      &[open] {
+        &::details-content,
+        .details-content {
+          opacity: 1;
+          block-size: auto;
+
+          @starting-style {
+            block-size: 0;
+            opacity: 0;
+            overflow-y: clip;
+          }
+
+          &:focus-within {
+            overflow-y: visible;
+          }
+        }
+      }
+    }
+  }
+
+  accordion-custom[data-disable-on-mobile='true'] summary {
+    @media screen and (max-width: 749px) {
+      cursor: auto;
+    }
+  }
+
+  accordion-custom[data-disable-on-desktop='true'] summary {
+    @media screen and (min-width: 750px) {
+      cursor: auto;
+    }
+  }
+
+  /* Dawn shims — Horizon base.css summary support rules; see header comment.
+     (summary::-webkit-details-marker is already hidden by Dawn base.css.) */
+  accordion-custom summary {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    list-style: none;
+    padding-block: var(--padding-sm);
+  }
+
+  accordion-custom summary:hover {
+    color: rgba(var(--color-foreground), var(--opacity-80));
+  }
+
+  accordion-custom summary .svg-wrapper {
+    margin-inline-start: auto;
+    height: var(--icon-size-xs);
+    width: var(--icon-size-xs);
+    transition: transform var(--animation-speed) var(--animation-easing);
+  }
+
+  /* Neutralize Dawn base.css:662 `summary .icon-caret` (absolute caret for
+     Dawn natives) */
+  accordion-custom summary .icon-caret {
+    position: static;
+    height: var(--icon-size-xs);
+    right: auto;
+    top: auto;
+  }
+
+  accordion-custom details[open] > summary .icon-animated > svg {
+    transform: rotate(180deg);
+  }
+
+  accordion-custom summary .icon-plus :is(.horizontal, .vertical) {
+    transition: transform var(--animation-speed) var(--animation-easing);
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+    opacity: 1;
+  }
+
+  accordion-custom details[open] > summary .icon-plus .horizontal {
+    transform: rotate(90deg);
+  }
+
+  accordion-custom details[open] > summary .icon-plus .vertical {
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+{% endstylesheet %}

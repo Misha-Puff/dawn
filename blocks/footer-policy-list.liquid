@@ -1,0 +1,276 @@
+{%- comment -%}
+  horizon-blocks Phase 4 — port of stock Horizon v4.1.1 (68760d9)
+  blocks/footer-policy-list.liquid. Deviations (Dawn reasons):
+  - popover machinery: per-render module script tags for anchored-popover.js
+    + popover-polyfill.js (Horizon loads both globally via scripts.liquid;
+    Phase 3 slideshow.liquid precedent). Both ride the Phase-3 importmap.
+  - typography: Horizon renders 'typography-style' (preset: custom) on the
+    trigger, but that snippet parses settings.font_size as a REM string and
+    this block's rem values render ~53% size at Dawn's 62.5% root (Phase-1b
+    rem trap). The schema font_size VALUES are converted to px (labels
+    unchanged) and the only two vars the snippet would emit for this
+    settings shape (--font-size / --text-transform) are inlined directly.
+  - rem -> px @16px/rem at the remaining style sites (0.75rem -> 12px
+    fallbacks, anchor + 1rem -> 16px, 1.25rem -> 20px fallback offsets).
+  - color model: comma-triplet adapts (rgb()/rgba() composition at the shim
+    boundary, Phases 1b-3 precedent). The popover background gradient MUST
+    be adapted — background is non-inherited, so Horizon's verbatim var
+    would go IACVT -> transparent popover on Dawn.
+  - .policy-list-trigger inlines the essentials of Horizon base.css:1361
+    .button-unstyled (unported; slideshow-arrow.liquid shim precedent) plus
+    consumption of --color-utilities so the text_color setting actually
+    colors the trigger (in stock Horizon the footer section's utility-row
+    CSS consumes it — not ported).
+  - .policy_list links add `text-decoration: none`: Horizon's global
+    `a { text-decoration-color: transparent }` (base.css:850) is unported
+    and Dawn leaves bare anchors at UA default.
+  - .color-custom-popover marker kept verbatim: in Horizon its rules come
+    from a theme-settings-driven contrast-override render (popover
+    background/text settings) whose stock defaults equal the scheme colors
+    — a no-op at stock, so no contrast-override render is added here.
+  Schema otherwise verbatim, t: strings hardcoded.
+{%- endcomment -%}
+{% if shop.policies.size > 0 %}
+  <anchored-popover-component
+    data-hover-triggered="true"
+  >
+    <button
+      class="policy-list-trigger button-unstyled"
+      popovertarget="terms-policies-popover"
+      popovertargetaction="toggle"
+      ref="trigger"
+      style="
+        {% if block.settings.font_size != blank %}--font-size: {{ block.settings.font_size }};{% endif %}
+        --text-transform: {{ block.settings.case }};
+        {% if block.settings.text_color != blank %}--color-utilities: {{ block.settings.text_color }};{% endif %}
+      "
+      {{ block.shopify_attributes }}
+    >
+      Terms and Policies
+    </button>
+    <div
+      class="terms-policies-popover color-custom-popover"
+      id="terms-policies-popover"
+      popover="auto"
+      ref="popover"
+    >
+      <ul
+        class="
+          policy_list list-unstyled
+          custom-typography
+          {% if block.settings.font_size != "" %}custom-font-size{% endif %}
+        "
+      >
+        {%- for policy in shop.policies -%}
+          {%- if policy != blank -%}
+            <li>
+              <a
+                href="{{ policy.url }}"
+                class="footer-utilities__text"
+              >
+                {{- policy.title | escape -}}
+              </a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+  </anchored-popover-component>
+
+  <script type="module" src="{{ 'popover-polyfill.js' | asset_url }}"></script>
+  <script type="module" src="{{ 'anchored-popover.js' | asset_url }}"></script>
+{% endif %}
+
+{% stylesheet %}
+  .policy-list-trigger {
+    anchor-name: --terms-policies-trigger;
+    cursor: pointer;
+    font-size: var(--font-size, 12px);
+    text-transform: var(--text-transform, none);
+
+    /* Dawn shim: Horizon base.css:1361 .button-unstyled essentials
+       (unported) + --color-utilities consumption so the text_color setting
+       colors the trigger (see header comment) */
+    display: block;
+    padding: 0;
+    background-color: inherit;
+    border: 0;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+    font-family: var(--font-paragraph--family);
+    font-style: var(--font-paragraph--style);
+    color: var(--color-utilities, rgb(var(--color-foreground)));
+  }
+
+  .policy-list-trigger:hover {
+    /* Dawn shim: Horizon base.css:1381 .button-unstyled hover dim; the dim
+       applies only when no custom text_color is set */
+    color: var(--color-utilities, rgba(var(--color-foreground), var(--opacity-70)));
+  }
+
+  .policy_list {
+    li {
+      border-radius: calc(var(--style-border-radius-popover) - 8px);
+
+      a {
+        /* Dawn adapts: comma-triplet color; text-decoration off (Horizon's
+           global transparent link underline is unported — see header) */
+        color: rgb(var(--color-foreground));
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px;
+        text-align: start;
+        width: 100%;
+        outline-color: #0000;
+        font-size: var(--font-size, 12px);
+        text-transform: var(--text-transform, none);
+      }
+
+      &:is(:hover, :focus-within) {
+        background: rgba(var(--color-foreground), 0.15);
+      }
+    }
+  }
+
+  .terms-policies-popover {
+    position-anchor: --terms-policies-trigger;
+    inset: unset;
+    bottom: calc(anchor(top) + 16px);
+    left: anchor(left);
+    border-radius: var(--style-border-radius-popover);
+    background: linear-gradient(rgb(var(--color-background)) 0 100%),
+      linear-gradient(rgba(var(--color-background), 0.15) 0 100%);
+    background-clip: padding-box, border-box;
+    border: 1px solid #0000;
+    box-shadow: var(--shadow-popover);
+    padding: 8px;
+    margin: 0;
+    opacity: 0;
+    scale: 0.94;
+    translate: 0 6px;
+    transform-origin: 3.9em 100%;
+  }
+
+  .terms-policies-popover.\:popover-open,
+  .terms-policies-popover:popover-open {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+
+  @media screen and (max-width: 749px) {
+    .terms-policies-popover {
+      left: anchor(center);
+      transform: translate(-50%, 0);
+      transform-origin: 0% 100%;
+    }
+  }
+
+  @supports not (position-anchor: --account-button-trigger) {
+    .terms-policies-popover {
+      bottom: unset;
+      top: calc(var(--anchor-top) * 1px);
+      left: calc(var(--anchor-left) * 1px);
+      transform: translate(0, calc(-100% - 20px));
+    }
+
+    @media screen and (max-width: 749px) {
+      .terms-policies-popover {
+        left: calc((var(--anchor-left) + (var(--anchor-width) / 2)) * 1px);
+        transform: translate(-50%, calc(-100% - 20px));
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .terms-policies-popover {
+      transition-property: display, overlay, opacity, scale, translate;
+      transition-behavior: allow-discrete;
+      transition-duration: 0.3s;
+      transition-timing-function: var(--ease-out-quad);
+    }
+
+    @starting-style {
+      .terms-policies-popover.\:popover-open,
+      .terms-policies-popover:popover-open {
+        opacity: 0.7;
+        translate: 0 6px;
+        scale: 0.94;
+      }
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Policy links",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "[Manage policies](/admin/settings/legal)"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "placeholder": "Default"
+    },
+    {
+      "type": "select",
+      "id": "font_size",
+      "label": "Size",
+      "options": [
+        {
+          "value": "10px",
+          "label": "10px"
+        },
+        {
+          "value": "12px",
+          "label": "12px"
+        },
+        {
+          "value": "14px",
+          "label": "14px"
+        },
+        {
+          "value": "16px",
+          "label": "16px"
+        },
+        {
+          "value": "18px",
+          "label": "18px"
+        }
+      ],
+      "default": "12px"
+    },
+    {
+      "type": "select",
+      "id": "case",
+      "label": "Case",
+      "options": [
+        {
+          "value": "none",
+          "label": "Default"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        }
+      ],
+      "default": "none"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Policy links",
+      "category": "Footer"
+    }
+  ]
+}
+{% endschema %}

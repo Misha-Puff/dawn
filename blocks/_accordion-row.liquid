@@ -1,0 +1,360 @@
+{%- comment -%}
+  horizon-blocks Phase 4 — port of stock Horizon v4.1.1 (68760d9)
+  blocks/_accordion-row.liquid. Liquid body verbatim except the two inlined
+  icon assets are repointed: Dawn owns the `icon-caret.svg` / `icon-plus.svg`
+  FILENAMES with different art (fill-based; Horizon's are stroke-based via
+  --icon-stroke-width), so this block inlines `hz-icon-caret.svg` (added in
+  Phase 3, byte-identical to Horizon's icon-caret.svg) and `hz-icon-plus.svg`
+  (this phase). The `icon-caret` / `icon-plus` CLASS names stay verbatim —
+  the parent accordion's caret/plus visibility toggle and the open-state
+  animations key off them. Schema verbatim (the 59-icon select resolves
+  against the Phase-1 byte-identical snippets/icon.liquid) with t: strings
+  hardcoded.
+{%- endcomment -%}
+{% assign block_settings = block.settings %}
+
+{% capture accordion_row_children %}
+  <details
+    class="details"
+    data-testid="accordion-details"
+    {% if block_settings.open_by_default %}
+      open
+    {% endif %}
+    {{ block.shopify_attributes }}
+  >
+    <summary class="details__header">
+      {% render 'icon-or-image',
+        icon: block_settings.icon,
+        image_upload: block_settings.image_upload,
+        width: block_settings.width,
+        class_name: 'details__icon'
+      %}
+      {{ block_settings.heading }}
+      <span class="svg-wrapper icon-caret icon-animated">
+        {{- 'hz-icon-caret.svg' | inline_asset_content -}}
+      </span>
+      <span class="svg-wrapper icon-plus">
+        {{- 'hz-icon-plus.svg' | inline_asset_content -}}
+      </span>
+    </summary>
+
+    <div class="details-content">
+      {% content_for 'blocks' %}
+    </div>
+  </details>
+{% endcapture %}
+{% render 'accordion-custom-component',
+  children: accordion_row_children,
+  open_by_default_on_desktop: block_settings.open_by_default,
+  open_by_default_on_mobile: block_settings.open_by_default
+%}
+
+{% schema %}
+{
+  "name": "Accordion row",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Accordion heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_by_default",
+      "label": "Open row by default",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Icon"
+    },
+    {
+      "type": "select",
+      "id": "icon",
+      "label": "Icon",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "apple",
+          "label": "Apple"
+        },
+        {
+          "value": "arrow",
+          "label": "Arrow"
+        },
+        {
+          "value": "banana",
+          "label": "Banana"
+        },
+        {
+          "value": "bottle",
+          "label": "Bottle"
+        },
+        {
+          "value": "box",
+          "label": "Box"
+        },
+        {
+          "value": "carrot",
+          "label": "Carrot"
+        },
+        {
+          "value": "chat_bubble",
+          "label": "Chat bubble"
+        },
+        {
+          "value": "check_box",
+          "label": "Check box"
+        },
+        {
+          "value": "clipboard",
+          "label": "Clipboard"
+        },
+        {
+          "value": "dairy",
+          "label": "Dairy"
+        },
+        {
+          "value": "dairy_free",
+          "label": "Dairy free"
+        },
+        {
+          "value": "dryer",
+          "label": "Dryer"
+        },
+        {
+          "value": "eye",
+          "label": "Eye"
+        },
+        {
+          "value": "fire",
+          "label": "Fire"
+        },
+        {
+          "value": "gluten_free",
+          "label": "Gluten free"
+        },
+        {
+          "value": "heart",
+          "label": "Heart"
+        },
+        {
+          "value": "iron",
+          "label": "Iron"
+        },
+        {
+          "value": "leaf",
+          "label": "Leaf"
+        },
+        {
+          "value": "leather",
+          "label": "Leather"
+        },
+        {
+          "value": "lightning_bolt",
+          "label": "Lightning bolt"
+        },
+        {
+          "value": "lipstick",
+          "label": "Lipstick"
+        },
+        {
+          "value": "lock",
+          "label": "Lock"
+        },
+        {
+          "value": "map_pin",
+          "label": "Map pin"
+        },
+        {
+          "value": "nut_free",
+          "label": "Nut free"
+        },
+        {
+          "value": "pants",
+          "label": "Pants"
+        },
+        {
+          "value": "paw_print",
+          "label": "Paw print"
+        },
+        {
+          "value": "pepper",
+          "label": "Pepper"
+        },
+        {
+          "value": "perfume",
+          "label": "Perfume"
+        },
+        {
+          "value": "plane",
+          "label": "Plane"
+        },
+        {
+          "value": "plant",
+          "label": "Plant"
+        },
+        {
+          "value": "price_tag",
+          "label": "Price tag"
+        },
+        {
+          "value": "question_mark",
+          "label": "Question mark"
+        },
+        {
+          "value": "recycle",
+          "label": "Recycle"
+        },
+        {
+          "value": "return",
+          "label": "Return"
+        },
+        {
+          "value": "ruler",
+          "label": "Ruler"
+        },
+        {
+          "value": "serving_dish",
+          "label": "Serving dish"
+        },
+        {
+          "value": "shirt",
+          "label": "Shirt"
+        },
+        {
+          "value": "shoe",
+          "label": "Shoe"
+        },
+        {
+          "value": "silhouette",
+          "label": "Silhouette"
+        },
+        {
+          "value": "bluesky",
+          "label": "Social: Bluesky"
+        },
+        {
+          "value": "facebook",
+          "label": "Social: Facebook"
+        },
+        {
+          "value": "instagram",
+          "label": "Social: Instagram"
+        },
+        {
+          "value": "linkedin",
+          "label": "Social: LinkedIn"
+        },
+        {
+          "value": "pinterest",
+          "label": "Social: Pinterest"
+        },
+        {
+          "value": "snapchat",
+          "label": "Social: Snapchat"
+        },
+        {
+          "value": "spotify",
+          "label": "Social: Spotify"
+        },
+        {
+          "value": "threads",
+          "label": "Social: Threads"
+        },
+        {
+          "value": "tiktok",
+          "label": "Social: TikTok"
+        },
+        {
+          "value": "tumblr",
+          "label": "Social: Tumblr"
+        },
+        {
+          "value": "twitter",
+          "label": "Social: X (Twitter)"
+        },
+        {
+          "value": "vimeo",
+          "label": "Social: Vimeo"
+        },
+        {
+          "value": "youtube",
+          "label": "Social: YouTube"
+        },
+        {
+          "value": "whatsapp",
+          "label": "Social: WhatsApp"
+        },
+        {
+          "value": "snowflake",
+          "label": "Snowflake"
+        },
+        {
+          "value": "star",
+          "label": "Star"
+        },
+        {
+          "value": "stopwatch",
+          "label": "Stopwatch"
+        },
+        {
+          "value": "truck",
+          "label": "Truck"
+        },
+        {
+          "value": "washing",
+          "label": "Washing"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_upload",
+      "label": "Image icon"
+    },
+    {
+      "type": "range",
+      "id": "width",
+      "label": "Width",
+      "min": 12,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "Accordion row",
+      "blocks": {
+        "text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
+            "width": "100%"
+          }
+        }
+      },
+      "block_order": ["text-1"],
+      "settings": {
+        "heading": "When will I get my order?"
+      }
+    }
+  ]
+}
+{% endschema %}

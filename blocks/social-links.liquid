@@ -1,0 +1,284 @@
+{%- comment -%}
+  horizon-blocks Phase 4 — port of stock Horizon v4.1.1 (68760d9)
+  blocks/social-links.liquid. Liquid body + stylesheet verbatim except ONE
+  functional fix, flagged for review on the phase punchlist: stock Horizon
+  sets --color-utilities from the icon_color setting but nothing in the
+  block consumes it (vestigial upstream — the footer section's utility CSS
+  reads it, not ported), so the setting would be dead here. The wrapper adds
+  `color: var(--color-utilities, inherit)` so icon_color works — icons fill
+  currentColor via .icon-default (Phase-1 upstream-bug-fix precedent).
+  Icons resolve through the Phase-1 byte-identical snippets/icon.liquid
+  (all 12 platforms inlined; zero asset work). Schema verbatim, t: strings
+  hardcoded.
+{%- endcomment -%}
+<div
+  class="social-icons__wrapper social-icons__wrapper--{{ block.id }}"
+  {{ block.shopify_attributes }}
+>
+  {% if block.settings.icon_color != blank %}
+    {% style %}
+      .social-icons__wrapper--{{ block.id }} {
+        --color-utilities: {{ block.settings.icon_color }};
+      }
+    {% endstyle %}
+  {% endif %}
+  {% liquid
+    assign social_links = 'facebook_url,instagram_url,youtube_url,tiktok_url,twitter_url,threads_url,linkedin_url,bluesky_url,snapchat_url,pinterest_url,tumblr_url,vimeo_url,custom_url' | split: ','
+  %}
+
+  {% for link_key in social_links %}
+    {% liquid
+      assign link_url = block.settings[link_key]
+      assign render_icon = true
+
+      if link_url != blank
+        # Map setting names to platform names for display and icon purposes
+        case link_key
+          when 'facebook_url'
+            assign platform = 'facebook'
+          when 'instagram_url'
+            assign platform = 'instagram'
+          when 'youtube_url'
+            assign platform = 'youtube'
+          when 'tiktok_url'
+            assign platform = 'tiktok'
+          when 'twitter_url'
+            assign platform = 'twitter'
+          when 'threads_url'
+            assign platform = 'threads'
+          when 'linkedin_url'
+            assign platform = 'linkedin'
+          when 'bluesky_url'
+            assign platform = 'bluesky'
+          when 'snapchat_url'
+            assign platform = 'snapchat'
+          when 'pinterest_url'
+            assign platform = 'pinterest'
+          when 'tumblr_url'
+            assign platform = 'tumblr'
+          when 'vimeo_url'
+            assign platform = 'vimeo'
+          when 'custom_url'
+            # For custom URLs, extract domain from URL for platform identification
+            assign platform = link_url | split: '//' | last | remove: 'www.' | split: '.' | first
+            # Special handling for specific platforms
+            case platform
+              when 'x'
+                assign platform = 'twitter'
+              else
+                assign render_icon = false
+            endcase
+        endcase
+
+        # Check if URL has a profile path (more than just the domain)
+        assign url_parts = link_url | split: '//' | last | split: '/'
+        assign has_profile = false
+
+        if url_parts.size > 1 and url_parts[1] != ''
+          assign has_profile = true
+        endif
+
+        unless render_icon
+          assign has_profile = true
+        endunless
+      endif
+    %}
+
+    {% comment %}
+      Only render the social icon if:
+      1. In editor mode (always show, but may be disabled)
+      2. On storefront AND has a valid profile link
+    {% endcomment %}
+    {% if link_url != blank %}
+      {% if request.design_mode or has_profile %}
+        <div
+          class="social-icons__icon-wrapper{% unless has_profile %} social-icons__icon-wrapper--disabled{% endunless %}"
+        >
+          <a
+            href="{{ link_url }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="{{ platform | capitalize }}"
+            {% unless has_profile %}
+              {% if request.design_mode %}
+                onclick="return false;"
+                aria-disabled="true"
+              {% endif %}
+            {% endunless %}
+          >
+            <span class="social-icons__icon-label">{{ platform | capitalize }}</span>
+            {% if render_icon %}
+              <svg
+                class="social-icons__icon icon-default"
+                aria-hidden="true"
+                focusable="false"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                {%- render 'icon', icon: platform -%}
+              </svg>
+            {% endif %}
+          </a>
+        </div>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</div>
+
+{% stylesheet %}
+  .social-icons__wrapper {
+    /* Dawn deviation: consume --color-utilities (set from icon_color above;
+       vestigial in stock Horizon — see header comment) */
+    color: var(--color-utilities, inherit);
+    display: flex;
+    gap: var(--gap-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @media screen and (min-width: 750px) {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+  }
+
+  .social-icons__icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--icon-size-lg);
+  }
+
+  /* Dawn shim: Horizon base.css:850 `a { color: currentcolor }` (unported) —
+     without it the UA link color paints the icons blue and blocks the
+     wrapper's --color-utilities color from reaching them (found at serve) */
+  .social-icons__icon-wrapper a {
+    color: currentcolor;
+  }
+
+  .social-icons__icon {
+    display: flex;
+    flex-shrink: 0;
+    width: var(--icon-size-lg);
+    height: var(--icon-size-lg);
+  }
+
+  .social-icons__icon {
+    display: none;
+  }
+
+  .social-icons__icon-wrapper:has(.social-icons__icon path) {
+    width: var(--icon-size-lg);
+
+    .social-icons__icon {
+      display: block;
+    }
+
+    .social-icons__icon-label {
+      display: none;
+    }
+  }
+
+  /* Disabled state for editor */
+  .shopify-design-mode .social-icons__icon-wrapper--disabled {
+    opacity: var(--disabled-opacity, 0.5);
+    cursor: not-allowed;
+  }
+
+  .shopify-design-mode .social-icons__icon-wrapper--disabled a {
+    pointer-events: none;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Social media links",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Color",
+      "placeholder": "Default"
+    },
+    {
+      "type": "header",
+      "content": "Links"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram"
+    },
+    {
+      "type": "url",
+      "id": "youtube_url",
+      "label": "YouTube"
+    },
+    {
+      "type": "url",
+      "id": "tiktok_url",
+      "label": "TikTok"
+    },
+    {
+      "type": "url",
+      "id": "twitter_url",
+      "label": "X (Twitter)"
+    },
+    {
+      "type": "url",
+      "id": "threads_url",
+      "label": "Threads"
+    },
+    {
+      "type": "url",
+      "id": "linkedin_url",
+      "label": "LinkedIn"
+    },
+    {
+      "type": "url",
+      "id": "bluesky_url",
+      "label": "Bluesky"
+    },
+    {
+      "type": "url",
+      "id": "snapchat_url",
+      "label": "Snapchat"
+    },
+    {
+      "type": "url",
+      "id": "pinterest_url",
+      "label": "Pinterest"
+    },
+    {
+      "type": "url",
+      "id": "tumblr_url",
+      "label": "Tumblr"
+    },
+    {
+      "type": "url",
+      "id": "vimeo_url",
+      "label": "Vimeo"
+    },
+    {
+      "type": "url",
+      "id": "custom_url",
+      "label": "Custom link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Social media links",
+      "category": "Footer"
+    }
+  ]
+}
+{% endschema %}

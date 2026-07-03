@@ -1,0 +1,67 @@
+{%- doc -%}
+  Styles for the accordion and accordion row components. Extracted into a
+  snippet so that blocks which use accordion markup without nesting inside an
+  accordion block (e.g. disclosures) can include these styles independently,
+  ensuring they are sent to the client when CSS subsetting is enabled.
+
+  Dawn deviation (horizon-blocks Phase 4): every stock `accordion`-classed
+  selector is renamed with the `hz-` prefix to match blocks/accordion.liquid
+  — stock Dawn's component-accordion.css owns the stock class site-wide
+  (loaded by footer.liquid). The `.details*` selectors have no Dawn owner
+  and stay verbatim.
+{%- enddoc -%}
+
+{% stylesheet %}
+  .hz-accordion {
+    flex: 1;
+    width: 100%;
+  }
+
+  .hz-accordion--dividers accordion-custom:not(:first-child) .details {
+    border-block-start: var(--style-border-width) solid var(--color-border);
+  }
+
+  /* When accordion borders are not set, show fallback borders */
+  .hz-accordion--dividers {
+    /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+    --show-fallback-borders: 0;
+  }
+
+  .hz-accordion--dividers:not([class*='color-'])[style*='--border-width: 0'],
+  .hz-accordion--dividers:not([class*='color-'])[style*='--border-style: none'] {
+    --show-fallback-borders: 1;
+  }
+
+  .hz-accordion--dividers accordion-custom:first-child .details {
+    border-block-start: calc(var(--style-border-width) * var(--show-fallback-borders)) solid var(--color-border);
+  }
+
+  .hz-accordion--dividers accordion-custom:last-child .details {
+    border-block-end: calc(var(--style-border-width) * var(--show-fallback-borders)) solid var(--color-border);
+  }
+
+  .hz-accordion--dividers .details-content {
+    padding-block-end: var(--padding-sm);
+  }
+
+  .hz-accordion--caret .icon-plus,
+  .hz-accordion--plus .icon-caret {
+    display: none;
+  }
+
+  /* because we can't pass apply a specific class on a block based on its parent block setting */
+  .hz-accordion .details__header {
+    font-family: var(--summary-font-family);
+    font-style: var(--summary-font-style);
+    font-weight: var(--summary-font-weight);
+    font-size: var(--summary-font-size);
+    line-height: var(--summary-font-line-height);
+    text-transform: var(--summary-font-case);
+    min-height: var(--minimum-touch-target);
+  }
+
+  .details__icon {
+    height: auto;
+    margin-inline-end: var(--margin-xs);
+  }
+{% endstylesheet %}
