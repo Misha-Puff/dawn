@@ -1,0 +1,272 @@
+{%- doc -%}
+  Support styles for the dialog primitive (assets/dialog.js /
+  <dialog-component>) — extracted from stock Horizon v4.1.1 (68760d9)
+  assets/base.css into a snippet rendered by consumers next to their
+  dialog.js script tag (blocks/popup-link.liquid today), so the rules
+  survive Shopify's CSS subsetting (accordion-styles precedent).
+  horizon-blocks Phase 9.
+
+  Extracted ranges (all token-based — zero bare rem values to convert;
+  dvh/vw/em/% verbatim):
+  - base.css:43–46     html[scroll-lock] overflow rule — WITHOUT it the
+    scroll-lock attribute utilities.js lockScroll() sets on <html> is inert
+    and the page scrolls behind the open modal (found at serve). The
+    .page-wrapper leg is kept verbatim but matches nothing in Dawn (no
+    .page-wrapper element).
+  - base.css:152–158   dialog element colors — SCOPED, see deviation below
+  - base.css:1144–1220 .dialog-modal family + .dialog-drawer legs (verbatim,
+    native CSS nesting kept)
+  - base.css:1588–1640 .close-button incl. the iOS < 16.4 @supports outline
+    workaround and the consumer-less .dialog--closed leg (verbatim for
+    fidelity)
+  - base.css keyframes: move-and-fade (3301), elementSlideInTop (3319),
+    elementSlideOutTop (3331), elementSlideOutBottom (3355),
+    backdropFilter (3464), modalSlideInTop + modalSlideOutTop (3494–3516)
+
+  Horizon does NOT gate any of these animations behind
+  prefers-reduced-motion (verified against 68760d9 base.css — its gates
+  cover card hover/view transitions/variant pickers/smooth scroll only);
+  matched verbatim.
+
+  Dawn deviation (the only one): Horizon styles the bare `dialog` element;
+  here that rule is scoped to `dialog.dialog-modal`. Its declarations
+  consume FULL-COLOR --color-background/--color-foreground, which Dawn's
+  :root defines as COMMA triplets (dual-format gotcha) — they only resolve
+  inside a .color-custom-* scope carrying the Horizon full-color model
+  (popup-link puts .color-custom-popover on the dialog; hz-ui-tokens emits
+  that scope). Scoping keeps the rule off any future bare Dawn <dialog>
+  (Dawn base.css has zero dialog element rules today — verified).
+{%- enddoc -%}
+
+{% stylesheet %}
+  html[scroll-lock],
+  html[scroll-lock] .page-wrapper {
+    overflow: hidden;
+  }
+
+  dialog.dialog-modal {
+    /* the ::backdrop inherits from the originating element, custom properties must be set on the dialog element */
+    --backdrop-color-rgb: var(--color-shadow-rgb);
+
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+
+  /* Dialog */
+  .dialog-modal {
+    border: none;
+    box-shadow: var(--shadow-popover);
+
+    @media screen and (min-width: 750px) {
+      border-radius: var(--style-border-radius-popover);
+      max-width: var(--normal-content-width);
+    }
+
+    @media screen and (max-width: 749px) {
+      max-width: 100%;
+      max-height: 100%;
+      height: 100dvh;
+      width: 100dvw;
+      padding: var(--padding-md);
+    }
+  }
+
+  .dialog-modal::backdrop {
+    transition: backdrop-filter var(--animation-speed) var(--animation-easing);
+    backdrop-filter: brightness(1);
+    background: rgb(var(--backdrop-color-rgb) / var(--backdrop-opacity));
+  }
+
+  .dialog-modal[open] {
+    animation: elementSlideInTop var(--animation-speed) var(--animation-easing) forwards;
+
+    &::backdrop {
+      animation: backdropFilter var(--animation-speed) var(--animation-easing) forwards;
+      transition: opacity var(--animation-speed) var(--animation-easing);
+    }
+  }
+
+  .dialog-modal.dialog-closing {
+    animation: elementSlideOutTop var(--animation-speed) var(--animation-easing) forwards;
+
+    &::backdrop {
+      opacity: 0;
+    }
+  }
+
+  /* stylelint-disable value-keyword-case */
+  .dialog-drawer {
+    --dialog-drawer-opening-animation: move-and-fade;
+    --dialog-drawer-closing-animation: move-and-fade;
+  }
+
+  .dialog-drawer--right {
+    --dialog-drawer-opening-animation: move-and-fade;
+    --dialog-drawer-closing-animation: move-and-fade;
+  }
+  /* stylelint-enable value-keyword-case */
+
+  .dialog-drawer[open] {
+    --start-x: var(--custom-transform-from, 100%);
+    --end-x: var(--custom-transform-to, 0px);
+    --start-opacity: 1;
+
+    animation: var(--dialog-drawer-opening-animation) var(--animation-speed) var(--animation-easing) forwards;
+  }
+
+  .dialog-drawer[open].dialog-closing {
+    --start-x: 0px;
+    --end-x: 100%;
+    --start-opacity: 1;
+    --end-opacity: 1;
+
+    animation: var(--dialog-drawer-closing-animation) var(--animation-speed) var(--animation-easing);
+  }
+
+  .dialog-drawer--right[open] {
+    --start-x: -100%;
+    --start-opacity: 1;
+  }
+
+  .dialog-drawer--right[open].dialog-closing {
+    --start-x: 0px;
+    --end-x: -100%;
+    --start-opacity: 1;
+  }
+
+  /* Animate the UI elements in only after the view transition is complete */
+  .close-button {
+    position: fixed;
+    top: var(--margin-lg);
+    right: var(--margin-lg);
+    width: var(--minimum-touch-target);
+    height: var(--minimum-touch-target);
+    z-index: var(--layer-flat);
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* For the outline radius */
+    border-radius: 50%;
+  }
+
+  /* This triggers iOS < 16.4. The outline bug is not recognized as a lack of @supports */
+
+  @supports not (background-color: rgb(from red 150 g b / alpha)) {
+    /**
+      There is a bug in safari < 16.4 that causes the outline to not follow the elements border radius. This is a workaround.
+      Using element selector to increase specificity.
+    **/
+
+    .close-button:focus-visible {
+      outline: none;
+      overflow: visible;
+    }
+
+    .close-button:focus-visible::after {
+      content: '';
+      position: absolute;
+      inset: calc(-1 * var(--focus-outline-offset));
+      border: var(--focus-outline-width) solid currentColor;
+      border-radius: 50%;
+      display: inherit;
+    }
+  }
+
+  .dialog--closed .close-button {
+    animation: elementSlideOutBottom calc(var(--animation-speed) * 0.5) var(--animation-easing) forwards;
+  }
+
+  .close-button:hover {
+    background-color: transparent;
+    opacity: 0.8;
+  }
+
+  .close-button svg {
+    width: var(--icon-size-xs);
+    height: var(--icon-size-xs);
+  }
+
+  @keyframes move-and-fade {
+    from {
+      transform: translate(var(--start-x, 0), var(--start-y, 0));
+      opacity: var(--start-opacity, 0);
+    }
+
+    to {
+      transform: translate(var(--end-x, 0), var(--end-y, 0));
+      opacity: var(--end-opacity, 1);
+    }
+  }
+
+  @keyframes elementSlideInTop {
+    from {
+      margin-top: var(--padding-sm);
+      opacity: 0;
+    }
+
+    to {
+      margin-top: 0;
+      opacity: 1;
+    }
+  }
+
+  @keyframes elementSlideOutTop {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    to {
+      transform: translateY(var(--padding-sm));
+      opacity: 0;
+    }
+  }
+
+  @keyframes elementSlideOutBottom {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    to {
+      transform: translateY(calc(-1 * var(--padding-sm)));
+      opacity: 0;
+    }
+  }
+
+  @keyframes backdropFilter {
+    from {
+      backdrop-filter: brightness(1);
+    }
+
+    to {
+      backdrop-filter: brightness(0.75);
+    }
+  }
+
+  @keyframes modalSlideInTop {
+    from {
+      transform: translateY(var(--padding-sm));
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes modalSlideOutTop {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    to {
+      transform: translateY(var(--padding-sm));
+      opacity: 0;
+    }
+  }
+{% endstylesheet %}

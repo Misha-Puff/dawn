@@ -1,10 +1,11 @@
 {%- comment -%}
-  horizon-blocks Phase 2–8 — UI-layer tokens (z-index ramp + opacity constants;
+  horizon-blocks Phase 2–9 — UI-layer tokens (z-index ramp + opacity constants;
   Phase 3 appends icon/slideshow/animation constants + primary-button shims;
   Phase 4 appends accordion/menu/social sizes + popover tokens + the
   --color-border fallback; Phase 5 appends the slideshow-controls
   dots/counter sizes; Phase 7 appends the section-height ramp; Phase 8
-  appends the fade-in easing).
+  appends the fade-in easing; Phase 9 appends the dialog/popup sizes +
+  backdrop tokens and the .color-custom-popover scope render).
 
   Dawn-side equivalent of the layering + opacity subset of stock Horizon
   v4.1.1 (68760d9) snippets/theme-styles-variables.liquid, values verbatim.
@@ -21,6 +22,16 @@
   Emitted via {% style %} (Liquid tag) — exempt from Shopify's CSS
   subsetting, so the tokens survive even when no static CSS references them.
 {%- endcomment -%}
+
+{%- liquid
+  # Phase 9: Dawn's closest analog of Horizon's popover color settings
+  # (tsv:685-691 feeds contrast-override from settings.popover_* — theme
+  # settings Dawn lacks; their schema DEFAULTS are palette background/
+  # foreground = exactly Dawn scheme-1's background/text). Same
+  # first-scheme access pattern as contrast-override.liquid:86.
+  # Scheme-1-only caveat per the --color-border fallback below.
+  assign popover_scheme = settings.color_schemes | first
+-%}
 
 {% style %}
   :root {
@@ -141,6 +152,35 @@
     --focus-outline-width: 1.5px;
     --focus-outline-offset: 0.2em;
     --button-size: var(--minimum-touch-target);
+
+    /* --- Phase 9 (popup-link + dialog primitive; Horizon rem = 16px) --- */
+    --padding-xl: 20px; /* tsv:427; 1.25rem */
+    --padding-4xl: 32px; /* tsv:430; 2rem */
+    --padding-5xl: 48px; /* tsv:431; 3rem */
+    --padding-md: 12.8px; /* tsv:425; 0.8rem — dialog-modal mobile padding */
+    --margin-2xs: 4.8px; /* tsv:407; 0.3rem — close-button offsets, trigger icon nudge */
+    --margin-lg: 16px; /* tsv:411; 1rem — close-button default offsets */
+    --normal-content-width: 672px; /* tsv:131; 42rem — modal max-width */
+    --modal-max-height: 65dvh; /* tsv:665, verbatim */
+    --sidebar-width: 400px; /* tsv:128; 25rem — drawer width */
+    --backdrop-opacity: 0.15; /* tsv:635, verbatim */
+
+    /* Popover border, hardcoded at Horizon SCHEMA defaults like the
+       Phase-4 popover tokens above (settings-driven in stock: tsv:466
+       reads popover_border_width [default 0] + popover_border_color
+       [default = palette foreground]). Comma-triplet composition at the
+       shim boundary per the --color-border precedent — resolves against
+       the DEFAULT Dawn scheme; contrast-override re-declares
+       --color-foreground full-color inside .color-custom-* scopes. */
+    --style-border-popover: 0px solid rgb(var(--color-foreground));
+
+    /* Backdrop color as a SPACE triplet from scheme-1's shadow color.
+       Horizon consumes rgb(var(--backdrop-color-rgb) / var(--backdrop-opacity))
+       slash syntax (base.css:1163); Dawn's own --color-shadow is a COMMA
+       triplet and CSS cannot convert between the formats (dual-format
+       gotcha) — so the space triplet is emitted from Liquid here.
+       Scheme-1-only caveat per --color-border above. */
+    --color-shadow-rgb: {{ popover_scheme.settings.shadow.rgb }};
   }
 
   /* Section-height svh tiers (tsv:143-151, verbatim incl. Horizon's em
@@ -162,3 +202,22 @@
     }
   }
 {% endstyle %}
+
+{%- comment -%}
+  Phase 9: the .color-custom-popover scope (mirrors Horizon tsv:685-691 —
+  this file IS our tsv analog; every host renders it, and popup-link is
+  only reachable inside hosts). Emits FULL-COLOR --color-background /
+  --color-foreground on .color-custom-popover, satisfying the dialog
+  surface rules (snippets/dialog-styles.liquid + popup-link's verbatim
+  background-color: var(--color-background)) with no dual-format fix.
+  Inputs = Dawn scheme-1 background/text, exactly Horizon's popover
+  setting defaults (palette background/foreground); border_color = text
+  per the same defaults.
+{%- endcomment -%}
+{% render 'contrast-override',
+  background_color: popover_scheme.settings.background,
+  text_color: popover_scheme.settings.text,
+  border_color: popover_scheme.settings.text,
+  section_id: 'popover',
+  preset: 'ui'
+%}

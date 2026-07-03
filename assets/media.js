@@ -8,9 +8,6 @@
  *   would take over. Rename-on-ownership precedent: Phase 3 (slideshow), Phase 4 (accordion).
  * - Icon selectors `.icon-play`/`.icon-pause` → `.hz-icon-play`/`.hz-icon-pause`
  *   (Dawn's component-deferred-media.css / component-slideshow.css own the stock names).
- * - `import { DialogCloseEvent } from '@theme/dialog'` + its window listener TRIMMED
- *   (source lines 3, 25): dialog.js is unported until port-done gate 3 (popup-link +
- *   dialog strategy). Re-add the listener the day dialog.js ports.
  * - `ProductModel` class + its `product-model` define TRIMMED (source lines 141–262):
  *   Dawn owns the `product-model` tag (assets/product-model.js); PDP 3D-model machinery
  *   is out of the utility-sweep scope (→ PDP phases).
@@ -18,6 +15,7 @@
 
 import { Component } from '@theme/component';
 import { ThemeEvents, MediaStartedPlayingEvent } from '@theme/events';
+import { DialogCloseEvent } from '@theme/dialog';
 
 /**
  * A deferred media element
@@ -38,6 +36,7 @@ class DeferredMedia extends Component {
     const signal = this.#abortController.signal;
     // If we're to use deferred media for images, we will need to run this only when it's not an image type media
     document.addEventListener(ThemeEvents.mediaStartedPlaying, this.pauseMedia.bind(this), { signal });
+    window.addEventListener(DialogCloseEvent.eventName, this.pauseMedia.bind(this), { signal });
   }
 
   disconnectedCallback() {
