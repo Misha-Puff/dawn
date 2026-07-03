@@ -1,0 +1,326 @@
+{
+  "sections": {
+    "hz_home_full": {
+      "type": "hz-slideshow",
+      "settings": {
+        "display_mode": "full_frame",
+        "section_width": "full-width",
+        "slide_height": "large",
+        "content_position": "on-media",
+        "icons_style": "arrows_large",
+        "icons_shape": "none",
+        "slideshow_controls_style": "dots",
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      },
+      "blocks": {
+        "slide_1": {
+          "type": "_slide",
+          "settings": {
+            "media_type_1": "image",
+            "image_1": "shopify://shop_images/fa24_leadlook_Prev_b7d8e1d9-ba4d-40ba-a86a-e83a6f458764.jpg",
+            "content_direction": "column",
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "toggle_overlay": true,
+            "overlay_color": "#00000040",
+            "overlay_style": "gradient",
+            "gradient_direction": "to top",
+            "padding-inline-start": 48,
+            "padding-inline-end": 48,
+            "padding-block-start": 48,
+            "padding-block-end": 48
+          },
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "name": "Heading",
+              "settings": {
+                "text": "<h2>Hand knits made to be passed on</h2>",
+                "alignment": "center",
+                "text_color": "#ffffff",
+                "max_width": "narrow",
+                "type_preset": "h2"
+              }
+            },
+            "text": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Timeless pieces for children and the people who love them, knit to last for generations.</p>",
+                "alignment": "center",
+                "text_color": "#ffffff",
+                "max_width": "narrow",
+                "padding-block-end": 20,
+                "type_preset": "paragraph"
+              }
+            },
+            "button": {
+              "type": "button",
+              "settings": {
+                "label": "Shop Sweaters",
+                "link": "shopify://collections/child-sweaters-cardigans",
+                "style_class": "button-custom",
+                "custom_button_background": "#ffffff",
+                "custom_button_text": "#121212"
+              }
+            }
+          },
+          "block_order": [
+            "heading",
+            "text",
+            "button"
+          ]
+        },
+        "slide_2": {
+          "type": "_slide",
+          "settings": {
+            "media_type_1": "image",
+            "image_1": "shopify://shop_images/MP_SU24_Leader_5.3.24_Yarn.jpg",
+            "content_direction": "column",
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "flex-end",
+            "gap": 12,
+            "toggle_overlay": true,
+            "overlay_color": "#00000040",
+            "overlay_style": "gradient",
+            "gradient_direction": "to bottom",
+            "padding-inline-start": 48,
+            "padding-inline-end": 48,
+            "padding-block-start": 48,
+            "padding-block-end": 64
+          },
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "name": "Heading",
+              "settings": {
+                "text": "<h2>Yarn, dyed in small batches</h2>",
+                "alignment": "center",
+                "text_color": "#ffffff",
+                "max_width": "narrow",
+                "type_preset": "h2"
+              }
+            },
+            "text": {
+              "type": "text",
+              "settings": {
+                "text": "<p>The same hand-dyed yarns we knit with, ready for your next project.</p>",
+                "alignment": "center",
+                "text_color": "#ffffff",
+                "max_width": "narrow",
+                "padding-block-end": 20,
+                "type_preset": "paragraph"
+              }
+            },
+            "button": {
+              "type": "button",
+              "settings": {
+                "label": "Shop Yarn",
+                "link": "shopify://collections/all-yarn",
+                "style_class": "button-custom",
+                "custom_button_background": "#ffffff",
+                "custom_button_text": "#121212"
+              }
+            }
+          },
+          "block_order": [
+            "heading",
+            "text",
+            "button"
+          ]
+        },
+        "slide_3": {
+          "type": "_slide",
+          "settings": {
+            "media_type_1": "image",
+            "image_1": "shopify://shop_images/MP_SITE_LEADER_6.11_CHILD1.jpg",
+            "content_direction": "column",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "toggle_overlay": true,
+            "overlay_color": "#00000033",
+            "overlay_style": "solid",
+            "padding-inline-start": 64,
+            "padding-inline-end": 48,
+            "padding-block-start": 48,
+            "padding-block-end": 48
+          },
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "name": "Heading",
+              "settings": {
+                "text": "<h2>New for the season</h2>",
+                "alignment": "left",
+                "text_color": "#ffffff",
+                "max_width": "narrow",
+                "type_preset": "h2"
+              }
+            },
+            "text": {
+              "type": "text",
+              "settings": {
+                "text": "<p>The newest pieces, in this season's small-batch colors.</p>",
+                "alignment": "left",
+                "text_color": "#ffffff",
+                "max_width": "narrow",
+                "padding-block-end": 20,
+                "type_preset": "paragraph"
+              }
+            },
+            "button": {
+              "type": "button",
+              "settings": {
+                "label": "Shop New Arrivals",
+                "link": "shopify://collections/child-new",
+                "style_class": "button-custom",
+                "custom_button_background": "#ffffff",
+                "custom_button_text": "#121212"
+              }
+            }
+          },
+          "block_order": [
+            "heading",
+            "text",
+            "button"
+          ]
+        }
+      },
+      "block_order": [
+        "slide_1",
+        "slide_2",
+        "slide_3"
+      ]
+    },
+    "hz_home_inset": {
+      "type": "hz-slideshow",
+      "settings": {
+        "display_mode": "with_hints",
+        "full_frame_on_mobile": false,
+        "slideshow_gap": 18,
+        "corner_radius": 20,
+        "slide_height": "medium",
+        "content_position": "below-media",
+        "background_color": "#f6f1eb",
+        "icons_style": "arrows_large",
+        "icons_shape": "none",
+        "slideshow_controls_style": "counter",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      },
+      "blocks": {
+        "slide_1": {
+          "type": "_slide",
+          "settings": {
+            "media_type_1": "image",
+            "image_1": "shopify://shop_images/MP_FA24_Leader_8.19.24_2.jpg",
+            "content_direction": "column",
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "padding-inline-start": 48,
+            "padding-inline-end": 48,
+            "padding-block-start": 40,
+            "padding-block-end": 40
+          },
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "name": "Heading",
+              "settings": {
+                "text": "<h3>Layers for cooler days</h3>",
+                "alignment": "center",
+                "max_width": "narrow",
+                "type_preset": "h3"
+              }
+            },
+            "text": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Bonnets, mittens, and cozy layers for the season ahead.</p>",
+                "alignment": "center",
+                "max_width": "narrow",
+                "padding-block-end": 20,
+                "type_preset": "paragraph"
+              }
+            },
+            "button": {
+              "type": "button",
+              "settings": {
+                "label": "Shop Accessories",
+                "link": "shopify://collections/child-cold-weather-accessories"
+              }
+            }
+          },
+          "block_order": [
+            "heading",
+            "text",
+            "button"
+          ]
+        },
+        "slide_2": {
+          "type": "_slide",
+          "settings": {
+            "media_type_1": "image",
+            "image_1": "shopify://shop_images/MP_SU26_Site_Custom_5.13_Adult_leader.jpg",
+            "content_direction": "column",
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "background_color": "#3b4a3f",
+            "padding-inline-start": 48,
+            "padding-inline-end": 48,
+            "padding-block-start": 40,
+            "padding-block-end": 40
+          },
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "name": "Heading",
+              "settings": {
+                "text": "<h3>For the grown-ups</h3>",
+                "alignment": "center",
+                "max_width": "narrow",
+                "type_preset": "h3"
+              }
+            },
+            "text": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Adult sweaters and cardigans, knit with the same care as the little ones'.</p>",
+                "alignment": "center",
+                "max_width": "narrow",
+                "padding-block-end": 20,
+                "type_preset": "paragraph"
+              }
+            },
+            "button": {
+              "type": "button",
+              "settings": {
+                "label": "Shop Adult",
+                "link": "shopify://collections/adult-sweaters-cardigans"
+              }
+            }
+          },
+          "block_order": [
+            "heading",
+            "text",
+            "button"
+          ]
+        }
+      },
+      "block_order": [
+        "slide_1",
+        "slide_2"
+      ]
+    }
+  },
+  "order": [
+    "hz_home_full",
+    "hz_home_inset"
+  ]
+}
