@@ -3,10 +3,10 @@
   blocks/_layered-slide.liquid. Markup verbatim (the source block has no
   stylesheet of its own — all layered-slideshow CSS lives in the section).
   Deviations:
-  - Child allowlist trimmed: Horizon also allows `video` and `jumbo-text`
-    (source :113-136); neither block is ported yet, and a schema allowlisting
-    a missing block type is an upload error. Re-add each the day it ports
-    (same trim as _slide.liquid).
+  - Child allowlist: `video` and `jumbo-text` were trimmed while unported
+    (a schema allowlisting a missing block type is an upload error) and
+    RESTORED to the verbatim source order by the Phase-8 utility sweep —
+    the allowlist now matches Horizon byte-for-byte (same as _slide.liquid).
   - Schema t: strings hardcoded to Horizon's en.default.schema.json English.
   - Editor name "Layered slide" instead of t:names.slide ("Slide") — the
     ported _slide already presents as "Slide" in the editor, and two
@@ -139,7 +139,13 @@
       "type": "image"
     },
     {
+      "type": "video"
+    },
+    {
       "type": "icon"
+    },
+    {
+      "type": "jumbo-text"
     },
     {
       "type": "@theme"

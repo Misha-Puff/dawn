@@ -1,0 +1,84 @@
+{% comment %}
+  horizon-blocks Phase 8: blocks/follow-on-shop.liquid — port of Horizon
+  68760d9 blocks/follow-on-shop.liquid. Verbatim except schema strings
+  hardcoded English (track precedent).
+  Render-gated: the whole block emits nothing unless
+  shop.features.follow_on_shop? is true (Shop channel installed — verified
+  on this store 2026-07-03 — AND Shop app visibility enabled). Ratified
+  decision (Nathan, 2026-07-03): KEEP the block even if the serve check
+  shows nothing — it self-hides while ineligible and lights up the day Shop
+  app visibility is switched on. spacing-padding is a Phase-1b port.
+{% endcomment %}
+
+{%- if shop.features.follow_on_shop? -%}
+  <div
+    class="spacing-style"
+    style="{% render 'spacing-padding', settings: block.settings %}"
+    {{ block.shopify_attributes }}
+  >
+    {{ shop | login_button: action: 'follow' }}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Follow on Shop",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "For the button to show, the Shop channel must be installed and Shop Pay activated. [Learn more](https://help.shopify.com/en/manual/online-store/themes/customizing-themes/add-shop-buttons)"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Follow on Shop",
+      "category": "Footer"
+    }
+  ]
+}
+{% endschema %}

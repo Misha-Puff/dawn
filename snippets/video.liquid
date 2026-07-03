@@ -1,0 +1,430 @@
+{%- doc -%}
+  Renders a video element, from a video object (<video> element) or a video URL (<iframe> element)
+
+  Shared parameters:
+
+  @param {boolean} [video_autoplay] - Whether the video should autoplay
+  @param {boolean} [video_loop] - Whether the video should loop
+  @param {string} [video_class] - Additional classes for the video element
+  @param {string} [video_style] - Additional inline styles
+  @param {object} [video_preview_image] - Preview image to show before video plays
+  @param {string} [widths] - Responsive widths
+  @param {string} [sizes] - Responsive sizes
+  @param {string} [loading] - Loading attribute
+  @param {string} [additional_attributes] - Any additional HTML attributes
+  @param {string} [video_type] - 'youtube' or 'vimeo'
+  @param {boolean} [disable_controls] - Whether to disable controls. If true, only play/pause will be usable.
+  @param {object} video - The Shopify video object or a string containing a YouTube ID or Vimeo ID
+  @param {object} [block] - The block object
+
+  Video from URL:
+
+  @param {boolean} [video_from_url] - Set to true to use a video from URL instead of a Shopify video object
+  @param {string} [video_alt] - The video alt text
+
+  @example
+  {% render 'video', video: section.settings.video, video_autoplay: true, video_loop: true, block: block %}
+{%- enddoc -%}
+
+{% comment %}
+  horizon-blocks Phase 8: port of Horizon 68760d9 snippets/video.liquid.
+  Dawn deviations (everything else verbatim):
+  - Element + class family renamed: deferred-media -> hz-deferred-media,
+    deferred-media__* -> hz-deferred-media__*, icon-play/icon-pause spans ->
+    hz-icon-play/hz-icon-pause, icon assets -> hz-icon-play.svg/hz-icon-pause.svg.
+    Dawn OWNS all the stock names (tag: global.js:725; classes:
+    component-deferred-media.css + component-slideshow.css, PDP-loaded; icon
+    files: different art). Rename-on-ownership precedent: Phases 3/4.
+  - The "button" class dropped from both poster buttons: Dawn's site-wide
+    .button is a fully-styled primary button; Horizon's own .button base rule
+    (base.css:1265) EXCLUDES .button-unstyled elements via :not(), so in
+    Horizon the class is inert on these buttons - dropping it is
+    behavior-preserving in Dawn.
+  - Runtime strings hardcoded English (track precedent).
+  - The stylesheet appends the Horizon base.css support rules this component
+    relies on (deferred-media block 1659-1770, video-placeholder-wrapper
+    3566-3580, button-unstyled essentials 1361-1375, img/video element resets
+    74-86 scoped per Phase-1 precedent), renamed to the hz- family, ProductModel
+    legs trimmed, rem converted to px at 16px/rem (4rem -> 64px).
+  - Callers must pass block explicitly (Dawn does not guarantee the block
+    global in snippets - Phase-1 precedent).
+  - The module script tag rides here next to the consumer (Phase-4/7
+    precedent) instead of Horizon's global snippets/scripts.liquid:180;
+    same-src module tags dedupe when several videos render.
+{% endcomment %}
+
+<script
+  src="{{ 'media.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+
+{% liquid
+  assign block_settings = block.settings
+  assign video_alt = video_alt | default: video.alt
+  assign alt = 'Load video: ' | append: video_alt | escape
+  assign video_preview_image = video_preview_image | default: video.preview_image
+  assign video_autoplay = video_autoplay | default: block_settings.video_autoplay
+  assign video_loop = video_loop | default: block_settings.video_loop
+  assign media_width_desktop = 100 | divided_by: 2 | append: 'vw'
+  assign media_width_mobile = '100vw'
+  assign sizes = '(min-width: 750px) ' | append: media_width_desktop | append: ', ' | append: media_width_mobile
+  assign widths = '240, 352, 832, 1200, 1600, 1920, 2560, 3840'
+%}
+
+{% if video_from_url %}
+  {% liquid
+    if video_type == 'youtube'
+      assign video_src = 'https://www.youtube.com/embed/VIDEO_ID?' | replace: 'VIDEO_ID', video
+
+      if video_autoplay == false and video_preview_image != blank
+        assign video_src = video_src | append: '&autoplay=1'
+      endif
+
+      if video_autoplay
+        assign video_src = video_src | append: '&autoplay=1&mute=1'
+      endif
+
+      if video_loop
+        assign video_src = video_src | append: '&playlist=' | append: video | append: '&loop=1'
+      endif
+      if disable_controls
+        assign video_src = video_src | append: '&controls=0'
+        assign video_src = video_src | append: '&enablejsapi=1'
+      endif
+      assign class = 'js-youtube'
+    else
+      assign video_src = 'https://player.vimeo.com/video/VIDEO_ID?' | replace: 'VIDEO_ID', video
+
+      if video_autoplay == false and video_preview_image != blank
+        assign video_src = video_src | append: '&autoplay=1'
+      endif
+
+      if video_autoplay
+        assign video_src = video_src | append: '&autoplay=1&muted=1'
+      endif
+      if video_loop
+        assign video_src = video_src | append: '&loop=1'
+      endif
+      if disable_controls
+        assign video_src = video_src | append: '&controls=0'
+        assign video_src = video_src | append: '&api=1'
+      endif
+      assign class = 'js-vimeo'
+    endif
+  %}
+  {% capture video_iframe %}
+      <iframe
+        src="{{ video_src }}"
+        class="{{ class }}"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+        title="{{ video_alt | escape }}"
+      ></iframe>
+  {% endcapture %}
+{% else %}
+  {% liquid
+    if disable_controls
+      assign controls = false
+      assign enable_js_api = true
+    else
+      assign controls = true
+      assign enable_js_api = false
+    endif
+  %}
+
+  {% capture video_tag %}
+    {% if video.host == 'youtube' %}
+      {{
+        video
+        | external_video_url: autoplay: true, loop: video_loop, playlist: video.external_id, mute: '1', controls: controls, enablejsapi: enable_js_api
+        | external_video_tag: data-video-type: 'youtube'
+      }}
+    {% elsif video.host == 'vimeo' %}
+      {{
+        video
+        | external_video_url: autoplay: true, loop: video_loop, muted: '1', controls: controls, api: enable_js_api
+        | external_video_tag: data-video-type: 'vimeo'
+      }}
+    {% else %}
+      {{ video | video_tag: image_size: '2500x', autoplay: true, loop: video_loop, muted: true, controls: controls }}
+    {% endif %}
+  {% endcapture %}
+{% endif %}
+
+{% if video != blank %}
+  <hz-deferred-media
+    class="{{ video_class }}"
+    style="{{ video_style }}"
+    {% if video_autoplay %}
+      autoplay
+    {% endif %}
+    {{ additional_attributes }}
+  >
+    {% if video_preview_image != blank %}
+      <button
+        class="hz-deferred-media__poster-button button-unstyled"
+        ref="deferredMediaPlayButton"
+        aria-label="{{ alt }}"
+        type="button"
+        on:click="/showDeferredMedia"
+        style="--video-aspect-ratio: {{ video.aspect_ratio }}"
+      >
+        {{
+          video_preview_image
+          | image_url: width: 3840
+          | image_tag: widths: widths, sizes: sizes, loading: loading, class: 'hz-deferred-media__poster-image'
+        }}
+
+        <span class="hz-deferred-media__poster-icon hz-icon-play">
+          <span class="visually-hidden">Play video</span>
+          {{- 'hz-icon-play.svg' | inline_asset_content -}}
+        </span>
+      </button>
+    {% endif %}
+
+    {% if disable_controls %}
+      <button
+        class="button-unstyled hz-deferred-media__poster-button video-interaction-hint hidden"
+        ref="toggleMediaButton"
+        type="button"
+        on:click="/toggleMedia"
+      >
+        <span class="hz-deferred-media__poster-icon hz-icon-play hidden">
+          <span class="visually-hidden">Play video</span>
+          {{- 'hz-icon-play.svg' | inline_asset_content -}}
+        </span>
+        <span class="hz-deferred-media__poster-icon hz-icon-pause hidden">
+          <span class="visually-hidden">Pause video</span>
+          {{- 'hz-icon-pause.svg' | inline_asset_content -}}
+        </span>
+      </button>
+    {% endif %}
+
+    <template>
+      {% if video_from_url %}
+        {{ video_iframe }}
+      {% else %}
+        {{ video_tag }}
+      {% endif %}
+    </template>
+
+    {% if video_autoplay or video_preview_image == blank %}
+      {% if video_from_url %}
+        {{ video_iframe }}
+      {% else %}
+        {{ video_tag }}
+      {% endif %}
+    {% endif %}
+  </hz-deferred-media>
+{% else %}
+  <div
+    {{ additional_attributes }}
+    class="{%- if video_class -%}{{ video_class }} {%- endif -%}video-placeholder-wrapper"
+    style="{%- if video_style -%}{{ video_style }} {%- endif -%}--video-placeholder-width: {{ block_settings.custom_width | default: 100 }}%;"
+  >
+    {% if video_preview_image != blank and video_autoplay == false %}
+      {{ video_preview_image | image_url: width: 3840 | image_tag: widths: widths, sizes: sizes, loading: loading }}
+    {% else %}
+      {{ 'hero-apparel-3' | placeholder_svg_tag }}
+    {% endif %}
+    <span class="video-placeholder-wrapper__poster-icon hz-icon-play">
+      <span class="visually-hidden">Play video</span>
+      {{- 'hz-icon-play.svg' | inline_asset_content -}}
+    </span>
+  </div>
+{% endif %}
+
+{% stylesheet %}
+  .video-interaction-hint {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: var(--layer-flat);
+  }
+
+  .video-interaction-hint:hover {
+    opacity: 1;
+  }
+
+  /* --- Horizon base.css support rules (renamed hz- family; product-model legs
+     trimmed — PDP 3D machinery out of scope) --- */
+
+  /* base.css:74-86 global element resets Dawn lacks, scoped to this component
+     (Phase-1 image-block precedent): without them the image_tag width/height
+     ATTRIBUTES size the poster img and aspect-ratio is ignored. */
+  hz-deferred-media img,
+  .video-placeholder-wrapper img {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  hz-deferred-media video,
+  .video-placeholder-wrapper video {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* base.css:1659 */
+  hz-deferred-media {
+    /* Dawn shim: custom elements default to display:inline, so width is
+       ignored in plain block flow (hz-blocks-host) and the size-style 70%
+       rendered full-width at serve. Horizon never hits this — its video
+       always sits in flex/grid parents that blockify the element; in those
+       contexts display:block is a no-op. */
+    display: block;
+    /* Height needed to make sure when it's set to be stretched, it takes the full height */
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+
+  /* base.css:1669 — media that have a poster button sibling providing the size
+     should be absolute-positioned. Otherwise, it should be a block to rely on
+     its own size */
+  hz-deferred-media > .hz-deferred-media__poster-button ~ *:not(template) {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    /* Required to make sure the absolute position respects the padding of the wrapper: */
+    padding: inherit;
+  }
+
+  /* base.css:1682 */
+  :is(hz-deferred-media, .video-placeholder-wrapper).border-style {
+    /* Apply the border radius to the video */
+    overflow: hidden;
+  }
+
+  /* base.css:1687 */
+  hz-deferred-media {
+    /* The overflow hidden in the deferred-media won't let the button show the focus ring */
+    &:has(:focus-visible) {
+      outline: var(--focus-outline-width) solid currentcolor;
+      outline-offset: var(--focus-outline-offset);
+    }
+
+    @supports not selector(:focus-visible) {
+      &:has(:focus) {
+        outline: var(--focus-outline-width) solid currentcolor;
+        outline-offset: var(--focus-outline-offset);
+      }
+    }
+  }
+
+  /* base.css:1702 */
+  .hz-deferred-media__poster-button {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: var(--video-aspect-ratio, auto);
+  }
+
+  .hz-deferred-media__poster-button.hz-deferred-media__playing {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  hz-deferred-media img {
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+  }
+
+  hz-deferred-media iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    aspect-ratio: var(--size-style-aspect-ratio, auto);
+  }
+
+  hz-deferred-media[data-media-loaded] img {
+    opacity: 0;
+  }
+
+  /* base.css:1731 */
+  .hz-deferred-media__poster-icon,
+  .video-placeholder-wrapper__poster-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hz-deferred-media__poster-icon svg,
+  .video-placeholder-wrapper__poster-icon svg {
+    width: var(--button-size);
+    height: var(--button-size);
+    color: var(--color-white);
+    filter: drop-shadow(var(--shadow-button));
+
+    &:hover {
+      color: rgb(var(--color-white-rgb) / var(--opacity-80));
+    }
+
+    @media screen and (min-width: 750px) {
+      /* Horizon 4rem -> 64px (Dawn rem trap: 16px/rem) */
+      width: 64px;
+      height: 64px;
+    }
+  }
+
+  /* base.css:1760 */
+  hz-deferred-media[class] :is(.hz-deferred-media__poster-button img, .hz-deferred-media__poster-button ~ video) {
+    /* only apply this on the video block not product media */
+    object-fit: cover;
+    height: 100%;
+    aspect-ratio: var(--size-style-aspect-ratio, auto);
+  }
+
+  /* base.css:3566 */
+  .video-placeholder-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: var(--size-style-aspect-ratio, auto);
+  }
+
+  :not(hz-deferred-media) > .video-placeholder-wrapper {
+    width: var(--video-placeholder-width);
+  }
+
+  .video-placeholder-wrapper > * {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* base.css:1361-1375 button-unstyled essentials, scoped under this component
+     (Phase-4 inline precedent; the class name itself is unowned in Dawn but the
+     global font/hover declarations depend on unported --font-paragraph-* tokens).
+     color: var(--color-foreground) goes IACVT against Dawn's comma triplet ->
+     inherit, the desired scheme behavior (Phase-1b precedent); the icon color is
+     set explicitly above. */
+  hz-deferred-media .button-unstyled,
+  .video-placeholder-wrapper .button-unstyled {
+    display: block;
+    padding: 0;
+    background-color: inherit;
+    color: var(--color-foreground);
+    border: 0;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+  }
+
+  hz-deferred-media .button-unstyled:hover,
+  .video-placeholder-wrapper .button-unstyled:hover {
+    background-color: inherit;
+  }
+{% endstylesheet %}

@@ -19,6 +19,10 @@
 
   Phase 2: adds `hz-ui-tokens` (--layer-* / --opacity-* constants) — consumed
   by the card block, contrast-override, and the overlay fallback color.
+
+  Phase 8: adds `_marquee` to the blocks allowlist. Horizon exposes the
+  private _marquee only via sections/hero.liquid:781 (no hero port exists);
+  this host is the Dawn-side analog for reaching it.
 {%- endcomment -%}
 
 {{ 'component-group.css' | asset_url | stylesheet_tag }}
@@ -51,6 +55,9 @@
   "tag": "section",
   "class": "section",
   "blocks": [
+    {
+      "type": "_marquee"
+    },
     {
       "type": "@theme"
     },

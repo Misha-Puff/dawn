@@ -83,7 +83,11 @@
       # ~half size. Re-emit the value in px at 16px/rem — a later declaration
       # in the same style attribute wins. Mirrors Horizon's fluid math (x16):
       # >= 3rem -> clamp(48 + (rem/3 - 1)*4 px, px/1400*100 vw, px).
-      if block_settings.type_preset == 'custom' and block_settings.font_size != blank
+      # Phase-8 guard: only rem strings get the correction. Hand-written JSON
+      # (e.g. _marquee's verbatim preset) passes font_size as a var() token —
+      # the rem parse mangled that to '--font-size: 0.0px', overriding the raw
+      # value typography-style correctly emits for non-rem strings.
+      if block_settings.type_preset == 'custom' and block_settings.font_size != blank and block_settings.font_size contains 'rem'
         assign hz_font_size_rem = block_settings.font_size | split: 'rem' | first | times: 1.0
         assign hz_font_size_px = hz_font_size_rem | times: 16
         if hz_font_size_rem >= 3.0

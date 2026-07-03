@@ -1,0 +1,273 @@
+{% comment %}
+  horizon-blocks Phase 8: blocks/video.liquid — port of Horizon 68760d9
+  blocks/video.liquid. Dawn deviations (everything else verbatim):
+  - Schema strings hardcoded English (track precedent).
+  - `block` passed explicitly to the video snippet (it reads block.settings for
+    autoplay/loop defaults + the placeholder width — Phase-1 precedent; Dawn
+    does not guarantee `block` as a snippet global).
+  The player machinery: snippets/video.liquid (hz-deferred-media rename family)
+  + assets/media.js + hz-icon-play/pause.svg. Style helpers spacing-style /
+  border-override / size-style classes are all Phase-0/1 ports.
+{% endcomment %}
+
+{% assign block_settings = block.settings %}
+
+{% capture video_style %}
+  {%  render 'spacing-style', settings: block_settings %}
+  {% render 'border-override', settings: block_settings %}
+   --size-style-width: {{ block_settings.custom_width }}%; --size-style-width-mobile: {{ block_settings.custom_width_mobile }}%;
+   --size-style-aspect-ratio: {% if block_settings.source == 'uploaded' %}{{ block_settings.video.aspect_ratio | default: 'auto' }}{% elsif block_settings.cover_image == blank %}{{ block_settings.aspect_ratio }}{% else %}auto{% endif %};
+{% endcapture %}
+
+{% if block_settings.source == 'uploaded' %}
+  {% render 'video',
+    video: block_settings.video,
+    video_class: 'spacing-style size-style border-style',
+    video_loop: block_settings.video_loop,
+    video_style: video_style,
+    video_preview_image: block_settings.video.preview_image,
+    additional_attributes: block.shopify_attributes,
+    block: block
+  %}
+{% else %}
+  {% render 'video',
+    video_from_url: true,
+    video: block_settings.video_url.id,
+    video_class: 'spacing-style size-style border-style',
+    video_type: block_settings.video_url.type,
+    video_style: video_style,
+    video_alt: block_settings.alt,
+    video_preview_image: block_settings.cover_image,
+    additional_attributes: block.shopify_attributes,
+    block: block
+  %}
+{% endif %}
+
+{% stylesheet %}
+  .placeholder-video {
+    aspect-ratio: 5 / 3;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Video",
+  "tag": null,
+  "settings": [
+    {
+      "type": "select",
+      "id": "source",
+      "label": "Source",
+      "options": [
+        {
+          "value": "uploaded",
+          "label": "Uploaded"
+        },
+        {
+          "value": "url",
+          "label": "External URL"
+        }
+      ],
+      "default": "uploaded"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video",
+      "visible_if": "{{ block.settings.source == 'uploaded' }}"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "label": "URL",
+      "info": "Use a YouTube or Vimeo URL",
+      "accept": ["youtube", "vimeo"],
+      "visible_if": "{{ block.settings.source == 'url' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "video_autoplay",
+      "label": "Autoplay",
+      "info": "Videos will be muted by default",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "video_loop",
+      "label": "Loop video",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "cover_image",
+      "label": "Cover image",
+      "visible_if": "{{ block.settings.source == 'url' and block.settings.video_autoplay == false }}"
+    },
+    {
+      "type": "text",
+      "id": "alt",
+      "label": "Alt text",
+      "info": "Describe the video for assistive tech users",
+      "visible_if": "{{ block.settings.source == 'url' }}"
+    },
+    {
+      "type": "header",
+      "content": "Size"
+    },
+    {
+      "type": "range",
+      "id": "custom_width",
+      "label": "Width",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "custom_width_mobile",
+      "label": "Mobile width",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "label": "Aspect ratio",
+      "visible_if": "{{ block.settings.source == 'url' and block.settings.cover_image == blank }}",
+      "options": [
+        {
+          "value": "auto",
+          "label": "Auto"
+        },
+        {
+          "value": "9/16",
+          "label": "Portrait"
+        },
+        {
+          "value": "1/1",
+          "label": "Square"
+        },
+        {
+          "value": "16/9",
+          "label": "Landscape"
+        }
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "header",
+      "content": "Borders"
+    },
+    {
+      "type": "select",
+      "id": "border",
+      "label": "Style",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "solid",
+          "label": "Solid"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Thickness",
+      "default": 1,
+      "visible_if": "{{ block.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Opacity",
+      "default": 100,
+      "visible_if": "{{ block.settings.border != 'none' }}"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Color",
+      "placeholder": "Default",
+      "visible_if": "{{ block.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Corner radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video",
+      "category": "Basic"
+    }
+  ]
+}
+{% endschema %}

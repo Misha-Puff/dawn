@@ -1,0 +1,243 @@
+{% comment %}
+  horizon-blocks Phase 8: blocks/_marquee.liquid — port of Horizon 68760d9
+  blocks/_marquee.liquid + assets/marquee.js (byte-verbatim, sha a16b1bd4;
+  the marquee-component tag is unowned by Dawn — no rename, Phase-7
+  layered-slideshow precedent). Dawn deviations (everything else verbatim):
+  - Schema strings hardcoded English (track precedent).
+  - The marquee-component background-color rule gets the dual-format fix
+    (see stylesheet comment) — Phase-7 --border-color precedent.
+  Reachability: Horizon exposes _marquee only via sections/hero.liquid:781
+  (section-level allowlist; no hero port exists) — the Dawn-side analog is
+  sections/hz-blocks-host.liquid's blocks array. Child allowlist verbatim:
+  text / icon / _divider, all ported.
+  Upstream as-is (NOT a Dawn deviation): the source renders no
+  block.shopify_attributes on the root element — kept byte-verbatim; if the
+  editor-selection check flags it, adding the attribute is a documented
+  follow-up (same upstream-bug class as Phase 1's mobile spacer).
+{% endcomment %}
+
+<script
+  src="{{ 'marquee.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+
+{% assign block_settings = block.settings %}
+{% assign gap_between_elements = block_settings.gap_between_elements %}
+{% if block.settings.background_color != blank %}
+  {% render 'contrast-override', background_color: block.settings.background_color, section_id: block.id %}
+{% endif %}
+
+<marquee-component
+  class="
+    spacing-style
+    gap-style
+    {% if block.settings.background_color != blank %} color-custom-{{ block.id }}{% endif %}
+  "
+  style="
+    {%- render 'spacing-style', settings: block_settings %};
+    {% render 'gap-style', value: gap_between_elements, name: 'marquee-gap' %}
+    --marquee-direction: {{ block_settings.movement_direction }};
+    {%- if block_settings.transparent_background == true -%}background-color: transparent;{%- endif -%}
+  "
+  data-speed-factor="25"
+  data-movement-direction="{{ block_settings.movement_direction }}"
+>
+  <div
+    class="marquee__wrapper"
+    ref="wrapper"
+  >
+    <div
+      class="marquee__content"
+      ref="content"
+    >
+      <div
+        class="marquee__repeated-items"
+        ref="marqueeItems[]"
+      >
+        {% content_for 'blocks' %}
+      </div>
+    </div>
+  </div>
+</marquee-component>
+
+{% stylesheet %}
+  marquee-component {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    /* Dawn deviation — the --border-color dual-format pattern (Phase 7):
+       Horizon's verbatim background-color: var(--color-background) resolves
+       against Dawn's COMMA-TRIPLET scheme var → invalid color → transparent.
+       Base rule composes rgb(); the color-custom overrides below restore the
+       verbatim form because the ported contrast-override redefines
+       --color-background as a FULL color inside .color-custom-* scopes.
+       Two override legs: the marquee's own background_color class (serve-
+       probed) and a custom-scope ancestor (future-proofing — no current
+       Dawn-side parent can host _marquee inside a .color-custom-* scope;
+       group's allowlist excludes it, matching Horizon). */
+    background-color: rgb(var(--color-background));
+  }
+
+  marquee-component[class*='color-custom-'],
+  [class*='color-custom-'] marquee-component {
+    background-color: var(--color-background);
+  }
+
+  .marquee__wrapper {
+    display: flex;
+    gap: var(--marquee-gap);
+    width: fit-content;
+    white-space: nowrap;
+  }
+
+  .marquee__content {
+    min-width: max-content;
+    display: flex;
+    gap: var(--marquee-gap);
+  }
+
+  .marquee__content :is(p, h1, h2, h3, h4, h5, h6) {
+    white-space: nowrap;
+  }
+
+  .marquee__content .marquee__repeated-items * {
+    max-width: none;
+  }
+
+  .marquee__repeated-items {
+    min-width: max-content;
+    display: flex;
+    gap: var(--marquee-gap);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .marquee__repeated-items > * {
+    align-content: center;
+  }
+
+  .hero__content-wrapper.layout-panel-flex--column marquee-component {
+    --margin-inline: var(--full-page-margin-inline-offset);
+
+    width: -webkit-fill-available;
+    min-height: max-content;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    marquee-component:not([data-disabled]) .marquee__wrapper {
+      animation: marquee-motion var(--marquee-speed) linear infinite var(--marquee-direction);
+    }
+  }
+
+  @keyframes marquee-motion {
+    to {
+      transform: translate3d(calc(-50% - (var(--marquee-gap) / 2)), 0, 0);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Marquee",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "text"
+    },
+    {
+      "type": "icon"
+    },
+    {
+      "type": "_divider"
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "movement_direction",
+      "label": "Motion direction",
+      "options": [
+        {
+          "value": "reverse",
+          "label": "Forward"
+        },
+        {
+          "value": "normal",
+          "label": "Reverse"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "placeholder": "Default"
+    },
+    {
+      "type": "checkbox",
+      "id": "transparent_background",
+      "label": "Transparent background",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "gap_between_elements",
+      "label": "Gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    }
+  ],
+  "presets": [
+    {
+      "name": "Marquee",
+      "category": "Decorative",
+      "blocks": {
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We make things that work better and last longer.</p>",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "var(--font-size--h2)",
+            "line_height": "tight",
+            "letter_spacing": "tight",
+            "case": "none",
+            "wrap": "nowrap",
+            "width": "fit-content"
+          }
+        }
+      },
+      "block_order": ["text"]
+    }
+  ]
+}
+{% endschema %}

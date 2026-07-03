@@ -5,9 +5,10 @@
     `hz-slideshow-component[refreshing-timeline]` (Phase 3 rename: Dawn's
     global.js:1060 owns the upstream tag, and Dawn's component-slideshow.css
     — loaded site-wide via announcement-bar — styles it).
-  - Child allowlist trimmed: Horizon also allows `video` and `jumbo-text`
-    (source :193-224); neither block is ported yet, and a schema allowlisting
-    a missing block type is an upload error. Re-add each the day it ports.
+  - Child allowlist: `video` and `jumbo-text` were trimmed while unported
+    (a schema allowlisting a missing block type is an upload error) and
+    RESTORED to the verbatim source order (:193-224) by the Phase-8 utility
+    sweep — the allowlist now matches Horizon byte-for-byte.
   - Schema t: strings hardcoded to Horizon's en.default.schema.json English.
   - Two Dawn shims appended to the stylesheet (see comments there): a scoped
     img reset (Horizon base.css globally sets img { width: 100%; height:
@@ -243,7 +244,13 @@
       "type": "image"
     },
     {
+      "type": "video"
+    },
+    {
       "type": "icon"
+    },
+    {
+      "type": "jumbo-text"
     },
     {
       "type": "@theme"

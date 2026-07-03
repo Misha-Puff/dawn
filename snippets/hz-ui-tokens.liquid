@@ -1,9 +1,10 @@
 {%- comment -%}
-  horizon-blocks Phase 2–7 — UI-layer tokens (z-index ramp + opacity constants;
+  horizon-blocks Phase 2–8 — UI-layer tokens (z-index ramp + opacity constants;
   Phase 3 appends icon/slideshow/animation constants + primary-button shims;
   Phase 4 appends accordion/menu/social sizes + popover tokens + the
   --color-border fallback; Phase 5 appends the slideshow-controls
-  dots/counter sizes; Phase 7 appends the section-height ramp).
+  dots/counter sizes; Phase 7 appends the section-height ramp; Phase 8
+  appends the fade-in easing).
 
   Dawn-side equivalent of the layering + opacity subset of stock Horizon
   v4.1.1 (68760d9) snippets/theme-styles-variables.liquid, values verbatim.
@@ -127,6 +128,19 @@
     --section-height-small: 240px;
     --section-height-medium: 400px;
     --section-height-large: 560px;
+
+    /* --- Phase 8 (utility sweep) --- */
+    /* Fade-in easing (tsv:491, verbatim) — jumbo-text blur/reveal transitions */
+    --animation-timing-fade-in: cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Video / deferred-media (consumed by snippets/video.liquid's ported
+       support rules). Shadow verbatim (tsv:402); focus outline width
+       0.09375rem → 1.5px (tsv:531, Horizon rem = 16px), offset em verbatim
+       (tsv:532); button size aliases the Phase-3 touch target (tsv:583). */
+    --shadow-button: 0 2px 3px rgb(0 0 0 / 20%);
+    --focus-outline-width: 1.5px;
+    --focus-outline-offset: 0.2em;
+    --button-size: var(--minimum-touch-target);
   }
 
   /* Section-height svh tiers (tsv:143-151, verbatim incl. Horizon's em
