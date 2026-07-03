@@ -100,6 +100,15 @@
     z-index: var(--layer-section-background);
     background-color: var(--color-background);
   }
+
+  /* Dawn :empty counter-shim (group/_card precedent) — Dawn base.css hides
+     empty elements (div:empty → display: none); .section-background is an
+     intentionally-empty sibling div, so without this the custom background
+     color silently never painted (latent since Phase 3, found by the
+     Phase-5 probe on the identical hz-slideshow machinery). */
+  .shopify-section:has(> .section-carousel) > .section-background:empty {
+    display: block;
+  }
 {% endstylesheet %}
 
 {% schema %}
