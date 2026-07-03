@@ -1,0 +1,667 @@
+{%- comment -%}
+  horizon-blocks Phase 7 — port of stock Horizon v4.1.1 (68760d9)
+  sections/layered-slideshow.liquid, RENAMED hz-layered-slideshow
+  (hz- section prefix precedent: hz-slideshow / hz-carousel). Markup and
+  schema verbatim; t: strings hardcoded to Horizon's English
+  (en.default.json runtime + en.default.schema.json schema). Deviations
+  are constraint-commented inline:
+  - {% stylesheet %} rem→px: Dawn's root font-size is 62.5% × body_scale
+    (Horizon rem = 16px), so 1rem multipliers are ported as 16px.
+    svh/lh/px values stay verbatim.
+  - --border-color dual-format fix (see comment at the rule).
+  - Appended Dawn adaptation of Horizon's base.css .section grid +
+    .section-background machinery, scoped to .layered-slideshow-section
+    (hz-carousel / hz-slideshow precedent).
+  - Schema `"class": "container-background-image"` kept verbatim: Horizon
+    base.css:874 gives the wrapper background-image sizing, but nothing in
+    this port sets a background image on the section wrapper, so the class
+    is inert in Dawn. No CSS ported.
+  - Horizon's theme-editor.js click-to-select-slide hook is NOT ported —
+    consistent with the deferred design-mode across Phases 3–6.
+{%- endcomment -%}
+{%- comment -%}
+  Host-owned dependencies (precedent: sections/hz-blocks-host.liquid — "future
+  hosts render both"): the frozen Phase-0 engine CSS the group/text/button
+  children depend on, plus the type + UI token layers. hz-layered-slideshow
+  is a standalone host, so it cannot rely on hz-blocks-host being on the page.
+{%- endcomment -%}
+{{ 'component-group.css' | asset_url | stylesheet_tag }}
+{% render 'hz-type-variables' %}
+{% render 'hz-ui-tokens' %}
+
+{% liquid
+  assign layered_min_height_desktop = '0px'
+  assign layered_panel_height_mobile = '0px'
+
+  case section.settings.height
+    when 'small'
+      assign layered_panel_height_mobile = '260px'
+      assign layered_min_height_desktop = 'var(--section-height-small)'
+    when 'medium'
+      assign layered_panel_height_mobile = '320px'
+      assign layered_min_height_desktop = 'var(--section-height-medium)'
+    when 'large'
+      assign layered_panel_height_mobile = '380px'
+      assign layered_min_height_desktop = 'var(--section-height-large)'
+  endcase
+%}
+
+{% liquid
+  if section.settings.background_color != blank
+    render 'contrast-override', background_color: section.settings.background_color, section_id: section.id, skip_contrast: true
+  endif
+%}
+
+<div
+  class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+></div>
+<div
+  class="section section--{{ section.settings.section_width }} spacing-style layered-slideshow-section{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+  style="{% render 'spacing-padding', settings: section.settings %}"
+>
+  <h2 class="visually-hidden">Slideshow</h2>
+  {%- comment -%}
+    Module script here instead of Horizon's theme-wide loader (precedent:
+    snippets/slideshow.liquid — script tag next to the component element).
+    Imports only @theme/component + @theme/utilities, both registered in
+    layout/theme.liquid's importmap since Phase 3.
+  {%- endcomment -%}
+  <script type="module" src="{{ 'layered-slideshow.js' | asset_url }}"></script>
+  <layered-slideshow-component style="--layered-panel-height-mobile: {{ layered_panel_height_mobile }}; --layered-min-height-desktop: {{ layered_min_height_desktop }}">
+    <div
+      class="layered-slideshow__container"
+      ref="container"
+      size="{{ section.settings.height }}"
+      style="--corner-radius: {% if section.settings.section_width == 'page-width' %}{{ section.settings.corner_radius | divided_by: 16.0 }}{% else %}0{% endif %}; --total-tabs: {{ section.blocks.size }}; --border-width: {{ section.settings.border_width }}px"
+    >
+      <div
+        class="layered-slideshow__tablist"
+        role="tablist"
+        aria-label="Slideshow"
+      >
+        {% for block in section.blocks %}
+          <button
+            role="tab"
+            ref="tabs[]"
+            id="Tab-{{ block.id }}-{{ section.id }}"
+            aria-selected="{% if forloop.index0 == 0 %}true{% else %}false{% endif %}"
+            aria-controls="Panel-{{ block.id }}-{{ section.id }}"
+            aria-label="Slide {{ forloop.index }} of {{ section.blocks.size }}"
+            tabindex="{% if forloop.index0 == 0 %}0{% else %}-1{% endif %}"
+          ></button>
+        {% endfor %}
+      </div>
+      <div class="layered-slideshow__panels">
+        {% content_for 'blocks' %}
+      </div>
+    </div>
+  </layered-slideshow-component>
+</div>
+
+{% stylesheet %}
+  .layered-slideshow-section {
+    position: relative;
+  }
+
+  layered-slideshow-component {
+    display: block;
+    width: 100%;
+  }
+
+  .layered-slideshow__container {
+    /* rem→px: Horizon `* 1rem` (rem = 16px there); Dawn root font-size is
+       62.5% × body_scale, so 1rem here would shrink the radius. The inline
+       --corner-radius stays verbatim (px setting ÷ 16.0), so ÷16 × 16px
+       round-trips to the exact px value. */
+    --radius: calc(var(--corner-radius, 1) * 16px);
+    --button-width: 56px;
+    /* Dual-format fix — Horizon: var(--color-background) (full color there).
+       Dawn's root --color-background is a comma triplet, so verbatim yields
+       an invalid color → border falls back to currentColor (dark seams).
+       rgb() wrap per Dawn convention (footer-policy-list.liquid precedent);
+       the custom-scope override below restores the verbatim form where the
+       ported contrast-override redefines --color-background as a full color. */
+    --border-color: rgb(var(--color-background));
+    --inactive-tabs-width: calc((var(--total-tabs) - 1) * var(--button-width));
+    --active-panel-width: calc(100cqi - var(--inactive-tabs-width));
+    width: 100%;
+    position: relative;
+    container-type: inline-size;
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  /* Inside .color-custom-* scopes contrast-override.liquid:125 redefines
+     --color-background as a FULL color, making the rgb() wrap above invalid
+     there — this (0,2,0) override restores Horizon's verbatim form for
+     custom-background sections. */
+  [class*='color-custom-'] .layered-slideshow__container {
+    --border-color: var(--color-background);
+  }
+
+  .layered-slideshow__container:not([size='auto']) {
+    height: 100%;
+  }
+
+  .layered-slideshow__container[size='auto'] {
+    height: auto;
+  }
+
+  @media screen and (min-width: 750px) {
+    layered-slideshow-component {
+      min-height: var(--layered-min-height-desktop, 0px);
+    }
+  }
+
+  .layered-slideshow__tablist {
+    display: grid;
+    grid-template-columns: var(--active-tab);
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    pointer-events: none;
+    z-index: var(--layer-raised);
+  }
+
+  .layered-slideshow__tablist button {
+    width: var(--button-width);
+    height: 100%;
+    pointer-events: all;
+    opacity: 0;
+    cursor: grab;
+    border: none;
+    background: transparent;
+    padding: 0;
+    position: relative;
+    outline: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .layered-slideshow__tablist button:active {
+    cursor: grabbing;
+  }
+
+  .layered-slideshow__tablist button[aria-selected='true'] {
+    cursor: default;
+  }
+
+  .layered-slideshow__tablist button:focus-visible {
+    opacity: 1;
+  }
+
+  .layered-slideshow__container[data-dragging] {
+    cursor: grabbing;
+  }
+
+  .layered-slideshow__container[data-instant-transitions],
+  .layered-slideshow__container:is([data-dragging], [data-instant-transitions])
+    :is(
+      .layered-slideshow__tablist,
+      .layered-slideshow__panels,
+      .layered-slideshow__panel-content,
+      .layered-slideshow__content
+    ) {
+    transition: none;
+  }
+
+  .layered-slideshow__panels {
+    display: grid;
+    grid-template-columns: var(--active-tab);
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .layered-slideshow__panel {
+    position: relative;
+    height: 100%;
+    min-width: var(--button-width);
+    border-radius: var(--radius);
+    z-index: calc(var(--total-tabs) - var(--index));
+  }
+
+  .layered-slideshow__panel:first-child .layered-slideshow__panel-content {
+    width: var(--active-panel-width);
+    border-left: var(--border-width) solid var(--border-color);
+  }
+
+  .layered-slideshow__panel:not(:first-child) .layered-slideshow__content {
+    padding-inline-start: calc((var(--radius) * 2) + var(--padding-inline-start, 0px));
+  }
+
+  .layered-slideshow__panel-content {
+    border: var(--border-width) solid var(--border-color);
+    border-left: none;
+    border-radius: var(--radius);
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    width: calc(var(--active-panel-width) + (var(--radius) * 2));
+  }
+
+  .layered-slideshow__panel-content :is(img, video, svg) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Video poster visibility - poster shows initially and hides when panel becomes active */
+  .layered-slideshow__video-poster {
+    z-index: 1;
+  }
+
+  .layered-slideshow__video {
+    z-index: 0;
+  }
+
+  /* When panel is active, hide poster so video is visible */
+  .layered-slideshow__panel:not([inert]) .layered-slideshow__video-poster {
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .layered-slideshow__video-poster {
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  .layered-slideshow__content {
+    height: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .layered-slideshow__content > * {
+    margin: auto;
+  }
+
+  .layered-slideshow__content.background-transparent {
+    background-color: transparent;
+  }
+
+  .layered-slideshow__panel--drop-shadow:not(:last-child) .layered-slideshow__panel-content {
+    box-shadow: 4px 0 12px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  /* Shared transitions (desktop and mobile) */
+  @media (prefers-reduced-motion: no-preference) {
+    .layered-slideshow__panels,
+    .layered-slideshow__tablist {
+      transition-property: grid-template-columns, grid-template-rows;
+      transition-duration: 0.6s;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .layered-slideshow__content {
+      opacity: 0;
+      transform: translateY(0.5lh);
+      transition: opacity 0.48s, transform 0.48s;
+    }
+
+    .layered-slideshow__panel:not([inert]) .layered-slideshow__content {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.24s;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .layered-slideshow__container {
+      --button-height: 44px;
+      --inactive-tabs-height: calc((var(--total-tabs) - 1) * var(--button-height));
+    }
+
+    .layered-slideshow__container:not([size='auto']) {
+      --layered-total-height: calc(var(--layered-panel-height-mobile, 260px) + var(--inactive-tabs-height));
+      --active-panel-height: var(--layered-panel-height-mobile, 260px);
+      min-height: var(--layered-total-height);
+      height: var(--layered-total-height);
+    }
+
+    .layered-slideshow__container[size='auto'] {
+      height: auto;
+    }
+
+    .layered-slideshow__tablist {
+      grid-template-rows: var(--active-tab);
+      grid-template-columns: 1fr;
+      grid-auto-flow: row;
+    }
+
+    .layered-slideshow__tablist button {
+      width: 100%;
+      height: var(--button-height);
+    }
+
+    .layered-slideshow__panels {
+      grid-template-rows: var(--active-tab);
+      grid-template-columns: 1fr;
+      grid-auto-flow: row;
+    }
+
+    .layered-slideshow__panel {
+      min-height: var(--button-height);
+      width: 100%;
+      height: 100%;
+      position: relative;
+      z-index: calc(var(--total-tabs) - var(--index));
+    }
+
+    .layered-slideshow__panel:first-child .layered-slideshow__panel-content {
+      width: 100%;
+      height: var(--active-panel-height);
+      border-top: var(--border-width) solid var(--border-color);
+      left: 0;
+      right: 0;
+      border-left: var(--border-width) solid var(--border-color);
+    }
+
+    .layered-slideshow__panel-content {
+      position: absolute;
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius);
+      box-sizing: border-box;
+      width: 100%;
+      /* Clamp overlap to (button-height - border-width) to prevent visual issues with large radius + border */
+      height: calc(var(--active-panel-height) + min(var(--radius) * 2, var(--button-height) - var(--border-width)));
+      top: unset;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+    }
+
+    .layered-slideshow__panel:not(:first-child) .layered-slideshow__panel-content {
+      border-top: none;
+    }
+
+    .layered-slideshow__panel:not(:first-child) {
+      margin-top: calc(var(--border-width) * -1);
+    }
+
+    .layered-slideshow__content {
+      padding-inline-start: var(--padding-inline-start, 0px);
+      padding-inline-end: var(--padding-inline-end, 0px);
+    }
+
+    /* Adjust padding for non-first slides to account for radius overlap at the top (not sides on mobile) */
+    .layered-slideshow__panel:not(:first-child) .layered-slideshow__content {
+      padding-block-start: calc((var(--radius) * 2) + var(--padding-block-start, 0px));
+      padding-inline-start: var(--padding-inline-start, 0px);
+    }
+
+    .layered-slideshow__panel--drop-shadow:not(:last-child) .layered-slideshow__panel-content {
+      box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  /* Dawn adaptation of Horizon base.css .section grid (68760d9
+     base.css:333-419), scoped to .layered-slideshow-section (hz-carousel /
+     hz-slideshow precedent). This store's .page-width has max-width disabled
+     (base.css:81), so Horizon's central-column min() reduces exactly to the
+     page padding (30px ≥1100px / 10px below — theme.liquid:147-148).
+     Deliberate breakpoint split: gutters follow Dawn's 1100px page-padding
+     breakpoint, the layered-slideshow rules above follow Horizon's 750px —
+     each internally consistent with what it aligns to. */
+  .layered-slideshow-section {
+    --util-page-margin-offset: var(--page-width-padding);
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns:
+      minmax(var(--util-page-margin-offset), 1fr)
+      minmax(0, calc(100% - var(--util-page-margin-offset) * 2))
+      minmax(var(--util-page-margin-offset), 1fr);
+  }
+
+  @media screen and (max-width: 1099px) {
+    .layered-slideshow-section {
+      --util-page-margin-offset: var(--mobile-page-width-padding);
+    }
+  }
+
+  .layered-slideshow-section > * {
+    grid-column: 2;
+  }
+
+  .layered-slideshow-section.section--full-width > * {
+    grid-column: 1 / -1;
+  }
+
+  .layered-slideshow-section > .force-full-width {
+    grid-column: 1 / -1; /* Horizon base.css:418 */
+  }
+
+  /* section-background mechanism (Horizon base.css:370-383), scoped */
+  .shopify-section:has(> .layered-slideshow-section) {
+    position: relative;
+  }
+
+  /* (0,2,0) out-specifies .color-custom-{id} so the section itself stays
+     transparent and the .section-background sibling paints edge-to-edge */
+  .shopify-section:not(.header-section) .layered-slideshow-section {
+    background: transparent;
+  }
+
+  .shopify-section:has(> .layered-slideshow-section) > .section-background {
+    position: absolute;
+    inset: 0;
+    z-index: var(--layer-section-background);
+    background-color: var(--color-background);
+  }
+
+  /* Dawn :empty counter-shim (group/_card precedent) — Dawn base.css hides
+     empty elements (div:empty → display: none); .section-background is an
+     intentionally-empty sibling div, so without this it never paints. */
+  .shopify-section:has(> .layered-slideshow-section) > .section-background:empty {
+    display: block;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Layered slideshow",
+  "class": "container-background-image",
+  "blocks": [
+    {
+      "type": "_layered-slide"
+    }
+  ],
+  "max_blocks": 6,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page"
+        },
+        {
+          "value": "full-width",
+          "label": "Full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "label": "Height",
+      "options": [
+        {
+          "value": "auto",
+          "label": "Auto"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "range",
+      "id": "corner_radius",
+      "label": "Corner radius",
+      "min": 0,
+      "max": 32,
+      "step": 4,
+      "unit": "px",
+      "default": 0,
+      "visible_if": "{{ section.settings.section_width == 'page-width' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "label": "Border thickness",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "drop_shadow",
+      "label": "Drop shadow",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "placeholder": "Default"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Layered slideshow",
+      "category": "Banners",
+      "blocks": {
+        "slide_1": {
+          "type": "_layered-slide",
+          "blocks": {
+            "heading_1": {
+              "type": "text",
+              "name": "Heading",
+              "settings": {
+                "text": "<h3>New arrivals</h3>",
+                "type_preset": "h2"
+              }
+            },
+            "text_1": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Introducing our latest products, made especially for the season. Shop your favorites before they're gone!</p>"
+              }
+            },
+            "button_1": {
+              "type": "button",
+              "settings": {
+                "label": "Shop now",
+                "link": "shopify://collections/all"
+              }
+            }
+          },
+          "block_order": ["heading_1", "text_1", "button_1"]
+        },
+        "slide_2": {
+          "type": "_layered-slide",
+          "blocks": {
+            "heading_2": {
+              "type": "text",
+              "name": "Heading",
+              "settings": {
+                "text": "<h3>Bestsellers</h3>",
+                "type_preset": "h2"
+              }
+            },
+            "text_2": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Discover the bestsellers that have captured the hearts of our customers with their perfect blend of functionality and style.</p>"
+              }
+            },
+            "button_2": {
+              "type": "button",
+              "settings": {
+                "label": "Shop now",
+                "link": "shopify://collections/all"
+              }
+            }
+          },
+          "block_order": ["heading_2", "text_2", "button_2"]
+        },
+        "slide_3": {
+          "type": "_layered-slide",
+          "blocks": {
+            "heading_3": {
+              "type": "text",
+              "name": "Heading",
+              "settings": {
+                "text": "<h3>Featured collection</h3>",
+                "type_preset": "h2"
+              }
+            },
+            "text_3": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Discover our curated collection featuring hand-picked favorites that blend style and quality.</p>"
+              }
+            },
+            "button_3": {
+              "type": "button",
+              "settings": {
+                "label": "Shop now",
+                "link": "shopify://collections/all"
+              }
+            }
+          },
+          "block_order": ["heading_3", "text_3", "button_3"]
+        }
+      },
+      "block_order": ["slide_1", "slide_2", "slide_3"]
+    }
+  ]
+}
+{% endschema %}

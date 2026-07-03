@@ -1,9 +1,9 @@
 {%- comment -%}
-  horizon-blocks Phase 2–5 — UI-layer tokens (z-index ramp + opacity constants;
+  horizon-blocks Phase 2–7 — UI-layer tokens (z-index ramp + opacity constants;
   Phase 3 appends icon/slideshow/animation constants + primary-button shims;
   Phase 4 appends accordion/menu/social sizes + popover tokens + the
   --color-border fallback; Phase 5 appends the slideshow-controls
-  dots/counter sizes).
+  dots/counter sizes; Phase 7 appends the section-height ramp).
 
   Dawn-side equivalent of the layering + opacity subset of stock Horizon
   v4.1.1 (68760d9) snippets/theme-styles-variables.liquid, values verbatim.
@@ -117,5 +117,34 @@
     --margin-sm: 11.2px; /* tsv:409; 0.7rem — counter pill inline margin */
     --icon-size-sm: 20px; /* tsv:549; 1.25rem — slideshow-controls icon width */
     --font-size--xs: 13px; /* tsv:351; 0.8125rem — counter text */
+
+    /* --- Phase 7 (layered hero slice) --- */
+    /* Section heights (tsv:138-151) — base tier rem→px (Horizon rem = 16px:
+       15/25/35rem); the svh tiers below are verbatim (svh needs no
+       conversion). Consumed by hz-layered-slideshow's
+       --layered-min-height-desktop; token-layer placement matches Horizon's
+       own source location, reusable by future sections. */
+    --section-height-small: 240px;
+    --section-height-medium: 400px;
+    --section-height-large: 560px;
+  }
+
+  /* Section-height svh tiers (tsv:143-151, verbatim incl. Horizon's em
+     breakpoints: 40em = 640px, 60em = 960px at browser-default 16px —
+     media-query em ignores Dawn's 62.5% root font-size) */
+  @media screen and (min-width: 40em) {
+    :root {
+      --section-height-small: 40svh;
+      --section-height-medium: 55svh;
+      --section-height-large: 70svh;
+    }
+  }
+
+  @media screen and (min-width: 60em) {
+    :root {
+      --section-height-small: 50svh;
+      --section-height-medium: 65svh;
+      --section-height-large: 80svh;
+    }
   }
 {% endstyle %}

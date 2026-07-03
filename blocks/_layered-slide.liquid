@@ -1,0 +1,449 @@
+{%- comment -%}
+  horizon-blocks Phase 7 — port of stock Horizon v4.1.1 (68760d9)
+  blocks/_layered-slide.liquid. Markup verbatim (the source block has no
+  stylesheet of its own — all layered-slideshow CSS lives in the section).
+  Deviations:
+  - Child allowlist trimmed: Horizon also allows `video` and `jumbo-text`
+    (source :113-136); neither block is ported yet, and a schema allowlisting
+    a missing block type is an upload error. Re-add each the day it ports
+    (same trim as _slide.liquid).
+  - Schema t: strings hardcoded to Horizon's en.default.schema.json English.
+  - Editor name "Layered slide" instead of t:names.slide ("Slide") — the
+    ported _slide already presents as "Slide" in the editor, and two
+    identically-named block types are indistinguishable in the picker and
+    the section's block list. Deliberate naming deviation, markup untouched.
+  - One Dawn shim appended as a new {% stylesheet %} (see comment there):
+    the `.overlay:empty` counter-shim (Dawn base.css div:empty →
+    display: none hides the empty-by-design overlay div; _slide/group/_card
+    precedent — the shim lives in each consuming block because
+    overlay.liquid itself is frozen).
+{%- endcomment -%}
+{%- assign block_index = section.blocks | find_index: 'id', block.id -%}
+
+{%- liquid
+  assign preview_image = block.settings.image_1
+  if block.settings.media_type_1 == 'video'
+    assign preview_image = block.settings.video_1.preview_image
+  endif
+
+  if block.settings.background_color != blank
+    render 'contrast-override', background_color: block.settings.background_color, section_id: block.id, skip_contrast: true
+  endif
+-%}
+
+<div
+  role="tabpanel"
+  ref="panels[]"
+  id="Panel-{{ block.id }}-{{ section.id }}"
+  aria-labelledby="Tab-{{ block.id }}-{{ section.id }}"
+  tabindex="0"
+  class="layered-slideshow__panel {% if section.settings.drop_shadow %}layered-slideshow__panel--drop-shadow{% endif %}"
+  style="--index: {{ block_index }}"
+  {% if block_index > 0 %}
+    inert
+  {% endif %}
+  {{ block.shopify_attributes }}
+>
+  <div class="layered-slideshow__panel-content">
+    {%- if block.settings.toggle_overlay -%}
+      {% render 'overlay', settings: block.settings %}
+    {%- endif -%}
+    {%- if preview_image -%}
+      {%- liquid
+        assign height = preview_image.width | divided_by: preview_image.aspect_ratio | round
+        assign sizes = '100vw'
+        assign widths = '832, 1200, 1600, 1920, 2560, 3840'
+        assign loading = 'lazy'
+      -%}
+
+      {%- if block.settings.media_type_1 == 'image' -%}
+        {{
+          block.settings.image_1
+          | image_url: width: 3840
+          | image_tag: height: height, sizes: sizes, widths: widths, class: 'layered-slideshow__image', loading: loading
+        }}
+      {%- else -%}
+        {%- if block.settings.video_1.preview_image -%}
+          {{
+            block.settings.video_1.preview_image
+            | image_url: width: 3840
+            | image_tag:
+              height: height,
+              sizes: sizes,
+              widths: widths,
+              loading: loading,
+              class: 'layered-slideshow__video-poster'
+          }}
+        {%- endif -%}
+        {{
+          block.settings.video_1
+          | video_tag:
+            poster: null,
+            autoplay: false,
+            loop: true,
+            controls: false,
+            muted: true,
+            class: 'layered-slideshow__video'
+        }}
+      {%- endif -%}
+    {%- else -%}
+      {%- liquid
+        assign modulo_result = block_index | modulo: 2
+        assign placeholder_variant = 2 | minus: modulo_result
+        assign placeholder_name = 'hero-apparel-' | append: placeholder_variant
+      -%}
+      {{ placeholder_name | placeholder_svg_tag: 'layered-slideshow__image' }}
+    {%- endif -%}
+    <div
+      class="layered-slideshow__content spacing-style{% if block.settings.background_color != blank %} color-custom-{{ block.id }}{% endif %} background-transparent"
+      style="{% render 'spacing-style', settings: block.settings %}"
+    >
+      <div
+        class="group-block-content layout-panel-flex layout-panel-flex--{{ block.settings.content_direction }}{% if block.settings.vertical_on_mobile %} mobile-column{% endif %}"
+        style="{% render 'layout-panel-style', settings: block.settings %}"
+      >
+        {% content_for 'blocks' %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  /* Dawn :empty counter-shim (_slide/group/_card precedent) — Dawn base.css
+     hides empty elements (div:empty → display: none); the overlay div this
+     block renders is empty by design. Shim lives here, not in the frozen
+     overlay.liquid. Not in Horizon (no stylesheet in the source block). */
+  .overlay:empty {
+    display: block;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Layered slide",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "_heading"
+    },
+    {
+      "type": "button"
+    },
+    {
+      "type": "text"
+    },
+    {
+      "type": "group"
+    },
+    {
+      "type": "image"
+    },
+    {
+      "type": "icon"
+    },
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "media_type_1",
+      "label": "Media type",
+      "options": [
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "video",
+          "label": "Video"
+        }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image",
+      "visible_if": "{{ block.settings.media_type_1 == 'image' }}"
+    },
+    {
+      "type": "video",
+      "id": "video_1",
+      "label": "Video",
+      "visible_if": "{{ block.settings.media_type_1 == 'video' }}"
+    },
+    {
+      "type": "header",
+      "content": "Content layout"
+    },
+    {
+      "type": "select",
+      "id": "content_direction",
+      "label": "Direction",
+      "options": [
+        {
+          "value": "column",
+          "label": "Vertical"
+        },
+        {
+          "value": "row",
+          "label": "Horizontal"
+        }
+      ],
+      "default": "column"
+    },
+    {
+      "type": "checkbox",
+      "id": "vertical_on_mobile",
+      "label": "Vertical on mobile",
+      "default": true,
+      "visible_if": "{{ block.settings.content_direction == 'row' }}"
+    },
+    {
+      "type": "select",
+      "id": "horizontal_alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        },
+        {
+          "value": "space-between",
+          "label": "Space between"
+        }
+      ],
+      "default": "flex-start",
+      "visible_if": "{{ block.settings.content_direction == 'row' }}"
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment",
+      "label": "Position",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Bottom"
+        }
+      ],
+      "default": "center",
+      "visible_if": "{{ block.settings.content_direction == 'row' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "align_baseline",
+      "label": "Align text baseline",
+      "default": false,
+      "visible_if": "{{ block.settings.vertical_alignment == 'flex-end' }}"
+    },
+    {
+      "type": "select",
+      "id": "horizontal_alignment_flex_direction_column",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        }
+      ],
+      "default": "flex-start",
+      "visible_if": "{{ block.settings.content_direction != 'row' }}"
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment_flex_direction_column",
+      "label": "Position",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Bottom"
+        },
+        {
+          "value": "space-between",
+          "label": "Space between"
+        }
+      ],
+      "default": "flex-start",
+      "visible_if": "{{ block.settings.content_direction == 'column' }}"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "placeholder": "Default"
+    },
+    {
+      "type": "checkbox",
+      "id": "toggle_overlay",
+      "label": "Media overlay"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "alpha": true,
+      "default": "#00000026",
+      "visible_if": "{{ block.settings.toggle_overlay }}"
+    },
+    {
+      "type": "select",
+      "id": "overlay_style",
+      "label": "Overlay style",
+      "options": [
+        {
+          "value": "solid",
+          "label": "Solid"
+        },
+        {
+          "value": "gradient",
+          "label": "Gradient"
+        }
+      ],
+      "default": "solid",
+      "visible_if": "{{ block.settings.toggle_overlay }}"
+    },
+    {
+      "type": "select",
+      "id": "gradient_direction",
+      "label": "Gradient direction",
+      "options": [
+        {
+          "value": "to top",
+          "label": "Up"
+        },
+        {
+          "value": "to bottom",
+          "label": "Down"
+        }
+      ],
+      "default": "to top",
+      "visible_if": "{{ block.settings.toggle_overlay and block.settings.overlay_style == 'gradient' }}"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 32
+    }
+  ],
+  "presets": [
+    {
+      "name": "Layered slide",
+      "category": "Layout",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "Heading",
+          "settings": {
+            "text": "<h2>New arrivals</h2>",
+            "type_preset": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Introducing our latest products, made especially for the season. Shop your favorites before they're gone!</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "label": "Shop now",
+            "link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": ["heading", "text", "button"]
+    }
+  ]
+}
+{% endschema %}
