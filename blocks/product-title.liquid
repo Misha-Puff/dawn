@@ -15,13 +15,25 @@
     .user-select-text base.css:583-585) — Dawn ships neither. card-gallery
     carries its own .contents copy; the duplicate is deliberate so each
     file survives CSS subsetting independently.
+  - Phase 11 (M&P bridge, NOT stock): color_suffix setting — appends
+    " - {Color value}" to the title when the product's first option is
+    Color, mirroring live Dawn's card title suffix
+    (snippets/card-product.liquid:432-434 / :461-465, which live drops only
+    when collection-grid swatches are enabled). Default false (the block is
+    shared vocabulary — PDP uses it too); the card presets set it true.
   Renders the Phase-1b text snippet (fallback_text contract verified).
 {%- endcomment -%}
 {% if closest.product == blank %}
     {% assign product_title = '<p role="heading" aria-level="3">Product title</p>' %}
   {% render 'text', fallback_text: product_title, block: block %}
 {% else %}
-  {% assign product_title = '<p role="heading" aria-level="3">' | append: closest.product.title | append: '</p>' %}
+  {% liquid
+    assign hz_title_text = closest.product.title
+    if block.settings.color_suffix and closest.product.options[0] == 'Color'
+      assign hz_title_text = hz_title_text | append: ' - ' | append: closest.product.selected_or_first_available_variant.options[0]
+    endif
+  %}
+  {% assign product_title = '<p role="heading" aria-level="3">' | append: hz_title_text | append: '</p>' %}
   <a
     class="contents user-select-text"
     ref="productTitleLink"
@@ -39,6 +51,13 @@
     {
       "type": "paragraph",
       "content": "Displays title from parent product"
+    },
+    {
+      "type": "checkbox",
+      "id": "color_suffix",
+      "label": "Append color to title",
+      "info": "Adds the Color option value after the title, e.g. \"A-Pant - Moss\"",
+      "default": false
     },
     {
       "type": "header",

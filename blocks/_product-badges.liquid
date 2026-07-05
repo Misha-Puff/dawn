@@ -1,0 +1,198 @@
+{%- comment -%}
+  horizon-blocks Phase 11 — `_product-badges` private gallery-child block.
+
+  NOT a stock Horizon block. Bridges Dawn's M&P badge engine
+  (snippets/card-product-badges.liquid — untouched, still serves live cards)
+  into the hz card chain as an editor-manageable block with real settings
+  (replaces the Phase-10 badge hardcode in blocks/_product-card-gallery.liquid).
+
+  Architecture:
+  - Rendered via the gallery's `{% content_for 'blocks' %}` inside its
+    `children` capture, so the positioning context stays `.card-gallery`
+    (position: relative) — positions mean corners OF THE IMAGE, matching
+    live Dawn (whose .card__badge overlays the media).
+  - Wrapper = Horizon `.product-badges product-badges--{position}` (absolute
+    inset math + the zoom-out hide in card-gallery.liquid). `bottom-right`
+    is an M&P addition (stock Horizon ships only 3 positions) — rule in the
+    block stylesheet below, mirroring the stock inset math verbatim
+    (including stock's --padding-inline-start quirk on right offsets).
+  - Setting DEFAULTS pin what live RENDERS (settings_data values,
+    serve-measured 2026-07-05), NOT Dawn's settings_schema defaults —
+    live overrides most of them: badge_position "top left" (schema says
+    bottom left), corner radius 0 (schema 40), sale/custom/RWS/MTO schemes
+    all scheme-1 (schema scheme-5/3/3/2); only sold-out (scheme-3) agrees.
+    Replace posture = match the rendered storefront.
+  - Badge spans = Dawn-native `.badge color-{scheme}` (base.css:2942), NOT
+    Horizon's `.product-badges__badge`: that class consumes full-color
+    --color-foreground, which Dawn's `.color-scheme-N` classes redefine as
+    comma triplets (dual-format collision). Dawn's `.badge` consumes the
+    triplets composed — pixel parity with live cards by construction.
+  - --badge-corner-radius is emitted on the wrapper with theme.liquid:196's
+    ÷10-rem math (deliberately rem, NOT px@16, so it tracks body_scale
+    exactly like live badges).
+
+  Engine parity with snippets/card-product-badges.liquid:
+  - Every product tag containing 'Badge-' renders one badge; label = text
+    after the prefix. All tag badges share one scheme (live behavior:
+    coming_soon_badge_color_scheme colors every Badge- tag).
+  - Then at most ONE of: Sold out (suppressed when the product carries the
+    'Badge-Coming Soon' tag, or when show_sold_out is off — subsumes the
+    hide_sold_out_badge param, which only native collection-preview-grid
+    passes) > Sale (compare_at > price) > bare tag 'RWS' > bare tag
+    'made-to-order' ("Made-to-Order").
+  - Dropped vs the snippet: preview_badge param (native S5 preview machinery
+    only; the Badge-Coming Soon tag path covers Coming-Soon here) and the
+    per-span id= attrs (duplicate-id junk in the source; nothing consumes
+    them). Buyer strings hardcoded ("Sold out" / "Sale") per the port's
+    t:-hardcoding convention — the live snippet reads
+    products.product.sold_out / on_sale, both render the same English.
+{%- endcomment -%}
+{% assign product = closest.product %}
+
+{% unless product == blank %}
+  {% liquid
+    assign tags_str = product.tags | join: ','
+    assign coming_soon = false
+    if tags_str contains 'Badge-Coming Soon'
+      assign coming_soon = true
+    endif
+  %}
+  <div
+    class="product-badges product-badges--{{ block.settings.badge_position }}"
+    style="--badge-corner-radius: {{ block.settings.badge_corner_radius | divided_by: 10.0 }}rem;"
+    {{ block.shopify_attributes }}
+  >
+    {% if tags_str contains 'Badge-' %}
+      {% assign custom_tags = '' | split: '😉' %}
+
+      {% for tag in product.tags %}
+        {% if tag contains 'Badge-' %}
+          {% assign custom_tag = tag | split: 'Badge-' | last | split: '😉' %}
+          {% assign custom_tags = custom_tags | concat: custom_tag %}
+        {% endif %}
+      {% endfor %}
+
+      {%- if custom_tags.size > 0 -%}
+        {% for custom_tag in custom_tags %}
+          <span class="badge color-{{ block.settings.custom_color_scheme }}">
+            {{ custom_tag }}
+          </span>
+        {% endfor %}
+      {% endif %}
+    {% endif %}
+
+    {% if product.available == false and coming_soon == false %}
+      {%- if block.settings.show_sold_out -%}
+        <span class="badge color-{{ block.settings.sold_out_color_scheme }}">Sold out</span>
+      {%- endif -%}
+    {% elsif product.compare_at_price > product.price %}
+      <span class="badge color-{{ block.settings.sale_color_scheme }}">Sale</span>
+    {% elsif product.tags contains 'RWS' %}
+      <span class="badge color-{{ block.settings.rws_color_scheme }}">RWS</span>
+    {% elsif product.tags contains 'made-to-order' %}
+      <span class="badge color-{{ block.settings.mto_color_scheme }}">Made-to-Order</span>
+    {% endif %}
+  </div>
+{% endunless %}
+
+{% render 'product-badges-styles' %}
+
+{% stylesheet %}
+  .product-badges--bottom-right {
+    bottom: calc(var(--badge-inset) + var(--padding-block-start));
+    right: calc(var(--badge-inset) + var(--padding-inline-start));
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Badges",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Displays Badge- tag, Sold out, Sale, RWS, and Made-to-Order badges from parent product"
+    },
+    {
+      "type": "select",
+      "id": "badge_position",
+      "label": "Position",
+      "options": [
+        {
+          "value": "bottom-left",
+          "label": "Bottom left"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom right"
+        },
+        {
+          "value": "top-left",
+          "label": "Top left"
+        },
+        {
+          "value": "top-right",
+          "label": "Top right"
+        }
+      ],
+      "default": "top-left"
+    },
+    {
+      "type": "range",
+      "id": "badge_corner_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Corner radius",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sold_out",
+      "label": "Show sold-out badge",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color_scheme",
+      "id": "sale_color_scheme",
+      "label": "Sale badge",
+      "default": "scheme-1"
+    },
+    {
+      "type": "color_scheme",
+      "id": "sold_out_color_scheme",
+      "label": "Sold-out badge",
+      "default": "scheme-3"
+    },
+    {
+      "type": "color_scheme",
+      "id": "custom_color_scheme",
+      "label": "Tag badges (Badge-)",
+      "default": "scheme-1"
+    },
+    {
+      "type": "color_scheme",
+      "id": "rws_color_scheme",
+      "label": "RWS badge",
+      "default": "scheme-1"
+    },
+    {
+      "type": "color_scheme",
+      "id": "mto_color_scheme",
+      "label": "Made-to-Order badge",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Badges",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}

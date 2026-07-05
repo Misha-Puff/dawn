@@ -10,8 +10,12 @@
   Port of stock Horizon v4.1.1 (68760d9) snippets/card-gallery.liquid
   (horizon-blocks Phase 10). Deviations:
   - Phase-10 hardcodes of Horizon theme settings Dawn lacks, at stock schema
-    defaults (hz_ locals): badge_position = 'top-left',
-    show_second_image_on_hover = true, product_card_carousel = true.
+    defaults (hz_ locals): show_second_image_on_hover = true,
+    product_card_carousel = true. Phase 11: hz_badge_position pinned to
+    'top-left' (the _product-badges block default = live settings_data's
+    "top left") and the has_badges conditions widened to the M&P badge
+    engine's set — both drive ONLY the media-less title-placeholder padding
+    classes.
     transition_to_main_product is hardcoded FALSE (deliberate deviation from
     stock's true — Dawn pages never opt into view transitions), so the
     data-view-transition-to-main-product attribute is trimmed (re-add seam).
@@ -32,17 +36,25 @@
   assign block_settings = block.settings
   assign image_sizes = '(min-width: 750px) 50vw, 100vw'
 
-  # Phase-10 hardcodes (see doc header): badge_position = 'top-left',
-  # show_second_image_on_hover = true, product_card_carousel = true.
+  # Phase-10 hardcodes (see doc header): show_second_image_on_hover = true,
+  # product_card_carousel = true. Phase 11: badge_position tracks the
+  # _product-badges block's schema default ('top-left' — live settings_data's
+  # "top left", which overrides Dawn's bottom-left schema default) — the
+  # actual position is a per-block setting this snippet cannot read
+  # (child-block settings aren't exposed to Liquid), so the media-less
+  # title-placeholder padding below assumes the default position.
   assign hz_badge_position = 'top-left'
   assign hz_show_second_image_on_hover = true
   assign hz_product_card_carousel = true
 
-  # Check if product has badges and determine position
+  # Check if product has badges and determine position. Phase 11: conditions
+  # widened from stock's sold-out/sale pair to the M&P badge engine's full
+  # set (any Badge- tag, RWS, made-to-order — see blocks/_product-badges).
   assign has_badges = false
   assign badge_position = null
   if product != blank
-    if product.available == false or product.compare_at_price > product.price
+    assign hz_tags_str = product.tags | join: ','
+    if product.available == false or product.compare_at_price > product.price or hz_tags_str contains 'Badge-' or product.tags contains 'RWS' or product.tags contains 'made-to-order'
       assign has_badges = true
       assign badge_position = hz_badge_position
     endif

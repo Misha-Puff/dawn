@@ -1,0 +1,224 @@
+{% doc %}
+  M&P sibling colorway swatches (horizon-blocks Phase 11 bridge — NOT stock
+  Horizon). M&P colorways are separate products linked by the
+  product_page.style_siblings metafield (list.product_reference); Shopify's
+  native option_value.swatch is null store-wide, so the stock variant-swatch
+  path renders nothing. This snippet is the store's swatch source of truth
+  for hz cards, adapted from the proven mp-parity recipe
+  (~/Desktop/Repos/horizon branch mp-parity, snippets/mp-sibling-swatches.liquid,
+  commits 76cc01d/7301080/bf7939c). Consumed by blocks/swatches.liquid as the
+  fallback when no native swatches exist.
+
+  Per sibling: color comes from the shopify.color-pattern category metafield
+  (list.metaobject_reference, first entry); its image is a file reference
+  resolved defensively across GenericFile (.image) / MediaImage
+  (.preview_image) / Image shapes. No image -> text chip with the color name
+  (sibling's Color option value, else title). Hex is never used (null
+  store-wide).
+
+  Skips: blank refs, the current product, unavailable siblings (live-Dawn
+  snippets/product-sibling-swatches.liquid parity — mp-parity showed them
+  grayed at 0.4 instead), and siblings tagged preview-product / vip-product /
+  supervip-product (Locksmith consistency, mp-parity commit bf7939c).
+
+  Deviations from the mp-parity source:
+  - Dedicated .hz-sibling-swatch* classes instead of stock Horizon's bare
+    .swatch — Dawn's component-swatch.css owns .swatch (Phase-10 armor
+    gotcha) and the hz-swatch armor only enters pages that render that
+    snippet. Sizing reuses the hz-ui-tokens --variant-picker-swatch-* vars.
+  - The "+N" overflow is EXACT (an eligibility pre-pass over the sibling
+    list — no metaobject resolution, so the mp-parity perf rationale for
+    approximating doesn't apply). Metaobject resolution stays capped at
+    `max` per card.
+  - rem values converted px@16 per the port convention.
+
+  @param {product} product - The product whose siblings to render
+  @param {number} [max] - Max swatches rendered (0 or blank = all)
+  @param {string} [wrapper_style] - Inline style vars for the list wrapper
+  @param {string} [attributes] - Attributes appended to the list wrapper
+    (block.shopify_attributes passthrough)
+
+  @example
+  {% render 'hz-sibling-swatches', product: closest.product, max: 3 %}
+{% enddoc %}
+
+{%- liquid
+  assign max = max | default: 0
+  assign siblings = product.metafields.product_page.style_siblings.value
+
+  # Eligibility pre-pass (availability/tags only — no metaobject touches):
+  # drives the exact "+N" overflow count.
+  assign eligible = 0
+  if siblings != blank
+    for sibling in siblings
+      if sibling == blank or sibling.id == blank
+        continue
+      elsif sibling.id == product.id
+        continue
+      elsif sibling.available == false
+        continue
+      elsif sibling.tags contains 'preview-product' or sibling.tags contains 'vip-product' or sibling.tags contains 'supervip-product'
+        continue
+      endif
+      assign eligible = eligible | plus: 1
+    endfor
+  endif
+
+  assign shown = 0
+  assign extra = 0
+-%}
+
+{%- capture items -%}
+  {%- if siblings != blank -%}
+    {%- for sibling in siblings -%}
+      {%- liquid
+        assign skip = false
+        if sibling == blank or sibling.id == blank
+          assign skip = true
+        elsif sibling.id == product.id
+          assign skip = true
+        elsif sibling.available == false
+          assign skip = true
+        elsif sibling.tags contains 'preview-product' or sibling.tags contains 'vip-product' or sibling.tags contains 'supervip-product'
+          assign skip = true
+        endif
+      -%}
+      {%- unless skip -%}
+        {%- liquid
+          assign shown = shown | plus: 1
+
+          assign color_pattern = sibling.metafields.shopify['color-pattern'].value | first
+          assign swatch_file = color_pattern.image.value
+          assign swatch_image = swatch_file.image | default: swatch_file.preview_image | default: swatch_file
+
+          assign color_name = ''
+          for sibling_option in sibling.options_with_values
+            if sibling_option.name == 'Color'
+              assign color_name = sibling_option.values.first.name
+              break
+            endif
+          endfor
+          if color_name == blank
+            assign color_name = sibling.title
+          endif
+        -%}
+        <li class="hz-sibling-swatches__item">
+          <a
+            class="hz-sibling-swatches__link"
+            href="{{ sibling.url }}"
+            aria-label="{{ color_name | escape }}"
+            title="{{ color_name | escape }}"
+          >
+            {%- if swatch_image != blank -%}
+              <span
+                class="hz-sibling-swatch"
+                style="--hz-swatch-background: url({{ swatch_image | image_url: width: 80 }});{% if swatch_image.presentation.focal_point %} --hz-swatch-focal-point: {{ swatch_image.presentation.focal_point }};{% endif %}"
+              ></span>
+            {%- else -%}
+              <span class="hz-sibling-swatches__chip">{{ color_name | escape }}</span>
+            {%- endif -%}
+          </a>
+        </li>
+        {%- if max > 0 and shown >= max -%}{%- break -%}{%- endif -%}
+      {%- endunless -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- liquid
+  assign extra = eligible | minus: shown
+  if extra < 0
+    assign extra = 0
+  endif
+-%}
+
+{%- assign items_stripped = items | strip -%}
+{%- if items_stripped != blank -%}
+  <ul
+    class="hz-sibling-swatches"
+    role="list"
+    aria-label="Other colors"
+    {% if wrapper_style != blank %}
+      style="{{ wrapper_style }}"
+    {% endif %}
+    {{ attributes }}
+  >
+    {{ items }}
+    {%- if extra > 0 -%}
+      <li class="hz-sibling-swatches__more" aria-hidden="true">+{{ extra }}</li>
+    {%- endif -%}
+  </ul>
+{%- endif -%}
+
+{% stylesheet %}
+  .hz-sibling-swatches {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: var(--hz-ss-justify-mobile, flex-start);
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    padding-block-start: var(--hz-ss-pbs, 0);
+    padding-block-end: var(--hz-ss-pbe, 0);
+    padding-inline-start: var(--hz-ss-pis, 0);
+    padding-inline-end: var(--hz-ss-pie, 0);
+    list-style: none;
+  }
+
+  @media screen and (min-width: 750px) {
+    .hz-sibling-swatches {
+      justify-content: var(--hz-ss-justify, flex-start);
+    }
+  }
+
+  .hz-sibling-swatches__item {
+    display: flex;
+  }
+
+  .hz-sibling-swatches__link {
+    display: inline-flex;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+    border-radius: var(--variant-picker-swatch-radius, 100px);
+  }
+
+  .hz-sibling-swatches__link:focus-visible {
+    outline: 2px solid currentcolor;
+    outline-offset: 2px;
+  }
+
+  .hz-sibling-swatch {
+    display: block;
+    width: var(--variant-picker-swatch-width, 30px);
+    height: var(--variant-picker-swatch-height, 30px);
+    border-radius: var(--variant-picker-swatch-radius, 100px);
+    border: var(--style-border-swatch-width, 1px) var(--style-border-swatch-style, solid) rgb(var(--color-border-rgb, 18 18 18) / var(--style-border-swatch-opacity, 10%));
+    background: var(--hz-swatch-background) center / cover no-repeat;
+    background-position: var(--hz-swatch-focal-point, center);
+  }
+
+  .hz-sibling-swatches__chip {
+    font-family: var(--font-body--family);
+    font-size: 12px;
+    line-height: 1;
+    padding: 4px 8px;
+    border: var(--style-border-swatch-width, 1px) var(--style-border-swatch-style, solid) rgb(var(--color-border-rgb, 18 18 18) / var(--style-border-swatch-opacity, 10%));
+    border-radius: 8px;
+    white-space: nowrap;
+  }
+
+  .hz-sibling-swatches__link:hover .hz-sibling-swatches__chip {
+    border-color: currentcolor;
+  }
+
+  .hz-sibling-swatches__more {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-body--family);
+    font-size: 12px;
+    line-height: 1;
+    opacity: 0.6;
+  }
+{% endstylesheet %}

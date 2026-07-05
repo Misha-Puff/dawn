@@ -420,7 +420,13 @@
   foreground (scheme-1 text; text_color omitted exactly like stock's
   default-less badge_sale_text_color — contrast-override picks the
   brightness-based extreme), sold-out background = palette background with
-  foreground text. Consumed by blocks/_product-card-gallery's badge markup.
+  foreground text.
+
+  Phase 11: CONSUMER-LESS since the gallery's badge hardcode was replaced by
+  the _product-badges block (which colors its spans with Dawn scheme classes
+  instead — see its header). Kept deliberately: stock-parity tokens, tiny
+  CSS, and the scopes come back into play if a stock-faithful
+  .product-badges__badge consumer is ever re-added.
 {%- endcomment -%}
 {% render 'contrast-override',
   background_color: popover_scheme.settings.text,

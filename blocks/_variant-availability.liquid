@@ -1,0 +1,81 @@
+{%- comment -%}
+  horizon-blocks Phase 11 — `_variant-availability` private card-child block.
+
+  NOT a stock Horizon block (stock has no per-variant availability on cards;
+  its product-inventory block is PDP-only). Byte-faithful port of live Dawn's
+  card availability strip, snippets/variant-availability.liquid (16L):
+  loop product.variants, skip 'Default Title', show option2 else option1
+  (size when Color/Size, else the single option), unavailable values struck
+  through at 0.3 opacity; product types Yarn Skein / Pattern / Repair render
+  nothing. That snippet stays untouched (live cards still consume it).
+
+  Deviations from the Dawn source:
+  - Own .hz-variant-availability* classes + own stylesheet mirroring
+    component-card.css:631-640's computed values (12px / 4px gap / 0.3
+    strike) — Dawn's component-card.css only loads on pages that render
+    card-product, so hz surfaces can't rely on it.
+  - A visually-hidden "Sold out" is appended to unavailable values (the
+    strike-through is color-only information in the Dawn source).
+  - Dawn's second render site (the >=1100px hover popup-overlay, gated on
+    the native grid's enable_overlay setting) is a collection-grid feature —
+    deferred to a future main-collection port, not this block.
+
+  NOT in any default card preset: live Dawn featured-collection cards don't
+  show the strip (it's collection-grid-only there; replace-posture parity).
+  Allowlisted in _product-card / product-card / _product-card-group for
+  per-instance opt-in.
+{%- endcomment -%}
+{% assign product = closest.product %}
+
+{% unless product == blank %}
+  {% unless product.type == 'Yarn Skein' or product.type == 'Pattern' or product.type == 'Repair' %}
+    <div class="hz-variant-availability" {{ block.shopify_attributes }}>
+      {% for variant in product.variants %}
+        {% if variant.option1 == 'Default Title' %}{% continue %}{% endif %}
+        <span class="{% unless variant.available %}hz-variant-availability__value--unavailable{% endunless %}">
+          {% if variant.option2 %}{{ variant.option2 }}{% else %}{{ variant.option1 }}{% endif %}
+          {%- unless variant.available -%}
+            <span class="visually-hidden"> Sold out</span>
+          {%- endunless -%}
+        </span>
+      {% endfor %}
+    </div>
+  {% endunless %}
+{% endunless %}
+
+{% stylesheet %}
+  .hz-variant-availability {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .hz-variant-availability span {
+    font-size: 12px;
+    margin-right: 4px;
+  }
+
+  .hz-variant-availability .hz-variant-availability__value--unavailable {
+    opacity: 0.3;
+    text-decoration: line-through;
+    cursor: default;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Variant availability",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Lists parent product variants, striking through sold-out ones. Hidden for Yarn Skein, Pattern, and Repair products."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Variant availability",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}

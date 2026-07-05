@@ -3,48 +3,32 @@
 
   Port of stock Horizon v4.1.1 (68760d9) blocks/_product-card-gallery.liquid;
   schema t: strings hardcoded to Horizon's English. Deviations:
-  - settings.badge_* are Horizon theme settings Dawn lacks — hardcoded inline
-    at stock schema defaults: badge_position 'top-left', badge_corner_radius
-    40px, badge_font_family 'body', badge_text_transform 'none'. Buyer badge
-    strings hardcoded ("Sold out" / "Sale"). The .color-custom-badge-sold-out
-    / -sale scopes are emitted by hz-ui-tokens' Phase-10 contrast-override
-    renders at stock defaults (sale bg = scheme fg, sold-out bg = scheme bg).
+  - Phase 11: stock's badge hardcode (:5-26, ported here as an inline
+    hardcode at stock defaults in Phase 10) is REPLACED by a `blocks`
+    allowlist + `{% content_for 'blocks' %}` in the children capture — badges
+    are now the `_product-badges` gallery-child block (Dawn M&P engine +
+    per-block settings; see that file's header). No blank-children fallback
+    by design: deleting the Badges block should remove badges, not resurrect
+    the stock pair. The .color-custom-badge-sold-out / -sale scopes in
+    hz-ui-tokens are consumer-less since this change (kept, stock-parity
+    tokens).
   - TRIMMED: stock's quick-add render (:27-29, gated on settings.quick_add /
     settings.mobile_quick_add — both hardcoded false this phase). RE-ADD with
-    the quick-add/buy-buttons subsystem.
+    the quick-add/buy-buttons subsystem. NOTE for that slice: live Dawn
+    suppresses the ENTIRE quick-add block for products tagged
+    'Badge-Coming Soon' (card-product.liquid:147) — the re-add must carry
+    the same `{% unless product.tags contains 'Badge-Coming Soon' %}` wrap.
 {%- endcomment -%}
 {% assign product = closest.product %}
 
 {% capture children %}
-  {% unless product == blank %}
-    <div
-      class="product-badges product-badges--top-left"
-      style="
-        --badge-border-radius: 40px;
-        --badge-font-family: var(--font-body--family); --badge-font-weight: var(--font-body--weight); --badge-text-transform: none;
-      "
-    >
-      {%- if product.available == false or product.compare_at_price > product.price -%}
-        <div
-          class="
-            product-badges__badge product-badges__badge--rectangle
-            {% if product.available == false %} color-custom-badge-sold-out{% elsif product.compare_at_price > product.price %} color-custom-badge-sale{% endif %}
-          "
-        >
-          {%- if product.available == false -%}
-            Sold out
-          {%- elsif product.compare_at_price > product.price -%}
-            Sale
-          {%- endif -%}
-        </div>
-      {%- endif -%}
-    </div>
-    {% comment %}
-      TRIMMED (Phase 10): stock renders 'quick-add' here when
-      settings.quick_add / settings.mobile_quick_add — both hardcoded false
-      this phase. RE-ADD with the quick-add/buy-buttons subsystem.
-    {% endcomment %}
-  {% endunless %}
+  {% content_for 'blocks', closest.product: product %}
+  {% comment %}
+    TRIMMED (Phase 10): stock renders 'quick-add' here when
+    settings.quick_add / settings.mobile_quick_add — both hardcoded false
+    this phase. RE-ADD with the quick-add/buy-buttons subsystem (wrapped in
+    the Badge-Coming Soon unless — see doc header).
+  {% endcomment %}
 {% endcapture %}
 
 {% render 'card-gallery', children: children %}
@@ -64,6 +48,11 @@
 {
   "name": "Product image",
   "tag": null,
+  "blocks": [
+    {
+      "type": "_product-badges"
+    }
+  ],
   "settings": [
     {
       "type": "paragraph",
@@ -201,7 +190,13 @@
   "presets": [
     {
       "name": "Media",
-      "category": "Product"
+      "category": "Product",
+      "blocks": {
+        "badges": {
+          "type": "_product-badges"
+        }
+      },
+      "block_order": ["badges"]
     }
   ]
 }

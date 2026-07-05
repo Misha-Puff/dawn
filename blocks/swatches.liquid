@@ -1,13 +1,21 @@
 {%- comment -%}
   horizon-blocks Phase 10 — `swatches` block.
 
-  Verbatim port of stock Horizon v4.1.1 (68760d9) blocks/swatches.liquid;
+  Port of stock Horizon v4.1.1 (68760d9) blocks/swatches.liquid;
   schema t: strings hardcoded to Horizon's English. <product-swatches> is an
   undefined styling container in stock too (no JS contract); the rendered
-  variant-swatches snippet is the Phase-10 port. Near-inert on M&P data:
-  option_value.swatch is null store-wide (no color-pattern metafield mapping),
-  so swatch_count stays 0 and nothing renders — matching live Dawn cards.
-  The M&P bridge slice (style_siblings recipe) re-activates this seam.
+  variant-swatches snippet is the Phase-10 port. The stock path is near-inert
+  on M&P data: option_value.swatch is null store-wide (no color-pattern
+  metafield mapping), so swatch_count stays 0.
+
+  Phase-11 M&P bridge deviation: when NO option has native swatches and
+  sibling_swatches is on, the block falls back to the style_siblings recipe
+  (snippets/hz-sibling-swatches.liquid — colorways are separate products on
+  M&P; see that file's header). The stock path stays verbatim and wins
+  whenever native swatch data ever appears. The alignment/padding settings
+  feed both paths (the fallback consumes them as --hz-ss-* vars). NOT in any
+  default card preset — live Dawn featured-collection cards show no swatches
+  (replace-posture parity); merchants opt in per instance.
 {%- endcomment -%}
 {%- liquid
   assign block_settings = block.settings
@@ -49,6 +57,21 @@
   >
     {% render 'variant-swatches', product_resource: closest.product %}
   </product-swatches>
+{% elsif block_settings.sibling_swatches %}
+  {%- capture hz_sibling_wrapper_style -%}
+    --hz-ss-justify: {{ block_settings.product_swatches_alignment }};
+    --hz-ss-justify-mobile: {{ block_settings.product_swatches_alignment_mobile }};
+    --hz-ss-pbs: {{ block_settings.product_swatches_padding_top }}px;
+    --hz-ss-pbe: {{ block_settings.product_swatches_padding_bottom }}px;
+    --hz-ss-pis: {{ block_settings.product_swatches_padding_left }}px;
+    --hz-ss-pie: {{ block_settings.product_swatches_padding_right }}px;
+  {%- endcapture -%}
+  {% render 'hz-sibling-swatches',
+    product: closest.product,
+    max: block_settings.max_swatches,
+    wrapper_style: hz_sibling_wrapper_style,
+    attributes: block.shopify_attributes
+  %}
 {% endif %}
 
 {% schema %}
@@ -59,6 +82,23 @@
     {
       "type": "paragraph",
       "content": "Displays swatches from parent product"
+    },
+    {
+      "type": "checkbox",
+      "id": "sibling_swatches",
+      "label": "Sibling colorway swatches",
+      "info": "When the product has no native option swatches, shows its style-sibling colorways (product_page.style_siblings)",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "max_swatches",
+      "label": "Max sibling swatches",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 3,
+      "visible_if": "{{ block.settings.sibling_swatches }}"
     },
     {
       "type": "select",

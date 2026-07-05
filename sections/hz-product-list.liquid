@@ -21,6 +21,12 @@
   - TRIMMED: the 'editorial' layout_type option + the products_editorial
     preset (the editorial-grid snippets belong to future blog/collection-list
     slices; resource-list carries the matching trims). RE-ADD together.
+  - Phase-11 M&P bridge (NOT stock): hide_sold_out setting (Dawn
+    featured-collection parity, skip placed with the Locksmith gate),
+    show_section_tag product-template gate (featured-collection.liquid:117-123
+    pattern, retargeted to the platform section wrapper), presets nest a
+    _product-badges child under each Media entry, and preset product_title
+    entries set color_suffix: true (live-Dawn card-title parity).
   - The appended stylesheet: Dawn adaptation of Horizon's .section grid
     scoped to .section-resource-list (hz-carousel's .section-carousel
     adaptation, same store-specific reduction) + the .force-full-width leg
@@ -44,6 +50,23 @@
     render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
   endif
 %}
+
+{% comment %}
+  Phase-11 M&P bridge — Dawn featured-collection.liquid:117-123 parity: on
+  product templates, an instance with show_section_tag set hides itself
+  unless the product carries that tag (PDP-embedded instances self-gate).
+  Targets the platform section wrapper (hz sections don't emit Dawn's
+  .section-{{ section.id }} class).
+{% endcomment %}
+{%- if template contains 'product' and section.settings.show_section_tag != blank -%}
+  {%- unless product.tags contains section.settings.show_section_tag -%}
+    {% style %}
+      #shopify-section-{{ section.id }} {
+        display: none;
+      }
+    {% endstyle %}
+  {%- endunless -%}
+{%- endif -%}
 
 <div
   class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
@@ -92,6 +115,16 @@
           {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: product -%}{%- endcapture -%}
           {% assign lock_content = lock_content | strip %}
           {% if lock_content == 'true' %}
+            {% continue %}
+          {% endif %}
+          {% comment %}
+            Phase-11 M&P bridge — Dawn featured-collection parity: optional
+            sold-out skip (its simple `available == false` form; the
+            keep-Coming-Soon variant is metafield-product-slider's, PDP
+            track). Placed like the Locksmith gate, before the prefix split
+            marker, so skips can't leave an empty carousel slide.
+          {% endcomment %}
+          {% if section.settings.hide_sold_out and product.available == false %}
             {% continue %}
           {% endif %}
           {% comment %}
@@ -279,6 +312,18 @@
       "max": 16,
       "step": 1,
       "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_sold_out",
+      "label": "Hide sold-out products",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "show_section_tag",
+      "label": "Show section only for product tag",
+      "info": "On product pages, hides this section unless the product has this tag"
     },
     {
       "type": "range",
@@ -625,19 +670,27 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
-              }
+              },
+              "blocks": {
+                "badges": {
+                  "type": "_product-badges"
+                }
+              },
+              "block_order": ["badges"]
             },
             "product_title": {
               "type": "product-title",
               "name": "Product title",
               "settings": {
+                "color_suffix": true,
+                "text_color": "#000000",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "paragraph",
+                "type_preset": "custom",
                 "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
+                "font_size": "0.75rem",
+                "line_height": "loose",
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
@@ -657,11 +710,11 @@
                 "show_sale_price_first": true,
                 "show_installments": false,
                 "show_tax_info": false,
-                "type_preset": "h6",
+                "type_preset": "custom",
                 "width": "100%",
                 "alignment": "left",
                 "font": "var(--font-body--family)",
-                "font_size": "1rem",
+                "font_size": "0.75rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
@@ -795,19 +848,27 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
-              }
+              },
+              "blocks": {
+                "badges": {
+                  "type": "_product-badges"
+                }
+              },
+              "block_order": ["badges"]
             },
             "product_title": {
               "type": "product-title",
               "name": "Product title",
               "settings": {
+                "color_suffix": true,
+                "text_color": "#000000",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "paragraph",
+                "type_preset": "custom",
                 "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
+                "font_size": "0.75rem",
+                "line_height": "loose",
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
@@ -827,11 +888,11 @@
                 "show_sale_price_first": true,
                 "show_installments": false,
                 "show_tax_info": false,
-                "type_preset": "h6",
+                "type_preset": "custom",
                 "width": "100%",
                 "alignment": "left",
                 "font": "var(--font-body--family)",
-                "font_size": "1rem",
+                "font_size": "0.75rem",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
