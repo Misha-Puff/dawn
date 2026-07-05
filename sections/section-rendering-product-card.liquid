@@ -1,0 +1,80 @@
+{% comment %}
+  This section is only to be called by the Section Rendering API. Faster to render a single card than the entire product grid.
+
+  HTML updated based on client-side interactions needs to be rendered here.  It is not important to have the exact
+  same HTML structure as the final rendered product card. The variant-picker.js script will morph specific elements as needed.
+
+  horizon-blocks Phase 10 port of stock Horizon v4.1.1 (68760d9)
+  sections/section-rendering-product-card.liquid. The FILENAME must stay
+  stock — assets/product-card.js:597 hardcodes this section_id in its
+  Section Rendering API fetch. Deviations:
+  - settings.transition_to_main_product hardcoded FALSE (matches the
+    product-card snippet's deviation): the featured_media_url assign block
+    and the data-product-transition attributes are trimmed (re-add seams).
+  - render 'price' repointed to the renamed 'hz-price'.
+  - TRIMMED: the <product-sku-component> wrapper + render 'sku' (:57-63) —
+    sku is a PDP-phase item; nothing in this slice renders or morphs it.
+    RE-ADD with the PDP sku port.
+  - Schema t: name hardcoded to Horizon's English.
+{% endcomment %}
+
+{% liquid
+  if product == blank
+    assign product = closest.product
+  endif
+
+  # Phase-10 hardcode (see header comment): transition_to_main_product =
+  # false — stock's featured_media_url assign block trimmed.
+
+  assign url = product.selected_or_first_available_variant.url
+  unless url
+    assign url = product.first_available_variant.url
+  endunless
+  unless url
+    assign url = product.url
+  endunless
+%}
+
+<product-card
+  data-product-id="{{ product.id }}"
+  {% # theme-check-disable UnknownFilter %}
+  view-event-payload="{{ product | standard_event_data: 'view' | escape }}"
+  {% # theme-check-enable UnknownFilter %}
+>
+  <a
+    href="{{ url }}"
+    ref="productCardLink"
+  >
+    <variant-picker>
+      <script type="application/json">
+        {{ product.selected_or_first_available_variant | json }}
+      </script>
+    </variant-picker>
+    {% render 'variant-swatches', product_resource: product, has_option_selected: true %}
+
+    <product-price>
+      {% render 'hz-price', product_resource: product, show_unit_price: true %}
+    </product-price>
+
+    {% comment %}
+      TRIMMED (Phase 10): stock renders <product-sku-component> +
+      render 'sku' here — PDP-phase item. RE-ADD with the sku port.
+    {% endcomment %}
+  </a>
+</product-card>
+
+{% schema %}
+{
+  "name": "Product card rendering",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    }
+  ]
+}
+{% endschema %}

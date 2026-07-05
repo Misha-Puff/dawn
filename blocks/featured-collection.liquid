@@ -1,0 +1,45 @@
+{%- comment -%}
+  horizon-blocks Phase 10 — `featured-collection` public block.
+
+  Verbatim port of stock Horizon v4.1.1 (68760d9)
+  blocks/featured-collection.liquid; schema t: strings hardcoded to Horizon's
+  English. The collection setting feeds descendants through closest.collection
+  resolution (nearest ancestor with a collection resource setting), exactly
+  as in stock. No presets in stock (insertable via the theme-block picker
+  inside hosts).
+{%- endcomment -%}
+<div
+  class="featured-collection-block"
+  {{ block.shopify_attributes }}
+>
+  {% content_for 'blocks' %}
+</div>
+
+{% stylesheet %}
+  .featured-collection-block {
+    width: 100%;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Featured collection",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    }
+  ],
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    }
+  ],
+  "presets": []
+}
+{% endschema %}

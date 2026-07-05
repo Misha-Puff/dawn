@@ -1,0 +1,31 @@
+{%- comment -%}
+  horizon-blocks Phase 10 — `custom-liquid` block.
+
+  Verbatim port of stock Horizon v4.1.1 (68760d9) blocks/custom-liquid.liquid;
+  schema t: strings hardcoded to Horizon's en.default.schema.json English
+  (track precedent).
+{%- endcomment -%}
+<div>
+  {{ block.settings.custom_liquid }}
+</div>
+
+{% schema %}
+{
+  "name": "Custom Liquid",
+  "tag": null,
+  "settings": [
+    {
+      "type": "liquid",
+      "id": "custom_liquid",
+      "label": "Liquid code",
+      "info": "Add app snippets or other code to create advanced customizations. [Learn more](https://shopify.dev/docs/api/liquid)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Liquid",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

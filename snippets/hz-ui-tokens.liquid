@@ -5,7 +5,13 @@
   --color-border fallback; Phase 5 appends the slideshow-controls
   dots/counter sizes; Phase 7 appends the section-height ramp; Phase 8
   appends the fade-in easing; Phase 9 appends the dialog/popup sizes +
-  backdrop tokens and the .color-custom-popover scope render).
+  backdrop tokens and the .color-custom-popover scope render; Phase 10
+  appends the card slice's tokens — swatch/variant-picker sizes, badge
+  paddings, card-hover system, input borders, the color-palette :root
+  analogs (--color-foreground-rgb, brightness opacities,
+  --color-foreground-subdued, the --color-variant-* family with hover-shift
+  math via util-palette-hover-shift) and the .color-custom-badge-sale /
+  -sold-out scope renders).
 
   Dawn-side equivalent of the layering + opacity subset of stock Horizon
   v4.1.1 (68760d9) snippets/theme-styles-variables.liquid, values verbatim.
@@ -31,6 +37,58 @@
   # first-scheme access pattern as contrast-override.liquid:86.
   # Scheme-1-only caveat per the --color-border fallback below.
   assign popover_scheme = settings.color_schemes | first
+
+  # --- Phase 10 (card slice) ---
+  # Variant-picker palette at Horizon SCHEMA defaults (settings_schema:
+  # palette_variant_background = palette background, palette_variant_text /
+  # _border = palette foreground; selected_variant background/border =
+  # foreground, text = background) mapped onto Dawn scheme-1 background/text
+  # per this file's precedent. Hover values mirror color-palette.liquid:99-131
+  # WITH THE DEFAULT-COLLAPSED CONDITIONALS: scheme colors have alpha 1 (no
+  # transparency branch); variant border (fg) != background (bg) -> border
+  # hover = hover-shift(fg); selected border (fg) == selected background (fg)
+  # -> border hover = selected hover background.
+  assign hz_variant_bg = popover_scheme.settings.background
+  assign hz_variant_fg = popover_scheme.settings.text
+
+  # palette_lightest / palette_darkest analogs (color-palette computes them
+  # across the whole palette; our palette IS bg+fg).
+  assign hz_bg_brightness = hz_variant_bg | color_brightness
+  assign hz_fg_brightness = hz_variant_fg | color_brightness
+  if hz_bg_brightness > hz_fg_brightness
+    assign hz_palette_lightest = hz_variant_bg
+    assign hz_palette_darkest = hz_variant_fg
+  else
+    assign hz_palette_lightest = hz_variant_fg
+    assign hz_palette_darkest = hz_variant_bg
+  endif
+
+  capture hz_variant_hover_bg
+    render 'util-palette-hover-shift', color: hz_variant_bg
+  endcapture
+  assign hz_variant_hover_bg = hz_variant_hover_bg | strip
+  assign hz_vh_brightness = hz_variant_hover_bg | color_brightness
+  if hz_vh_brightness > 128
+    assign hz_variant_hover_text = hz_palette_darkest
+  else
+    assign hz_variant_hover_text = hz_palette_lightest
+  endif
+  capture hz_variant_hover_border
+    render 'util-palette-hover-shift', color: hz_variant_fg
+  endcapture
+  assign hz_variant_hover_border = hz_variant_hover_border | strip
+
+  capture hz_selected_hover_bg
+    render 'util-palette-hover-shift', color: hz_variant_fg
+  endcapture
+  assign hz_selected_hover_bg = hz_selected_hover_bg | strip
+  assign hz_svh_brightness = hz_selected_hover_bg | color_brightness
+  if hz_svh_brightness > 128
+    assign hz_selected_hover_text = hz_palette_darkest
+  else
+    assign hz_selected_hover_text = hz_palette_lightest
+  endif
+  assign hz_selected_hover_border = hz_selected_hover_bg
 -%}
 
 {% style %}
@@ -174,6 +232,123 @@
        --color-foreground full-color inside .color-custom-* scopes. */
     --style-border-popover: 0px solid rgb(var(--color-foreground));
 
+    /* --- Phase 10 (card slice; Horizon rem = 16px) --- */
+    /* Paddings (tsv:428-429) */
+    --padding-2xl: 24px; /* 1.5rem */
+    --padding-3xl: 28px; /* 1.75rem */
+
+    /* Font sizes (tsv:354-357) */
+    --font-size--lg: 18px; /* 1.125rem */
+    --font-size--xl: 20px; /* 1.25rem */
+    --font-size--2xl: 24px; /* 1.5rem */
+    --font-size--3xl: 32px; /* 2rem */
+
+    /* Icons (tsv:547) */
+    --icon-size-2xs: 9.6px; /* 0.6rem */
+
+    /* Inputs (tsv:459, 464 — schema defaults inputs_border_radius 8 /
+       input_border_width 1) */
+    --style-border-width-inputs: 1px;
+    --style-border-radius-inputs: 8px;
+
+    /* Swatches (tsv:468-470 + 614-622 — schema defaults
+       variant_swatch_* 30/30/100/solid/1/10%) */
+    --style-border-swatch-opacity: 10%;
+    --style-border-swatch-width: 1px;
+    --style-border-swatch-style: solid;
+    --variant-picker-swatch-width-unitless: 30;
+    --variant-picker-swatch-height-unitless: 30;
+    --variant-picker-swatch-width: 30px;
+    --variant-picker-swatch-height: 30px;
+    --variant-picker-swatch-radius: 100px;
+    --variant-picker-border-width: 1px;
+    --variant-picker-border-style: solid;
+    --variant-picker-border-opacity: 10%;
+
+    /* Variant-picker buttons (tsv:625-626 — schema defaults
+       variant_button_radius 8 / variant_button_border_width 1) */
+    --variant-picker-button-radius: 8px;
+    --variant-picker-button-border-width: 1px;
+
+    /* Badge paddings (tsv:535-543; the responsive tier is re-declared in
+       the 750px media block below — this file's section-height precedent) */
+    --badge-blob-padding-block: 1px;
+    --badge-blob-padding-inline: 12px 8px;
+    --badge-rectangle-padding-block: 1px;
+    --badge-rectangle-padding-inline: 6px;
+
+    /* Card image sizes (tsv:651-661; rem->px @16, responsive tier below) */
+    --card-width-small: 160px; /* 10rem */
+    --height-small: 160px; /* 10rem */
+    --height-medium: 184px; /* 11.5rem */
+    --height-large: 208px; /* 13rem */
+    --height-full: 100vh;
+
+    /* Card hover system (Horizon base.css:16-21 — that file's :root is the
+       token source for these, not tsv). --hover-shadow-color is composed
+       through rgb() because Dawn's --color-shadow is a COMMA triplet
+       (dual-format gotcha; rgb(r,g,b) legacy syntax accepts it) —
+       consumer-less in the ported subset but kept for fidelity. */
+    --hover-lift-amount: 4px;
+    --hover-scale-amount: 1.03;
+    --hover-subtle-zoom-amount: 1.015;
+    --hover-shadow-color: rgb(var(--color-shadow));
+    --hover-transition-duration: 0.25s;
+    --hover-transition-timing: ease-out;
+
+    /* --- Phase 10 rider (email-signup) --- */
+    --gap-xs: 8px; /* tsv:436; 0.5rem */
+    --animation-values: var(--animation-speed) var(--animation-easing); /* tsv:484, verbatim */
+    /* tsv:593-594 read settings.button_text_case_primary/_secondary (schema
+       default "default" — an invalid text-transform value stock lets fall
+       through; `none` is the same computed outcome). */
+    --button-text-case-primary: none;
+    --button-text-case-secondary: none;
+
+    /* Input palette (color-palette:195-198 at schema defaults: input
+       background = palette background, text/border = palette foreground).
+       -rgb = SPACE triplet per the --color-foreground-rgb note below. */
+    --color-input-background: rgb({{ popover_scheme.settings.background.rgb }});
+    --color-input-text: rgb({{ popover_scheme.settings.text.rgb }});
+    --color-input-text-rgb: {{ popover_scheme.settings.text.rgb }};
+    --color-input-border: rgb({{ popover_scheme.settings.text.rgb }});
+
+    /* Palette extremes (color-palette:176-179; computed in the Phase-10
+       liquid block above — resolve-custom-hover emits var() references to
+       these). */
+    --palette-lightest: rgb({{ hz_palette_lightest.rgb }});
+    --palette-lightest-rgb: {{ hz_palette_lightest.rgb }};
+    --palette-darkest: rgb({{ hz_palette_darkest.rgb }});
+    --palette-darkest-rgb: {{ hz_palette_darkest.rgb }};
+
+    /* color-palette.liquid :root analogs from scheme-1 (same scheme-1-only
+       caveat as --color-border above). --color-foreground-rgb is a SPACE
+       triplet (Horizon convention — consumed via rgb(var() / alpha) slash
+       syntax; never feed it to Dawn's comma-triplet rgba() pattern). */
+    --color-foreground-rgb: {{ popover_scheme.settings.text.rgb }};
+    {% render 'brightness-opacities', background: popover_scheme.settings.background %}
+    --color-foreground-subdued: rgb(var(--color-rgb, var(--color-foreground-rgb)) / var(--opacity-subdued-text));
+
+    /* Variant-picker colors (color-palette.liquid:200-213 at schema
+       defaults — see the Phase-10 liquid block above for the hover-shift
+       derivation). Format deviation from stock's rgb(<rgba>): Dawn scheme
+       colors carry no alpha, so the verified .rgb SPACE triplet is composed
+       via rgb() instead — identical computed value at alpha 1. */
+    --color-variant-background: rgb({{ hz_variant_bg.rgb }});
+    --color-variant-border: rgb({{ hz_variant_fg.rgb }});
+    --color-variant-text: rgb({{ hz_variant_fg.rgb }});
+    --color-variant-text-rgb: {{ hz_variant_fg.rgb }};
+    --color-variant-hover-background: {{ hz_variant_hover_bg }};
+    --color-variant-hover-text: rgb({{ hz_variant_hover_text.rgb }});
+    --color-variant-hover-border: {{ hz_variant_hover_border }};
+
+    --color-selected-variant-background: rgb({{ hz_variant_fg.rgb }});
+    --color-selected-variant-border: rgb({{ hz_variant_fg.rgb }});
+    --color-selected-variant-text: rgb({{ hz_variant_bg.rgb }});
+    --color-selected-variant-hover-background: {{ hz_selected_hover_bg }};
+    --color-selected-variant-hover-text: rgb({{ hz_selected_hover_text.rgb }});
+    --color-selected-variant-hover-border: {{ hz_selected_hover_border }};
+
     /* Backdrop color as a SPACE triplet from scheme-1's shadow color.
        Horizon consumes rgb(var(--backdrop-color-rgb) / var(--backdrop-opacity))
        slash syntax (base.css:1163); Dawn's own --color-shadow is a COMMA
@@ -201,6 +376,22 @@
       --section-height-large: 80svh;
     }
   }
+
+  /* Phase 10: responsive tiers (Horizon's own 750px query — px, unlike the
+     em-based section-height queries above). Badge paddings tsv:540-543;
+     card heights tsv:657-661 (rem->px @16). */
+  @media screen and (min-width: 750px) {
+    :root {
+      --badge-blob-padding-block: 4px;
+      --badge-blob-padding-inline: 16px 12px;
+      --badge-rectangle-padding-block: 4px;
+      --badge-rectangle-padding-inline: 10px;
+
+      --height-small: 280px; /* 17.5rem */
+      --height-medium: 340px; /* 21.25rem */
+      --height-large: 400px; /* 25rem */
+    }
+  }
 {% endstyle %}
 
 {%- comment -%}
@@ -219,5 +410,27 @@
   text_color: popover_scheme.settings.text,
   border_color: popover_scheme.settings.text,
   section_id: 'popover',
+  preset: 'ui'
+%}
+
+{%- comment -%}
+  Phase 10: the .color-custom-badge-sale / -sold-out scopes (mirrors Horizon
+  tsv:701-713 — the .color-custom-popover precedent above). Inputs = Horizon
+  SCHEMA defaults mapped onto Dawn scheme-1: sale background = palette
+  foreground (scheme-1 text; text_color omitted exactly like stock's
+  default-less badge_sale_text_color — contrast-override picks the
+  brightness-based extreme), sold-out background = palette background with
+  foreground text. Consumed by blocks/_product-card-gallery's badge markup.
+{%- endcomment -%}
+{% render 'contrast-override',
+  background_color: popover_scheme.settings.text,
+  section_id: 'badge-sale',
+  preset: 'ui'
+%}
+
+{% render 'contrast-override',
+  background_color: popover_scheme.settings.background,
+  text_color: popover_scheme.settings.text,
+  section_id: 'badge-sold-out',
   preset: 'ui'
 %}

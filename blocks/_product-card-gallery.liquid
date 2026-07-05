@@ -1,0 +1,208 @@
+{%- comment -%}
+  horizon-blocks Phase 10 — `_product-card-gallery` private block.
+
+  Port of stock Horizon v4.1.1 (68760d9) blocks/_product-card-gallery.liquid;
+  schema t: strings hardcoded to Horizon's English. Deviations:
+  - settings.badge_* are Horizon theme settings Dawn lacks — hardcoded inline
+    at stock schema defaults: badge_position 'top-left', badge_corner_radius
+    40px, badge_font_family 'body', badge_text_transform 'none'. Buyer badge
+    strings hardcoded ("Sold out" / "Sale"). The .color-custom-badge-sold-out
+    / -sale scopes are emitted by hz-ui-tokens' Phase-10 contrast-override
+    renders at stock defaults (sale bg = scheme fg, sold-out bg = scheme bg).
+  - TRIMMED: stock's quick-add render (:27-29, gated on settings.quick_add /
+    settings.mobile_quick_add — both hardcoded false this phase). RE-ADD with
+    the quick-add/buy-buttons subsystem.
+{%- endcomment -%}
+{% assign product = closest.product %}
+
+{% capture children %}
+  {% unless product == blank %}
+    <div
+      class="product-badges product-badges--top-left"
+      style="
+        --badge-border-radius: 40px;
+        --badge-font-family: var(--font-body--family); --badge-font-weight: var(--font-body--weight); --badge-text-transform: none;
+      "
+    >
+      {%- if product.available == false or product.compare_at_price > product.price -%}
+        <div
+          class="
+            product-badges__badge product-badges__badge--rectangle
+            {% if product.available == false %} color-custom-badge-sold-out{% elsif product.compare_at_price > product.price %} color-custom-badge-sale{% endif %}
+          "
+        >
+          {%- if product.available == false -%}
+            Sold out
+          {%- elsif product.compare_at_price > product.price -%}
+            Sale
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+    {% comment %}
+      TRIMMED (Phase 10): stock renders 'quick-add' here when
+      settings.quick_add / settings.mobile_quick_add — both hardcoded false
+      this phase. RE-ADD with the quick-add/buy-buttons subsystem.
+    {% endcomment %}
+  {% endunless %}
+{% endcapture %}
+
+{% render 'card-gallery', children: children %}
+
+{% # Title and price for the zoomed out grid view %}
+<div class="product-grid-view-zoom-out--details">
+  {% if product == blank %}
+    <h3 class="h4">Product title</h3>
+  {% else %}
+    <h3 class="h4">{{ product.title }}</h3>
+  {% endif %}
+</div>
+
+{% render 'product-badges-styles' %}
+
+{% schema %}
+{
+  "name": "Product image",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Displays media from parent product"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "Auto"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape"
+        }
+      ],
+      "default": "portrait",
+      "label": "Aspect ratio",
+      "info": "Adjusted in some layouts"
+    },
+    {
+      "type": "header",
+      "content": "Borders"
+    },
+    {
+      "type": "select",
+      "id": "border",
+      "label": "Style",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "solid",
+          "label": "Solid"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "label": "Thickness",
+      "default": 1,
+      "visible_if": "{{ block.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Opacity",
+      "default": 100,
+      "visible_if": "{{ block.settings.border != 'none' }}"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Color",
+      "placeholder": "Default",
+      "visible_if": "{{ block.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Corner radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Media",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}

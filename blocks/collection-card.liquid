@@ -1,0 +1,221 @@
+{%- comment -%}
+  horizon-blocks Phase 10 — `collection-card` public block.
+
+  Verbatim port of stock Horizon v4.1.1 (68760d9) blocks/collection-card.liquid;
+  schema t: strings hardcoded to Horizon's English. Full allowlist kept —
+  every child type is ported.
+{%- endcomment -%}
+{% assign collection = block.settings.collection %}
+
+{% capture card_image %}
+  {% content_for 'block',
+    type: '_collection-card-image',
+    id: 'collection-card-image',
+    closest.collection: collection,
+    parent_block_id: block.id %}
+{% endcapture %}
+
+{% capture children %}
+  {% content_for 'blocks' %}
+{% endcapture %}
+
+{% render 'collection-card',
+  card_image: card_image,
+  children: children,
+  block: block,
+  collection: collection,
+  section: section
+%}
+
+{% schema %}
+{
+  "name": "Collection card",
+  "blocks": [
+    {
+      "type": "text"
+    },
+    {
+      "type": "spacer"
+    },
+    {
+      "type": "button"
+    },
+    {
+      "type": "group"
+    },
+    {
+      "type": "collection-title"
+    }
+  ],
+  "tag": null,
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "select",
+      "id": "placement",
+      "label": "Placement",
+      "options": [
+        {
+          "value": "on_image",
+          "label": "On image"
+        },
+        {
+          "value": "below_image",
+          "label": "Below image"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "horizontal_alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        }
+      ],
+      "default": "flex-start"
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment",
+      "label": "Position",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Bottom"
+        }
+      ],
+      "default": "center",
+      "visible_if": "{{ block.settings.placement == \"on_image\" }}"
+    },
+    {
+      "type": "range",
+      "id": "collection_card_gap",
+      "label": "Vertical gap",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "placeholder": "Default"
+    },
+    {
+      "type": "header",
+      "content": "Borders"
+    },
+    {
+      "type": "select",
+      "id": "border",
+      "label": "Style",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "solid",
+          "label": "Solid"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Thickness",
+      "default": 1,
+      "visible_if": "{{ block.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Opacity",
+      "default": 100,
+      "visible_if": "{{ block.settings.border != 'none' }}"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Color",
+      "placeholder": "Default",
+      "visible_if": "{{ block.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Corner radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection card",
+      "category": "Collection",
+      "settings": {
+        "collection": "",
+        "placement": "below_image"
+      },
+      "blocks": {
+        "collection-card-image": {
+          "type": "_collection-card-image",
+          "static": true
+        },
+        "collection-title": {
+          "type": "collection-title",
+          "settings": {
+            "type_preset": "h4"
+          }
+        }
+      },
+      "block_order": ["collection-title"]
+    }
+  ]
+}
+{% endschema %}

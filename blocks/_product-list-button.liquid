@@ -1,0 +1,176 @@
+{%- comment -%}
+  horizon-blocks Phase 10 — `_product-list-button` private block ("View all"
+  — renders only when the collection has more products than the section
+  shows).
+
+  Port of stock Horizon v4.1.1 (68760d9) blocks/_product-list-button.liquid;
+  schema t: strings hardcoded to Horizon's English. Deviations:
+  - `block: block` added to the button render — the Phase-1 ADAPTED button
+    snippet takes the block explicitly (Dawn doesn't provide `block` as a
+    snippet global; stock's snippet had the same signature but this stock
+    call relied on defaults).
+  - custom_button_* color defaults: stock's dynamic
+    settings.color_palette.foreground/background don't exist in Dawn —
+    static #121212/#ffffff per the ported button block precedent.
+  - The style select `info` key dropped (links to Horizon button theme
+    settings; button block precedent).
+{%- endcomment -%}
+{% assign button_collection = closest.collection %}
+{% assign button_url = button_collection.url %}
+
+{% if button_collection.products_count > section.settings.max_products %}
+  {% render 'button', block: block, link: button_url %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "View all button",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Visible if collection has more products than shown"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "Shop now"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_in_new_tab",
+      "label": "Open link in new tab",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "style_class",
+      "label": "Style",
+      "options": [
+        {
+          "value": "button",
+          "label": "Primary"
+        },
+        {
+          "value": "button-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "button-unstyled",
+          "label": "Link"
+        },
+        {
+          "value": "button-custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "button"
+    },
+    {
+      "type": "header",
+      "content": "Button colors",
+      "visible_if": "{{ block.settings.style_class == \"button-custom\" }}"
+    },
+    {
+      "type": "color",
+      "id": "custom_button_background",
+      "label": "Background",
+      "default": "#121212",
+      "alpha": true,
+      "visible_if": "{{ block.settings.style_class == 'button-custom' }}"
+    },
+    {
+      "type": "color",
+      "id": "custom_button_text",
+      "label": "Text",
+      "default": "#ffffff",
+      "alpha": true,
+      "visible_if": "{{ block.settings.style_class == 'button-custom' }}"
+    },
+    {
+      "type": "color",
+      "id": "custom_button_border",
+      "label": "Borders",
+      "default": "#ffffff",
+      "alpha": true,
+      "visible_if": "{{ block.settings.style_class == 'button-custom' }}"
+    },
+    {
+      "type": "color",
+      "id": "link_text_color",
+      "label": "Link text color",
+      "placeholder": "Default",
+      "visible_if": "{{ block.settings.style_class == 'button-unstyled' }}"
+    },
+    {
+      "type": "header",
+      "content": "Size"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Desktop width",
+      "options": [
+        {
+          "value": "fit-content",
+          "label": "Fit"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "fit-content"
+    },
+    {
+      "type": "range",
+      "id": "custom_width",
+      "label": "Custom width",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100,
+      "visible_if": "{{ block.settings.width == \"custom\" }}"
+    },
+    {
+      "type": "select",
+      "id": "width_mobile",
+      "label": "Mobile width",
+      "options": [
+        {
+          "value": "fit-content",
+          "label": "Fit"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "fit-content"
+    },
+    {
+      "type": "range",
+      "id": "custom_width_mobile",
+      "label": "Custom width",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100,
+      "visible_if": "{{ block.settings.width_mobile == \"custom\" }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "View all button",
+      "category": "Collection",
+      "settings": {
+        "label": "View all",
+        "style_class": "button-secondary"
+      }
+    }
+  ]
+}
+{% endschema %}

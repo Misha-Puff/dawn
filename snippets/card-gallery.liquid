@@ -1,0 +1,554 @@
+{%- doc -%}
+  Displays product images in a carousel.
+  Settings allow for a full slideshow, showing only the first image, or showing the second image when hovering.
+  Note: When the product card itself is in a carousel layout, the card-gallery's carousel is disabled with JavaScript.
+
+  @param [children] - Additional content rendered below the card gallery
+  @param [section] - The section object the snippet is rendered in
+  @param [block] - The block object the snippet is rendered in
+
+  Port of stock Horizon v4.1.1 (68760d9) snippets/card-gallery.liquid
+  (horizon-blocks Phase 10). Deviations:
+  - Phase-10 hardcodes of Horizon theme settings Dawn lacks, at stock schema
+    defaults (hz_ locals): badge_position = 'top-left',
+    show_second_image_on_hover = true, product_card_carousel = true.
+    transition_to_main_product is hardcoded FALSE (deliberate deviation from
+    stock's true — Dawn pages never opt into view transitions), so the
+    data-view-transition-to-main-product attribute is trimmed (re-add seam).
+  - render 'product-media' repointed to the renamed 'hz-product-media'.
+  - The stylesheet's slideshow-component selectors are repointed to
+    hz-slideshow-component (Phase-3/5 host rename); slideshow-slide /
+    slideshow-arrows / slideshow-controls sub-tags were ported unrenamed.
+    The .contents utility (display: contents, Horizon base.css:503-505) is
+    appended — Dawn has no equivalent and the gallery link relies on it.
+  - The consumed slideshow/slideshow-slide snippets are the Phase-3/5 ports
+    from this same source commit (call signatures verified: ref /
+    initial_slide / slides / slide_count / show_arrows / attributes, and
+    slide_id / index / hidden / class / attributes / children / media_fit).
+{%- enddoc -%}
+
+{% liquid
+  assign product = closest.product
+  assign block_settings = block.settings
+  assign image_sizes = '(min-width: 750px) 50vw, 100vw'
+
+  # Phase-10 hardcodes (see doc header): badge_position = 'top-left',
+  # show_second_image_on_hover = true, product_card_carousel = true.
+  assign hz_badge_position = 'top-left'
+  assign hz_show_second_image_on_hover = true
+  assign hz_product_card_carousel = true
+
+  # Check if product has badges and determine position
+  assign has_badges = false
+  assign badge_position = null
+  if product != blank
+    if product.available == false or product.compare_at_price > product.price
+      assign has_badges = true
+      assign badge_position = hz_badge_position
+    endif
+  endif
+
+  # if the card-gallery has a section.settings.product_card_size:
+  # assume grid-template autofill(card-size, 1fr) and calculate the sizes attribute based on the minimum card size
+  #
+  # if section has section.settings.columns:
+  # assume grid-template repeat(column-count, 1fr) and calculate the sizes attribute based on the number of columns
+  if section.settings.product_card_size
+    capture card_size
+      render 'util-product-grid-card-size', section: section
+    endcapture
+    assign card_size = card_size | strip | replace: 'px', '' | plus: 0
+    capture sizes_attribute
+      render 'util-autofill-img-size-attr', card_size: card_size, card_gap: section.settings.columns_gap_horizontal
+    endcapture
+    assign image_sizes = sizes_attribute | strip
+  elsif section.settings.columns and section.settings.layout_type != 'editorial'
+    assign viewport_width = 100.0 | divided_by: section.settings.columns
+    assign sizes_attribute = '(min-width: 750px) [viewport_width]vw, 100vw' | replace: '[viewport_width]', viewport_width
+    assign image_sizes = sizes_attribute | strip
+  endif
+
+  assign ratio = '1'
+  case block_settings.image_ratio
+    when 'landscape'
+      assign ratio = '16 / 9'
+    when 'portrait'
+      assign ratio = '4 / 5'
+    when 'square'
+      assign ratio = '1'
+    when 'adapt'
+      assign ratio = product.featured_media.preview_image.aspect_ratio | default: '1'
+  endcase
+
+  if block_settings.image_ratio == 'adapt' and block_settings.constrain_to_viewport
+    if block_settings.constrain_to_viewport != ''
+      assign constrain_to_viewport = true
+      assign media_fit = block_settings.constrain_to_viewport
+    endif
+  endif
+%}
+
+<div
+  ref="cardGallery"
+  class="card-gallery card-gallery-{{ block.id }} spacing-style border-style{% if has_badges %} card-gallery--badge-{{ badge_position }}{% endif %}"
+  style="
+    {% render 'border-override', settings: block_settings %}
+    {% render 'spacing-style', settings: block_settings %}
+    --gallery-aspect-ratio: {{ ratio }};
+  "
+  data-product-id="{{ product.id }}"
+  {% if hz_show_second_image_on_hover %}
+    on:pointerenter="/previewImage"
+    on:pointerleave="/resetImage"
+  {% endif %}
+  {% comment %}
+    TRIMMED (Phase 10): stock emits data-view-transition-to-main-product when
+    settings.transition_to_main_product — hardcoded false here (see doc
+    header). Re-add with a view-transition slice.
+  {% endcomment %}
+  data-image-ratio="{{ block_settings.image_ratio }}"
+  {{ block.shopify_attributes }}
+>
+  {%- if product.media.size > 0 -%}
+    {% liquid
+      # Check if there are generic media that are not variant images
+      assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src'
+      assign generic_media_size = product.media.size | minus: variant_images.size
+
+      # Sort media so product.featured_media.preview_image comes first as that is the most relevant image to display
+      # product.featured_media updates based on search context and filters applied
+
+      assign other_media = product.media | reject: 'src', product.featured_media
+      assign media_list_to_show = product.featured_media | concat: other_media
+
+      if product.media.size > 2 and generic_media_size > 0
+        assign show_arrows = true
+      endif
+
+      # Don't overfetch media if we don't need to
+      assign max_visible_slide_count = 1
+      if hz_product_card_carousel
+        assign max_visible_slide_count = 5
+      elsif hz_show_second_image_on_hover
+        assign max_visible_slide_count = 2
+      endif
+
+      capture slides
+        for media in media_list_to_show
+          assign loading = 'lazy'
+          assign sizes = 'auto, ' | append: image_sizes
+
+          assign hidden = false
+          assign attributes = ''
+          if variant_images contains media.src
+            assign attributes = 'variant-image'
+
+            if forloop.first == false
+              # hide all variant images that aren't the first one
+              assign hidden = true
+            endif
+          endif
+
+          # Performance improvement: don't render more than 5 visible images into the slideshow
+          # We'll keep the images that we need for the variant images and hover next.
+          if forloop.first
+            assign visible_slide_count = 0
+          endif
+          unless hidden
+            assign visible_slide_count = visible_slide_count | plus: 1
+          endunless
+          if hidden == false and visible_slide_count > max_visible_slide_count
+            continue
+          endif
+
+          if forloop.first and section.index == null or section.index < 5
+            assign loading = 'eager'
+            assign sizes = image_sizes
+          endif
+
+          assign class = 'product-media-container media-fit product-media-container--[media_type]' | replace: '[media_type]', media.media_type
+          if constrain_to_viewport
+            assign class = class | append: ' constrain-height'
+          endif
+
+          capture slideshow_children
+            render 'hz-product-media', media: media, sizes: sizes, loading: loading, preview_image_only: true
+          endcapture
+
+          render 'slideshow-slide', slide_id: media.id, index: forloop.index0, hidden: hidden, class: class, attributes: attributes, children: slideshow_children, media_fit: media_fit
+        endfor
+      endcapture
+
+      assign slideshow_attributes = 'data-generic-media-size="[generic_media_size]"' | replace: '[generic_media_size]', generic_media_size
+      if hz_product_card_carousel == false
+        assign slideshow_attributes = slideshow_attributes | append: ' disabled="true"'
+      endif
+    %}
+    <a
+      class="contents"
+      ref="cardGalleryLink"
+      href="{{ product.selected_or_first_available_variant.url }}"
+      aria-label="{{- product.title -}}"
+    >
+      {% render 'slideshow',
+        ref: 'slideshow',
+        initial_slide: 0,
+        slides: slides,
+        slide_count: media_list_to_show.size,
+        show_arrows: show_arrows,
+        attributes: slideshow_attributes
+      %}
+    </a>
+  {% elsif product != blank and product.media.size == 0 %}
+    <div class="product-card-gallery__title-placeholder">
+      <a
+        class="contents"
+        ref="cardGalleryLink"
+        href="{{ product.selected_or_first_available_variant.url }}"
+      >
+        <span class="title-text">{{- product.title -}}</span>
+      </a>
+    </div>
+  {% elsif product == blank %}
+    {% liquid
+      capture placeholder_image
+        # Extract index from block ID (e.g., "product-card-3" -> "3")
+        assign block_parts = block.id | split: '-'
+        assign placeholder_index = block_parts.last | default: 0
+        assign variant = placeholder_index | modulo: 3 | plus: 1
+        assign placeholder_name = 'product-apparel-' | append: variant
+        echo placeholder_name | placeholder_svg_tag
+      endcapture
+      capture placeholder_slide
+        render 'slideshow-slide', index: 1, children: placeholder_image, class: 'product-media-container card-gallery__placeholder'
+      endcapture
+      render 'slideshow', ref: 'slideshow', slides: placeholder_slide, slide_count: 1, attributes: 'disabled="true"'
+    %}
+  {%- endif -%}
+  {{ children }}
+</div>
+
+{% stylesheet %}
+  .card-gallery {
+    overflow: hidden;
+    container-type: inline-size; /* Make card-gallery a container */
+    container-name: card-gallery-container; /* Optional: name the container */
+  }
+
+  .card-gallery__placeholder svg {
+    height: 100%;
+    width: 100%;
+  }
+
+  .card-gallery svg {
+    aspect-ratio: var(--gallery-aspect-ratio, var(--ratio));
+  }
+
+  .product-card-gallery__title-placeholder {
+    padding: var(--padding-md);
+    font-size: var(--font-size--2xl);
+    line-height: var(--line-height--display-loose);
+    word-break: break-word;
+    color: var(--color-foreground);
+    background-color: rgb(var(--color-foreground-rgb) / var(--opacity-5));
+    aspect-ratio: var(--gallery-aspect-ratio);
+    border-radius: var(--product-corner-radius);
+    display: block;
+  }
+
+  .product-card-gallery__title-placeholder .title-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    overflow: hidden;
+  }
+
+  .card-gallery[data-image-ratio='landscape'] .product-card-gallery__title-placeholder .title-text {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  @media screen and (min-width: 750px) {
+    .product-grid[data-product-card-size='extra-large'] .product-card-gallery__title-placeholder {
+      padding: var(--padding-3xl);
+      font-size: var(--font-size--3xl);
+    }
+
+    .product-grid[data-product-card-size='large'] .product-card-gallery__title-placeholder {
+      padding: var(--padding-2xl);
+      font-size: var(--font-size--2xl);
+    }
+
+    .product-grid[data-product-card-size='medium'] .product-card-gallery__title-placeholder {
+      padding: var(--padding-xl);
+      font-size: var(--font-size--xl);
+    }
+
+    .product-grid[data-product-card-size='small'] .product-card-gallery__title-placeholder {
+      padding: var(--padding-sm);
+      font-size: var(--font-size--lg);
+    }
+
+    .product-grid[data-product-card-size='extra-large']
+      .card-gallery.card-gallery--badge-top-right
+      .product-card-gallery__title-placeholder {
+      padding-right: calc(var(--padding-3xl) + 50px);
+    }
+
+    .product-grid[data-product-card-size='large']
+      .card-gallery.card-gallery--badge-top-right
+      .product-card-gallery__title-placeholder {
+      padding-right: calc(var(--padding-2xl) + 50px);
+    }
+
+    .product-grid[data-product-card-size='medium']
+      .card-gallery.card-gallery--badge-top-right
+      .product-card-gallery__title-placeholder {
+      padding-right: calc(var(--padding-xl) + 50px);
+    }
+
+    .product-grid[data-product-card-size='small']
+      .card-gallery.card-gallery--badge-top-right
+      .product-card-gallery__title-placeholder {
+      padding-right: calc(var(--padding-sm) + 50px);
+    }
+
+    .product-grid[data-product-card-size='extra-large']
+      .card-gallery.card-gallery--badge-top-left
+      .product-card-gallery__title-placeholder {
+      padding-top: calc(var(--padding-3xl) + 40px);
+    }
+
+    .product-grid[data-product-card-size='large']
+      .card-gallery.card-gallery--badge-top-left
+      .product-card-gallery__title-placeholder {
+      padding-top: calc(var(--padding-2xl) + 40px);
+    }
+
+    .product-grid[data-product-card-size='medium']
+      .card-gallery.card-gallery--badge-top-left
+      .product-card-gallery__title-placeholder {
+      padding-top: calc(var(--padding-xl) + 40px);
+    }
+
+    .product-grid[data-product-card-size='small']
+      .card-gallery.card-gallery--badge-top-left
+      .product-card-gallery__title-placeholder {
+      padding-top: calc(var(--padding-sm) + 40px);
+    }
+
+    .product-grid[data-product-card-size='extra-large']
+      .card-gallery.card-gallery--badge-bottom-left
+      .product-card-gallery__title-placeholder {
+      padding-bottom: calc(var(--padding-3xl) + 40px);
+    }
+
+    .product-grid[data-product-card-size='large']
+      .card-gallery.card-gallery--badge-bottom-left
+      .product-card-gallery__title-placeholder {
+      padding-bottom: calc(var(--padding-2xl) + 40px);
+    }
+
+    .product-grid[data-product-card-size='medium']
+      .card-gallery.card-gallery--badge-bottom-left
+      .product-card-gallery__title-placeholder {
+      padding-bottom: calc(var(--padding-xl) + 40px);
+    }
+
+    .product-grid[data-product-card-size='small']
+      .card-gallery.card-gallery--badge-bottom-left
+      .product-card-gallery__title-placeholder {
+      padding-bottom: calc(var(--padding-sm) + 40px);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .product-card-gallery__title-placeholder {
+      font-size: var(--font-size--xl);
+      padding: var(--padding-md);
+    }
+
+    .product-grid[data-product-card-size]
+      .card-gallery.card-gallery--badge-top-right
+      .product-card-gallery__title-placeholder {
+      padding-right: calc(var(--padding-sm) + 50px);
+    }
+
+    .product-grid[data-product-card-size]
+      .card-gallery.card-gallery--badge-top-left
+      .product-card-gallery__title-placeholder {
+      padding-top: calc(var(--padding-sm) + 40px);
+    }
+
+    .product-grid[data-product-card-size]
+      .card-gallery.card-gallery--badge-bottom-left
+      .product-card-gallery__title-placeholder {
+      padding-bottom: calc(var(--padding-sm) + 40px);
+    }
+  }
+
+  [product-grid-view='zoom-out'] .card-gallery .product-card-gallery__title-placeholder {
+    /* stylelint-disable-next-line declaration-no-important */
+    padding: var(--padding-xs) !important;
+    font-size: var(--font-size--xs);
+  }
+
+  [product-grid-view='zoom-out'] .card-gallery .slideshow-control {
+    min-width: auto;
+  }
+
+  ul[product-grid-view='zoom-out'] .product-grid__card .card-gallery {
+    display: block;
+  }
+
+  /* Dawn repoint: slideshow-component -> hz-slideshow-component (Phase-3/5
+     host rename); the quick-add-component leg is consumer-less until that
+     subsystem lands — kept verbatim. */
+  [product-grid-view='zoom-out']
+    .card-gallery
+    > :is(quick-add-component, .product-badges, hz-slideshow-component > slideshow-controls) {
+    display: none;
+  }
+
+  ul[product-grid-view='zoom-out'] .card-gallery > img {
+    display: block;
+  }
+
+  .card-gallery slideshow-arrows .slideshow-control {
+    /* Align icons with quick-add button */
+    padding-inline: var(--padding-xl);
+
+    @container (max-width: 249px) {
+      padding-inline: 0 var(--padding-sm);
+    }
+  }
+
+  /*
+   * Card galleries preview the next or previous images on 'pointerenter', so we
+   * try to kick load them beforehand (they are lazy loaded otherwise).
+   */
+  .card-gallery
+    :is(
+      slideshow-slide:has(+ slideshow-slide[aria-hidden='false']),
+      slideshow-slide[aria-hidden='false'] + slideshow-slide
+    ) {
+    content-visibility: auto;
+
+    /* Dawn repoint: slideshow-component -> hz-slideshow-component */
+    hz-slideshow-component[actioned] & {
+      content-visibility: visible;
+    }
+  }
+
+  /* Horizon base.css:503-505 extraction — the gallery link (<a
+     class="contents">) relies on display: contents; Dawn ships no
+     equivalent utility. */
+  .contents {
+    display: contents;
+  }
+
+  /* Horizon base.css:2378-2386 extraction — .card-gallery is the positioning
+     context for the badges/controls; the quick-add @container leg is
+     consumer-less until that subsystem lands (kept verbatim). */
+  .card-gallery {
+    position: relative;
+  }
+
+  /* Horizon base.css:1506-1600 extraction (subset) — the
+     .product-media-container family. Found at serve: the container rule
+     re-declares --slide-width: 100% on the card's media slides, which is
+     what stops the resource-list carousel's inherited
+     --slide-width calc from collapsing the nested (disabled) gallery
+     slides to min-content; it also owns the media aspect-ratio box and the
+     media-fit object-fit model. Skipped as consumer-less:
+     .shopify-model-viewer-ui__controls-area and the
+     .product-media-container--model flex rule (model media is trimmed this
+     phase). The .constrain-height / .media-gallery-- legs are PDP-only but
+     kept verbatim (consumer-less-leg precedent). */
+  :not(.dialog-zoomed-gallery) > .product-media-container {
+    --slide-width: 100%;
+
+    display: flex;
+    aspect-ratio: var(--gallery-aspect-ratio, var(--media-preview-ratio));
+    max-height: var(--constrained-height);
+    width: var(--slide-width, 100%);
+
+    /* Relative position needed for video and 3d models */
+    position: relative;
+    overflow: hidden;
+
+    &:where(.constrain-height) {
+      /* arbitrary offset value based on average theme spacing and header height */
+      --viewport-offset: 400px;
+      --constrained-min-height: 300px;
+      --constrained-height: max(var(--constrained-min-height), calc(100vh - var(--viewport-offset)));
+
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    @supports (--test: round(up, 100%, 1px)) {
+      /* width and overflow forces children to shrink to parent width */
+      --slide-width: round(up, 100%, 1px);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .product-media-container.constrain-height {
+      max-height: none;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    .product-media-container.constrain-height {
+      --viewport-offset: var(--header-height, 100px);
+      --constrained-min-height: 500px;
+    }
+
+    .media-gallery--large-first-image .product-media-container:first-child,
+    .media-gallery--two-column .product-media-container:only-child {
+      /* First child spans 2 columns */
+      grid-column: span 2;
+    }
+  }
+
+  .product-media-container img {
+    aspect-ratio: inherit;
+    object-fit: contain;
+  }
+
+  .product-media-container.media-fit-contain img {
+    object-position: center center;
+  }
+
+  .product-media-container.media-fit {
+    --product-media-fit: cover;
+
+    img {
+      object-fit: var(--product-media-fit);
+    }
+  }
+
+  /* Dawn shim — Horizon base.css:74-86 global img/svg reset, scoped to the
+     gallery (Phase-5 _slide precedent; the hz-product-media snippet carries
+     the .product-media__image copy). Without it the onboarding-placeholder
+     svg renders unconstrained at its natural size. */
+  .card-gallery img {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+
+  .card-gallery svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  @container (max-width: 70px) {
+    .card-gallery:hover .quick-add__button {
+      display: none;
+    }
+  }
+{% endstylesheet %}

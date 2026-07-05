@@ -1,0 +1,709 @@
+{%- comment -%}
+  horizon-blocks Phase 10 — `price` block.
+
+  Port of stock Horizon v4.1.1 (68760d9) blocks/price.liquid; schema t:
+  strings hardcoded to Horizon's English. Deviations:
+  - render 'price' repointed to the renamed 'hz-price' (Dawn collision
+    rename); tax-note buyer strings hardcoded to Horizon's English.
+  - Dawn rem-base correction added to the style capture after the frozen
+    typography-style render (snippets/text.liquid:79-101 pattern verbatim,
+    incl. the Phase-8 non-rem guard): Dawn's root font-size is
+    62.5% * body_scale, so the schema's rem font sizes would render ~half
+    size without the px re-emit. The schema font_size option VALUES stay in
+    stock rem format — typography-style's type classifier parses rem strings
+    (never convert them to px).
+  - The type_preset `info` key is dropped — it links to per-preset theme
+    settings that don't exist in Dawn (presets are hardcoded at stock Horizon
+    defaults in snippets/hz-type-variables.liquid; text-block precedent).
+  - Custom-preset Font select trimmed 4 -> 2 options (Phase-1b text-block
+    precedent: Dawn has 2 real font settings; subheading/accent values in
+    hand-written JSON still resolve via hz-type-variables aliases).
+  - Per-render module script tag for assets/product-price.js
+    (snippets/slideshow.liquid:91 precedent) — stock loads it globally from
+    scripts.liquid; nothing imports it (matches stock's importmap).
+  <product-price> consumes SlideshowSelectEvent/ProductSelectEvent to
+  re-render on variant changes via the section-rendering-product-card
+  endpoint.
+{%- endcomment -%}
+{%- liquid
+  assign block_settings = block.settings
+  assign product_resource = closest.product
+  assign selected_variant = product_resource.selected_or_first_available_variant
+-%}
+
+{% liquid
+  if block_settings.type_preset == 'rte' or block_settings.type_preset == 'paragraph'
+    assign is_rte = true
+  endif
+
+  capture text_block_classes
+    if block_settings.width == '100%'
+      echo 'text-block--align-' | append: block_settings.alignment
+      if block_settings.max_width == 'none'
+        echo ' text-block--full-width'
+      endif
+    endif
+    if block_settings.type_preset == 'custom'
+      echo ' custom-typography'
+      if block_settings.font_size != ''
+        echo ' custom-font-size'
+      endif
+      if block_settings.color != ''
+        echo ' custom-color'
+      endif
+    endif
+    if block_settings.background
+      echo ' text-block--background'
+    endif
+    if is_rte
+      echo ' rte'
+    endif
+  endcapture
+%}
+
+<product-price
+  class="text-block {{ text_block_classes }} text-{{ block_settings.alignment }} {{ block_settings.type_preset | default: 'paragraph' }} spacing-style"
+  data-block-id="{{ block.id }}"
+  data-product-id="{{ product_resource.id }}"
+  style="
+    {% render 'typography-style', settings: block_settings %}
+    {%- liquid
+      # Dawn rem-base correction (snippets/text.liquid:79-101 pattern,
+      # verbatim incl. the Phase-8 non-rem guard) — re-emit the custom-preset
+      # --font-size in px at 16px/rem; a later declaration in the same style
+      # attribute wins.
+      if block_settings.type_preset == 'custom' and block_settings.font_size != blank and block_settings.font_size contains 'rem'
+        assign hz_font_size_rem = block_settings.font_size | split: 'rem' | first | times: 1.0
+        assign hz_font_size_px = hz_font_size_rem | times: 16
+        if hz_font_size_rem >= 3.0
+          assign hz_vw_value = hz_font_size_px | divided_by: 1400.0 | times: 100
+          assign hz_min_px = hz_font_size_rem | divided_by: 3.0 | minus: 1 | times: 4 | plus: 48
+          echo '--font-size: clamp(' | append: hz_min_px | append: 'px, ' | append: hz_vw_value | append: 'vw, ' | append: hz_font_size_px | append: 'px);'
+        else
+          echo '--font-size: ' | append: hz_font_size_px | append: 'px;'
+        endif
+      endif
+    -%}
+    {% render 'spacing-style', settings: block_settings %}
+    {% if block_settings.text_color != blank %}
+      --color: {{ block_settings.text_color }};
+      --color-rgb: {{ block_settings.text_color.rgb }};
+    {% endif %}
+    --width: {{ block_settings.width }};
+  "
+  {{ block.shopify_attributes }}
+>
+  {% render 'hz-price',
+    show_unit_price: true,
+    product_resource: product_resource,
+    show_sale_price_first: block_settings.show_sale_price_first
+  %}
+
+  {% if block_settings.show_tax_info %}
+    <div class="tax-note">
+      {%- if cart.duties_included and cart.taxes_included -%}
+        Duties and taxes included.
+      {%- elsif cart.taxes_included -%}
+        Taxes included.
+      {%- elsif cart.duties_included -%}
+        Duties included.
+      {%- endif -%}
+
+      {%- if shop.shipping_policy.body != blank -%}
+        Shipping calculated at checkout.
+      {%- endif -%}
+    </div>
+  {% endif %}
+
+  {%- if selected_variant != blank and block_settings.show_installments -%}
+    <div class="installments">
+      {%- assign product_form_installment_id = 'product-form-installment-' | append: block.id -%}
+      {%- form 'product', product_resource, id: product_form_installment_id, class: 'payment-terms' -%}
+        <input
+          type="hidden"
+          name="id"
+          value="{{ selected_variant.id }}"
+        >
+        {{ form | payment_terms }}
+      {%- endform -%}
+    </div>
+  {%- endif -%}
+</product-price>
+
+<script type="module" src="{{ 'product-price.js' | asset_url }}"></script>
+
+{% schema %}
+{
+  "name": "Price",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Displays price from parent product"
+    },
+    {
+      "type": "paragraph",
+      "content": "Edit price formatting in [theme settings](/editor?context=theme&category=currency%20code)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sale_price_first",
+      "label": "Show sale price first",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_installments",
+      "label": "Installments",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tax_info",
+      "label": "Tax information",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "select",
+      "id": "type_preset",
+      "label": "Preset",
+      "options": [
+        {
+          "value": "",
+          "label": "Default"
+        },
+        {
+          "value": "paragraph",
+          "label": "Paragraph"
+        },
+        {
+          "value": "h1",
+          "label": "Heading 1"
+        },
+        {
+          "value": "h2",
+          "label": "Heading 2"
+        },
+        {
+          "value": "h3",
+          "label": "Heading 3"
+        },
+        {
+          "value": "h4",
+          "label": "Heading 4"
+        },
+        {
+          "value": "h5",
+          "label": "Heading 5"
+        },
+        {
+          "value": "h6",
+          "label": "Heading 6"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "fit-content",
+          "label": "Fit"
+        },
+        {
+          "value": "100%",
+          "label": "Fill"
+        }
+      ],
+      "default": "100%"
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "Alignment",
+      "default": "left",
+      "visible_if": "{{ block.settings.width != 'fit-content' }}"
+    },
+    {
+      "type": "select",
+      "id": "font",
+      "label": "Font",
+      "options": [
+        {
+          "value": "var(--font-body--family)",
+          "label": "Body"
+        },
+        {
+          "value": "var(--font-heading--family)",
+          "label": "Heading"
+        }
+      ],
+      "default": "var(--font-body--family)",
+      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "font_size",
+      "label": "Size",
+      "options": [
+        {
+          "value": "",
+          "label": "Default"
+        },
+        {
+          "value": "0.625rem",
+          "label": "10px"
+        },
+        {
+          "value": "0.75rem",
+          "label": "12px"
+        },
+        {
+          "value": "0.875rem",
+          "label": "14px"
+        },
+        {
+          "value": "1rem",
+          "label": "16px"
+        },
+        {
+          "value": "1.125rem",
+          "label": "18px"
+        },
+        {
+          "value": "1.25rem",
+          "label": "20px"
+        },
+        {
+          "value": "1.5rem",
+          "label": "24px"
+        },
+        {
+          "value": "2rem",
+          "label": "32px"
+        },
+        {
+          "value": "2.5rem",
+          "label": "40px"
+        },
+        {
+          "value": "3rem",
+          "label": "48px"
+        },
+        {
+          "value": "3.5rem",
+          "label": "56px"
+        },
+        {
+          "value": "4.5rem",
+          "label": "72px"
+        },
+        {
+          "value": "5.5rem",
+          "label": "88px"
+        },
+        {
+          "value": "7.5rem",
+          "label": "120px"
+        },
+        {
+          "value": "9.5rem",
+          "label": "152px"
+        },
+        {
+          "value": "11.5rem",
+          "label": "184px"
+        }
+      ],
+      "default": "1rem",
+      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "line_height",
+      "label": "Line height",
+      "options": [
+        {
+          "value": "tight",
+          "label": "Tight"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "loose",
+          "label": "Loose"
+        }
+      ],
+      "default": "normal",
+      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "letter_spacing",
+      "label": "Letter spacing",
+      "options": [
+        {
+          "value": "tight",
+          "label": "Tight"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "loose",
+          "label": "Loose"
+        }
+      ],
+      "default": "normal",
+      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "case",
+      "label": "Case",
+      "options": [
+        {
+          "value": "none",
+          "label": "Default"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        }
+      ],
+      "default": "none",
+      "visible_if": "{{ block.settings.type_preset == 'custom' }}"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "placeholder": "Default"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Price",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+  /* DUPLICATE of snippets/text.liquid's stylesheet (the Phase-1b port incl.
+     its Dawn re-scoping and deviation comments) — the price block emits
+     text-block / type-preset classes on <product-price> but never renders the
+     text snippet, so on a page whose cards carry a price but no text block
+     Shopify's CSS subsetting would drop these rules (variant-picker-styles
+     consolidation note in stock documents the same trap). Keep in sync with
+     snippets/text.liquid. */
+
+  :root {
+    --text-align-default: left;
+  }
+
+  [style*='--horizontal-alignment: center'] .text-block {
+    --text-align-default: center;
+  }
+
+  [style*='--horizontal-alignment: flex-end'] .text-block {
+    --text-align-default: right;
+  }
+
+  [style*='--horizontal-alignment: flex-start'] > .text-block {
+    --text-align-default: left;
+  }
+
+  [style*='--horizontal-alignment: center'] > .text-block {
+    --text-align-default: center;
+  }
+
+  [style*='--horizontal-alignment: flex-end'] > .text-block {
+    --text-align-default: right;
+  }
+
+  /* Dawn note on the --color-foreground fallbacks (here and in the preset
+     rules below): Dawn's --color-foreground is a comma triplet (R,G,B), not
+     a color, so the fallback substitutes but is invalid at computed-value
+     time -> color becomes `unset` -> inherits the scheme text color. That IS
+     the desired Dawn-native behavior; do NOT "fix" by wrapping in
+     rgb(var(...)) — tripwire: Dawn comma triplets vs Horizon space triplets. */
+  .text-block {
+    width: var(--width);
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: var(--horizontal-alignment);
+    color: var(--color, var(--color-foreground));
+  }
+
+  .text-block > * {
+    width: var(--width);
+    max-inline-size: min(100%, var(--max-width, 100%));
+    text-align: var(--text-align, var(--text-align-default));
+    text-wrap: var(--text-wrap);
+  }
+
+  .text-block:not(.text-block--full-width).rte,
+  .text-block:not(.text-block--full-width).paragraph {
+    /* Safari doesn't support pretty, so fallback to balance */
+    text-wrap: balance;
+    text-wrap: pretty;
+  }
+
+  .text-block:not(.text-block--full-width):is(.h1, .h2, .h3, .h4, .h5, .h6) {
+    text-wrap: balance;
+  }
+
+  /* Hide underline unless text is using paragraph styles. */
+  .text-block.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) a {
+    text-decoration-line: none;
+    color: currentColor;
+
+    &:hover {
+      text-decoration-line: none;
+      color: currentColor;
+    }
+  }
+
+  .text-block h1,
+  .text-block.h1 > * {
+    margin-block: var(--font-h1--spacing);
+  }
+
+  .text-block h2,
+  .text-block.h2 > * {
+    margin-block: var(--font-h2--spacing);
+  }
+
+  .text-block h3,
+  .text-block.h3 > * {
+    margin-block: var(--font-h3--spacing);
+  }
+
+  .text-block h4,
+  .text-block.h4 > * {
+    margin-block: var(--font-h4--spacing);
+  }
+
+  .text-block h5,
+  .text-block.h5 > * {
+    margin-block: var(--font-h5--spacing);
+  }
+
+  .text-block h6,
+  .text-block.h6 > * {
+    margin-block: var(--font-h6--spacing);
+  }
+
+  .text-block p,
+  .text-block.p > * {
+    margin-block: var(--font-paragraph--spacing);
+  }
+
+  .text-block > *:first-child {
+    margin-block-start: 0;
+  }
+
+  .text-block > *:last-child {
+    margin-block-end: 0;
+  }
+
+  .text-block--align-center,
+  .text-block--align-center > * {
+    margin-inline: auto;
+  }
+
+  .text-block--align-right,
+  .text-block--align-right > * {
+    margin-inline-start: auto;
+  }
+
+  /* Dawn deviation — selector doubled: Horizon loads block CSS after
+     base.css, so this rule's padding beats .spacing-style's on order. In
+     Dawn the frozen component-group.css (which holds .spacing-style) is
+     loaded in the section body, AFTER the head-bundled block stylesheets —
+     same specificity (0,1,0), later wins, min-padding never applied. Doubling
+     the class (0,2,0) restores Horizon's outcome without touching the frozen
+     engine CSS. */
+  .text-block--background.text-block--background {
+    background-color: var(--text-background-color);
+    border-radius: var(--text-corner-radius);
+
+    /* To avoid text being cropped when using a border radius we add a minimum padding. */
+    padding-block-start: max(var(--text-padding), var(--padding-block-start, 0));
+    padding-block-end: max(var(--text-padding), var(--padding-block-end, 0));
+    padding-inline-start: max(var(--text-padding), var(--padding-inline-start, 0));
+    padding-inline-end: max(var(--text-padding), var(--padding-inline-end, 0));
+  }
+
+  .custom-color,
+  .custom-color > :is(h1, h2, h3, h4, h5, h6, p, *) {
+    color: var(--color);
+  }
+
+  /* Type-preset class rules, ported from Horizon base.css (68760d9, lines
+     679-828) and RE-SCOPED under .text-block: this stylesheet is bundled
+     theme-wide, so Horizon's unscoped .hN / .paragraph / bare-element legs
+     would restyle Dawn-native .h2 elements and headings on any page where
+     the bundle ships. Dropped legs: `body`, bare h1..h6 (rte-preset content
+     intentionally falls through to Dawn's native .rte/heading styles for
+     parity), the stray bare `.h3`, and the input/textarea/select mobile
+     rules (no form elements render in this block). */
+  .text-block.paragraph,
+  .text-block.paragraph > *,
+  .text-block.paragraph :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-paragraph--family);
+    font-style: var(--font-paragraph--style);
+    font-weight: var(--font-paragraph--weight);
+    font-size: var(--font-paragraph--size);
+    line-height: var(--font-paragraph--line-height);
+    text-transform: var(--font-paragraph--case);
+    -webkit-font-smoothing: antialiased;
+    color: var(--color, var(--color-foreground));
+  }
+
+  .text-block.paragraph > small {
+    font-size: smaller;
+  }
+
+  .text-block.h1,
+  .text-block.h1 > *,
+  .text-block.h1 :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-h1--family);
+    font-style: var(--font-h1--style);
+    font-weight: var(--font-h1--weight);
+    font-size: var(--font-h1--size);
+    line-height: var(--font-h1--line-height);
+    letter-spacing: var(--font-h1--letter-spacing);
+    text-transform: var(--font-h1--case);
+    color: var(--color);
+  }
+
+  .text-block.h2,
+  .text-block.h2 > *,
+  .text-block.h2 :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-h2--family);
+    font-style: var(--font-h2--style);
+    font-weight: var(--font-h2--weight);
+    font-size: var(--font-h2--size);
+    line-height: var(--font-h2--line-height);
+    letter-spacing: var(--font-h2--letter-spacing);
+    text-transform: var(--font-h2--case);
+    color: var(--color);
+  }
+
+  .text-block.h3,
+  .text-block.h3 > *,
+  .text-block.h3 :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-h3--family);
+    font-style: var(--font-h3--style);
+    font-weight: var(--font-h3--weight);
+    font-size: var(--font-h3--size);
+    line-height: var(--font-h3--line-height);
+    letter-spacing: var(--font-h3--letter-spacing);
+    text-transform: var(--font-h3--case);
+    color: var(--color);
+  }
+
+  .text-block.h4,
+  .text-block.h4 > *,
+  .text-block.h4 :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-h4--family);
+    font-style: var(--font-h4--style);
+    font-weight: var(--font-h4--weight);
+    font-size: var(--font-h4--size);
+    line-height: var(--font-h4--line-height);
+    letter-spacing: var(--font-h4--letter-spacing);
+    text-transform: var(--font-h4--case);
+    color: var(--color);
+  }
+
+  .text-block.h5,
+  .text-block.h5 > *,
+  .text-block.h5 :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-h5--family);
+    font-style: var(--font-h5--style);
+    font-weight: var(--font-h5--weight);
+    font-size: var(--font-h5--size);
+    line-height: var(--font-h5--line-height);
+    letter-spacing: var(--font-h5--letter-spacing);
+    text-transform: var(--font-h5--case);
+    color: var(--color);
+  }
+
+  .text-block.h6,
+  .text-block.h6 > *,
+  .text-block.h6 :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-h6--family);
+    font-style: var(--font-h6--style);
+    font-weight: var(--font-h6--weight);
+    font-size: var(--font-h6--size);
+    line-height: var(--font-h6--line-height);
+    letter-spacing: var(--font-h6--letter-spacing);
+    text-transform: var(--font-h6--case);
+    color: var(--color);
+  }
+{% endstylesheet %}
+

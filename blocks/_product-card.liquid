@@ -1,0 +1,194 @@
+{%- doc -%}
+  @param {string} [product_view_context] - Context value passed through to the card snippet.
+
+  horizon-blocks Phase 10 port of stock Horizon v4.1.1 (68760d9)
+  blocks/_product-card.liquid; schema t: strings hardcoded to Horizon's
+  English. Deviations:
+  - TRIMMED style renders (:14-17): buy-buttons-styles /
+    gift-card-recipient-form-styles / quick-add-styles /
+    quick-add-modal-styles — their subsystems are deferred (quick_add
+    hardcoded false). variant-picker-styles and product-badges-styles KEPT
+    (both ported). RE-ADD the four with the quick-add/buy-buttons subsystem.
+  - TRIMMED allowlist entries: "buy-buttons", "review", "sku" (subsystems /
+    PDP items not yet ported — upload-time validation rejects unknown types).
+    RE-ADD each alongside its port.
+{%- enddoc -%}
+
+{% liquid
+  assign product = closest.product
+-%}
+
+{% capture children %}
+  {% content_for 'blocks', closest.product: product %}
+{% endcapture %}
+
+{% render 'product-card', children: children, product: product, product_view_context: product_view_context %}
+{% comment %} TRIMMED (Phase 10): buy-buttons-styles / gift-card-recipient-form-styles /
+   quick-add-styles / quick-add-modal-styles renders — see doc header. {% endcomment %}
+{% render 'variant-picker-styles' %}
+{% render 'product-badges-styles' %}
+
+{% schema %}
+{
+  "name": "Product card",
+  "blocks": [
+    {
+      "type": "_product-card-group"
+    },
+    {
+      "type": "text"
+    },
+    {
+      "type": "image"
+    },
+    {
+      "type": "price"
+    },
+    {
+      "type": "swatches"
+    },
+    {
+      "type": "_product-card-gallery"
+    },
+    {
+      "type": "product-title"
+    },
+    {
+      "type": "custom-liquid"
+    },
+    {
+      "type": "@app"
+    }
+  ],
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Displays product from parent section"
+    },
+    {
+      "type": "range",
+      "id": "product_card_gap",
+      "label": "Vertical gap",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "placeholder": "Default"
+    },
+    {
+      "type": "header",
+      "content": "Borders"
+    },
+    {
+      "type": "select",
+      "id": "border",
+      "label": "Style",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "solid",
+          "label": "Solid"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Thickness",
+      "default": 1,
+      "visible_if": "{{ block.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Opacity",
+      "default": 100,
+      "visible_if": "{{ block.settings.border != 'none' }}"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Color",
+      "placeholder": "Default",
+      "visible_if": "{{ block.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Corner radius",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ]
+}
+{% endschema %}

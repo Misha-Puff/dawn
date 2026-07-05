@@ -1,0 +1,62 @@
+{%- doc -%}
+  Product badge styles consolidated into a single snippet.
+
+  Verbatim port of stock Horizon v4.1.1 (68760d9)
+  snippets/product-badges-styles.liquid (horizon-blocks Phase 10). Token deps
+  all resolve: --padding-xs / --layer-flat / --font-size--xs from hz-ui-tokens
+  (+ the Phase-10 --badge-rectangle-padding-* append); --badge-font-* /
+  --badge-border-radius / --badge-text-transform are set inline by
+  blocks/_product-card-gallery.liquid (hardcoded at stock badge_* setting
+  defaults); --border-radius / --padding-block-start / --padding-inline-start
+  come from the card context; full-color --color-foreground/--color-background
+  resolve inside the .color-custom-badge-* scopes the badge markup always
+  carries (contrast-override renders in hz-ui-tokens).
+
+  @example
+  {% render 'product-badges-styles' %}
+{%- enddoc -%}
+
+{% stylesheet %}
+  .product-badges {
+    --badge-inset: max(var(--padding-xs), calc((var(--border-radius) + var(--padding-xs)) * (1 - cos(45deg))));
+
+    position: absolute;
+    z-index: var(--layer-flat);
+  }
+
+  .product-badges--bottom-left {
+    bottom: calc(var(--badge-inset) + var(--padding-block-start));
+    left: calc(var(--badge-inset) + var(--padding-inline-start));
+  }
+
+  .product-badges--top-left {
+    top: calc(var(--badge-inset) + var(--padding-block-start));
+    left: calc(var(--badge-inset) + var(--padding-inline-start));
+  }
+
+  .product-badges--top-right {
+    top: calc(var(--badge-inset) + var(--padding-block-start));
+    right: calc(var(--badge-inset) + var(--padding-inline-start));
+  }
+
+  .product-badges__badge {
+    --badge-font-size: var(--font-size--xs);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-foreground);
+    background: var(--color-background);
+    font-size: var(--badge-font-size);
+    font-family: var(--badge-font-family);
+    font-weight: var(--badge-font-weight);
+    text-transform: var(--badge-text-transform);
+    border-radius: var(--badge-border-radius);
+  }
+
+  .product-badges__badge--rectangle {
+    padding-block: var(--badge-rectangle-padding-block);
+    padding-inline: var(--badge-rectangle-padding-inline);
+  }
+{% endstylesheet %}

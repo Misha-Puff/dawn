@@ -1,0 +1,308 @@
+{%- doc -%}
+  This snippet is used to render a collection card.
+  To be used inside a block to inherit the block object settings.
+
+  @param {string} card_image - The image to display in the collection card
+  @param {string} children - The content to render inside the collection card
+  @param {object} collection - The collection to render the card for
+  @param {object} block - The block object
+  @param {object} section - The section object
+
+  Verbatim port of stock Horizon v4.1.1 (68760d9)
+  snippets/collection-card.liquid (horizon-blocks Phase 10). All render deps
+  ported (contrast-override / border-override); the editorial/bento layout
+  legs (.collection-card--image-height-fixed / --flexible-aspect-ratio) are
+  consumer-less until those resource-list branches land — kept verbatim.
+  Token deps --card-width-small / --height-small come from hz-ui-tokens'
+  Phase-10 append (Horizon tsv:651-661, rem->px @16). This file carries the
+  .collection-card frame; the shared card-hover rules live in
+  snippets/product-card.liquid's extraction AND are duplicated below so
+  collection-card pages survive CSS subsetting independently
+  (.contents precedent).
+
+  @example
+  {% render 'collection-card',
+    card_image: card_image,
+    children: children,
+    block: block,
+    collection: collection,
+    section: section
+  %}
+{%- enddoc -%}
+
+{% style %}
+  {% if request.visual_preview_mode %}
+    .collection-card {
+      min-width: 250px;
+    }
+  {% endif %}
+{% endstyle %}
+
+{% liquid
+  assign onboarding = false
+  assign block_settings = block.settings
+
+  if collection == blank
+    assign onboarding = true
+  endif
+
+  if block_settings.background_color != blank
+    render 'contrast-override', background_color: block_settings.background_color, section_id: block.id
+  endif
+%}
+
+<div
+  class="
+    collection-card
+    border-style
+    {% if block_settings.placement == 'on_image' %}collection-card--image-bg{% endif %}
+    {% if section.settings.layout_type == 'bento' %}collection-card--image-height-fixed{% endif %}
+    {% if section.settings.layout_type == 'editorial' %}collection-card--flexible-aspect-ratio{% endif %}
+    {% if block_settings.background_color != blank %} color-custom-{{ block.id }}{% endif %}
+  "
+  data-block-id="{{ block.id }}"
+  {% if onboarding %}
+    data-placeholder="true"
+  {% endif %}
+  style="
+    {% render 'border-override', settings: block_settings %}
+    --horizontal-alignment: {{ block_settings.horizontal_alignment }};
+    --vertical-alignment: {{ block_settings.vertical_alignment }};
+    --background-overlay-color: {{ block_settings.overlay_color }};
+    --gap: {{ block_settings.collection_card_gap }}px;
+  "
+  {{- block.shopify_attributes -}}
+>
+  <a
+    class="collection-card__link"
+    {% unless onboarding %}
+      href="{{ collection.url }}"
+    {% endunless %}
+  >
+    <span class="visually-hidden">{{ collection.title }}</span>
+  </a>
+  <div class="collection-card__inner">
+    {{ card_image }}
+    <div class="collection-card__content layout-panel-flex--column">
+      {{ children }}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .collection-card {
+    --fixed-card-height: var(--height-small);
+
+    width: 100%;
+    position: relative;
+    height: 100%;
+    flex: 1 1 var(--card-width-small);
+
+    /* Dawn ADAPT (Nathan's punchlist ruling, 2026-07-05): stock declares no
+       color here and inherits Horizon's FULL-strength body color; Dawn's
+       body is 0.75-alpha, so the composed -rgb form restores the stock
+       outcome (see product-card.liquid's .product-grid__card note). */
+    color: rgb(var(--color-foreground-rgb));
+  }
+
+  .collection-card > svg {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: var(--ratio);
+  }
+
+  .collection-card--image-bg .collection-card__inner {
+    height: 100%;
+  }
+
+  .collection-card__link {
+    position: absolute;
+    inset: 0;
+
+    /* allows focus outline to have radius in supported browsers */
+    border-radius: var(--border-radius);
+  }
+
+  .collection-card__inner {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    z-index: var(--layer-flat);
+    pointer-events: none;
+    gap: var(--gap);
+
+    a,
+    button {
+      pointer-events: auto;
+    }
+  }
+
+  /* allow all blocks to be selectable in editor preview */
+  .shopify-design-mode .collection-card__content * {
+    pointer-events: auto;
+  }
+
+  .collection-card__content {
+    --flex-wrap: wrap;
+
+    display: flex;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    gap: var(--gap);
+  }
+
+  /* Nested image block rules */
+
+  .collection-card.collection-card--image-bg {
+    aspect-ratio: var(--ratio);
+  }
+
+  .collection-card.collection-card--image-bg .collection-card__content {
+    padding: var(--padding-lg);
+  }
+
+  .collection-card--image-height-fixed {
+    height: 100%;
+  }
+
+  /* Bento layout rules */
+  .collection-card--image-height-fixed .collection-card__image {
+    height: var(--fixed-card-height);
+    width: 100%;
+  }
+
+  .collection-card--image-height-fixed.collection-card--image-bg {
+    height: var(--fixed-card-height);
+    aspect-ratio: unset;
+  }
+
+  .collection-card__image .resource-image__image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+  }
+
+  .collection-card--image-bg .collection-card__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .collection-card__image svg {
+    height: 100%;
+    width: 100%;
+  }
+
+  /* DUPLICATE of the shared card-frame/hover extraction in
+     snippets/product-card.liquid (Horizon base.css:101-149 + 3754-3762) —
+     kept in both files so each survives CSS subsetting independently. Keep
+     in sync. */
+  .product-card,
+  .collection-card,
+  .predictive-search-results__card--product,
+  .predictive-search-results__card {
+    position: relative;
+    transition: transform var(--hover-transition-duration) var(--hover-transition-timing),
+      box-shadow var(--hover-transition-duration) var(--hover-transition-timing);
+    z-index: var(--layer-flat);
+  }
+
+  @media (any-pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .card-hover-effect-lift .product-card:hover,
+    .card-hover-effect-lift .collection-card:hover,
+    .card-hover-effect-lift .predictive-search-results__card:hover {
+      transform: translateY(calc(-1 * var(--hover-lift-amount)));
+    }
+
+    .card-hover-effect-scale .product-card:hover,
+    .card-hover-effect-scale .collection-card:hover,
+    .card-hover-effect-scale .predictive-search-results__card:hover {
+      transform: scale(var(--hover-scale-amount));
+    }
+
+    .card-hover-effect-subtle-zoom .card-gallery,
+    .card-hover-effect-subtle-zoom .collection-card__image,
+    .card-hover-effect-subtle-zoom .product-card__image {
+      overflow: hidden;
+      transition: transform var(--hover-transition-duration) var(--hover-transition-timing);
+    }
+
+    .card-hover-effect-subtle-zoom .product-card:hover .card-gallery,
+    .card-hover-effect-subtle-zoom .collection-card:hover .collection-card__image,
+    .card-hover-effect-subtle-zoom .product-card:hover .product-card__image,
+    .card-hover-effect-subtle-zoom .predictive-search-results__card:hover {
+      transform: scale(var(--hover-subtle-zoom-amount));
+    }
+  }
+
+  .product-card:hover,
+  .collection-card:hover,
+  .predictive-search-results__card--product:hover,
+  .predictive-search-results__card:hover {
+    position: relative;
+    z-index: var(--layer-raised);
+    transition: transform var(--hover-transition-duration) var(--hover-transition-timing),
+      box-shadow var(--hover-transition-duration) var(--hover-transition-timing);
+  }
+
+  /* Editorial layout */
+  .resource-list:not(.hidden--desktop) .collection-card--flexible-aspect-ratio {
+    .collection-card__image {
+      aspect-ratio: 99;
+      height: 100%;
+    }
+
+    .collection-card__inner {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .collection-card__content {
+      flex-shrink: 0;
+    }
+
+    &:not(.collection-card--image-bg) .collection-card__content {
+      height: auto;
+    }
+
+    &.collection-card.collection-card--image-bg,
+    &.collection-card .placeholder-svg {
+      aspect-ratio: 99;
+    }
+  }
+
+  /* Horizon base.css:850-871 extraction, SCOPED — stock resets bare `a`
+     globally (color: currentcolor, transparent underline); Dawn has no such
+     reset, so card/title links rendered UA-blue+underlined (found at serve).
+     Scoping to the card roots keeps the reset off Dawn-native anchors.
+     Declarations verbatim. */
+  :is(.product-card, .collection-card) a {
+    color: currentcolor;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 0.075em;
+    text-underline-offset: 0.125em;
+    transition: text-decoration-color var(--animation-speed) var(--animation-easing),
+      color var(--animation-speed) var(--animation-easing);
+  }
+
+  :is(.product-card, .collection-card) :is(h1, h2, h3, h4, h5, h6, p) > a:hover {
+    color: rgb(var(--color-rgb, var(--color-foreground-rgb)) / 0.7);
+  }
+
+  /* Add underline to text using our paragraph styles only. */
+  :is(.product-card, .collection-card) p:not(.h1, .h2, .h3, .h4, .h5, .h6) a:where(:not(.button, .button-secondary)),
+  :is(.product-card, .collection-card) .rte :is(p, ul, ol, table):not(.h1, .h2, .h3, .h4, .h5, .h6) a:where(:not(.button, .button-secondary)) {
+    text-decoration-color: currentcolor;
+
+    &:hover {
+      text-decoration-color: currentcolor;
+      color: rgb(var(--color-rgb, var(--color-foreground-rgb)) / 0.7);
+    }
+  }
+{% endstylesheet %}

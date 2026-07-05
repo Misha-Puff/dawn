@@ -1,0 +1,21 @@
+{%- doc -%}
+  Renders the unit price, including its measurement.
+
+  Port of stock Horizon v4.1.1 (68760d9) snippets/unit-price.liquid
+  (horizon-blocks Phase 10), renamed hz-unit-price — Dawn ships a
+  snippets/unit-price.liquid (collision rename, same family as hz-swatch /
+  hz-price / hz-product-media). 'accessibility.unit_price' | t hardcoded to
+  Horizon's English ("Unit price") per the track precedent. Its .unit-price
+  support rules live in snippets/hz-price.liquid's extracted stylesheet
+  (hz-price is its only hz caller).
+
+  @param {object} price - The unit price (money or string).
+  @param {object} measurement - The unit_price_measurement object.
+
+  @example
+  {% render 'hz-unit-price', price: variant.unit_price, measurement: variant.unit_price_measurement %}
+{%- enddoc -%}
+<small class="unit-price">
+  <span class="visually-hidden">Unit price</span>
+  {{ price | unit_price_with_measurement: measurement }}
+</small>
