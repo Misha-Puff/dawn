@@ -92,11 +92,13 @@
           assign tg_font = block.settings.tg_font
           assign tg_fs = block.settings.tg_font_size | default: 0
           assign tg_lh = block.settings.tg_line_height | default: 0
+          assign tg_case = block.settings.tg_text_case | default: 'default'
         -%}
         {%- if tg_font != blank -%}{{ tg_font | font_face: font_display: 'swap' }}{%- endif -%}
         {%- capture tg_typedecl -%}
           {%- if tg_font != blank %}font-family: {{ tg_font.family }}, {{ tg_font.fallback_families }};{% endif -%}
           {%- if tg_fs > 0 %} font-size: {{ tg_fs }}px;{% endif -%}
+          {%- if tg_case != 'default' and tg_case != blank %} text-transform: {{ tg_case }};{% endif -%}
         {%- endcapture -%}
         {%- assign tg_typedecl = tg_typedecl | strip -%}
         {%- if tg_typedecl != blank -%}
@@ -1168,6 +1170,20 @@
           "visible_if": "{{ block.settings.tg_enable_type }}"
         },
         {
+          "type": "select",
+          "id": "tg_text_case",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "uppercase", "label": "Uppercase" },
+            { "value": "capitalize", "label": "Capitalize" },
+            { "value": "lowercase", "label": "Lowercase" },
+            { "value": "none", "label": "Normal (remove uppercase)" }
+          ],
+          "default": "default",
+          "label": "Text case",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
           "type": "header",
           "content": "Padding"
         },
@@ -1245,6 +1261,20 @@
           "label": "Line height",
           "info": "0 = theme default",
           "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_text_case",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "uppercase", "label": "Uppercase" },
+            { "value": "capitalize", "label": "Capitalize" },
+            { "value": "lowercase", "label": "Lowercase" },
+            { "value": "none", "label": "Normal (remove uppercase)" }
+          ],
+          "default": "default",
+          "label": "Text case",
           "visible_if": "{{ block.settings.tg_enable_type }}"
         },
         {
@@ -1339,6 +1369,20 @@
           "visible_if": "{{ block.settings.tg_enable_type }}"
         },
         {
+          "type": "select",
+          "id": "tg_text_case",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "uppercase", "label": "Uppercase" },
+            { "value": "capitalize", "label": "Capitalize" },
+            { "value": "lowercase", "label": "Lowercase" },
+            { "value": "none", "label": "Normal (remove uppercase)" }
+          ],
+          "default": "default",
+          "label": "Text case",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
           "type": "header",
           "content": "Padding"
         },
@@ -1420,6 +1464,20 @@
           "label": "Line height",
           "info": "0 = theme default",
           "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_text_case",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "uppercase", "label": "Uppercase" },
+            { "value": "capitalize", "label": "Capitalize" },
+            { "value": "lowercase", "label": "Lowercase" },
+            { "value": "none", "label": "Normal (remove uppercase)" }
+          ],
+          "default": "default",
+          "label": "Text case",
           "visible_if": "{{ block.settings.tg_enable_type }}"
         },
         {
@@ -1520,6 +1578,20 @@
           "label": "Line height",
           "info": "0 = theme default",
           "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_text_case",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "uppercase", "label": "Uppercase" },
+            { "value": "capitalize", "label": "Capitalize" },
+            { "value": "lowercase", "label": "Lowercase" },
+            { "value": "none", "label": "Normal (remove uppercase)" }
+          ],
+          "default": "default",
+          "label": "Text case",
           "visible_if": "{{ block.settings.tg_enable_type }}"
         },
         {
@@ -1635,6 +1707,20 @@
           "label": "Line height",
           "info": "0 = theme default",
           "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_text_case",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "uppercase", "label": "Uppercase" },
+            { "value": "capitalize", "label": "Capitalize" },
+            { "value": "lowercase", "label": "Lowercase" },
+            { "value": "none", "label": "Normal (remove uppercase)" }
+          ],
+          "default": "default",
+          "label": "Text case",
           "visible_if": "{{ block.settings.tg_enable_type }}"
         },
         {
@@ -1940,6 +2026,20 @@
           "label": "Line height",
           "info": "0 = theme default",
           "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_text_case",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "uppercase", "label": "Uppercase" },
+            { "value": "capitalize", "label": "Capitalize" },
+            { "value": "lowercase", "label": "Lowercase" },
+            { "value": "none", "label": "Normal (remove uppercase)" }
+          ],
+          "default": "default",
+          "label": "Text case",
           "visible_if": "{{ block.settings.tg_enable_type }}"
         },
         {
@@ -2417,6 +2517,20 @@
           "visible_if": "{{ block.settings.tg_enable_type }}"
         },
         {
+          "type": "select",
+          "id": "tg_text_case",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "uppercase", "label": "Uppercase" },
+            { "value": "capitalize", "label": "Capitalize" },
+            { "value": "lowercase", "label": "Lowercase" },
+            { "value": "none", "label": "Normal (remove uppercase)" }
+          ],
+          "default": "default",
+          "label": "Text case",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
           "type": "header",
           "content": "Padding"
         },
@@ -2547,6 +2661,20 @@
           "label": "Line height",
           "info": "0 = theme default",
           "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_text_case",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "uppercase", "label": "Uppercase" },
+            { "value": "capitalize", "label": "Capitalize" },
+            { "value": "lowercase", "label": "Lowercase" },
+            { "value": "none", "label": "Normal (remove uppercase)" }
+          ],
+          "default": "default",
+          "label": "Text case",
           "visible_if": "{{ block.settings.tg_enable_type }}"
         },
         {
