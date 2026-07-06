@@ -147,7 +147,7 @@
           "settings": {
             "picker_type": "button",
             "color_picker_type": "button",
-            "size_picker_type": "button",
+            "size_picker_type": "dropdown",
             "swatch_shape": "square",
             "swatch_message": "{{ product.metafields.product_page.swatch_message | metafield_tag }}",
             "swatch_message_padding_top": 20,
