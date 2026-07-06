@@ -333,14 +333,14 @@
         "constrain_to_viewport": false,
         "media_fit": "contain",
         "image_ratio": "adapt",
-        "gallery_layout": "columns",
+        "gallery_layout": "stacked",
         "mobile_thumbnails": "hide",
         "media_position": "left",
         "image_zoom": "none",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12
+        "padding_top": 40,
+        "padding_bottom": 80
       }
     },
     "image_with_text_7tNUwQ": {
