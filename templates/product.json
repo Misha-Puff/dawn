@@ -28,7 +28,7 @@
           "type": "title",
           "settings": {
             "tg_enable_type": true,
-            "tg_font": "inter_n4",
+            "tg_font": "sans_serif_n4",
             "tg_font_size": 12,
             "tg_line_height": 0,
             "tg_enable_padding": true,
@@ -147,10 +147,10 @@
             "size_picker_type": "dropdown",
             "swatch_shape": "square",
             "swatch_message": "{{ product.metafields.product_page.swatch_message | metafield_tag }}",
-            "swatch_message_padding_top": 0,
+            "swatch_message_padding_top": 20,
             "swatch_message_padding_bottom": 10,
-            "tg_enable_padding": false,
-            "tg_padding_top": 0,
+            "tg_enable_padding": true,
+            "tg_padding_top": 28,
             "tg_padding_bottom": 0
           }
         },
