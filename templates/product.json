@@ -19,6 +19,7 @@
             "tg_font": "assistant_n4",
             "tg_font_size": 0,
             "tg_line_height": 0,
+            "tg_text_case": "default",
             "tg_enable_padding": false,
             "tg_padding_top": 0,
             "tg_padding_bottom": 0
@@ -31,8 +32,9 @@
             "tg_font": "sans_serif_n4",
             "tg_font_size": 12,
             "tg_line_height": 0,
+            "tg_text_case": "uppercase",
             "tg_enable_padding": true,
-            "tg_padding_top": 0,
+            "tg_padding_top": 10,
             "tg_padding_bottom": 0
           }
         },
@@ -44,6 +46,7 @@
             "tg_font": "geist_mono_n4",
             "tg_font_size": 12,
             "tg_line_height": 0,
+            "tg_text_case": "default",
             "tg_enable_padding": false,
             "tg_padding_top": 0,
             "tg_padding_bottom": 0
@@ -164,6 +167,7 @@
             "tg_font": "assistant_n4",
             "tg_font_size": 0,
             "tg_line_height": 0,
+            "tg_text_case": "default",
             "tg_enable_padding": false,
             "tg_padding_top": 0,
             "tg_padding_bottom": 0
@@ -216,6 +220,7 @@
             "tg_font": "assistant_n4",
             "tg_font_size": 0,
             "tg_line_height": 0,
+            "tg_text_case": "default",
             "tg_enable_padding": false,
             "tg_padding_top": 0,
             "tg_padding_bottom": 0
@@ -241,6 +246,7 @@
             "tg_font": "assistant_n4",
             "tg_font_size": 0,
             "tg_line_height": 0,
+            "tg_text_case": "default",
             "tg_enable_padding": false,
             "tg_padding_top": 0,
             "tg_padding_bottom": 0
@@ -257,6 +263,7 @@
             "tg_font": "assistant_n4",
             "tg_font_size": 0,
             "tg_line_height": 0,
+            "tg_text_case": "default",
             "tg_enable_padding": false,
             "tg_padding_top": 0,
             "tg_padding_bottom": 0
@@ -343,6 +350,7 @@
             "tg_font": "assistant_n4",
             "tg_font_size": 0,
             "tg_line_height": 0,
+            "tg_text_case": "default",
             "tg_enable_padding": false,
             "tg_padding_top": 0,
             "tg_padding_bottom": 0
@@ -382,6 +390,7 @@
             "tg_font": "assistant_n4",
             "tg_font_size": 0,
             "tg_line_height": 0,
+            "tg_text_case": "default",
             "tg_enable_padding": false,
             "tg_padding_top": 0,
             "tg_padding_bottom": 0
@@ -422,6 +431,7 @@
             "tg_font": "assistant_n4",
             "tg_font_size": 0,
             "tg_line_height": 0,
+            "tg_text_case": "default",
             "tg_enable_padding": false,
             "tg_padding_top": 0,
             "tg_padding_bottom": 0
@@ -462,6 +472,7 @@
             "tg_font": "assistant_n4",
             "tg_font_size": 0,
             "tg_line_height": 0,
+            "tg_text_case": "default",
             "tg_enable_padding": false,
             "tg_padding_top": 0,
             "tg_padding_bottom": 0
@@ -502,6 +513,7 @@
             "tg_font": "assistant_n4",
             "tg_font_size": 0,
             "tg_line_height": 0,
+            "tg_text_case": "default",
             "tg_enable_padding": false,
             "tg_padding_top": 0,
             "tg_padding_bottom": 0
