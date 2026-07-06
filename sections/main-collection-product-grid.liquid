@@ -287,6 +287,12 @@
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
   {%- paginate collection.products by section.settings.products_per_page -%}
     {%- comment -%}
+      Lateral-shopping tabs live OUTSIDE #ProductGridContainer so facet AJAX
+      never touches them, and above the Collection / Campaign toggle so they
+      persist across both views.
+    {%- endcomment -%}
+    {% render 'collection-tabs', collection: collection %}
+    {%- comment -%}
       Collection / Campaign toggle. The radios and the campaign view live OUTSIDE
       #ProductGridContainer so facet AJAX (which swaps that element's innerHTML)
       never touches the radios' :checked state or the campaign DOM. The radios,

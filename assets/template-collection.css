@@ -123,6 +123,42 @@
   display: none;
 }
 
+/* Lateral-shopping tabs (links to sibling collections in the same tab group) */
+.collection-tabs {
+  display: flex;
+  gap: 2.4rem;
+  margin-bottom: 2.4rem;
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.15);
+  overflow-x: auto;
+}
+
+/* Auto margins center the row when it fits but, unlike justify-content:
+   center, keep the first tab reachable when it overflows and scrolls. */
+.collection-tabs__tab:first-child {
+  margin-left: auto;
+}
+
+.collection-tabs__tab:last-child {
+  margin-right: auto;
+}
+
+.collection-tabs__tab {
+  padding: 0 0 1.2rem;
+  margin-bottom: -0.1rem;
+  font-size: 1.3rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  color: rgba(var(--color-foreground), 0.6);
+  border-bottom: 0.2rem solid transparent;
+}
+
+.collection-tabs__tab[aria-current='page'] {
+  color: rgb(var(--color-foreground));
+  border-bottom-color: rgb(var(--color-foreground));
+}
+
 /* Campaign view (editorial mix shown via the Collection / Campaign toggle) */
 .collection-view--campaign {
   display: flex;

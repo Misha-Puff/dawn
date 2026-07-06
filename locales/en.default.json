@@ -496,6 +496,9 @@
       "view_collection": "Collection",
       "view_campaign": "Campaign"
     },
+    "collection_tabs": {
+      "label": "Collections"
+    },
     "video": {
       "load_video": "Load video: {{ description }}"
     },

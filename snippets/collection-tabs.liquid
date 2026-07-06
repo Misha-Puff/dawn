@@ -1,0 +1,45 @@
+{% comment %}
+  Renders lateral-shopping tabs: full-page links to the sibling collections
+  in this collection's tab group (content.tab_group metaobject).
+
+  Presence-activated — outputs nothing unless the collection belongs to a
+  tab group that resolves to at least two collections (a lone self-tab is
+  noise). The current collection's tab is marked with aria-current="page".
+
+  Accepts:
+  - collection: {Object} the collection being rendered (required)
+
+  Usage:
+  {% render 'collection-tabs', collection: collection %}
+{% endcomment %}
+
+{%- liquid
+  assign tab_group = collection.metafields.content.tab_group.value
+  assign tab_count = 0
+  if tab_group != blank
+    assign tab_cols = tab_group.collections.value
+    for tab_collection in tab_cols
+      unless tab_collection == blank
+        assign tab_count = tab_count | plus: 1
+      endunless
+    endfor
+  endif
+-%}
+
+{%- if tab_count > 1 -%}
+  <nav class="collection-tabs page-width" aria-label="{{ 'sections.collection_tabs.label' | t }}">
+    {%- for tab_collection in tab_cols -%}
+      {%- unless tab_collection == blank -%}
+        <a
+          class="collection-tabs__tab"
+          href="{{ tab_collection.url }}"
+          {% if tab_collection.handle == collection.handle %}
+            aria-current="page"
+          {% endif %}
+        >
+          {{- tab_collection.title -}}
+        </a>
+      {%- endunless -%}
+    {%- endfor -%}
+  </nav>
+{%- endif -%}
