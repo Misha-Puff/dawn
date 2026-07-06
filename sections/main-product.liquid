@@ -93,6 +93,7 @@
           assign tg_fs = block.settings.tg_font_size | default: 0
           assign tg_lh = block.settings.tg_line_height | default: 0
           assign tg_case = block.settings.tg_text_case | default: 'default'
+          assign tg_col = block.settings.tg_color
         -%}
         {%- if tg_font != blank -%}{{ tg_font | font_face: font_display: 'swap' }}{%- endif -%}
         {%- capture tg_typedecl -%}
@@ -113,6 +114,12 @@
               #{{ tg_scope }} .Block-{{ block.id }} .accordion__title, #{{ tg_scope }} .Block-{{ block.id }} .accordion__content { {{ tg_typedecl }} }
             {%- when 'rating' -%}
               #{{ tg_scope }} .Block-{{ block.id }} .rating-text, #{{ tg_scope }} .Block-{{ block.id }} .rating-count { {{ tg_typedecl }} }
+            {%- when 'variant_picker' -%}
+              {%- comment -%} Labels, selects and pills carry their own font/color theme rules, so the declaration must land on them directly; the font_picker's style dropdown is honored via font-style/font-weight. Checked pills keep the theme's inverted colors, so the custom color skips them. {%- endcomment -%}
+              #{{ tg_scope }} .Block-{{ block.id }}, #{{ tg_scope }} .Block-{{ block.id }} .form__label, #{{ tg_scope }} .Block-{{ block.id }} .select__select, #{{ tg_scope }} .Block-{{ block.id }} .product-form__input--pill input[type='radio'] + label { {{ tg_typedecl }}{% if tg_font != blank %} font-style: {{ tg_font.style }}; font-weight: {{ tg_font.weight }};{% endif %} }
+              {%- if tg_col != blank -%}
+                #{{ tg_scope }} .Block-{{ block.id }}, #{{ tg_scope }} .Block-{{ block.id }} .select__select, #{{ tg_scope }} .Block-{{ block.id }} .product-form__input--pill input[type='radio']:not(:checked) + label { color: {{ tg_col }}; }
+              {%- endif -%}
             {%- else -%}
               #{{ tg_scope }} .Block-{{ block.id }} { {{ tg_typedecl }} }
           {%- endcase -%}
@@ -722,9 +729,11 @@
                     }
                   {% endstyle %}
                 {% endif %}
-                {%- if block.settings.tg_enable_padding -%}<div class="Block-{{ block.id }}">{%- endif -%}
+                {%- if block.settings.tg_enable_padding or block.settings.tg_enable_type -%}
+                  <div class="Block-{{ block.id }}">
+                {%- endif -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
-                {%- if block.settings.tg_enable_padding -%}</div>{%- endif -%}
+                {%- if block.settings.tg_enable_padding or block.settings.tg_enable_type -%}</div>{%- endif -%}
               {%- when 'buy_buttons' -%}
                 {% unless tags_str contains 'Badge-Coming Soon' %}
                   {%- if block.settings.tg_enable_padding -%}<div class="Block-{{ block.id }}">{%- endif -%}
@@ -1894,6 +1903,56 @@
           "unit": "px",
           "label": "Message Bottom Padding",
           "default": 10
+        },
+        {
+          "type": "header",
+          "content": "Typography"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_enable_type",
+          "default": false,
+          "label": "Enable typography"
+        },
+        {
+          "type": "font_picker",
+          "id": "tg_font",
+          "default": "assistant_n4",
+          "label": "Font",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_font_size",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_text_case",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "uppercase", "label": "Uppercase" },
+            { "value": "capitalize", "label": "Capitalize" },
+            { "value": "lowercase", "label": "Lowercase" },
+            { "value": "none", "label": "Normal (remove uppercase)" }
+          ],
+          "default": "default",
+          "label": "Text case",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "color",
+          "id": "tg_color",
+          "label": "Text color",
+          "info": "Leave blank for theme default",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
         },
         {
           "type": "header",
