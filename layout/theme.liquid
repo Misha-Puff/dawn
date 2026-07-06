@@ -43,7 +43,7 @@
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {%- comment -%} horizon-blocks Phase 3 (+10): importmap for the @theme/* module layer
+    {%- comment -%} horizon-blocks Phase 3 (+10, +12): importmap for the @theme/* module layer
       (Horizon 68760d9 snippets/scripts.liquid, subset). Keeps the ported JS
       assets import-verbatim with asset_url cache busting. Must precede any
       module script, hence before content_for_header. Phase 10 adds the card
@@ -52,7 +52,9 @@
       verbatim from scripts.liquid:14 — no local asset. product-card.js /
       product-price.js are deliberately absent: nothing imports them (matches
       stock); they load as per-render script tags at their consumption sites
-      (snippets/slideshow.liquid:91 precedent). {%- endcomment -%}
+      (snippets/slideshow.liquid:91 precedent). Phase 12 adds
+      section-renderer (byte-verbatim; morphSection for the recs slice —
+      its own sole import is @theme/morph, already here). {%- endcomment -%}
     <script type="importmap">
       {
         "imports": {
@@ -63,6 +65,7 @@
           "@theme/overflow-list": "{{ 'overflow-list.js' | asset_url }}",
           "@theme/scroll-container": "{{ 'scroll-container.js' | asset_url }}",
           "@theme/scrolling": "{{ 'scrolling.js' | asset_url }}",
+          "@theme/section-renderer": "{{ 'section-renderer.js' | asset_url }}",
           "@theme/utilities": "{{ 'utilities.js' | asset_url }}",
           "@theme/variant-picker": "{{ 'variant-picker.js' | asset_url }}",
           "@theme/view-event-elements": "{{ 'view-event-elements.js' | asset_url }}",

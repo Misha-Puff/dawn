@@ -1,0 +1,745 @@
+{%- comment -%}
+  horizon-blocks Phase 12 — hz-product-recommendations host (port of stock
+  Horizon v4.1.1 (68760d9) sections/product-recommendations.liquid; hz-
+  filename per the host-family precedent — schema/preset names stay stock).
+  Deviations:
+  - The custom element is RENAMED <hz-product-recommendations> (open/close
+    tags, stock :32/:187) — Dawn's assets/global.js:1177 owns the stock
+    <product-recommendations> tag. The renamed element is defined by the
+    adapted assets/product-recommendations.js (patched copy, its doc-header
+    has the full story). Class names / ids / hydration keys keep stock
+    "product-recommendations" strings — they are tag-independent.
+  - Standalone-host preamble (hz-carousel/hz-product-list precedent):
+    component-group.css + hz-type-variables + hz-ui-tokens.
+  - TRIMMED: the quick-add-styles + quick-add-modal-styles renders (stock
+    :27-28) — the quick-add subsystem is a deliberate port-wide trim.
+    RE-ADD both renders with that slice.
+  - LOCKSMITH GATE in the recommendations loop (M&P "Locksmith at call
+    sites" contract; hz-product-list:107-119 pattern): the recommendations
+    engine can surface preview/vip/supervip products to sessions that fail
+    the lock. Gate is nil-safe for the onboarding placeholder loop (blank
+    product → 'false'). With it comes the Phase-10 PREFIX-style
+    <!--@list/split--> marker restructure (stock's `unless forloop.last`
+    suffix marker would let a gated skip leave an empty carousel slide) and
+    carousel slide_count switched from stock's recommendations.products.size
+    to the POST-gate slides.size (stock overcounts gated items).
+  - The appended stylesheet: the .section-resource-list grid adaptation +
+    support rules copied from hz-product-list (each standalone host carries
+    its own copy) + the recs-specific base.css:3795-3813 extraction with two
+    documented adaptations (rgb() triplet wrap; --skeleton-opacity carried).
+  - The skeleton aria-label hardcodes Horizon's English
+    (accessibility.loading_product_recommendations — key absent from Dawn's
+    locale files).
+  - Schema/preset t: strings hardcoded to Horizon's English. Preset
+    static-product-card subtree mirrors hz-product-list's Phase-11 M&P
+    tuning (badges child under gallery, color_suffix + #000 title,
+    title/price custom 0.75rem) so recs cards default to the live M&P look;
+    preset frame values (gaps/padding/product source) stay stock.
+{%- endcomment -%}
+<script
+  src="{{ 'product-recommendations.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+
+{%- comment -%}
+  Host-owned dependencies (precedent: sections/hz-blocks-host.liquid — "future
+  hosts render both"): the frozen Phase-0 engine CSS the card/text/group
+  children depend on, plus the type + UI token layers. hz-product-recommendations
+  is a standalone host, so it cannot rely on hz-blocks-host being on the page.
+{%- endcomment -%}
+{{ 'component-group.css' | asset_url | stylesheet_tag }}
+{% render 'hz-type-variables' %}
+{% render 'hz-ui-tokens' %}
+
+{% liquid
+  case section.settings.layout_type
+    when 'grid'
+      assign classes = 'resource-list--grid'
+    when 'carousel'
+      assign classes = 'resource-list__carousel'
+  endcase
+
+  capture styles
+    echo '--column-count-mobile: ' | append: section.settings.mobile_columns | append: ';'
+    echo '--resource-list-column-gap-desktop: ' | append: section.settings.columns_gap | append: 'px;'
+    echo '--resource-list-row-gap-desktop: ' | append: section.settings.rows_gap | append: 'px;'
+    echo '--resource-list-columns: repeat(' | append: section.settings.columns | append: ', 1fr);'
+    echo '--resource-list-columns-mobile: repeat(' | append: section.settings.mobile_columns | append: ', 1fr);'
+    echo '--resource-list-column-gap-desktop: ' | append: section.settings.columns_gap | append: 'px;'
+    echo '--column-count: ' | append: section.settings.columns | append: ';'
+    echo '--column-count-mobile: ' | append: section.settings.mobile_columns | append: ';'
+  endcapture
+%}
+
+{% comment %}
+  RE-ADD with the quick-add slice (deliberate Phase-10-family trim):
+  {% render 'quick-add-styles' %}
+  {% render 'quick-add-modal-styles' %}
+{% endcomment %}
+{% render 'variant-picker-styles' %}
+{% render 'product-badges-styles' %}
+{% render 'resource-list-styles' %}
+<hz-product-recommendations
+  id="product-recommendations-{{ section.id }}"
+  class="product-recommendations"
+  data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.max_products }}"
+  data-section-id="{{ section.id }}"
+  data-product-id="{{ section.settings.product.id | default: product.id }}"
+  data-intent="{{ section.settings.recommendation_type }}"
+  data-testid="product-recommendations-section"
+  data-recommendations-performed="{{ recommendations.performed }}"
+  data-hydration-key="product-recommendations-{{ section.id }}"
+  {{ section.shopify_attributes }}
+>
+  {% liquid
+    if section.settings.background_color != blank
+      render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
+    endif
+  %}
+
+  <div
+    class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+  ></div>
+  <div
+    class="
+      section
+      section--{{ section.settings.section_width }}
+      {% if section.settings.background_color != blank %}color-custom-{{ section.id }}{% endif %}
+      section-resource-list
+      spacing-style
+      gap-style
+    "
+    style="
+      {%  render 'spacing-style', settings: section.settings %}
+      {%  render 'gap-style', value: section.settings.gap %}
+      {{ styles }}
+    "
+  >
+    <div class="section-resource-list__content">
+      {% content_for 'blocks' %}
+    </div>
+
+    {%- if recommendations.performed or section.settings.product == blank -%}
+      {% liquid
+        if section.settings.product == blank
+          assign products = null
+          # Onboarding mode: Show placeholder products
+          for i in (1..section.settings.max_products)
+            assign products = products | append: ', '
+            assign products = products | split: ','
+          endfor
+        elsif recommendations.performed and recommendations.products_count == 0
+          # No recommendations found, pull from catalog
+          if section.settings.recommendation_type == 'related'
+            assign products = collections.all.products | reject: 'id', section.settings.product.id
+          elsif section.settings.recommendation_type == 'complementary'
+            # Do not recommend the All collection as complementary products
+            assign products = null
+          endif
+
+        else
+          assign products = recommendations.products
+        endif
+      %}
+      {% comment %}
+        theme-check-disable UniqueStaticBlockId — the repeated
+        static-product-card id is stock Horizon's own pattern (one static
+        block definition, re-rendered per product). Upload validation
+        accepts it; the lint rule doesn't model loops.
+      {% endcomment %}
+      {% comment %}theme-check-disable UniqueStaticBlockId{% endcomment %}
+      {% capture list_items %}
+        {% assign hz_rendered_count = 0 %}
+        {% for product in products limit: section.settings.max_products %}
+          {% comment %}
+            Phase-12 LOCKSMITH GATE (leak prevention) — the
+            hz-product-list:107-119 pattern: locked products must not
+            surface in recommendations for sessions that fail the lock.
+            Nil-safe in onboarding mode (blank placeholder product →
+            'false'). Gated products still consume loop slots, matching
+            the native grid's behavior.
+          {% endcomment %}
+          {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: product -%}{%- endcapture -%}
+          {% assign lock_content = lock_content | strip %}
+          {% if lock_content == 'true' %}
+            {% continue %}
+          {% endif %}
+          {% comment %}
+            Dawn deviation from stock's `unless forloop.last` suffix marker
+            (hz-product-list precedent): the split marker is emitted BEFORE
+            every rendered item except the first, so a gated (skipped)
+            product can't leave a trailing marker — a trailing marker would
+            split into an empty chunk and render as an empty carousel slide.
+          {% endcomment %}
+          {% if hz_rendered_count > 0 %}<!--@list/split-->{% endif %}
+          <div class="resource-list__item">
+            {% content_for 'block',
+              type: '_product-card',
+              id: 'static-product-card',
+              closest.product: product,
+              product_view_context: 'recommendation'
+            %}
+          </div>
+          {% assign hz_rendered_count = hz_rendered_count | plus: 1 %}
+        {% endfor %}
+      {% endcapture %}
+      {% comment %}theme-check-enable UniqueStaticBlockId{% endcomment %}
+
+      {% liquid
+        # Create an array from the list items to be used in the carousel
+        assign slide_content = list_items | strip
+        assign slides = slide_content | split: '<!--@list/split-->'
+
+        if products != blank and products.size > 0
+          assign has_recommendations = 'true'
+        else
+          assign has_recommendations = 'false'
+        endif
+      %}
+
+      <div
+        class="
+          resource-list
+          {% if section.settings.layout_type == 'carousel' %}
+            force-full-width
+          {% endif %}
+          {% if section.settings.carousel_on_mobile and section.settings.layout_type != 'carousel' %}
+            hidden--mobile
+          {% endif %}
+          {{ classes }}
+        "
+        {% if section.settings.layout_type == 'grid' %}
+          data-testid="resource-list-grid"
+        {% endif %}
+        data-has-recommendations="{{ has_recommendations }}"
+      >
+        {% case section.settings.layout_type %}
+          {% when 'grid' %}
+            {{ list_items }}
+          {% when 'carousel' %}
+            {% comment %}
+              slide_count deviates from stock's recommendations.products.size:
+              the post-gate slides.size keeps carousel controls tracking the
+              rendered count (stock would overcount Locksmith-gated items).
+            {% endcomment %}
+            {% render 'resource-list-carousel',
+              ref: 'resourceListCarousel',
+              slides: slides,
+              slide_count: slides.size,
+              settings: section.settings
+            %}
+        {% endcase %}
+      </div>
+
+      {% if section.settings.carousel_on_mobile and section.settings.layout_type != 'carousel' %}
+        {% liquid
+          assign mobile_carousel_gap = section.settings.columns_gap
+        %}
+        <div
+          class="
+            resource-list
+            hidden--desktop
+            force-full-width
+          "
+          style="
+            --resource-list-gap: {{ mobile_carousel_gap }}px;
+            --column-count: {{ section.settings.columns }};
+          "
+        >
+          {% render 'resource-list-carousel',
+            ref: 'resourceListCarouselMobile',
+            slides: slides,
+            slide_count: slides.size,
+            settings: section.settings
+          %}
+        </div>
+      {% endif %}
+    {%- else -%}
+      <div
+        class="resource-list resource-list--grid"
+      >
+        {% for i in (1..section.settings.columns) %}
+          <div
+            class="product-recommendations__skeleton-item"
+            aria-label="Loading product recommendations"
+          ></div>
+        {% endfor %}
+      </div>
+    {%- endif -%}
+  </div>
+</hz-product-recommendations>
+
+{% stylesheet %}
+  /* Dawn adaptation of Horizon base.css .section grid (68760d9
+     base.css:333-419), scoped to .section-resource-list — copied from the
+     hz-product-list host (each standalone host carries its own copy; same
+     store-specific reduction: .page-width max-width is disabled, so
+     --util-page-margin-offset === the page padding; gutters follow Dawn's
+     1100px page-padding breakpoint). */
+  .section-resource-list {
+    --util-page-margin-offset: var(--page-width-padding);
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns:
+      minmax(var(--util-page-margin-offset), 1fr)
+      minmax(0, calc(100% - var(--util-page-margin-offset) * 2))
+      minmax(var(--util-page-margin-offset), 1fr);
+  }
+
+  @media screen and (max-width: 1099px) {
+    .section-resource-list {
+      --util-page-margin-offset: var(--mobile-page-width-padding);
+    }
+  }
+
+  .section-resource-list > * {
+    grid-column: 2;
+  }
+
+  .section-resource-list.section--full-width > * {
+    grid-column: 1 / -1;
+  }
+
+  /* Horizon base.css:418 leg, re-scoped from `.section >` to this host's
+     section class: carousel layouts break out to the full page width. */
+  .section-resource-list > .force-full-width {
+    grid-column: 1 / -1;
+  }
+
+  /* Horizon base.css:3605-3633 extraction (subset, verbatim): the section's
+     row gap, the content/header empty-state collapse. */
+  .section-resource-list {
+    row-gap: var(--gap);
+  }
+
+  .section-resource-list__content {
+    display: flex;
+    flex-direction: column;
+    align-items: var(--horizontal-alignment);
+    gap: var(--gap);
+    width: 100%;
+  }
+
+  .section-resource-list__content:empty {
+    display: none;
+  }
+
+  /* Horizon base.css:3795-3813 extraction (recs-specific), verbatim except
+     two documented Dawn adaptations: (1) stock's `background-color:
+     var(--color-foreground)` expects Horizon's FULL-COLOR var — in this
+     port --color-foreground is a Dawn comma triplet, so it's wrapped in
+     rgb() (hz-ui-tokens --color-border precedent); (2) --skeleton-opacity
+     lives in Horizon's theme-styles-variables.liquid:639 (not ported) —
+     its value (0.025) is carried as the var() fallback. The final rule is
+     a TAG selector: retargeted to the renamed element (tag selectors move
+     in lockstep with the rename; see doc-header). */
+  .product-recommendations {
+    display: block;
+  }
+
+  .product-recommendations__skeleton-item {
+    aspect-ratio: 3 / 4;
+    background-color: rgb(var(--color-foreground));
+    opacity: var(--skeleton-opacity, 0.025);
+    border-radius: 4px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .product-recommendations__skeleton-item:nth-child(2n + 1) {
+      display: none;
+    }
+  }
+
+  hz-product-recommendations:has([data-has-recommendations='false']) {
+    display: none;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Recommended products",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    },
+    {
+      "type": "text"
+    },
+    {
+      "type": "icon"
+    },
+    {
+      "type": "image"
+    },
+    {
+      "type": "button"
+    },
+    {
+      "type": "video"
+    },
+    {
+      "type": "group"
+    },
+    {
+      "type": "spacer"
+    },
+    {
+      "type": "_divider"
+    }
+  ],
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "select",
+      "id": "recommendation_type",
+      "label": "Type",
+      "options": [
+        {
+          "value": "related",
+          "label": "Related"
+        },
+        {
+          "value": "complementary",
+          "label": "Complementary"
+        }
+      ],
+      "default": "related"
+    },
+    {
+      "type": "paragraph",
+      "content": "Complementary products must be set up using the Search & Discovery app. [Learn more](https://help.shopify.com/manual/online-store/search-and-discovery)"
+    },
+    {
+      "type": "header",
+      "content": "Cards layout"
+    },
+    {
+      "type": "select",
+      "id": "layout_type",
+      "label": "Style",
+      "options": [
+        {
+          "value": "grid",
+          "label": "Grid"
+        },
+        {
+          "value": "carousel",
+          "label": "Carousel"
+        }
+      ],
+      "default": "grid"
+    },
+    {
+      "type": "checkbox",
+      "id": "carousel_on_mobile",
+      "label": "Carousel on mobile",
+      "default": false,
+      "visible_if": "{{ section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "range",
+      "id": "max_products",
+      "label": "Product count",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Columns",
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "mobile_columns",
+      "label": "Mobile columns",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "2",
+      "visible_if": "{{ section.settings.layout_type == 'grid' and section.settings.carousel_on_mobile == false }}"
+    },
+    {
+      "type": "range",
+      "id": "columns_gap",
+      "label": "Horizontal gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16,
+      "visible_if": "{{ section.settings.layout_type == 'grid' or section.settings.layout_type == 'carousel' }}"
+    },
+    {
+      "type": "range",
+      "id": "rows_gap",
+      "label": "Vertical gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16,
+      "visible_if": "{{ section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "header",
+      "content": "Carousel navigation",
+      "visible_if": "{{ section.settings.layout_type == 'carousel' or section.settings.carousel_on_mobile == true }}"
+    },
+    {
+      "type": "select",
+      "id": "icons_style",
+      "label": "Icon",
+      "options": [
+        {
+          "value": "arrow",
+          "label": "Arrows"
+        },
+        {
+          "value": "chevron",
+          "label": "Chevrons"
+        },
+        {
+          "value": "arrows_large",
+          "label": "Large arrows"
+        },
+        {
+          "value": "chevron_large",
+          "label": "Large chevrons"
+        },
+        {
+          "value": "none",
+          "label": "None"
+        }
+      ],
+      "default": "arrow",
+      "visible_if": "{{ section.settings.layout_type == 'carousel' or section.settings.carousel_on_mobile == true }}"
+    },
+    {
+      "type": "select",
+      "id": "icons_shape",
+      "label": "Icon background",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.icons_style != 'none' and section.settings.layout_type == 'carousel' or section.settings.carousel_on_mobile == true }}"
+    },
+    {
+      "type": "header",
+      "content": "Section layout"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page"
+        },
+        {
+          "value": "full-width",
+          "label": "Full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "placeholder": "Default"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Recommended products",
+      "category": "Products",
+      "settings": {
+        "product": "{{ closest.product }}",
+        "recommendation_type": "related",
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "max_products": 4,
+        "columns": 4,
+        "mobile_columns": "2",
+        "columns_gap": 12,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "gap": 28,
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      },
+      "blocks": {
+        "header": {
+          "type": "text",
+          "name": "Header",
+          "settings": {
+            "text": "<h2>Related products</h2>",
+            "type_preset": "h3"
+          }
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "Product card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product-card-gallery": {
+              "type": "_product-card-gallery",
+              "name": "Media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "badges": {
+                  "type": "_product-badges"
+                }
+              },
+              "block_order": ["badges"]
+            },
+            "product_title": {
+              "type": "product-title",
+              "name": "Product title",
+              "settings": {
+                "color_suffix": true,
+                "text_color": "#000000",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "0.75rem",
+                "line_height": "loose",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            },
+            "price": {
+              "type": "price",
+              "name": "Price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "custom",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "0.75rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            }
+          },
+          "block_order": ["product-card-gallery", "product_title", "price"]
+        }
+      },
+      "block_order": ["header"]
+    }
+  ]
+}
+{% endschema %}
