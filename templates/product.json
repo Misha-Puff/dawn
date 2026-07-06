@@ -222,7 +222,7 @@
           "type": "description",
           "settings": {
             "tg_enable_type": true,
-            "tg_font": "ibm_plex_mono_n4",
+            "tg_font": "geist_n4",
             "tg_font_size": 12,
             "tg_line_height": 160,
             "tg_text_case": "default",
