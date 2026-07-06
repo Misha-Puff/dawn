@@ -73,6 +73,7 @@
         "text_FWX7U7",
         "button_CEpfd9"
       ],
+      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -124,6 +125,7 @@
         "button_MdW9Jh",
         "button_i7JnE7"
       ],
+      "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
