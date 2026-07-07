@@ -56,7 +56,7 @@
     {%- if picker_type == 'swatch' -%}
       <fieldset class="js product-form__input product-form__input--swatch{% if hide_option %} hidden{% endif %}">
         <legend class="form__label">
-          {{ option.name }}:
+          <span data-option-name>{{ option.name }}:</span>
           <span data-selected-value>
             {{- option.selected_value -}}
           </span>
@@ -65,13 +65,13 @@
       </fieldset>
     {%- elsif picker_type == 'button' -%}
       <fieldset class="js product-form__input product-form__input--pill{% if hide_option %} hidden{% endif %}">
-        <legend class="form__label">{{ option.name }}</legend>
+        <legend class="form__label"><span data-option-name>{{ option.name }}</span></legend>
         {% render 'product-variant-options', product: product, option: option, block: block, picker_type: picker_type %}
       </fieldset>
     {%- else -%}
       <div class="product-form__input product-form__input--dropdown{% if hide_option %} hidden{% endif %}">
         <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
-          {{ option.name }}
+          <span data-option-name>{{ option.name }}</span>
         </label>
         <div class="select">
           {%- if picker_type == 'swatch_dropdown' -%}

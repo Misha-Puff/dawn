@@ -157,7 +157,7 @@
         {%- endif -%}
       {%- endif -%}
       {%- if block.type == 'variant_picker' -%}
-        {%- comment -%} Per-element typography overrides (option label / values / selected value / swatch message). Settings follow tg_<element>_<suffix> naming so one data-driven loop reads them via bracket access. Rules are emitted after the shared tg_ base rules above, so they win specificity ties deterministically. {%- endcomment -%}
+        {%- comment -%} Per-element typography overrides (option name / values / chosen value / swatch message). Settings follow tg_<element>_<suffix> naming so one data-driven loop reads them via bracket access. Rules are emitted after the shared tg_ base rules above, so they win specificity ties deterministically — 'selected' (chosen value) comes after 'value' in the element list, so it also wins the tie on the dropdown's .select__select. {%- endcomment -%}
         {%- assign tgv_elements = 'label,value,selected,message' | split: ',' -%}
         {%- for tgv_el in tgv_elements -%}
           {%- assign tgv_key = 'tg_' | append: tgv_el -%}
@@ -202,7 +202,7 @@
           {%- case tgv_el -%}
             {%- when 'label' -%}
               {%- if tgv_fulldecl != blank -%}
-                #{{ tg_scope }} .Block-{{ block.id }} .form__label { {{ tgv_fulldecl }} }
+                #{{ tg_scope }} .Block-{{ block.id }} .form__label [data-option-name] { {{ tgv_fulldecl }} }
               {%- endif -%}
             {%- when 'value' -%}
               {%- comment -%} Checked pills keep the theme's inverted colors, so the custom color skips them (same shape as the base group rule above). {%- endcomment -%}
@@ -214,7 +214,7 @@
               {%- endif -%}
             {%- when 'selected' -%}
               {%- if tgv_fulldecl != blank -%}
-                #{{ tg_scope }} .Block-{{ block.id }} .form__label [data-selected-value] { {{ tgv_fulldecl }} }
+                #{{ tg_scope }} .Block-{{ block.id }} .form__label [data-selected-value], #{{ tg_scope }} .Block-{{ block.id }} .select__select { {{ tgv_fulldecl }} }
               {%- endif -%}
             {%- when 'message' -%}
               {%- comment -%} The message div carries the Block-id class itself, so this works without the picker wrapper div. {%- endcomment -%}
@@ -2550,7 +2550,8 @@
         },
         {
           "type": "header",
-          "content": "Option label typography"
+          "content": "Option name typography",
+          "info": "Styles the option names, e.g. \"Color:\" and \"Size\"."
         },
         {
           "type": "checkbox",
@@ -2639,7 +2640,8 @@
         },
         {
           "type": "header",
-          "content": "Value typography (pills \u0026 dropdowns)"
+          "content": "Value typography (pills \u0026 dropdowns)",
+          "info": "Styles pill chips and dropdowns. Chosen value typography takes precedence on the dropdown's displayed text."
         },
         {
           "type": "checkbox",
@@ -2728,7 +2730,8 @@
         },
         {
           "type": "header",
-          "content": "Selected value typography (swatch legend)"
+          "content": "Chosen value typography",
+          "info": "Styles the selected value, e.g. \"Orange\" in the swatch legend and \"2Y\" shown in the size dropdown. Overrides Value typography on the dropdown."
         },
         {
           "type": "checkbox",
