@@ -63,6 +63,40 @@
     }
   {%- endif -%}
 
+  {%- liquid
+    assign ct_size = section.settings.card_title_size | default: 0
+    assign cp_size = section.settings.card_price_size | default: 0
+    assign cb_size = section.settings.card_badge_size | default: 0
+    assign ca_size = section.settings.card_availability_size | default: 0
+    assign ct_w = section.settings.card_title_weight | default: 'default'
+    assign cp_w = section.settings.card_price_weight | default: 'default'
+    assign cb_w = section.settings.card_badge_weight | default: 'default'
+    assign ca_w = section.settings.card_availability_weight | default: 'default'
+  -%}
+  {%- if ct_size > 0 or cp_size > 0 or cb_size > 0 or ca_size > 0 -%}
+    {%- comment -%} Card typography size vars; component-card.css consumes them via var() fallbacks equal to stock. {%- endcomment -%}
+    #shopify-section-{{ section.id }} {
+      {%- if ct_size > 0 %} --card-title-size: {{ ct_size }}px;{% endif -%}
+      {%- if cp_size > 0 %} --card-price-size: {{ cp_size }}px;{% endif -%}
+      {%- if cb_size > 0 %} --card-badge-size: {{ cb_size }}px;{% endif -%}
+      {%- if ca_size > 0 %} --card-availability-size: {{ ca_size }}px;{% endif -%}
+    }
+  {%- endif -%}
+  {%- comment -%} Weights emitted directly (tg_ precedent): ID scope beats base.css heading/badge rules; zero CSS at defaults. {%- endcomment -%}
+  {%- if ct_w != 'default' -%}
+    #shopify-section-{{ section.id }} .card__heading { font-weight: {{ ct_w }}; }
+  {%- endif -%}
+  {%- if cp_w != 'default' -%}
+    #shopify-section-{{ section.id }} .card__heading-row > .price { font-weight: {{ cp_w }}; }
+  {%- endif -%}
+  {%- if cb_w != 'default' -%}
+    #shopify-section-{{ section.id }} .badge--card { font-weight: {{ cb_w }}; }
+  {%- endif -%}
+  {%- if ca_w != 'default' -%}
+    #shopify-section-{{ section.id }} .variant-availability span,
+    #shopify-section-{{ section.id }} .card__swatch-more { font-weight: {{ ca_w }}; }
+  {%- endif -%}
+
   @media screen and (max-width: 1099px) {
     .collection {
       padding: 0;
@@ -877,6 +911,110 @@
       "info": "0 = theme default (2px)",
       "default": 0,
       "visible_if": "{{ section.settings.enable_swatches }}"
+    },
+    {
+      "type": "header",
+      "content": "Card typography"
+    },
+    {
+      "type": "range",
+      "id": "card_title_size",
+      "min": 0,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Title size",
+      "info": "0 = theme default (12px)",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "card_title_weight",
+      "options": [
+        { "value": "default", "label": "Theme default" },
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semibold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "default",
+      "label": "Title weight"
+    },
+    {
+      "type": "range",
+      "id": "card_price_size",
+      "min": 0,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Price size",
+      "info": "0 = theme default (14px)",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "card_price_weight",
+      "options": [
+        { "value": "default", "label": "Theme default" },
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semibold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "default",
+      "label": "Price weight"
+    },
+    {
+      "type": "range",
+      "id": "card_badge_size",
+      "min": 0,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Badge size",
+      "info": "0 = theme default",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "card_badge_weight",
+      "options": [
+        { "value": "default", "label": "Theme default" },
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semibold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "default",
+      "label": "Badge weight"
+    },
+    {
+      "type": "range",
+      "id": "card_availability_size",
+      "min": 0,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Availability size",
+      "info": "0 = theme default",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "card_availability_weight",
+      "options": [
+        { "value": "default", "label": "Theme default" },
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semibold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "default",
+      "label": "Availability weight"
     },
     {
       "type": "select",
