@@ -1,0 +1,56 @@
+{% comment %}
+  Central brand-font map. Renders the CSS font stack (default) or the preload
+  filename (part: 'file') for a brand-font select value. Unknown, 'default' or
+  blank values render nothing — callers treat blank output as "no override".
+  Family names must match snippets/brand-font-faces.liquid.
+
+  Accepts:
+  - font: {String} brand-font select value (e.g. 'geist_mono')
+  - part: {String} optional — 'file' returns the preload woff2 filename
+
+  Usage:
+  {%- capture stack -%}{% render 'brand-font', font: settings.type_body_custom_font %}{%- endcapture -%}
+  {%- assign stack = stack | strip -%}
+{% endcomment %}
+{%- liquid
+  case font
+    when 'ibm_plex_sans'
+      assign brand_stack = "'IBM Plex Sans Custom', Arial, sans-serif"
+      assign brand_file = 'font-ibm-plex-sans-latin-wght.woff2'
+    when 'ibm_plex_mono'
+      assign brand_stack = "'IBM Plex Mono Custom', 'Courier New', monospace"
+      assign brand_file = 'font-ibm-plex-mono-latin-400.woff2'
+    when 'inter'
+      assign brand_stack = "'Inter Custom', Arial, sans-serif"
+      assign brand_file = 'font-inter-latin-wght.woff2'
+    when 'geist'
+      assign brand_stack = "'Geist Custom', Arial, sans-serif"
+      assign brand_file = 'font-geist-latin-wght.woff2'
+    when 'geist_mono'
+      assign brand_stack = "'Geist Mono Custom', 'Courier New', monospace"
+      assign brand_file = 'font-geist-mono-latin-wght.woff2'
+    when 'overpass'
+      assign brand_stack = "'Overpass Custom', Arial, sans-serif"
+      assign brand_file = 'font-overpass-latin-wght.woff2'
+    when 'overpass_mono'
+      assign brand_stack = "'Overpass Mono Custom', 'Courier New', monospace"
+      assign brand_file = 'font-overpass-mono-latin-wght.woff2'
+    when 'dm_sans'
+      assign brand_stack = "'DM Sans Custom', Arial, sans-serif"
+      assign brand_file = 'font-dm-sans-latin-wght.woff2'
+    when 'dm_mono'
+      assign brand_stack = "'DM Mono Custom', 'Courier New', monospace"
+      assign brand_file = 'font-dm-mono-latin-400.woff2'
+    when 'manrope'
+      assign brand_stack = "'Manrope Custom', Arial, sans-serif"
+      assign brand_file = 'font-manrope-latin-wght.woff2'
+    when 'open_sans'
+      assign brand_stack = "'Open Sans Custom', Arial, sans-serif"
+      assign brand_file = 'font-open-sans-latin-wght.woff2'
+  endcase
+  if part == 'file'
+    echo brand_file
+  else
+    echo brand_stack
+  endif
+-%}

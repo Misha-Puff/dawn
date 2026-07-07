@@ -125,6 +125,27 @@
         "label": "t:settings_schema.typography.settings.type_header_font.label"
       },
       {
+        "type": "select",
+        "id": "type_header_custom_font",
+        "options": [
+          { "value": "default", "label": "None (use font picker)" },
+          { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+          { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+          { "value": "inter", "label": "Inter" },
+          { "value": "geist", "label": "Geist" },
+          { "value": "geist_mono", "label": "Geist Mono" },
+          { "value": "overpass", "label": "Overpass" },
+          { "value": "overpass_mono", "label": "Overpass Mono" },
+          { "value": "dm_sans", "label": "DM Sans" },
+          { "value": "dm_mono", "label": "DM Mono" },
+          { "value": "manrope", "label": "Manrope" },
+          { "value": "open_sans", "label": "Open Sans" }
+        ],
+        "default": "default",
+        "label": "Brand font",
+        "info": "Overrides the font picker above when set"
+      },
+      {
         "type": "range",
         "id": "heading_scale",
         "min": 50,
@@ -143,6 +164,27 @@
         "id": "type_body_font",
         "default": "assistant_n4",
         "label": "t:settings_schema.typography.settings.type_body_font.label"
+      },
+      {
+        "type": "select",
+        "id": "type_body_custom_font",
+        "options": [
+          { "value": "default", "label": "None (use font picker)" },
+          { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+          { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+          { "value": "inter", "label": "Inter" },
+          { "value": "geist", "label": "Geist" },
+          { "value": "geist_mono", "label": "Geist Mono" },
+          { "value": "overpass", "label": "Overpass" },
+          { "value": "overpass_mono", "label": "Overpass Mono" },
+          { "value": "dm_sans", "label": "DM Sans" },
+          { "value": "dm_mono", "label": "DM Mono" },
+          { "value": "manrope", "label": "Manrope" },
+          { "value": "open_sans", "label": "Open Sans" }
+        ],
+        "default": "default",
+        "label": "Brand font",
+        "info": "Overrides the font picker above when set"
       },
       {
         "type": "range",

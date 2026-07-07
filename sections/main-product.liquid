@@ -133,13 +133,15 @@
           assign tg_ls = block.settings.tg_letter_spacing | default: 0
           assign tg_col = block.settings.tg_color
         -%}
-        {%- if tg_font != blank -%}{{ tg_font | font_face: font_display: 'swap' }}{%- endif -%}
-        {%- if tg_font != blank and tg_weight != 'default' -%}
+        {%- capture tg_brand_stack -%}{% render 'brand-font', font: block.settings.tg_custom_font %}{%- endcapture -%}
+        {%- assign tg_brand_stack = tg_brand_stack | strip -%}
+        {%- if tg_font != blank and tg_brand_stack == blank -%}{{ tg_font | font_face: font_display: 'swap' }}{%- endif -%}
+        {%- if tg_font != blank and tg_brand_stack == blank and tg_weight != 'default' -%}
           {%- assign tg_wfont = tg_font | font_modify: 'weight', tg_weight -%}
           {%- if tg_wfont -%}{{ tg_wfont | font_face: font_display: 'swap' }}{%- endif -%}
         {%- endif -%}
         {%- capture tg_typedecl -%}
-          {%- if tg_font != blank %}font-family: {{ tg_font.family }}, {{ tg_font.fallback_families }};{% endif -%}
+          {%- if tg_brand_stack != blank %}font-family: {{ tg_brand_stack }};{% elsif tg_font != blank %}font-family: {{ tg_font.family }}, {{ tg_font.fallback_families }};{% endif -%}
           {%- if tg_weight != 'default' and tg_weight != blank %} font-weight: {{ tg_weight }};{% endif -%}
           {%- if tg_fs > 0 %} font-size: {{ tg_fs }}px;{% endif -%}
           {%- if tg_case != 'default' and tg_case != blank %} text-transform: {{ tg_case }};{% endif -%}
@@ -167,7 +169,7 @@
               #{{ tg_scope }} .Block-{{ block.id }} .product-popup-modal__button { {{ tg_typedecl }}{% if tg_font != blank %} font-style: {{ tg_font.style }};{% if tg_weight == 'default' %} font-weight: {{ tg_font.weight }};{% endif %}{% endif %}{% if tg_lh > 0 %} line-height: {{ tg_lh }}%;{% endif %} }
             {%- when 'variant_picker' -%}
               {%- comment -%} Labels, selects and pills carry their own font/color theme rules, so the declaration must land on them directly; the font_picker's style dropdown is honored via font-style/font-weight. Checked pills keep the theme's inverted colors, so the custom color skips them. {%- endcomment -%}
-              #{{ tg_scope }} .Block-{{ block.id }}, #{{ tg_scope }} .Block-{{ block.id }} .form__label, #{{ tg_scope }} .Block-{{ block.id }} .select__select, #{{ tg_scope }} .Block-{{ block.id }} .product-form__input--pill input[type='radio'] + label { {{ tg_typedecl }}{% if tg_font != blank %} font-style: {{ tg_font.style }};{% if tg_weight == 'default' %} font-weight: {{ tg_font.weight }};{% endif %}{% endif %} }
+              #{{ tg_scope }} .Block-{{ block.id }}, #{{ tg_scope }} .Block-{{ block.id }} .form__label, #{{ tg_scope }} .Block-{{ block.id }} .select__select, #{{ tg_scope }} .Block-{{ block.id }} .product-form__input--pill input[type='radio'] + label { {{ tg_typedecl }}{% if tg_brand_stack != blank %} font-style: normal;{% if tg_weight == 'default' %} font-weight: 400;{% endif %}{% elsif tg_font != blank %} font-style: {{ tg_font.style }};{% if tg_weight == 'default' %} font-weight: {{ tg_font.weight }};{% endif %}{% endif %} }
               {%- if tg_col != blank -%}
                 #{{ tg_scope }} .Block-{{ block.id }}, #{{ tg_scope }} .Block-{{ block.id }} .select__select, #{{ tg_scope }} .Block-{{ block.id }} .product-form__input--pill input[type='radio']:not(:checked) + label { color: {{ tg_col }}; }
               {%- endif -%}
@@ -218,7 +220,9 @@
             assign tgv_case_key = tgv_key | append: '_case'
             assign tgv_ls_key = tgv_key | append: '_letter_spacing'
             assign tgv_color_key = tgv_key | append: '_color'
+            assign tgv_custom_font_key = tgv_key | append: '_custom_font'
             assign tgv_font = block.settings[tgv_font_key]
+            assign tgv_custom_font = block.settings[tgv_custom_font_key]
             assign tgv_weight = block.settings[tgv_weight_key] | default: 'default'
             assign tgv_fs = block.settings[tgv_size_key] | default: 0
             assign tgv_lh = block.settings[tgv_lh_key] | default: 0
@@ -226,13 +230,15 @@
             assign tgv_ls = block.settings[tgv_ls_key] | default: 0
             assign tgv_col = block.settings[tgv_color_key]
           -%}
-          {%- if tgv_font != blank -%}{{ tgv_font | font_face: font_display: 'swap' }}{%- endif -%}
-          {%- if tgv_font != blank and tgv_weight != 'default' -%}
+          {%- capture tgv_brand_stack -%}{% render 'brand-font', font: tgv_custom_font %}{%- endcapture -%}
+          {%- assign tgv_brand_stack = tgv_brand_stack | strip -%}
+          {%- if tgv_font != blank and tgv_brand_stack == blank -%}{{ tgv_font | font_face: font_display: 'swap' }}{%- endif -%}
+          {%- if tgv_font != blank and tgv_brand_stack == blank and tgv_weight != 'default' -%}
             {%- assign tgv_wfont = tgv_font | font_modify: 'weight', tgv_weight -%}
             {%- if tgv_wfont -%}{{ tgv_wfont | font_face: font_display: 'swap' }}{%- endif -%}
           {%- endif -%}
           {%- capture tgv_typedecl -%}
-            {%- if tgv_font != blank %}font-family: {{ tgv_font.family }}, {{ tgv_font.fallback_families }}; font-style: {{ tgv_font.style }};{% if tgv_weight == 'default' %} font-weight: {{ tgv_font.weight }};{% endif %}{% endif -%}
+            {%- if tgv_brand_stack != blank %}font-family: {{ tgv_brand_stack }}; font-style: normal;{% if tgv_weight == 'default' %} font-weight: 400;{% endif %}{% elsif tgv_font != blank %}font-family: {{ tgv_font.family }}, {{ tgv_font.fallback_families }}; font-style: {{ tgv_font.style }};{% if tgv_weight == 'default' %} font-weight: {{ tgv_font.weight }};{% endif %}{% endif -%}
             {%- if tgv_weight != 'default' and tgv_weight != blank %} font-weight: {{ tgv_weight }};{% endif -%}
             {%- if tgv_fs > 0 %} font-size: {{ tgv_fs }}px;{% endif -%}
             {%- if tgv_lh > 0 %} line-height: {{ tgv_lh }}%;{% endif -%}
@@ -657,15 +663,17 @@
                   {{- block.settings.custom_liquid -}}
                 {%- endcapture -%}
                 {%- if custom_liquid_output != blank -%}
+                  {%- capture cl_brand_stack -%}{% render 'brand-font', font: block.settings.custom_font_family %}{%- endcapture -%}
+                  {%- assign cl_brand_stack = cl_brand_stack | strip -%}
                   {%- style -%}
-                    {%- if block.settings.enable_typography and block.settings.font_family != blank -%}{{ block.settings.font_family | font_face: font_display: 'swap' }}{%- endif -%}
+                    {%- if block.settings.enable_typography and block.settings.font_family != blank and cl_brand_stack == blank -%}{{ block.settings.font_family | font_face: font_display: 'swap' }}{%- endif -%}
                     .custom-liquid-block-{{ block.id }} {
                       {%- if block.settings.enable_padding -%}
                         {%- if block.settings.padding_top > 0 -%}padding-top: {{ block.settings.padding_top }}px;{%- endif -%}
                         {%- if block.settings.padding_bottom > 0 -%}padding-bottom: {{ block.settings.padding_bottom }}px;{%- endif -%}
                       {%- endif -%}
                       {%- if block.settings.enable_typography -%}
-                        {%- if block.settings.font_family != blank -%}font-family: {{ block.settings.font_family.family }}, {{ block.settings.font_family.fallback_families }};{%- endif -%}
+                        {%- if cl_brand_stack != blank -%}font-family: {{ cl_brand_stack }};{%- elsif block.settings.font_family != blank -%}font-family: {{ block.settings.font_family.family }}, {{ block.settings.font_family.fallback_families }};{%- endif -%}
                         {%- if block.settings.font_size > 0 -%}font-size: {{ block.settings.font_size }}px;{%- endif -%}
                         {%- unless block.settings.font_color == blank -%}color: {{ block.settings.font_color }};{%- endunless -%}
                         {%- if block.settings.line_height > 0 -%}line-height: {{ block.settings.line_height }};{%- endif -%}
@@ -1485,6 +1493,28 @@
         },
         {
           "type": "select",
+          "id": "tg_custom_font",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
           "id": "tg_font_weight",
           "options": [
             { "value": "default", "label": "Theme default" },
@@ -1602,6 +1632,28 @@
           "id": "tg_font",
           "default": "assistant_n4",
           "label": "Font",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_custom_font",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
           "visible_if": "{{ block.settings.tg_enable_type }}"
         },
         {
@@ -1738,6 +1790,28 @@
         },
         {
           "type": "select",
+          "id": "tg_custom_font",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
           "id": "tg_font_weight",
           "options": [
             { "value": "default", "label": "Theme default" },
@@ -1859,6 +1933,28 @@
           "id": "tg_font",
           "default": "assistant_n4",
           "label": "Font",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_custom_font",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
           "visible_if": "{{ block.settings.tg_enable_type }}"
         },
         {
@@ -2025,6 +2121,28 @@
         },
         {
           "type": "select",
+          "id": "tg_custom_font",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
           "id": "tg_font_weight",
           "options": [
             { "value": "default", "label": "Theme default" },
@@ -2162,6 +2280,28 @@
           "id": "tg_font",
           "default": "assistant_n4",
           "label": "Font",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_custom_font",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
           "visible_if": "{{ block.settings.tg_enable_type }}"
         },
         {
@@ -2318,6 +2458,28 @@
           "id": "tg_font",
           "default": "assistant_n4",
           "label": "Font",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_custom_font",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
           "visible_if": "{{ block.settings.tg_enable_type }}"
         },
         {
@@ -2613,6 +2775,28 @@
         },
         {
           "type": "select",
+          "id": "tg_custom_font",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
           "id": "tg_font_weight",
           "options": [
             { "value": "default", "label": "Theme default" },
@@ -2699,6 +2883,28 @@
           "id": "tg_label_font",
           "default": "assistant_n4",
           "label": "Font",
+          "visible_if": "{{ block.settings.tg_label_enable }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_label_custom_font",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
           "visible_if": "{{ block.settings.tg_label_enable }}"
         },
         {
@@ -2793,6 +2999,28 @@
         },
         {
           "type": "select",
+          "id": "tg_value_custom_font",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
+          "visible_if": "{{ block.settings.tg_value_enable }}"
+        },
+        {
+          "type": "select",
           "id": "tg_value_weight",
           "options": [
             { "value": "default", "label": "Theme default" },
@@ -2883,6 +3111,28 @@
         },
         {
           "type": "select",
+          "id": "tg_selected_custom_font",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
+          "visible_if": "{{ block.settings.tg_selected_enable }}"
+        },
+        {
+          "type": "select",
           "id": "tg_selected_weight",
           "options": [
             { "value": "default", "label": "Theme default" },
@@ -2968,6 +3218,28 @@
           "id": "tg_message_font",
           "default": "assistant_n4",
           "label": "Font",
+          "visible_if": "{{ block.settings.tg_message_enable }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_message_custom_font",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
           "visible_if": "{{ block.settings.tg_message_enable }}"
         },
         {
@@ -3280,6 +3552,28 @@
         },
         {
           "type": "select",
+          "id": "tg_custom_font",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
           "id": "tg_font_weight",
           "options": [
             { "value": "default", "label": "Theme default" },
@@ -3447,6 +3741,28 @@
           "id": "font_family",
           "default": "assistant_n4",
           "label": "Font",
+          "visible_if": "{{ block.settings.enable_typography }}"
+        },
+        {
+          "type": "select",
+          "id": "custom_font_family",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
           "visible_if": "{{ block.settings.enable_typography }}"
         },
         {
@@ -3795,6 +4111,28 @@
         },
         {
           "type": "select",
+          "id": "tg_custom_font",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
           "id": "tg_font_weight",
           "options": [
             { "value": "default", "label": "Theme default" },
@@ -4055,6 +4393,28 @@
           "id": "tg_font",
           "default": "assistant_n4",
           "label": "Font",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_custom_font",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
           "visible_if": "{{ block.settings.tg_enable_type }}"
         },
         {
