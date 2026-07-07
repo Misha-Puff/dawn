@@ -538,7 +538,8 @@
                     skip_styles: skip_card_product_styles,
                     quick_add: section.settings.quick_add,
                     section_id: section.id,
-                    show_swatches_availability: true
+                    show_swatches_availability: true,
+                    size_overlay: section.settings.show_size_overlay
                   %}
                 </li>
                 {%- assign skip_card_product_styles = true -%}
@@ -678,7 +679,8 @@
                             skip_styles: campaign_styles_loaded,
                             quick_add: 'none',
                             section_id: section.id,
-                            show_swatches_availability: true
+                            show_swatches_availability: true,
+                            size_overlay: section.settings.show_size_overlay
                           %}
                         </li>
                         {%- assign campaign_styles_loaded = true -%}
@@ -829,9 +831,9 @@
     },
     {
       "type": "checkbox",
-      "id": "enable_overlay",
-      "default": false,
-      "label": "Enable Hover Overlay"
+      "id": "show_size_overlay",
+      "default": true,
+      "label": "Show size availability on hover (desktop)"
     },
     {
       "type": "checkbox",

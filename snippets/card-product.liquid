@@ -18,6 +18,7 @@
   - placeholder_image: {String} The placeholder image to use when no product exists. Default: 'product-apparel-2' (optional)
   - preview_badge: {String} Optional badge label rendered alongside other badges (e.g. "Coming Soon", "Early Access"). Default: blank (optional)
   - hide_sold_out_badge: {Boolean} Suppress the "Sold out" badge. Default: false (optional)
+  - size_overlay: {Boolean} Show the size-availability strip over the media on card hover (desktop only). Skipped for products with no sizes to show. Default: false (optional)
 
   Usage:
   {% render 'card-product', show_vendor: section.settings.show_vendor %}
@@ -139,11 +140,6 @@
             </div>
           </div>
         {%- endif -%}
-        {% liquid
-          unless card_product.type == 'Yarn Skein' or card_product.type == 'Pattern' or card_product.type == 'Repair' or quick_add != 'none'
-            assign show_overlay_background = true
-          endunless
-        %}
         {% unless card_product.tags contains 'Badge-Coming Soon' %}
           {% assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id %}
           {% if quick_add == 'standard' %}
@@ -407,8 +403,16 @@
           {% endif %}
         {% endunless %}
 
-        {% if section.settings.enable_overlay %}
-          <div class="popup-overlay{% if show_overlay_background %} background{% endif %}">
+        {%- liquid
+          assign show_size_overlay = false
+          if size_overlay
+            unless card_product.type == 'Yarn Skein' or card_product.type == 'Pattern' or card_product.type == 'Repair' or card_product.has_only_default_variant
+              assign show_size_overlay = true
+            endunless
+          endif
+        -%}
+        {% if show_size_overlay %}
+          <div class="popup-overlay background">
             {% render 'variant-availability', product: card_product %}
           </div>
         {% endif %}
