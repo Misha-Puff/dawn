@@ -240,6 +240,19 @@
           #{{ tg_scope }} .Block-{{ block.id }} .product-form__input--swatch .swatch-input__input + .swatch-input__label { margin: 0 {{ tgv_gap_swatches }}px {{ tgv_gap_swatches }}px 0; }
           #{{ tg_scope }} .Block-{{ block.id }} .product-form__input--swatch .form__label { margin-bottom: 0.9rem; }
         {%- endif -%}
+        {%- liquid
+          assign tgv_sw_w = block.settings.swatch_width | default: 0
+          assign tgv_sw_h = block.settings.swatch_height | default: 0
+          assign tgv_sw_r = block.settings.swatch_radius | default: 0
+        -%}
+        {%- if tgv_sw_w > 0 or tgv_sw_h > 0 or tgv_sw_r > 0 -%}
+          {%- comment -%} Swatch size vars, scoped to this section's info column; component CSS consumes them through var() chains whose fallbacks equal the stock values. {%- endcomment -%}
+          #{{ tg_scope }} {
+            {%- if tgv_sw_w > 0 %} --swatch-picker-width: {{ tgv_sw_w }}px;{% endif -%}
+            {%- if tgv_sw_h > 0 %} --swatch-picker-height: {{ tgv_sw_h }}px;{% endif -%}
+            {%- if tgv_sw_r > 0 %} --swatch-picker-radius: {{ tgv_sw_r }}px;{% endif -%}
+          }
+        {%- endif -%}
       {%- endif -%}
     {%- endfor -%}
   {%- endstyle -%}
@@ -2383,6 +2396,43 @@
             }
           ],
           "default": "square"
+        },
+        {
+          "type": "header",
+          "content": "Swatch size"
+        },
+        {
+          "type": "range",
+          "id": "swatch_width",
+          "min": 0,
+          "max": 80,
+          "step": 2,
+          "unit": "px",
+          "label": "Width",
+          "info": "0 = theme default (36px mobile, 28px desktop)",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "swatch_height",
+          "min": 0,
+          "max": 80,
+          "step": 2,
+          "unit": "px",
+          "label": "Height",
+          "info": "0 = theme default (square)",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "swatch_radius",
+          "min": 0,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "label": "Corner radius",
+          "info": "0 = theme default (follows swatch shape)",
+          "default": 0
         },
         {
           "id": "swatch_message",

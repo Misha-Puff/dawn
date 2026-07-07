@@ -229,14 +229,6 @@
         --variant-pills-shadow-horizontal-offset: {{ settings.variant_pills_shadow_horizontal_offset }}px;
         --variant-pills-shadow-vertical-offset: {{ settings.variant_pills_shadow_vertical_offset }}px;
         --variant-pills-shadow-blur-radius: {{ settings.variant_pills_shadow_blur }}px;
-
-        {%- comment -%} Swatch size vars are only emitted when set (0 = theme default); component CSS carries fallbacks equal to the stock values. {%- endcomment -%}
-        {%- if settings.swatch_picker_width > 0 %}--swatch-picker-width: {{ settings.swatch_picker_width }}px;{% endif %}
-        {%- if settings.swatch_picker_height > 0 %}--swatch-picker-height: {{ settings.swatch_picker_height }}px;{% endif %}
-        {%- if settings.swatch_picker_radius > 0 %}--swatch-picker-radius: {{ settings.swatch_picker_radius }}px;{% endif %}
-        {%- if settings.swatch_card_width > 0 %}--swatch-card-width: {{ settings.swatch_card_width }}px;{% endif %}
-        {%- if settings.swatch_card_height > 0 %}--swatch-card-height: {{ settings.swatch_card_height }}px;{% endif %}
-        {%- if settings.swatch_card_radius > 0 %}--swatch-card-radius: {{ settings.swatch_card_radius }}px;{% endif %}
       }
 
       *,
