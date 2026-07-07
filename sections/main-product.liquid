@@ -156,6 +156,91 @@
           {%- endcase -%}
         {%- endif -%}
       {%- endif -%}
+      {%- if block.type == 'variant_picker' -%}
+        {%- comment -%} Per-element typography overrides (option label / values / selected value / swatch message). Settings follow tg_<element>_<suffix> naming so one data-driven loop reads them via bracket access. Rules are emitted after the shared tg_ base rules above, so they win specificity ties deterministically. {%- endcomment -%}
+        {%- assign tgv_elements = 'label,value,selected,message' | split: ',' -%}
+        {%- for tgv_el in tgv_elements -%}
+          {%- assign tgv_key = 'tg_' | append: tgv_el -%}
+          {%- assign tgv_enable_key = tgv_key | append: '_enable' -%}
+          {%- unless block.settings[tgv_enable_key] -%}
+            {%- continue -%}
+          {%- endunless -%}
+          {%- liquid
+            assign tgv_font_key = tgv_key | append: '_font'
+            assign tgv_weight_key = tgv_key | append: '_weight'
+            assign tgv_size_key = tgv_key | append: '_size'
+            assign tgv_lh_key = tgv_key | append: '_line_height'
+            assign tgv_case_key = tgv_key | append: '_case'
+            assign tgv_ls_key = tgv_key | append: '_letter_spacing'
+            assign tgv_color_key = tgv_key | append: '_color'
+            assign tgv_font = block.settings[tgv_font_key]
+            assign tgv_weight = block.settings[tgv_weight_key] | default: 'default'
+            assign tgv_fs = block.settings[tgv_size_key] | default: 0
+            assign tgv_lh = block.settings[tgv_lh_key] | default: 0
+            assign tgv_case = block.settings[tgv_case_key] | default: 'default'
+            assign tgv_ls = block.settings[tgv_ls_key] | default: 0
+            assign tgv_col = block.settings[tgv_color_key]
+          -%}
+          {%- if tgv_font != blank -%}{{ tgv_font | font_face: font_display: 'swap' }}{%- endif -%}
+          {%- if tgv_font != blank and tgv_weight != 'default' -%}
+            {%- assign tgv_wfont = tgv_font | font_modify: 'weight', tgv_weight -%}
+            {%- if tgv_wfont -%}{{ tgv_wfont | font_face: font_display: 'swap' }}{%- endif -%}
+          {%- endif -%}
+          {%- capture tgv_typedecl -%}
+            {%- if tgv_font != blank %}font-family: {{ tgv_font.family }}, {{ tgv_font.fallback_families }}; font-style: {{ tgv_font.style }};{% if tgv_weight == 'default' %} font-weight: {{ tgv_font.weight }};{% endif %}{% endif -%}
+            {%- if tgv_weight != 'default' and tgv_weight != blank %} font-weight: {{ tgv_weight }};{% endif -%}
+            {%- if tgv_fs > 0 %} font-size: {{ tgv_fs }}px;{% endif -%}
+            {%- if tgv_lh > 0 %} line-height: {{ tgv_lh }}%;{% endif -%}
+            {%- if tgv_case != 'default' and tgv_case != blank %} text-transform: {{ tgv_case }};{% endif -%}
+            {%- if tgv_ls > 0 %} letter-spacing: {{ tgv_ls }}px;{% endif -%}
+          {%- endcapture -%}
+          {%- assign tgv_typedecl = tgv_typedecl | strip -%}
+          {%- assign tgv_fulldecl = tgv_typedecl -%}
+          {%- if tgv_col != blank -%}
+            {%- assign tgv_fulldecl = tgv_typedecl | append: ' color: ' | append: tgv_col | append: ';' | strip -%}
+          {%- endif -%}
+          {%- case tgv_el -%}
+            {%- when 'label' -%}
+              {%- if tgv_fulldecl != blank -%}
+                #{{ tg_scope }} .Block-{{ block.id }} .form__label { {{ tgv_fulldecl }} }
+              {%- endif -%}
+            {%- when 'value' -%}
+              {%- comment -%} Checked pills keep the theme's inverted colors, so the custom color skips them (same shape as the base group rule above). {%- endcomment -%}
+              {%- if tgv_typedecl != blank -%}
+                #{{ tg_scope }} .Block-{{ block.id }} .select__select, #{{ tg_scope }} .Block-{{ block.id }} .product-form__input--pill input[type='radio'] + label { {{ tgv_typedecl }} }
+              {%- endif -%}
+              {%- if tgv_col != blank -%}
+                #{{ tg_scope }} .Block-{{ block.id }} .select__select, #{{ tg_scope }} .Block-{{ block.id }} .product-form__input--pill input[type='radio']:not(:checked) + label { color: {{ tgv_col }}; }
+              {%- endif -%}
+            {%- when 'selected' -%}
+              {%- if tgv_fulldecl != blank -%}
+                #{{ tg_scope }} .Block-{{ block.id }} .form__label [data-selected-value] { {{ tgv_fulldecl }} }
+              {%- endif -%}
+            {%- when 'message' -%}
+              {%- comment -%} The message div carries the Block-id class itself, so this works without the picker wrapper div. {%- endcomment -%}
+              {%- if tgv_fulldecl != blank -%}
+                #{{ tg_scope }} .Block-{{ block.id }}.custom_message, #{{ tg_scope }} .Block-{{ block.id }}.custom_message p { {{ tgv_fulldecl }} }
+              {%- endif -%}
+          {%- endcase -%}
+        {%- endfor -%}
+        {%- liquid
+          assign tgv_gap_groups = block.settings.tg_gap_option_groups | default: 0
+          assign tgv_gap_pills = block.settings.tg_gap_pills | default: 0
+          assign tgv_gap_swatches = block.settings.tg_gap_swatches | default: 0
+        -%}
+        {%- if tgv_gap_groups > 0 -%}
+          #{{ tg_scope }} .Block-{{ block.id }} .product-form__input { margin-bottom: {{ tgv_gap_groups }}px; }
+        {%- endif -%}
+        {%- comment -%} Pills/swatches are inline-blocks in a fieldset (flex gap is unreliable there): gap = right/bottom margins on each chip. The chip top margin gets zeroed, so the label picks up 0.9rem to preserve today's label-to-first-row distance (0.2rem label margin + 0.7rem chip top margin). {%- endcomment -%}
+        {%- if tgv_gap_pills > 0 -%}
+          #{{ tg_scope }} .Block-{{ block.id }} .product-form__input--pill input[type='radio'] + label { margin: 0 {{ tgv_gap_pills }}px {{ tgv_gap_pills }}px 0; }
+          #{{ tg_scope }} .Block-{{ block.id }} .product-form__input--pill .form__label { margin-bottom: 0.9rem; }
+        {%- endif -%}
+        {%- if tgv_gap_swatches > 0 -%}
+          #{{ tg_scope }} .Block-{{ block.id }} .product-form__input--swatch .swatch-input__input + .swatch-input__label { margin: 0 {{ tgv_gap_swatches }}px {{ tgv_gap_swatches }}px 0; }
+          #{{ tg_scope }} .Block-{{ block.id }} .product-form__input--swatch .form__label { margin-bottom: 0.9rem; }
+        {%- endif -%}
+      {%- endif -%}
     {%- endfor -%}
   {%- endstyle -%}
 
@@ -740,11 +825,26 @@
                     }
                   {% endstyle %}
                 {% endif %}
-                {%- if block.settings.tg_enable_padding or block.settings.tg_enable_type -%}
+                {%- liquid
+                  comment
+                    The Block-id wrapper must render whenever any style-loop rule targets it: base padding/typography, the per-element typography groups (message excluded — its div carries the Block-id class itself) or any picker gap.
+                  endcomment
+                  assign vp_wrap = false
+                  if block.settings.tg_enable_padding or block.settings.tg_enable_type
+                    assign vp_wrap = true
+                  endif
+                  if block.settings.tg_label_enable or block.settings.tg_value_enable or block.settings.tg_selected_enable
+                    assign vp_wrap = true
+                  endif
+                  if block.settings.tg_gap_option_groups > 0 or block.settings.tg_gap_pills > 0 or block.settings.tg_gap_swatches > 0
+                    assign vp_wrap = true
+                  endif
+                -%}
+                {%- if vp_wrap -%}
                   <div class="Block-{{ block.id }}">
                 {%- endif -%}
                 {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
-                {%- if block.settings.tg_enable_padding or block.settings.tg_enable_type -%}</div>{%- endif -%}
+                {%- if vp_wrap -%}</div>{%- endif -%}
               {%- when 'buy_buttons' -%}
                 {% unless tags_str contains 'Badge-Coming Soon' %}
                   {%- if block.settings.tg_enable_padding -%}<div class="Block-{{ block.id }}">{%- endif -%}
@@ -2354,6 +2454,18 @@
           "visible_if": "{{ block.settings.tg_enable_type }}"
         },
         {
+          "type": "range",
+          "id": "tg_line_height",
+          "min": 0,
+          "max": 250,
+          "step": 5,
+          "unit": "%",
+          "label": "Line height",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
           "type": "select",
           "id": "tg_text_case",
           "options": [
@@ -2385,6 +2497,399 @@
           "label": "Text color",
           "info": "Leave blank for theme default",
           "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "header",
+          "content": "Option label typography"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_label_enable",
+          "default": false,
+          "label": "Enable typography"
+        },
+        {
+          "type": "font_picker",
+          "id": "tg_label_font",
+          "default": "assistant_n4",
+          "label": "Font",
+          "visible_if": "{{ block.settings.tg_label_enable }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_label_weight",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "300", "label": "Light" },
+            { "value": "400", "label": "Regular" },
+            { "value": "500", "label": "Medium" },
+            { "value": "600", "label": "Semibold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "default",
+          "label": "Font weight",
+          "visible_if": "{{ block.settings.tg_label_enable }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_label_size",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_label_enable }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_label_line_height",
+          "min": 0,
+          "max": 250,
+          "step": 5,
+          "unit": "%",
+          "label": "Line height",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_label_enable }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_label_case",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "uppercase", "label": "Uppercase" },
+            { "value": "capitalize", "label": "Capitalize" },
+            { "value": "lowercase", "label": "Lowercase" },
+            { "value": "none", "label": "Normal (remove uppercase)" }
+          ],
+          "default": "default",
+          "label": "Text case",
+          "visible_if": "{{ block.settings.tg_label_enable }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_label_letter_spacing",
+          "min": 0,
+          "max": 4,
+          "step": 0.1,
+          "unit": "px",
+          "label": "Letter spacing",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_label_enable }}"
+        },
+        {
+          "type": "color",
+          "id": "tg_label_color",
+          "label": "Text color",
+          "info": "Leave blank for theme default",
+          "visible_if": "{{ block.settings.tg_label_enable }}"
+        },
+        {
+          "type": "header",
+          "content": "Value typography (pills \u0026 dropdowns)"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_value_enable",
+          "default": false,
+          "label": "Enable typography"
+        },
+        {
+          "type": "font_picker",
+          "id": "tg_value_font",
+          "default": "assistant_n4",
+          "label": "Font",
+          "visible_if": "{{ block.settings.tg_value_enable }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_value_weight",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "300", "label": "Light" },
+            { "value": "400", "label": "Regular" },
+            { "value": "500", "label": "Medium" },
+            { "value": "600", "label": "Semibold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "default",
+          "label": "Font weight",
+          "visible_if": "{{ block.settings.tg_value_enable }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_value_size",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_value_enable }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_value_line_height",
+          "min": 0,
+          "max": 250,
+          "step": 5,
+          "unit": "%",
+          "label": "Line height",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_value_enable }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_value_case",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "uppercase", "label": "Uppercase" },
+            { "value": "capitalize", "label": "Capitalize" },
+            { "value": "lowercase", "label": "Lowercase" },
+            { "value": "none", "label": "Normal (remove uppercase)" }
+          ],
+          "default": "default",
+          "label": "Text case",
+          "visible_if": "{{ block.settings.tg_value_enable }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_value_letter_spacing",
+          "min": 0,
+          "max": 4,
+          "step": 0.1,
+          "unit": "px",
+          "label": "Letter spacing",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_value_enable }}"
+        },
+        {
+          "type": "color",
+          "id": "tg_value_color",
+          "label": "Text color",
+          "info": "Leave blank for theme default",
+          "visible_if": "{{ block.settings.tg_value_enable }}"
+        },
+        {
+          "type": "header",
+          "content": "Selected value typography (swatch legend)"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_selected_enable",
+          "default": false,
+          "label": "Enable typography"
+        },
+        {
+          "type": "font_picker",
+          "id": "tg_selected_font",
+          "default": "assistant_n4",
+          "label": "Font",
+          "visible_if": "{{ block.settings.tg_selected_enable }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_selected_weight",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "300", "label": "Light" },
+            { "value": "400", "label": "Regular" },
+            { "value": "500", "label": "Medium" },
+            { "value": "600", "label": "Semibold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "default",
+          "label": "Font weight",
+          "visible_if": "{{ block.settings.tg_selected_enable }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_selected_size",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_selected_enable }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_selected_line_height",
+          "min": 0,
+          "max": 250,
+          "step": 5,
+          "unit": "%",
+          "label": "Line height",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_selected_enable }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_selected_case",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "uppercase", "label": "Uppercase" },
+            { "value": "capitalize", "label": "Capitalize" },
+            { "value": "lowercase", "label": "Lowercase" },
+            { "value": "none", "label": "Normal (remove uppercase)" }
+          ],
+          "default": "default",
+          "label": "Text case",
+          "visible_if": "{{ block.settings.tg_selected_enable }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_selected_letter_spacing",
+          "min": 0,
+          "max": 4,
+          "step": 0.1,
+          "unit": "px",
+          "label": "Letter spacing",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_selected_enable }}"
+        },
+        {
+          "type": "color",
+          "id": "tg_selected_color",
+          "label": "Text color",
+          "info": "Leave blank for theme default",
+          "visible_if": "{{ block.settings.tg_selected_enable }}"
+        },
+        {
+          "type": "header",
+          "content": "Swatch message typography"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_message_enable",
+          "default": false,
+          "label": "Enable typography"
+        },
+        {
+          "type": "font_picker",
+          "id": "tg_message_font",
+          "default": "assistant_n4",
+          "label": "Font",
+          "visible_if": "{{ block.settings.tg_message_enable }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_message_weight",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "300", "label": "Light" },
+            { "value": "400", "label": "Regular" },
+            { "value": "500", "label": "Medium" },
+            { "value": "600", "label": "Semibold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "default",
+          "label": "Font weight",
+          "visible_if": "{{ block.settings.tg_message_enable }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_message_size",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_message_enable }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_message_line_height",
+          "min": 0,
+          "max": 250,
+          "step": 5,
+          "unit": "%",
+          "label": "Line height",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_message_enable }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_message_case",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "uppercase", "label": "Uppercase" },
+            { "value": "capitalize", "label": "Capitalize" },
+            { "value": "lowercase", "label": "Lowercase" },
+            { "value": "none", "label": "Normal (remove uppercase)" }
+          ],
+          "default": "default",
+          "label": "Text case",
+          "visible_if": "{{ block.settings.tg_message_enable }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_message_letter_spacing",
+          "min": 0,
+          "max": 4,
+          "step": 0.1,
+          "unit": "px",
+          "label": "Letter spacing",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_message_enable }}"
+        },
+        {
+          "type": "color",
+          "id": "tg_message_color",
+          "label": "Text color",
+          "info": "Leave blank for theme default",
+          "visible_if": "{{ block.settings.tg_message_enable }}"
+        },
+        {
+          "type": "header",
+          "content": "Picker spacing"
+        },
+        {
+          "type": "range",
+          "id": "tg_gap_option_groups",
+          "min": 0,
+          "max": 60,
+          "step": 2,
+          "unit": "px",
+          "label": "Gap between option groups",
+          "info": "0 = theme default",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "tg_gap_pills",
+          "min": 0,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "label": "Gap between pills",
+          "info": "0 = theme default",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "tg_gap_swatches",
+          "min": 0,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "label": "Gap between swatches",
+          "info": "0 = theme default",
+          "default": 0
         },
         {
           "type": "header",
