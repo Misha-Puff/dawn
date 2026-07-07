@@ -463,11 +463,9 @@
                   aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
                 >
                   {{ card_product.title | escape -}}
-                  {% unless section.settings.enable_swatches %}
-                    {%- if card_product.options[0] == 'Color' %}
-                      - {{ card_product.selected_or_first_available_variant.options[0] -}}
-                    {%- endif %}
-                  {% endunless %}
+                  {%- if card_product.options[0] == 'Color' %}
+                    - {{ card_product.selected_or_first_available_variant.options[0] -}}
+                  {%- endif %}
                 </a>
               </h3>
               {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
