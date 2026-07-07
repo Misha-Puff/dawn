@@ -311,6 +311,24 @@
   margin-bottom: 0;
 }
 
+.card__heading-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.4rem 1rem;
+  flex-wrap: wrap;
+}
+
+.card__heading-row > .price {
+  flex-shrink: 0;
+  line-height: calc(1 + 0.4 / var(--font-body-scale));
+  color: rgb(var(--color-foreground));
+}
+
+.card--horizontal .card__heading-row > .price {
+  color: rgba(var(--color-foreground), 0.75);
+}
+
 .card--horizontal .card__heading,
 .card--horizontal .price__container .price-item,
 .card--horizontal__quick-add {

@@ -444,26 +444,29 @@
       {% unless hide_content %}
         <div class="card__content">
           <div class="card__information">
-            <h3
-              class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
-              {% if card_product.featured_media or settings.card_style == 'card' %}
-                id="title-{{ section_id }}-{{ card_product.id }}"
-              {% endif %}
-            >
-              <a
-                href="{{ card_product.url | within: collection }}"
-                id="CardLink-{{ section_id }}-{{ card_product.id }}"
-                class="full-unstyled-link"
-                aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
+            <div class="card__heading-row">
+              <h3
+                class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
+                {% if card_product.featured_media or settings.card_style == 'card' %}
+                  id="title-{{ section_id }}-{{ card_product.id }}"
+                {% endif %}
               >
-                {{ card_product.title | escape -}}
-                {% unless section.settings.enable_swatches %}
-                  {%- if card_product.options[0] == 'Color' %}
-                    - {{ card_product.selected_or_first_available_variant.options[0] -}}
-                  {%- endif %}
-                {% endunless %}
-              </a>
-            </h3>
+                <a
+                  href="{{ card_product.url | within: collection }}"
+                  id="CardLink-{{ section_id }}-{{ card_product.id }}"
+                  class="full-unstyled-link"
+                  aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
+                >
+                  {{ card_product.title | escape -}}
+                  {% unless section.settings.enable_swatches %}
+                    {%- if card_product.options[0] == 'Color' %}
+                      - {{ card_product.selected_or_first_available_variant.options[0] -}}
+                    {%- endif %}
+                  {% endunless %}
+                </a>
+              </h3>
+              {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+            </div>
             <div class="card-information">
               {%- if show_vendor -%}
                 <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
@@ -507,8 +510,6 @@
                   </span>
                 </p>
               {%- endif -%}
-
-              {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
 
               {% render 'card-product-badges',
                 card_product: card_product,
@@ -650,17 +651,19 @@
       </div>
       <div class="card__content">
         <div class="card__information">
-          <h3 class="card__heading card__heading--placeholder{% if settings.card_style == 'standard' %} h5{% endif %}">
-            <a role="link" aria-disabled="true" class="full-unstyled-link">
-              {{ 'onboarding.product_title' | t }}
-            </a>
-          </h3>
+          <div class="card__heading-row">
+            <h3 class="card__heading card__heading--placeholder{% if settings.card_style == 'standard' %} h5{% endif %}">
+              <a role="link" aria-disabled="true" class="full-unstyled-link">
+                {{ 'onboarding.product_title' | t }}
+              </a>
+            </h3>
+            {% render 'price', placeholder: placeholder, show_compare_at_price: true %}
+          </div>
           <div class="card-information">
             {%- if show_vendor -%}
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
               <div class="caption-with-letter-spacing light">{{ 'products.product.vendor' | t }}</div>
             {%- endif -%}
-            {% render 'price', placeholder: placeholder, show_compare_at_price: true %}
           </div>
         </div>
       </div>
