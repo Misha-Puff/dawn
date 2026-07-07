@@ -31,7 +31,7 @@
           "type": "title",
           "settings": {
             "tg_enable_type": true,
-            "tg_font": "inter_n4",
+            "tg_font": "manrope_n4",
             "tg_font_weight": "400",
             "tg_font_size": 12,
             "tg_line_height": 0,
@@ -162,7 +162,7 @@
             "swatch_message_padding_top": 20,
             "swatch_message_padding_bottom": 10,
             "tg_enable_type": true,
-            "tg_font": "inter_n4",
+            "tg_font": "manrope_n4",
             "tg_font_weight": "400",
             "tg_font_size": 12,
             "tg_line_height": 0,
@@ -271,7 +271,7 @@
           "type": "description",
           "settings": {
             "tg_enable_type": true,
-            "tg_font": "inter_n4",
+            "tg_font": "manrope_n4",
             "tg_font_weight": "400",
             "tg_font_size": 12,
             "tg_line_height": 150,
