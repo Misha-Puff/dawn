@@ -70,6 +70,42 @@
       width: 100%;
       border-top: 1px solid rgb(1,1,1,0.25)
     }
+
+    {%- comment -%}
+      Product info column overrides. #MainProduct-<id> is the section root, so the
+      ID+class specificity (1,1,0) beats the hardcoded .product__info-wrapper padding
+      variants and the .product__info-container spacing rules in section-main-product.css.
+      Padding is desktop-only (the theme has no column padding below 750px); spacing
+      applies at all screen sizes and evens out the 2.5rem description/buy-area rules.
+    {%- endcomment -%}
+    {%- if section.settings.info_enable_padding -%}
+      {%- liquid
+        assign info_pl = section.settings.info_padding_left | default: 0
+        assign info_pr = section.settings.info_padding_right | default: 0
+        assign info_gap = section.settings.info_block_spacing | default: 0
+      -%}
+      {%- if info_pl > 0 or info_pr > 0 -%}
+        @media screen and (min-width: 750px) {
+          #MainProduct-{{ section.id }} .product__info-wrapper {
+            {%- if info_pl > 0 %} padding-left: {{ info_pl }}px;{% endif -%}
+            {%- if info_pr > 0 %} padding-right: {{ info_pr }}px;{% endif -%}
+          }
+        }
+      {%- endif -%}
+      {%- if info_gap > 0 -%}
+        #MainProduct-{{ section.id }} .product__info-container > * + * {
+          margin: {{ info_gap }}px 0;
+        }
+        {%- comment -%}
+          .product-form sits nested inside the buy-buttons wrapper div with margin: 2.5rem 0;
+          its top margin collapses through the wrapper and would floor the gap at 25px.
+          Zero only the top — the bottom margin is the internal buttons-to-pickup gap.
+        {%- endcomment -%}
+        #MainProduct-{{ section.id }} .product__info-container .product-form {
+          margin-top: 0;
+        }
+      {%- endif -%}
+    {%- endif -%}
   {%- endstyle -%}
 
   {%- comment -%}
@@ -122,9 +158,13 @@
               {%- comment -%} Heading only — the generic else branch would restyle the product-card text inside the block. {%- endcomment -%}
               #{{ tg_scope }} .Block-{{ block.id }} .pair-it-with__heading { {{ tg_typedecl }} }
             {%- when 'collapsible_tab' -%}
-              #{{ tg_scope }} .Block-{{ block.id }} .accordion__title, #{{ tg_scope }} .Block-{{ block.id }} .accordion__content { {{ tg_typedecl }} }
+              {%- comment -%} Heading only — the accordion body keeps theme styling. {%- endcomment -%}
+              #{{ tg_scope }} .Block-{{ block.id }} .accordion__title { {{ tg_typedecl }} }
             {%- when 'rating' -%}
               #{{ tg_scope }} .Block-{{ block.id }} .rating-text, #{{ tg_scope }} .Block-{{ block.id }} .rating-count { {{ tg_typedecl }} }
+            {%- when 'size-chart' -%}
+              {%- comment -%} Button elements block font inheritance, so the full declaration (incl. font-style/weight/line-height) lands on the button directly — covers both the standalone and inline Size-row placements (both wrappers carry Block-id) and out-specifies the hardcoded #ProductPopup-<id> font-size. {%- endcomment -%}
+              #{{ tg_scope }} .Block-{{ block.id }} .product-popup-modal__button { {{ tg_typedecl }}{% if tg_font != blank %} font-style: {{ tg_font.style }};{% if tg_weight == 'default' %} font-weight: {{ tg_font.weight }};{% endif %}{% endif %}{% if tg_lh > 0 %} line-height: {{ tg_lh }}%;{% endif %} }
             {%- when 'variant_picker' -%}
               {%- comment -%} Labels, selects and pills carry their own font/color theme rules, so the declaration must land on them directly; the font_picker's style dropdown is honored via font-style/font-weight. Checked pills keep the theme's inverted colors, so the custom color skips them. {%- endcomment -%}
               #{{ tg_scope }} .Block-{{ block.id }}, #{{ tg_scope }} .Block-{{ block.id }} .form__label, #{{ tg_scope }} .Block-{{ block.id }} .select__select, #{{ tg_scope }} .Block-{{ block.id }} .product-form__input--pill input[type='radio'] + label { {{ tg_typedecl }}{% if tg_font != blank %} font-style: {{ tg_font.style }};{% if tg_weight == 'default' %} font-weight: {{ tg_font.weight }};{% endif %}{% endif %} }
@@ -136,7 +176,12 @@
           {%- endcase -%}
         {%- endif -%}
         {%- if tg_lh > 0 -%}
-          #{{ tg_scope }} .Block-{{ block.id }} { line-height: {{ tg_lh }}%; }
+          {%- if block.type == 'collapsible_tab' -%}
+            {%- comment -%} The wrapper rule never reaches the h2 heading (base.css sets heading line-height), so land it on the title directly. {%- endcomment -%}
+            #{{ tg_scope }} .Block-{{ block.id }} .accordion__title { line-height: {{ tg_lh }}%; }
+          {%- else -%}
+            #{{ tg_scope }} .Block-{{ block.id }} { line-height: {{ tg_lh }}%; }
+          {%- endif -%}
         {%- endif -%}
       {%- endif -%}
       {%- if block.settings.tg_enable_padding -%}
@@ -252,6 +297,43 @@
             {%- if tgv_sw_h > 0 %} --swatch-picker-height: {{ tgv_sw_h }}px;{% endif -%}
             {%- if tgv_sw_r > 0 %} --swatch-picker-radius: {{ tgv_sw_r }}px;{% endif -%}
           }
+        {%- endif -%}
+      {%- endif -%}
+      {%- if block.type == 'buy_buttons' and block.settings.tg_pickup_enable -%}
+        {%- comment -%} Pickup availability line ("Pickup available at …", ready time, check-availability link). The element persists across JS refetches — pickup-availability.js only swaps its innerHTML — and buy_buttons has limit 1, so scoping by the section id alone is stable without the Block-id wrapper (which only exists when padding is enabled). The store-list drawer appends to document.body and keeps theme styling. {%- endcomment -%}
+        {%- liquid
+          assign tgp_font = block.settings.tg_pickup_font
+          assign tgp_weight = block.settings.tg_pickup_weight | default: 'default'
+          assign tgp_fs = block.settings.tg_pickup_size | default: 0
+          assign tgp_lh = block.settings.tg_pickup_line_height | default: 0
+          assign tgp_case = block.settings.tg_pickup_case | default: 'default'
+          assign tgp_ls = block.settings.tg_pickup_letter_spacing | default: 0
+          assign tgp_col = block.settings.tg_pickup_color
+        -%}
+        {%- if tgp_font != blank -%}{{ tgp_font | font_face: font_display: 'swap' }}{%- endif -%}
+        {%- if tgp_font != blank and tgp_weight != 'default' -%}
+          {%- assign tgp_wfont = tgp_font | font_modify: 'weight', tgp_weight -%}
+          {%- if tgp_wfont -%}{{ tgp_wfont | font_face: font_display: 'swap' }}{%- endif -%}
+        {%- endif -%}
+        {%- capture tgp_typedecl -%}
+          {%- if tgp_font != blank %}font-family: {{ tgp_font.family }}, {{ tgp_font.fallback_families }}; font-style: {{ tgp_font.style }};{% if tgp_weight == 'default' %} font-weight: {{ tgp_font.weight }};{% endif %}{% endif -%}
+          {%- if tgp_weight != 'default' and tgp_weight != blank %} font-weight: {{ tgp_weight }};{% endif -%}
+          {%- if tgp_fs > 0 %} font-size: {{ tgp_fs }}px;{% endif -%}
+          {%- if tgp_lh > 0 %} line-height: {{ tgp_lh }}%;{% endif -%}
+          {%- if tgp_case != 'default' and tgp_case != blank %} text-transform: {{ tgp_case }};{% endif -%}
+          {%- if tgp_ls > 0 %} letter-spacing: {{ tgp_ls }}px;{% endif -%}
+        {%- endcapture -%}
+        {%- assign tgp_typedecl = tgp_typedecl | strip -%}
+        {%- assign tgp_fulldecl = tgp_typedecl -%}
+        {%- if tgp_col != blank -%}
+          {%- assign tgp_fulldecl = tgp_typedecl | append: ' color: ' | append: tgp_col | append: ';' | strip -%}
+        {%- endif -%}
+        {%- if tgp_fulldecl != blank -%}
+          #{{ tg_scope }} .product__pickup-availabilities .pickup-availability-preview .caption-large, #{{ tg_scope }} .product__pickup-availabilities .pickup-availability-preview .caption, #{{ tg_scope }} .product__pickup-availabilities .pickup-availability-button { {{ tgp_fulldecl }} }
+        {%- endif -%}
+        {%- if tgp_col != blank -%}
+          {%- comment -%} The location-name span carries color: rgb(var(--color-foreground)) via .color-foreground in base.css and would otherwise win. {%- endcomment -%}
+          #{{ tg_scope }} .product__pickup-availabilities .pickup-availability-preview .color-foreground { color: {{ tgp_col }}; }
         {%- endif -%}
       {%- endif -%}
     {%- endfor -%}
@@ -386,6 +468,20 @@
             assign price_show_badges = true
             if badges_block != blank
               assign price_show_badges = false
+            endif
+
+            comment
+              Inline Size Guide: when the size-chart block opts in, its trigger renders
+              right-aligned on the variant picker's Size row instead of as its own block.
+              The metafield guard mirrors the size-chart case's own render condition so
+              the trigger never points at a modal that didn't render.
+            endcomment
+            assign size_chart_block = section.blocks | where: 'type', 'size-chart' | first
+            assign size_guide_inline = false
+            if size_chart_block != blank and size_chart_block.settings.inline_with_size
+              if product.metafields.product_page.json_size_chart != blank or product.metafields.product_page.size_chart != blank
+                assign size_guide_inline = true
+              endif
             endif
           -%}
 
@@ -856,7 +952,13 @@
                 {%- if vp_wrap -%}
                   <div class="Block-{{ block.id }}">
                 {%- endif -%}
-                {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+                {% render 'product-variant-picker',
+                  product: product,
+                  block: block,
+                  product_form_id: product_form_id,
+                  size_chart_block: size_chart_block,
+                  size_guide_inline: size_guide_inline
+                %}
                 {%- if vp_wrap -%}</div>{%- endif -%}
               {%- when 'buy_buttons' -%}
                 {% unless tags_str contains 'Badge-Coming Soon' %}
@@ -1184,20 +1286,23 @@
                       }
                     }
                   </style>
-                  <modal-opener
-                    class="Block-{{ block.id }} product-popup-modal__opener quick-add-hidden"
-                    data-modal="#PopupModal-{{ block.id }}"
-                    {{ block.shopify_attributes }}
-                  >
-                    <button
-                      id="ProductPopup-{{ block.id }}"
-                      class="product-popup-modal__button link"
-                      type="button"
-                      aria-haspopup="dialog"
+                  {%- comment -%} When the trigger renders inline on the Size row instead, only the standalone opener is suppressed — the modal (and its styles) keep rendering here. ModalOpener resolves the modal via document.querySelector, so placement doesn't matter. {%- endcomment -%}
+                  {%- unless size_guide_inline -%}
+                    <modal-opener
+                      class="Block-{{ block.id }} product-popup-modal__opener quick-add-hidden"
+                      data-modal="#PopupModal-{{ block.id }}"
+                      {{ block.shopify_attributes }}
                     >
-                      {{ block.settings.cta_text }}
-                    </button>
-                  </modal-opener>
+                      <button
+                        id="ProductPopup-{{ block.id }}"
+                        class="product-popup-modal__button link"
+                        type="button"
+                        aria-haspopup="dialog"
+                      >
+                        {{ block.settings.cta_text }}
+                      </button>
+                    </modal-opener>
+                  {%- endunless -%}
                   <modal-dialog
                     id="PopupModal-{{ block.id }}"
                     class="product-popup-modal"
@@ -2999,6 +3104,96 @@
         },
         {
           "type": "header",
+          "content": "Pickup availability text",
+          "info": "Styles the \"Pickup available at…\" line, the ready time and the check-availability link. The store drawer keeps theme styling."
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_pickup_enable",
+          "default": false,
+          "label": "Enable typography"
+        },
+        {
+          "type": "font_picker",
+          "id": "tg_pickup_font",
+          "default": "assistant_n4",
+          "label": "Font",
+          "visible_if": "{{ block.settings.tg_pickup_enable }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_pickup_weight",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "300", "label": "Light" },
+            { "value": "400", "label": "Regular" },
+            { "value": "500", "label": "Medium" },
+            { "value": "600", "label": "Semibold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "default",
+          "label": "Font weight",
+          "visible_if": "{{ block.settings.tg_pickup_enable }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_pickup_size",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_pickup_enable }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_pickup_line_height",
+          "min": 0,
+          "max": 250,
+          "step": 5,
+          "unit": "%",
+          "label": "Line height",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_pickup_enable }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_pickup_case",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "uppercase", "label": "Uppercase" },
+            { "value": "capitalize", "label": "Capitalize" },
+            { "value": "lowercase", "label": "Lowercase" },
+            { "value": "none", "label": "Normal (remove uppercase)" }
+          ],
+          "default": "default",
+          "label": "Text case",
+          "visible_if": "{{ block.settings.tg_pickup_enable }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_pickup_letter_spacing",
+          "min": 0,
+          "max": 4,
+          "step": 0.1,
+          "unit": "px",
+          "label": "Letter spacing",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_pickup_enable }}"
+        },
+        {
+          "type": "color",
+          "id": "tg_pickup_color",
+          "label": "Text color",
+          "info": "Leave blank for theme default",
+          "visible_if": "{{ block.settings.tg_pickup_enable }}"
+        },
+        {
+          "type": "header",
           "content": "Padding"
         },
         {
@@ -3553,7 +3748,7 @@
         },
         {
           "type": "header",
-          "content": "Typography"
+          "content": "Heading typography"
         },
         {
           "type": "checkbox",
@@ -4851,6 +5046,95 @@
           "default": "Size Guide"
         },
         {
+          "type": "checkbox",
+          "id": "inline_with_size",
+          "default": false,
+          "label": "Show inline with Size option label",
+          "info": "Renders the trigger right-aligned on the variant picker's Size row instead of as its own block."
+        },
+        {
+          "type": "header",
+          "content": "Typography"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_enable_type",
+          "default": false,
+          "label": "Enable typography"
+        },
+        {
+          "type": "font_picker",
+          "id": "tg_font",
+          "default": "assistant_n4",
+          "label": "Font",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_font_weight",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "300", "label": "Light" },
+            { "value": "400", "label": "Regular" },
+            { "value": "500", "label": "Medium" },
+            { "value": "600", "label": "Semibold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "default",
+          "label": "Font weight",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_font_size",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_line_height",
+          "min": 0,
+          "max": 250,
+          "step": 5,
+          "unit": "%",
+          "label": "Line height",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_text_case",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "uppercase", "label": "Uppercase" },
+            { "value": "capitalize", "label": "Capitalize" },
+            { "value": "lowercase", "label": "Lowercase" },
+            { "value": "none", "label": "Normal (remove uppercase)" }
+          ],
+          "default": "default",
+          "label": "Text case",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_letter_spacing",
+          "min": 0,
+          "max": 4,
+          "step": 0.1,
+          "unit": "px",
+          "label": "Letter spacing",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
           "type": "header",
           "content": "Padding"
         },
@@ -5080,6 +5364,52 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Product info column"
+    },
+    {
+      "type": "checkbox",
+      "id": "info_enable_padding",
+      "default": false,
+      "label": "Enable custom padding & spacing"
+    },
+    {
+      "type": "range",
+      "id": "info_padding_left",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Desktop padding left",
+      "info": "0 = theme default (50px; 80px wide layouts; 40px large media). Desktop only.",
+      "default": 0,
+      "visible_if": "{{ section.settings.info_enable_padding }}"
+    },
+    {
+      "type": "range",
+      "id": "info_padding_right",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Desktop padding right",
+      "info": "0 = theme default (50px; 80px wide layouts; 40px large media). Desktop only.",
+      "default": 0,
+      "visible_if": "{{ section.settings.info_enable_padding }}"
+    },
+    {
+      "type": "range",
+      "id": "info_block_spacing",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Spacing between blocks",
+      "info": "Vertical gap between blocks in the column. 0 = theme default (15px; 25px around description/buy area). All screen sizes.",
+      "default": 0,
+      "visible_if": "{{ section.settings.info_enable_padding }}"
     }
   ]
 }

@@ -890,6 +890,23 @@ a.product__text {
   text-decoration-thickness: 0.2rem;
 }
 
+/* Inline Size Guide trigger on the variant picker's Size row */
+.product-form__input--size-guide {
+  position: relative;
+}
+
+.size-guide-inline {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.size-guide-inline .product-popup-modal__button {
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+}
+
 /* .product-popup-modal__content-info {
   padding-right: 4.4rem;
 } */

@@ -5,6 +5,8 @@
   - product: {Object} product object.
   - block: {Object} passing the block information.
   - product_form_id: {String} Id of the product form to which the variant picker is associated.
+  - size_chart_block: {Object} optional. The section's size-chart block; supplies the inline Size Guide trigger's modal id, CTA text and editor attributes.
+  - size_guide_inline: {Boolean} optional. When true, renders the size-chart trigger right-aligned on the Size option row (the size-chart block suppresses its standalone trigger).
   Usage:
   {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 {% endcomment %}
@@ -51,28 +53,56 @@
           break
         endif
       endfor
+
+      assign show_size_guide = false
+      if size_guide_inline and option.name == 'Size'
+        assign show_size_guide = true
+      endif
     -%}
 
+    {%- comment -%} Inline Size Guide trigger, absolutely positioned on the option row (a legend must stay the fieldset's first child and out of its accessible name, so one flex mechanism can't cover all three branches). Empty unless the size-chart block opted in and this is the Size option. {%- endcomment -%}
+    {%- capture size_guide_trigger -%}
+      {%- if show_size_guide -%}
+        <modal-opener
+          class="Block-{{ size_chart_block.id }} size-guide-inline product-popup-modal__opener quick-add-hidden"
+          data-modal="#PopupModal-{{ size_chart_block.id }}"
+          {{ size_chart_block.shopify_attributes }}
+        >
+          <button
+            id="ProductPopup-{{ size_chart_block.id }}"
+            class="product-popup-modal__button link"
+            type="button"
+            aria-haspopup="dialog"
+          >
+            {{ size_chart_block.settings.cta_text }}
+          </button>
+        </modal-opener>
+      {%- endif -%}
+    {%- endcapture -%}
+
     {%- if picker_type == 'swatch' -%}
-      <fieldset class="js product-form__input product-form__input--swatch{% if hide_option %} hidden{% endif %}">
+      <fieldset class="js product-form__input product-form__input--swatch{% if show_size_guide %} product-form__input--size-guide{% endif %}{% if hide_option %} hidden{% endif %}">
         <legend class="form__label">
           <span data-option-name>{{ option.name }}:</span>
           <span data-selected-value>
             {{- option.selected_value -}}
           </span>
         </legend>
+        {{ size_guide_trigger }}
         {% render 'product-variant-options', product: product, option: option, block: block, picker_type: picker_type %}
       </fieldset>
     {%- elsif picker_type == 'button' -%}
-      <fieldset class="js product-form__input product-form__input--pill{% if hide_option %} hidden{% endif %}">
+      <fieldset class="js product-form__input product-form__input--pill{% if show_size_guide %} product-form__input--size-guide{% endif %}{% if hide_option %} hidden{% endif %}">
         <legend class="form__label"><span data-option-name>{{ option.name }}</span></legend>
+        {{ size_guide_trigger }}
         {% render 'product-variant-options', product: product, option: option, block: block, picker_type: picker_type %}
       </fieldset>
     {%- else -%}
-      <div class="product-form__input product-form__input--dropdown{% if hide_option %} hidden{% endif %}">
+      <div class="product-form__input product-form__input--dropdown{% if show_size_guide %} product-form__input--size-guide{% endif %}{% if hide_option %} hidden{% endif %}">
         <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
           <span data-option-name>{{ option.name }}</span>
         </label>
+        {{ size_guide_trigger }}
         <div class="select">
           {%- if picker_type == 'swatch_dropdown' -%}
             <span
