@@ -663,7 +663,10 @@
 }
 
 .card__swatch .swatch {
-  --swatch--size: 2rem;
+  --swatch--size: var(--swatch-card-width, 2rem);
+  --swatch--height: var(--swatch-card-height, auto);
+  /* Inner fallback mirrors .swatch--square (card chips are always square-shaped). */
+  --swatch--border-radius: var(--swatch-card-radius, var(--swatch-input--border-radius, 0.2rem));
 }
 
 .card__swatch--current {

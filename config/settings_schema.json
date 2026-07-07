@@ -1355,6 +1355,89 @@
     ]
   },
   {
+    "name": "Swatches",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Product page picker swatches"
+      },
+      {
+        "type": "paragraph",
+        "content": "Sizes the color swatches in the product page variant picker (also used by the quick-add modal and featured product). Width applies at all screen sizes."
+      },
+      {
+        "type": "range",
+        "id": "swatch_picker_width",
+        "min": 0,
+        "max": 80,
+        "step": 2,
+        "unit": "px",
+        "label": "Width",
+        "info": "0 = theme default (36px mobile, 28px desktop)",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "swatch_picker_height",
+        "min": 0,
+        "max": 80,
+        "step": 2,
+        "unit": "px",
+        "label": "Height",
+        "info": "0 = theme default (square)",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "swatch_picker_radius",
+        "min": 0,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "Corner radius",
+        "info": "0 = theme default (follows the variant picker block's swatch shape)",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "Product card swatches"
+      },
+      {
+        "type": "range",
+        "id": "swatch_card_width",
+        "min": 0,
+        "max": 48,
+        "step": 2,
+        "unit": "px",
+        "label": "Width",
+        "info": "0 = theme default (20px)",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "swatch_card_height",
+        "min": 0,
+        "max": 48,
+        "step": 2,
+        "unit": "px",
+        "label": "Height",
+        "info": "0 = theme default (square)",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "swatch_card_radius",
+        "min": 0,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "Corner radius",
+        "info": "0 = theme default (2px)",
+        "default": 0
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.brand_information.name",
     "settings": [
       {
