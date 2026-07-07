@@ -537,6 +537,7 @@
                     lazy_load: lazy_load,
                     skip_styles: skip_card_product_styles,
                     quick_add: section.settings.quick_add,
+                    quick_add_mobile_only: section.settings.quick_add_mobile_only,
                     section_id: section.id,
                     show_swatches_availability: true,
                     size_overlay: section.settings.show_size_overlay
@@ -896,6 +897,14 @@
           "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_3"
         }
       ]
+    },
+    {
+      "type": "checkbox",
+      "id": "quick_add_mobile_only",
+      "default": true,
+      "label": "Quick add on mobile only",
+      "info": "Hide the quick-add button on desktop (sizes show on hover instead)",
+      "visible_if": "{{ section.settings.quick_add != 'none' }}"
     },
     {
       "type": "header",

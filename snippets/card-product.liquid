@@ -19,6 +19,7 @@
   - preview_badge: {String} Optional badge label rendered alongside other badges (e.g. "Coming Soon", "Early Access"). Default: blank (optional)
   - hide_sold_out_badge: {Boolean} Suppress the "Sold out" badge. Default: false (optional)
   - size_overlay: {Boolean} Show the size-availability strip over the media on card hover (desktop only). Skipped for products with no sizes to show. Default: false (optional)
+  - quick_add_mobile_only: {Boolean} Hide the quick-add button at desktop widths (>= 1100px) via large-up-hide. Default: false (optional)
 
   Usage:
   {% render 'card-product', show_vendor: section.settings.show_vendor %}
@@ -143,7 +144,7 @@
         {% unless card_product.tags contains 'Badge-Coming Soon' %}
           {% assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id %}
           {% if quick_add == 'standard' %}
-            <div class="quick-add no-js-hidden">
+            <div class="quick-add no-js-hidden{% if quick_add_mobile_only %} large-up-hide{% endif %}">
               {%- liquid
                 assign qty_rules = false
                 if card_product.selected_or_first_available_variant.quantity_rule.min > 1 or card_product.selected_or_first_available_variant.quantity_rule.max != null or card_product.selected_or_first_available_variant.quantity_rule.increment > 1
@@ -244,7 +245,7 @@
               <quick-add-bulk
                 data-min="{{ card_product.selected_or_first_available_variant.quantity_rule.min }}"
                 id="quick-add-bulk-{{ card_product.selected_or_first_available_variant.id }}-{{ section.id }}"
-                class="quick-add-bulk"
+                class="quick-add-bulk{% if quick_add_mobile_only %} large-up-hide{% endif %}"
                 data-index="{{ card_product.selected_or_first_available_variant.id }}"
               >
                 {% if card_product.selected_or_first_available_variant.available == false %}
@@ -267,7 +268,7 @@
                 {% endif %}
               </quick-add-bulk>
             {% else %}
-              <div class="quick-add no-js-hidden">
+              <div class="quick-add no-js-hidden{% if quick_add_mobile_only %} large-up-hide{% endif %}">
                 {%- liquid
                   assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id
                   assign qty_rules = false
