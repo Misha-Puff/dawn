@@ -341,7 +341,7 @@
             "icon": "none",
             "content": "{%- if product.metafields.product_page.material_description -%}\n  <p>{{ product.metafields.product_page.material_description | metafield_tag }}</p>\n{%- endif -%}\n{%- if product.metafields.product_page.country_description -%}\n  <p>{{ product.metafields.product_page.country_description | metafield_tag }}</p>\n{%- endif -%}\n{%- if product.metafields.product_page.care_instructions -%}\n  <p>{{ product.metafields.product_page.care_instructions | metafield_tag }}</p>\n{%- endif -%}",
             "page": "",
-            "tg_enable_type": true,
+            "tg_enable_type": false,
             "tg_font": "system_ui_n4",
             "tg_font_weight": "700",
             "tg_font_size": 0,
