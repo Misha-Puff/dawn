@@ -275,6 +275,20 @@ a.product__text {
   margin-bottom: 0;
 }
 
+/* Align title/price row and description to the 44rem cap shared by
+   .product-form__input, .product-form__buttons, and .mending-options;
+   the price is pinned right via margin-left: auto, so capping the row
+   pulls it in to the same edge. */
+.product__title,
+.product__description {
+  max-width: 44rem;
+}
+
+.product--no-media .product__title,
+.product--no-media .product__description {
+  max-width: 100%;
+}
+
 .product__title + .product__text.caption-with-letter-spacing {
   margin-top: -1.5rem;
 }
@@ -1675,6 +1689,11 @@ a.product__text {
 
   .product--stacked_scroll .thumbnail-slider--rail .thumbnail-list__item {
     width: 100%;
+  }
+
+  /* 2:3 portrait thumbs in the rail (shared .thumbnail-list__item::before stays square) */
+  .product--stacked_scroll .thumbnail-slider--rail .thumbnail-list__item::before {
+    padding-bottom: 150%;
   }
 
   .product--stacked_scroll .product__media-item {

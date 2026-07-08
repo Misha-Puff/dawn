@@ -106,6 +106,25 @@
         }
       {%- endif -%}
     {%- endif -%}
+
+    {%- comment -%}
+      Product media column padding, mirroring the info-column pattern above.
+      Same 750px breakpoint — the grid goes 2-column at 750px, not 990px.
+    {%- endcomment -%}
+    {%- if section.settings.media_enable_padding -%}
+      {%- liquid
+        assign media_pl = section.settings.media_padding_left | default: 0
+        assign media_pr = section.settings.media_padding_right | default: 0
+      -%}
+      {%- if media_pl > 0 or media_pr > 0 -%}
+        @media screen and (min-width: 750px) {
+          #MainProduct-{{ section.id }} .product__media-wrapper {
+            {%- if media_pl > 0 %} padding-left: {{ media_pl }}px;{% endif -%}
+            {%- if media_pr > 0 %} padding-right: {{ media_pr }}px;{% endif -%}
+          }
+        }
+      {%- endif -%}
+    {%- endif -%}
   {%- endstyle -%}
 
   {%- comment -%}
@@ -342,6 +361,41 @@
         {%- if tgp_col != blank -%}
           {%- comment -%} The location-name span carries color: rgb(var(--color-foreground)) via .color-foreground in base.css and would otherwise win. {%- endcomment -%}
           #{{ tg_scope }} .product__pickup-availabilities .pickup-availability-preview .color-foreground { color: {{ tgp_col }}; }
+        {%- endif -%}
+      {%- endif -%}
+      {%- if block.type == 'buy_buttons' and block.settings.tg_atc_enable -%}
+        {%- comment -%} Add-to-cart submit button label. Buttons don't inherit font — base.css lands font-size/text-transform/color on .button directly — so the full declaration targets the button element: .product-form__submit, which is stable across button--primary/--secondary and the no-JS fallback. ID+class specificity (1,1,0) beats every .button rule (max 0,2,0); no !important (pickup precedent). Background stays with the color scheme; the dynamic-checkout "Buy it now" button is Shopify-rendered and unaffected. buy_buttons has limit 1, so section-id scoping suffices. {%- endcomment -%}
+        {%- liquid
+          assign tga_font = block.settings.tg_atc_font
+          assign tga_weight = block.settings.tg_atc_weight | default: 'default'
+          assign tga_fs = block.settings.tg_atc_size | default: 0
+          assign tga_lh = block.settings.tg_atc_line_height | default: 0
+          assign tga_case = block.settings.tg_atc_case | default: 'default'
+          assign tga_ls = block.settings.tg_atc_letter_spacing | default: 0
+          assign tga_col = block.settings.tg_atc_color
+        -%}
+        {%- capture tga_brand_stack -%}{% render 'brand-font', font: block.settings.tg_atc_custom_font %}{%- endcapture -%}
+        {%- assign tga_brand_stack = tga_brand_stack | strip -%}
+        {%- if tga_font != blank and tga_brand_stack == blank -%}{{ tga_font | font_face: font_display: 'swap' }}{%- endif -%}
+        {%- if tga_font != blank and tga_brand_stack == blank and tga_weight != 'default' -%}
+          {%- assign tga_wfont = tga_font | font_modify: 'weight', tga_weight -%}
+          {%- if tga_wfont -%}{{ tga_wfont | font_face: font_display: 'swap' }}{%- endif -%}
+        {%- endif -%}
+        {%- capture tga_typedecl -%}
+          {%- if tga_brand_stack != blank %}font-family: {{ tga_brand_stack }}; font-style: normal;{% if tga_weight == 'default' %} font-weight: 400;{% endif %}{% elsif tga_font != blank %}font-family: {{ tga_font.family }}, {{ tga_font.fallback_families }}; font-style: {{ tga_font.style }};{% if tga_weight == 'default' %} font-weight: {{ tga_font.weight }};{% endif %}{% endif -%}
+          {%- if tga_weight != 'default' and tga_weight != blank %} font-weight: {{ tga_weight }};{% endif -%}
+          {%- if tga_fs > 0 %} font-size: {{ tga_fs }}px;{% endif -%}
+          {%- if tga_lh > 0 %} line-height: {{ tga_lh }}%;{% endif -%}
+          {%- if tga_case != 'default' and tga_case != blank %} text-transform: {{ tga_case }};{% endif -%}
+          {%- if tga_ls > 0 %} letter-spacing: {{ tga_ls }}px;{% endif -%}
+        {%- endcapture -%}
+        {%- assign tga_typedecl = tga_typedecl | strip -%}
+        {%- assign tga_fulldecl = tga_typedecl -%}
+        {%- if tga_col != blank -%}
+          {%- assign tga_fulldecl = tga_typedecl | append: ' color: ' | append: tga_col | append: ';' | strip -%}
+        {%- endif -%}
+        {%- if tga_fulldecl != blank -%}
+          #{{ tg_scope }} .product-form__submit { {{ tga_fulldecl }} }
         {%- endif -%}
       {%- endif -%}
       {%- if block.type == 'collapsible_tab' and block.settings.tg_body_enable -%}
@@ -3522,6 +3576,118 @@
         },
         {
           "type": "header",
+          "content": "Add to cart button text",
+          "info": "Styles the ADD TO CART / SOLD OUT / PREORDER label on the submit button. Text color only — the button background keeps the color scheme. The dynamic-checkout \"Buy it now\" button is rendered by Shopify and unaffected."
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_atc_enable",
+          "default": false,
+          "label": "Enable typography"
+        },
+        {
+          "type": "font_picker",
+          "id": "tg_atc_font",
+          "default": "assistant_n4",
+          "label": "Font",
+          "visible_if": "{{ block.settings.tg_atc_enable }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_atc_custom_font",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
+          "visible_if": "{{ block.settings.tg_atc_enable }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_atc_weight",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "300", "label": "Light" },
+            { "value": "400", "label": "Regular" },
+            { "value": "500", "label": "Medium" },
+            { "value": "600", "label": "Semibold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "default",
+          "label": "Font weight",
+          "visible_if": "{{ block.settings.tg_atc_enable }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_atc_size",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_atc_enable }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_atc_line_height",
+          "min": 0,
+          "max": 250,
+          "step": 5,
+          "unit": "%",
+          "label": "Line height",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_atc_enable }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_atc_case",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "uppercase", "label": "Uppercase" },
+            { "value": "capitalize", "label": "Capitalize" },
+            { "value": "lowercase", "label": "Lowercase" },
+            { "value": "none", "label": "Normal (remove uppercase)" }
+          ],
+          "default": "default",
+          "label": "Text case",
+          "visible_if": "{{ block.settings.tg_atc_enable }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_atc_letter_spacing",
+          "min": 0,
+          "max": 4,
+          "step": 0.1,
+          "unit": "px",
+          "label": "Letter spacing",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_atc_enable }}"
+        },
+        {
+          "type": "color",
+          "id": "tg_atc_color",
+          "label": "Text color",
+          "info": "Leave blank for theme default",
+          "visible_if": "{{ block.settings.tg_atc_enable }}"
+        },
+        {
+          "type": "header",
           "content": "Padding"
         },
         {
@@ -5971,6 +6137,40 @@
       "info": "Vertical gap between blocks in the column. 0 = theme default (15px; 25px around description/buy area). All screen sizes.",
       "default": 0,
       "visible_if": "{{ section.settings.info_enable_padding }}"
+    },
+    {
+      "type": "header",
+      "content": "Product media column"
+    },
+    {
+      "type": "checkbox",
+      "id": "media_enable_padding",
+      "default": false,
+      "label": "Enable custom padding"
+    },
+    {
+      "type": "range",
+      "id": "media_padding_left",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Desktop padding left",
+      "info": "0 = theme default (0px). Desktop only.",
+      "default": 0,
+      "visible_if": "{{ section.settings.media_enable_padding }}"
+    },
+    {
+      "type": "range",
+      "id": "media_padding_right",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Desktop padding right",
+      "info": "0 = theme default (0px). Desktop only.",
+      "default": 0,
+      "visible_if": "{{ section.settings.media_enable_padding }}"
     }
   ]
 }
