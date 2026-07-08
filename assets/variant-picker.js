@@ -1,3 +1,24 @@
+/**
+ * horizon-blocks Phase 10 port of Horizon 68760d9 assets/variant-picker.js —
+ * byte-verbatim through Phase 12.
+ *
+ * Phase-13 Dawn deviation (the ONLY one; Nathan ruling 2026-07-06,
+ * diff-proven): one additive SECTION_ID_MAP entry,
+ * `'quick-add-dialog': 'hz-quick-add-product'` (source :281-285). The
+ * in-modal variant picker sits inside <quick-add-dialog> — none of the stock
+ * map keys match there, so stock falls through to the bare product URL,
+ * where getViewParameterValue() (utilities.js:676) reads the HOST page's
+ * location and the refetch returns the Dawn-native PDP (no <variant-picker>
+ * to morph → updateVariantPicker throws). The entry routes the refetch to
+ * the Section Rendering API fragment of sections/hz-quick-add-product —
+ * shape-identical to stock's own 'quick-add-component':
+ * 'section-rendering-product-card' entry, and additive-only: card/swatch
+ * pickers are never inside quick-add-dialog, and the modal picker matches
+ * none of the other keys (Object.keys().find() order is therefore
+ * irrelevant either way). Phase-10 card-swatch refetches
+ * (section-rendering-product-card) are a serve-gate go/no-go regression
+ * probe.
+ */
 import { Component } from '@theme/component';
 import { morph, MORPH_OPTIONS } from '@theme/morph';
 import { OverflowList } from '@theme/overflow-list';
@@ -281,6 +302,7 @@ export default class VariantPicker extends Component {
     const SECTION_ID_MAP = {
       'quick-add-component': 'section-rendering-product-card',
       'swatches-variant-picker-component': 'section-rendering-product-card',
+      'quick-add-dialog': 'hz-quick-add-product', // Dawn deviation (the ONLY one — see header)
       'featured-product-information': this.closest('featured-product-information')?.id,
     };
 

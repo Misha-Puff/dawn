@@ -12,9 +12,16 @@
     full story). The stylesheet's :has(product-recommendations[...]) TAG
     selector is retargeted in lockstep. Class names / ids / hydration keys
     keep stock "product-recommendations" strings — tag-independent.
-  - TRIMMED: the quick-add-styles + quick-add-modal-styles renders (stock
-    :31-32) — quick-add is a deliberate port-wide trim. RE-ADD both with
-    that slice.
+  - Phase 13 (quick-add seam closed; round 3 = DAWN-NATIVE, Nathan ruling
+    2026-07-07): stock's quick-add-styles + quick-add-modal-styles renders
+    (:31-32) stay OUT — quick-add on M&P card surfaces is Dawn's own
+    machinery (snippets/hz-card-quick-add via _product-card-gallery, gated
+    on section.settings.quick_add), and Horizon's .quick-add CSS collides
+    with Dawn's .quick-add class. This block's cards render quick-add only
+    when the HOST section's quick_add setting is on (the block itself has
+    no such setting — a follow-up if ever wanted); the Dawn assets load
+    from the gated hosts. RE-ADD the style renders only with a
+    Horizon-modal re-wire.
   - LOCKSMITH GATE in the recommendations loop (M&P "Locksmith at call
     sites" contract; hz-product-recommendations/hz-product-list pattern),
     nil-safe for onboarding placeholders; with it the PREFIX-style
@@ -66,11 +73,9 @@
   [data-section-id] {section.id} - used to fetch the product recommendations from the Section Rendering API
 {% endcomment %}
 
-{% comment %}
-  RE-ADD with the quick-add slice (deliberate Phase-10-family trim):
-  {% render 'quick-add-styles' %}
-  {% render 'quick-add-modal-styles' %}
-{% endcomment %}
+{% comment %} Stock :31-32 quick-add style renders REMOVED (round 3 — the
+  Horizon .quick-add CSS collides with Dawn's .quick-add class; see header).
+  RE-ADD only with a Horizon-modal re-wire. {% endcomment %}
 {% render 'variant-picker-styles' %}
 {% render 'product-badges-styles' %}
 {% render 'resource-list-styles' %}

@@ -11,9 +11,21 @@
     "product-recommendations" strings — they are tag-independent.
   - Standalone-host preamble (hz-carousel/hz-product-list precedent):
     component-group.css + hz-type-variables + hz-ui-tokens.
-  - TRIMMED: the quick-add-styles + quick-add-modal-styles renders (stock
-    :27-28) — the quick-add subsystem is a deliberate port-wide trim.
-    RE-ADD both renders with that slice.
+  - Phase 13 (quick-add seam closed; round 3 = DAWN-NATIVE, Nathan ruling
+    2026-07-07): quick_add SECTION setting (stock's is a THEME setting;
+    hz-product-list precedent, DEFAULT FALSE = live card parity). When on,
+    this host loads DAWN's quick-add assets (quick-add.css + quick-add.js +
+    product-form.js — the main-collection-product-grid.liquid:13-20 grid
+    pattern) and blocks/_product-card-gallery renders Dawn's per-card
+    trigger + modal (snippets/hz-card-quick-add; its header carries the
+    ruling). Stock's quick-add-styles / quick-add-modal-styles renders
+    (:27-28) and the round-1/2 modal singleton are OUT — Horizon's
+    .quick-add CSS collides with Dawn's .quick-add class, and Dawn modals
+    are per-card. No mobile_quick_add setting (Dawn's trigger is always
+    visible at both breakpoints). Duplicate #QuickAdd-{product.id} ids when
+    a product repeats across hosts = live-equivalent (first match wins).
+    The Horizon quick-add subsystem stays in-repo, unwired from M&P card
+    surfaces.
   - LOCKSMITH GATE in the recommendations loop (M&P "Locksmith at call
     sites" contract; hz-product-list:107-119 pattern): the recommendations
     engine can surface preview/vip/supervip products to sessions that fail
@@ -52,6 +64,18 @@
 {% render 'hz-type-variables' %}
 {% render 'hz-ui-tokens' %}
 
+{%- comment -%}
+  Phase 13 round 3 — DAWN's quick-add machinery, loaded exactly like the
+  live grids (main-collection-product-grid.liquid:13-20 /
+  featured-collection.liquid:11-17). No modal singleton: Dawn modals are
+  per-card (snippets/hz-card-quick-add, rendered by _product-card-gallery).
+{%- endcomment -%}
+{%- if section.settings.quick_add -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
 {% liquid
   case section.settings.layout_type
     when 'grid'
@@ -72,11 +96,9 @@
   endcapture
 %}
 
-{% comment %}
-  RE-ADD with the quick-add slice (deliberate Phase-10-family trim):
-  {% render 'quick-add-styles' %}
-  {% render 'quick-add-modal-styles' %}
-{% endcomment %}
+{% comment %} Stock :27-28 quick-add style renders REMOVED (round 3 — the
+  Horizon .quick-add CSS collides with Dawn's .quick-add class; see header).
+  RE-ADD only with a Horizon-modal re-wire. {% endcomment %}
 {% render 'variant-picker-styles' %}
 {% render 'product-badges-styles' %}
 {% render 'resource-list-styles' %}
@@ -595,6 +617,16 @@
       "id": "background_color",
       "label": "Background color",
       "placeholder": "Default"
+    },
+    {
+      "type": "header",
+      "content": "Quick add"
+    },
+    {
+      "type": "checkbox",
+      "id": "quick_add",
+      "label": "Quick add",
+      "default": false
     },
     {
       "type": "header",

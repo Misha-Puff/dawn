@@ -11,7 +11,10 @@
   analogs (--color-foreground-rgb, brightness opacities,
   --color-foreground-subdued, the --color-variant-* family with hover-shift
   math via util-palette-hover-shift) and the .color-custom-badge-sale /
-  -sold-out scope renders).
+  -sold-out scope renders; Phase 13 appends the quick-add/buy-buttons
+  subsystem's tokens — font-size/gap fills, animation timings, button/input
+  sizes, drawer + quick-add-modal geometry — and the .color-custom-drawer
+  scope render (tsv:693-698 analog of the Phase-9 popover scope).
 
   Dawn-side equivalent of the layering + opacity subset of stock Horizon
   v4.1.1 (68760d9) snippets/theme-styles-variables.liquid, values verbatim.
@@ -356,6 +359,69 @@
        gotcha) — so the space triplet is emitted from Liquid here.
        Scheme-1-only caveat per --color-border above. */
     --color-shadow-rgb: {{ popover_scheme.settings.shadow.rgb }};
+
+    /* --- Phase 13 (quick-add / buy-buttons subsystem; Horizon rem = 16px) --- */
+    /* Font sizes (tsv:349, 352-353) */
+    --font-size--3xs: 10px; /* 0.625rem */
+    --font-size--sm: 14px; /* 0.875rem */
+    --font-size--md: 16px; /* 1rem */
+
+    /* Gaps (tsv:435, 438-439, 441) */
+    --gap-2xs: 4.8px; /* 0.3rem */
+    --gap-md: 14.4px; /* 0.9rem */
+    --gap-lg: 16px; /* 1rem */
+    --gap-2xl: 32px; /* 2rem */
+
+    /* Animation timings (tsv:473, 489, 492 — verbatim) */
+    --ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+    --animation-timing-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --animation-timing-fade-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Buttons (tsv:582 verbatim px; tsv:648 verbatim calc — both calc deps
+       already ported, Phases 5) */
+    --button-size-md: 36px;
+    --height-buy-buttons: calc(var(--padding-lg) * 2 + var(--icon-size-sm));
+
+    /* Inputs (tsv:557-559; 0.8rem → 12.8px) — gift-card recipient form */
+    --input-padding-y: 12.8px;
+    --input-padding-x: 12.8px;
+    --input-padding: var(--input-padding-y) var(--input-padding-x);
+
+    /* Drawer (tsv:129 30rem; tsv:457 1rem; tsv:467 with drawer_border_color
+       at its SCHEMA default = palette foreground — composed via rgb() from
+       scheme-1 text per the --color-border precedent above; the
+       .color-custom-drawer scope below re-declares --color-border full-color
+       inside the drawer). */
+    --theme-drawer-width: 480px; /* 30rem */
+    --style-border-radius-lg: 16px; /* 1rem */
+    --style-border-drawer: 1px solid rgb({{ popover_scheme.settings.text.rgb }});
+
+    /* Quick-add modal geometry (tsv:666-668; rem→px @16 inside min()) */
+    --quick-add-modal-height: min(616px, 96vh); /* 38.5rem */
+    --quick-add-modal-width: min(864px, 96vw); /* 54rem */
+    --quick-add-modal-gallery-width: 384px; /* 24rem */
+
+    /* Button radii (tsv:460-461 at schema defaults
+       button_border_radius_primary/_secondary = 100) — first consumers: the
+       quantity-selector extraction's stepper radius legs. The BARE
+       --style-border-radius-buttons (input radius, base.css:3031) is
+       undefined in stock too — IACVT → 0, kept absent (Phase-13 audit-note
+       precedent). */
+    --style-border-radius-buttons-primary: 100px;
+    --style-border-radius-buttons-secondary: 100px;
+
+    /* Phase-13 audit notes — deliberately NOT defined:
+       --color-foreground-secondary (buy-buttons-styles:58/69/256) is consumed
+       but never defined anywhere in stock Horizon — stock behavior is the
+       IACVT `color` fallback to inherited color; defining it here would
+       deviate. --image-gap (quick-add-modal-styles:485) only feeds the
+       .media-gallery__grid rule, which sits on the media-gallery markup this
+       slice TRIMS from the quick-add modal — RE-ADD its source (block-settings
+       inline style, product-media-gallery-content.liquid:353) with the PDP
+       media slice. The --quick-add-display/-mobile-display/-mobile-opacity
+       vars are GONE from card markup as of Phase 13 round 3 (Dawn-native
+       quick-add — product-card.liquid no longer emits them); their only
+       consumers sit in the unwired snippets/quick-add-styles. */
   }
 
   /* Section-height svh tiers (tsv:143-151, verbatim incl. Horizon's em
@@ -438,5 +504,24 @@
   background_color: popover_scheme.settings.background,
   text_color: popover_scheme.settings.text,
   section_id: 'badge-sold-out',
+  preset: 'ui'
+%}
+
+{%- comment -%}
+  Phase 13: the .color-custom-drawer scope (mirrors Horizon tsv:693-698 —
+  the Phase-9 .color-custom-popover precedent above). Stock feeds
+  contrast-override from settings.drawer_background_color / _text_color /
+  _border_color — theme settings Dawn lacks; their schema DEFAULTS are
+  palette background/foreground/foreground = exactly Dawn scheme-1's
+  background/text/text, identical inputs to the popover scope. Consumer in
+  this slice: the pickup-availability drawer dialog
+  (blocks/buy-buttons.liquid:327 carries class="theme-drawer__dialog
+  color-custom-drawer"; surface rules in snippets/theme-drawer-styles.liquid).
+{%- endcomment -%}
+{% render 'contrast-override',
+  background_color: popover_scheme.settings.background,
+  text_color: popover_scheme.settings.text,
+  border_color: popover_scheme.settings.text,
+  section_id: 'drawer',
   preset: 'ui'
 %}

@@ -5,14 +5,14 @@
 
   Port of stock Horizon v4.1.1 (68760d9) snippets/product-card.liquid
   (horizon-blocks Phase 10). Deviations:
-  - settings.quick_add / settings.mobile_quick_add hardcoded FALSE (DELIBERATE
-    deviation from stock's default true — the quick-add/buy-buttons subsystem
-    is deferred; plan ruling). The stock has_quick_add assigns
-    (product-card.liquid:24-33) and the three --quick-add-* CSS var emissions
-    (:109-111) are TRIMMED — with the subsystem out they had no consumer.
-    RE-ADD both (plus blocks/_product-card-gallery's quick-add render and
-    blocks/_product-card's buy-buttons/quick-add allowlist entries) when that
-    subsystem lands.
+  - Quick-add is DAWN-NATIVE at the gallery as of Phase 13 round 3 (Nathan
+    ruling 2026-07-07; see snippets/hz-card-quick-add): stock's quick-add
+    assigns (:24-33) and the three --quick-add-* var emissions (:109-111)
+    are TRIMMED, as are the round-2 quick_add / mobile_quick_add render
+    params — Dawn's trigger is server-side gated at
+    blocks/_product-card-gallery (section.settings.quick_add) and always
+    visible at both breakpoints, so nothing consumes the vars. RE-ADD from
+    stock only with a Horizon-modal re-wire.
   - settings.transition_to_main_product hardcoded FALSE (Horizon
     view-transition setting Dawn lacks; deliberate deviation from stock's
     default true — Dawn pages never opt into view transitions). The
@@ -49,9 +49,10 @@
 {% endstyle %}
 
 {% liquid
-  # Phase-10 hardcodes (see doc header): quick_add / mobile_quick_add = false
-  # (stock assigns trimmed), transition_to_main_product = false (stock's
-  # featured_media_url block trimmed).
+  # Phase-10 hardcode (see doc header): transition_to_main_product = false
+  # (stock's featured_media_url block trimmed). Phase 13 round 3: stock's
+  # quick-add assigns (:24-33) re-trimmed — quick-add is Dawn-native at the
+  # gallery (see doc header).
 
   assign product_card_id = 'product-card-link-' | append: block.id | append: '-' | append: product.id
   assign product_card_gap_value = product_card_gap | default: block_settings.product_card_gap

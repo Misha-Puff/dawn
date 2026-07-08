@@ -3,15 +3,23 @@
 
   horizon-blocks Phase 10 port of stock Horizon v4.1.1 (68760d9)
   blocks/_product-card.liquid; schema t: strings hardcoded to Horizon's
-  English. Deviations:
-  - TRIMMED style renders (:14-17): buy-buttons-styles /
-    gift-card-recipient-form-styles / quick-add-styles /
-    quick-add-modal-styles — their subsystems are deferred (quick_add
-    hardcoded false). variant-picker-styles and product-badges-styles KEPT
-    (both ported). RE-ADD the four with the quick-add/buy-buttons subsystem.
-  - TRIMMED allowlist entries: "buy-buttons", "review", "sku" (subsystems /
-    PDP items not yet ported — upload-time validation rejects unknown types).
-    RE-ADD each alongside its port.
+  English. Quick-add seam closed Phase 13. Deviations:
+  - Two of the four Phase-10-trimmed style renders (stock :14-17) are
+    RESTORED (buy-buttons-styles / gift-card-recipient-form-styles — stock
+    position, still the PDP-track vocabulary). quick-add-styles /
+    quick-add-modal-styles stay OUT (round 3, Nathan ruling 2026-07-07:
+    quick-add on M&P card surfaces is DAWN-NATIVE — see
+    snippets/hz-card-quick-add — and Horizon's .quick-add CSS collides with
+    Dawn's .quick-add class). RE-ADD only with a Horizon-modal re-wire.
+  - "buy-buttons" allowlist entry RESTORED (stock position, between image
+    and price). "review" and "sku" stay TRIMMED (PDP items not yet ported —
+    upload-time validation rejects unknown types); RE-ADD each alongside
+    its port.
+  - No quick_add / mobile_quick_add threading into the card snippet (the
+    round-2 shape, removed): Dawn's trigger is server-side gated at the
+    gallery (blocks/_product-card-gallery reads section.settings.quick_add)
+    and always visible at both breakpoints — the snippet's --quick-add-*
+    vars went with it.
 {%- enddoc -%}
 
 {% liquid
@@ -22,9 +30,16 @@
   {% content_for 'blocks', closest.product: product %}
 {% endcapture %}
 
-{% render 'product-card', children: children, product: product, product_view_context: product_view_context %}
-{% comment %} TRIMMED (Phase 10): buy-buttons-styles / gift-card-recipient-form-styles /
-   quick-add-styles / quick-add-modal-styles renders — see doc header. {% endcomment %}
+{% render 'product-card',
+  children: children,
+  product: product,
+  product_view_context: product_view_context
+%}
+{% render 'buy-buttons-styles' %}
+{% render 'gift-card-recipient-form-styles' %}
+{% comment %} Stock :16-17 quick-add style renders REMOVED (round 3 — the
+  Horizon .quick-add CSS collides with Dawn's .quick-add class; see header).
+  RE-ADD only with a Horizon-modal re-wire. {% endcomment %}
 {% render 'variant-picker-styles' %}
 {% render 'product-badges-styles' %}
 
@@ -40,6 +55,9 @@
     },
     {
       "type": "image"
+    },
+    {
+      "type": "buy-buttons"
     },
     {
       "type": "price"

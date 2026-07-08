@@ -1,0 +1,109 @@
+{%- doc -%}
+  Quantity selector block — renders the quantity stepper (+ volume-pricing
+  price-per-item rider) for the closest product.
+
+  Port of stock Horizon v4.1.1 (68760d9) blocks/quantity.liquid
+  (horizon-blocks Phase 13). Deviations:
+  - This doc header (stock ships none; our statically-rendered blocks carry
+    one per port convention).
+  - Schema t: strings hardcoded to Horizon schema-locale English; the
+    settings.color_palette.* schema color defaults are static Dawn scheme-1
+    values (#ffffff background / #121212 foreground — button-block Phase-10
+    precedent).
+  - Body verbatim: input-custom-styles (Phase 10) + quantity-selector
+    (Phase 13, carries its own per-render script tags) are both ported.
+{%- enddoc -%}
+
+{%- if block.settings.input_style == 'custom' -%}
+  {%- capture wrapper_class -%}quantity-selector-wrapper--block-{{ block.id }}{%- endcapture -%}
+  {% style %}
+    .{{ wrapper_class }} {
+      {%- render 'input-custom-styles', block_settings: block.settings -%}
+      --style-border-width-inputs: {{ block.settings.border_width }}px;
+      --style-border-radius-inputs: {{ block.settings.border_radius }}px;
+      --style-border-radius-buttons-primary: {{ block.settings.border_radius }}px;
+      --style-border-radius-buttons-secondary: {{ block.settings.border_radius }}px;
+    }
+  {% endstyle %}
+{%- endif -%}
+
+{% render 'quantity-selector', product: closest.product, block: block, wrapper_class: wrapper_class %}
+
+{% schema %}
+{
+  "name": "Quantity",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Input"
+    },
+    {
+      "type": "select",
+      "id": "input_style",
+      "label": "Style",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "default",
+      "info": "Edit input field in [theme settings](/editor?context=theme&category=input%20fields)"
+    },
+    {
+      "type": "color",
+      "id": "input_background_color",
+      "label": "Background",
+      "default": "#ffffff",
+      "visible_if": "{{ block.settings.input_style == \"custom\" }}"
+    },
+    {
+      "type": "color",
+      "id": "input_text_color",
+      "label": "Text",
+      "default": "#121212",
+      "visible_if": "{{ block.settings.input_style == \"custom\" }}"
+    },
+    {
+      "type": "color",
+      "id": "input_border_color",
+      "label": "Borders",
+      "default": "#121212",
+      "visible_if": "{{ block.settings.input_style == \"custom\" }}"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "label": "Border thickness",
+      "min": 0,
+      "max": 4,
+      "step": 0.5,
+      "unit": "px",
+      "default": 1,
+      "visible_if": "{{ block.settings.input_style == \"custom\" }}"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Corner radius",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 0,
+      "visible_if": "{{ block.settings.input_style == \"custom\" }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quantity",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}

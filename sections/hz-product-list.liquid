@@ -33,6 +33,19 @@
     (base.css:418, re-scoped) + the .section-resource-list support rules
     (base.css:3605-3633 subset, verbatim).
   - Schema/preset t: strings hardcoded to Horizon's English.
+  - Phase 13 (quick-add seam closed; round 3 = DAWN-NATIVE, Nathan ruling
+    2026-07-07): quick_add SECTION setting (stock's is a THEME setting — the
+    card_hover_effect promotion precedent above; DEFAULT FALSE deviates from
+    stock's true = live M&P cards render no quick-add by default). When on,
+    this host loads DAWN's quick-add assets (quick-add.css + quick-add.js +
+    product-form.js — the main-collection-product-grid.liquid:13-20 grid
+    pattern) and blocks/_product-card-gallery renders Dawn's per-card
+    trigger + modal (snippets/hz-card-quick-add — extraction of Dawn
+    card-product.liquid:148-243; its header carries the ruling). No
+    mobile_quick_add setting and no modal singleton (the round-1/2 Horizon
+    shapes): Dawn's trigger is server-side gated + always visible at both
+    breakpoints, and Dawn modals are per-card. The Horizon quick-add
+    subsystem stays in-repo, unwired from M&P card surfaces.
 {%- endcomment -%}
 {%- comment -%}
   Host-owned dependencies (precedent: sections/hz-blocks-host.liquid — "future
@@ -43,6 +56,18 @@
 {{ 'component-group.css' | asset_url | stylesheet_tag }}
 {% render 'hz-type-variables' %}
 {% render 'hz-ui-tokens' %}
+
+{%- comment -%}
+  Phase 13 round 3 — DAWN's quick-add machinery, loaded exactly like the
+  live grids (main-collection-product-grid.liquid:13-20 /
+  featured-collection.liquid:11-17). No modal singleton: Dawn modals are
+  per-card (snippets/hz-card-quick-add, rendered by _product-card-gallery).
+{%- endcomment -%}
+{%- if section.settings.quick_add -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
 
 {% liquid
   assign max_items = section.settings.max_products
@@ -525,6 +550,16 @@
         }
       ],
       "default": "none"
+    },
+    {
+      "type": "header",
+      "content": "Quick add"
+    },
+    {
+      "type": "checkbox",
+      "id": "quick_add",
+      "label": "Quick add",
+      "default": false
     },
     {
       "type": "header",

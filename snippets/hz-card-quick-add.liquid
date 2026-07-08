@@ -1,0 +1,144 @@
+{%- doc -%}
+  Dawn-native quick-add for hz cards — Phase 13 round 3.
+
+  EXTRACTION of Dawn snippets/card-product.liquid:148-243 (the
+  quick_add == 'standard' region), markup/classes/ids verbatim. RULING
+  (Nathan, serve gate 2026-07-07): "Quick add is still not behaving like
+  Dawn's" — Dawn's native quick-add is live store-wide and structurally
+  different from the ported Horizon modal (which can never show M&P's
+  customized <product-info> picker). Ruled: Dawn machinery wholesale on hz
+  cards + pure-Dawn mobile (no mobile_quick_add setting — Dawn's trigger is
+  server-side gated and always visible at both breakpoints). The Horizon
+  quick-add subsystem stays in-repo as ported vocabulary, unwired from M&P
+  card surfaces (see snippets/quick-add.liquid header).
+
+  Behavior (all Dawn, live-proven on collection grids):
+  - Multi-variant or qty rules → modal-opener → <quick-add-modal>
+    (assets/quick-add.js) fetches the product URL, injects the REAL M&P
+    <product-info> — picker incl. swatch_message, buy buttons, "View full
+    details" — pickup/zoom modals stripped, ids renamed quickadd-{id},
+    data-update-url="false".
+  - Single-variant, no qty rules → direct <product-form> POST
+    (assets/product-form.js); disabled + .sold-out-message when unavailable.
+  - Add from modal → modal closes FIRST, then cart-notification/drawer
+    (Rebuy) opens (product-form.js:79-92).
+
+  Deviations from the source region:
+  - Parameterized: card_product → product; the section id is the section_id
+    render param (incl. data-section-id — stock reads section.id there; no
+    JS on this path consumes it).
+  - The quick_add == 'standard' gate lives at the CALL SITE
+    (blocks/_product-card-gallery reads section.settings.quick_add), as does
+    the Badge-Coming Soon unless-wrap (card-product.liquid:147 parity).
+  - The {% if horizontal_quick_add %} legs are TRIMMED (Dawn's horizontal
+    card layout flag — no hz consumer; restore from the source region if a
+    horizontal hz card ever exists).
+  - aria-labelledby's second id (title-{section_id}-{product.id}) is a Dawn
+    card-title id hz cards don't emit; kept verbatim (the button's own id
+    resolves).
+  - The .quick-add wrapper carries color-{{ settings.card_color_scheme }}
+    gradient (serve fix, Nathan's punchlist FAIL 2026-07-08 — "should be a
+    white square with a black +"): on live Dawn the button sits inside the
+    card's scheme wrapper (card-product.liquid puts
+    color-{{ settings.card_color_scheme }} on the card; live = scheme-2 →
+    --color-button 255,255,255 / --color-button-text 0,0,0). hz cards have
+    no Dawn card-scheme ancestor, so without this the .button fell back to
+    dark scheme values (black square). Same global setting Dawn reads —
+    merchant changes track live. The wrapper's painted scheme background is
+    fully covered by the opaque button (wrapper auto-sizes to the button).
+
+  Asset deps: quick-add.css + quick-add.js + product-form.js are loaded by
+  the gated hosts (hz-product-list / hz-product-recommendations — the
+  main-collection-product-grid.liquid:13-20 pattern); global.js
+  (ModalDialog / modal-opener / HTMLUpdateUtility) is theme-global.
+
+  @param {object} product - The product object
+  @param {string} section_id - The section ID (Dawn product_form_id shape)
+{%- enddoc -%}
+{% assign product_form_id = 'quick-add-' | append: section_id | append: product.id %}
+<div class="quick-add no-js-hidden color-{{ settings.card_color_scheme }} gradient">
+  {%- liquid
+    assign qty_rules = false
+    if product.selected_or_first_available_variant.quantity_rule.min > 1 or product.selected_or_first_available_variant.quantity_rule.max != null or product.selected_or_first_available_variant.quantity_rule.increment > 1
+      assign qty_rules = true
+    endif
+  -%}
+  {%- if product.variants_count > 1 or qty_rules -%}
+    <modal-opener data-modal="#QuickAdd-{{ product.id }}">
+      <button
+        id="{{ product_form_id }}-submit"
+        type="submit"
+        name="add"
+        class="quick-add__submit button"
+        aria-haspopup="dialog"
+        aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ product.id }}"
+        data-product-url="{{ product.url }}"
+      >
+        <span class="icon-wrap">
+          {{- 'icon-plus.svg' | inline_asset_content -}}
+        </span>
+        {%- render 'loading-spinner' -%}
+      </button>
+    </modal-opener>
+    <quick-add-modal id="QuickAdd-{{ product.id }}" class="quick-add-modal">
+      <div
+        role="dialog"
+        aria-label="{{ 'products.product.choose_product_options' | t: product_name: product.title | escape }}"
+        aria-modal="true"
+        class="quick-add-modal__content global-settings-popup"
+        tabindex="-1"
+      >
+        <button
+          id="ModalClose-{{ product.id }}"
+          type="button"
+          class="quick-add-modal__toggle"
+          aria-label="{{ 'accessibility.close' | t }}"
+        >
+          {{- 'icon-close.svg' | inline_asset_content -}}
+        </button>
+        <div id="QuickAddInfo-{{ product.id }}" class="quick-add-modal__content-info"></div>
+      </div>
+    </quick-add-modal>
+  {%- else -%}
+    <product-form data-section-id="{{ section_id }}">
+      {%- form 'product',
+        product,
+        id: product_form_id,
+        class: 'form',
+        novalidate: 'novalidate',
+        data-type: 'add-to-cart-form'
+      -%}
+        <input
+          type="hidden"
+          name="id"
+          value="{{ product.selected_or_first_available_variant.id }}"
+          class="product-variant-id"
+          {% if product.selected_or_first_available_variant.available == false %}
+            disabled
+          {% endif %}
+        >
+        <button
+          id="{{ product_form_id }}-submit"
+          type="submit"
+          name="add"
+          class="quick-add__submit button"
+          aria-haspopup="dialog"
+          aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ product.id }}"
+          aria-live="polite"
+          data-sold-out-message="true"
+          {% if product.selected_or_first_available_variant.available == false %}
+            disabled
+          {% endif %}
+        >
+          <span class="icon-wrap">
+            {{- 'icon-plus.svg' | inline_asset_content -}}
+          </span>
+          <span class="sold-out-message hidden">
+            {{ 'products.product.sold_out' | t }}
+          </span>
+          {%- render 'loading-spinner' -%}
+        </button>
+      {%- endform -%}
+    </product-form>
+  {%- endif -%}
+</div>

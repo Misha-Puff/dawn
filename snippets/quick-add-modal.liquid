@@ -1,0 +1,119 @@
+{%- doc -%}
+  The quick-add modal singleton — the shared <quick-add-dialog> that
+  hz-quick-add.js morphs fetched product content into.
+
+  UNWIRED from M&P card surfaces (Phase 13 round 3 — Dawn-native quick-add
+  ruling, Nathan 2026-07-07): no host renders this singleton anymore —
+  quick-add on cards is Dawn's per-card machinery
+  (snippets/hz-card-quick-add). Stays in-repo as ported vocabulary
+  (port-everything frame); re-wire = restore the host singleton renders +
+  swap the gallery render back to snippets/quick-add.
+
+  Port of stock Horizon v4.1.1 (68760d9) snippets/quick-add-modal.liquid
+  (horizon-blocks Phase 13). Deviations:
+  - data-section-id="hz-quick-add-product" added to the product-component:
+    documents the SRA contract (the modal content is the Section Rendering
+    API fragment of sections/hz-quick-add-product; initial fetch in
+    hz-quick-add.js, in-modal variant changes via variant-picker.js's
+    SECTION_ID_MAP entry).
+  - icon-close.svg → hz-icon-close.svg (Dawn owns the stock name; the hz-
+    copy is byte-verbatim stock). accessibility.close_dialog hardcoded
+    English.
+  - Eager module script tags EXTENDED beyond stock's gift-card-recipient-form.js:
+    the modal content arrives via fetch + morph, and morphed <script> tags
+    never execute — in stock every element definition ships in the global
+    scripts.liquid bundle, but our port loads per-render, so the singleton
+    (real server-rendered markup on the host page) must pre-load everything
+    the morphed content defines: hz-quick-add.js (quick-add-dialog itself),
+    hz-product-form.js, component-quantity-selector.js, hz-price-per-item.js,
+    volume-pricing.js, theme-drawer.js, local-pickup.js.
+    (<variant-picker> is already defined on card hosts via product-card.js's
+    @theme/variant-picker import.) Phase-13 serve fix adds
+    hz-cart-bubble-sync.js (Dawn-glue — see its header; punchlist §3.4).
+  - render 'product-media-gallery-content-styles' TRIMMED: that snippet is
+    the PDP media-gallery styles, unported. RE-ADD with the PDP media slice
+    (the modal's minimal-media column needs no gallery rules; stock modal
+    CSS handles the wrapper).
+
+  Rendered by sections/hz-product-list.liquid + hz-product-recommendations.liquid
+  when either quick-add setting is on. Duplicate hosts on one page render
+  duplicate singletons; getElementById resolves to the FIRST — consistent
+  first-wins, serve-probed.
+{%- enddoc -%}
+
+<script
+  src="{{ 'gift-card-recipient-form.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+<script
+  src="{{ 'hz-quick-add.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+<script
+  src="{{ 'hz-product-form.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+<script
+  src="{{ 'component-quantity-selector.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+<script
+  src="{{ 'hz-price-per-item.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+<script
+  src="{{ 'volume-pricing.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+<script
+  src="{{ 'theme-drawer.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+<script
+  src="{{ 'local-pickup.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+<script
+  src="{{ 'hz-cart-bubble-sync.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+<quick-add-dialog id="quick-add-dialog">
+  <dialog
+    class="quick-add-modal dialog-modal color-custom-popover"
+    ref="dialog"
+    scroll-lock
+  >
+    {%- comment -%} SERVE FIX: `button` class dropped (Phase-8 ratified
+      precedent — inert under Horizon's .button:not(.button-unstyled) guard;
+      Dawn's guardless .button painted it black and its position:relative
+      beat the modal's absolute placement via the cascade inversion). The
+      per-consumer shim (popup-link close precedent) lives in
+      quick-add-styles. {%- endcomment -%}
+    <button
+      ref="closeButton"
+      on:click="/closeDialog"
+      class="button-unstyled close-button quick-add-modal__close"
+      aria-label="Close dialog"
+    >
+      {{- 'hz-icon-close.svg' | inline_asset_content -}}
+    </button>
+
+    <product-component
+      id="quick-add-modal-content"
+      class="quick-add-modal__content"
+      view-event-trigger="dialog"
+      data-section-id="hz-quick-add-product"
+    ></product-component>
+  </dialog>
+</quick-add-dialog>
+
+{% render 'quick-add-modal-styles' %}

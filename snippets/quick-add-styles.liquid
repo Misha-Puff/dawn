@@ -1,0 +1,190 @@
+{%- doc -%}
+  Quick-add styles consolidated into a single snippet.
+
+  UNWIRED from M&P card surfaces (Phase 13 round 3 — Dawn-native quick-add
+  ruling, Nathan 2026-07-07): no card-chain file renders this anymore —
+  Horizon and Dawn BOTH use the .quick-add class, so this CSS must stay off
+  any page running Dawn's quick-add.css (the gated hosts load it). Stays
+  in-repo as ported vocabulary (port-everything frame); re-wire = restore
+  the card-chain renders together with the Horizon-modal swap.
+
+  ROUND-3 SERVE FIX — {% stylesheet %} → {% style %}: Shopify aggregates
+  EVERY {% stylesheet %} block in the theme into the page-global styles.css
+  regardless of whether the file renders (probed: the unwired `.quick-add
+  { inset: 0; pointer-events: none }` rule still painted Dawn's trigger
+  top-left/unclickable). {% style %} emits only at actual render sites —
+  zero CSS while unwired, byte-identical rules + specificity if re-wired
+  (renders inline per render; browser tolerates duplicates).
+
+  Port of stock Horizon v4.1.1 (68760d9) snippets/quick-add-styles.liquid
+  (horizon-blocks Phase 13). Deviations:
+  - DAWN-VISUAL RULING (Nathan, serve gate 2026-07-06): the card trigger
+    matches LIVE M&P (snippets/card-product.liquid quick-add +
+    assets/quick-add.css:1-7,357-364) — a Dawn .button square with Dawn's
+    own plus icon, ALWAYS visible when the host setting is on — instead of
+    stock Horizon's hover-reveal expanding pill. Concretely:
+    - Dawn's .button supplies background / color / border-radius / ::after
+      border+shadow (base.css loads after the stylesheet aggregate — the
+      Phase-1b cascade inversion — so every tie we don't contest goes to
+      Dawn, which here is the point). The doubled selector wins only the
+      geometry we do contest (padding/offsets/display).
+    - padding: 1rem + 1rem icon + right/bottom 1rem offsets mirror live
+      quick-add.css values; rem here resolves against DAWN's root exactly
+      like live.
+    - The stock pill machinery is REMOVED, not overridden: hover-reveal
+      (opacity 0→1), text-expand grid transitions, pill gradient/backdrop
+      blur, --button-size-md height. The Add/Choose label is visually-hidden
+      (icon-only trigger, label kept for AT). Restore from stock
+      quick-add-styles:35-133,161-246 if the Horizon pill is ever wanted.
+    - The markup side of the ruling: quick-add.liquid + add-to-cart-button's
+      icon param swap the cart glyph for Dawn's icon-plus.svg.
+  - settings.quick_add_background / quick_add_text stand-ins kept (scheme-1
+    lookup below) — now consumed only by the modal-side rules; harmless.
+  - --quick-add-display / -mobile-display / -mobile-opacity were per-card
+    state emitted by snippets/product-card.liquid; round 3 re-trimmed those
+    emissions (Dawn-native quick-add) — the consumers below fall back to
+    none/0 (hidden), correct for the unwired state; re-wire restores the
+    emissions with the render swap.
+  - Per-consumer .quick-add-modal__close shim (popup-link close precedent,
+    Phase-9 split-shim rule): border/padding the UA supplies once the
+    `button` class is dropped, plus doubled-selector position (the
+    dialog-styles .close-button base is position:fixed; aggregate order
+    between the two files is nondeterministic, the doubling makes the
+    modal's absolute placement win).
+
+  @example
+  {% render 'quick-add-styles' %}
+{%- enddoc -%}
+
+{%- comment -%} ADAPT (see doc header): scheme-1 stand-ins at the Horizon
+  schema defaults for the missing quick_add_background/_text settings. {%- endcomment -%}
+{%- assign hz_quick_add_scheme = settings.color_schemes | first -%}
+{% style %}
+  .custom-color-quick-add {
+    --quick-add-background: rgb({{ hz_quick_add_scheme.settings.background.rgb }});
+    --quick-add-foreground: rgb({{ hz_quick_add_scheme.settings.text.rgb }});
+  }
+{% endstyle %}
+
+{% comment %} Round-3 serve fix: {% style %} not {% stylesheet %} — see header. {% endcomment %}
+{% style %}
+  /* Quick Add */
+  .quick-add {
+    position: absolute;
+    inset: 0;
+    z-index: var(--layer-raised);
+    pointer-events: none;
+  }
+
+  .quick-add .variant-option__button-label input[data-option-available='false'] {
+    cursor: not-allowed;
+  }
+
+  /* DAWN-VISUAL trigger (see doc header): Dawn .button square + plus icon,
+     always visible. Doubled selector wins the contested geometry; Dawn's
+     .button (later stylesheet) keeps background/color/radius/::after. */
+  .quick-add__button.quick-add__button {
+    min-width: 0;
+    min-height: 0;
+    display: var(--quick-add-mobile-display, none);
+    align-items: center;
+    justify-content: center;
+    padding: 1rem; /* live .quick-add__submit */
+    height: auto;
+    cursor: pointer;
+    opacity: var(--quick-add-mobile-opacity, 0);
+    pointer-events: all;
+    position: absolute;
+    right: 1rem; /* live .quick-add margin */
+    bottom: 1rem;
+
+    .quick-add[stay-visible] & {
+      display: flex;
+    }
+
+    @media screen and (min-width: 750px) {
+      display: var(--quick-add-display, flex);
+      opacity: 1; /* always visible — live M&P parity (stock reveals on hover) */
+    }
+  }
+
+  .quick-add__button .add-to-cart-text {
+    background: transparent;
+    gap: 0;
+  }
+
+  .quick-add__button .svg-wrapper .checkmark-burst {
+    width: 22px;
+    height: 22px;
+  }
+
+  .quick-add__button .add-to-cart-icon {
+    display: inline-flex;
+    width: auto;
+    height: auto;
+  }
+
+  .quick-add__button .add-to-cart-icon svg {
+    width: 1rem; /* live .quick-add__submit svg */
+    height: auto;
+    pointer-events: none;
+  }
+
+  /* Dawn visual: icon-only trigger — the Add/Choose label stays for AT. */
+  .quick-add__button .add-to-cart-text__content {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  .quick-add__button[data-added='true'] .add-to-cart-text {
+    animation-name: atc-fade-out;
+  }
+
+  .quick-add__button[data-added='true'] .add-to-cart-text--added {
+    translate: 0 0;
+    animation-name: atc-fade-in;
+  }
+
+  .quick-add__product-form-component {
+    height: 100%;
+  }
+
+  .quick-add__product-form-component .shopify-product-form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    container-type: inline-size;
+    height: 100%;
+  }
+
+  .quick-add-modal .product-media {
+    width: 100%;
+    height: 100%;
+  }
+
+  .quick-add-modal deferred-media {
+    display: none;
+  }
+
+  .quick-add-modal .media-gallery--carousel slideshow-component {
+    --cursor: default;
+  }
+
+  /* Per-consumer close shim (see doc header): UA border/padding once the
+     `button` class is dropped + deterministic absolute placement over the
+     dialog-styles .close-button position:fixed base. */
+  .quick-add-modal__close.quick-add-modal__close {
+    position: absolute;
+    top: var(--margin-2xs);
+    right: var(--margin-2xs);
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+  }
+{% endstyle %}

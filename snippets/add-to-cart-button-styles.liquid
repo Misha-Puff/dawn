@@ -1,0 +1,217 @@
+{%- doc -%}
+  Add-to-cart button support styles — the checkmark-burst / added-state /
+  text-transition layer for every add-to-cart button (PDP buy-buttons tree,
+  quick-add pill, quick-add modal content).
+
+  horizon-blocks Phase 13 EXTRACTION (dialog-styles Phase-9 precedent):
+  stock keeps these rules in base.css:3815-3994, which the port never ships —
+  without them the button renders the Add text AND the (always-visible)
+  checkmark-burst overlay unstyled, and the added-state swap never animates.
+  Deviations from the extracted region:
+  - The ONE rem literal converted (0.3rem → 4.8px; port-wide rem trap).
+  - Appended Dawn ADAPT block (email-signup Phase-10 precedent): hz buttons
+    ride DAWN's button system (replace-at-pixel-parity posture), so the
+    button-custom path needs a consumption rule mapping the
+    button-custom-styles vars onto Dawn's comma-triplet fallbacks — stock's
+    equivalent lives in its unported base.css .button rules.
+  - NOT extracted: stock's .button base (base.css:1229-1310) — deliberately;
+    Dawn's .button supplies the button look on hz surfaces (ruled posture).
+    The quick-add pill geometry that must BEAT Dawn's .button lives in
+    quick-add-styles (double-selector armor there, not here).
+  - atc-fade-in/-out keyframes referenced by quick-add-styles are undefined
+    in STOCK too (no-op animation names) — nothing to extract.
+
+  Rendered by snippets/add-to-cart-button.liquid — the sole emitter of this
+  markup, present wherever any consumer renders.
+{%- enddoc -%}
+
+{% stylesheet %}
+
+.add-to-cart-button {
+  --text-speed: 0.26;
+  --base-delay: calc(var(--text-speed) * 0.25);
+  --tick-speed: 0.1;
+  --ring-speed: 0.2;
+  --check-speed: 0.2;
+  --burst-speed: 0.32;
+  --step-delay: 3;
+  --speed: 1;
+
+  user-select: none;
+  transition-property: color, box-shadow, background-color, scale, translate;
+  transition-duration: var(--animation-speed);
+  transition-timing-function: var(--ease-out-cubic);
+
+  &:active {
+    scale: 0.99;
+    translate: 0 1px;
+  }
+}
+
+.add-to-cart-button .svg-wrapper .checkmark-burst {
+  width: 30px;
+  height: 30px;
+}
+
+.add-to-cart-text {
+  --atc-opacity: 0;
+  --atc-destination: -1em;
+
+  display: flex;
+  gap: var(--gap-2xs);
+  align-items: center;
+  justify-content: center;
+  animation-duration: var(--animation-speed);
+  animation-timing-function: var(--animation-easing);
+  animation-fill-mode: forwards;
+  transition: width var(--animation-speed) var(--animation-easing),
+    opacity var(--animation-speed) var(--animation-easing);
+}
+
+.add-to-cart__added {
+  --atc-opacity: 1;
+  --atc-destination: 0px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4.8px; /* 0.3rem */
+}
+
+.add-to-cart__added-icon {
+  width: 32px;
+  height: 32px;
+}
+
+[data-added='true'] .add-to-cart-text,
+[data-added='true'] .add-to-cart__added {
+  animation-name: atc-slide;
+}
+
+.checkmark-burst {
+  opacity: 0;
+  overflow: visible;
+
+  .burst {
+    rotate: 20deg;
+  }
+
+  .check {
+    opacity: 0.2;
+    scale: 0.8;
+    filter: blur(2px);
+    transform: translateZ(0);
+  }
+
+  :is(.ring, .line, .check, .burst, .tick) {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  :is(.line) {
+    stroke-dasharray: 1.5 1.5;
+    stroke-dashoffset: -1.5;
+    translate: 0 -180%;
+  }
+
+  g {
+    transform-origin: center;
+    rotate: calc(var(--index) * (360 / 8) * 1deg);
+  }
+}
+
+.add-to-cart-button[data-added='true'] .checkmark-burst {
+  opacity: 1;
+}
+
+.add-to-cart-button[data-added='true'] {
+  .check {
+    opacity: 1;
+    scale: 1;
+    filter: blur(0);
+  }
+
+  .tick {
+    scale: 1.75;
+  }
+
+  .ring {
+    opacity: 0;
+    scale: 1;
+  }
+
+  .line {
+    stroke-dashoffset: 1.5;
+  }
+
+  .add-to-cart-text {
+    /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+    clip-path: circle(0% at 50% 50%);
+    filter: blur(2px);
+    opacity: 0;
+    translate: 0 4px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .add-to-cart-button[data-added='true'] {
+    .check {
+      transition-property: opacity, scale, filter;
+      transition-duration: calc(calc(var(--check-speed) * 1s));
+      transition-delay: calc((var(--base-delay) * 1s));
+      transition-timing-function: var(--ease-out-quad);
+    }
+
+    .tick {
+      transition-property: scale;
+      transition-duration: calc((calc(var(--tick-speed) * 1s)));
+      transition-delay: calc(((var(--base-delay) + (var(--check-speed) * (var(--step-delay) * 1.1))) * 1s));
+      transition-timing-function: ease-out;
+    }
+
+    .ring {
+      transition-property: opacity, scale;
+      transition-duration: calc((calc(var(--ring-speed) * 1s)));
+      transition-delay: calc(((var(--base-delay) + (var(--check-speed) * var(--step-delay))) * 1s));
+      transition-timing-function: var(--ease-out-quad);
+    }
+
+    .line {
+      transition-property: stroke-dashoffset;
+      transition-duration: calc((calc(var(--burst-speed) * 1s)));
+      transition-delay: calc(((var(--base-delay) + (var(--check-speed) * var(--step-delay))) * 1s));
+      transition-timing-function: var(--ease-out-cubic);
+    }
+  }
+
+  .add-to-cart-text {
+    transition-property: clip-path, opacity, filter, translate;
+    transition-duration: calc((var(--text-speed) * 0.6s)), calc((var(--text-speed) * 1s));
+    transition-timing-function: ease-out;
+  }
+}
+
+.add-to-cart-text {
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+  clip-path: circle(100% at 50% 50%);
+}
+
+@keyframes atc-slide {
+  to {
+    opacity: var(--atc-opacity, 1);
+    translate: 0px var(--atc-destination, 0px);
+  }
+}
+
+  /* Dawn ADAPT (see doc header): button-custom consumption — the Horizon
+     vars win when button-custom-styles sets them on the instance class;
+     otherwise Dawn's comma-triplet button vars resolve. */
+  .add-to-cart-button.button-custom {
+    background-color: var(--button-background-color, rgba(var(--color-button), var(--alpha-button-background)));
+    color: var(--button-color, rgb(var(--color-button-text)));
+  }
+{% endstylesheet %}

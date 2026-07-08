@@ -12,23 +12,32 @@
     the stock pair. The .color-custom-badge-sold-out / -sale scopes in
     hz-ui-tokens are consumer-less since this change (kept, stock-parity
     tokens).
-  - TRIMMED: stock's quick-add render (:27-29, gated on settings.quick_add /
-    settings.mobile_quick_add — both hardcoded false this phase). RE-ADD with
-    the quick-add/buy-buttons subsystem. NOTE for that slice: live Dawn
-    suppresses the ENTIRE quick-add block for products tagged
-    'Badge-Coming Soon' (card-product.liquid:147) — the re-add must carry
-    the same `{% unless product.tags contains 'Badge-Coming Soon' %}` wrap.
+  - Phase 13 (quick-add seam closed; round 3 = DAWN-NATIVE, Nathan ruling
+    2026-07-07): stock's quick-add render site (:27-29) hosts DAWN's
+    quick-add machinery, not the Horizon port — hz-card-quick-add is the
+    verbatim extraction of Dawn card-product.liquid:148-243 (see its header
+    for the full ruling; the Horizon quick-add subsystem stays in-repo,
+    unwired). Deviations vs stock Horizon: (1) the gate reads
+    section.settings.quick_add — the per-host setting on hz-product-list /
+    hz-product-recommendations (default false = live card parity; other
+    hosts have no such setting → nil → no quick-add, zero change; no mobile
+    setting — Dawn's trigger is always visible at both breakpoints). (2) The
+    render is wrapped in {% unless product.tags contains 'Badge-Coming
+    Soon' %} — live-Dawn parity (card-product.liquid:147 suppresses
+    quick-add entirely for Coming-Soon products; Phase-10 seam mandated the
+    wrap).
 {%- endcomment -%}
 {% assign product = closest.product %}
 
 {% capture children %}
   {% content_for 'blocks', closest.product: product %}
-  {% comment %}
-    TRIMMED (Phase 10): stock renders 'quick-add' here when
-    settings.quick_add / settings.mobile_quick_add — both hardcoded false
-    this phase. RE-ADD with the quick-add/buy-buttons subsystem (wrapped in
-    the Badge-Coming Soon unless — see doc header).
-  {% endcomment %}
+  {% unless product == blank %}
+    {% if section.settings.quick_add %}
+      {% unless product.tags contains 'Badge-Coming Soon' %}
+        {% render 'hz-card-quick-add', product: product, section_id: section.id %}
+      {% endunless %}
+    {% endif %}
+  {% endunless %}
 {% endcapture %}
 
 {% render 'card-gallery', children: children %}

@@ -1,0 +1,117 @@
+{%- doc -%}
+  This block is used to display the add to cart button.
+  Intended for product-form.liquid block.
+
+  Port of stock Horizon v4.1.1 (68760d9) blocks/add-to-cart.liquid
+  (horizon-blocks Phase 13). Deviations:
+  - Schema t: strings hardcoded to Horizon schema-locale English; the
+    settings.color_palette.* schema color defaults are static Dawn scheme-1
+    values (#121212 foreground / #ffffff background — button-block Phase-10
+    precedent).
+  - Body verbatim, including --add-to-cart-font-case reading
+    settings.button_text_case: that setting doesn't exist in HORIZON's schema
+    either (the var is consumer-less stock-wide) — nil emits the same empty
+    declaration stock emits.
+  - SERVE FIX — style_class mapped onto Dawn's button system (email-signup
+    Phase-10 posture ruling: hz buttons ride Dawn's .button / .button--secondary;
+    stock's .button-secondary class is DEAD in Dawn — the button rendered as
+    Dawn primary regardless of the setting). 'button-custom' keeps its class
+    for button-custom-styles' scoped vars; the consumption rule lives in
+    add-to-cart-button-styles.
+  - Deps all ported: button-custom-styles (Phase 10), add-to-cart-button
+    (Phase 13). The <add-to-cart-component> element is defined by
+    hz-product-form.js, loaded per-render by the buy-buttons parent (this
+    block has no standalone preset — it only renders as a static child).
+
+  @param {string} can_add_to_cart - Whether the product can be added to the cart
+  @param {string} add_to_cart_text - The text of the add to cart button
+{%- enddoc -%}
+
+{% liquid
+  # Dawn ADAPT (see doc header): stock style_class values → Dawn button classes.
+  case block.settings.style_class
+    when 'button-secondary'
+      assign hz_button_class = 'button button--secondary'
+    when 'button-custom'
+      assign hz_button_class = 'button button-custom'
+    else
+      assign hz_button_class = 'button'
+  endcase
+  assign scoped_class = block.settings.style_class | append: '--' | append: block.id
+  assign class = 'add-to-cart-button ' | append: hz_button_class | append: ' ' | append: scoped_class
+  assign id = 'BuyButtons-ProductSubmitButton-' | append: block.id
+%}
+{% render 'button-custom-styles', block_settings: block.settings, block_id: block.id %}
+
+<span
+  {{ block.shopify_attributes }}
+  style="--add-to-cart-font-case: {{ settings.button_text_case }};"
+>
+  {% render 'add-to-cart-button',
+    id: id,
+    class: class,
+    can_add_to_cart: can_add_to_cart,
+    product: closest.product,
+    add_to_cart_text: add_to_cart_text,
+    data_testid: 'standalone-add-to-cart'
+  %}
+</span>
+
+{% schema %}
+{
+  "name": "Add to cart",
+  "tag": null,
+  "settings": [
+    {
+      "type": "select",
+      "id": "style_class",
+      "label": "Style",
+      "options": [
+        {
+          "value": "button",
+          "label": "Primary"
+        },
+        {
+          "value": "button-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "button-custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "button-secondary",
+      "info": "Edit primary and secondary button styles in [theme settings](/editor?context=theme&category=buttons)"
+    },
+    {
+      "type": "header",
+      "content": "Button colors",
+      "visible_if": "{{ block.settings.style_class == \"button-custom\" }}"
+    },
+    {
+      "type": "color",
+      "id": "custom_button_background",
+      "label": "Background",
+      "default": "#121212",
+      "alpha": true,
+      "visible_if": "{{ block.settings.style_class == 'button-custom' }}"
+    },
+    {
+      "type": "color",
+      "id": "custom_button_text",
+      "label": "Text",
+      "default": "#ffffff",
+      "alpha": true,
+      "visible_if": "{{ block.settings.style_class == 'button-custom' }}"
+    },
+    {
+      "type": "color",
+      "id": "custom_button_border",
+      "label": "Borders",
+      "default": "#ffffff",
+      "alpha": true,
+      "visible_if": "{{ block.settings.style_class == 'button-custom' }}"
+    }
+  ]
+}
+{% endschema %}

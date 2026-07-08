@@ -23,6 +23,19 @@
   - Token deps (--variant-picker-swatch-*, --style-border-swatch-*,
     --color-foreground-rgb) are emitted by hz-ui-tokens' Phase-10 append at
     stock defaults (30/30/100px/solid/1px/10%).
+  - ROUND-3 SERVE FIX (Phase 13, 2026-07-07) — {% stylesheet %} → {% style %}:
+    Shopify aggregates every {% stylesheet %} block into the page-global
+    styles.css regardless of render, so the .swatch.swatch armor was beating
+    Dawn's component-swatch.css on EVERY page — probed blanking the M&P PDP
+    picker's span.swatch swatches (Dawn markup sets --swatch--background,
+    double dash; this armor's background: var(--swatch-background) then wins
+    and resolves to none) inside Dawn's quick-add modal, and latently on all
+    dev-theme PDP pickers since Phase 10. {% style %} emits the armor only
+    where hz-swatch actually renders — on M&P data that is NO card surface
+    (sibling swatches use the dedicated .hz-sibling-swatch* classes), so
+    Dawn swatches heal everywhere. Known edge, documented not fixed: a page
+    that BOTH renders hz option-swatches AND opens a Dawn quick-add modal
+    would re-collide — no such surface exists on M&P data.
 
   @param {object} swatch - a swatch object
   @param {object} [variant_image] - an alternate image when there is no swatch value
@@ -79,7 +92,8 @@
   <span class="visually-hidden">{{ label }}</span>
 {%- endif -%}
 
-{% stylesheet %}
+{% comment %} Round-3 serve fix: {% style %} not {% stylesheet %} — see header. {% endcomment %}
+{% style %}
   /* Horizon base.css:1786-1902 extraction, verbatim inside the doubled
      .swatch.swatch armor (see doc header). All values token-based or px —
      zero bare rem to convert. */
@@ -207,4 +221,4 @@
   .variant-picker .variant-option--buttons label:has(.swatch) {
     border-radius: var(--variant-picker-swatch-radius);
   }
-{% endstylesheet %}
+{% endstyle %}

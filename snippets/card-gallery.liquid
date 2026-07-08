@@ -477,8 +477,16 @@
      .shopify-model-viewer-ui__controls-area and the
      .product-media-container--model flex rule (model media is trimmed this
      phase). The .constrain-height / .media-gallery-- legs are PDP-only but
-     kept verbatim (consumer-less-leg precedent). */
-  :not(.dialog-zoomed-gallery) > .product-media-container {
+     kept verbatim (consumer-less-leg precedent).
+     ROUND-3 SERVE FIX — the whole family is SCOPED under .card-gallery
+     (a deviation from stock's global selectors): .product-media-container
+     is ALSO a Dawn 15.4 class (product-thumbnail.liquid renders it on
+     Dawn PDPs, and Dawn's quick-add modal injects that PDP markup), and
+     the theme-wide stylesheet-tag aggregate put these rules on every
+     page — probed zeroing the modal's media image. Every hz card consumer
+     sits inside .card-gallery, so the scope is behavior-neutral for the
+     port. */
+  .card-gallery :not(.dialog-zoomed-gallery) > .product-media-container {
     --slide-width: 100%;
 
     display: flex;
@@ -507,34 +515,34 @@
   }
 
   @media screen and (max-width: 749px) {
-    .product-media-container.constrain-height {
+    .card-gallery .product-media-container.constrain-height {
       max-height: none;
     }
   }
 
   @media screen and (min-width: 750px) {
-    .product-media-container.constrain-height {
+    .card-gallery .product-media-container.constrain-height {
       --viewport-offset: var(--header-height, 100px);
       --constrained-min-height: 500px;
     }
 
-    .media-gallery--large-first-image .product-media-container:first-child,
-    .media-gallery--two-column .product-media-container:only-child {
+    .card-gallery .media-gallery--large-first-image .product-media-container:first-child,
+    .card-gallery .media-gallery--two-column .product-media-container:only-child {
       /* First child spans 2 columns */
       grid-column: span 2;
     }
   }
 
-  .product-media-container img {
+  .card-gallery .product-media-container img {
     aspect-ratio: inherit;
     object-fit: contain;
   }
 
-  .product-media-container.media-fit-contain img {
+  .card-gallery .product-media-container.media-fit-contain img {
     object-position: center center;
   }
 
-  .product-media-container.media-fit {
+  .card-gallery .product-media-container.media-fit {
     --product-media-fit: cover;
 
     img {

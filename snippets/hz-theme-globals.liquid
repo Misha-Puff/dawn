@@ -1,0 +1,53 @@
+{%- comment -%}
+  horizon-blocks Phase 13 — the `Theme` JS global.
+
+  Dawn-side equivalent of the `const Theme` block from stock Horizon v4.1.1
+  (68760d9) snippets/scripts.liquid:285-309, verbatim in shape. Rendered by
+  layout/theme.liquid immediately after the @theme/* importmap — a classic
+  inline script, so it executes before any deferred module (stock also
+  declares Theme after its module script tags; every consumer reads it at
+  event time, not module-eval time).
+
+  Consumers in the ported surface: hz-product-form.js (routes.cart_add_url,
+  routes.cart_url, translations.added), gift-card-recipient-form.js
+  (translations.recipient_form_*). The remaining keys ship stock-shaped for
+  future slices (quick-order-list reads items_added_to_cart_*, header-actions
+  reads cart_count).
+
+  ADAPT decisions:
+  - Translations hardcoded to stock Horizon English (locales/en.default.json
+    values) — Dawn's locale files don't carry the Horizon keys, and the
+    port-wide precedent is t:-to-English hardcoding (Phase 1b onward).
+    items_added_to_cart_other keeps the literal `{{ count }}` placeholder
+    (raw-escaped below) — stock JS does the interpolation client-side
+    (quick-order-list.js:575).
+  - routes stay Liquid-sourced (Shopify-global routes object, identical in
+    Dawn): cart_add_url gets the stock `.js` append — hz-product-form.js
+    POSTs FormData to it and expects a JSON response. Dawn's own
+    `window.routes` global (theme.liquid) is untouched; the two coexist.
+{%- endcomment -%}
+<script>
+  const Theme = {
+    translations: {
+      placeholder_image: `Placeholder image`,
+      added: `Added`,
+      recipient_form_fields_visible: `Recipient form fields are now visible`,
+      recipient_form_fields_hidden: `Recipient form fields are now hidden`,
+      recipient_form_error: `There was an error with the form submission`,
+      items_added_to_cart_one: `1 item added to cart`,
+      items_added_to_cart_other: `{% raw %}{{ count }}{% endraw %} items added to cart`,
+      cart_count: `Total items in cart`,
+    },
+    routes: {
+      cart_add_url: '{{ routes.cart_add_url | append: '.js' }}',
+      cart_change_url: '{{ routes.cart_change_url }}',
+      cart_update_url: '{{ routes.cart_update_url }}',
+      cart_url: '{{ routes.cart_url }}',
+      predictive_search_url: '{{ routes.predictive_search_url }}',
+      search_url: '{{ routes.search_url }}',
+    },
+    template: {
+      name: '{{ template }}',
+    },
+  };
+</script>

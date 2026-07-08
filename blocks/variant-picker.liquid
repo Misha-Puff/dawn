@@ -1,0 +1,208 @@
+{%- doc -%}
+  Variant picker block — buttons/dropdowns (+ swatches) picker for the
+  closest product; drives variant selection for the buy-buttons subsystem.
+
+  Port of stock Horizon v4.1.1 (68760d9) blocks/variant-picker.liquid
+  (horizon-blocks Phase 13). Deviations:
+  - This doc header (stock ships none).
+  - Schema t: strings hardcoded to Horizon schema-locale English; the
+    settings.color_palette.* schema color defaults are static Dawn scheme-1
+    values (#ffffff background / #121212 foreground — Phase-10 precedent).
+  - Body verbatim; variant-main-picker (Phase 13) carries the per-render
+    variant-picker.js script tag and the remaining adaptations.
+{%- enddoc -%}
+
+{% liquid
+  assign product_resource = closest.product
+  if request.visual_preview_mode and product_resource == blank
+    assign product_resource = collections.all.products.first
+  endif
+-%}
+
+{% unless product_resource == blank %}
+  {% render 'variant-main-picker', product_resource: product_resource, section: section, product: product %}
+{% endunless %}
+
+{% schema %}
+{
+  "name": "Variant picker",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Type"
+    },
+    {
+      "type": "select",
+      "id": "variant_style",
+      "label": "Style",
+      "options": [
+        {
+          "value": "dropdowns",
+          "label": "Dropdowns"
+        },
+        {
+          "value": "buttons",
+          "label": "Buttons"
+        }
+      ],
+      "default": "buttons"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_swatches",
+      "label": "Swatches",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color",
+      "id": "option_label_text_color",
+      "label": "Text color",
+      "placeholder": "Default",
+      "alpha": true
+    },
+    {
+      "type": "select",
+      "id": "variant_style_class",
+      "label": "Variant style",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "default",
+      "info": "Edit variant styling in [theme settings](/editor?context=theme&category=variant%20pickers)"
+    },
+    {
+      "type": "color",
+      "id": "custom_variant_background",
+      "label": "Background",
+      "default": "#ffffff",
+      "alpha": true,
+      "visible_if": "{{ block.settings.variant_style_class == 'custom' }}"
+    },
+    {
+      "type": "color",
+      "id": "custom_variant_text",
+      "label": "Text",
+      "default": "#121212",
+      "alpha": true,
+      "visible_if": "{{ block.settings.variant_style_class == 'custom' }}"
+    },
+    {
+      "type": "color",
+      "id": "custom_variant_border",
+      "label": "Borders",
+      "default": "#121212",
+      "alpha": true,
+      "visible_if": "{{ block.settings.variant_style_class == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "selected_variant_style_class",
+      "label": "Selected variant style",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "default",
+      "visible_if": "{{ block.settings.variant_style == 'buttons' }}"
+    },
+    {
+      "type": "color",
+      "id": "custom_selected_variant_background",
+      "label": "Background",
+      "default": "#121212",
+      "alpha": true,
+      "visible_if": "{{ block.settings.variant_style == 'buttons' and block.settings.selected_variant_style_class == 'custom' }}"
+    },
+    {
+      "type": "color",
+      "id": "custom_selected_variant_text",
+      "label": "Text",
+      "default": "#ffffff",
+      "alpha": true,
+      "visible_if": "{{ block.settings.variant_style == 'buttons' and block.settings.selected_variant_style_class == 'custom' }}"
+    },
+    {
+      "type": "color",
+      "id": "custom_selected_variant_border",
+      "label": "Borders",
+      "default": "#121212",
+      "alpha": true,
+      "visible_if": "{{ block.settings.variant_style == 'buttons' and block.settings.selected_variant_style_class == 'custom' }}"
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "Alignment",
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Variant picker",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}

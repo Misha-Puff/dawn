@@ -1,0 +1,152 @@
+{% comment %}
+  UNWIRED from M&P card surfaces (Phase 13 round 3 — Dawn-native quick-add
+  ruling, Nathan 2026-07-07): nothing fetches this section anymore —
+  quick-add on cards is Dawn's machinery (snippets/hz-card-quick-add; Dawn's
+  quick-add.js fetches the product URL itself). Stays in-repo as ported
+  vocabulary (port-everything frame); re-wire = swap the gallery render back
+  to snippets/quick-add. The Locksmith belt-and-braces gate below still
+  guards the SRA exposure while the section exists.
+
+  hz-quick-add-product — horizon-blocks Phase 13. The quick-add modal's
+  content source, only ever rendered via the Section Rendering API
+  (?section_id=hz-quick-add-product on a product URL — bare-filename SRA,
+  section-rendering-product-card precedent). Two fetchers:
+  - initial open: hz-quick-add.js fetchProductPage (its ONE deviation)
+  - in-modal variant change: variant-picker.js SECTION_ID_MAP
+    ('quick-add-dialog' → 'hz-quick-add-product', option_values=… params)
+  Both extract/morph the <product-component data-product-grid-content>
+  subtree; everything outside it (preamble renders, this comment) is
+  discarded by the modal flow. ?variant= and option_values= pass through the
+  SRA request, so selected_or_first_available_variant reflects them.
+
+  AUTHORED section (not a stock-file port): Dawn-side stand-in for the shape
+  stock's quick-add fetches off its OWN product page —
+  snippets/product-information-content.liquid:97-121 (product-component +
+  media + product-details) with blocks/_product-details.liquid:16-22 (the
+  .view-product-title anchor + group wrapper). Our PDPs are Dawn-native, so
+  that markup exists nowhere else; this section supplies the contract:
+  - .product-information__media: MINIMAL media (plain flex column, first 4
+    media via hz-product-media, preview-image-only; inline gap = stock's
+    slideshow-slides --gap-2xs). Stock's {{ media_gallery }} (media-gallery/
+    slideshow machinery) + its product-media-gallery-content-styles are
+    TRIMMED — RE-ADD with the PDP media slice. Stock modal CSS styles the
+    wrapper regardless; a media-less fragment would leave the mobile grid
+    gap, hence minimal-media.
+  - .product-details > group render whose children are the .view-product-title
+    anchor (quick-add-dialog's #handleProductSelect updates this link) +
+    STATIC blocks at schema defaults: product-title, price (emits
+    <product-price>, required by the mobile re-parent), variant-picker,
+    buy-buttons. The modal CSS allowlist (quick-add-modal-styles:434-477)
+    hides everything else ≥750px; the mobile re-parent needs exactly
+    .product-details / product-form-component / variant-picker /
+    product-price / the payload attr — this set is complete.
+  - view-event-payload via standard_event_data, stock-shaped.
+
+  LOCKSMITH (belt-and-braces): this endpoint renders any product by handle
+  OUTSIDE the gated card loops — the same lock gate used by the hz hosts
+  runs first and empties the fragment for locked sessions (nil-safe: no
+  product → nothing renders). Serve-probed for SRA leak.
+
+  Host-page notes: the modal-content CSS ({% stylesheet %} aggregates) and
+  element definitions must come from the HOST page — SRA fragments carry
+  neither aggregate CSS nor executable scripts (morph doesn't run <script>).
+  snippets/quick-add-modal.liquid (rendered by the gated hosts) eager-loads
+  the JS; the hosts + card block render the style snippets. The preamble
+  renders below are belt-and-braces for direct-fetch viewing and future
+  non-host consumers, per the hz-blocks-host convention.
+
+  disabled_on everything + no preset: never appears in the editor picker.
+{% endcomment %}
+
+{{ 'component-group.css' | asset_url | stylesheet_tag }}
+{% render 'hz-type-variables' %}
+{% render 'hz-ui-tokens' %}
+
+{%- liquid
+  # Locksmith belt-and-braces gate (see header). Empty fragment when locked
+  # or when fetched off a non-product URL.
+  assign hz_qa_locked = false
+  if product == blank
+    assign hz_qa_locked = true
+  else
+    capture lock_content
+      render 'locksmith-v2-lock-product' product: product
+    endcapture
+    assign lock_content = lock_content | strip
+    if lock_content == 'true'
+      assign hz_qa_locked = true
+    endif
+  endif
+-%}
+
+{%- unless hz_qa_locked -%}
+  {%- comment -%} --gap stands in for the PDP section's `--gap:
+    {{ settings.gap }}px` (product-information-content.liquid:90; schema
+    default 16) — the modal styles consume it for the sticky-bar fade masks
+    and .product-details padding-block (quick-add-modal-styles:300/353/378);
+    without it those go IACVT. {%- endcomment -%}
+  <product-component
+    class="product-grid"
+    style="--gap: 16px;"
+    data-product-grid-content
+    {% # theme-check-disable UnknownFilter %}
+    view-event-payload="{{ product | standard_event_data: 'view' | escape }}"
+    {% # theme-check-enable UnknownFilter %}
+  >
+    {%- if product.media.size > 0 -%}
+      <div
+        class="product-information__media"
+        data-testid="product-information-media"
+        style="display: flex; flex-direction: column; gap: var(--gap-2xs);"
+      >
+        {%- for media in product.media limit: 4 -%}
+          {% render 'hz-product-media',
+            media: media,
+            sizes: '(min-width: 750px) 384px, 100vw',
+            loading: 'eager',
+            preview_image_only: true
+          %}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    <div
+      class="product-details"
+      data-testid="product-information-details"
+    >
+      {% capture children %}
+        <div class="view-product-title">
+          <a
+            href="{{ product.selected_or_first_available_variant.url }}"
+          >
+            {{- product.title }}
+          </a>
+        </div>
+        {% content_for 'block', type: 'product-title', id: 'title' %}
+        {% content_for 'block', type: 'price', id: 'price' %}
+        {% content_for 'block', type: 'variant-picker', id: 'variant-picker' %}
+        {% content_for 'block', type: 'buy-buttons', id: 'buy-buttons' %}
+      {% endcapture %}
+
+      {%- comment -%} settings: this section's (empty) settings drop — every
+        group-snippet read comes back nil, i.e. stock defaults (column
+        layout, no background/link); the modal CSS overrides the layout
+        anyway. {%- endcomment -%}
+      {% render 'group',
+        children: children,
+        settings: section.settings,
+        shopify_attributes: ''
+      %}
+    </div>
+  </product-component>
+{%- endunless -%}
+
+{% schema %}
+{
+  "name": "Quick add rendering",
+  "disabled_on": {
+    "groups": ["*"],
+    "templates": ["*"]
+  }
+}
+{% endschema %}
