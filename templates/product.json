@@ -224,6 +224,23 @@
             "tg_padding_bottom": 0
           }
         },
+        "size_chart_zfV9wR": {
+          "type": "size-chart",
+          "settings": {
+            "cta_text": "Size Guide",
+            "inline_with_size": true,
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
+          }
+        },
         "inventory_PfG9Nk": {
           "type": "inventory",
           "settings": {
@@ -288,23 +305,6 @@
             "enable_padding": false,
             "padding_top": 0,
             "padding_bottom": 0
-          }
-        },
-        "size_chart_zfV9wR": {
-          "type": "size-chart",
-          "settings": {
-            "cta_text": "Size Guide",
-            "inline_with_size": true,
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_line_height": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_enable_padding": false,
-            "tg_padding_top": 0,
-            "tg_padding_bottom": 0
           }
         },
         "collapsible_tab_JNhcga": {
@@ -383,12 +383,12 @@
         "custom_liquid_X9miCe",
         "custom_liquid_TwxkfW",
         "variant_picker",
+        "size_chart_zfV9wR",
         "inventory_PfG9Nk",
         "bis_form_iQ4kYG",
         "buy_buttons",
         "multi_location_inv_location_inventory_qT7XKi",
         "custom_liquid_mPzed7",
-        "size_chart_zfV9wR",
         "collapsible_tab_JNhcga",
         "collapsible-row-0",
         "wishlist_plus_wishlist_pdp_button_NBkk6K"
