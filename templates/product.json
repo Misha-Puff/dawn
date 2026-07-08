@@ -58,6 +58,21 @@
             "tg_padding_bottom": 0
           }
         },
+        "description": {
+          "type": "description",
+          "settings": {
+            "tg_enable_type": true,
+            "tg_font": "manrope_n4",
+            "tg_font_weight": "400",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_enable_padding": true,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
+          }
+        },
         "custom_liquid_7DkrmT": {
           "type": "custom_liquid",
           "name": "D&T Info",
@@ -240,6 +255,14 @@
           "settings": {
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": true,
+            "tg_pickup_enable": true,
+            "tg_pickup_font": "assistant_n4",
+            "tg_pickup_weight": "default",
+            "tg_pickup_size": 0,
+            "tg_pickup_line_height": 0,
+            "tg_pickup_case": "lowercase",
+            "tg_pickup_letter_spacing": 0,
+            "tg_pickup_color": "#FF0000",
             "tg_enable_padding": false,
             "tg_padding_top": 0,
             "tg_padding_bottom": 0
@@ -267,25 +290,18 @@
             "padding_bottom": 0
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {
-            "tg_enable_type": true,
-            "tg_font": "manrope_n4",
-            "tg_font_weight": "400",
-            "tg_font_size": 12,
-            "tg_line_height": 150,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_enable_padding": true,
-            "tg_padding_top": 0,
-            "tg_padding_bottom": 0
-          }
-        },
         "size_chart_zfV9wR": {
           "type": "size-chart",
           "settings": {
             "cta_text": "Size Guide",
+            "inline_with_size": true,
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
             "tg_enable_padding": false,
             "tg_padding_top": 0,
             "tg_padding_bottom": 0
@@ -298,11 +314,11 @@
             "icon": "none",
             "content": "{% if product.metafields.product_page.key_features %}<p>{{ product.metafields.product_page.key_features | metafield_tag }}</p>\n{% endif %}",
             "page": "",
-            "tg_enable_type": false,
+            "tg_enable_type": true,
             "tg_font": "assistant_n4",
             "tg_font_weight": "default",
             "tg_font_size": 0,
-            "tg_line_height": 0,
+            "tg_line_height": 250,
             "tg_text_case": "default",
             "tg_letter_spacing": 0,
             "tg_enable_padding": false,
@@ -317,9 +333,9 @@
             "icon": "none",
             "content": "{%- if product.metafields.product_page.material_description -%}\n  <p>{{ product.metafields.product_page.material_description | metafield_tag }}</p>\n{%- endif -%}\n{%- if product.metafields.product_page.country_description -%}\n  <p>{{ product.metafields.product_page.country_description | metafield_tag }}</p>\n{%- endif -%}\n{%- if product.metafields.product_page.care_instructions -%}\n  <p>{{ product.metafields.product_page.care_instructions | metafield_tag }}</p>\n{%- endif -%}",
             "page": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_font_weight": "default",
+            "tg_enable_type": true,
+            "tg_font": "system_ui_n4",
+            "tg_font_weight": "700",
             "tg_font_size": 0,
             "tg_line_height": 0,
             "tg_text_case": "default",
@@ -395,7 +411,11 @@
         "hide_variants": true,
         "enable_video_looping": false,
         "padding_top": 40,
-        "padding_bottom": 80
+        "padding_bottom": 80,
+        "info_enable_padding": true,
+        "info_padding_left": 0,
+        "info_padding_right": 0,
+        "info_block_spacing": 50
       }
     },
     "image_with_text_7tNUwQ": {
