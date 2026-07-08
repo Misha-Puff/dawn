@@ -1616,3 +1616,73 @@ a.product__text {
 .size-chart table tr th {
   font-weight: normal;
 }
+
+/* --- Stacked-scroll gallery layout (Rachel Comey-style), M&P custom --- */
+@media screen and (min-width: 750px) and (max-width: 1099px) {
+  /* stack is natively single-column here */
+  .thumbnail-slider--rail {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .product--stacked_scroll media-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    column-gap: 1.6rem;
+  }
+
+  /* gallery must scroll normally so the rail can stick; info column stickiness untouched */
+  .product--stacked_scroll media-gallery.product__column-sticky {
+    position: static;
+  }
+
+  .product--stacked_scroll media-gallery > slider-component:not(.thumbnail-slider) {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .product--stacked_scroll media-gallery > .product__xr-button {
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .product--stacked_scroll .thumbnail-slider--rail {
+    order: -1;
+    flex: 0 0 auto;
+    width: 6.4rem;
+    position: sticky;
+    top: 137px; /* mirrors .product__column-sticky offset; JS constant matches */
+  }
+
+  .product--stacked_scroll .thumbnail-slider--rail .slider-button {
+    display: none;
+  }
+
+  .product--stacked_scroll .thumbnail-slider--rail .thumbnail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: calc(100vh - 153px);
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+
+  .product--stacked_scroll .thumbnail-slider--rail .thumbnail-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .product--stacked_scroll .thumbnail-slider--rail .thumbnail-list__item {
+    width: 100%;
+  }
+
+  .product--stacked_scroll .product__media-item {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .product--stacked_scroll .product__media-list {
+    row-gap: 2.4rem;
+  }
+}

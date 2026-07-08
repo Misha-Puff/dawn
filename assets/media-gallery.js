@@ -1,4 +1,7 @@
 if (!customElements.get('media-gallery')) {
+  // 137px sticky-column offset (section-main-product.css) + breathing room
+  const STACKED_SCROLL_TOP_OFFSET = 150;
+
   customElements.define(
     'media-gallery',
     class MediaGallery extends HTMLElement {
@@ -10,6 +13,8 @@ if (!customElements.get('media-gallery')) {
           thumbnails: this.querySelector('[id^="GalleryThumbnails"]'),
         };
         this.mql = window.matchMedia('(min-width: 750px)');
+        this.railMql = window.matchMedia('(min-width: 1100px)');
+        this.isStackedScroll = this.dataset.desktopLayout === 'stacked_scroll';
         if (!this.elements.thumbnails) return;
 
         this.elements.viewer.addEventListener('slideChanged', debounce(this.onSlideChanged.bind(this), 500));
@@ -19,6 +24,24 @@ if (!customElements.get('media-gallery')) {
             .addEventListener('click', this.setActiveMedia.bind(this, mediaToSwitch.dataset.target, false));
         });
         if (this.dataset.desktopLayout.includes('thumbnail') && this.mql.matches) this.removeListSemantic();
+        if (this.isStackedScroll) this.initScrollSpy();
+      }
+
+      initScrollSpy() {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            if (!this.railMql.matches) return;
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              const thumbnail = this.elements.thumbnails.querySelector(
+                `[data-target="${entry.target.dataset.mediaId}"]`
+              );
+              this.setActiveThumbnail(thumbnail);
+            });
+          },
+          { rootMargin: '-25% 0px -65% 0px' }
+        );
+        this.elements.viewer.querySelectorAll('[data-media-id]').forEach((item) => observer.observe(item));
       }
 
       onSlideChanged(event) {
@@ -53,6 +76,11 @@ if (!customElements.get('media-gallery')) {
 
         this.preventStickyHeader();
         window.setTimeout(() => {
+          if (!prepend && this.isStackedScroll && this.railMql.matches) {
+            const top = activeMedia.getBoundingClientRect().top + window.scrollY - STACKED_SCROLL_TOP_OFFSET;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+            return;
+          }
           if (!this.mql.matches || this.elements.thumbnails) {
             activeMedia.parentElement.scrollTo({ left: activeMedia.offsetLeft });
           }
@@ -77,6 +105,10 @@ if (!customElements.get('media-gallery')) {
           .querySelectorAll('button')
           .forEach((element) => element.removeAttribute('aria-current'));
         thumbnail.querySelector('button').setAttribute('aria-current', true);
+        if (this.isStackedScroll && this.railMql.matches) {
+          thumbnail.scrollIntoView({ block: 'nearest' });
+          return;
+        }
         if (this.elements.thumbnails.isSlideVisible(thumbnail, 10)) return;
 
         this.elements.thumbnails.slider.scrollTo({ left: thumbnail.offsetLeft });
