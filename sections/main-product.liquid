@@ -316,13 +316,15 @@
           assign tgp_ls = block.settings.tg_pickup_letter_spacing | default: 0
           assign tgp_col = block.settings.tg_pickup_color
         -%}
-        {%- if tgp_font != blank -%}{{ tgp_font | font_face: font_display: 'swap' }}{%- endif -%}
-        {%- if tgp_font != blank and tgp_weight != 'default' -%}
+        {%- capture tgp_brand_stack -%}{% render 'brand-font', font: block.settings.tg_pickup_custom_font %}{%- endcapture -%}
+        {%- assign tgp_brand_stack = tgp_brand_stack | strip -%}
+        {%- if tgp_font != blank and tgp_brand_stack == blank -%}{{ tgp_font | font_face: font_display: 'swap' }}{%- endif -%}
+        {%- if tgp_font != blank and tgp_brand_stack == blank and tgp_weight != 'default' -%}
           {%- assign tgp_wfont = tgp_font | font_modify: 'weight', tgp_weight -%}
           {%- if tgp_wfont -%}{{ tgp_wfont | font_face: font_display: 'swap' }}{%- endif -%}
         {%- endif -%}
         {%- capture tgp_typedecl -%}
-          {%- if tgp_font != blank %}font-family: {{ tgp_font.family }}, {{ tgp_font.fallback_families }}; font-style: {{ tgp_font.style }};{% if tgp_weight == 'default' %} font-weight: {{ tgp_font.weight }};{% endif %}{% endif -%}
+          {%- if tgp_brand_stack != blank %}font-family: {{ tgp_brand_stack }}; font-style: normal;{% if tgp_weight == 'default' %} font-weight: 400;{% endif %}{% elsif tgp_font != blank %}font-family: {{ tgp_font.family }}, {{ tgp_font.fallback_families }}; font-style: {{ tgp_font.style }};{% if tgp_weight == 'default' %} font-weight: {{ tgp_font.weight }};{% endif %}{% endif -%}
           {%- if tgp_weight != 'default' and tgp_weight != blank %} font-weight: {{ tgp_weight }};{% endif -%}
           {%- if tgp_fs > 0 %} font-size: {{ tgp_fs }}px;{% endif -%}
           {%- if tgp_lh > 0 %} line-height: {{ tgp_lh }}%;{% endif -%}
@@ -353,13 +355,15 @@
           assign tgb_ls = block.settings.tg_body_letter_spacing | default: 0
           assign tgb_col = block.settings.tg_body_color
         -%}
-        {%- if tgb_font != blank -%}{{ tgb_font | font_face: font_display: 'swap' }}{%- endif -%}
-        {%- if tgb_font != blank and tgb_weight != 'default' -%}
+        {%- capture tgb_brand_stack -%}{% render 'brand-font', font: block.settings.tg_body_custom_font %}{%- endcapture -%}
+        {%- assign tgb_brand_stack = tgb_brand_stack | strip -%}
+        {%- if tgb_font != blank and tgb_brand_stack == blank -%}{{ tgb_font | font_face: font_display: 'swap' }}{%- endif -%}
+        {%- if tgb_font != blank and tgb_brand_stack == blank and tgb_weight != 'default' -%}
           {%- assign tgb_wfont = tgb_font | font_modify: 'weight', tgb_weight -%}
           {%- if tgb_wfont -%}{{ tgb_wfont | font_face: font_display: 'swap' }}{%- endif -%}
         {%- endif -%}
         {%- capture tgb_fulldecl -%}
-          {%- if tgb_font != blank %}font-family: {{ tgb_font.family }}, {{ tgb_font.fallback_families }}; font-style: {{ tgb_font.style }};{% if tgb_weight == 'default' %} font-weight: {{ tgb_font.weight }};{% endif %}{% endif -%}
+          {%- if tgb_brand_stack != blank %}font-family: {{ tgb_brand_stack }}; font-style: normal;{% if tgb_weight == 'default' %} font-weight: 400;{% endif %}{% elsif tgb_font != blank %}font-family: {{ tgb_font.family }}, {{ tgb_font.fallback_families }}; font-style: {{ tgb_font.style }};{% if tgb_weight == 'default' %} font-weight: {{ tgb_font.weight }};{% endif %}{% endif -%}
           {%- if tgb_weight != 'default' and tgb_weight != blank %} font-weight: {{ tgb_weight }};{% endif -%}
           {%- if tgb_fs > 0 %} font-size: {{ tgb_fs }}px;{% endif -%}
           {%- if tgb_lh > 0 %} line-height: {{ tgb_lh }}%;{% endif -%}
@@ -3424,6 +3428,28 @@
         },
         {
           "type": "select",
+          "id": "tg_pickup_custom_font",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
+          "visible_if": "{{ block.settings.tg_pickup_enable }}"
+        },
+        {
+          "type": "select",
           "id": "tg_pickup_weight",
           "options": [
             { "value": "default", "label": "Theme default" },
@@ -4212,6 +4238,28 @@
           "id": "tg_body_font",
           "default": "assistant_n4",
           "label": "Font",
+          "visible_if": "{{ block.settings.tg_body_enable }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_body_custom_font",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
           "visible_if": "{{ block.settings.tg_body_enable }}"
         },
         {
@@ -5547,6 +5595,28 @@
           "id": "tg_font",
           "default": "assistant_n4",
           "label": "Font",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_custom_font",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
           "visible_if": "{{ block.settings.tg_enable_type }}"
         },
         {
