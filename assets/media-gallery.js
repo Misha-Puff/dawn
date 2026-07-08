@@ -30,7 +30,7 @@ if (!customElements.get('media-gallery')) {
       initScrollSpy() {
         const observer = new IntersectionObserver(
           (entries) => {
-            if (!this.railMql.matches) return;
+            if (this.scrollSpySuppressed || !this.railMql.matches) return;
             entries.forEach((entry) => {
               if (!entry.isIntersecting) return;
               const thumbnail = this.elements.thumbnails.querySelector(
@@ -41,7 +41,23 @@ if (!customElements.get('media-gallery')) {
           },
           { rootMargin: '-25% 0px -65% 0px' }
         );
-        this.elements.viewer.querySelectorAll('[data-media-id]').forEach((item) => observer.observe(item));
+        this.elements.viewer.querySelectorAll('li[data-media-id]').forEach((item) => observer.observe(item));
+      }
+
+      // A scroll-spy scrollIntoView mid-animation can cancel the smooth page
+      // scroll in some engines, so the spy stays quiet until scrolling settles.
+      suppressScrollSpyUntilSettled() {
+        this.scrollSpySuppressed = true;
+        clearTimeout(this.scrollSpyReleaseTimer);
+        this.scrollSpyRelease =
+          this.scrollSpyRelease ||
+          (() => {
+            this.scrollSpySuppressed = false;
+            clearTimeout(this.scrollSpyReleaseTimer);
+            window.removeEventListener('scrollend', this.scrollSpyRelease);
+          });
+        window.addEventListener('scrollend', this.scrollSpyRelease);
+        this.scrollSpyReleaseTimer = setTimeout(this.scrollSpyRelease, 1500); // no-scrollend fallback
       }
 
       onSlideChanged(event) {
@@ -78,6 +94,8 @@ if (!customElements.get('media-gallery')) {
         window.setTimeout(() => {
           if (!prepend && this.isStackedScroll && this.railMql.matches) {
             const top = activeMedia.getBoundingClientRect().top + window.scrollY - STACKED_SCROLL_TOP_OFFSET;
+            if (Math.abs(top - window.scrollY) < 2) return;
+            this.suppressScrollSpyUntilSettled();
             window.scrollTo({ top: top, behavior: 'smooth' });
             return;
           }
@@ -106,7 +124,15 @@ if (!customElements.get('media-gallery')) {
           .forEach((element) => element.removeAttribute('aria-current'));
         thumbnail.querySelector('button').setAttribute('aria-current', true);
         if (this.isStackedScroll && this.railMql.matches) {
-          thumbnail.scrollIntoView({ block: 'nearest' });
+          // scoped to the rail's own overflow — scrollIntoView could also move the page
+          const list = this.elements.thumbnails.slider;
+          const listRect = list.getBoundingClientRect();
+          const thumbRect = thumbnail.getBoundingClientRect();
+          if (thumbRect.top < listRect.top) {
+            list.scrollTop += thumbRect.top - listRect.top;
+          } else if (thumbRect.bottom > listRect.bottom) {
+            list.scrollTop += thumbRect.bottom - listRect.bottom;
+          }
           return;
         }
         if (this.elements.thumbnails.isSlideVisible(thumbnail, 10)) return;
