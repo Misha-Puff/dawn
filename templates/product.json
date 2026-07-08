@@ -415,7 +415,7 @@
             "swym_hover_atw_border_color": "#1A1A1A",
             "swym_hover_atw_border_thickness": 0,
             "swym_hover_atw_button_border_radius": 0,
-            "swym_custom_css": "#swym-atw-pdp-button {\npadding-left: 0 !important;\ntext-transform: uppercase !important;\nfont-weight: normal !important;\nfont-size: 10px !important;\n}\n\n#swym-atw-pdp-button svg {\nscale: 80%;\n}"
+            "swym_custom_css": "#swym-atw-pdp-button {\npadding-left: 0 !important;\ntext-transform: uppercase !important;\nfont-weight: normal !important;\nfont-size: 10px !important;\ndisplay: inline-flex !important;\n}\n\n#swym-atw-pdp-button svg {\nscale: 75%;\nposition: relative;\ntop: -1.5px;\n}"
           }
         }
       },
