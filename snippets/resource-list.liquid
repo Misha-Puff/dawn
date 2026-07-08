@@ -35,12 +35,12 @@
 
   Port of stock Horizon v4.1.1 (68760d9) snippets/resource-list.liquid
   (horizon-blocks Phase 10). Deviations:
-  - TRIMMED: the bento and editorial layout branches (render 'bento-grid' /
-    'editorial-product-grid' / 'editorial-blog-grid' /
-    'editorial-collection-grid' — four unported editorial-grid snippets that
-    belong to the future blog/collection-list slices). The case arms remain
-    as re-add seams; hz-product-list also trims 'editorial' from its
-    layout_type options so the arms are unreachable.
+  - Phase 14: the bento and editorial layout branches RE-ADDED (render
+    'bento-grid' / 'editorial-product-grid' / 'editorial-blog-grid' /
+    'editorial-collection-grid' — all four grid snippets landed with the
+    collection-list slice; hz-product-list re-adds 'editorial' to its
+    layout_type options in lockstep). The 'articles' editorial arm stays
+    unreachable until the Phase-15 blog hosts pass content_type: 'articles'.
   - The appended stylesheet extracts the .hidden--mobile / .hidden--desktop
     utilities (Horizon base.css:452-465) this snippet's own classes depend
     on — Dawn ships no equivalents. The .force-full-width leg lives in the
@@ -132,10 +132,7 @@
       {{ list_items }}
 
     {% when 'bento' %}
-      {% comment %}
-        TRIMMED (Phase 10): stock renders 'bento-grid' here — unported,
-        belongs to a future slice. RE-ADD with the bento port.
-      {% endcomment %}
+      {% render 'bento-grid', items: list_items_array %}
 
     {% when 'carousel' %}
       {% render 'resource-list-carousel',
@@ -147,13 +144,14 @@
       %}
 
     {% when 'editorial' %}
-      {% comment %}
-        TRIMMED (Phase 10): stock renders the editorial-product-grid /
-        editorial-blog-grid / editorial-collection-grid snippets here —
-        unported, belong to the blog/collection-list slices. RE-ADD with
-        those ports (hz-product-list also trims 'editorial' from
-        layout_type).
-      {% endcomment %}
+      {% case content_type %}
+        {% when 'products' %}
+          {% render 'editorial-product-grid', items: list_items_array %}
+        {% when 'articles' %}
+          {% render 'editorial-blog-grid', items: list_items_array %}
+        {% else %}
+          {% render 'editorial-collection-grid', items: list_items_array %}
+      {% endcase %}
   {% endcase %}
 </div>
 

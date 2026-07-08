@@ -1,0 +1,484 @@
+{%- comment -%}
+  horizon-blocks Phase 14 — hz-collection-links host (port of stock Horizon
+  v4.1.1 (68760d9) sections/collection-links.liquid; hz- filename per the
+  host-family precedent — schema/preset names stay stock). Deviations:
+  - Standalone-host preamble (hz-product-list precedent):
+    component-group.css + hz-type-variables + hz-ui-tokens.
+  - LOCKSMITH GATE in BOTH loops (links + spotlight slides) with MANUAL
+    index counters instead of forloop.index0 — index alignment is
+    load-bearing: _collection-link's on:pointerenter="/select/{{ index }}"
+    must match the refs.images[]/slide positions collection-links.js
+    indexes into, so both loops must skip gated collections in lockstep
+    and number only the survivors. slide_count = the surviving counter
+    (stock passes collection_list.size, which would overcount gated
+    items). Blank-guarded like the list hosts (onboarding placeholders
+    keep flowing). EDGE (accepted, ledgered): if the ACTIVE collection is
+    gated, no link renders with aria-current="true" initially — the JS
+    recovers on first pointerenter/scroll.
+  - The appended stylesheet adds a Dawn adaptation of Horizon's base.css
+    .section grid scoped to .section-collection-links (hz-carousel
+    precedent — this wrapper is NOT a resource-list, so it can't ride the
+    .section-resource-list adaptation; class added to the wrapper below).
+    No .force-full-width leg (no breakout child in this host) and no
+    section-background mechanism (hz-product-list reduction: the
+    color-custom class on the section div paints the background). The
+    stock stylesheet itself is verbatim.
+  - Schema/preset t: strings hardcoded to Horizon's English; the presets'
+    _inline-collection-title font values are MAPPED
+    var(--font-subheading--family) → var(--font-heading--family) (Nathan's
+    ruling 2026-07-08; computed-identical — hz-type-variables.liquid:49
+    aliases subheading to heading, and the block's trimmed font select
+    only offers Body/Heading).
+  Kept verbatim + ledgered:
+  - `collection_list | find: 'id', collection.id | default:
+    collection_list.first` — the platform `find` filter (no fork
+    precedent; fails loudly if unsupported — serve-verify item). On a page
+    rig `collection` is nil → first link active. Accepted.
+  - STOCK QUIRK: onboarding marks EVERY link current (nil == nil) —
+    editor-only.
+  - The verbatim collection-links.js module script (byte-verbatim asset;
+    element + filename unclaimed in Dawn/M&P). `render 'slideshow'` emits
+    <hz-slideshow-component> (Phase-3 rename); the JS reaches it via
+    ref="slideshow", tag-agnostic — no JS change.
+{%- endcomment -%}
+{{ 'component-group.css' | asset_url | stylesheet_tag }}
+{% render 'hz-type-variables' %}
+{% render 'hz-ui-tokens' %}
+
+{% liquid
+  assign collection_list = section.settings.collection_list
+
+  if collection_list == blank
+    assign limit = 4
+
+    for i in (1..4)
+      assign collection_list = collection_list | append: ', '
+    endfor
+
+    assign collection_list = collection_list | split: ','
+  endif
+
+  assign active_collection = collection_list | find: 'id', collection.id | default: collection_list.first
+%}
+
+<script
+  src="{{ 'collection-links.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+
+{% liquid
+  if section.settings.background_color != blank
+    render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
+  endif
+%}
+
+<div
+  class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+></div>
+<div
+  class="section section--{{ section.settings.section_width }}{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %} section-collection-links spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
+  data-testid="collection-links-{{ section.id }}"
+>
+  <collection-links-component
+    layout="{{ section.settings.layout }}"
+    alignment="{{ section.settings.alignment }}"
+    {% if section.settings.image_position == 'left' %}
+      reverse
+    {% endif %}
+  >
+    {% comment %}
+      theme-check-disable UniqueStaticBlockId — the repeated 'link' id is
+      stock Horizon's own pattern (one static block definition, re-rendered
+      per collection across both loops). Upload validation accepts it; the
+      lint rule doesn't model loops.
+    {% endcomment %}
+    {% comment %}theme-check-disable UniqueStaticBlockId{% endcomment %}
+    <div
+      class="collection-links__container"
+      ref="container"
+    >
+      {% assign hz_link_index = 0 %}
+      {% for collection in collection_list limit: limit %}
+        {% comment %}
+          Phase-14 LOCKSMITH GATE (see doc header) — surviving-only
+          numbering keeps /select/{{ index }} aligned with the slide loop.
+        {% endcomment %}
+        {% unless collection == blank %}
+          {%- capture lock_content -%}{%- render 'locksmith-v2-lock-collection' collection: collection -%}{%- endcapture -%}
+          {% assign lock_content = lock_content | strip %}
+          {% if lock_content == 'true' %}
+            {% continue %}
+          {% endif %}
+        {% endunless %}
+        {% liquid
+          assign current = false
+
+          if collection.id == active_collection.id
+            assign current = true
+          endif
+        %}
+        {% content_for 'block',
+          type: '_collection-link',
+          id: 'link',
+          closest.collection: collection,
+          index: hz_link_index,
+          current: current
+        %}
+        {% assign hz_link_index = hz_link_index | plus: 1 %}
+      {% endfor %}
+    </div>
+
+    {% case section.settings.layout %}
+      {% when 'spotlight' %}
+        {% assign hz_slide_index = 0 %}
+        {% capture slides %}
+          {% for collection in collection_list limit: limit %}
+          {% comment %} Phase-14 LOCKSMITH GATE — lockstep with the links loop above. {% endcomment %}
+          {% unless collection == blank %}
+            {%- capture lock_content -%}{%- render 'locksmith-v2-lock-collection' collection: collection -%}{%- endcapture -%}
+            {% assign lock_content = lock_content | strip %}
+            {% if lock_content == 'true' %}
+              {% continue %}
+            {% endif %}
+          {% endunless %}
+          {% liquid
+            assign current = false
+
+            if collection.id == active_collection.id
+              assign current = true
+            endif
+          %}
+
+          {% capture slide %}
+            {% content_for 'block',
+              type: '_collection-link',
+              id: 'link',
+              closest.collection: collection,
+              index: hz_slide_index,
+              current: current,
+              image_only: true
+            %}
+          {% endcapture %}
+
+          {% render 'slideshow-slide', children: slide, index: hz_slide_index %}
+          {% assign hz_slide_index = hz_slide_index | plus: 1 %}
+        {% endfor %}
+      {% endcapture %}
+
+        {% render 'slideshow',
+          slides: slides,
+          slide_count: hz_slide_index,
+          class: 'collection-links__images',
+          ref: 'slideshow'
+        %}
+    {% endcase %}
+    {% comment %}theme-check-enable UniqueStaticBlockId{% endcomment %}
+  </collection-links-component>
+</div>
+
+{% stylesheet %}
+  collection-links-component {
+    --alignment: flex-start;
+
+    display: grid;
+    align-items: center;
+    grid-gap: var(--gap-3xl);
+
+    &:has([ratio='portrait']) {
+      --template-column-ratio: 0.8fr;
+    }
+
+    &:has([ratio='square']) {
+      --template-column-ratio: 1fr;
+    }
+
+    &:has([ratio='landscape']) {
+      --template-column-ratio: 1.4fr;
+    }
+
+    &[alignment='center'] {
+      --alignment: center;
+
+      .text-block {
+        text-align: center;
+      }
+    }
+
+    &[alignment='right'] {
+      --alignment: flex-end;
+
+      .text-block {
+        text-align: right;
+      }
+    }
+
+    &[layout='spotlight'] {
+      position: relative;
+      grid-template-columns: 1fr var(--template-column-ratio);
+      grid-template-areas: 'text image';
+
+      @media screen and (min-width: 750px) {
+        &[reverse] {
+          grid-template-areas: 'image text';
+          grid-template-columns: var(--template-column-ratio) 1fr;
+        }
+      }
+
+      .collection-links__container {
+        align-items: var(--alignment);
+      }
+
+      @media screen and (max-width: 749px) {
+        grid-template-columns: 1fr;
+        grid-template-areas: 'text' 'image';
+        grid-gap: var(--gap-2xl);
+
+        .collection-links__container {
+          gap: clamp(var(--gap-xs), 1vw, var(--gap-xl)) var(--gap-2xl);
+          justify-content: var(--alignment);
+        }
+      }
+    }
+
+    &[layout='text'] {
+      grid-gap: 0;
+      grid-template-areas: 'text';
+
+      .collection-links__container {
+        gap: clamp(var(--gap-xs), 1vw, var(--gap-xl)) var(--gap-2xl);
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: var(--alignment);
+      }
+    }
+  }
+
+  .collection-links__container {
+    display: flex;
+    gap: var(--gap-md);
+    flex-direction: column;
+  }
+
+  .collection-links__images {
+    overflow: hidden;
+    grid-area: image;
+
+    @media screen and (max-width: 749px) {
+      image-block {
+        max-width: 100%;
+      }
+    }
+  }
+
+  /* Dawn adaptation of Horizon base.css .section grid (68760d9
+     base.css:333-419), scoped to .section-collection-links (hz-carousel
+     precedent — see doc header; same store-specific reduction: .page-width
+     max-width is disabled, so --util-page-margin-offset === the page
+     padding; gutters follow Dawn's 1100px page-padding breakpoint). */
+  .section-collection-links {
+    --util-page-margin-offset: var(--page-width-padding);
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns:
+      minmax(var(--util-page-margin-offset), 1fr)
+      minmax(0, calc(100% - var(--util-page-margin-offset) * 2))
+      minmax(var(--util-page-margin-offset), 1fr);
+  }
+
+  @media screen and (max-width: 1099px) {
+    .section-collection-links {
+      --util-page-margin-offset: var(--mobile-page-width-padding);
+    }
+  }
+
+  .section-collection-links > * {
+    grid-column: 2;
+  }
+
+  .section-collection-links.section--full-width > * {
+    grid-column: 1 / -1;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Collection links",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "collection_list",
+      "id": "collection_list",
+      "label": "Collections"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "spotlight",
+          "label": "Spotlight"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        }
+      ],
+      "default": "spotlight"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page"
+        },
+        {
+          "value": "full-width",
+          "label": "Full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "right",
+      "visible_if": "{{ section.settings.layout == \"spotlight\" }}"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "placeholder": "Default"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection links: Spotlight",
+      "category": "Collections",
+      "blocks": {
+        "link": {
+          "type": "_collection-link",
+          "static": true,
+          "blocks": {
+            "title": {
+              "type": "_inline-collection-title",
+              "name": "Title",
+              "static": true,
+              "settings": {
+                "font": "var(--font-heading--family)"
+              }
+            },
+            "image": {
+              "type": "_image",
+              "static": true,
+              "settings": {
+                "height": "large",
+                "ratio": "square"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Collection links: Text",
+      "category": "Collections",
+      "settings": {
+        "layout": "text",
+        "alignment": "center"
+      },
+      "blocks": {
+        "link": {
+          "type": "_collection-link",
+          "static": true,
+          "blocks": {
+            "title": {
+              "type": "_inline-collection-title",
+              "name": "Title",
+              "static": true,
+              "settings": {
+                "font": "var(--font-heading--family)"
+              }
+            },
+            "image": {
+              "type": "_image",
+              "static": true,
+              "settings": {
+                "height": "medium"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
+{% endschema %}

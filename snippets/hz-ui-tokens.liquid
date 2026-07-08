@@ -14,7 +14,9 @@
   -sold-out scope renders; Phase 13 appends the quick-add/buy-buttons
   subsystem's tokens — font-size/gap fills, animation timings, button/input
   sizes, drawer + quick-add-modal geometry — and the .color-custom-drawer
-  scope render (tsv:693-698 analog of the Phase-9 popover scope).
+  scope render (tsv:693-698 analog of the Phase-9 popover scope); Phase 14
+  appends the collection-list slice's tokens — the display font-size tier,
+  gap fills, and --disabled-opacity.
 
   Dawn-side equivalent of the layering + opacity subset of stock Horizon
   v4.1.1 (68760d9) snippets/theme-styles-variables.liquid, values verbatim.
@@ -409,6 +411,21 @@
        precedent). */
     --style-border-radius-buttons-primary: 100px;
     --style-border-radius-buttons-secondary: 100px;
+
+    /* --- Phase 14 (collection-list slice; Horizon rem = 16px) --- */
+    /* Font sizes (tsv:358-360) — _collection-link's clamp() display ramp */
+    --font-size--4xl: 40px; /* 2.5rem */
+    --font-size--5xl: 48px; /* 3rem */
+    --font-size--6xl: 56px; /* 3.5rem */
+
+    /* Gaps (tsv:440, 442) — collection-links grid gap + the editorial
+       grids' desktop gap (--gap-2xl already ported, Phase 13) */
+    --gap-xl: 20px; /* 1.25rem */
+    --gap-3xl: 48px; /* 3rem */
+
+    /* Disabled/dimmed opacity (tsv:638, verbatim) — spotlight link dimming
+       + the collection-link count superscript */
+    --disabled-opacity: 0.5;
 
     /* Phase-13 audit notes — deliberately NOT defined:
        --color-foreground-secondary (buy-buttons-styles:58/69/256) is consumed

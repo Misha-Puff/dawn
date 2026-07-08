@@ -1,0 +1,174 @@
+{%- doc -%}
+  @param {string} [suffix] - The suffix to add to the collection title
+{%- enddoc -%}
+{%- comment -%}
+  horizon-blocks Phase 14 — `_inline-collection-title` private block
+  (collection-links child).
+
+  Port of stock Horizon v4.1.1 (68760d9) blocks/_inline-collection-title.liquid;
+  schema t: strings hardcoded to Horizon's English. Deviations:
+  - 'placeholders.collection_title' | t hardcoded to 'Collection title'
+    (Dawn's locale files lack the key; custom-section strings precedent).
+  - Font select TRIMMED 4→2 options, Body/Heading only (Nathan's ruling
+    2026-07-08, the collection-title fork precedent): our
+    hz-type-variables.liquid:49-54 aliases --font-subheading--family and
+    --font-accent--family to --font-heading--family, so Subheading/Accent
+    would be duplicate computed values in the picker. The stock
+    collection-links presets' var(--font-subheading--family) values are
+    mapped to var(--font-heading--family) in the hz-collection-links
+    schema — computed-identical.
+{%- endcomment -%}
+
+{%- assign block_settings = block.settings -%}
+{% if closest.collection == blank %}
+  {% assign collection_title = 'Collection title' %}
+{% elsif closest.collection != blank %}
+  {% assign collection_title = closest.collection.title %}
+{% endif %}
+
+{% assign plain_text = collection_title | strip_newlines | strip_html | strip %}
+
+{% # We need to make sure the wrapper is rendered even if the text element is empty in the theme editor to allow live text editing %}
+{%- if plain_text != '' or request.design_mode -%}
+  <span
+    class="
+      text-block
+      custom-typography
+      {% if block_settings.weight != blank %}custom-font-weight{% endif %}
+      {% if block_settings.font_size != blank %}custom-font-size{% endif %}
+    "
+    style="{% render 'typography-style', preset: 'custom', settings: block_settings, type: 'heading' %}"
+    {{ block.shopify_attributes }}
+  >
+    <span>{{ collection_title }}</span>{{ suffix }}
+  </span>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Collection title",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Displays title from parent collection"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "select",
+      "id": "font",
+      "label": "Font",
+      "options": [
+        {
+          "value": "var(--font-body--family)",
+          "label": "Body"
+        },
+        {
+          "value": "var(--font-heading--family)",
+          "label": "Heading"
+        }
+      ],
+      "default": "var(--font-body--family)"
+    },
+    {
+      "type": "select",
+      "id": "weight",
+      "label": "Weight",
+      "options": [
+        {
+          "value": "",
+          "label": "Default"
+        },
+        {
+          "value": "100",
+          "label": "Thin"
+        },
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semibold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        },
+        {
+          "value": "900",
+          "label": "Black"
+        }
+      ],
+      "default": ""
+    },
+    {
+      "type": "select",
+      "id": "line_height",
+      "label": "Line height",
+      "options": [
+        {
+          "value": "tight",
+          "label": "Tight"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "loose",
+          "label": "Loose"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "select",
+      "id": "letter_spacing",
+      "label": "Letter spacing",
+      "options": [
+        {
+          "value": "tight",
+          "label": "Tight"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "loose",
+          "label": "Loose"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "select",
+      "id": "case",
+      "label": "Case",
+      "options": [
+        {
+          "value": "none",
+          "label": "Default"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        }
+      ],
+      "default": "none"
+    }
+  ]
+}
+{% endschema %}

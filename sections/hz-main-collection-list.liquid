@@ -1,0 +1,436 @@
+{%- comment -%}
+  horizon-blocks Phase 14 — hz-main-collection-list host (port of stock
+  Horizon v4.1.1 (68760d9) sections/main-collection-list.liquid — the
+  /collections template main). hz- filename per the host-family precedent.
+  Deviations:
+  - Standalone-host preamble (hz-product-list precedent):
+    component-group.css + hz-type-variables + hz-ui-tokens.
+  - LOCKSMITH GATE + prefix split marker + slide_count =
+    list_items_array.size — the hz-collection-list restructure, identical
+    reasoning (see its doc header). Blank-guard covers the
+    `collections == null` editor-onboarding branch, kept verbatim.
+  - Schema t: strings hardcoded to Horizon's English.
+  - The appended stylesheet: the .section-resource-list adaptation, same
+    per-host copy as hz-collection-list.
+  Kept verbatim + ledgered (STOCK QUIRKS):
+  - NO paginate — hardcoded max_items = 20: the page shows the first 20
+    collections only. Stock behavior.
+  - The schema has NO mobile_card_size setting, so carousel layouts fall
+    to resource-list's '60cqw' default.
+  - No presets: template-owned main (never in the editor picker). Live
+    Dawn list-collections.json is untouched — reachable only via the
+    untracked list-collections.hz14.json rig (/collections?view=hz14).
+{%- endcomment -%}
+{{ 'component-group.css' | asset_url | stylesheet_tag }}
+{% render 'hz-type-variables' %}
+{% render 'hz-ui-tokens' %}
+
+{% liquid
+  assign section_collections = collections
+  assign max_items = 20
+  if section.settings.background_color != blank
+    render 'contrast-override', background_color: section.settings.background_color, section_id: section.id
+  endif
+%}
+
+<div
+  class="section-background{% if section.settings.background_color != blank %} color-custom-{{ section.id }}{% endif %}"
+></div>
+
+<div
+  class="
+    section
+    section--{{ section.settings.section_width }}
+    {% if section.settings.background_color != blank %}color-custom-{{ section.id }}{% endif %}
+    section-resource-list
+    spacing-style
+    gap-style
+  "
+  style="
+    {% render 'spacing-style', settings: section.settings %}
+    {% render 'gap-style', value: section.settings.gap %}
+  "
+>
+  <div class="section-resource-list__content">
+    {%- content_for 'blocks' -%}
+  </div>
+
+  {% if section_collections == null %}
+    {% for i in (1..max_items) %}
+      {% assign section_collections = section_collections | append: ', ' %}
+    {% endfor %}
+
+    {% assign section_collections = section_collections | split: ',' %}
+  {% endif %}
+
+  {% comment %}
+    theme-check-disable UniqueStaticBlockId — the repeated
+    static-collection-card id is stock Horizon's own pattern (one static
+    block definition, re-rendered per collection). Upload validation
+    accepts it; the lint rule doesn't model loops.
+  {% endcomment %}
+  {% comment %}theme-check-disable UniqueStaticBlockId{% endcomment %}
+  {% capture list_items %}
+    {% assign hz_rendered_count = 0 %}
+    {% for collection in section_collections limit: max_items %}
+      {% comment %}
+        Phase-14 LOCKSMITH GATE (leak prevention — the hz-collection-list
+        pattern; see that host's doc header). Blank-guarded for the
+        onboarding whitespace entries.
+      {% endcomment %}
+      {% unless collection == blank %}
+        {%- capture lock_content -%}{%- render 'locksmith-v2-lock-collection' collection: collection -%}{%- endcapture -%}
+        {% assign lock_content = lock_content | strip %}
+        {% if lock_content == 'true' %}
+          {% continue %}
+        {% endif %}
+      {% endunless %}
+      {% comment %}
+        Prefix split marker (hz-collection-list deviation): a gated
+        collection can't leave a trailing marker (= empty slide/cell).
+      {% endcomment %}
+      {% if hz_rendered_count > 0 %}<!--@list/split-->{% endif %}
+      <div class="resource-list__item">
+        {% content_for 'block', type: '_collection-card', id: 'static-collection-card', closest.collection: collection %}
+      </div>
+      {% assign hz_rendered_count = hz_rendered_count | plus: 1 %}
+    {% endfor %}
+  {% endcapture %}
+  {% comment %}theme-check-enable UniqueStaticBlockId{% endcomment %}
+
+  {% liquid
+    # Create an array from the list items to be used for different layout types
+    assign list_items_array = list_items | strip | split: '<!--@list/split-->'
+  %}
+
+  {% render 'resource-list',
+    list_items: list_items,
+    list_items_array: list_items_array,
+    settings: section.settings,
+    carousel_ref: 'mainCollectionList',
+    slide_count: list_items_array.size,
+    content_type: 'collections',
+    test_id: 'collections-list-grid'
+  %}
+</div>
+
+{% stylesheet %}
+  /* Dawn adaptation of Horizon base.css .section grid (68760d9
+     base.css:333-419), scoped to .section-resource-list — copied from the
+     hz-product-list host (each standalone host carries its own copy; same
+     store-specific reduction: .page-width max-width is disabled, so
+     --util-page-margin-offset === the page padding; gutters follow Dawn's
+     1100px page-padding breakpoint). */
+  .section-resource-list {
+    --util-page-margin-offset: var(--page-width-padding);
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns:
+      minmax(var(--util-page-margin-offset), 1fr)
+      minmax(0, calc(100% - var(--util-page-margin-offset) * 2))
+      minmax(var(--util-page-margin-offset), 1fr);
+  }
+
+  @media screen and (max-width: 1099px) {
+    .section-resource-list {
+      --util-page-margin-offset: var(--mobile-page-width-padding);
+    }
+  }
+
+  .section-resource-list > * {
+    grid-column: 2;
+  }
+
+  .section-resource-list.section--full-width > * {
+    grid-column: 1 / -1;
+  }
+
+  /* Horizon base.css:418 leg, re-scoped from `.section >` to this host's
+     section class: carousel layouts break out to the full page width. */
+  .section-resource-list > .force-full-width {
+    grid-column: 1 / -1;
+  }
+
+  /* Horizon base.css:3605-3633 extraction (subset, verbatim): the section's
+     row gap, the content empty-state collapse. */
+  .section-resource-list {
+    row-gap: var(--gap);
+  }
+
+  .section-resource-list__content {
+    display: flex;
+    flex-direction: column;
+    align-items: var(--horizontal-alignment);
+    gap: var(--gap);
+    width: 100%;
+  }
+
+  .section-resource-list__content:empty {
+    display: none;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Collection list",
+  "class": "ui-test-collection-list",
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    },
+    {
+      "type": "text"
+    },
+    {
+      "type": "icon"
+    },
+    {
+      "type": "image"
+    },
+    {
+      "type": "button"
+    },
+    {
+      "type": "video"
+    },
+    {
+      "type": "group"
+    },
+    {
+      "type": "spacer"
+    },
+    {
+      "type": "_divider"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Cards layout"
+    },
+    {
+      "type": "select",
+      "id": "layout_type",
+      "label": "Type",
+      "options": [
+        {
+          "value": "grid",
+          "label": "Grid"
+        },
+        {
+          "value": "carousel",
+          "label": "Carousel"
+        },
+        {
+          "value": "bento",
+          "label": "Bento"
+        },
+        {
+          "value": "editorial",
+          "label": "Editorial"
+        }
+      ],
+      "default": "grid"
+    },
+    {
+      "type": "checkbox",
+      "id": "carousel_on_mobile",
+      "label": "Carousel on mobile",
+      "default": false,
+      "visible_if": "{{ section.settings.layout_type != 'carousel' }}"
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Columns",
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "default": 4,
+      "visible_if": "{{ section.settings.layout_type == 'grid' or section.settings.layout_type == 'carousel' }}"
+    },
+    {
+      "type": "select",
+      "id": "mobile_columns",
+      "label": "Mobile columns",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "2",
+      "visible_if": "{{ section.settings.layout_type == 'grid' and section.settings.carousel_on_mobile == false }}"
+    },
+    {
+      "type": "range",
+      "id": "columns_gap",
+      "label": "Horizontal gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 8,
+      "visible_if": "{{ section.settings.layout_type == 'grid' or section.settings.layout_type == 'carousel' }}"
+    },
+    {
+      "type": "range",
+      "id": "bento_gap",
+      "label": "Gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 8,
+      "visible_if": "{{ section.settings.layout_type == 'bento' }}"
+    },
+    {
+      "type": "range",
+      "id": "rows_gap",
+      "label": "Vertical gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 8,
+      "visible_if": "{{ section.settings.layout_type == 'grid'}}"
+    },
+    {
+      "type": "range",
+      "id": "max_collections",
+      "label": "Collection count",
+      "min": 1,
+      "max": 16,
+      "step": 1,
+      "default": 4,
+      "visible_if": "{{ section.settings.layout_type == 'editorial' }}"
+    },
+    {
+      "type": "header",
+      "content": "Carousel navigation",
+      "visible_if": "{{ section.settings.layout_type == 'carousel' or section.settings.carousel_on_mobile == true }}"
+    },
+    {
+      "type": "select",
+      "id": "icons_style",
+      "label": "Icon",
+      "options": [
+        {
+          "value": "arrow",
+          "label": "Arrows"
+        },
+        {
+          "value": "chevron",
+          "label": "Chevrons"
+        },
+        {
+          "value": "arrows_large",
+          "label": "Large arrows"
+        },
+        {
+          "value": "chevron_large",
+          "label": "Large chevrons"
+        },
+        {
+          "value": "none",
+          "label": "None"
+        }
+      ],
+      "default": "arrow",
+      "visible_if": "{{ section.settings.layout_type == 'carousel' or section.settings.carousel_on_mobile == true }}"
+    },
+    {
+      "type": "select",
+      "id": "icons_shape",
+      "label": "Icon background",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.icons_style != 'none' and section.settings.layout_type == 'carousel' or section.settings.carousel_on_mobile == true }}"
+    },
+    {
+      "type": "header",
+      "content": "Section layout"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page"
+        },
+        {
+          "value": "full-width",
+          "label": "Full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "placeholder": "Default"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ]
+}
+{% endschema %}

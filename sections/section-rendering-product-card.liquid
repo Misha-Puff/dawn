@@ -16,6 +16,13 @@
     sku is a PDP-phase item; nothing in this slice renders or morphs it.
     RE-ADD with the PDP sku port.
   - Schema t: name hardcoded to Horizon's English.
+  - Phase-14 LOCKSMITH RIDER (ratified with the Phase-12 recs-loop gates):
+    nil-safe gate after the closest.product fallback — locked OR blank
+    product renders an EMPTY fragment (the hz-quick-add-product.liquid
+    belt-and-braces pattern). Leak prevention: this section is fetched by
+    product-card.js's Section Rendering API call on card variant changes;
+    without the gate a crafted ?section_id fetch could surface a locked
+    product's price/swatches to sessions that fail the lock.
 {% endcomment %}
 
 {% liquid
@@ -23,45 +30,64 @@
     assign product = closest.product
   endif
 
-  # Phase-10 hardcode (see header comment): transition_to_main_product =
-  # false — stock's featured_media_url assign block trimmed.
-
-  assign url = product.selected_or_first_available_variant.url
-  unless url
-    assign url = product.first_available_variant.url
-  endunless
-  unless url
-    assign url = product.url
-  endunless
+  # Phase-14 Locksmith rider gate (see header comment): locked or blank
+  # product -> empty fragment.
+  assign hz_card_locked = false
+  if product == blank
+    assign hz_card_locked = true
+  else
+    capture lock_content
+      render 'locksmith-v2-lock-product' product: product
+    endcapture
+    assign lock_content = lock_content | strip
+    if lock_content == 'true'
+      assign hz_card_locked = true
+    endif
+  endif
 %}
 
-<product-card
-  data-product-id="{{ product.id }}"
-  {% # theme-check-disable UnknownFilter %}
-  view-event-payload="{{ product | standard_event_data: 'view' | escape }}"
-  {% # theme-check-enable UnknownFilter %}
->
-  <a
-    href="{{ url }}"
-    ref="productCardLink"
+{%- unless hz_card_locked -%}
+  {% liquid
+    # Phase-10 hardcode (see header comment): transition_to_main_product =
+    # false — stock's featured_media_url assign block trimmed.
+
+    assign url = product.selected_or_first_available_variant.url
+    unless url
+      assign url = product.first_available_variant.url
+    endunless
+    unless url
+      assign url = product.url
+    endunless
+  %}
+
+  <product-card
+    data-product-id="{{ product.id }}"
+    {% # theme-check-disable UnknownFilter %}
+    view-event-payload="{{ product | standard_event_data: 'view' | escape }}"
+    {% # theme-check-enable UnknownFilter %}
   >
-    <variant-picker>
-      <script type="application/json">
-        {{ product.selected_or_first_available_variant | json }}
-      </script>
-    </variant-picker>
-    {% render 'variant-swatches', product_resource: product, has_option_selected: true %}
+    <a
+      href="{{ url }}"
+      ref="productCardLink"
+    >
+      <variant-picker>
+        <script type="application/json">
+          {{ product.selected_or_first_available_variant | json }}
+        </script>
+      </variant-picker>
+      {% render 'variant-swatches', product_resource: product, has_option_selected: true %}
 
-    <product-price>
-      {% render 'hz-price', product_resource: product, show_unit_price: true %}
-    </product-price>
+      <product-price>
+        {% render 'hz-price', product_resource: product, show_unit_price: true %}
+      </product-price>
 
-    {% comment %}
-      TRIMMED (Phase 10): stock renders <product-sku-component> +
-      render 'sku' here — PDP-phase item. RE-ADD with the sku port.
-    {% endcomment %}
-  </a>
-</product-card>
+      {% comment %}
+        TRIMMED (Phase 10): stock renders <product-sku-component> +
+        render 'sku' here — PDP-phase item. RE-ADD with the sku port.
+      {% endcomment %}
+    </a>
+  </product-card>
+{%- endunless -%}
 
 {% schema %}
 {

@@ -1,0 +1,183 @@
+{%- comment -%}
+  horizon-blocks Phase 14 — `_collection-info` private block.
+
+  Verbatim port of stock Horizon v4.1.1 (68760d9) blocks/_collection-info.liquid;
+  schema t: strings hardcoded to Horizon's English. Ledger:
+  - @theme-picker vocabulary with NO static consumer in stock or here;
+    reachable only when a merchant adds it inside a host's blocks region.
+  - Renders 'slideshow-controls' (ported Phase 5) with icon_style/shape.
+  - The .collection-info / .collection-info__* classes are UNSTYLED in
+    stock Horizon (no base.css or stylesheet rules) — kept that way; the
+    markup still provides the controls-placement hooks + inline
+    --slideshow-icon-padding override.
+{%- endcomment -%}
+{% assign block_settings = block.settings %}
+{% if block_settings.background_color != blank %}
+  {% render 'contrast-override', background_color: block_settings.background_color, section_id: block.id %}
+{% endif %}
+<div
+  class="collection-info collection-info--{{ block_settings.placement }}{% if block_settings.background_color != blank %} color-custom-{{ block.id }}{% endif %}"
+  style="{% render 'spacing-style', settings: block_settings %} {% if block_settings.icons_style contains 'large' %} --slideshow-icon-padding: 0px{% endif %}"
+  {{ block.shopify_attributes }}
+>
+  <div class="collection-info__content">
+    {% content_for 'blocks' %}
+  </div>
+
+  <div class="collection-info__controls collection-info__controls--{{ block_settings.navigation }}">
+    {%- render 'slideshow-controls', icon_style: block_settings.icons_style, shape: block_settings.background_style -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection info",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "placement",
+      "label": "Placement",
+      "options": [
+        {
+          "label": "Above carousel",
+          "value": "above-carousel"
+        },
+        {
+          "label": "Next to carousel",
+          "value": "next-to-carousel"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "placeholder": "Default"
+    },
+    {
+      "type": "header",
+      "content": "Arrows"
+    },
+    {
+      "type": "select",
+      "id": "navigation",
+      "label": "Navigation",
+      "options": [
+        {
+          "label": "Above carousel",
+          "value": "above-carousel"
+        },
+        {
+          "label": "Inside carousel",
+          "value": "inside-carousel"
+        }
+      ],
+      "visible_if": "{{ block.settings.placement == 'above-carousel' }}"
+    },
+    {
+      "type": "select",
+      "id": "icons_style",
+      "label": "Icons",
+      "options": [
+        {
+          "value": "arrows",
+          "label": "Arrows"
+        },
+        {
+          "value": "chevron",
+          "label": "Chevrons"
+        },
+        {
+          "value": "arrows_large",
+          "label": "Large arrows"
+        },
+        {
+          "value": "chevron_large",
+          "label": "Large chevrons"
+        },
+        {
+          "value": "none",
+          "label": "None"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "background_style",
+      "label": "Background",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection info"
+    }
+  ]
+}
+{% endschema %}
