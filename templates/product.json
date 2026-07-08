@@ -449,11 +449,11 @@
         "image_zoom": "lightbox",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 40,
+        "padding_top": 32,
         "padding_bottom": 80,
         "info_enable_padding": true,
-        "info_padding_left": 0,
-        "info_padding_right": 0,
+        "info_padding_left": 60,
+        "info_padding_right": 30,
         "info_block_spacing": 0
       }
     },
