@@ -300,7 +300,7 @@
         {%- endif -%}
       {%- endif -%}
       {%- if block.type == 'buy_buttons' and block.settings.tg_pickup_enable -%}
-        {%- comment -%} Pickup availability line ("Pickup available at …", ready time, check-availability link). The element persists across JS refetches — pickup-availability.js only swaps its innerHTML — and buy_buttons has limit 1, so scoping by the section id alone is stable without the Block-id wrapper (which only exists when padding is enabled). The store-list drawer appends to document.body and keeps theme styling. {%- endcomment -%}
+        {%- comment -%} Find-in-store / pickup availability text. On this store the visible line ("FIND IN BROOKLYN") is the Inventory Information app block — a .iia-container div filled client-side, sitting inside #ProductInfo — so the rules target its text elements (.iia-drawer-link / .iia-header) alongside Shopify's native <pickup-availability> markup, which currently renders inert (no pickup-enabled locations) but stays covered in case that changes. CSS rules survive both apps' JS re-renders; both store-list drawers append to document.body and keep their own styling. buy_buttons has limit 1, so scoping by the section id alone is stable without the Block-id wrapper (which only exists when padding is enabled). {%- endcomment -%}
         {%- liquid
           assign tgp_font = block.settings.tg_pickup_font
           assign tgp_weight = block.settings.tg_pickup_weight | default: 'default'
@@ -329,11 +329,41 @@
           {%- assign tgp_fulldecl = tgp_typedecl | append: ' color: ' | append: tgp_col | append: ';' | strip -%}
         {%- endif -%}
         {%- if tgp_fulldecl != blank -%}
-          #{{ tg_scope }} .product__pickup-availabilities .pickup-availability-preview .caption-large, #{{ tg_scope }} .product__pickup-availabilities .pickup-availability-preview .caption, #{{ tg_scope }} .product__pickup-availabilities .pickup-availability-button { {{ tgp_fulldecl }} }
+          #{{ tg_scope }} .iia-container, #{{ tg_scope }} .iia-container .iia-drawer-link, #{{ tg_scope }} .iia-container .iia-header, #{{ tg_scope }} .product__pickup-availabilities .pickup-availability-preview .caption-large, #{{ tg_scope }} .product__pickup-availabilities .pickup-availability-preview .caption, #{{ tg_scope }} .product__pickup-availabilities .pickup-availability-button { {{ tgp_fulldecl }} }
         {%- endif -%}
         {%- if tgp_col != blank -%}
           {%- comment -%} The location-name span carries color: rgb(var(--color-foreground)) via .color-foreground in base.css and would otherwise win. {%- endcomment -%}
           #{{ tg_scope }} .product__pickup-availabilities .pickup-availability-preview .color-foreground { color: {{ tgp_col }}; }
+        {%- endif -%}
+      {%- endif -%}
+      {%- if block.type == 'collapsible_tab' and block.settings.tg_body_enable -%}
+        {%- comment -%} Accordion body (open-state content). The base tg_ group above styles the heading only; this group lands on the .accordion__content container and inherits into its rte children (nothing inside sets its own font rules). {%- endcomment -%}
+        {%- liquid
+          assign tgb_font = block.settings.tg_body_font
+          assign tgb_weight = block.settings.tg_body_weight | default: 'default'
+          assign tgb_fs = block.settings.tg_body_size | default: 0
+          assign tgb_lh = block.settings.tg_body_line_height | default: 0
+          assign tgb_case = block.settings.tg_body_case | default: 'default'
+          assign tgb_ls = block.settings.tg_body_letter_spacing | default: 0
+          assign tgb_col = block.settings.tg_body_color
+        -%}
+        {%- if tgb_font != blank -%}{{ tgb_font | font_face: font_display: 'swap' }}{%- endif -%}
+        {%- if tgb_font != blank and tgb_weight != 'default' -%}
+          {%- assign tgb_wfont = tgb_font | font_modify: 'weight', tgb_weight -%}
+          {%- if tgb_wfont -%}{{ tgb_wfont | font_face: font_display: 'swap' }}{%- endif -%}
+        {%- endif -%}
+        {%- capture tgb_fulldecl -%}
+          {%- if tgb_font != blank %}font-family: {{ tgb_font.family }}, {{ tgb_font.fallback_families }}; font-style: {{ tgb_font.style }};{% if tgb_weight == 'default' %} font-weight: {{ tgb_font.weight }};{% endif %}{% endif -%}
+          {%- if tgb_weight != 'default' and tgb_weight != blank %} font-weight: {{ tgb_weight }};{% endif -%}
+          {%- if tgb_fs > 0 %} font-size: {{ tgb_fs }}px;{% endif -%}
+          {%- if tgb_lh > 0 %} line-height: {{ tgb_lh }}%;{% endif -%}
+          {%- if tgb_case != 'default' and tgb_case != blank %} text-transform: {{ tgb_case }};{% endif -%}
+          {%- if tgb_ls > 0 %} letter-spacing: {{ tgb_ls }}px;{% endif -%}
+          {%- if tgb_col != blank %} color: {{ tgb_col }};{% endif -%}
+        {%- endcapture -%}
+        {%- assign tgb_fulldecl = tgb_fulldecl | strip -%}
+        {%- if tgb_fulldecl != blank -%}
+          #{{ tg_scope }} .Block-{{ block.id }} .accordion__content { {{ tgb_fulldecl }} }
         {%- endif -%}
       {%- endif -%}
     {%- endfor -%}
@@ -3104,8 +3134,8 @@
         },
         {
           "type": "header",
-          "content": "Pickup availability text",
-          "info": "Styles the \"Pickup available at…\" line, the ready time and the check-availability link. The store drawer keeps theme styling."
+          "content": "Find in store / pickup text",
+          "info": "Styles the store-availability line below the buy buttons — the \"FIND IN BROOKLYN\" link (Inventory Information app) and Shopify's native \"Pickup available at…\" line. The link's wording and icon are set in the app; the drawer keeps app styling."
         },
         {
           "type": "checkbox",
@@ -3827,6 +3857,96 @@
           "info": "0 = theme default",
           "default": 0,
           "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "header",
+          "content": "Body typography",
+          "info": "Styles the accordion's open-state content."
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_body_enable",
+          "default": false,
+          "label": "Enable typography"
+        },
+        {
+          "type": "font_picker",
+          "id": "tg_body_font",
+          "default": "assistant_n4",
+          "label": "Font",
+          "visible_if": "{{ block.settings.tg_body_enable }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_body_weight",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "300", "label": "Light" },
+            { "value": "400", "label": "Regular" },
+            { "value": "500", "label": "Medium" },
+            { "value": "600", "label": "Semibold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "default",
+          "label": "Font weight",
+          "visible_if": "{{ block.settings.tg_body_enable }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_body_size",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_body_enable }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_body_line_height",
+          "min": 0,
+          "max": 250,
+          "step": 5,
+          "unit": "%",
+          "label": "Line height",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_body_enable }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_body_case",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "uppercase", "label": "Uppercase" },
+            { "value": "capitalize", "label": "Capitalize" },
+            { "value": "lowercase", "label": "Lowercase" },
+            { "value": "none", "label": "Normal (remove uppercase)" }
+          ],
+          "default": "default",
+          "label": "Text case",
+          "visible_if": "{{ block.settings.tg_body_enable }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_body_letter_spacing",
+          "min": 0,
+          "max": 4,
+          "step": 0.1,
+          "unit": "px",
+          "label": "Letter spacing",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_body_enable }}"
+        },
+        {
+          "type": "color",
+          "id": "tg_body_color",
+          "label": "Text color",
+          "info": "Leave blank for theme default",
+          "visible_if": "{{ block.settings.tg_body_enable }}"
         },
         {
           "type": "header",
