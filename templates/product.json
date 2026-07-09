@@ -475,7 +475,7 @@
         "gallery_layout": "stacked_scroll",
         "show_thumbnail_rail": true,
         "thumbnail_size": 80,
-        "thumbnail_gap": 20,
+        "thumbnail_gap": 48,
         "mobile_thumbnails": "hide",
         "media_position": "left",
         "image_zoom": "lightbox",
