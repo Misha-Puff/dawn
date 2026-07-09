@@ -23,7 +23,10 @@ product-info {
   .product__column-sticky {
     display: block;
     position: sticky;
-    top: 117px;
+    /* Match the actual header height so the sticky column tucks under the header
+       on scroll AND, because the grid rests below the header, sits flush with the
+       first image's top at rest (a larger fixed value overshoots downward). */
+    top: var(--header-height, 55px);
     z-index: 2;
   }
 
@@ -627,7 +630,7 @@ a.product__text {
   .product__column-sticky {
     display: block;
     position: sticky;
-    top: 137px;
+    top: var(--header-height, 55px);
     z-index: 2;
   }
 }
@@ -1714,7 +1717,7 @@ a.product__text {
     flex: 0 0 auto;
     width: var(--mp-thumb-size, 6.4rem);
     position: sticky;
-    top: 137px; /* mirrors .product__column-sticky offset; JS constant matches */
+    top: var(--header-height, 55px); /* mirrors .product__column-sticky offset; media-gallery.js reads --header-height */
   }
 
   .product--stacked_scroll .thumbnail-slider--rail .slider-button {

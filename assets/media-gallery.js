@@ -1,6 +1,11 @@
 if (!customElements.get('media-gallery')) {
-  // 137px sticky-column offset (section-main-product.css) + breathing room
-  const STACKED_SCROLL_TOP_OFFSET = 150;
+  // Scroll target offset for thumb clicks: the sticky-column offset
+  // (--header-height, mirrored in section-main-product.css) + breathing room.
+  // Read at click time so it tracks the live header height.
+  const STACKED_SCROLL_BREATHING = 13;
+  const stackedScrollTopOffset = () =>
+    (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height'), 10) || 55) +
+    STACKED_SCROLL_BREATHING;
 
   customElements.define(
     'media-gallery',
@@ -93,7 +98,7 @@ if (!customElements.get('media-gallery')) {
         this.preventStickyHeader();
         window.setTimeout(() => {
           if (!prepend && this.isStackedScroll && this.railMql.matches) {
-            const top = activeMedia.getBoundingClientRect().top + window.scrollY - STACKED_SCROLL_TOP_OFFSET;
+            const top = activeMedia.getBoundingClientRect().top + window.scrollY - stackedScrollTopOffset();
             if (Math.abs(top - window.scrollY) < 2) return;
             this.suppressScrollSpyUntilSettled();
             window.scrollTo({ top: top, behavior: 'smooth' });
