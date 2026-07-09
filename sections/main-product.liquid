@@ -73,6 +73,19 @@
     }
 
     {%- comment -%}
+      With the breadcrumb hidden the product grid jams up under the header. Restore
+      the vertical breathing room the breadcrumb used to occupy (~1.3rem text line +
+      2em margin ≈ 4.8rem) so the media/info block sits where it did before. Both
+      columns move down together, so their top alignment is preserved. Only when the
+      breadcrumb is off — when it's on, the breadcrumb provides its own spacing.
+    {%- endcomment -%}
+    {%- unless section.settings.show_breadcrumb -%}
+      #MainProduct-{{ section.id }} .product {
+        margin-top: 4.8rem;
+      }
+    {%- endunless -%}
+
+    {%- comment -%}
       Product info column overrides. #MainProduct-<id> is the section root, so the
       ID+class specificity (1,1,0) beats the hardcoded .product__info-wrapper padding
       variants and the .product__info-container spacing rules in section-main-product.css.
