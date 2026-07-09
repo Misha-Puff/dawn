@@ -338,6 +338,31 @@ a.product__text {
   }
 }
 
+/* M&P: on desktop, let the product-info content fill its column, inset only by
+   the inter-column gap. That gap is the .product__info-wrapper left padding —
+   the product grid uses gap: 0, so that padding is the ONLY inset, and the
+   container's content-box already equals (column width − gap). Neutralising the
+   per-element 44rem caps and the 60rem container cap lets every block fill that
+   box instead of sitting in a fixed 44rem left-aligned strip. Scoped to the
+   two-column layout (≥750px) and to non-no-media products (the gift-card
+   centered layout keeps its own widths). The .product-prefixed selectors clear
+   both the caps in this file and the inline {% style %} caps in
+   main-product.liquid (.mending-options / .divider-wrapper) via specificity. */
+@media screen and (min-width: 750px) {
+  .product:not(.product--no-media) .product__info-container,
+  .product:not(.product--no-media) .product__title,
+  .product:not(.product--no-media) .product__description,
+  .product:not(.product--no-media) .product-form__input,
+  .product:not(.product--no-media) .product-form__buttons,
+  .product:not(.product--no-media) .product__accordion,
+  .product:not(.product--no-media) .product__pickup-availabilities,
+  .product:not(.product--no-media) .iia-container,
+  .product:not(.product--no-media) .mending-options,
+  .product:not(.product--no-media) .divider-wrapper {
+    max-width: none;
+  }
+}
+
 .product__description-title {
   font-weight: 600;
 }
