@@ -124,6 +124,41 @@
     .section-{{ section.id }} .collection__title .title {
       margin-bottom: 0 !important;
     }
+
+    {%- comment -%}
+      "SHOP {color}" heading typography (per-instance). Emitted after the hardcoded
+      15px rule above so a set font-size wins; the (0,3,0) selector out-specifies the
+      .uppercase class (0,1,0) so text case "none" can remove the forced uppercase.
+      Brand-font stack wins over the font picker; sentinels 0 / 'default' = inherit,
+      so with typography disabled nothing is emitted and the current look is unchanged.
+    {%- endcomment -%}
+    {%- if section.settings.tg_enable_type -%}
+      {%- liquid
+        assign tg_font = section.settings.tg_font
+        assign tg_weight = section.settings.tg_font_weight | default: 'default'
+        assign tg_fs = section.settings.tg_font_size | default: 0
+        assign tg_lh = section.settings.tg_line_height | default: 0
+        assign tg_case = section.settings.tg_text_case | default: 'default'
+        assign tg_ls = section.settings.tg_letter_spacing | default: 0
+        assign tg_col = section.settings.tg_color
+      -%}
+      {%- capture tg_brand_stack -%}{% render 'brand-font', font: section.settings.tg_custom_font %}{%- endcapture -%}
+      {%- assign tg_brand_stack = tg_brand_stack | strip -%}
+      {%- if tg_font != blank and tg_brand_stack == blank -%}{{ tg_font | font_face: font_display: 'swap' }}{%- endif -%}
+      {%- if tg_font != blank and tg_brand_stack == blank and tg_weight != 'default' -%}
+        {%- assign tg_wfont = tg_font | font_modify: 'weight', tg_weight -%}
+        {%- if tg_wfont -%}{{ tg_wfont | font_face: font_display: 'swap' }}{%- endif -%}
+      {%- endif -%}
+      .section-{{ section.id }} .collection__title .title {
+        {%- if tg_brand_stack != blank %} font-family: {{ tg_brand_stack }}; font-style: normal;{% if tg_weight == 'default' %} font-weight: 400;{% endif %}{% elsif tg_font != blank %} font-family: {{ tg_font.family }}, {{ tg_font.fallback_families }}; font-style: {{ tg_font.style }};{% if tg_weight == 'default' %} font-weight: {{ tg_font.weight }};{% endif %}{% endif -%}
+        {%- if tg_weight != 'default' and tg_weight != blank %} font-weight: {{ tg_weight }};{% endif -%}
+        {%- if tg_fs > 0 %} font-size: {{ tg_fs }}px;{% endif -%}
+        {%- if tg_lh > 0 %} line-height: {{ tg_lh }}%;{% endif -%}
+        {%- if tg_case != 'default' and tg_case != blank %} text-transform: {{ tg_case }};{% endif -%}
+        {%- if tg_ls > 0 %} letter-spacing: {{ tg_ls }}px;{% endif -%}
+        {%- if tg_col != blank %} color: {{ tg_col }};{% endif -%}
+      }
+    {%- endif -%}
   {%- endstyle -%}
 
   {%- liquid
@@ -330,6 +365,117 @@
       "type": "range",
       "default": 25,
       "step": 1
+    },
+    {
+      "type": "header",
+      "content": "Heading typography"
+    },
+    {
+      "type": "checkbox",
+      "id": "tg_enable_type",
+      "default": false,
+      "label": "Enable typography"
+    },
+    {
+      "type": "font_picker",
+      "id": "tg_font",
+      "default": "assistant_n4",
+      "label": "Font",
+      "visible_if": "{{ section.settings.tg_enable_type }}"
+    },
+    {
+      "type": "select",
+      "id": "tg_custom_font",
+      "options": [
+        { "value": "default", "label": "None (use font picker)" },
+        { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+        { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+        { "value": "inter", "label": "Inter" },
+        { "value": "geist", "label": "Geist" },
+        { "value": "geist_mono", "label": "Geist Mono" },
+        { "value": "overpass", "label": "Overpass" },
+        { "value": "overpass_mono", "label": "Overpass Mono" },
+        { "value": "dm_sans", "label": "DM Sans" },
+        { "value": "dm_mono", "label": "DM Mono" },
+        { "value": "manrope", "label": "Manrope" },
+        { "value": "open_sans", "label": "Open Sans" }
+      ],
+      "default": "default",
+      "label": "Brand font",
+      "info": "Overrides the font picker above when set",
+      "visible_if": "{{ section.settings.tg_enable_type }}"
+    },
+    {
+      "type": "select",
+      "id": "tg_font_weight",
+      "options": [
+        { "value": "default", "label": "Theme default" },
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semibold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "default",
+      "label": "Font weight",
+      "visible_if": "{{ section.settings.tg_enable_type }}"
+    },
+    {
+      "type": "range",
+      "id": "tg_font_size",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "info": "0 = theme default (15px)",
+      "default": 0,
+      "visible_if": "{{ section.settings.tg_enable_type }}"
+    },
+    {
+      "type": "range",
+      "id": "tg_line_height",
+      "min": 0,
+      "max": 250,
+      "step": 5,
+      "unit": "%",
+      "label": "Line height",
+      "info": "0 = theme default",
+      "default": 0,
+      "visible_if": "{{ section.settings.tg_enable_type }}"
+    },
+    {
+      "type": "select",
+      "id": "tg_text_case",
+      "options": [
+        { "value": "default", "label": "Theme default" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "capitalize", "label": "Capitalize" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "none", "label": "Normal (remove uppercase)" }
+      ],
+      "default": "default",
+      "label": "Text case",
+      "visible_if": "{{ section.settings.tg_enable_type }}"
+    },
+    {
+      "type": "range",
+      "id": "tg_letter_spacing",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Letter spacing",
+      "info": "0 = theme default",
+      "default": 0,
+      "visible_if": "{{ section.settings.tg_enable_type }}"
+    },
+    {
+      "type": "color",
+      "id": "tg_color",
+      "label": "Text color",
+      "info": "Leave blank for theme default",
+      "visible_if": "{{ section.settings.tg_enable_type }}"
     },
     {
       "type": "product_list",

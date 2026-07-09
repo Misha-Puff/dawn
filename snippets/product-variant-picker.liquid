@@ -93,14 +93,14 @@
       </fieldset>
     {%- elsif picker_type == 'button' -%}
       <fieldset class="js product-form__input product-form__input--pill{% if show_size_guide %} product-form__input--size-guide{% endif %}{% if hide_option %} hidden{% endif %}">
-        <legend class="form__label"><span data-option-name>{{ option.name }}</span></legend>
+        <legend class="form__label"><span data-option-name>{{ option.name }}:</span></legend>
         {{ size_guide_trigger }}
         {% render 'product-variant-options', product: product, option: option, block: block, picker_type: picker_type %}
       </fieldset>
     {%- else -%}
       <div class="product-form__input product-form__input--dropdown{% if show_size_guide %} product-form__input--size-guide{% endif %}{% if hide_option %} hidden{% endif %}">
         <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
-          <span data-option-name>{{ option.name }}</span>
+          <span data-option-name>{{ option.name }}:</span>
         </label>
         {{ size_guide_trigger }}
         <div class="select">

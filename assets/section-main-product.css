@@ -404,6 +404,21 @@ a.product__text {
   max-width: 44rem;
 }
 
+/* Bottom-area elements capped to the 44rem purchase-block width so dividers,
+   accordions and app widgets share the pickers/ATC left edge (M&P design). */
+.product__accordion {
+  max-width: 44rem;
+}
+
+.product__pickup-availabilities {
+  max-width: 44rem;
+}
+
+/* FIND IN BROOKLYN — Inventory Information app fills .iia-container in the info column */
+.product__info-container .iia-container {
+  max-width: 44rem;
+}
+
 .product--no-media .product__info-container > modal-opener {
   display: block;
   text-align: center;
@@ -1644,7 +1659,7 @@ a.product__text {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    column-gap: 1.6rem;
+    column-gap: var(--mp-thumb-gap, 1.6rem);
   }
 
   /* gallery must scroll normally so the rail can stick; info column stickiness untouched */
@@ -1665,7 +1680,7 @@ a.product__text {
   .product--stacked_scroll .thumbnail-slider--rail {
     order: -1;
     flex: 0 0 auto;
-    width: 6.4rem;
+    width: var(--mp-thumb-size, 6.4rem);
     position: sticky;
     top: 137px; /* mirrors .product__column-sticky offset; JS constant matches */
   }
