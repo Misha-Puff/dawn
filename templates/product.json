@@ -40,7 +40,7 @@
             "tg_text_case": "uppercase",
             "tg_letter_spacing": 0.1,
             "tg_enable_padding": true,
-            "tg_padding_top": 10,
+            "tg_padding_top": 0,
             "tg_padding_bottom": 0,
             "tg_padding_top_mobile": 0,
             "tg_padding_bottom_mobile": 0,
@@ -72,6 +72,7 @@
         "description": {
           "type": "description",
           "settings": {
+            "body_text_color": "#1a1a1a",
             "tg_enable_type": true,
             "tg_font": "inter_n4",
             "tg_custom_font": "default",
@@ -436,7 +437,7 @@
             "swym_hover_atw_border_color": "#1a1a1a",
             "swym_hover_atw_border_thickness": 0,
             "swym_hover_atw_button_border_radius": 0,
-            "swym_custom_css": "#swym-atw-pdp-button {\npadding-left: 0 !important;\ntext-transform: uppercase !important;\nfont-weight: normal !important;\nfont-size: 10px !important;\ndisplay: inline-flex !important;\n}\n\n#swym-atw-pdp-button svg {\nscale: 75%;\nposition: relative;\ntop: -1.5px;\n}"
+            "swym_custom_css": "#swym-atw-pdp-button {\npadding-left: 0 !important;\ntext-transform: uppercase !important;\nfont-weight: normal !important;\nfont-size: 11px !important;\ndisplay: inline-flex !important;\n}\n\n#swym-atw-pdp-button svg {\nscale: 75%;\nposition: relative;\ntop: -1.5px;\n}"
           }
         }
       },
@@ -476,6 +477,8 @@
         "show_thumbnail_rail": true,
         "thumbnail_size": 80,
         "thumbnail_gap": 48,
+        "rail_max_height": 0,
+        "info_thumb_top_offset": 0,
         "mobile_thumbnails": "hide",
         "media_position": "left",
         "image_zoom": "lightbox",
