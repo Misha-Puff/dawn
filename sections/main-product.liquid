@@ -245,6 +245,23 @@
               #{{ tg_scope }} .Block-{{ block.id }} > * { margin-top: 0; margin-bottom: 0; }
           {%- endcase -%}
         {%- endif -%}
+        {%- comment -%} Mobile-only padding pass (≤749px). All four axes; emitted after the all-size base rule so it wins the axes it sets on small screens while leaving the base top/bottom to apply on desktop. Only the curated content blocks expose these settings; every other block reads nil → default 0 → no output. {%- endcomment -%}
+        {%- liquid
+          assign tg_pt_m = block.settings.tg_padding_top_mobile | default: 0
+          assign tg_pb_m = block.settings.tg_padding_bottom_mobile | default: 0
+          assign tg_pl_m = block.settings.tg_padding_left_mobile | default: 0
+          assign tg_pr_m = block.settings.tg_padding_right_mobile | default: 0
+        -%}
+        {%- if tg_pt_m > 0 or tg_pb_m > 0 or tg_pl_m > 0 or tg_pr_m > 0 -%}
+          @media screen and (max-width: 749px) {
+            #{{ tg_scope }} .Block-{{ block.id }} {
+              {%- if tg_pt_m > 0 %} padding-top: {{ tg_pt_m }}px;{% endif -%}
+              {%- if tg_pb_m > 0 %} padding-bottom: {{ tg_pb_m }}px;{% endif -%}
+              {%- if tg_pl_m > 0 %} padding-left: {{ tg_pl_m }}px;{% endif -%}
+              {%- if tg_pr_m > 0 %} padding-right: {{ tg_pr_m }}px;{% endif -%}
+            }
+          }
+        {%- endif -%}
       {%- endif -%}
       {%- if block.type == 'variant_picker' -%}
         {%- comment -%} Per-element typography overrides (option name / values / chosen value / swatch message). Settings follow tg_<element>_<suffix> naming so one data-driven loop reads them via bracket access. Rules are emitted after the shared tg_ base rules above, so they win specificity ties deterministically — 'selected' (chosen value) comes after 'value' in the element list, so it also wins the tie on the dropdown's .select__select. {%- endcomment -%}
@@ -765,6 +782,25 @@
                       font-weight: {{ block.settings.font_weight }};
                       text-align: {{ block.settings.text_align }};
                     }
+                    {%- comment -%} Mobile-only padding pass (≤749px). custom_liquid has its own scoped rule (.custom-liquid-block-*), separate from the shared .Block-* tg_ loop, so it emits its four mobile axes here. {%- endcomment -%}
+                    {%- if block.settings.enable_padding -%}
+                      {%- liquid
+                        assign cl_pt_m = block.settings.padding_top_mobile | default: 0
+                        assign cl_pb_m = block.settings.padding_bottom_mobile | default: 0
+                        assign cl_pl_m = block.settings.padding_left_mobile | default: 0
+                        assign cl_pr_m = block.settings.padding_right_mobile | default: 0
+                      -%}
+                      {%- if cl_pt_m > 0 or cl_pb_m > 0 or cl_pl_m > 0 or cl_pr_m > 0 -%}
+                        @media screen and (max-width: 749px) {
+                          .custom-liquid-block-{{ block.id }} {
+                            {%- if cl_pt_m > 0 %} padding-top: {{ cl_pt_m }}px;{% endif -%}
+                            {%- if cl_pb_m > 0 %} padding-bottom: {{ cl_pb_m }}px;{% endif -%}
+                            {%- if cl_pl_m > 0 %} padding-left: {{ cl_pl_m }}px;{% endif -%}
+                            {%- if cl_pr_m > 0 %} padding-right: {{ cl_pr_m }}px;{% endif -%}
+                          }
+                        }
+                      {%- endif -%}
+                    {%- endif -%}
                   {%- endstyle -%}
                   <div class="custom-liquid-block-{{ block.id }}" {{ block.shopify_attributes }}>
                     {{- custom_liquid_output -}}
@@ -1834,7 +1870,11 @@
           "label": "Padding bottom",
           "default": 0,
           "visible_if": "{{ block.settings.tg_enable_padding }}"
-        }
+        },
+        { "type": "range", "id": "tg_padding_top_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding top", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}" },
+        { "type": "range", "id": "tg_padding_bottom_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding bottom", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}" },
+        { "type": "range", "id": "tg_padding_left_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding left", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}" },
+        { "type": "range", "id": "tg_padding_right_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding right", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}" }
       ]
     },
     {
@@ -1988,7 +2028,11 @@
           "label": "Padding bottom",
           "default": 0,
           "visible_if": "{{ block.settings.tg_enable_padding }}"
-        }
+        },
+        { "type": "range", "id": "tg_padding_top_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding top", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}" },
+        { "type": "range", "id": "tg_padding_bottom_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding bottom", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}" },
+        { "type": "range", "id": "tg_padding_left_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding left", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}" },
+        { "type": "range", "id": "tg_padding_right_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding right", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}" }
       ]
     },
     {
@@ -2319,7 +2363,11 @@
           "label": "Padding bottom",
           "default": 0,
           "visible_if": "{{ block.settings.tg_enable_padding }}"
-        }
+        },
+        { "type": "range", "id": "tg_padding_top_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding top", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}" },
+        { "type": "range", "id": "tg_padding_bottom_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding bottom", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}" },
+        { "type": "range", "id": "tg_padding_left_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding left", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}" },
+        { "type": "range", "id": "tg_padding_right_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding right", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}" }
       ]
     },
     {
@@ -3884,7 +3932,11 @@
           "label": "Padding bottom",
           "default": 0,
           "visible_if": "{{ block.settings.tg_enable_padding }}"
-        }
+        },
+        { "type": "range", "id": "tg_padding_top_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding top", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}" },
+        { "type": "range", "id": "tg_padding_bottom_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding bottom", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}" },
+        { "type": "range", "id": "tg_padding_left_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding left", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}" },
+        { "type": "range", "id": "tg_padding_right_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding right", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}" }
       ]
     },
     {
@@ -4101,7 +4153,11 @@
           "label": "Padding bottom",
           "default": 0,
           "visible_if": "{{ block.settings.enable_padding }}"
-        }
+        },
+        { "type": "range", "id": "padding_top_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding top", "default": 0, "visible_if": "{{ block.settings.enable_padding }}" },
+        { "type": "range", "id": "padding_bottom_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding bottom", "default": 0, "visible_if": "{{ block.settings.enable_padding }}" },
+        { "type": "range", "id": "padding_left_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding left", "default": 0, "visible_if": "{{ block.settings.enable_padding }}" },
+        { "type": "range", "id": "padding_right_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding right", "default": 0, "visible_if": "{{ block.settings.enable_padding }}" }
       ]
     },
     {
@@ -4555,7 +4611,11 @@
           "label": "Padding bottom",
           "default": 0,
           "visible_if": "{{ block.settings.tg_enable_padding }}"
-        }
+        },
+        { "type": "range", "id": "tg_padding_top_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding top", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}" },
+        { "type": "range", "id": "tg_padding_bottom_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding bottom", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}" },
+        { "type": "range", "id": "tg_padding_left_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding left", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}" },
+        { "type": "range", "id": "tg_padding_right_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding right", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}" }
       ]
     },
     {

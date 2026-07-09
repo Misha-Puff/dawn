@@ -1153,6 +1153,13 @@ a.product__text {
   display: none;
 }
 
+/* Hide the tap-to-zoom hint icon on mobile only — it overlaps the image's rounded corner and reads as a stray white blob. Tap-to-zoom still works via the full-area .product__media-toggle button. Video/model play icons (no --image modifier) are unaffected. */
+@media screen and (max-width: 749px) {
+  .product__media-icon--lightbox {
+    display: none;
+  }
+}
+
 .product__modal-opener > .loading__spinner {
   top: 50%;
   left: 50%;

@@ -315,25 +315,6 @@
           "type": "shopify://apps/multi-location-inv/blocks/location-inventory/982328e1-99f7-4a7e-8266-6aed71bf0021",
           "settings": {}
         },
-        "custom_liquid_mPzed7": {
-          "type": "custom_liquid",
-          "name": "Divider",
-          "settings": {
-            "custom_liquid": "<div class=\"divider-wrapper\">\n<div class=\"divider\">\n<span class=\"visually-hidden\">divider</span></div></div>",
-            "enable_typography": false,
-            "font_family": "assistant_n4",
-            "custom_font_family": "default",
-            "font_size": 0,
-            "font_weight": "400",
-            "font_color": "",
-            "line_height": 0,
-            "letter_spacing": 0,
-            "text_align": "left",
-            "enable_padding": false,
-            "padding_top": 0,
-            "padding_bottom": 0
-          }
-        },
         "collapsible_tab_JNhcga": {
           "type": "collapsible_tab",
           "settings": {
@@ -435,7 +416,6 @@
         "bis_form_iQ4kYG",
         "buy_buttons",
         "multi_location_inv_location_inventory_qT7XKi",
-        "custom_liquid_mPzed7",
         "collapsible_tab_JNhcga",
         "collapsible-row-0",
         "wishlist_plus_wishlist_pdp_button_NBkk6K"
