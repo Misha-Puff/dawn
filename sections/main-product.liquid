@@ -149,6 +149,47 @@
       --mp-thumb-size: {{ section.settings.thumbnail_size | divided_by: 10.0 }}rem;
       --mp-thumb-gap: {{ section.settings.thumbnail_gap | divided_by: 10.0 }}rem;
     }
+
+    {%- comment -%}
+      Name + thumbnails top offset. The info container and the stacked-scroll rail
+      are both sticky and rest at the first image's top; margin-top nudges their
+      REST position down together (the sticky top stays = --header-height, so they
+      still tuck under the header on scroll) while the main image stays put. 0 =
+      flush with the image top. Desktop stacked layout (≥1100px).
+    {%- endcomment -%}
+    {%- assign it_offset = section.settings.info_thumb_top_offset | default: 0 -%}
+    {%- if it_offset > 0 -%}
+      @media screen and (min-width: 1100px) {
+        #MainProduct-{{ section.id }} .product__info-container,
+        #MainProduct-{{ section.id }} .thumbnail-slider--rail {
+          margin-top: {{ it_offset }}px;
+        }
+      }
+    {%- endif -%}
+
+    {%- comment -%}
+      Thumbnail rail max height — lets the thumbnails "end higher up". Overrides the
+      default calc(100vh - 153px) cap; the rail keeps overflow-y:auto so extra
+      thumbnails scroll. 0 = full height (default). Desktop stacked layout.
+    {%- endcomment -%}
+    {%- assign rail_mh = section.settings.rail_max_height | default: 0 -%}
+    {%- if rail_mh > 0 -%}
+      @media screen and (min-width: 1100px) {
+        #MainProduct-{{ section.id }} .thumbnail-slider--rail .thumbnail-list {
+          max-height: {{ rail_mh }}px;
+        }
+      }
+    {%- endif -%}
+
+    {%- comment -%}
+      Description body-copy color. The description block had no color control; this
+      is ungated by typography so the default (#1A1A1A) applies as-is and inherits
+      to the rendered rich-text paragraphs. ID scope beats .rte.
+    {%- endcomment -%}
+    {%- assign desc_block = section.blocks | where: 'type', 'description' | first -%}
+    {%- if desc_block != blank and desc_block.settings.body_text_color != blank -%}
+      #MainProduct-{{ section.id }} .product__description.Block-{{ desc_block.id }} { color: {{ desc_block.settings.body_text_color }}; }
+    {%- endif -%}
   {%- endstyle -%}
 
   {%- comment -%}
@@ -3797,6 +3838,7 @@
       "name": "t:sections.main-product.blocks.description.name",
       "limit": 1,
       "settings": [
+        { "type": "color", "id": "body_text_color", "label": "Body text color", "default": "#1A1A1A", "info": "Description text color." },
         {
           "type": "header",
           "content": "Typography"
@@ -6113,6 +6155,8 @@
       "label": "Thumbnail rail gap",
       "info": "Space between the thumbnail rail and the main photo. \"Stacked scroll\" layout, desktop only."
     },
+    { "type": "range", "id": "rail_max_height", "min": 0, "max": 1000, "step": 10, "unit": "px", "default": 0, "label": "Thumbnail rail max height", "info": "Cap the rail height so thumbnails end higher up. 0 = full height; rail scrolls if more. \"Stacked scroll\" desktop only." },
+    { "type": "range", "id": "info_thumb_top_offset", "min": 0, "max": 40, "step": 2, "unit": "px", "default": 0, "label": "Name + thumbnails top offset", "info": "Nudge the product name + thumbnail rail down from the image top. 0 = aligned. Desktop only." },
     {
       "type": "select",
       "id": "mobile_thumbnails",
