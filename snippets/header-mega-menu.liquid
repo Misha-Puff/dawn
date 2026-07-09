@@ -30,10 +30,21 @@
                 class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
                 tabindex="-1"
               >
-                <ul
-                  class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
-                  role="list"
-                >
+                {%- comment -%}
+                  Batch 2: look up a `menu_images` block attached to this top-level item by handle.
+                  Match → render a two-image sub-panel alongside the link columns; no match → stock output.
+                {%- endcomment -%}
+                {%- assign menu_images_block = blank -%}
+                {%- for block in section.blocks -%}
+                  {%- if block.type == 'menu_images'
+                    and block.settings.menu_item_handle == link.handle
+                    and block.settings.image_1 != blank
+                  -%}
+                    {%- assign menu_images_block = block -%}
+                    {%- break -%}
+                  {%- endif -%}
+                {%- endfor -%}
+                {%- capture mega_menu_items -%}
                   {%- for childlink in link.links -%}
                     <li>
                       <a
@@ -66,7 +77,61 @@
                       {%- endif -%}
                     </li>
                   {%- endfor -%}
-                </ul>
+                {%- endcapture -%}
+                {%- if menu_images_block != blank -%}
+                  {%- capture mm_inner_style -%}
+                    --mm-inner-gap: {{ menu_images_block.settings.panel_gap | default: 40 }}px; --mm-images-gap: {{ menu_images_block.settings.images_gap | default: 20 }}px; --mm-image-width: {{ menu_images_block.settings.image_width | default: 220 }}px; --mm-caption-gap: {{ menu_images_block.settings.caption_gap | default: 8 }}px;
+                    {%- capture mm_cap_brand -%}{% render 'brand-font', font: menu_images_block.settings.caption_custom_font %}{%- endcapture -%}
+                    {%- assign mm_cap_brand = mm_cap_brand | strip -%}
+                    {%- if mm_cap_brand != blank %} --mm-caption-font: {{ mm_cap_brand }};{% endif -%}
+                    {%- if menu_images_block.settings.caption_font_size > 0 %} --mm-caption-size: {{ menu_images_block.settings.caption_font_size }}px;{% endif -%}
+                    {%- if menu_images_block.settings.caption_font_weight != 'default' and menu_images_block.settings.caption_font_weight != blank %} --mm-caption-weight: {{ menu_images_block.settings.caption_font_weight }};{% endif -%}
+                    {%- if menu_images_block.settings.caption_letter_spacing > 0 %} --mm-caption-ls: {{ menu_images_block.settings.caption_letter_spacing }}px;{% endif -%}
+                    {%- if menu_images_block.settings.caption_text_case != 'default' and menu_images_block.settings.caption_text_case != blank %} --mm-caption-case: {{ menu_images_block.settings.caption_text_case }};{% endif -%}
+                  {%- endcapture -%}
+                  <div class="mega-menu__inner page-width" style="{{ mm_inner_style | strip }}">
+                    <ul
+                      class="mega-menu__list{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
+                      role="list"
+                    >
+                      {{ mega_menu_items }}
+                    </ul>
+                    <div class="mega-menu__images" {{ menu_images_block.shopify_attributes }}>
+                      {%- for i in (1..2) -%}
+                        {%- assign img_key = 'image_' | append: i -%}
+                        {%- assign cap_key = 'caption_' | append: i -%}
+                        {%- assign link_key = 'link_' | append: i -%}
+                        {%- assign tile_image = menu_images_block.settings[img_key] -%}
+                        {%- assign tile_caption = menu_images_block.settings[cap_key] -%}
+                        {%- assign tile_link = menu_images_block.settings[link_key] -%}
+                        {%- if tile_image != blank -%}
+                          {%- capture tile -%}
+                            {{
+                              tile_image
+                              | image_url: width: 600
+                              | image_tag: loading: 'lazy', widths: '300,600,900', class: 'mega-menu__image-media'
+                            }}
+                            {%- if tile_caption != blank -%}
+                              <span class="mega-menu__image-caption">{{ tile_caption | escape }}</span>
+                            {%- endif -%}
+                          {%- endcapture -%}
+                          {%- if tile_link != blank -%}
+                            <a class="mega-menu__image" href="{{ tile_link }}">{{ tile }}</a>
+                          {%- else -%}
+                            <div class="mega-menu__image">{{ tile }}</div>
+                          {%- endif -%}
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </div>
+                  </div>
+                {%- else -%}
+                  <ul
+                    class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
+                    role="list"
+                  >
+                    {{ mega_menu_items }}
+                  </ul>
+                {%- endif -%}
               </div>
             </details>
           </header-menu>
