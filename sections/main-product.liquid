@@ -86,6 +86,31 @@
     {%- endunless -%}
 
     {%- comment -%}
+      Mobile section padding (≤749px). Emitted after both the 0.75× base padding rule
+      and the breadcrumb-spacer margin above, so it wins their cascade ties. The top
+      axis owns the WHOLE header→media gap: it replaces the scaled section padding AND
+      zeroes the 4.8rem spacer (~38px at this store's 80% body scale) — the slider
+      value is the entire space above the gallery, not an addition to it.
+    {%- endcomment -%}
+    {%- liquid
+      assign sp_pt_m = section.settings.padding_top_mobile | default: 0
+      assign sp_pb_m = section.settings.padding_bottom_mobile | default: 0
+    -%}
+    {%- if sp_pt_m > 0 or sp_pb_m > 0 -%}
+      @media screen and (max-width: 749px) {
+        .section-{{ section.id }}-padding {
+          {%- if sp_pt_m > 0 %} padding-top: {{ sp_pt_m }}px;{% endif -%}
+          {%- if sp_pb_m > 0 %} padding-bottom: {{ sp_pb_m }}px;{% endif -%}
+        }
+        {%- if sp_pt_m > 0 %}
+          #MainProduct-{{ section.id }} .product {
+            margin-top: 0;
+          }
+        {%- endif %}
+      }
+    {%- endif -%}
+
+    {%- comment -%}
       Product info column overrides. #MainProduct-<id> is the section root, so the
       ID+class specificity (1,1,0) beats the hardcoded .product__info-wrapper padding
       variants and the .product__info-container spacing rules in section-main-product.css.
@@ -198,11 +223,16 @@
         {%- if mcc_typedecl != blank %}
           #GalleryViewer-{{ section.id }} .slider-counter { {{ mcc_typedecl }} }
         {%- endif %}
-        {%- if mcc_gap > 0 or mcc_mt > 0 or mcc_mb > 0 %}
+        {%- if mcc_gap > 0 or mcc_mb > 0 %}
           #GalleryViewer-{{ section.id }} .slider-buttons {
             {%- if mcc_gap > 0 %} gap: {{ mcc_gap }}px;{% endif -%}
-            {%- if mcc_mt > 0 %} margin-top: {{ mcc_mt }}px;{% endif -%}
             {%- if mcc_mb > 0 %} margin-bottom: {{ mcc_mb }}px;{% endif -%}
+          }
+        {%- endif %}
+        {%- comment -%} "Space above controls" replaces the media list's own 3rem (~24px) mobile bottom margin (section-main-product.css ≤749px) — that margin IS the whitespace above the controls, so overriding it (not adding a margin-top on the buttons) makes the slider value the whole image→controls gap. {%- endcomment -%}
+        {%- if mcc_mt > 0 %}
+          #GalleryViewer-{{ section.id }} .product__media-list {
+            margin-bottom: {{ mcc_mt }}px;
           }
         {%- endif %}
       }
@@ -2219,7 +2249,7 @@
     {"type": "range", "id": "mcc_size", "min": 0, "max": 40, "step": 1, "unit": "px", "default": 0, "label": "Counter size", "info": "0 = theme default", "visible_if": "{{ section.settings.mcc_enable }}"},
     {"type": "range", "id": "mcc_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "default": 0, "label": "Counter letter spacing", "info": "0 = theme default", "visible_if": "{{ section.settings.mcc_enable }}"},
     {"type": "range", "id": "mcc_gap", "min": 0, "max": 60, "step": 2, "unit": "px", "default": 0, "label": "Gap between arrows and counter", "info": "0 = theme default", "visible_if": "{{ section.settings.mcc_enable }}"},
-    {"type": "range", "id": "mcc_margin_top", "min": 0, "max": 60, "step": 2, "unit": "px", "default": 0, "label": "Space above controls", "info": "0 = theme default", "visible_if": "{{ section.settings.mcc_enable }}"},
+    {"type": "range", "id": "mcc_margin_top", "min": 0, "max": 60, "step": 2, "unit": "px", "default": 0, "label": "Space above controls", "info": "The whole gap between the last image and the controls — replaces the theme's ~24px default. 0 = theme default.", "visible_if": "{{ section.settings.mcc_enable }}"},
     {"type": "range", "id": "mcc_margin_bottom", "min": 0, "max": 60, "step": 2, "unit": "px", "default": 0, "label": "Space below controls", "info": "0 = theme default", "visible_if": "{{ section.settings.mcc_enable }}"},
     {"type": "select", "id": "media_position", "options": [{"value": "left", "label": "t:sections.main-product.settings.media_position.options__1.label"}, {"value": "right", "label": "t:sections.main-product.settings.media_position.options__2.label"}], "default": "left", "label": "t:sections.main-product.settings.media_position.label"},
     {"type": "select", "id": "image_zoom", "options": [{"value": "lightbox", "label": "t:sections.main-product.settings.image_zoom.options__1.label"}, {"value": "hover", "label": "t:sections.main-product.settings.image_zoom.options__2.label"}, {"value": "none", "label": "t:sections.main-product.settings.image_zoom.options__3.label"}], "default": "lightbox", "label": "t:sections.main-product.settings.image_zoom.label"},
@@ -2228,6 +2258,8 @@
     {"type": "header", "content": "t:sections.all.padding.section_padding_heading"},
     {"type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_top", "default": 36},
     {"type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_bottom", "default": 36},
+    {"type": "range", "id": "padding_top_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding top", "info": "The whole space between the header and the gallery — replaces the scaled desktop padding and the breadcrumb spacer. 0 = theme default (75% of padding top + ~38px spacer). Mobile only.", "default": 0},
+    {"type": "range", "id": "padding_bottom_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding bottom", "info": "0 = theme default (75% of padding bottom). Mobile only.", "default": 0},
     {"type": "header", "content": "Product info column"},
     {"type": "checkbox", "id": "info_enable_padding", "default": false, "label": "Enable custom padding & spacing"},
     {"type": "range", "id": "info_padding_left", "min": 0, "max": 120, "step": 2, "unit": "px", "label": "Desktop padding left", "info": "0 = theme default (50px; 80px wide layouts; 40px large media). Desktop only.", "default": 0, "visible_if": "{{ section.settings.info_enable_padding }}"},
