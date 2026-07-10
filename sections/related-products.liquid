@@ -18,6 +18,20 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  {%- liquid
+    assign sw_card_w = section.settings.swatch_card_width | default: 0
+    assign sw_card_h = section.settings.swatch_card_height | default: 0
+    assign sw_card_r = section.settings.swatch_card_radius | default: 0
+  -%}
+  {%- if sw_card_w > 0 or sw_card_h > 0 or sw_card_r > 0 -%}
+    {%- comment -%} Card swatch size vars, scoped to this section; component-card.css consumes them through var() chains whose fallbacks equal the stock values (20px square, 2px radius). {%- endcomment -%}
+    #shopify-section-{{ section.id }} {
+      {%- if sw_card_w > 0 %} --swatch-card-width: {{ sw_card_w }}px;{% endif -%}
+      {%- if sw_card_h > 0 %} --swatch-card-height: {{ sw_card_h }}px;{% endif -%}
+      {%- if sw_card_r > 0 %} --swatch-card-radius: {{ sw_card_r }}px;{% endif -%}
+    }
+  {%- endif -%}
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
@@ -46,6 +60,8 @@
               show_vendor: section.settings.show_vendor,
               show_rating: section.settings.show_rating,
               skip_styles: skip_card_product_styles,
+              show_swatches_availability: true,
+              size_overlay: section.settings.show_size_overlay,
               hide_color_suffix: true
             %}
           </li>
@@ -226,6 +242,54 @@
       "default": false,
       "label": "t:sections.related-products.settings.show_rating.label",
       "info": "t:sections.related-products.settings.show_rating.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_size_overlay",
+      "default": true,
+      "label": "Show size availability on hover (desktop)"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_swatches",
+      "default": true,
+      "label": "Enable Product Swatches"
+    },
+    {
+      "type": "range",
+      "id": "swatch_card_width",
+      "min": 0,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Swatch width",
+      "info": "0 = theme default (20px)",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_swatches }}"
+    },
+    {
+      "type": "range",
+      "id": "swatch_card_height",
+      "min": 0,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Swatch height",
+      "info": "0 = theme default (square)",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_swatches }}"
+    },
+    {
+      "type": "range",
+      "id": "swatch_card_radius",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Swatch corner radius",
+      "info": "0 = theme default (2px)",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_swatches }}"
     },
     {
       "type": "header",

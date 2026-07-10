@@ -646,12 +646,15 @@
           card_product: product,
           media_aspect_ratio: 'adapt',
           image_shape: 'default',
-          show_secondary_image: true
+          show_secondary_image: true,
           show_vendor: false,
           show_rating: true,
           skip_styles: true,
           section_id: section.id,
           quick_add: 'standard',
+          show_swatches_availability: true,
+          enable_swatches: section.settings.rv_card_swatches,
+          size_overlay: section.settings.rv_card_size_overlay,
           hide_color_suffix: true
         %}
       `,
@@ -2260,6 +2263,9 @@
     {"type": "range", "id": "mcc_gap", "min": 0, "max": 60, "step": 2, "unit": "px", "default": 0, "label": "Gap between arrows and counter", "info": "0 = theme default", "visible_if": "{{ section.settings.mcc_enable }}"},
     {"type": "range", "id": "mcc_margin_top", "min": 0, "max": 60, "step": 2, "unit": "px", "default": 0, "label": "Space above controls", "info": "The whole gap between the last image and the controls — replaces the theme's ~24px default. 0 = theme default.", "visible_if": "{{ section.settings.mcc_enable }}"},
     {"type": "range", "id": "mcc_margin_bottom", "min": 0, "max": 60, "step": 2, "unit": "px", "default": 0, "label": "Space below controls", "info": "0 = theme default", "visible_if": "{{ section.settings.mcc_enable }}"},
+    {"type": "header", "content": "Recently-viewed card"},
+    {"type": "checkbox", "id": "rv_card_swatches", "default": true, "label": "Color swatches on the captured card", "info": "Baked into the card when this product page is viewed; existing recently-viewed entries update on next visit."},
+    {"type": "checkbox", "id": "rv_card_size_overlay", "default": true, "label": "Size availability overlay on the captured card"},
     {"type": "select", "id": "media_position", "options": [{"value": "left", "label": "t:sections.main-product.settings.media_position.options__1.label"}, {"value": "right", "label": "t:sections.main-product.settings.media_position.options__2.label"}], "default": "left", "label": "t:sections.main-product.settings.media_position.label"},
     {"type": "select", "id": "image_zoom", "options": [{"value": "lightbox", "label": "t:sections.main-product.settings.image_zoom.options__1.label"}, {"value": "hover", "label": "t:sections.main-product.settings.image_zoom.options__2.label"}, {"value": "none", "label": "t:sections.main-product.settings.image_zoom.options__3.label"}], "default": "lightbox", "label": "t:sections.main-product.settings.image_zoom.label"},
     {"type": "checkbox", "id": "hide_variants", "default": false, "label": "t:sections.main-product.settings.hide_variants.label"},

@@ -21,6 +21,7 @@
   - size_overlay: {Boolean} Show the size-availability strip over the media on card hover (desktop only). Skipped for products with no sizes to show. Default: false (optional)
   - quick_add_mobile_only: {Boolean} Hide the quick-add button at desktop widths (>= 1100px) via large-up-hide. Default: false (optional)
   - hide_color_suffix: {Boolean} Don't append " - <Color>" to the card title (used by the card-redesign surfaces: carousels, collection grid, search). Default: false (optional)
+  - enable_swatches: {Boolean} Explicit override for the swatches/availability branch. When nil, falls back to section.settings.enable_swatches (grid behavior). Needed by render sites whose host section isn't the card's display section (the recently-viewed capture card in main-product). (optional)
 
   Usage:
   {% render 'card-product', show_vendor: section.settings.show_vendor %}
@@ -524,7 +525,13 @@
               %}
 
               {% if show_swatches_availability %}
-                {% if section.settings.enable_swatches %}
+                {%- liquid
+                  assign swatches_enabled = section.settings.enable_swatches
+                  if enable_swatches != nil
+                    assign swatches_enabled = enable_swatches
+                  endif
+                -%}
+                {% if swatches_enabled %}
                   {% render 'product-sibling-swatches', card_product: card_product, section_id: section_id %}
                 {% else %}
                   {% render 'variant-availability', product: card_product %}
