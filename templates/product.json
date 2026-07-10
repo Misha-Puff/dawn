@@ -832,6 +832,7 @@
     },
     "shop_the_look_outfits_7Vw8xb": {
       "type": "shop-the-look-outfits",
+      "disabled": true,
       "name": "Shop the Look Outfits",
       "settings": {
         "data_source": "product",
