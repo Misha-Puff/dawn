@@ -84,7 +84,7 @@
             "tg_enable_padding": true,
             "tg_padding_top": 20,
             "tg_padding_bottom": 0,
-            "tg_padding_top_mobile": 0,
+            "tg_padding_top_mobile": 20,
             "tg_padding_bottom_mobile": 0,
             "tg_padding_left_mobile": 0,
             "tg_padding_right_mobile": 0
@@ -268,7 +268,11 @@
             "tg_gap_swatches": 0,
             "tg_enable_padding": true,
             "tg_padding_top": 20,
-            "tg_padding_bottom": 0
+            "tg_padding_bottom": 0,
+            "tg_padding_top_mobile": 20,
+            "tg_padding_bottom_mobile": 0,
+            "tg_padding_left_mobile": 0,
+            "tg_padding_right_mobile": 0
           }
         },
         "size_chart_zfV9wR": {
