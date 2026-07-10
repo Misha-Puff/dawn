@@ -388,7 +388,7 @@
         "collapsible-row-0": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "MATERIALS AND CARE",
+            "heading": "DETAILS AND CARE",
             "icon": "none",
             "content": "{%- if product.metafields.product_page.material_description -%}\n  <p>{{ product.metafields.product_page.material_description | metafield_tag }}</p>\n{%- endif -%}\n{%- if product.metafields.product_page.country_description -%}\n  <p>{{ product.metafields.product_page.country_description | metafield_tag }}</p>\n{%- endif -%}\n{%- if product.metafields.product_page.care_instructions -%}\n  <p>{{ product.metafields.product_page.care_instructions | metafield_tag }}</p>\n{%- endif -%}\n{%- assign model_notes_seen = '' -%}\n{%- for note_pair in product.metafields.product_page.model_notes.value -%}\n  {%- assign note = note_pair[1] -%}\n  {%- assign note_key = note | append: '||' -%}\n  {%- unless note == blank or model_notes_seen contains note_key -%}\n    <p>{{ note | escape }}</p>\n    {%- assign model_notes_seen = model_notes_seen | append: note_key -%}\n  {%- endunless -%}\n{%- endfor -%}",
             "page": "",
