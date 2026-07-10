@@ -176,7 +176,7 @@
       {%- endif -%}
     </div>
 
-    <slider-component class="slider-mobile-gutter{% if section.settings.full_width %} slider-component-full-width{% endif %}{% if show_mobile_slider == false %} page-width{% endif %}{% if show_desktop_slider == false and section.settings.full_width == false %} page-width-desktop{% endif %}{% if show_desktop_slider %} slider-component-desktop{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    <slider-component class="slider-mobile-gutter card-carousel{% if section.settings.full_width %} slider-component-full-width{% endif %}{% if show_mobile_slider == false %} page-width{% endif %}{% if show_desktop_slider == false and section.settings.full_width == false %} page-width-desktop{% endif %}{% if show_desktop_slider %} slider-component-desktop{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       <ul
         id="Slider-{{ section.id }}"
         data-id="{{ section.id }}"
@@ -220,7 +220,8 @@
                   skip_styles: skip_card_product_styles,
                   section_id: section.id,
                   quick_add: section.settings.quick_add,
-                  hide_content: section.settings.hide_content
+                  hide_content: section.settings.hide_content,
+                  hide_color_suffix: true
                 %}
               </li>
               {%- assign skip_card_product_styles = true -%}
@@ -251,7 +252,8 @@
                 image_shape: section.settings.image_shape,
                 lazy_load: false,
                 placeholder_image: placeholder_image,
-                hide_content: section.settings.hide_content
+                hide_content: section.settings.hide_content,
+                hide_color_suffix: true
               %}
             </li>
           {%- endfor -%}

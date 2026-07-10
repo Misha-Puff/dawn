@@ -20,6 +20,7 @@
   - hide_sold_out_badge: {Boolean} Suppress the "Sold out" badge. Default: false (optional)
   - size_overlay: {Boolean} Show the size-availability strip over the media on card hover (desktop only). Skipped for products with no sizes to show. Default: false (optional)
   - quick_add_mobile_only: {Boolean} Hide the quick-add button at desktop widths (>= 1100px) via large-up-hide. Default: false (optional)
+  - hide_color_suffix: {Boolean} Don't append " - <Color>" to the card title (used by carousel sections). Default: false (optional)
 
   Usage:
   {% render 'card-product', show_vendor: section.settings.show_vendor %}
@@ -434,7 +435,7 @@
                   aria-labelledby="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }} NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
                 >
                   {{ card_product.title | escape -}}
-                  {%- if card_product.options[0] == 'Color' %}
+                  {%- if card_product.options[0] == 'Color' and hide_color_suffix != true %}
                     - {{ card_product.selected_or_first_available_variant.options[0] -}}
                   {%- endif %}
                 </a>
@@ -463,7 +464,7 @@
                   aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
                 >
                   {{ card_product.title | escape -}}
-                  {%- if card_product.options[0] == 'Color' %}
+                  {%- if card_product.options[0] == 'Color' and hide_color_suffix != true %}
                     - {{ card_product.selected_or_first_available_variant.options[0] -}}
                   {%- endif %}
                 </a>

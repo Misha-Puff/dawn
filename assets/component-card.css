@@ -332,6 +332,25 @@
   font-size: var(--card-price-size, 1.3rem);
 }
 
+/* Carousel card variant (.card-carousel on slider sections). (0,2,0) also out-specifies base.css .h5 heading scaling. */
+.card-carousel .card__heading {
+  font-size: var(--card-title-size, 12px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Let the title shrink inside the title/price flex row so the price never wraps below. */
+.card-carousel .card__heading-row > .card__heading {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Stack matches snippets/brand-font.liquid `overpass_mono`; face is globally declared in brand-font-faces.liquid. */
+.card-carousel .badge--card {
+  font-family: 'Overpass Mono Custom', 'Courier New', monospace;
+}
+
 .card--horizontal .card__heading-row > .price {
   color: rgba(var(--color-foreground), 0.75);
 }

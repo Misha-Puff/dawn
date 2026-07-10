@@ -187,7 +187,7 @@
     {% if section.settings.title_text != blank %}
       <h1 class="carousel-title">{{ section.settings.title_text }}</h1>
     {% endif %}
-    <div class="carousel-container">
+    <div class="carousel-container card-carousel">
       <div class="carousel{% if section.settings.layout == 'stacked' %} carousel--stacked{% endif %}">
         {% if use_blocks %}
           {% for block in section.blocks %}
@@ -255,7 +255,8 @@
                             section_id: section.id,
                             quick_add: 'standard',
                             custom_media: flat,
-                            hide_content: true
+                            hide_content: true,
+                            hide_color_suffix: true
                           %}
                           {% assign skip_card_product_styles = true %}
                         </div>
@@ -334,7 +335,8 @@
                             section_id: section.id,
                             quick_add: 'standard',
                             custom_media: flat,
-                            hide_content: true
+                            hide_content: true,
+                            hide_color_suffix: true
                           %}
                           {% assign skip_card_product_styles = true %}
                         </div>
