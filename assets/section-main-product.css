@@ -311,7 +311,22 @@ a.product__text {
 .product__badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.4rem 1.2rem;
+}
+
+/* Underline-only badges in the standalone PDP badges block — same treatment as .badge--card
+   on product cards (badges are always mono + underlined, top of PDP included). Font/size/case
+   come from the block's tg_ typography controls. `inherit` (not the foreground var) because the
+   badge spans carry color-scheme classes whose foreground could vanish once the background goes. */
+.product__badges .badge {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  color: inherit;
+  letter-spacing: 0.07rem;
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
 }
 
 .product .price__container {
