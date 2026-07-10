@@ -332,7 +332,7 @@
   {% endif %}
 {% endfor %}
 
-<div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
+<div class="section-{{ section.id }}-padding card-redesign gradient color-{{ section.settings.color_scheme }}">
   {%- paginate collection.products by section.settings.products_per_page -%}
     {%- comment -%}
       Lateral-shopping tabs live OUTSIDE #ProductGridContainer so facet AJAX
@@ -574,7 +574,8 @@
                     quick_add_mobile_only: section.settings.quick_add_mobile_only,
                     section_id: section.id,
                     show_swatches_availability: true,
-                    size_overlay: section.settings.show_size_overlay
+                    size_overlay: section.settings.show_size_overlay,
+                    hide_color_suffix: true
                   %}
                 </li>
                 {%- assign skip_card_product_styles = true -%}
@@ -715,7 +716,8 @@
                             quick_add: 'none',
                             section_id: section.id,
                             show_swatches_availability: true,
-                            size_overlay: section.settings.show_size_overlay
+                            size_overlay: section.settings.show_size_overlay,
+                            hide_color_suffix: true
                           %}
                         </li>
                         {%- assign campaign_styles_loaded = true -%}
