@@ -342,10 +342,22 @@
   text-overflow: ellipsis;
 }
 
-/* Let the title shrink inside the title/price flex row so the price never wraps below. */
-.card-redesign .card__heading-row > .card__heading {
-  flex: 1;
-  min-width: 0;
+/* Let the title shrink inside the title/price flex row so the price never wraps below — desktop
+   only: at narrow (2-col mobile) card widths the price would squeeze the title down to nothing. */
+@media screen and (min-width: 750px) {
+  .card-redesign .card__heading-row > .card__heading {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+/* Narrow cards: give the title the full row (still one-line ellipsis, now at full card width)
+   and let the price wrap beneath it — the row already has flex-wrap: wrap. */
+@media screen and (max-width: 749px) {
+  .card-redesign .card__heading-row > .card__heading {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
 }
 
 /* Stack matches snippets/brand-font.liquid `overpass_mono`; face is globally declared in brand-font-faces.liquid. */
