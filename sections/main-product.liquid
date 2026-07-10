@@ -89,14 +89,21 @@
       Product info column overrides. #MainProduct-<id> is the section root, so the
       ID+class specificity (1,1,0) beats the hardcoded .product__info-wrapper padding
       variants and the .product__info-container spacing rules in section-main-product.css.
-      Padding is desktop-only (the theme has no column padding below 750px); spacing
-      applies at all screen sizes and evens out the 2.5rem description/buy-area rules.
+      Desktop padding is ≥750px-only; spacing applies at all screen sizes and evens
+      out the 2.5rem description/buy-area rules. The mobile pass (≤749px) owns small
+      screens: its top axis also zeroes the .product grid row-gap (the only mobile
+      seam between the media and info wrappers, 18px today from global grid spacing)
+      so the slider value IS the gallery→info gap, not an addition to it.
     {%- endcomment -%}
     {%- if section.settings.info_enable_padding -%}
       {%- liquid
         assign info_pl = section.settings.info_padding_left | default: 0
         assign info_pr = section.settings.info_padding_right | default: 0
         assign info_gap = section.settings.info_block_spacing | default: 0
+        assign info_pt_m = section.settings.info_padding_top_mobile | default: 0
+        assign info_pb_m = section.settings.info_padding_bottom_mobile | default: 0
+        assign info_pl_m = section.settings.info_padding_left_mobile | default: 0
+        assign info_pr_m = section.settings.info_padding_right_mobile | default: 0
       -%}
       {%- if info_pl > 0 or info_pr > 0 -%}
         @media screen and (min-width: 750px) {
@@ -104,6 +111,21 @@
             {%- if info_pl > 0 %} padding-left: {{ info_pl }}px;{% endif -%}
             {%- if info_pr > 0 %} padding-right: {{ info_pr }}px;{% endif -%}
           }
+        }
+      {%- endif -%}
+      {%- if info_pt_m > 0 or info_pb_m > 0 or info_pl_m > 0 or info_pr_m > 0 -%}
+        @media screen and (max-width: 749px) {
+          #MainProduct-{{ section.id }} .product__info-wrapper {
+            {%- if info_pt_m > 0 %} padding-top: {{ info_pt_m }}px;{% endif -%}
+            {%- if info_pb_m > 0 %} padding-bottom: {{ info_pb_m }}px;{% endif -%}
+            {%- if info_pl_m > 0 %} padding-left: {{ info_pl_m }}px;{% endif -%}
+            {%- if info_pr_m > 0 %} padding-right: {{ info_pr_m }}px;{% endif -%}
+          }
+          {%- if info_pt_m > 0 %}
+            #MainProduct-{{ section.id }} .product {
+              row-gap: 0;
+            }
+          {%- endif %}
         }
       {%- endif -%}
       {%- if info_gap > 0 -%}
@@ -2211,6 +2233,10 @@
     {"type": "range", "id": "info_padding_left", "min": 0, "max": 120, "step": 2, "unit": "px", "label": "Desktop padding left", "info": "0 = theme default (50px; 80px wide layouts; 40px large media). Desktop only.", "default": 0, "visible_if": "{{ section.settings.info_enable_padding }}"},
     {"type": "range", "id": "info_padding_right", "min": 0, "max": 120, "step": 2, "unit": "px", "label": "Desktop padding right", "info": "0 = theme default (50px; 80px wide layouts; 40px large media). Desktop only.", "default": 0, "visible_if": "{{ section.settings.info_enable_padding }}"},
     {"type": "range", "id": "info_block_spacing", "min": 0, "max": 60, "step": 1, "unit": "px", "label": "Spacing between blocks", "info": "Vertical gap between blocks in the column. 0 = theme default (15px; 25px around description/buy area). All screen sizes.", "default": 0, "visible_if": "{{ section.settings.info_enable_padding }}"},
+    {"type": "range", "id": "info_padding_top_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding top", "info": "Gap between the media gallery and the info column — the value set here is the whole gap. 0 = theme default (18px, from the global grid spacing). Mobile only.", "default": 0, "visible_if": "{{ section.settings.info_enable_padding }}"},
+    {"type": "range", "id": "info_padding_bottom_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding bottom", "info": "0 = theme default (0px). Mobile only.", "default": 0, "visible_if": "{{ section.settings.info_enable_padding }}"},
+    {"type": "range", "id": "info_padding_left_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding left", "info": "0 = theme default (0px). Mobile only.", "default": 0, "visible_if": "{{ section.settings.info_enable_padding }}"},
+    {"type": "range", "id": "info_padding_right_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding right", "info": "0 = theme default (0px). Mobile only.", "default": 0, "visible_if": "{{ section.settings.info_enable_padding }}"},
     {"type": "header", "content": "Product media column"},
     {"type": "checkbox", "id": "media_enable_padding", "default": false, "label": "Enable custom padding"},
     {"type": "range", "id": "media_padding_left", "min": 0, "max": 120, "step": 2, "unit": "px", "label": "Desktop padding left", "info": "0 = theme default (0px). Desktop only.", "default": 0, "visible_if": "{{ section.settings.media_enable_padding }}"},
