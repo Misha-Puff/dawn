@@ -201,6 +201,7 @@
         assign mcc_weight = section.settings.mcc_weight | default: 'default'
         assign mcc_fs = section.settings.mcc_size | default: 0
         assign mcc_ls = section.settings.mcc_letter_spacing | default: 0
+        assign mcc_h = section.settings.mcc_height | default: 0
         assign mcc_gap = section.settings.mcc_gap | default: 0
         assign mcc_mt = section.settings.mcc_margin_top | default: 0
         assign mcc_mb = section.settings.mcc_margin_bottom | default: 0
@@ -227,6 +228,12 @@
           #GalleryViewer-{{ section.id }} .slider-buttons {
             {%- if mcc_gap > 0 %} gap: {{ mcc_gap }}px;{% endif -%}
             {%- if mcc_mb > 0 %} margin-bottom: {{ mcc_mb }}px;{% endif -%}
+          }
+        {%- endif %}
+        {%- comment -%} The prev/next buttons are 44×44 tap targets (component-slider.css) and set the row's intrinsic height — the counter text is only ~10px. "Controls height" shrinks the button height only (width keeps the 44px tap area), so the row model is: space above + controls height + space below. {%- endcomment -%}
+        {%- if mcc_h > 0 %}
+          #GalleryViewer-{{ section.id }} .slider-button {
+            height: {{ mcc_h }}px;
           }
         {%- endif %}
         {%- comment -%} "Space above controls" replaces the media list's own 3rem (~24px) mobile bottom margin (section-main-product.css ≤749px) — that margin IS the whitespace above the controls, so overriding it (not adding a margin-top on the buttons) makes the slider value the whole image→controls gap. {%- endcomment -%}
@@ -2248,6 +2255,7 @@
     {"type": "select", "id": "mcc_weight", "options": [{"value": "default", "label": "Theme default"}, {"value": "300", "label": "Light"}, {"value": "400", "label": "Regular"}, {"value": "500", "label": "Medium"}, {"value": "600", "label": "Semibold"}, {"value": "700", "label": "Bold"}], "default": "default", "label": "Counter weight", "visible_if": "{{ section.settings.mcc_enable }}"},
     {"type": "range", "id": "mcc_size", "min": 0, "max": 40, "step": 1, "unit": "px", "default": 0, "label": "Counter size", "info": "0 = theme default", "visible_if": "{{ section.settings.mcc_enable }}"},
     {"type": "range", "id": "mcc_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "default": 0, "label": "Counter letter spacing", "info": "0 = theme default", "visible_if": "{{ section.settings.mcc_enable }}"},
+    {"type": "range", "id": "mcc_height", "min": 0, "max": 44, "step": 2, "unit": "px", "default": 0, "label": "Controls height", "info": "Height of the arrow buttons, which set the row's height. 0 = theme default (44px tap-target size).", "visible_if": "{{ section.settings.mcc_enable }}"},
     {"type": "range", "id": "mcc_gap", "min": 0, "max": 60, "step": 2, "unit": "px", "default": 0, "label": "Gap between arrows and counter", "info": "0 = theme default", "visible_if": "{{ section.settings.mcc_enable }}"},
     {"type": "range", "id": "mcc_margin_top", "min": 0, "max": 60, "step": 2, "unit": "px", "default": 0, "label": "Space above controls", "info": "The whole gap between the last image and the controls — replaces the theme's ~24px default. 0 = theme default.", "visible_if": "{{ section.settings.mcc_enable }}"},
     {"type": "range", "id": "mcc_margin_bottom", "min": 0, "max": 60, "step": 2, "unit": "px", "default": 0, "label": "Space below controls", "info": "0 = theme default", "visible_if": "{{ section.settings.mcc_enable }}"},
