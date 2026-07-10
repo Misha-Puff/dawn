@@ -501,7 +501,7 @@
         "padding_top": 20,
         "padding_bottom": 100,
         "padding_top_mobile": 10,
-        "padding_bottom_mobile": 40,
+        "padding_bottom_mobile": 20,
         "info_enable_padding": true,
         "info_padding_left": 80,
         "info_padding_right": 30,
@@ -776,7 +776,7 @@
         "desktop_padding_bottom": 20,
         "desktop_padding_left": 48,
         "desktop_padding_right": 48,
-        "mobile_padding_top": 52,
+        "mobile_padding_top": 20,
         "mobile_padding_bottom": 20,
         "mobile_padding_left": 12,
         "mobile_padding_right": 12
