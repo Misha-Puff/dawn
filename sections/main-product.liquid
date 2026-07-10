@@ -1581,7 +1581,7 @@
                 {%- if block.settings.tg_enable_padding -%}</div>{%- endif -%}
               {%- when 'bis_form' -%}
                 {%- if block.settings.tg_enable_padding -%}<div class="Block-{{ block.id }}">{%- endif -%}
-                {% render 'klaviyo-bis-form' %}
+                {% render 'klaviyo-bis-form', block: block %}
                 {%- if block.settings.tg_enable_padding -%}</div>{%- endif -%}
               {%- when 'size-chart' -%}
                 {% if product.metafields.product_page.json_size_chart != blank
@@ -2208,6 +2208,17 @@
       "name": "BIS Form",
       "limit": 1,
       "settings": [
+        {"type": "checkbox", "id": "bis_collapsed", "default": true, "label": "Collapse to a NOTIFY button", "info": "Sold-out state shows only the trigger; clicking reveals the signup form."},
+        {"type": "text", "id": "bis_trigger_label", "default": "NOTIFY", "label": "Trigger label", "visible_if": "{{ block.settings.bis_collapsed }}"},
+        {"type": "text", "id": "bis_title", "default": "Be the first to know.", "label": "Title", "info": "Leave blank to hide"},
+        {"type": "textarea", "id": "bis_subtitle", "default": "Sign up for in-stock alerts and we'll notify you if it becomes available or if we make more.", "label": "Subtitle", "info": "Leave blank to hide"},
+        {"type": "header", "content": "Trigger typography", "info": "Default: Overpass Mono 11px uppercase, underlined"},
+        {"type": "select", "id": "bis_trigger_custom_font", "options": [{"value": "default", "label": "Default (Overpass Mono)"}, {"value": "ibm_plex_sans", "label": "IBM Plex Sans"}, {"value": "ibm_plex_mono", "label": "IBM Plex Mono"}, {"value": "inter", "label": "Inter"}, {"value": "geist", "label": "Geist"}, {"value": "geist_mono", "label": "Geist Mono"}, {"value": "overpass", "label": "Overpass"}, {"value": "overpass_mono", "label": "Overpass Mono"}, {"value": "dm_sans", "label": "DM Sans"}, {"value": "dm_mono", "label": "DM Mono"}, {"value": "manrope", "label": "Manrope"}, {"value": "open_sans", "label": "Open Sans"}], "default": "default", "label": "Brand font", "visible_if": "{{ block.settings.bis_collapsed }}"},
+        {"type": "select", "id": "bis_trigger_weight", "options": [{"value": "default", "label": "Theme default"}, {"value": "300", "label": "Light"}, {"value": "400", "label": "Regular"}, {"value": "500", "label": "Medium"}, {"value": "600", "label": "Semibold"}, {"value": "700", "label": "Bold"}], "default": "default", "label": "Font weight", "visible_if": "{{ block.settings.bis_collapsed }}"},
+        {"type": "range", "id": "bis_trigger_size", "min": 0, "max": 24, "step": 1, "unit": "px", "default": 0, "label": "Font size", "info": "0 = default (11px)", "visible_if": "{{ block.settings.bis_collapsed }}"},
+        {"type": "select", "id": "bis_trigger_case", "options": [{"value": "default", "label": "Theme default"}, {"value": "uppercase", "label": "Uppercase"}, {"value": "capitalize", "label": "Capitalize"}, {"value": "lowercase", "label": "Lowercase"}, {"value": "none", "label": "Normal (remove uppercase)"}], "default": "default", "label": "Text case", "visible_if": "{{ block.settings.bis_collapsed }}"},
+        {"type": "range", "id": "bis_trigger_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "default": 0, "label": "Letter spacing", "info": "0 = default", "visible_if": "{{ block.settings.bis_collapsed }}"},
+        {"type": "color", "id": "bis_trigger_color", "label": "Trigger color", "info": "Leave blank for theme default", "visible_if": "{{ block.settings.bis_collapsed }}"},
         {"type": "header", "content": "Padding"},
         {"type": "checkbox", "id": "tg_enable_padding", "default": false, "label": "Enable padding"},
         {"type": "range", "id": "tg_padding_top", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Padding top", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}"},

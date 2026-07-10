@@ -3,6 +3,18 @@
   unless product.selected_or_first_available_variant.available
     assign show_bis = true
   endunless
+
+  comment
+    Collapsed (default) renders only a NOTIFY trigger; the signup form reveals on click.
+    All copy + trigger typography come from the bis_form block settings (block param).
+  endcomment
+  assign bis_collapsed = true
+  if block.settings.bis_collapsed == false
+    assign bis_collapsed = false
+  endif
+  assign bis_title = block.settings.bis_title
+  assign bis_subtitle = block.settings.bis_subtitle
+  assign bis_trigger_label = block.settings.bis_trigger_label | default: 'NOTIFY'
 %}
 {% unless product.tags contains 'made-to-order' or product.type == 'Yarn Skein' %}
   {% if product.tags contains 'no-returns' %}
@@ -39,17 +51,53 @@
   #bis-form-wrapper .field__input:-webkit-autofill ~ .field__label {
     top: calc(var(--inputs-border-width) + 1px);
   }
+
+  /* NOTIFY trigger — matches the underlined mono treatment (Find in Brooklyn, Size Guide, badges). */
+  .bis-disclosure summary {
+    list-style: none;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Overpass Mono Custom', 'Courier New', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.07rem;
+    text-decoration: underline;
+    text-underline-offset: 0.3rem;
+  }
+
+  .bis-disclosure summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .bis-disclosure[open] summary {
+    margin-bottom: 1.2rem;
+  }
+
+  {%- capture bis_trigger_stack -%}{% render 'brand-font', font: block.settings.bis_trigger_custom_font %}{%- endcapture -%}
+  {%- assign bis_trigger_stack = bis_trigger_stack | strip -%}
+  {%- capture bis_trigger_decl -%}
+    {%- if bis_trigger_stack != blank -%}font-family: {{ bis_trigger_stack }};{%- endif -%}
+    {%- if block.settings.bis_trigger_size > 0 -%}font-size: {{ block.settings.bis_trigger_size }}px;{%- endif -%}
+    {%- if block.settings.bis_trigger_weight != 'default' and block.settings.bis_trigger_weight != blank -%}font-weight: {{ block.settings.bis_trigger_weight }};{%- endif -%}
+    {%- if block.settings.bis_trigger_case != 'default' and block.settings.bis_trigger_case != blank -%}text-transform: {{ block.settings.bis_trigger_case }};{%- endif -%}
+    {%- if block.settings.bis_trigger_letter_spacing > 0 -%}letter-spacing: {{ block.settings.bis_trigger_letter_spacing }}px;{%- endif -%}
+    {%- if block.settings.bis_trigger_color != blank -%}color: {{ block.settings.bis_trigger_color }};{%- endif -%}
+  {%- endcapture -%}
+  {%- if bis_trigger_decl != blank %}
+  .bis-disclosure summary { {{ bis_trigger_decl }} }
+  {% endif -%}
 </style>
-<div
-  id="bis-form-wrapper"
-  class="color-{{ section.settings.color_scheme }} gradient{% unless show_bis %} hidden{% endunless %}"
->
-  <h3 class="title {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-    Be the first to know.
-  </h3>
-  <h4 class="subtitle subtitle--small{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-    Sign up for in-stock alerts and we'll notify you if it becomes available or if we make more.
-  </h4>
+{%- capture bis_inner -%}
+  {%- if bis_title != blank -%}
+    <h3 class="title {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      {{ bis_title }}
+    </h3>
+  {%- endif -%}
+  {%- if bis_subtitle != blank -%}
+    <h4 class="subtitle subtitle--small{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      {{ bis_subtitle }}
+    </h4>
+  {%- endif -%}
 
   {%- liquid
     assign contact_form_class = 'isolate'
@@ -90,6 +138,19 @@
       </button>
     </div>
   </form>
+{%- endcapture -%}
+<div
+  id="bis-form-wrapper"
+  class="color-{{ section.settings.color_scheme }} gradient{% unless show_bis %} hidden{% endunless %}"
+>
+  {%- if bis_collapsed -%}
+    <details class="bis-disclosure">
+      <summary>{{ bis_trigger_label | escape }}</summary>
+      <div class="bis-disclosure__content">{{ bis_inner }}</div>
+    </details>
+  {%- else -%}
+    {{ bis_inner }}
+  {%- endif -%}
 </div>
 <script>
   const bisForm = document.querySelector('#bis-form');

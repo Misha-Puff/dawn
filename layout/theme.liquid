@@ -285,6 +285,43 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {%- comment -%}
+      Global per-level heading overrides (Headings h1-h6 theme settings). Must sit AFTER base.css:
+      the element/class selectors tie base.css's specificity, so document order decides — including
+      against base.css's responsive @media re-declarations. Per-section/block rules still win.
+    {%- endcomment -%}
+    {%- liquid
+      assign heading_levels = 'h1,h2,h3,h4,h5,h6' | split: ','
+    -%}
+    {%- capture heading_level_css -%}
+      {%- for hl in heading_levels -%}
+        {%- assign hl_key = hl | append: '_size' -%}
+        {%- assign hl_size = settings[hl_key] | default: 0 -%}
+        {%- assign hl_key = hl | append: '_line_height' -%}
+        {%- assign hl_lh = settings[hl_key] | default: 0 -%}
+        {%- assign hl_key = hl | append: '_weight' -%}
+        {%- assign hl_w = settings[hl_key] | default: 'default' -%}
+        {%- assign hl_key = hl | append: '_case' -%}
+        {%- assign hl_case = settings[hl_key] | default: 'default' -%}
+        {%- assign hl_key = hl | append: '_letter_spacing' -%}
+        {%- assign hl_ls = settings[hl_key] | default: 0 -%}
+        {%- capture hl_decl -%}
+          {%- if hl_size > 0 -%}font-size: {{ hl_size }}px;{%- endif -%}
+          {%- if hl_lh > 0 -%}line-height: {{ hl_lh }}%;{%- endif -%}
+          {%- if hl_w != 'default' and hl_w != blank -%}font-weight: {{ hl_w }};{%- endif -%}
+          {%- if hl_case != 'default' and hl_case != blank -%}text-transform: {{ hl_case }};{%- endif -%}
+          {%- if hl_ls > 0 -%}letter-spacing: {{ hl_ls }}px;{%- endif -%}
+        {%- endcapture -%}
+        {%- if hl_decl != blank -%}
+          {{ hl }}, .{{ hl }} { {{ hl_decl }} }
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+    {%- if heading_level_css != blank -%}
+      <style id="heading-level-overrides">
+        {{ heading_level_css }}
+      </style>
+    {%- endif -%}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}

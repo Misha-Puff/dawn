@@ -199,6 +199,48 @@
     ]
   },
   {
+    "name": "Headings (h1-h6)",
+    "settings": [
+      {"type": "paragraph", "content": "Storewide per-level heading overrides. 0 \/ Theme default = leave Dawn's responsive scale untouched. A set size applies at ALL screen sizes. Per-section and per-block typography controls still override these."},
+      {"type": "header", "content": "H1"},
+      {"type": "range", "id": "h1_size", "min": 0, "max": 80, "step": 1, "unit": "px", "label": "H1 size", "info": "0 = theme default", "default": 0},
+      {"type": "range", "id": "h1_line_height", "min": 0, "max": 250, "step": 10, "unit": "%", "label": "H1 line height", "info": "0 = theme default", "default": 0},
+      {"type": "select", "id": "h1_weight", "options": [{"value": "default", "label": "Theme default"}, {"value": "300", "label": "Light"}, {"value": "400", "label": "Regular"}, {"value": "500", "label": "Medium"}, {"value": "600", "label": "Semibold"}, {"value": "700", "label": "Bold"}], "default": "default", "label": "H1 weight"},
+      {"type": "select", "id": "h1_case", "options": [{"value": "default", "label": "Theme default"}, {"value": "uppercase", "label": "Uppercase"}, {"value": "capitalize", "label": "Capitalize"}, {"value": "lowercase", "label": "Lowercase"}, {"value": "none", "label": "Normal (remove uppercase)"}], "default": "default", "label": "H1 text case"},
+      {"type": "range", "id": "h1_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "H1 letter spacing", "info": "0 = theme default", "default": 0},
+      {"type": "header", "content": "H2"},
+      {"type": "range", "id": "h2_size", "min": 0, "max": 80, "step": 1, "unit": "px", "label": "H2 size", "info": "0 = theme default", "default": 0},
+      {"type": "range", "id": "h2_line_height", "min": 0, "max": 250, "step": 10, "unit": "%", "label": "H2 line height", "info": "0 = theme default", "default": 0},
+      {"type": "select", "id": "h2_weight", "options": [{"value": "default", "label": "Theme default"}, {"value": "300", "label": "Light"}, {"value": "400", "label": "Regular"}, {"value": "500", "label": "Medium"}, {"value": "600", "label": "Semibold"}, {"value": "700", "label": "Bold"}], "default": "default", "label": "H2 weight"},
+      {"type": "select", "id": "h2_case", "options": [{"value": "default", "label": "Theme default"}, {"value": "uppercase", "label": "Uppercase"}, {"value": "capitalize", "label": "Capitalize"}, {"value": "lowercase", "label": "Lowercase"}, {"value": "none", "label": "Normal (remove uppercase)"}], "default": "default", "label": "H2 text case"},
+      {"type": "range", "id": "h2_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "H2 letter spacing", "info": "0 = theme default", "default": 0},
+      {"type": "header", "content": "H3"},
+      {"type": "range", "id": "h3_size", "min": 0, "max": 80, "step": 1, "unit": "px", "label": "H3 size", "info": "0 = theme default", "default": 0},
+      {"type": "range", "id": "h3_line_height", "min": 0, "max": 250, "step": 10, "unit": "%", "label": "H3 line height", "info": "0 = theme default", "default": 0},
+      {"type": "select", "id": "h3_weight", "options": [{"value": "default", "label": "Theme default"}, {"value": "300", "label": "Light"}, {"value": "400", "label": "Regular"}, {"value": "500", "label": "Medium"}, {"value": "600", "label": "Semibold"}, {"value": "700", "label": "Bold"}], "default": "default", "label": "H3 weight"},
+      {"type": "select", "id": "h3_case", "options": [{"value": "default", "label": "Theme default"}, {"value": "uppercase", "label": "Uppercase"}, {"value": "capitalize", "label": "Capitalize"}, {"value": "lowercase", "label": "Lowercase"}, {"value": "none", "label": "Normal (remove uppercase)"}], "default": "default", "label": "H3 text case"},
+      {"type": "range", "id": "h3_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "H3 letter spacing", "info": "0 = theme default", "default": 0},
+      {"type": "header", "content": "H4"},
+      {"type": "range", "id": "h4_size", "min": 0, "max": 80, "step": 1, "unit": "px", "label": "H4 size", "info": "0 = theme default", "default": 0},
+      {"type": "range", "id": "h4_line_height", "min": 0, "max": 250, "step": 10, "unit": "%", "label": "H4 line height", "info": "0 = theme default", "default": 0},
+      {"type": "select", "id": "h4_weight", "options": [{"value": "default", "label": "Theme default"}, {"value": "300", "label": "Light"}, {"value": "400", "label": "Regular"}, {"value": "500", "label": "Medium"}, {"value": "600", "label": "Semibold"}, {"value": "700", "label": "Bold"}], "default": "default", "label": "H4 weight"},
+      {"type": "select", "id": "h4_case", "options": [{"value": "default", "label": "Theme default"}, {"value": "uppercase", "label": "Uppercase"}, {"value": "capitalize", "label": "Capitalize"}, {"value": "lowercase", "label": "Lowercase"}, {"value": "none", "label": "Normal (remove uppercase)"}], "default": "default", "label": "H4 text case"},
+      {"type": "range", "id": "h4_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "H4 letter spacing", "info": "0 = theme default", "default": 0},
+      {"type": "header", "content": "H5"},
+      {"type": "range", "id": "h5_size", "min": 0, "max": 80, "step": 1, "unit": "px", "label": "H5 size", "info": "0 = theme default", "default": 0},
+      {"type": "range", "id": "h5_line_height", "min": 0, "max": 250, "step": 10, "unit": "%", "label": "H5 line height", "info": "0 = theme default", "default": 0},
+      {"type": "select", "id": "h5_weight", "options": [{"value": "default", "label": "Theme default"}, {"value": "300", "label": "Light"}, {"value": "400", "label": "Regular"}, {"value": "500", "label": "Medium"}, {"value": "600", "label": "Semibold"}, {"value": "700", "label": "Bold"}], "default": "default", "label": "H5 weight"},
+      {"type": "select", "id": "h5_case", "options": [{"value": "default", "label": "Theme default"}, {"value": "uppercase", "label": "Uppercase"}, {"value": "capitalize", "label": "Capitalize"}, {"value": "lowercase", "label": "Lowercase"}, {"value": "none", "label": "Normal (remove uppercase)"}], "default": "default", "label": "H5 text case"},
+      {"type": "range", "id": "h5_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "H5 letter spacing", "info": "0 = theme default", "default": 0},
+      {"type": "header", "content": "H6"},
+      {"type": "range", "id": "h6_size", "min": 0, "max": 80, "step": 1, "unit": "px", "label": "H6 size", "info": "0 = theme default", "default": 0},
+      {"type": "range", "id": "h6_line_height", "min": 0, "max": 250, "step": 10, "unit": "%", "label": "H6 line height", "info": "0 = theme default", "default": 0},
+      {"type": "select", "id": "h6_weight", "options": [{"value": "default", "label": "Theme default"}, {"value": "300", "label": "Light"}, {"value": "400", "label": "Regular"}, {"value": "500", "label": "Medium"}, {"value": "600", "label": "Semibold"}, {"value": "700", "label": "Bold"}], "default": "default", "label": "H6 weight"},
+      {"type": "select", "id": "h6_case", "options": [{"value": "default", "label": "Theme default"}, {"value": "uppercase", "label": "Uppercase"}, {"value": "capitalize", "label": "Capitalize"}, {"value": "lowercase", "label": "Lowercase"}, {"value": "none", "label": "Normal (remove uppercase)"}], "default": "default", "label": "H6 text case"},
+      {"type": "range", "id": "h6_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "H6 letter spacing", "info": "0 = theme default", "default": 0}
+    ]
+  },
+  {
     "name": "t:settings_schema.layout.name",
     "settings": [
       {
