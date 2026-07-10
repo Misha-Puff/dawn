@@ -758,7 +758,7 @@
         "columns_desktop": 4,
         "full_width": false,
         "enable_custom_spacing": true,
-        "horizontal_spacing_desktop": 40,
+        "horizontal_spacing_desktop": 32,
         "vertical_spacing_desktop": 0,
         "horizontal_spacing_mobile": 10,
         "vertical_spacing_mobile": 0,
