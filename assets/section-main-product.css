@@ -1737,6 +1737,13 @@ a.product__text {
     padding-bottom: 150%;
   }
 
+  /* Selected rail thumb: single 1px border only. The stock aria-current box-shadow ring
+     (0.1rem = 0.8px at this store's 8px rem) lands on different pixels than the 1px border
+     at fractional widths and reads as a doubled outline. */
+  .product--stacked_scroll .thumbnail-slider--rail .thumbnail[aria-current] {
+    box-shadow: none;
+  }
+
   .product--stacked_scroll .product__media-item {
     width: 100%;
     max-width: 100%;
