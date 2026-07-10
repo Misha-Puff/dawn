@@ -94,11 +94,11 @@
           "type": "custom_liquid",
           "name": "D&T Info",
           "settings": {
-            "custom_liquid": "{% unless localization.country.iso_code == 'US' %}\n  <div>Duties &amp; taxes not included.</div>\n{% endunless %}",
-            "enable_typography": false,
+            "custom_liquid": "{% unless localization.country.iso_code == 'US' %}\n  <p class=\"custom-message\">Duties &amp; taxes not included.</p>\n{% endunless %}",
+            "enable_typography": true,
             "font_family": "assistant_n4",
-            "custom_font_family": "default",
-            "font_size": 0,
+            "custom_font_family": "inter",
+            "font_size": 12,
             "font_weight": "400",
             "font_color": "",
             "line_height": 0,
@@ -118,10 +118,10 @@
           "name": "Custom Message Metafield",
           "settings": {
             "custom_liquid": "{% if product.metafields.product_page.custom_message != null %}\n<p class=\"custom-message\">{{ product.metafields.product_page.custom_message }}</p>\n{% endif %}",
-            "enable_typography": false,
+            "enable_typography": true,
             "font_family": "assistant_n4",
-            "custom_font_family": "default",
-            "font_size": 0,
+            "custom_font_family": "inter",
+            "font_size": 12,
             "font_weight": "400",
             "font_color": "",
             "line_height": 0,
@@ -140,13 +140,13 @@
           "type": "custom_liquid",
           "name": "Free Adult Returns Message",
           "settings": {
-            "custom_liquid": "{% unless product.tags contains 'no-returns' %}\n{% if product.tags contains 'Adult' %}\n<p class=\"custom-message\" style=\"color: blue;\">Free returns on domestic Adult orders</p>\n{% endif %}\n{% endunless %}",
-            "enable_typography": false,
+            "custom_liquid": "{% unless product.tags contains 'no-returns' %}\n{% if product.tags contains 'Adult' %}\n<p class=\"custom-message\">Free returns on domestic Adult orders</p>\n{% endif %}\n{% endunless %}",
+            "enable_typography": true,
             "font_family": "assistant_n4",
-            "custom_font_family": "default",
-            "font_size": 0,
+            "custom_font_family": "inter",
+            "font_size": 12,
             "font_weight": "400",
-            "font_color": "",
+            "font_color": "#0000FF",
             "line_height": 0,
             "letter_spacing": 0,
             "text_align": "left",
@@ -163,13 +163,13 @@
           "type": "custom_liquid",
           "name": "Exclusive Message",
           "settings": {
-            "custom_liquid": "{% if product.tags contains 'Badge-Exclusive Collab' %}\n<p style=\"color: blue; line-height: normal;\">Misha & Puff x Isetan Collaboration</p>\n{% elsif product.tags contains 'Badge-Exclusive' %}\n<p style=\"color: blue; line-height: normal;\">This style is exclusive to Misha & Puff</p>\n{% endif %}",
-            "enable_typography": false,
+            "custom_liquid": "{% if product.tags contains 'Badge-Exclusive Collab' %}\n<p class=\"custom-message\">Misha & Puff x Isetan Collaboration</p>\n{% elsif product.tags contains 'Badge-Exclusive' %}\n<p class=\"custom-message\">This style is exclusive to Misha & Puff</p>\n{% endif %}",
+            "enable_typography": true,
             "font_family": "assistant_n4",
-            "custom_font_family": "default",
-            "font_size": 0,
+            "custom_font_family": "inter",
+            "font_size": 12,
             "font_weight": "400",
-            "font_color": "",
+            "font_color": "#0000FF",
             "line_height": 0,
             "letter_spacing": 0,
             "text_align": "left",
@@ -187,10 +187,10 @@
           "name": "Final Sale Message",
           "settings": {
             "custom_liquid": "{% if product.tags contains 'no-returns' %}\n<p class=\"custom-message\">Final Sale: This item cannot be exchanged or returned</p>\n{% endif %}",
-            "enable_typography": false,
+            "enable_typography": true,
             "font_family": "assistant_n4",
-            "custom_font_family": "default",
-            "font_size": 0,
+            "custom_font_family": "inter",
+            "font_size": 12,
             "font_weight": "400",
             "font_color": "",
             "line_height": 0,
@@ -985,6 +985,11 @@
       "block_order": [
         "judge_me_reviews_review_widget_k9GUKa"
       ],
+      "custom_css": [
+        ".jdgm-rev-widg {border: none; padding-top: 20px; padding-bottom: 20px;}",
+        ".jdgm-rev-widg__title {font-size: 15px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.5px;}",
+        ".jdgm-rev-widg__summary-text {font-size: 12px;}"
+      ],
       "settings": {
         "include_margins": true
       }
@@ -997,12 +1002,12 @@
     "image_with_text_PbwkAd",
     "image_with_text_eWw7Gi",
     "image_with_text_HPJEfp",
+    "17224329362434f250",
     "metafield_product_slider_bbMG9V",
     "metafield_product_slider_tiDGDY",
     "shop_the_look_outfits_7Vw8xb",
     "metafield_product_slider_8x6YUj",
     "related-products",
-    "recently_viewed_slider_QcHtbc",
-    "17224329362434f250"
+    "recently_viewed_slider_QcHtbc"
   ]
 }
