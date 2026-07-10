@@ -481,7 +481,7 @@
         "info_thumb_top_offset": 0,
         "mobile_thumbnails": "hide",
         "media_position": "left",
-        "image_zoom": "lightbox",
+        "image_zoom": "none",
         "hide_variants": true,
         "enable_video_looping": false,
         "padding_top": 20,
