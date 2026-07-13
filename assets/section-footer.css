@@ -535,9 +535,10 @@ localization-form {
   justify-content: space-around;
 }
 
+/* Size pin removed — headings follow the global h2/h4 overrides (Headings theme settings);
+   desktop block headings are h2 (global 14px, unchanged), accordion titles are .h4 (11px). */
 .footer-accordion .accordion__title,
 .footer-block__heading {
-  font-size: 14px !important;
   margin-bottom: 10px !important;
 }
 
