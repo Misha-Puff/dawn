@@ -306,6 +306,9 @@
   font-size: var(--card-title-size, 12px);
   /* max() keeps the stock 20px line box at any font-size ≤ 15.38px; scales only when a merchant dials the title larger. */
   line-height: max(20px, 1.3em);
+  /* Product names opt out of the global .h4/.h5 mono-uppercase heading overrides (theme.liquid). */
+  font-family: var(--font-heading-family);
+  text-transform: none;
 }
 
 .card__heading:last-child {

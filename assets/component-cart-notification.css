@@ -120,4 +120,7 @@
 .cart-notification-product__name {
   margin-bottom: 0.5rem;
   margin-top: 0;
+  /* Product names opt out of the global .h4/.h5 mono-uppercase heading overrides (theme.liquid). */
+  font-family: var(--font-heading-family);
+  text-transform: none;
 }
