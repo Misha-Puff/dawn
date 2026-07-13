@@ -15,6 +15,9 @@
   if use_blocks
     for block in section.blocks
       assign outfit = block.settings.outfit
+      if outfit.lead_image.value == blank
+        continue
+      endif
       if section.settings.enforce_product_minimum
         assign num_products = 0
         for product in outfit.products
@@ -29,6 +32,9 @@
     endfor
   else
     for outfit in outfits
+      if outfit.lead_image.value == blank
+        continue
+      endif
       if section.settings.enforce_product_minimum
         assign num_products = 0
         for product in outfit.products
@@ -189,11 +195,15 @@
     {% endif %}
     <div class="carousel-container card-redesign">
       <div class="carousel{% if section.settings.layout == 'stacked' %} carousel--stacked{% endif %}">
+        {% assign look_number = 0 %}
         {% if use_blocks %}
           {% for block in section.blocks %}
             {% liquid
               assign outfit = block.settings.outfit
               assign lead_image = outfit.lead_image.value
+              if lead_image == blank
+                continue
+              endif
               assign lead_image_link = outfit.lead_image_link
               assign products = outfit.products.value
               assign flats = outfit.flats.value
@@ -207,10 +217,12 @@
                   continue
                 endif
               endif
+
+              assign look_number = look_number | plus: 1
             %}
 
             <div class="carousel-slide" {{ block.shopify_attributes }}>
-              <p class="is-hidden-mobile-only desktop-look-title">LOOK #{{ forloop.index }}</p>
+              <p class="is-hidden-mobile-only desktop-look-title">LOOK #{{ look_number }}</p>
               <div class="slide-grid">
                 <div class="main-box">
                   {% if lead_image_link %}<a href="{{ lead_image_link }}">{% endif %}
@@ -235,7 +247,7 @@
                   >
                   {% if lead_image_link %}</a>{% endif %}
                 </div>
-                <p class="is-hidden-desktop-only mobile-look-title">LOOK #{{ forloop.index }}</p>
+                <p class="is-hidden-desktop-only mobile-look-title">LOOK #{{ look_number }}</p>
                 <div class="sub-grid">
                   {% for product in products limit: 4 %}
                     {% assign skip_card_product_styles = false %}
@@ -272,6 +284,9 @@
           {% for outfit in outfits %}
             {% liquid
               assign lead_image = outfit.lead_image.value
+              if lead_image == blank
+                continue
+              endif
               assign lead_image_link = outfit.lead_image_link
               assign products = outfit.products.value
               assign flats = outfit.flats.value
@@ -287,10 +302,12 @@
                   continue
                 endif
               endif
+
+              assign look_number = look_number | plus: 1
             %}
 
             <div class="carousel-slide">
-              <p class="is-hidden-mobile-only desktop-look-title">LOOK #{{ forloop.index }}</p>
+              <p class="is-hidden-mobile-only desktop-look-title">LOOK #{{ look_number }}</p>
               <div class="slide-grid">
                 <div class="main-box">
                   {% if lead_image_link %}<a href="{{ lead_image_link }}">{% endif %}
@@ -315,7 +332,7 @@
                   >
                   {% if lead_image_link %}</a>{% endif %}
                 </div>
-                <p class="is-hidden-desktop-only mobile-look-title">LOOK #{{ forloop.index }}</p>
+                <p class="is-hidden-desktop-only mobile-look-title">LOOK #{{ look_number }}</p>
                 <div class="sub-grid">
                   {% for product in products limit: 4 %}
                     {% assign skip_card_product_styles = false %}
