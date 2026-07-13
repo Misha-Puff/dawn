@@ -319,7 +319,10 @@
         {%- assign hl_case = settings[hl_key] | default: 'default' -%}
         {%- assign hl_key = hl | append: '_letter_spacing' -%}
         {%- assign hl_ls = settings[hl_key] | default: 0 -%}
+        {%- assign hl_key = hl | append: '_font' -%}
+        {%- assign hl_font = settings[hl_key] | default: 'default' -%}
         {%- capture hl_decl -%}
+          {%- if hl_font == 'body' -%}font-family: var(--font-body-family); font-style: var(--font-body-style);{%- elsif hl_font == 'mono' -%}font-family: var(--font-mono-family); font-style: normal;{%- endif -%}
           {%- if hl_size > 0 -%}font-size: {{ hl_size }}px;{%- endif -%}
           {%- if hl_lh > 0 -%}line-height: {{ hl_lh }}%;{%- endif -%}
           {%- if hl_w != 'default' and hl_w != blank -%}font-weight: {{ hl_w }};{%- endif -%}
