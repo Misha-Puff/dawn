@@ -1516,9 +1516,11 @@ details[open] > .share-button__fallback {
   background-color: inherit;
 }
 
-.share-button__fallback .field:after,
-.share-button__fallback .field:before {
-  content: none;
+/* The share fallback field is borderless by design — suppress the input-level ring
+   (which replaced the old .field:before/:after overlays) in rest and hover states. */
+.share-button__fallback .field__input,
+.share-button__fallback .field__input:hover {
+  box-shadow: none;
 }
 
 .share-button__fallback .field {
@@ -1592,9 +1594,7 @@ details[open] > .share-button__fallback {
   border: 0;
 }
 
-.field:before,
 .select:before,
-.customer .field:before,
 .customer select:before,
 .localization-form__select:before {
   pointer-events: none;
@@ -1610,9 +1610,7 @@ details[open] > .share-button__fallback {
   z-index: -1;
 }
 
-.field:after,
 .select:after,
-.customer .field:after,
 .customer select:after,
 .localization-form__select:after {
   pointer-events: none;
@@ -1629,6 +1627,14 @@ details[open] > .share-button__fallback {
   z-index: 1;
 }
 
+/* Labels are static (above the input), so the input owns its border ring directly instead of
+   the .field:after overlay — which would wrap the label too. Hover/focus rules below win on tie
+   (equal specificity, later in document order). */
+.field__input,
+.customer .field input {
+  box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground), var(--inputs-border-opacity));
+}
+
 .select__select {
   font-family: var(--font-body-family);
   font-style: var(--font-body-style);
@@ -1637,10 +1643,10 @@ details[open] > .share-button__fallback {
   color: rgba(var(--color-foreground), 0.75);
 }
 
-.field:hover.field:after,
+.field__input:hover,
+.customer .field input:hover,
 .select:hover.select:after,
 .select__select:hover.select__select:after,
-.customer .field:hover.field:after,
 .customer select:hover.select:after,
 .localization-form__select:hover.localization-form__select:after {
   box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width))
@@ -1708,11 +1714,13 @@ details[open] > .share-button__fallback {
   position: relative;
   width: 100%;
   display: flex;
+  flex-direction: column;
   transition: box-shadow var(--duration-short) ease;
 }
 
 .customer .field {
   display: flex;
+  flex-direction: column;
 }
 
 .field--with-error {
@@ -1728,40 +1736,19 @@ details[open] > .share-button__fallback {
   transition: box-shadow var(--duration-short) ease;
 }
 
+/* Static mono label above the input (mockup); order: -1 keeps it on top even where the
+   label follows the input in the DOM (most Dawn fields). */
 .field__label,
 .customer .field label {
-  font-size: 1.6rem;
-  left: calc(var(--inputs-border-width) + 2rem);
-  top: calc(1rem + var(--inputs-border-width));
-  margin-bottom: 0;
-  pointer-events: none;
-  position: absolute;
-  transition: top var(--duration-short) ease, font-size var(--duration-short) ease;
+  order: -1;
+  margin: 0 0 0.6rem;
+  font-family: var(--font-mono-family);
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
   color: rgba(var(--color-foreground), 0.75);
-  letter-spacing: 0.1rem;
-  line-height: 1.5;
-}
-
-.field__input:focus ~ .field__label,
-.field__input:not(:placeholder-shown) ~ .field__label,
-.field__input:-webkit-autofill ~ .field__label,
-.customer .field input:focus ~ label,
-.customer .field input:not(:placeholder-shown) ~ label,
-.customer .field input:-webkit-autofill ~ label {
-  font-size: 1rem;
-  top: calc(var(--inputs-border-width) + 0.5rem);
-  left: calc(var(--inputs-border-width) + 2rem);
-  letter-spacing: 0.04rem;
-}
-
-.field__input:focus,
-.field__input:not(:placeholder-shown),
-.field__input:-webkit-autofill,
-.customer .field input:focus,
-.customer .field input:not(:placeholder-shown),
-.customer .field input:-webkit-autofill {
-  padding: 2.2rem 1.5rem 0.8rem 2rem;
-  margin: var(--inputs-border-width);
 }
 
 .field__input::-webkit-search-cancel-button,
@@ -1771,7 +1758,8 @@ details[open] > .share-button__fallback {
 
 .field__input::placeholder,
 .customer .field input::placeholder {
-  opacity: 0;
+  opacity: 1;
+  color: rgba(var(--color-foreground), 0.55);
 }
 
 .field__button {
@@ -1787,7 +1775,8 @@ details[open] > .share-button__fallback {
   padding: 0;
   position: absolute;
   right: 0;
-  top: 0;
+  top: auto;
+  bottom: var(--inputs-border-width);
   width: 4.4rem;
 }
 
@@ -1796,9 +1785,7 @@ details[open] > .share-button__fallback {
   width: 2.5rem;
 }
 
-.field__input:-webkit-autofill ~ .field__button,
-.field__input:-webkit-autofill ~ .field__label,
-.customer .field input:-webkit-autofill ~ label {
+.field__input:-webkit-autofill ~ .field__button {
   color: rgb(0, 0, 0);
 }
 

@@ -83,16 +83,19 @@ cart-items {
 
 .cart__note {
   height: fit-content;
-  top: 2.5rem;
+  /* top: 2.5rem offset removed — it cleared the old absolutely-positioned label, now in-flow. */
 }
 
+/* Bare label (no .field__label class) — mirror base.css's static mono label treatment. */
 .cart__note label {
-  display: flex;
-  align-items: flex-end;
-  position: absolute;
-  line-height: 1;
-  height: 1.8rem;
-  top: -3rem;
+  display: block;
+  margin: 0 0 0.6rem;
+  font-family: var(--font-mono-family);
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
   color: rgba(var(--color-foreground), 0.75);
 }
 

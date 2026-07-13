@@ -593,17 +593,9 @@
   margin-left: 2rem;
 }
 
-.facets__price .field {
-  align-items: center;
-}
-
 .facets__price .field-currency {
   align-self: center;
   margin-right: 0.6rem;
-}
-
-.facets__price .field__label {
-  left: 1.5rem;
 }
 
 button.facets__button {
