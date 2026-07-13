@@ -83,6 +83,16 @@ if (!customElements.get('quick-add-modal')) {
 
         const modalDialog = productElement.querySelectorAll('modal-dialog');
         if (modalDialog) modalDialog.forEach((modal) => modal.remove());
+
+        // The BIS popup is removed with the modal-dialogs above, so the notify trigger
+        // reverts to the plain disabled sold-out button inside quick-add.
+        const bisTrigger = productElement.querySelector('[data-bis-trigger]');
+        if (bisTrigger) {
+          bisTrigger.removeAttribute('data-bis-trigger');
+          bisTrigger.setAttribute('disabled', 'disabled');
+          const label = bisTrigger.querySelector('span');
+          if (label) label.textContent = window.variantStrings.soldOut;
+        }
       }
 
       preventDuplicatedIDs(productElement) {

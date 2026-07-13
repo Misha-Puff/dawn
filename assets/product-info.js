@@ -230,6 +230,13 @@ if (!customElements.get('product-info')) {
         const destination = this.querySelector(`#ProductSubmitButton-${this.dataset.section}`);
         if (!source || !destination) return;
         const notify = source.hasAttribute('data-bis-trigger');
+        // Quick-add strips the BIS modal; notify-mode variants render as plain disabled sold-out there
+        // (the fetched notify button is enabled, so toggleSubmitButton alone would show Add to cart).
+        if (this.dataset.originalSection || this.closest('quick-add-modal')) {
+          destination.removeAttribute('data-bis-trigger');
+          if (notify) this.productForm?.toggleSubmitButton(true, window.variantStrings.soldOut);
+          return;
+        }
         destination.toggleAttribute('data-bis-trigger', notify);
         if (notify) {
           destination.removeAttribute('disabled');

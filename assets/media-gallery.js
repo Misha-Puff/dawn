@@ -66,9 +66,10 @@ if (!customElements.get('media-gallery')) {
       }
 
       onSlideChanged(event) {
-        const thumbnail = this.elements.thumbnails.querySelector(
-          `[data-target="${event.detail.currentElement.dataset.mediaId}"]`
-        );
+        // Stacked-scroll desktop has no horizontal slider pages, so slideChanged can fire without a current element.
+        const currentElement = event.detail.currentElement;
+        if (!currentElement) return;
+        const thumbnail = this.elements.thumbnails.querySelector(`[data-target="${currentElement.dataset.mediaId}"]`);
         this.setActiveThumbnail(thumbnail);
       }
 
