@@ -19,6 +19,7 @@
     "type_body_font": "arial_n4",
     "type_body_custom_font": "inter",
     "body_scale": 80,
+    "type_mono_custom_font": "overpass_mono",
     "enable_sticky_bar": false,
     "page_width": 1600,
     "page_width_padding": 50,

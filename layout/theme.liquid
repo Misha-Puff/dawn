@@ -55,11 +55,23 @@
     {%- capture body_brand_stack -%}{% render 'brand-font', font: settings.type_body_custom_font %}{%- endcapture -%}
     {%- capture heading_brand_file -%}{% render 'brand-font', font: settings.type_header_custom_font, part: 'file' %}{%- endcapture -%}
     {%- capture body_brand_file -%}{% render 'brand-font', font: settings.type_body_custom_font, part: 'file' %}{%- endcapture -%}
+    {%- capture mono_brand_stack -%}{% render 'brand-font', font: settings.type_mono_custom_font %}{%- endcapture -%}
+    {%- capture mono_brand_file -%}{% render 'brand-font', font: settings.type_mono_custom_font, part: 'file' %}{%- endcapture -%}
     {%- liquid
       assign heading_brand_stack = heading_brand_stack | strip
       assign body_brand_stack = body_brand_stack | strip
       assign heading_brand_file = heading_brand_file | strip
       assign body_brand_file = body_brand_file | strip
+      assign mono_brand_stack = mono_brand_stack | strip
+      assign mono_brand_file = mono_brand_file | strip
+      comment
+        The mono select has no "default" option so the stack always resolves; guard anyway so
+        --font-mono-family never renders blank if the setting value is ever missing or unknown.
+      endcomment
+      if mono_brand_stack == blank
+        assign mono_brand_stack = "'Overpass Mono Custom', 'Courier New', monospace"
+        assign mono_brand_file = 'font-overpass-mono-latin-wght.woff2'
+      endif
     -%}
     {% render 'brand-font-faces' %}
 
@@ -139,6 +151,8 @@
         --font-heading-style: {{ settings.type_header_font.style }};
         --font-heading-weight: {{ settings.type_header_font.weight }};
         {%- endif %}
+
+        --font-mono-family: {{ mono_brand_stack }};
 
         --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
         --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
@@ -355,6 +369,11 @@
         <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
         {% comment %}theme-check-enable AssetPreload{% endcomment %}
       {%- endunless -%}
+    {%- endif -%}
+    {%- if mono_brand_file != blank and mono_brand_file != body_brand_file and mono_brand_file != heading_brand_file -%}
+      {% comment %}theme-check-disable AssetPreload{% endcomment %}
+      <link rel="preload" as="font" href="{{ mono_brand_file | asset_url }}" type="font/woff2" crossorigin>
+      {% comment %}theme-check-enable AssetPreload{% endcomment %}
     {%- endif -%}
 
     {%- if localization.available_countries.size > 1 or localization.available_languages.size > 1 -%}

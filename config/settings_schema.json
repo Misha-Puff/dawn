@@ -195,6 +195,26 @@
         "unit": "%",
         "label": "t:settings_schema.typography.settings.body_scale.label",
         "default": 100
+      },
+      {
+        "type": "select",
+        "id": "type_mono_custom_font",
+        "options": [
+          { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+          { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+          { "value": "inter", "label": "Inter" },
+          { "value": "geist", "label": "Geist" },
+          { "value": "geist_mono", "label": "Geist Mono" },
+          { "value": "overpass", "label": "Overpass" },
+          { "value": "overpass_mono", "label": "Overpass Mono" },
+          { "value": "dm_sans", "label": "DM Sans" },
+          { "value": "dm_mono", "label": "DM Mono" },
+          { "value": "manrope", "label": "Manrope" },
+          { "value": "open_sans", "label": "Open Sans" }
+        ],
+        "default": "overpass_mono",
+        "label": "Mono brand font",
+        "info": "Used for buttons, form labels, badges, and any headings set to Mono"
       }
     ]
   },

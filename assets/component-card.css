@@ -360,10 +360,9 @@
   }
 }
 
-/* Stack matches snippets/brand-font.liquid `overpass_mono`; face is globally declared in brand-font-faces.liquid. */
 .card-redesign .card__heading-row > .price,
 .card-redesign .badge--card {
-  font-family: 'Overpass Mono Custom', 'Courier New', monospace;
+  font-family: var(--font-mono-family);
 }
 
 .card-redesign .badge--card {
