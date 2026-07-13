@@ -114,13 +114,6 @@
     margin-bottom: 0 !important;
   }
 
-  {% if template contains 'product' and section.settings.show_section_tag != '' %}
-    {% unless product.tags contains section.settings.show_section_tag %}
-      .section-{{ section.id }} {
-        display: none;
-      }
-    {% endunless %}
-  {% endif %}
 
   {%- liquid
     assign sw_card_w = section.settings.swatch_card_width | default: 0
@@ -170,6 +163,8 @@
     id="collection-{{ section.id }}"
     data-id="{{ section.id }}"
   >
+    {%- capture tag_gate_selector -%}.section-{{ section.id }}{%- endcapture -%}
+    {% render 'section-tag-gate', tag: section.settings.show_section_tag, hide_selector: tag_gate_selector, product: product %}
     <div class="collection__title title-wrapper title-wrapper--no-top-margin{% if show_desktop_slider %} collection__title--desktop-slider{% endif %} {{ section.settings.heading_alignment }}">
       {%- if section.settings.title != blank -%}
         <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">

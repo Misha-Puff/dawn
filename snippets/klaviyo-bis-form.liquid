@@ -46,10 +46,13 @@
       top: calc(var(--inputs-border-width) + 1px);
     }
 
-    /* Email-capture popup wants a compact sheet, not the full-width size-chart treatment. */
+    /* Email-capture popup wants a compact sheet, not the size-chart treatment (stock rule pins height: 80%). */
     .bis-modal .product-popup-modal__content {
       max-width: 48rem;
       min-height: auto;
+      height: auto;
+      max-height: 85vh;
+      padding: {{ block.settings.bis_padding_top | default: 30 }}px {{ block.settings.bis_padding_right | default: 30 }}px {{ block.settings.bis_padding_bottom | default: 30 }}px {{ block.settings.bis_padding_left | default: 30 }}px;
     }
   </style>
   {%- capture bis_inner -%}
