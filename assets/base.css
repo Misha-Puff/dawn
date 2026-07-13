@@ -1305,8 +1305,10 @@ button.shopify-payment-button__button--unbranded {
 .button-label,
 .shopify-challenge__button,
 .customer button {
-  font-size: 1.3rem;
-  letter-spacing: 0.1rem;
+  font-family: var(--font-mono-family);
+  text-transform: uppercase;
+  font-size: 1.5rem; /* 12px at this store's 8px rem; matches ATC + body */
+  letter-spacing: 0.08em; /* em so tertiary/small buttons track proportionally */
   line-height: calc(1 + 0.2 / var(--font-body-scale));
 }
 
