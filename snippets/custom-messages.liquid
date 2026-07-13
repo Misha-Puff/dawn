@@ -14,24 +14,13 @@
   {% render 'custom-messages', block: block, product: product %}
 {% endcomment %}
 {%- capture cm_messages -%}
-  {%- if block.settings.show_dt -%}
+  {%- comment -%}
+    One flat message for every non-US buyer (Nathan's 2026-07-13 ruling). The hk market's
+    per-country copy (templates/product.context.hk.json on MAIN) is deliberately NOT ported.
+  {%- endcomment -%}
+  {%- if block.settings.show_dt and block.settings.dt_text != blank -%}
     {%- unless localization.country.iso_code == 'US' -%}
-      {%- liquid
-        # The hk market historically swapped D&T copy per country via templates/product.context.hk.json;
-        # that context override targeted the old custom_liquid block id, so the logic lives here now.
-        assign dt_out = block.settings.dt_text
-        if localization.market.handle == 'hk'
-          case localization.country.iso_code
-            when 'JP', 'AU', 'GB', 'DE'
-              assign dt_out = block.settings.dt_text_collect
-            else
-              assign dt_out = block.settings.dt_text_inclusive
-          endcase
-        endif
-      -%}
-      {%- if dt_out != blank -%}
-        <p class="custom-message"{% if block.settings.dt_color != blank %} style="color: {{ block.settings.dt_color }};"{% endif %}>{{ dt_out | escape | newline_to_br }}</p>
-      {%- endif -%}
+      <p class="custom-message"{% if block.settings.dt_color != blank %} style="color: {{ block.settings.dt_color }};"{% endif %}>{{ block.settings.dt_text | escape }}</p>
     {%- endunless -%}
   {%- endif -%}
   {%- if block.settings.show_metafield and product.metafields.product_page.custom_message != blank -%}

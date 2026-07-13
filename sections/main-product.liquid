@@ -2099,8 +2099,6 @@
         {"type": "header", "content": "Duties & taxes", "info": "Shown to non-US visitors."},
         {"type": "checkbox", "id": "show_dt", "default": true, "label": "Show duties & taxes note"},
         {"type": "text", "id": "dt_text", "default": "Duties & taxes not included.", "label": "Text", "visible_if": "{{ block.settings.show_dt }}"},
-        {"type": "text", "id": "dt_text_collect", "default": "Duties & taxes not included and may be collected upon delivery.", "label": "Text — hk market: JP, AU, GB, DE", "visible_if": "{{ block.settings.show_dt }}"},
-        {"type": "textarea", "id": "dt_text_inclusive", "default": "Duty and Tax Inclusive\nTaxes Included.", "label": "Text — hk market: other countries", "visible_if": "{{ block.settings.show_dt }}"},
         {"type": "color", "id": "dt_color", "label": "Color", "info": "Leave blank to inherit", "visible_if": "{{ block.settings.show_dt }}"},
         {"type": "header", "content": "Product custom message", "info": "Prints the product_page.custom_message metafield when set."},
         {"type": "checkbox", "id": "show_metafield", "default": true, "label": "Show custom message metafield"},
