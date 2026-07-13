@@ -63,6 +63,18 @@
     }
   {%- endif -%}
 
+  {%- if section.settings.card_spacing_enable -%}
+    {%- comment -%} Card spacing vars; component-card.css consumes them via var() fallbacks equal to stock. Enable-gated so an explicit 0 is honest (no 0-sentinel here). {%- endcomment -%}
+    #shopify-section-{{ section.id }} {
+      --card-info-padding-top: {{ section.settings.card_info_padding_top }}px;
+      --card-title-price-gap: {{ section.settings.card_title_price_gap }}px;
+      --card-swatch-space: {{ section.settings.card_swatch_space }}px;
+      --card-swatch-gap: {{ section.settings.card_swatch_gap }}px;
+      --card-badge-space: {{ section.settings.card_badge_space }}px;
+      --card-badge-gap: {{ section.settings.card_badge_gap }}px;
+    }
+  {%- endif -%}
+
   {%- liquid
     assign ct_size = section.settings.card_title_size | default: 0
     assign cp_size = section.settings.card_price_size | default: 0
@@ -910,9 +922,87 @@
       "step": 1,
       "unit": "px",
       "label": "Swatch corner radius",
-      "info": "0 = theme default (2px)",
+      "info": "0 = square corners (theme default)",
       "default": 0,
       "visible_if": "{{ section.settings.enable_swatches }}"
+    },
+    {
+      "type": "header",
+      "content": "Card spacing"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_spacing_enable",
+      "default": false,
+      "label": "Customize card spacing",
+      "info": "Defaults below match the theme's stock spacing."
+    },
+    {
+      "type": "range",
+      "id": "card_info_padding_top",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above title row",
+      "default": 7,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "card_title_price_gap",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Title to price gap",
+      "info": "Vertical gap when the price wraps below the title (mobile).",
+      "default": 4,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "card_swatch_space",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above swatches",
+      "default": 8,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "card_swatch_gap",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Gap between swatches",
+      "default": 6,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "card_badge_space",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above badges",
+      "default": 6,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "card_badge_gap",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Gap between badges",
+      "default": 12,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
     },
     {
       "type": "header",

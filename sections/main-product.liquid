@@ -981,6 +981,8 @@
                     {{- custom_liquid_output -}}
                   </div>
                 {%- endif -%}
+              {%- when 'custom_messages' -%}
+                {% render 'custom-messages', block: block, product: product %}
               {%- when 'collapsible_tab' -%}
                 {% unless block.settings.content == null or block.settings.content == '' %}
                   <div class="product__accordion accordion Block-{{ block.id }} quick-add-hidden" {{ block.shopify_attributes }}>
@@ -2090,6 +2092,52 @@
       ]
     },
     {
+      "type": "custom_messages",
+      "name": "Custom Messages",
+      "limit": 1,
+      "settings": [
+        {"type": "header", "content": "Duties & taxes", "info": "Shown to non-US visitors."},
+        {"type": "checkbox", "id": "show_dt", "default": true, "label": "Show duties & taxes note"},
+        {"type": "text", "id": "dt_text", "default": "Duties & taxes not included.", "label": "Text", "visible_if": "{{ block.settings.show_dt }}"},
+        {"type": "text", "id": "dt_text_collect", "default": "Duties & taxes not included and may be collected upon delivery.", "label": "Text — hk market: JP, AU, GB, DE", "visible_if": "{{ block.settings.show_dt }}"},
+        {"type": "textarea", "id": "dt_text_inclusive", "default": "Duty and Tax Inclusive\nTaxes Included.", "label": "Text — hk market: other countries", "visible_if": "{{ block.settings.show_dt }}"},
+        {"type": "color", "id": "dt_color", "label": "Color", "info": "Leave blank to inherit", "visible_if": "{{ block.settings.show_dt }}"},
+        {"type": "header", "content": "Product custom message", "info": "Prints the product_page.custom_message metafield when set."},
+        {"type": "checkbox", "id": "show_metafield", "default": true, "label": "Show custom message metafield"},
+        {"type": "color", "id": "metafield_color", "label": "Color", "info": "Leave blank to inherit", "visible_if": "{{ block.settings.show_metafield }}"},
+        {"type": "header", "content": "Free Adult returns", "info": "Shown on Adult-tagged products; hidden when tagged no-returns."},
+        {"type": "checkbox", "id": "show_adult_returns", "default": true, "label": "Show free Adult returns note"},
+        {"type": "text", "id": "adult_returns_text", "default": "Free returns on domestic Adult orders", "label": "Text", "visible_if": "{{ block.settings.show_adult_returns }}"},
+        {"type": "color", "id": "adult_returns_color", "default": "#0000FF", "label": "Color", "visible_if": "{{ block.settings.show_adult_returns }}"},
+        {"type": "header", "content": "Exclusive", "info": "Driven by the Badge-Exclusive / Badge-Exclusive Collab tags."},
+        {"type": "checkbox", "id": "show_exclusive", "default": true, "label": "Show exclusive note"},
+        {"type": "text", "id": "exclusive_collab_text", "default": "Misha & Puff x Isetan Collaboration", "label": "Collab text", "visible_if": "{{ block.settings.show_exclusive }}"},
+        {"type": "text", "id": "exclusive_text", "default": "This style is exclusive to Misha & Puff", "label": "Exclusive text", "visible_if": "{{ block.settings.show_exclusive }}"},
+        {"type": "color", "id": "exclusive_color", "default": "#0000FF", "label": "Color", "visible_if": "{{ block.settings.show_exclusive }}"},
+        {"type": "header", "content": "Final sale", "info": "Shown on no-returns-tagged products."},
+        {"type": "checkbox", "id": "show_final_sale", "default": true, "label": "Show final sale note"},
+        {"type": "text", "id": "final_sale_text", "default": "Final Sale: This item cannot be exchanged or returned", "label": "Text", "visible_if": "{{ block.settings.show_final_sale }}"},
+        {"type": "color", "id": "final_sale_color", "label": "Color", "info": "Leave blank to inherit", "visible_if": "{{ block.settings.show_final_sale }}"},
+        {"type": "header", "content": "Typography"},
+        {"type": "checkbox", "id": "enable_typography", "default": false, "label": "Enable typography"},
+        {"type": "font_picker", "id": "font_family", "default": "assistant_n4", "label": "Font", "visible_if": "{{ block.settings.enable_typography }}"},
+        {"type": "select", "id": "custom_font_family", "options": [{"value": "default", "label": "None (use font picker)"}, {"value": "ibm_plex_sans", "label": "IBM Plex Sans"}, {"value": "ibm_plex_mono", "label": "IBM Plex Mono"}, {"value": "inter", "label": "Inter"}, {"value": "geist", "label": "Geist"}, {"value": "geist_mono", "label": "Geist Mono"}, {"value": "overpass", "label": "Overpass"}, {"value": "overpass_mono", "label": "Overpass Mono"}, {"value": "dm_sans", "label": "DM Sans"}, {"value": "dm_mono", "label": "DM Mono"}, {"value": "manrope", "label": "Manrope"}, {"value": "open_sans", "label": "Open Sans"}], "default": "default", "label": "Brand font", "info": "Overrides the font picker above when set", "visible_if": "{{ block.settings.enable_typography }}"},
+        {"type": "range", "id": "font_size", "min": 0, "max": 64, "step": 1, "unit": "px", "label": "Font size", "info": "Set to 0 to inherit theme default", "default": 0, "visible_if": "{{ block.settings.enable_typography }}"},
+        {"type": "select", "id": "font_weight", "label": "Font weight", "options": [{"value": "300", "label": "Light"}, {"value": "400", "label": "Regular"}, {"value": "500", "label": "Medium"}, {"value": "600", "label": "Semibold"}, {"value": "700", "label": "Bold"}], "default": "400"},
+        {"type": "range", "id": "line_height", "min": 0, "max": 3, "step": 0.1, "label": "Line height", "info": "Set to 0 to inherit theme default", "default": 0, "visible_if": "{{ block.settings.enable_typography }}"},
+        {"type": "range", "id": "letter_spacing", "min": 0, "max": 0.5, "step": 0.1, "unit": "em", "label": "Letter spacing", "default": 0, "visible_if": "{{ block.settings.enable_typography }}"},
+        {"type": "select", "id": "text_align", "label": "Text alignment", "options": [{"value": "left", "label": "Left"}, {"value": "center", "label": "Center"}, {"value": "right", "label": "Right"}], "default": "left"},
+        {"type": "header", "content": "Padding"},
+        {"type": "checkbox", "id": "enable_padding", "default": false, "label": "Enable padding"},
+        {"type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding top", "default": 0, "visible_if": "{{ block.settings.enable_padding }}"},
+        {"type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding bottom", "default": 0, "visible_if": "{{ block.settings.enable_padding }}"},
+        {"type": "range", "id": "padding_top_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding top", "default": 0, "visible_if": "{{ block.settings.enable_padding }}"},
+        {"type": "range", "id": "padding_bottom_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding bottom", "default": 0, "visible_if": "{{ block.settings.enable_padding }}"},
+        {"type": "range", "id": "padding_left_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding left", "default": 0, "visible_if": "{{ block.settings.enable_padding }}"},
+        {"type": "range", "id": "padding_right_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding right", "default": 0, "visible_if": "{{ block.settings.enable_padding }}"}
+      ]
+    },
+    {
       "type": "collapsible_tab",
       "name": "t:sections.main-product.blocks.collapsible_tab.name",
       "settings": [
@@ -2208,17 +2256,10 @@
       "name": "BIS Form",
       "limit": 1,
       "settings": [
-        {"type": "checkbox", "id": "bis_collapsed", "default": true, "label": "Collapse to a NOTIFY button", "info": "Sold-out state shows only the trigger; clicking reveals the signup form."},
-        {"type": "text", "id": "bis_trigger_label", "default": "NOTIFY", "label": "Trigger label", "visible_if": "{{ block.settings.bis_collapsed }}"},
+        {"type": "paragraph", "content": "Renders as a popup: when the selected variant is sold out, the Add to cart button becomes the Notify trigger."},
+        {"type": "text", "id": "bis_trigger_label", "default": "NOTIFY", "label": "Notify button label"},
         {"type": "text", "id": "bis_title", "default": "Be the first to know.", "label": "Title", "info": "Leave blank to hide"},
         {"type": "textarea", "id": "bis_subtitle", "default": "Sign up for in-stock alerts and we'll notify you if it becomes available or if we make more.", "label": "Subtitle", "info": "Leave blank to hide"},
-        {"type": "header", "content": "Trigger typography", "info": "Default: Overpass Mono 11px uppercase, underlined"},
-        {"type": "select", "id": "bis_trigger_custom_font", "options": [{"value": "default", "label": "Default (Overpass Mono)"}, {"value": "ibm_plex_sans", "label": "IBM Plex Sans"}, {"value": "ibm_plex_mono", "label": "IBM Plex Mono"}, {"value": "inter", "label": "Inter"}, {"value": "geist", "label": "Geist"}, {"value": "geist_mono", "label": "Geist Mono"}, {"value": "overpass", "label": "Overpass"}, {"value": "overpass_mono", "label": "Overpass Mono"}, {"value": "dm_sans", "label": "DM Sans"}, {"value": "dm_mono", "label": "DM Mono"}, {"value": "manrope", "label": "Manrope"}, {"value": "open_sans", "label": "Open Sans"}], "default": "default", "label": "Brand font", "visible_if": "{{ block.settings.bis_collapsed }}"},
-        {"type": "select", "id": "bis_trigger_weight", "options": [{"value": "default", "label": "Theme default"}, {"value": "300", "label": "Light"}, {"value": "400", "label": "Regular"}, {"value": "500", "label": "Medium"}, {"value": "600", "label": "Semibold"}, {"value": "700", "label": "Bold"}], "default": "default", "label": "Font weight", "visible_if": "{{ block.settings.bis_collapsed }}"},
-        {"type": "range", "id": "bis_trigger_size", "min": 0, "max": 24, "step": 1, "unit": "px", "default": 0, "label": "Font size", "info": "0 = default (11px)", "visible_if": "{{ block.settings.bis_collapsed }}"},
-        {"type": "select", "id": "bis_trigger_case", "options": [{"value": "default", "label": "Theme default"}, {"value": "uppercase", "label": "Uppercase"}, {"value": "capitalize", "label": "Capitalize"}, {"value": "lowercase", "label": "Lowercase"}, {"value": "none", "label": "Normal (remove uppercase)"}], "default": "default", "label": "Text case", "visible_if": "{{ block.settings.bis_collapsed }}"},
-        {"type": "range", "id": "bis_trigger_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "default": 0, "label": "Letter spacing", "info": "0 = default", "visible_if": "{{ block.settings.bis_collapsed }}"},
-        {"type": "color", "id": "bis_trigger_color", "label": "Trigger color", "info": "Leave blank for theme default", "visible_if": "{{ block.settings.bis_collapsed }}"},
         {"type": "header", "content": "Padding"},
         {"type": "checkbox", "id": "tg_enable_padding", "default": false, "label": "Enable padding"},
         {"type": "range", "id": "tg_padding_top", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Padding top", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}"},

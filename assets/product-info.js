@@ -200,6 +200,7 @@ if (!customElements.get('product-info')) {
             html.getElementById(`ProductSubmitButton-${this.sectionId}`)?.hasAttribute('disabled') ?? true,
             window.variantStrings.soldOut
           );
+          this.updateBisTrigger(html);
 
           const bisForm = document.querySelector('#bis-form-wrapper');
 
@@ -219,6 +220,23 @@ if (!customElements.get('product-info')) {
             },
           });
         };
+      }
+
+      // Mirrors the server-rendered BIS notify state: buy-buttons.liquid renders sold-out variants as
+      // an enabled data-bis-trigger button when a bis_form block is present (toggleSubmitButton above
+      // has already reset the label to Add to cart / Sold out; this pass overrides for notify mode).
+      updateBisTrigger(html) {
+        const source = html.getElementById(`ProductSubmitButton-${this.sectionId}`);
+        const destination = this.querySelector(`#ProductSubmitButton-${this.dataset.section}`);
+        if (!source || !destination) return;
+        const notify = source.hasAttribute('data-bis-trigger');
+        destination.toggleAttribute('data-bis-trigger', notify);
+        if (notify) {
+          destination.removeAttribute('disabled');
+          const sourceLabel = source.querySelector('span');
+          const destinationLabel = destination.querySelector('span');
+          if (sourceLabel && destinationLabel) destinationLabel.textContent = sourceLabel.textContent;
+        }
       }
 
       updateVariantInputs(variantId) {
@@ -242,6 +260,7 @@ if (!customElements.get('product-info')) {
 
       setUnavailable() {
         this.productForm?.toggleSubmitButton(true, window.variantStrings.unavailable);
+        this.querySelector(`#ProductSubmitButton-${this.dataset.section}`)?.removeAttribute('data-bis-trigger');
 
         const selectors = ['price', 'Inventory', 'Sku', 'Price-Per-Item', 'Volume-Note', 'Volume', 'Quantity-Rules']
           .map((id) => `#${id}-${this.dataset.section}`)

@@ -516,14 +516,6 @@
                 </p>
               {%- endif -%}
 
-              {% render 'card-product-badges',
-                card_product: card_product,
-                preview_badge: preview_badge,
-                hide_sold_out_badge: hide_sold_out_badge,
-                section_id: section_id,
-                card: true
-              %}
-
               {% if show_swatches_availability %}
                 {%- liquid
                   assign swatches_enabled = section.settings.enable_swatches
@@ -533,10 +525,16 @@
                 -%}
                 {% if swatches_enabled %}
                   {% render 'product-sibling-swatches', card_product: card_product, section_id: section_id %}
-                {% else %}
-                  {% render 'variant-availability', product: card_product %}
                 {% endif %}
               {% endif %}
+
+              {% render 'card-product-badges',
+                card_product: card_product,
+                preview_badge: preview_badge,
+                hide_sold_out_badge: hide_sold_out_badge,
+                section_id: section_id,
+                card: true
+              %}
 
               {%- if card_product.quantity_price_breaks_configured? -%}
                 {% if card_product.variants_count == 1 and quick_add == 'bulk' %}

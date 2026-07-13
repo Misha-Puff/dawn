@@ -5,221 +5,201 @@
   endunless
 
   comment
-    Collapsed (default) renders only a NOTIFY trigger; the signup form reveals on click.
-    All copy + trigger typography come from the bis_form block settings (block param).
+    BIS renders as a popup (modal-dialog): the sold-out ATC becomes a "Notify" trigger — see
+    snippets/buy-buttons.liquid (data-bis-trigger button) and product-form.js (submit intercept).
+    Eligibility below must stay in sync with the same rule in buy-buttons.liquid.
   endcomment
-  assign bis_collapsed = true
-  if block.settings.bis_collapsed == false
-    assign bis_collapsed = false
-  endif
+  assign bis_eligible = true
+  unless product.tags contains 'made-to-order' or product.type == 'Yarn Skein'
+    if product.tags contains 'no-returns'
+      assign bis_eligible = false
+    endif
+  endunless
+
   assign bis_title = block.settings.bis_title
   assign bis_subtitle = block.settings.bis_subtitle
-  assign bis_trigger_label = block.settings.bis_trigger_label | default: 'NOTIFY'
 %}
-{% unless product.tags contains 'made-to-order' or product.type == 'Yarn Skein' %}
-  {% if product.tags contains 'no-returns' %}
-    {% style %}
-      #bis-form-wrapper {
-        display: none;
-      }
-    {% endstyle %}
-  {% endif %}
-{% endunless %}
+{%- if bis_eligible -%}
+  <style>
+    #bis-form-wrapper .subtitle {
+      color: black;
+      margin-top: 10px;
+    }
 
-<style>
-  #bis-form-wrapper .subtitle {
-    color: black;
-    margin-top: 10px;
-  }
+    #bis-form-wrapper .title {
+      color: black;
+      font-size: 14px;
+    }
 
-  #bis-form-wrapper .title {
-    color: black;
-    font-size: 14px;
-  }
+    #bis-form-wrapper .field input {
+      height: 40px;
+      font-size: 13px;
+    }
 
-  #bis-form-wrapper .field input {
-    height: 40px;
-    font-size: 13px;
-  }
+    #bis-form-wrapper .field .field__label {
+      top: calc(8px + var(--inputs-border-width));
+    }
 
-  #bis-form-wrapper .field .field__label {
-    top: calc(8px + var(--inputs-border-width));
-  }
+    #bis-form-wrapper .field__input:focus ~ .field__label,
+    #bis-form-wrapper .field__input:not(:placeholder-shown) ~ .field__label,
+    #bis-form-wrapper .field__input:-webkit-autofill ~ .field__label {
+      top: calc(var(--inputs-border-width) + 1px);
+    }
 
-  #bis-form-wrapper .field__input:focus ~ .field__label,
-  #bis-form-wrapper .field__input:not(:placeholder-shown) ~ .field__label,
-  #bis-form-wrapper .field__input:-webkit-autofill ~ .field__label {
-    top: calc(var(--inputs-border-width) + 1px);
-  }
+    /* Email-capture popup wants a compact sheet, not the full-width size-chart treatment. */
+    .bis-modal .product-popup-modal__content {
+      max-width: 48rem;
+      min-height: auto;
+    }
+  </style>
+  {%- capture bis_inner -%}
+    {%- if bis_title != blank -%}
+      <h3 class="title{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ bis_title }}
+      </h3>
+    {%- endif -%}
+    {%- if bis_subtitle != blank -%}
+      <h4 class="subtitle subtitle--small{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ bis_subtitle }}
+      </h4>
+    {%- endif -%}
 
-  /* NOTIFY trigger — matches the underlined mono treatment (Find in Brooklyn, Size Guide, badges). */
-  .bis-disclosure summary {
-    list-style: none;
-    cursor: pointer;
-    display: inline-block;
-    font-family: 'Overpass Mono Custom', 'Courier New', monospace;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.07rem;
-    text-decoration: underline;
-    text-underline-offset: 0.3rem;
-  }
-
-  .bis-disclosure summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .bis-disclosure[open] summary {
-    margin-bottom: 1.2rem;
-  }
-
-  {%- capture bis_trigger_stack -%}{% render 'brand-font', font: block.settings.bis_trigger_custom_font %}{%- endcapture -%}
-  {%- assign bis_trigger_stack = bis_trigger_stack | strip -%}
-  {%- capture bis_trigger_decl -%}
-    {%- if bis_trigger_stack != blank -%}font-family: {{ bis_trigger_stack }};{%- endif -%}
-    {%- if block.settings.bis_trigger_size > 0 -%}font-size: {{ block.settings.bis_trigger_size }}px;{%- endif -%}
-    {%- if block.settings.bis_trigger_weight != 'default' and block.settings.bis_trigger_weight != blank -%}font-weight: {{ block.settings.bis_trigger_weight }};{%- endif -%}
-    {%- if block.settings.bis_trigger_case != 'default' and block.settings.bis_trigger_case != blank -%}text-transform: {{ block.settings.bis_trigger_case }};{%- endif -%}
-    {%- if block.settings.bis_trigger_letter_spacing > 0 -%}letter-spacing: {{ block.settings.bis_trigger_letter_spacing }}px;{%- endif -%}
-    {%- if block.settings.bis_trigger_color != blank -%}color: {{ block.settings.bis_trigger_color }};{%- endif -%}
-  {%- endcapture -%}
-  {%- if bis_trigger_decl != blank %}
-  .bis-disclosure summary { {{ bis_trigger_decl }} }
-  {% endif -%}
-</style>
-{%- capture bis_inner -%}
-  {%- if bis_title != blank -%}
-    <h3 class="title {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-      {{ bis_title }}
-    </h3>
-  {%- endif -%}
-  {%- if bis_subtitle != blank -%}
-    <h4 class="subtitle subtitle--small{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-      {{ bis_subtitle }}
-    </h4>
-  {%- endif -%}
-
-  {%- liquid
-    assign contact_form_class = 'isolate'
-    if settings.animations_reveal_on_scroll
-      assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
-    endif
-  -%}
-  <form id="bis-form" class="{{ contact_form_class }}">
-    <h2 class="form-status success form-status-list form__message" tabindex="-1" autofocus>
-      {{- 'icon-success.svg' | inline_asset_content -}}
-      Thanks! We will notify you when this product becomes available!
-    </h2>
-    <div class="form__message">
-      <h2 class="form-status error caption-large text-body" role="alert" tabindex="-1" autofocus>
-        {{- 'icon-error.svg' | inline_asset_content -}}
-        Uh oh! It looks like something went wrong. Please try again later.
+    {%- liquid
+      assign contact_form_class = 'isolate'
+      if settings.animations_reveal_on_scroll
+        assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
+      endif
+    -%}
+    <form id="bis-form" class="{{ contact_form_class }}">
+      <h2 class="form-status success form-status-list form__message" tabindex="-1" autofocus>
+        {{- 'icon-success.svg' | inline_asset_content -}}
+        Thanks! We will notify you when this product becomes available!
       </h2>
-    </div>
-    <div class="form__fields">
-      <div class="field">
-        <input
-          autocomplete="email"
-          type="email"
-          id="bis-email"
-          class="field__input"
-          spellcheck="false"
-          autocapitalize="off"
-          value="{% if customer %}{{ customer.email }}{% endif %}"
-          aria-required="true"
-          placeholder="{% if customer %}{{ customer.email }}{% else %}Email{% endif %}"
-          required
-        >
-        <label class="field__label" for="bis-email">Email<span aria-hidden="true">*</span></label>
+      <div class="form__message">
+        <h2 class="form-status error caption-large text-body" role="alert" tabindex="-1" autofocus>
+          {{- 'icon-error.svg' | inline_asset_content -}}
+          Uh oh! It looks like something went wrong. Please try again later.
+        </h2>
       </div>
-      <button class="button" id="submit-btn">
-        Notify Me
-        {%- render 'loading-spinner' -%}
+      <div class="form__fields">
+        <div class="field">
+          <input
+            autocomplete="email"
+            type="email"
+            id="bis-email"
+            class="field__input"
+            spellcheck="false"
+            autocapitalize="off"
+            value="{% if customer %}{{ customer.email }}{% endif %}"
+            aria-required="true"
+            placeholder="{% if customer %}{{ customer.email }}{% else %}Email{% endif %}"
+            required
+          >
+          <label class="field__label" for="bis-email">Email<span aria-hidden="true">*</span></label>
+        </div>
+        <button class="button" id="submit-btn">
+          Notify Me
+          {%- render 'loading-spinner' -%}
+        </button>
+      </div>
+    </form>
+  {%- endcapture -%}
+  <modal-dialog
+    id="BisModal-{{ section.id }}"
+    class="product-popup-modal bis-modal"
+    {{ block.shopify_attributes }}
+  >
+    <div
+      role="dialog"
+      aria-label="{{ bis_title | default: 'Back in stock' | escape }}"
+      aria-modal="true"
+      class="product-popup-modal__content color-{{ section.settings.color_scheme }} gradient"
+      tabindex="-1"
+    >
+      <button
+        id="ModalClose-bis-{{ section.id }}"
+        type="button"
+        class="product-popup-modal__toggle"
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        {{- 'icon-close.svg' | inline_asset_content -}}
       </button>
+      <div class="product-popup-modal__content-info">
+        <div id="bis-form-wrapper"{% unless show_bis %} class="hidden"{% endunless %}>
+          {{- bis_inner -}}
+        </div>
+      </div>
     </div>
-  </form>
-{%- endcapture -%}
-<div
-  id="bis-form-wrapper"
-  class="color-{{ section.settings.color_scheme }} gradient{% unless show_bis %} hidden{% endunless %}"
->
-  {%- if bis_collapsed -%}
-    <details class="bis-disclosure">
-      <summary>{{ bis_trigger_label | escape }}</summary>
-      <div class="bis-disclosure__content">{{ bis_inner }}</div>
-    </details>
-  {%- else -%}
-    {{ bis_inner }}
-  {%- endif -%}
-</div>
-<script>
-  const bisForm = document.querySelector('#bis-form');
+  </modal-dialog>
+  <script>
+    const bisForm = document.querySelector('#bis-form');
 
-  if (bisForm) {
-    bisForm.addEventListener('submit', (event) => {
-      event.preventDefault();
+    if (bisForm) {
+      bisForm.addEventListener('submit', (event) => {
+        event.preventDefault();
 
-      const bisForm = document.querySelector('#bis-form');
-      const variantID = document.querySelector('.product-variant-id').value;
+        const bisForm = document.querySelector('#bis-form');
+        const variantID = document.querySelector('.product-variant-id').value;
 
-      const email = bisForm.querySelector('#bis-email').value;
-      const submitBtn = bisForm.querySelector('#submit-btn');
-      const successMessage = bisForm.querySelector('#bis-form .success');
-      const errorMessage = bisForm.querySelector('#bis-form .success');
-      const spinner = submitBtn.querySelector('#bis-form .loading__spinner');
+        const email = bisForm.querySelector('#bis-email').value;
+        const submitBtn = bisForm.querySelector('#submit-btn');
+        const successMessage = bisForm.querySelector('#bis-form .success');
+        const errorMessage = bisForm.querySelector('#bis-form .success');
+        const spinner = submitBtn.querySelector('#bis-form .loading__spinner');
 
-      spinner.classList.remove('hidden');
-      successMessage.style.display = 'none';
-      errorMessage.style.display = 'none';
+        spinner.classList.remove('hidden');
+        successMessage.style.display = 'none';
+        errorMessage.style.display = 'none';
 
-      const requestOptions = {
-        method: 'POST',
-        headers: {
-          accept: 'application/json',
-          'Content-Type': 'application/json',
-          revision: '2024-07-15',
-        },
-        body: JSON.stringify({
-          data: {
-            type: 'back-in-stock-subscription',
-            attributes: {
-              profile: {
-                data: {
-                  type: 'profile',
-                  attributes: {
-                    email,
+        const requestOptions = {
+          method: 'POST',
+          headers: {
+            accept: 'application/json',
+            'Content-Type': 'application/json',
+            revision: '2024-07-15',
+          },
+          body: JSON.stringify({
+            data: {
+              type: 'back-in-stock-subscription',
+              attributes: {
+                profile: {
+                  data: {
+                    type: 'profile',
+                    attributes: {
+                      email,
+                    },
+                  },
+                },
+                channels: ['EMAIL'],
+              },
+              relationships: {
+                variant: {
+                  data: {
+                    type: 'catalog-variant',
+                    id: `$shopify:::$default:::${variantID}`,
                   },
                 },
               },
-              channels: ['EMAIL'],
             },
-            relationships: {
-              variant: {
-                data: {
-                  type: 'catalog-variant',
-                  id: `$shopify:::$default:::${variantID}`,
-                },
-              },
-            },
-          },
-        }),
-      };
+          }),
+        };
 
-      submitBtn.classList.add('loading');
+        submitBtn.classList.add('loading');
 
-      fetch('https://a.klaviyo.com/client/back-in-stock-subscriptions?company_id=H9eAyC', requestOptions)
-        .then((data) => {
-          spinner.classList.add('hidden');
-          submitBtn.classList.remove('loading');
+        fetch('https://a.klaviyo.com/client/back-in-stock-subscriptions?company_id=H9eAyC', requestOptions)
+          .then((data) => {
+            spinner.classList.add('hidden');
+            submitBtn.classList.remove('loading');
 
-          successMessage.style.display = 'block';
-        })
-        .catch((error) => {
-          spinner.classList.add('hidden');
-          submitBtn.classList.remove('loading');
+            successMessage.style.display = 'block';
+          })
+          .catch((error) => {
+            spinner.classList.add('hidden');
+            submitBtn.classList.remove('loading');
 
-          errorMessage.style.display = 'block';
-        });
-    });
-  }
-</script>
+            errorMessage.style.display = 'block';
+          });
+      });
+    }
+  </script>
+{%- endif -%}

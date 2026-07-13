@@ -66,13 +66,32 @@
             if product.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
               assign quantity_rule_soldout = true
             endif
+
+            # Sold-out ATC becomes an enabled "Notify" trigger opening the BIS popup (klaviyo-bis-form
+            # renders the modal; product-form.js intercepts the submit). Eligibility mirrors that snippet.
+            assign bis_block = section.blocks | where: 'type', 'bis_form' | first
+            assign bis_notify = false
+            if bis_block and product.selected_or_first_available_variant != null
+              if product.selected_or_first_available_variant.available == false or quantity_rule_soldout
+                assign bis_notify = true
+                unless product.tags contains 'made-to-order' or product.type == 'Yarn Skein'
+                  if product.tags contains 'no-returns'
+                    assign bis_notify = false
+                  endif
+                endunless
+              endif
+            endif
+            assign bis_notify_label = bis_block.settings.bis_trigger_label | default: 'NOTIFY'
           -%}
           <button
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
             class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
-            {% if product.selected_or_first_available_variant.available == false
+            {% if bis_notify %}
+              data-bis-trigger
+              aria-haspopup="dialog"
+            {% elsif product.selected_or_first_available_variant.available == false
               or quantity_rule_soldout
               or product.selected_or_first_available_variant == null
             %}
@@ -82,6 +101,8 @@
             <span>
               {%- if product.selected_or_first_available_variant == null -%}
                 {{ 'products.product.unavailable' | t }}
+              {%- elsif bis_notify -%}
+                {{ bis_notify_label | escape }}
               {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
                 {{ 'products.product.sold_out' | t }}
               {%- elsif product.tags contains 'Badge-Preorder' -%}

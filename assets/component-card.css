@@ -136,7 +136,7 @@
 
 .card__information {
   grid-row-start: 2;
-  padding: 0.7rem 1rem;
+  padding: var(--card-info-padding-top, 0.7rem) 1rem 0.7rem;
 }
 
 .card:not(.ratio) > .card__content {
@@ -316,7 +316,7 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 0.4rem 1rem;
+  gap: var(--card-title-price-gap, 0.4rem) 1rem;
   flex-wrap: wrap;
 }
 
@@ -713,8 +713,8 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.6rem;
-  margin-top: 0.8rem;
+  gap: var(--card-swatch-gap, 0.6rem);
+  margin-top: var(--card-swatch-space, 0.8rem);
 }
 
 .card__swatch {
@@ -728,8 +728,8 @@
 .card__swatch .swatch {
   --swatch--size: var(--swatch-card-width, 2rem);
   --swatch--height: var(--swatch-card-height, auto);
-  /* Inner fallback mirrors .swatch--square (card chips are always square-shaped). */
-  --swatch--border-radius: var(--swatch-card-radius, var(--swatch-input--border-radius, 0.2rem));
+  /* Card chips default to hard corners; swatch_card_radius > 0 re-rounds them. */
+  --swatch--border-radius: var(--swatch-card-radius, 0);
 }
 
 .card__swatch--current {
@@ -748,8 +748,8 @@
 .card__badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem 1.2rem;
-  margin-top: 0.6rem;
+  gap: 0.4rem var(--card-badge-gap, 1.2rem);
+  margin-top: var(--card-badge-space, 0.6rem);
   text-align: var(--text-alignment);
 }
 
