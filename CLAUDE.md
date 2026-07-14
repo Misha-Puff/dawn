@@ -59,7 +59,9 @@ The theme includes page builder integrations that are **excluded from Theme Chec
 - Gempages: `layout/theme.gempages.*.liquid`, `sections/gp-*.liquid`
 - Shogun: `layout/theme.shogun.*.liquid`, `sections/shogun-*.liquid`, `snippets/shogun-*.liquid`
 
-**IMPORTANT:** Never index, read, or write to any file whose name contains `gem`, `gempages`, `shogun`, `gp-`, `shogun-`, or `gem-`. These files are managed solely by the Shogun and Gempages apps.
+**IMPORTANT:** Never **write, edit, rename, or delete** any file whose name contains `gem`, `gempages`, `shogun`, `gp-`, `shogun-`, or `gem-`. These files are managed solely by the Shogun and Gempages apps.
+
+**Campaign-port exception (read-only):** during a campaign port (see `~/.claude/plans/campaign-port-workflow.md`), Gempages files (`gem`, `gempages`, `gem-`, `gp-`) MAY be read as reference — to extract copy, asset URLs, product handles, and layout intent. Never copy their markup/CSS/JS into native files; never lint, reformat, or push them. Shogun files stay fully off-limits: no read, no write.
 
 ### Custom Elements / JavaScript Pattern
 
