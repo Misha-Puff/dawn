@@ -136,6 +136,8 @@
   margin-bottom: 0;
   text-transform: uppercase;
   font-size: 1.3rem;
+  font-family: var(--font-mono-family);
+  letter-spacing: 0.08em;
 }
 
 .facets__disclosure[id*='SortBy'] .facets__display {
@@ -898,6 +900,13 @@ a.active-facets__button.focused .active-facets__button-inner {
 
 .mobile-facets__open-label {
   transition: text-decoration var(--duration-short) ease;
+}
+
+@media screen and (min-width: 750px) {
+  /* Desktop FILTER matches SORT's 1.3rem (Nathan's ruling: Sort's size, Filter's font) */
+  .mobile-facets__open-label.button-label {
+    font-size: 1.3rem;
+  }
 }
 
 .mobile-facets__open:hover .mobile-facets__open-label {
