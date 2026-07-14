@@ -239,9 +239,9 @@
             "bis_title": "",
             "bis_subtitle": "We’ll notify you if this item becomes available or we make more.",
             "bis_padding_top": 20,
-            "bis_padding_right": 20,
-            "bis_padding_bottom": 20,
-            "bis_padding_left": 20,
+            "bis_padding_right": 30,
+            "bis_padding_bottom": 38,
+            "bis_padding_left": 30,
             "tg_enable_padding": false,
             "tg_padding_top": 0,
             "tg_padding_bottom": 0
