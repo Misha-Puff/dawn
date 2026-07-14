@@ -1,0 +1,31 @@
+/* Popup typography pass (deck 7.10 "pop-ups audit"): pin app-rendered popup
+   surfaces to the theme type system (Inter body / Overpass Mono prices).
+   Audited 2026-07-14 on dev theme: BIS modal, quick-add modal, size overlay,
+   Shop-the-Look popup and Swym surfaces are already on-system — only the
+   surfaces below ship their own font stacks.
+
+   Loaded globally from layout/theme.liquid (these surfaces appear on any page).
+   !important is required: both apps inline their font styles. */
+
+/* Klaviyo signup forms (popup + embeds) — heading/button ship as Arial/Helvetica.
+   Font family only: sizes, colors and spacing stay dashboard-controlled. */
+.klaviyo-form,
+.klaviyo-form * {
+  font-family: var(--font-body-family) !important;
+}
+
+/* Rebuy Smart Cart — the flyout root/title inherit Inter, but inner copy and
+   buttons fall back to plain Arial. */
+.rebuy-cart,
+.rebuy-cart button,
+.rebuy-cart input,
+.rebuy-cart p,
+.rebuy-cart span,
+.rebuy-cart a {
+  font-family: var(--font-body-family) !important;
+}
+
+/* Cart prices follow the storewide mono price treatment (cards/PDP/wishlist). */
+.rebuy-cart .rebuy-money {
+  font-family: var(--font-mono-family) !important;
+}
