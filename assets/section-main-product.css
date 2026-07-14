@@ -488,8 +488,8 @@ a.product__text {
   }
 
   .product__media-wrapper slider-component:not(.thumbnail-slider--no-slide) {
-    margin-left: calc(var(--page-width-padding) * -1);
-    margin-right: calc(var(--page-width-padding) * -1);
+    margin-left: calc(var(--mobile-page-width-padding) * -1);
+    margin-right: calc(var(--mobile-page-width-padding) * -1);
   }
 
   .slider.product__media-list::-webkit-scrollbar {

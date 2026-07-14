@@ -29,6 +29,8 @@
     assign iwt_content_max = section.settings.content_max_width | default: 0
     assign iwt_content_px = section.settings.content_padding_x | default: 0
     assign iwt_content_py = section.settings.content_padding_y | default: 0
+    assign iwt_content_px_m = section.settings.content_padding_x_mobile | default: 0
+    assign iwt_content_py_m = section.settings.content_padding_y_mobile | default: 0
   -%}
   {%- if section.settings.enable_mobile_padding -%}
     @media screen and (max-width: 749px) {
@@ -74,9 +76,19 @@
     }
   {%- endif -%}
   {%- if iwt_content_px > 0 or iwt_content_py > 0 -%}
-    #ImageWithText--{{ section.id }} {
-      {%- if iwt_content_py > 0 %} padding-top: {{ iwt_content_py }}px; padding-bottom: {{ iwt_content_py }}px;{% endif -%}
-      {%- if iwt_content_px > 0 %} padding-left: {{ iwt_content_px }}px; padding-right: {{ iwt_content_px }}px;{% endif -%}
+    @media screen and (min-width: 750px) {
+      #ImageWithText--{{ section.id }} {
+        {%- if iwt_content_py > 0 %} padding-top: {{ iwt_content_py }}px; padding-bottom: {{ iwt_content_py }}px;{% endif -%}
+        {%- if iwt_content_px > 0 %} padding-left: {{ iwt_content_px }}px; padding-right: {{ iwt_content_px }}px;{% endif -%}
+      }
+    }
+  {%- endif -%}
+  {%- if iwt_content_px_m > 0 or iwt_content_py_m > 0 -%}
+    @media screen and (max-width: 749px) {
+      #ImageWithText--{{ section.id }} {
+        {%- if iwt_content_py_m > 0 %} padding-top: {{ iwt_content_py_m }}px; padding-bottom: {{ iwt_content_py_m }}px;{% endif -%}
+        {%- if iwt_content_px_m > 0 %} padding-left: {{ iwt_content_px_m }}px; padding-right: {{ iwt_content_px_m }}px;{% endif -%}
+      }
     }
   {%- endif -%}
 {%- endstyle -%}
@@ -174,7 +186,7 @@
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }}">
   {%- capture tag_gate_selector -%}.section-{{ section.id }}-padding{%- endcapture -%}
   {% render 'section-tag-gate', tag: section.settings.show_section_tag, hide_selector: tag_gate_selector, product: product %}
-  <div class="page-width">
+  <div class="{% if section.settings.full_width %}image-with-text--full-width{% else %}page-width{% endif %}">
     <div class="image-with-text image-with-text--{{ section.settings.content_layout }} isolate{% if settings.text_boxes_border_thickness > 0 and settings.text_boxes_border_opacity > 0 and settings.media_border_thickness > 0 and settings.media_border_opacity > 0 %} collapse-borders{% endif %}{% unless section.settings.color_scheme == section.settings.section_color_scheme and settings.media_border_thickness > 0 and settings.text_boxes_shadow_opacity == 0 and settings.text_boxes_border_thickness == 0 or settings.text_boxes_border_opacity == 0 %} collapse-corners{% endunless %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       <div class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %}{% if section.settings.layout == 'text_first' %} image-with-text__grid--reverse{% endif %}">
         <div class="image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} image-with-text__media-item--{{ section.settings.desktop_content_position }} grid__item">
@@ -394,6 +406,13 @@
       "default": 0
     },
     {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make section full width",
+      "info": "Removes the side page padding so the image can run edge to edge",
+      "default": false
+    },
+    {
       "type": "select",
       "id": "layout",
       "options": [
@@ -540,6 +559,28 @@
       "unit": "px",
       "label": "Content vertical padding",
       "info": "0 = theme default",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "content_padding_x_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Content horizontal padding (mobile)",
+      "info": "0 = no extra padding",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "content_padding_y_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Content vertical padding (mobile)",
+      "info": "0 = no extra padding",
       "default": 0
     },
     {
