@@ -220,7 +220,7 @@
         "show_vendor": false,
         "show_rating": false,
         "show_size_overlay": true,
-        "enable_swatches": false,
+        "enable_swatches": true,
         "swatch_card_width": 0,
         "swatch_card_height": 0,
         "swatch_card_radius": 0,
