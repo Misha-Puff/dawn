@@ -100,7 +100,8 @@
                   spellcheck="false"
                 {%- endif -%}
               >
-              <label class="field__label" for="Search-In-Template">{{ 'general.search.search' | t }}</label>
+              {%- comment -%} visually-hidden per Nathan's ruling (matches the header search modal) — placeholder + aria carry the affordance. {%- endcomment -%}
+              <label class="field__label visually-hidden" for="Search-In-Template">{{ 'general.search.search' | t }}</label>
               <input name="options[prefix]" type="hidden" value="last">
 
               {%- if settings.predictive_search_enabled -%}
