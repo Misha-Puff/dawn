@@ -333,7 +333,15 @@
 /* Compare-at strike follows the card price control (component-price.css sets 1.3rem directly, bypassing .price). */
 .card__heading-row > .price--on-sale .price-item--regular {
   font-size: var(--card-price-size, 1.3rem);
-  margin-right: 0.4rem; /* stock 1rem from component-price.css; a word-space of template whitespace remains */
+  margin-right: 0.8rem; /* the full struck→sale gap (stock 1rem + a word-space); exact because of the flex rule below */
+}
+
+/* Flex drops the whitespace text node between the prices (a mono word-space, ~8px in Overpass Mono —
+   wider than the margin itself), so the gap above is exact; baseline keeps the mixed sizes aligned.
+   Stock component-price.css already declares flex-direction/flex-wrap on .price__sale expecting flex. */
+.card__heading-row > .price--on-sale .price__sale {
+  display: inline-flex;
+  align-items: baseline;
 }
 
 /* Redesigned card treatment — .card-redesign on the card-list wrapper of the carousels, the
