@@ -103,14 +103,16 @@
     assign cp_ls = section.settings.card_price_letter_spacing | default: 0
     assign cb_ls = section.settings.card_badge_letter_spacing | default: 0
     assign cp_col = section.settings.card_price_color
+    assign cp_gap = section.settings.card_sale_price_gap | default: 0
   -%}
-  {%- if ct_size > 0 or cp_size > 0 or cb_size > 0 or ca_size > 0 -%}
+  {%- if ct_size > 0 or cp_size > 0 or cb_size > 0 or ca_size > 0 or cp_gap > 0 -%}
     {%- comment -%} Card typography size vars; component-card.css consumes them via var() fallbacks equal to stock. {%- endcomment -%}
     #shopify-section-{{ section.id }} {
       {%- if ct_size > 0 %} --card-title-size: {{ ct_size }}px;{% endif -%}
       {%- if cp_size > 0 %} --card-price-size: {{ cp_size }}px;{% endif -%}
       {%- if cb_size > 0 %} --card-badge-size: {{ cb_size }}px;{% endif -%}
       {%- if ca_size > 0 %} --card-availability-size: {{ ca_size }}px;{% endif -%}
+      {%- if cp_gap > 0 %} --card-sale-price-gap: {{ cp_gap }}px;{% endif -%}
     }
   {%- endif -%}
   {%- comment -%} Weights emitted directly (tg_ precedent): ID scope beats base.css heading/badge rules; zero CSS at defaults. {%- endcomment -%}
@@ -1302,6 +1304,17 @@
       "id": "card_price_color",
       "label": "Price color",
       "info": "Leave blank for the theme default. Applies to sale and struck compare-at prices too."
+    },
+    {
+      "type": "range",
+      "id": "card_sale_price_gap",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Sale price gap",
+      "info": "Space between the struck-out compare-at price and the sale price. 0 = theme default (6px)",
+      "default": 0
     },
     {
       "type": "range",

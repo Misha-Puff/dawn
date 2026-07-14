@@ -333,7 +333,8 @@
 /* Compare-at strike follows the card price control (component-price.css sets 1.3rem directly, bypassing .price). */
 .card__heading-row > .price--on-sale .price-item--regular {
   font-size: var(--card-price-size, 1.3rem);
-  margin-right: 0.8rem; /* the full struck→sale gap (stock 1rem + a word-space); exact because of the flex rule below */
+  /* The full struck→sale gap (stock was 1rem + a word-space); exact because of the flex rule below. */
+  margin-right: var(--card-sale-price-gap, 0.8rem);
 }
 
 /* Flex drops the whitespace text node between the prices (a mono word-space, ~8px in Overpass Mono —
@@ -369,14 +370,15 @@
   min-width: 0;
 }
 
-/* Desktop no-wrap (2026-07-14 ruling): title + price always share the row — the title shrinks
-   and ellipsizes instead of the price wrapping below. */
+/* Desktop no-wrap (2026-07-14 ruling, amended): title + price share the row — the title shrinks
+   and ellipsizes instead of the price wrapping below. The 10ch flex-basis is the title's floor:
+   under flex-wrap: nowrap, wide-currency sale pairs (e.g. "DA 7,400.00 DZD" ×2) crushed the title
+   to nothing. The row keeps its base flex-wrap: wrap, but line-breaking uses the 10ch basis — the
+   title then grows into all leftover space (and ellipsizes), so normal cards render exactly as
+   nowrap did; the price wraps below only once the title would drop under ~10 characters. */
 @media screen and (min-width: 750px) {
-  .card-redesign .card__heading-row {
-    flex-wrap: nowrap;
-  }
   .card-redesign .card__heading-row > .card__heading {
-    flex: 1 1 auto;
+    flex: 1 1 10ch;
     min-width: 0; /* narrower than its text → shrinks + ellipsizes */
   }
 }
