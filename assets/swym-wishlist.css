@@ -17,8 +17,9 @@
   bottom: 0;
   left: 0;
   z-index: -1;
-  background-color: #000;
-  opacity: calc(85 / 100);
+  /* Match the theme's modal scrim (quick-add / size-chart popups) instead of near-black. */
+  background-color: rgb(var(--color-foreground));
+  opacity: 0.2;
 }
 
 #swymcs-wishlist-modal-container {
@@ -122,10 +123,12 @@ select.swym-mutliple-list {
 }
 
 .swymcs-wishlist-title {
-  color: black;
+  color: rgb(var(--color-foreground));
   font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
   padding: 10px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(var(--color-foreground));
 }
 
 .swymcs-hide {
@@ -203,6 +206,7 @@ select.swym-mutliple-list {
   object-fit: cover;
 }
 
+/* Item tiles follow the collection-card system: 12px Inter titles, 12px mono prices. */
 .swymcs-wishlistplus-item-content {
   padding-top: 7px;
   font-size: 12px;
@@ -210,18 +214,20 @@ select.swym-mutliple-list {
 
 .swymcs-wishlistplus-item-content .swymcs-wishlistplus-item-title {
   text-decoration: none;
-  color: black;
-  font-weight: 500;
+  color: rgb(var(--color-foreground));
+  font-weight: 400;
 }
 
 .swymcs-product-price {
-  color: black;
+  color: rgb(var(--color-foreground));
+  font-family: var(--font-mono-family);
+  font-size: 12px;
   margin-bottom: 10px;
 }
 
 .swymcs-product-price-compare {
   text-decoration: line-through;
-  color: black;
+  color: rgb(var(--color-foreground));
   margin-right: 1rem;
 }
 

@@ -50,3 +50,16 @@ span.swym-variant-selector-status svg path {
   content: 'My Wishlist(s)';
   visibility: visible;
 }
+
+/* Swym ships its own font stack; pin the popup to the theme's type system.
+   Prices inside the popup follow the storewide mono price treatment. */
+.swym-ui-component,
+.swym-collections-variant-popup-parent,
+.swym-collections-variant-popup-parent * {
+  font-family: var(--font-body-family) !important;
+}
+
+.swym-ui-component .swym-price,
+.swym-collections-variant-popup-parent .swym-price {
+  font-family: var(--font-mono-family) !important;
+}
