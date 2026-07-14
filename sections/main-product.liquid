@@ -191,7 +191,7 @@
       Mobile slider controls (prev/next arrows + "1 / 5" counter under the gallery, ≤749px).
       #GalleryViewer is the gallery's <slider-component> (product-media-gallery.liquid) and
       contains only the main media list plus this control row, so these rules can't reach the
-      pair-it-with block's .slider-buttons, the thumbnail-rail buttons, or the other
+      pair-from-outfits block's .slider-buttons, the thumbnail-rail buttons, or the other
       component-slider.css consumers. ID+class specificity beats .caption (base.css). px units
       throughout — Dawn's rem root is 62.5% × body_scale, so rem values would drift with scale.
     {%- endcomment -%}
@@ -345,9 +345,6 @@
               #{{ tg_scope }} .Block-{{ block.id }} .price, #{{ tg_scope }} .Block-{{ block.id }} .price-item { {{ tg_typedecl }} }
             {%- when 'badges' -%}
               #{{ tg_scope }} .Block-{{ block.id }} .badge { {{ tg_typedecl }} }
-            {%- when 'pair_it_with' -%}
-              {%- comment -%} Heading only — the generic else branch would restyle the product-card text inside the block. {%- endcomment -%}
-              #{{ tg_scope }} .Block-{{ block.id }} .pair-it-with__heading { {{ tg_typedecl }} }
             {%- when 'collapsible_tab' -%}
               {%- comment -%} Heading only — the accordion body keeps theme styling. {%- endcomment -%}
               #{{ tg_scope }} .Block-{{ block.id }} .accordion__title { {{ tg_typedecl }} }
@@ -1471,77 +1468,6 @@
                     <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
                   {%- endif -%}
                 </product-recommendations>
-              {%- when 'pair_it_with' -%}
-                {%- liquid
-                  assign pair_products = product.metafields.product_page.pair_it_with.value
-                  assign pair_limit = block.settings.product_list_limit
-                  assign pair_rendered = 0
-                  if block.settings.enable_quick_add
-                    assign pair_quick_add = 'standard'
-                  else
-                    assign pair_quick_add = 'none'
-                  endif
-                  assign skip_pair_card_styles = false
-                -%}
-                {%- capture pair_cards -%}
-                  {%- for pair_product in pair_products -%}
-                    {%- if pair_product.id == product.id -%}
-                      {%- continue -%}
-                    {%- endif -%}
-                    {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: pair_product -%}{%- endcapture -%}
-                    {%- assign lock_content = lock_content | strip -%}
-                    {%- if lock_content == 'true' -%}
-                      {%- continue -%}
-                    {%- endif -%}
-                    {%- if pair_rendered >= pair_limit -%}
-                      {%- break -%}
-                    {%- endif -%}
-                    {%- assign pair_rendered = pair_rendered | plus: 1 -%}
-                    <li>
-                      {% render 'card-product',
-                        card_product: pair_product,
-                        media_aspect_ratio: block.settings.image_ratio,
-                        show_secondary_image: false,
-                        lazy_load: false,
-                        skip_styles: skip_pair_card_styles,
-                        quick_add: pair_quick_add,
-                        section_id: section.id,
-                        horizontal_class: true,
-                        horizontal_quick_add: true,
-                        hide_color_suffix: true
-                      %}
-                    </li>
-                    {%- assign skip_pair_card_styles = true -%}
-                  {%- endfor -%}
-                {%- endcapture -%}
-                {%- if pair_rendered > 0 -%}
-                  <aside
-                    class="pair-it-with complementary-products card-redesign Block-{{ block.id }} quick-add-hidden{% if block.settings.enable_quick_add %} complementary-products-contains-quick-add{% endif %}"
-                    aria-label="{{ block.settings.block_heading | escape }}"
-                    {{ block.shopify_attributes }}
-                  >
-                    <div class="complementary-products__container">
-                      <div class="summary__title">
-                        <h2 class="h3 accordion__title pair-it-with__heading">{{ block.settings.block_heading }}</h2>
-                      </div>
-                      <div class="complementary-slide complementary-slide--{{ settings.card_style }}">
-                        <ul class="list-unstyled" role="list">
-                          {{ pair_cards }}
-                        </ul>
-                      </div>
-                    </div>
-                  </aside>
-                  {{ 'component-card.css' | asset_url | stylesheet_tag }}
-                  {{ 'component-complementary-products.css' | asset_url | stylesheet_tag }}
-                  {%- if block.settings.enable_quick_add -%}
-                    {{ 'quick-add.css' | asset_url | stylesheet_tag }}
-                    <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
-                  {%- endif -%}
-                {%- elsif request.design_mode -%}
-                  <div class="pair-it-with Block-{{ block.id }}" {{ block.shopify_attributes }}>
-                    <p class="caption">Pair it with: no products to show — add products to this product's "Pair it with" (product_page.pair_it_with) metafield.</p>
-                  </div>
-                {%- endif -%}
               {%- when 'pair_from_outfits' -%}
                 {% render 'pair-from-outfits', block: block, product: product, section: section %}
               {%- when 'icon-with-text' -%}
@@ -1797,35 +1723,6 @@
         {"type": "checkbox", "id": "tg_enable_padding", "default": false, "label": "Enable padding"},
         {"type": "range", "id": "tg_padding_top", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Padding top", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}"},
         {"type": "range", "id": "tg_padding_bottom", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Padding bottom", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}"}
-      ]
-    },
-    {
-      "type": "pair_it_with",
-      "name": "Pair It With",
-      "limit": 1,
-      "settings": [
-        {"type": "paragraph", "content": "Shows a curated list of products from this product's \"Pair it with\" (product_page.pair_it_with) metafield as compact horizontal cards. Renders nothing when the metafield is empty."},
-        {"type": "text", "id": "block_heading", "default": "Pair it with", "label": "Heading"},
-        {"type": "range", "id": "product_list_limit", "min": 1, "max": 10, "step": 1, "default": 4, "label": "t:sections.main-product.blocks.complementary_products.settings.product_list_limit.label"},
-        {"type": "select", "id": "image_ratio", "options": [{"value": "portrait", "label": "t:sections.main-product.blocks.complementary_products.settings.image_ratio.options.option_1"}, {"value": "square", "label": "t:sections.main-product.blocks.complementary_products.settings.image_ratio.options.option_2"}], "label": "t:sections.main-product.blocks.complementary_products.settings.image_ratio.label", "default": "square"},
-        {"type": "checkbox", "id": "enable_quick_add", "label": "t:sections.main-product.blocks.complementary_products.settings.enable_quick_add.label", "default": false},
-        {"type": "header", "content": "Typography"},
-        {"type": "checkbox", "id": "tg_enable_type", "default": false, "label": "Enable typography"},
-        {"type": "font_picker", "id": "tg_font", "default": "assistant_n4", "label": "Font", "visible_if": "{{ block.settings.tg_enable_type }}"},
-        {"type": "select", "id": "tg_custom_font", "options": [{"value": "default", "label": "None (use font picker)"}, {"value": "ibm_plex_sans", "label": "IBM Plex Sans"}, {"value": "ibm_plex_mono", "label": "IBM Plex Mono"}, {"value": "inter", "label": "Inter"}, {"value": "geist", "label": "Geist"}, {"value": "geist_mono", "label": "Geist Mono"}, {"value": "overpass", "label": "Overpass"}, {"value": "overpass_mono", "label": "Overpass Mono"}, {"value": "dm_sans", "label": "DM Sans"}, {"value": "dm_mono", "label": "DM Mono"}, {"value": "manrope", "label": "Manrope"}, {"value": "open_sans", "label": "Open Sans"}], "default": "default", "label": "Brand font", "info": "Overrides the font picker above when set", "visible_if": "{{ block.settings.tg_enable_type }}"},
-        {"type": "select", "id": "tg_font_weight", "options": [{"value": "default", "label": "Theme default"}, {"value": "300", "label": "Light"}, {"value": "400", "label": "Regular"}, {"value": "500", "label": "Medium"}, {"value": "600", "label": "Semibold"}, {"value": "700", "label": "Bold"}], "default": "default", "label": "Font weight", "visible_if": "{{ block.settings.tg_enable_type }}"},
-        {"type": "range", "id": "tg_font_size", "min": 0, "max": 72, "step": 1, "unit": "px", "label": "Font size", "info": "0 = theme default", "default": 0, "visible_if": "{{ block.settings.tg_enable_type }}"},
-        {"type": "range", "id": "tg_line_height", "min": 0, "max": 250, "step": 5, "unit": "%", "label": "Line height", "info": "0 = theme default", "default": 0, "visible_if": "{{ block.settings.tg_enable_type }}"},
-        {"type": "select", "id": "tg_text_case", "options": [{"value": "default", "label": "Theme default"}, {"value": "uppercase", "label": "Uppercase"}, {"value": "capitalize", "label": "Capitalize"}, {"value": "lowercase", "label": "Lowercase"}, {"value": "none", "label": "Normal (remove uppercase)"}], "default": "default", "label": "Text case", "visible_if": "{{ block.settings.tg_enable_type }}"},
-        {"type": "range", "id": "tg_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Letter spacing", "info": "0 = theme default", "default": 0, "visible_if": "{{ block.settings.tg_enable_type }}"},
-        {"type": "header", "content": "Padding"},
-        {"type": "checkbox", "id": "tg_enable_padding", "default": false, "label": "Enable padding"},
-        {"type": "range", "id": "tg_padding_top", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Padding top", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}"},
-        {"type": "range", "id": "tg_padding_bottom", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Padding bottom", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}"},
-        {"type": "range", "id": "tg_padding_top_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding top", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}"},
-        {"type": "range", "id": "tg_padding_bottom_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding bottom", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}"},
-        {"type": "range", "id": "tg_padding_left_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding left", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}"},
-        {"type": "range", "id": "tg_padding_right_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding right", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}"}
       ]
     },
     {

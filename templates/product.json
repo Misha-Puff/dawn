@@ -336,30 +336,6 @@
             "tg_padding_right_mobile": 0
           }
         },
-        "pair_it_with_mpQ7Fk": {
-          "type": "pair_it_with",
-          "settings": {
-            "block_heading": "PAIR IT WITH",
-            "product_list_limit": 4,
-            "image_ratio": "portrait",
-            "enable_quick_add": false,
-            "tg_enable_type": true,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "overpass_mono",
-            "tg_font_weight": "400",
-            "tg_font_size": 11,
-            "tg_line_height": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_enable_padding": false,
-            "tg_padding_top": 0,
-            "tg_padding_bottom": 0,
-            "tg_padding_top_mobile": 0,
-            "tg_padding_bottom_mobile": 0,
-            "tg_padding_left_mobile": 0,
-            "tg_padding_right_mobile": 0
-          }
-        },
         "pair_from_outfits_stl": {
           "type": "pair_from_outfits",
           "settings": {
@@ -411,7 +387,6 @@
         "multi_location_inv_location_inventory_qT7XKi",
         "collapsible_tab_JNhcga",
         "collapsible-row-0",
-        "pair_it_with_mpQ7Fk",
         "wishlist_plus_wishlist_pdp_button_NBkk6K",
         "pair_from_outfits_stl"
       ],
