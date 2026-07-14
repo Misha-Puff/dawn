@@ -100,11 +100,11 @@
             "metafield_color": "",
             "show_adult_returns": true,
             "adult_returns_text": "Free returns on domestic Adult orders",
-            "adult_returns_color": "#0000FF",
+            "adult_returns_color": "#0000ff",
             "show_exclusive": true,
             "exclusive_collab_text": "Misha & Puff x Isetan Collaboration",
             "exclusive_text": "This style is exclusive to Misha & Puff",
-            "exclusive_color": "#0000FF",
+            "exclusive_color": "#0000ff",
             "show_final_sale": true,
             "final_sale_text": "Final Sale: This item cannot be exchanged or returned",
             "final_sale_color": "",
@@ -235,6 +235,13 @@
         "bis_form_iQ4kYG": {
           "type": "bis_form",
           "settings": {
+            "bis_trigger_label": "NOTIFY",
+            "bis_title": "Be the first to know.",
+            "bis_subtitle": "Sign up for in-stock alerts and we'll notify you if it becomes available or if we make more.",
+            "bis_padding_top": 30,
+            "bis_padding_right": 30,
+            "bis_padding_bottom": 30,
+            "bis_padding_left": 30,
             "tg_enable_padding": false,
             "tg_padding_top": 0,
             "tg_padding_bottom": 0
@@ -340,7 +347,17 @@
             "tg_font": "assistant_n4",
             "tg_custom_font": "overpass_mono",
             "tg_font_weight": "400",
-            "tg_font_size": 11
+            "tg_font_size": 11,
+            "tg_line_height": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0,
+            "tg_padding_top_mobile": 0,
+            "tg_padding_bottom_mobile": 0,
+            "tg_padding_left_mobile": 0,
+            "tg_padding_right_mobile": 0
           }
         },
         "wishlist_plus_wishlist_pdp_button_NBkk6K": {
@@ -416,6 +433,8 @@
         "mcc_gap": 0,
         "mcc_margin_top": 0,
         "mcc_margin_bottom": 16,
+        "rv_card_swatches": true,
+        "rv_card_size_overlay": true,
         "media_position": "left",
         "image_zoom": "none",
         "hide_variants": true,
@@ -452,10 +471,14 @@
             "tg_font_size": 12,
             "tg_line_height": 150,
             "tg_text_case": "default",
-            "tg_letter_spacing": 1,
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1A1A1A",
+            "tg_font_size_mobile": 0,
             "tg_enable_padding": true,
             "tg_padding_top": 0,
-            "tg_padding_bottom": 0
+            "tg_padding_bottom": 0,
+            "tg_padding_top_mobile": 0,
+            "tg_padding_bottom_mobile": 0
           }
         }
       },
@@ -466,17 +489,27 @@
       "settings": {
         "image": "shopify://shop_images/MP_SP26_Kids_Look_142_4939_Denim_7c68dd83-5150-4d74-a9c8-dfbf2d0f37bd.jpg",
         "height": "adapt",
+        "custom_height": 0,
+        "image_radius": 0,
         "desktop_image_width": "medium",
+        "image_width_custom": 40,
+        "column_gap": 0,
         "layout": "image_first",
         "image_behavior": "none",
         "content_layout": "no-overlap",
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
+        "content_max_width": 0,
+        "content_padding_x": 60,
+        "content_padding_y": 0,
         "section_color_scheme": "",
         "color_scheme": "",
-        "padding_top": 60,
-        "padding_bottom": 60,
+        "padding_top": 0,
+        "padding_bottom": 80,
+        "enable_mobile_padding": true,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 60,
         "show_section_tag": "denim"
       }
     },
@@ -496,9 +529,13 @@
             "tg_line_height": 0,
             "tg_text_case": "default",
             "tg_letter_spacing": 0,
+            "tg_color": "",
+            "tg_font_size_mobile": 0,
             "tg_enable_padding": false,
             "tg_padding_top": 0,
-            "tg_padding_bottom": 0
+            "tg_padding_bottom": 0,
+            "tg_padding_top_mobile": 0,
+            "tg_padding_bottom_mobile": 0
           }
         }
       },
@@ -510,17 +547,27 @@
       "settings": {
         "image": "shopify://shop_images/bluestack_web.jpg",
         "height": "adapt",
+        "custom_height": 0,
+        "image_radius": 0,
         "desktop_image_width": "small",
+        "image_width_custom": 0,
+        "column_gap": 0,
         "layout": "text_first",
         "image_behavior": "none",
         "content_layout": "no-overlap",
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
+        "content_max_width": 0,
+        "content_padding_x": 0,
+        "content_padding_y": 0,
         "section_color_scheme": "",
         "color_scheme": "",
         "padding_top": 60,
         "padding_bottom": 24,
+        "enable_mobile_padding": false,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
         "show_section_tag": "ocean-space-dye"
       }
     },
@@ -540,9 +587,13 @@
             "tg_line_height": 0,
             "tg_text_case": "default",
             "tg_letter_spacing": 0,
+            "tg_color": "",
+            "tg_font_size_mobile": 0,
             "tg_enable_padding": false,
             "tg_padding_top": 0,
-            "tg_padding_bottom": 0
+            "tg_padding_bottom": 0,
+            "tg_padding_top_mobile": 0,
+            "tg_padding_bottom_mobile": 0
           }
         }
       },
@@ -554,17 +605,27 @@
       "settings": {
         "image": "shopify://shop_images/fig_variation_web.jpg",
         "height": "adapt",
+        "custom_height": 0,
+        "image_radius": 0,
         "desktop_image_width": "small",
+        "image_width_custom": 0,
+        "column_gap": 0,
         "layout": "text_first",
         "image_behavior": "none",
         "content_layout": "no-overlap",
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
+        "content_max_width": 0,
+        "content_padding_x": 0,
+        "content_padding_y": 0,
         "section_color_scheme": "",
         "color_scheme": "",
         "padding_top": 36,
         "padding_bottom": 36,
+        "enable_mobile_padding": false,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
         "show_section_tag": "fig-wool"
       }
     },
@@ -584,9 +645,13 @@
             "tg_line_height": 0,
             "tg_text_case": "default",
             "tg_letter_spacing": 0,
+            "tg_color": "",
+            "tg_font_size_mobile": 0,
             "tg_enable_padding": false,
             "tg_padding_top": 0,
-            "tg_padding_bottom": 0
+            "tg_padding_bottom": 0,
+            "tg_padding_top_mobile": 0,
+            "tg_padding_bottom_mobile": 0
           }
         }
       },
@@ -598,17 +663,27 @@
       "settings": {
         "image": "shopify://shop_images/MP_SP25_Prism.jpg",
         "height": "adapt",
+        "custom_height": 0,
+        "image_radius": 0,
         "desktop_image_width": "small",
+        "image_width_custom": 0,
+        "column_gap": 0,
         "layout": "text_first",
         "image_behavior": "none",
         "content_layout": "no-overlap",
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
+        "content_max_width": 0,
+        "content_padding_x": 0,
+        "content_padding_y": 0,
         "section_color_scheme": "",
         "color_scheme": "",
         "padding_top": 60,
         "padding_bottom": 24,
+        "enable_mobile_padding": false,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
         "show_section_tag": "prism-group"
       }
     },
@@ -628,9 +703,13 @@
             "tg_line_height": 0,
             "tg_text_case": "default",
             "tg_letter_spacing": 0,
+            "tg_color": "",
+            "tg_font_size_mobile": 0,
             "tg_enable_padding": false,
             "tg_padding_top": 0,
-            "tg_padding_bottom": 0
+            "tg_padding_bottom": 0,
+            "tg_padding_top_mobile": 0,
+            "tg_padding_bottom_mobile": 0
           }
         }
       },
@@ -642,18 +721,53 @@
       "settings": {
         "image": "shopify://shop_images/MP_SP25_PrismSpaceDye.jpg",
         "height": "adapt",
+        "custom_height": 0,
+        "image_radius": 0,
         "desktop_image_width": "small",
+        "image_width_custom": 0,
+        "column_gap": 0,
         "layout": "text_first",
         "image_behavior": "none",
         "content_layout": "no-overlap",
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
+        "content_max_width": 0,
+        "content_padding_x": 0,
+        "content_padding_y": 0,
         "section_color_scheme": "",
         "color_scheme": "",
         "padding_top": 36,
         "padding_bottom": 36,
+        "enable_mobile_padding": false,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
         "show_section_tag": "prism-space-dye"
+      }
+    },
+    "17224329362434f250": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_k9GUKa": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "hide_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_k9GUKa"
+      ],
+      "custom_css": [
+        ".jdgm-rev-widg {border: none; padding-top: 20px; padding-bottom: 20px;}",
+        ".jdgm-rev-widg__title {font-size: 15px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.5px;}",
+        ".jdgm-rev-widg__summary-text {font-size: 12px;}"
+      ],
+      "settings": {
+        "include_margins": true
       }
     },
     "metafield_product_slider_bbMG9V": {
@@ -692,6 +806,11 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "show_size_overlay": true,
+        "enable_swatches": true,
+        "swatch_card_width": 0,
+        "swatch_card_height": 0,
+        "swatch_card_radius": 0,
         "columns_mobile": "2",
         "swipe_on_mobile": true,
         "desktop_padding_top": 20,
@@ -740,6 +859,11 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "show_size_overlay": true,
+        "enable_swatches": true,
+        "swatch_card_width": 0,
+        "swatch_card_height": 0,
+        "swatch_card_radius": 0,
         "columns_mobile": "2",
         "swipe_on_mobile": true,
         "desktop_padding_top": 52,
@@ -818,6 +942,11 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "show_size_overlay": true,
+        "enable_swatches": true,
+        "swatch_card_width": 0,
+        "swatch_card_height": 0,
+        "swatch_card_radius": 0,
         "columns_mobile": "2",
         "swipe_on_mobile": true,
         "desktop_padding_top": 52,
@@ -845,6 +974,11 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": true,
+        "show_size_overlay": true,
+        "enable_swatches": true,
+        "swatch_card_width": 0,
+        "swatch_card_height": 0,
+        "swatch_card_radius": 0,
         "padding_top": 36,
         "padding_bottom": 28
       }
@@ -852,6 +986,9 @@
     "recently_viewed_slider_QcHtbc": {
       "type": "recently-viewed-slider",
       "settings": {
+        "swatch_card_width": 0,
+        "swatch_card_height": 0,
+        "swatch_card_radius": 0,
         "title": "RECENTLY VIEWED",
         "heading_alignment": "left",
         "heading_size": "h1",
@@ -874,31 +1011,6 @@
         "mobile_padding_bottom": 20,
         "mobile_padding_left": 12,
         "mobile_padding_right": 12
-      }
-    },
-    "17224329362434f250": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_k9GUKa": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "hide_widget"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_k9GUKa"
-      ],
-      "custom_css": [
-        ".jdgm-rev-widg {border: none; padding-top: 20px; padding-bottom: 20px;}",
-        ".jdgm-rev-widg__title {font-size: 15px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.5px;}",
-        ".jdgm-rev-widg__summary-text {font-size: 12px;}"
-      ],
-      "settings": {
-        "include_margins": true
       }
     }
   },
