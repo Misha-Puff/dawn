@@ -75,6 +75,20 @@
     }
   {%- endif -%}
 
+  {%- if section.settings.card_spacing_enable_mobile -%}
+    {%- comment -%} Mobile card spacing vars; same specificity as the desktop block above, later in source + media query, so they win under 750px. Independent of the desktop gate: when off, mobile inherits desktop values (or stock). {%- endcomment -%}
+    @media screen and (max-width: 749px) {
+      #shopify-section-{{ section.id }} {
+        --card-info-padding-top: {{ section.settings.card_info_padding_top_mobile }}px;
+        --card-title-price-gap: {{ section.settings.card_title_price_gap_mobile }}px;
+        --card-swatch-space: {{ section.settings.card_swatch_space_mobile }}px;
+        --card-swatch-gap: {{ section.settings.card_swatch_gap_mobile }}px;
+        --card-badge-space: {{ section.settings.card_badge_space_mobile }}px;
+        --card-badge-gap: {{ section.settings.card_badge_gap_mobile }}px;
+      }
+    }
+  {%- endif -%}
+
   {%- liquid
     assign ct_size = section.settings.card_title_size | default: 0
     assign cp_size = section.settings.card_price_size | default: 0
@@ -86,6 +100,7 @@
     assign ca_w = section.settings.card_availability_weight | default: 'default'
     assign ct_case = section.settings.card_title_case | default: 'default'
     assign ct_ls = section.settings.card_title_letter_spacing | default: 0
+    assign cp_ls = section.settings.card_price_letter_spacing | default: 0
   -%}
   {%- if ct_size > 0 or cp_size > 0 or cb_size > 0 or ca_size > 0 -%}
     {%- comment -%} Card typography size vars; component-card.css consumes them via var() fallbacks equal to stock. {%- endcomment -%}
@@ -115,6 +130,47 @@
       {%- if ct_case != 'default' %} text-transform: {{ ct_case }};{% endif -%}
       {%- if ct_ls > 0 %} letter-spacing: {{ ct_ls }}px;{% endif -%}
     }
+  {%- endif -%}
+  {%- if cp_ls > 0 -%}
+    #shopify-section-{{ section.id }} .card__heading-row > .price { letter-spacing: {{ cp_ls }}px; }
+  {%- endif -%}
+
+  {%- liquid
+    assign so_bg = section.settings.size_overlay_bg_color
+    assign so_op = section.settings.size_overlay_opacity | default: 60
+    assign so_pos = section.settings.size_overlay_position | default: 'bottom'
+    assign so_pt = section.settings.size_overlay_padding_top | default: 8
+    assign so_pb = section.settings.size_overlay_padding_bottom | default: 16
+  -%}
+  {%- if section.settings.show_size_overlay -%}
+    {%- comment -%} Size-overlay styling emitted directly (weight precedent): ID scope beats component-card.css; zero CSS at defaults. Stock: bottom-anchored, translateY(100%) off-canvas, rgba(bg, 0.6), padding 1rem 1rem 2rem. {%- endcomment -%}
+    {%- if so_bg != blank or so_op != 60 -%}
+      #shopify-section-{{ section.id }} .popup-overlay.background {
+        {%- if so_bg != blank -%}
+          background-color: rgba({{ so_bg.red }}, {{ so_bg.green }}, {{ so_bg.blue }}, {{ so_op | divided_by: 100.0 }});
+        {%- else -%}
+          background-color: rgba(var(--color-background), {{ so_op | divided_by: 100.0 }});
+        {%- endif -%}
+      }
+    {%- endif -%}
+    {%- if so_pos != 'bottom' or so_pt != 8 or so_pb != 16 -%}
+      #shopify-section-{{ section.id }} .popup-overlay {
+        {%- if so_pt != 8 %} padding-top: {{ so_pt }}px;{% endif -%}
+        {%- if so_pb != 16 %} padding-bottom: {{ so_pb }}px;{% endif -%}
+        {%- if so_pos == 'top' %} bottom: auto; top: 0; transform: translateY(-100%);{% endif -%}
+        {%- if so_pos == 'center' %} bottom: auto; top: 50%; transform: translateY(-50%); opacity: 0; pointer-events: none; transition: opacity var(--duration-default);{% endif -%}
+      }
+      {%- comment -%} This ID-scoped base rule (1,1,0) outranks the stock hover reveal .card-wrapper:hover .popup-overlay (0,3,0), so the hover state must be re-emitted ID-scoped. For center, transform is deliberately NOT re-emitted: the base rule beating stock hover's translateY(0) is what holds the overlay at -50% on hover. {%- endcomment -%}
+      {%- if so_pos == 'top' -%}
+        @media only screen and (min-width: 1100px) {
+          #shopify-section-{{ section.id }} .card-wrapper:hover .popup-overlay { transform: translateY(0); }
+        }
+      {%- elsif so_pos == 'center' -%}
+        @media only screen and (min-width: 1100px) {
+          #shopify-section-{{ section.id }} .card-wrapper:hover .popup-overlay { opacity: 1; }
+        }
+      {%- endif -%}
+    {%- endif -%}
   {%- endif -%}
 
   @media screen and (max-width: 1099px) {
@@ -897,6 +953,62 @@
       "label": "Show size availability on hover (desktop)"
     },
     {
+      "type": "color",
+      "id": "size_overlay_bg_color",
+      "label": "Size overlay background color",
+      "info": "Leave blank to follow the card color scheme background.",
+      "visible_if": "{{ section.settings.show_size_overlay }}"
+    },
+    {
+      "type": "range",
+      "id": "size_overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Size overlay background opacity",
+      "info": "Theme default: 60%.",
+      "default": 60,
+      "visible_if": "{{ section.settings.show_size_overlay }}"
+    },
+    {
+      "type": "select",
+      "id": "size_overlay_position",
+      "options": [
+        { "value": "bottom", "label": "Bottom (theme default)" },
+        { "value": "center", "label": "Center" },
+        { "value": "top", "label": "Top" }
+      ],
+      "default": "bottom",
+      "label": "Size overlay position",
+      "info": "Top and bottom slide in on hover; center fades in.",
+      "visible_if": "{{ section.settings.show_size_overlay }}"
+    },
+    {
+      "type": "range",
+      "id": "size_overlay_padding_top",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Size overlay padding top",
+      "info": "Theme default: 8px.",
+      "default": 8,
+      "visible_if": "{{ section.settings.show_size_overlay }}"
+    },
+    {
+      "type": "range",
+      "id": "size_overlay_padding_bottom",
+      "min": 0,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "label": "Size overlay padding bottom",
+      "info": "Theme default: 16px.",
+      "default": 16,
+      "visible_if": "{{ section.settings.show_size_overlay }}"
+    },
+    {
       "type": "checkbox",
       "id": "enable_swatches",
       "default": true,
@@ -1017,6 +1129,79 @@
       "visible_if": "{{ section.settings.card_spacing_enable }}"
     },
     {
+      "type": "checkbox",
+      "id": "card_spacing_enable_mobile",
+      "default": false,
+      "label": "Customize card spacing (mobile)",
+      "info": "Overrides the values above on screens under 750px. When off, mobile uses the desktop values."
+    },
+    {
+      "type": "range",
+      "id": "card_info_padding_top_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above title row (mobile)",
+      "default": 7,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "card_title_price_gap_mobile",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Title to price gap (mobile)",
+      "default": 4,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "card_swatch_space_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above swatches (mobile)",
+      "default": 8,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "card_swatch_gap_mobile",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Gap between swatches (mobile)",
+      "default": 6,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "card_badge_space_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above badges (mobile)",
+      "default": 6,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "card_badge_gap_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Gap between badges (mobile)",
+      "default": 12,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
       "type": "header",
       "content": "Card typography"
     },
@@ -1092,6 +1277,17 @@
       ],
       "default": "default",
       "label": "Price weight"
+    },
+    {
+      "type": "range",
+      "id": "card_price_letter_spacing",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Price letter spacing",
+      "info": "0 = theme default",
+      "default": 0
     },
     {
       "type": "range",
