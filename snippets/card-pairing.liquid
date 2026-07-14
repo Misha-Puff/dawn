@@ -1,0 +1,51 @@
+{% comment %}
+  Renders a minimal product pairing card: image, title, color line, price.
+  Deliberately lighter than card-product — no badges, swatches, ratings, or
+  quick-add. Used by the Pair It With (Outfits) PDP block and the
+  Shop-the-Look collection tile popup.
+
+  Accepts:
+  - pairing_product: {Object} Product Liquid object (required)
+  - image_ratio: {String} 'portrait' or 'square' (optional, defaults to 'portrait')
+  - show_color_line: {Boolean} Show the first Color option value under the title (optional)
+  - modifier: {String} BEM modifier appended as card-pairing--<modifier>, e.g. 'row' (optional)
+
+  Usage:
+  {% render 'card-pairing', pairing_product: product, image_ratio: 'portrait', show_color_line: true %}
+{% endcomment %}
+{%- liquid
+  assign pairing_ratio = image_ratio | default: 'portrait'
+  assign pairing_media = pairing_product.featured_media
+-%}
+<div class="card-pairing{% if modifier != blank %} card-pairing--{{ modifier }}{% endif %}">
+  <a href="{{ pairing_product.url }}" class="card-pairing__link full-unstyled-link">
+    <div class="card-pairing__media card-pairing__media--{{ pairing_ratio }}">
+      {%- if pairing_media != null -%}
+        <img
+          srcset="
+            {%- if pairing_media.width >= 165 -%}{{ pairing_media | image_url: width: 165 }} 165w,{%- endif -%}
+            {%- if pairing_media.width >= 360 -%}{{ pairing_media | image_url: width: 360 }} 360w,{%- endif -%}
+            {%- if pairing_media.width >= 533 -%}{{ pairing_media | image_url: width: 533 }} 533w,{%- endif -%}
+            {%- if pairing_media.width >= 720 -%}{{ pairing_media | image_url: width: 720 }} 720w,{%- endif -%}
+            {{ pairing_media | image_url }} {{ pairing_media.width }}w
+          "
+          src="{{ pairing_media | image_url: width: 360 }}"
+          sizes="(min-width: 990px) 20vw, 45vw"
+          alt="{{ pairing_media.alt | escape }}"
+          loading="lazy"
+          width="{{ pairing_media.width }}"
+          height="{{ pairing_media.height }}"
+        >
+      {%- endif -%}
+    </div>
+    <div class="card-pairing__info">
+      <p class="card-pairing__title">{{ pairing_product.title | escape }}</p>
+      {%- if show_color_line and pairing_product.options[0] == 'Color' -%}
+        <p class="card-pairing__color">{{ pairing_product.selected_or_first_available_variant.options[0] }}</p>
+      {%- endif -%}
+      <div class="card-pairing__price">
+        {%- render 'price', product: pairing_product -%}
+      </div>
+    </div>
+  </a>
+</div>

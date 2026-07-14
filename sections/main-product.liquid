@@ -1542,6 +1542,8 @@
                     <p class="caption">Pair it with: no products to show — add products to this product's "Pair it with" (product_page.pair_it_with) metafield.</p>
                   </div>
                 {%- endif -%}
+              {%- when 'pair_from_outfits' -%}
+                {% render 'pair-from-outfits', block: block, product: product, section: section %}
               {%- when 'icon-with-text' -%}
                 {%- if block.settings.tg_enable_padding -%}<div class="Block-{{ block.id }}">{%- endif -%}
                 {% render 'icon-with-text', block: block %}
@@ -1824,6 +1826,19 @@
         {"type": "range", "id": "tg_padding_bottom_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding bottom", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}"},
         {"type": "range", "id": "tg_padding_left_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding left", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}"},
         {"type": "range", "id": "tg_padding_right_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding right", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}"}
+      ]
+    },
+    {
+      "type": "pair_from_outfits",
+      "name": "Pair It With (Outfits)",
+      "limit": 1,
+      "settings": [
+        {"type": "paragraph", "content": "Shows products from every Shop-the-Look outfit this product belongs to (product_page.shop_the_look_outfits), deduped, as a small slider. Renders nothing when the product is in no outfits."},
+        {"type": "text", "id": "block_heading", "default": "Pair it with", "label": "Heading"},
+        {"type": "range", "id": "max_products", "min": 2, "max": 12, "step": 1, "default": 8, "label": "Maximum products"},
+        {"type": "range", "id": "columns_desktop", "min": 2, "max": 4, "step": 1, "default": 3, "label": "Columns on desktop"},
+        {"type": "select", "id": "image_ratio", "options": [{"value": "portrait", "label": "t:sections.main-product.blocks.complementary_products.settings.image_ratio.options.option_1"}, {"value": "square", "label": "t:sections.main-product.blocks.complementary_products.settings.image_ratio.options.option_2"}], "default": "portrait", "label": "t:sections.main-product.blocks.complementary_products.settings.image_ratio.label"},
+        {"type": "checkbox", "id": "show_color_line", "default": true, "label": "Show color name"}
       ]
     },
     {

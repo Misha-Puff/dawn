@@ -1,0 +1,81 @@
+/* Minimal pairing card (snippets/card-pairing.liquid) — shared by the
+   Pair It With (Outfits) PDP block and the Shop-the-Look tile popup. */
+
+.card-pairing {
+  text-align: left;
+}
+
+.card-pairing__link {
+  display: block;
+}
+
+.card-pairing__media {
+  position: relative;
+  overflow: hidden;
+  background: rgba(var(--color-foreground), 0.04);
+}
+
+.card-pairing__media--portrait {
+  aspect-ratio: 2 / 3;
+}
+
+.card-pairing__media--square {
+  aspect-ratio: 1 / 1;
+}
+
+.card-pairing__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-pairing__info {
+  padding-top: 0.8rem;
+}
+
+.card-pairing__title {
+  margin: 0;
+  font-family: var(--font-body-family);
+  font-size: 1.3rem;
+  line-height: 1.3;
+  color: rgb(var(--color-foreground));
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.card-pairing__color {
+  margin: 0.2rem 0 0;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  color: rgba(var(--color-foreground), 0.7);
+}
+
+.card-pairing__price {
+  margin-top: 0.4rem;
+}
+
+.card-pairing__price .price {
+  font-family: var(--font-mono-family);
+  font-size: 1.2rem;
+}
+
+/* Row layout — image beside text, used inside the Shop-the-Look popup. */
+.card-pairing--row .card-pairing__link {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.card-pairing--row .card-pairing__media {
+  flex: 0 0 7rem;
+  width: 7rem;
+}
+
+.card-pairing--row .card-pairing__info {
+  padding-top: 0;
+  min-width: 0;
+}

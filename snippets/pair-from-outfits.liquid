@@ -1,0 +1,109 @@
+{% comment %}
+  Renders the "Pair It With (Outfits)" product-info block: every product from
+  every Shop-the-Look outfit this product belongs to
+  (product_page.shop_the_look_outfits), current product excluded, deduped,
+  Locksmith-guarded, capped at the block's maximum — as a slider of minimal
+  pairing cards. Renders nothing when no products resolve (design-mode hint only).
+
+  Accepts:
+  - block: {Object} the pair_from_outfits block
+  - product: {Object} current product
+  - section: {Object} the main product section
+
+  Usage:
+  {% render 'pair-from-outfits', block: block, product: product, section: section %}
+{% endcomment %}
+{%- liquid
+  assign outfits = product.metafields.product_page.shop_the_look_outfits.value
+  assign pair_max = block.settings.max_products
+  assign pair_cols = block.settings.columns_desktop
+  assign seen_ids = ','
+  assign pair_shown = 0
+-%}
+{%- capture pair_items -%}
+  {%- for outfit in outfits -%}
+    {%- for pair_product in outfit.products.value -%}
+      {%- if pair_shown >= pair_max -%}
+        {%- break -%}
+      {%- endif -%}
+      {%- if pair_product.id == product.id -%}
+        {%- continue -%}
+      {%- endif -%}
+      {%- comment -%} Comma-delimited id keys so id 123 never substring-matches id 1234. {%- endcomment -%}
+      {%- assign pair_id_key = ',' | append: pair_product.id | append: ',' -%}
+      {%- if seen_ids contains pair_id_key -%}
+        {%- continue -%}
+      {%- endif -%}
+      {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: pair_product -%}{%- endcapture -%}
+      {%- assign lock_content = lock_content | strip -%}
+      {%- if lock_content == 'true' -%}
+        {%- continue -%}
+      {%- endif -%}
+      {%- assign seen_ids = seen_ids | append: pair_product.id | append: ',' -%}
+      {%- assign pair_shown = pair_shown | plus: 1 -%}
+      <li id="Slide-{{ block.id }}-{{ pair_shown }}" class="pair-outfits__item grid__item slider__slide">
+        {% render 'card-pairing',
+          pairing_product: pair_product,
+          image_ratio: block.settings.image_ratio,
+          show_color_line: block.settings.show_color_line
+        %}
+      </li>
+    {%- endfor -%}
+    {%- if pair_shown >= pair_max -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- if pair_shown > 0 -%}
+  {{ 'component-slider.css' | asset_url | stylesheet_tag }}
+  {{ 'component-price.css' | asset_url | stylesheet_tag }}
+  {{ 'component-card-pairing.css' | asset_url | stylesheet_tag }}
+  {{ 'component-pair-outfits.css' | asset_url | stylesheet_tag }}
+  <aside
+    class="pair-outfits pair-outfits--cols-{{ pair_cols }} Block-{{ block.id }}"
+    aria-label="{{ block.settings.block_heading | escape }}"
+    {{ block.shopify_attributes }}
+  >
+    <h2 class="h3 pair-outfits__heading">{{ block.settings.block_heading }}</h2>
+    <slider-component class="slider-mobile-gutter">
+      <ul
+        id="Slider-{{ block.id }}"
+        class="pair-outfits__grid grid grid--1-col slider slider--everywhere"
+        role="list"
+      >
+        {{ pair_items }}
+      </ul>
+      {%- if pair_shown > pair_cols -%}
+        <div class="slider-buttons">
+          <button
+            type="button"
+            class="slider-button slider-button--prev"
+            name="previous"
+            aria-label="{{ 'general.slider.previous_slide' | t }}"
+          >
+            <span class="svg-wrapper">
+              {{- 'icon-caret.svg' | inline_asset_content -}}
+            </span>
+          </button>
+          <button
+            type="button"
+            class="slider-button slider-button--next"
+            name="next"
+            aria-label="{{ 'general.slider.next_slide' | t }}"
+          >
+            <span class="svg-wrapper">
+              {{- 'icon-caret.svg' | inline_asset_content -}}
+            </span>
+          </button>
+        </div>
+      {%- endif -%}
+    </slider-component>
+  </aside>
+{%- elsif request.design_mode -%}
+  <div class="pair-outfits Block-{{ block.id }}" {{ block.shopify_attributes }}>
+    <p class="caption">
+      Pair It With (Outfits): no products to show — this product isn't in any Shop-the-Look outfit
+      (product_page.shop_the_look_outfits), or every outfit product is the current product, a duplicate, or locked.
+    </p>
+  </div>
+{%- endif -%}

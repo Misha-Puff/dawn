@@ -360,6 +360,16 @@
             "tg_padding_right_mobile": 0
           }
         },
+        "pair_from_outfits_stl": {
+          "type": "pair_from_outfits",
+          "settings": {
+            "block_heading": "PAIR IT WITH",
+            "max_products": 8,
+            "columns_desktop": 3,
+            "image_ratio": "portrait",
+            "show_color_line": true
+          }
+        },
         "wishlist_plus_wishlist_pdp_button_NBkk6K": {
           "type": "shopify://apps/wishlist-plus/blocks/wishlist-pdp-button/80c3b1fc-3a8f-407e-8367-ffdeebb8b612",
           "settings": {
@@ -402,7 +412,8 @@
         "collapsible_tab_JNhcga",
         "collapsible-row-0",
         "pair_it_with_mpQ7Fk",
-        "wishlist_plus_wishlist_pdp_button_NBkk6K"
+        "wishlist_plus_wishlist_pdp_button_NBkk6K",
+        "pair_from_outfits_stl"
       ],
       "custom_css": [
         ".custom-message,[data-modal=\"#PopupModal-duties-taxes\"] {margin: 0;}",

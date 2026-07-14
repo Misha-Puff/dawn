@@ -1,0 +1,47 @@
+/* Pair It With (Outfits) PDP block (snippets/pair-from-outfits.liquid). */
+
+.pair-outfits {
+  display: block;
+  margin: 2.4rem 0 0;
+}
+
+.pair-outfits__heading {
+  margin: 0 0 1.2rem;
+}
+
+.pair-outfits__grid {
+  padding: 0;
+  list-style: none;
+}
+
+/* Mobile: 2-across peek slider. */
+.pair-outfits .pair-outfits__grid > .pair-outfits__item {
+  width: calc(50% - var(--grid-mobile-horizontal-spacing) / 2);
+  max-width: calc(50% - var(--grid-mobile-horizontal-spacing) / 2);
+  flex-shrink: 0;
+}
+
+/* Desktop: width per the block's columns setting. */
+@media screen and (min-width: 990px) {
+  .pair-outfits--cols-2 .pair-outfits__grid > .pair-outfits__item {
+    width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+    max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+
+  .pair-outfits--cols-3 .pair-outfits__grid > .pair-outfits__item {
+    width: calc(100% / 3 - var(--grid-desktop-horizontal-spacing) * 2 / 3);
+    max-width: calc(100% / 3 - var(--grid-desktop-horizontal-spacing) * 2 / 3);
+  }
+
+  .pair-outfits--cols-4 .pair-outfits__grid > .pair-outfits__item {
+    width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+    max-width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+  }
+}
+
+.pair-outfits .slider-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
