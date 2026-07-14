@@ -234,7 +234,7 @@
         "card_title_size": 11,
         "card_title_weight": "default",
         "card_title_case": "uppercase",
-        "card_title_letter_spacing": 0,
+        "card_title_letter_spacing": 0.1,
         "card_price_size": 11,
         "card_price_weight": "default",
         "card_badge_size": 0,
@@ -247,7 +247,7 @@
         "filter_type": "drawer",
         "enable_sorting": true,
         "padding_top": 0,
-        "padding_bottom": 36
+        "padding_bottom": 40
       }
     },
     "shogun-below": {
