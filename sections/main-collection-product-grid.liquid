@@ -101,6 +101,7 @@
     assign ct_case = section.settings.card_title_case | default: 'default'
     assign ct_ls = section.settings.card_title_letter_spacing | default: 0
     assign cp_ls = section.settings.card_price_letter_spacing | default: 0
+    assign cb_ls = section.settings.card_badge_letter_spacing | default: 0
     assign cp_col = section.settings.card_price_color
   -%}
   {%- if ct_size > 0 or cp_size > 0 or cb_size > 0 or ca_size > 0 -%}
@@ -119,8 +120,11 @@
   {%- if cp_w != 'default' -%}
     #shopify-section-{{ section.id }} .card__heading-row > .price { font-weight: {{ cp_w }}; }
   {%- endif -%}
-  {%- if cb_w != 'default' -%}
-    #shopify-section-{{ section.id }} .badge--card { font-weight: {{ cb_w }}; }
+  {%- if cb_w != 'default' or cb_ls > 0 -%}
+    #shopify-section-{{ section.id }} .badge--card {
+      {%- if cb_w != 'default' %} font-weight: {{ cb_w }};{% endif -%}
+      {%- if cb_ls > 0 %} letter-spacing: {{ cb_ls }}px;{% endif -%}
+    }
   {%- endif -%}
   {%- if ca_w != 'default' -%}
     #shopify-section-{{ section.id }} .variant-availability span,
@@ -1323,6 +1327,17 @@
       ],
       "default": "default",
       "label": "Badge weight"
+    },
+    {
+      "type": "range",
+      "id": "card_badge_letter_spacing",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Badge letter spacing",
+      "info": "0 = theme default",
+      "default": 0
     },
     {
       "type": "range",

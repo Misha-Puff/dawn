@@ -333,6 +333,7 @@
 /* Compare-at strike follows the card price control (component-price.css sets 1.3rem directly, bypassing .price). */
 .card__heading-row > .price--on-sale .price-item--regular {
   font-size: var(--card-price-size, 1.3rem);
+  margin-right: 0.4rem; /* stock 1rem from component-price.css; a word-space of template whitespace remains */
 }
 
 /* Redesigned card treatment — .card-redesign on the card-list wrapper of the carousels, the
