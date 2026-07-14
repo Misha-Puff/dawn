@@ -353,6 +353,13 @@
   text-overflow: ellipsis;
 }
 
+/* .card__information is a grid item of .card__content: with min-width: auto its automatic
+   minimum tracks the nowrap title's min-content, so an over-long title escapes the card
+   (overlapping the neighbor) instead of ellipsizing. */
+.card-redesign .product-card-wrapper .card__information {
+  min-width: 0;
+}
+
 /* Desktop wrap-then-truncate: title + price share the row when they fit; otherwise the price
    wraps below (the row has flex-wrap). Only a title wider than the card alone truncates. */
 @media screen and (min-width: 750px) {
