@@ -360,12 +360,15 @@
   min-width: 0;
 }
 
-/* Desktop wrap-then-truncate: title + price share the row when they fit; otherwise the price
-   wraps below (the row has flex-wrap). Only a title wider than the card alone truncates. */
+/* Desktop no-wrap (2026-07-14 ruling): title + price always share the row — the title shrinks
+   and ellipsizes instead of the price wrapping below. */
 @media screen and (min-width: 750px) {
+  .card-redesign .card__heading-row {
+    flex-wrap: nowrap;
+  }
   .card-redesign .card__heading-row > .card__heading {
-    flex: 1 1 auto; /* basis = title's max-content: price wraps below when the pair doesn't fit */
-    min-width: 0; /* title alone wider than the card → shrinks + ellipsizes */
+    flex: 1 1 auto;
+    min-width: 0; /* narrower than its text → shrinks + ellipsizes */
   }
 }
 

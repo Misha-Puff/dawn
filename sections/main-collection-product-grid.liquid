@@ -139,11 +139,6 @@
     }
   {%- endif -%}
 
-  {%- comment -%} Desktop ruling (2026-07-14): the price never wraps below the title — the row stays one line and the title shrinks/ellipsizes instead (ellipsis machinery lives on .card__heading via the .card-redesign rules in component-card.css). Emitted unconditionally: a design behavior, not a setting; the (1,2,0) scope beats stock .card__heading-row's flex-wrap: wrap. {%- endcomment -%}
-  @media screen and (min-width: 750px) {
-    #shopify-section-{{ section.id }} .card-redesign .card__heading-row { flex-wrap: nowrap; }
-  }
-
   {%- liquid
     assign so_bg = section.settings.size_overlay_bg_color
     assign so_op = section.settings.size_overlay_opacity | default: 60
