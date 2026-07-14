@@ -371,14 +371,17 @@
 }
 
 /* Desktop no-wrap (2026-07-14 ruling, amended): title + price share the row — the title shrinks
-   and ellipsizes instead of the price wrapping below. The 10ch flex-basis is the title's floor:
-   under flex-wrap: nowrap, wide-currency sale pairs (e.g. "DA 7,400.00 DZD" ×2) crushed the title
-   to nothing. The row keeps its base flex-wrap: wrap, but line-breaking uses the 10ch basis — the
-   title then grows into all leftover space (and ellipsizes), so normal cards render exactly as
-   nowrap did; the price wraps below only once the title would drop under ~10 characters. */
+   and ellipsizes instead of the price wrapping below. The flex-basis is the title's floor: under
+   flex-wrap: nowrap, wide-currency sale pairs (e.g. "DA 7,400.00 DZD" ×2) crushed the title to
+   nothing. The row keeps its base flex-wrap: wrap and line-breaking uses this basis (hypothetical,
+   pre-shrink size); the title then grows into all leftover space (and ellipsizes), so cards whose
+   price leaves the title at least the floor render exactly as nowrap did, and the price wraps
+   below only when the title would drop under it. 20% of the row (not a fixed 10ch) because a USD
+   sale pair with currency codes already leaves only ~9ch on the 4-col grid — a static 10ch floor
+   wrapped every USD sale card. */
 @media screen and (min-width: 750px) {
   .card-redesign .card__heading-row > .card__heading {
-    flex: 1 1 10ch;
+    flex: 1 1 min(10ch, 20%);
     min-width: 0; /* narrower than its text → shrinks + ellipsizes */
   }
 }
