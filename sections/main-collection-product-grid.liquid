@@ -101,6 +101,7 @@
     assign ct_case = section.settings.card_title_case | default: 'default'
     assign ct_ls = section.settings.card_title_letter_spacing | default: 0
     assign cp_ls = section.settings.card_price_letter_spacing | default: 0
+    assign cp_col = section.settings.card_price_color
   -%}
   {%- if ct_size > 0 or cp_size > 0 or cb_size > 0 or ca_size > 0 -%}
     {%- comment -%} Card typography size vars; component-card.css consumes them via var() fallbacks equal to stock. {%- endcomment -%}
@@ -131,9 +132,17 @@
       {%- if ct_ls > 0 %} letter-spacing: {{ ct_ls }}px;{% endif -%}
     }
   {%- endif -%}
-  {%- if cp_ls > 0 -%}
-    #shopify-section-{{ section.id }} .card__heading-row > .price { letter-spacing: {{ cp_ls }}px; }
+  {%- if cp_ls > 0 or cp_col != blank -%}
+    #shopify-section-{{ section.id }} .card__heading-row > .price {
+      {%- if cp_ls > 0 %} letter-spacing: {{ cp_ls }}px;{% endif -%}
+      {%- if cp_col != blank %} color: {{ cp_col }};{% endif -%}
+    }
   {%- endif -%}
+
+  {%- comment -%} Desktop ruling (2026-07-14): the price never wraps below the title — the row stays one line and the title shrinks/ellipsizes instead (ellipsis machinery lives on .card__heading via the .card-redesign rules in component-card.css). Emitted unconditionally: a design behavior, not a setting; the (1,2,0) scope beats stock .card__heading-row's flex-wrap: wrap. {%- endcomment -%}
+  @media screen and (min-width: 750px) {
+    #shopify-section-{{ section.id }} .card-redesign .card__heading-row { flex-wrap: nowrap; }
+  }
 
   {%- liquid
     assign so_bg = section.settings.size_overlay_bg_color
@@ -1288,6 +1297,12 @@
       "label": "Price letter spacing",
       "info": "0 = theme default",
       "default": 0
+    },
+    {
+      "type": "color",
+      "id": "card_price_color",
+      "label": "Price color",
+      "info": "Leave blank for the theme default. Applies to sale and struck compare-at prices too."
     },
     {
       "type": "range",
