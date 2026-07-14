@@ -527,7 +527,7 @@
         {%- endif -%}
       {%- endif -%}
       {%- if block.type == 'bis_form' -%}
-        {%- comment -%} Per-element typography for the BIS popup (title / subtitle+field / button). Settings follow tg_<element>_<suffix> naming so one data-driven loop reads them via bracket access. The modal renders in-DOM inside the info column (inside the Block-id wrapper div rendered below), so #ProductInfo-scoped rules reach it and out-specify the snippet's inline #bis-form-wrapper rules. {%- endcomment -%}
+        {%- comment -%} Per-element typography for the BIS popup (title / subtitle+field / button). Settings follow tg_<element>_<suffix> naming so one data-driven loop reads them via bracket access. The modal gets hoisted to <body> at runtime, so ancestor scopes (#ProductInfo / the Block-id wrapper) never reach it — rules anchor to the modal root itself, which carries id BisModal-<section.id> plus the Block-id class in the snippet; the id+2-classes compound out-specifies the snippet's inline #bis-form-wrapper rules. {%- endcomment -%}
         {%- assign tgb_elements = 'title,body,button' | split: ',' -%}
         {%- for tgb_el in tgb_elements -%}
           {%- assign tgb_key = 'tg_' | append: tgb_el -%}
@@ -573,26 +573,27 @@
           {%- if tgb_col != blank -%}
             {%- assign tgb_fulldecl = tgb_typedecl | append: ' color: ' | append: tgb_col | append: ';' | strip -%}
           {%- endif -%}
+          {%- assign tgb_root = '#BisModal-' | append: section.id | append: '.Block-' | append: block.id -%}
           {%- case tgb_el -%}
             {%- when 'title' -%}
               {%- if tgb_fulldecl != blank -%}
-                #{{ tg_scope }} .Block-{{ block.id }} .title { {{ tgb_fulldecl }} }
+                {{ tgb_root }} .title { {{ tgb_fulldecl }} }
               {%- endif -%}
             {%- when 'body' -%}
               {%- comment -%} Typedecl covers the subtitle, the floating label and the email input; the custom color skips the input (typed text keeps the theme color) and a case override never reaches typed emails. {%- endcomment -%}
               {%- if tgb_typedecl != blank -%}
-                #{{ tg_scope }} .Block-{{ block.id }} .subtitle, #{{ tg_scope }} .Block-{{ block.id }} .field__label, #{{ tg_scope }} .Block-{{ block.id }} .field__input { {{ tgb_typedecl }} }
+                {{ tgb_root }} .subtitle, {{ tgb_root }} .field__label, {{ tgb_root }} .field__input { {{ tgb_typedecl }} }
               {%- endif -%}
               {%- if tgb_col != blank -%}
-                #{{ tg_scope }} .Block-{{ block.id }} .subtitle, #{{ tg_scope }} .Block-{{ block.id }} .field__label { color: {{ tgb_col }}; }
+                {{ tgb_root }} .subtitle, {{ tgb_root }} .field__label { color: {{ tgb_col }}; }
               {%- endif -%}
               {%- if tgb_case != 'default' and tgb_case != blank -%}
-                #{{ tg_scope }} .Block-{{ block.id }} .field__input { text-transform: none; }
+                {{ tgb_root }} .field__input { text-transform: none; }
               {%- endif -%}
             {%- when 'button' -%}
               {%- comment -%} Text styling only — the button background stays scheme-driven. {%- endcomment -%}
               {%- if tgb_fulldecl != blank -%}
-                #{{ tg_scope }} .Block-{{ block.id }} .button { {{ tgb_fulldecl }} }
+                {{ tgb_root }} .button { {{ tgb_fulldecl }} }
               {%- endif -%}
           {%- endcase -%}
         {%- endfor -%}
@@ -1546,18 +1547,10 @@
                 {% render 'icon-with-text', block: block %}
                 {%- if block.settings.tg_enable_padding -%}</div>{%- endif -%}
               {%- when 'bis_form' -%}
-                {%- liquid
-                  comment
-                    The Block-id wrapper must render whenever any style-loop rule targets it: base padding or a popup typography group. The wrapper is zero-height (the modal is position: fixed), so at 0 padding the info column's child margins collapse through it.
-                  endcomment
-                  assign bis_wrap = false
-                  if block.settings.tg_enable_padding or block.settings.tg_title_enable or block.settings.tg_body_enable or block.settings.tg_button_enable
-                    assign bis_wrap = true
-                  endif
-                -%}
-                {%- if bis_wrap -%}<div class="Block-{{ block.id }}">{%- endif -%}
+                {%- comment -%} The popup typography rules anchor to the modal root (it hoists to <body>), so only the padding group needs the in-column wrapper. {%- endcomment -%}
+                {%- if block.settings.tg_enable_padding -%}<div class="Block-{{ block.id }}">{%- endif -%}
                 {% render 'klaviyo-bis-form', block: block %}
-                {%- if bis_wrap -%}</div>{%- endif -%}
+                {%- if block.settings.tg_enable_padding -%}</div>{%- endif -%}
               {%- when 'size-chart' -%}
                 {% if product.metafields.product_page.json_size_chart != blank
                   or product.metafields.product_page.size_chart != blank
