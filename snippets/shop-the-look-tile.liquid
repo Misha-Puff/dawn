@@ -1,0 +1,239 @@
+{% comment %}
+  Renders a Shop-the-Look editorial tile inside the collection product grid:
+  the outfit's lead image (or an override) with an uppercase CTA that opens a
+  popup listing the outfit's products as pairing rows with optional quick add.
+
+  The per-product quick-add modals are emitted as SIBLINGS of the popup, never
+  inside it: modal-dialog relocates itself to document.body on upgrade, and a
+  quick-add-modal nested in its markup would upgrade after that relocation and
+  crash on this.closest('.shopify-section').
+
+  Renders nothing when the outfit is blank, has no usable image, or none of
+  its products survive the Locksmith guard.
+
+  Accepts:
+  - block: {Object} shop_look_tile block
+  - section: {Object} main-collection-product-grid section
+  - animation_order: {Number} forloop.index of the block loop, for data-cascade (optional)
+
+  Usage:
+  {% render 'shop-the-look-tile', block: block, section: section, animation_order: forloop.index %}
+{% endcomment %}
+{%- liquid
+  assign outfit = block.settings.outfit
+  assign tile_image = block.settings.image_override | default: outfit.lead_image.value
+  assign stl_row_count = 0
+-%}
+{%- if outfit != blank and tile_image != blank -%}
+  {%- capture stl_rows -%}
+    {%- for stl_product in outfit.products.value -%}
+      {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: stl_product -%}{%- endcapture -%}
+      {%- assign lock_content = lock_content | strip -%}
+      {%- if lock_content == 'true' -%}
+        {%- continue -%}
+      {%- endif -%}
+      {%- assign stl_row_count = stl_row_count | plus: 1 -%}
+      <div class="stl-popup__row">
+        {% render 'card-pairing',
+          pairing_product: stl_product,
+          image_ratio: 'portrait',
+          show_color_line: true,
+          modifier: 'row'
+        %}
+        {%- if block.settings.enable_quick_add -%}
+          {%- unless stl_product.tags contains 'Badge-Coming Soon' -%}
+            {%- liquid
+              assign stl_form_id = 'stl-quick-add-' | append: block.id | append: '-' | append: stl_product.id
+              assign stl_qty_rules = false
+              if stl_product.selected_or_first_available_variant.quantity_rule.min > 1 or stl_product.selected_or_first_available_variant.quantity_rule.max != null or stl_product.selected_or_first_available_variant.quantity_rule.increment > 1
+                assign stl_qty_rules = true
+              endif
+            -%}
+            {%- if stl_product.variants_count > 1 or stl_qty_rules -%}
+              <modal-opener data-modal="#QuickAddSTL-{{ block.id }}-{{ stl_product.id }}" class="stl-popup__quick-add">
+                <button
+                  id="{{ stl_form_id }}-submit"
+                  type="button"
+                  class="stl-popup__add button"
+                  aria-haspopup="dialog"
+                  aria-label="{{ 'products.product.choose_options' | t }} — {{ stl_product.title | escape }}"
+                  data-product-url="{{ stl_product.url }}"
+                  data-stl-quick-add
+                >
+                  <span class="icon-wrap">
+                    {{- 'icon-plus.svg' | inline_asset_content -}}
+                  </span>
+                  {%- render 'loading-spinner' -%}
+                </button>
+              </modal-opener>
+            {%- else -%}
+              <product-form data-section-id="{{ section.id }}" class="stl-popup__quick-add">
+                {%- form 'product',
+                  stl_product,
+                  id: stl_form_id,
+                  class: 'form',
+                  novalidate: 'novalidate',
+                  data-type: 'add-to-cart-form'
+                -%}
+                  <input
+                    type="hidden"
+                    name="id"
+                    value="{{ stl_product.selected_or_first_available_variant.id }}"
+                    class="product-variant-id"
+                    {% if stl_product.selected_or_first_available_variant.available == false %}
+                      disabled
+                    {% endif %}
+                  >
+                  <button
+                    id="{{ stl_form_id }}-submit"
+                    type="submit"
+                    name="add"
+                    class="stl-popup__add button"
+                    aria-label="{{ 'products.product.add_to_cart' | t }} — {{ stl_product.title | escape }}"
+                    aria-live="polite"
+                    data-sold-out-message="true"
+                    {% if stl_product.selected_or_first_available_variant.available == false %}
+                      disabled
+                    {% endif %}
+                  >
+                    <span class="icon-wrap">
+                      {{- 'icon-plus.svg' | inline_asset_content -}}
+                    </span>
+                    <span class="sold-out-message hidden">
+                      {{ 'products.product.sold_out' | t }}
+                    </span>
+                    {%- render 'loading-spinner' -%}
+                  </button>
+                {%- endform -%}
+              </product-form>
+            {%- endif -%}
+          {%- endunless -%}
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  {%- endcapture -%}
+  {%- if stl_row_count > 0 -%}
+    {{ 'component-price.css' | asset_url | stylesheet_tag }}
+    {{ 'component-card-pairing.css' | asset_url | stylesheet_tag }}
+    {{ 'component-shop-look-tile.css' | asset_url | stylesheet_tag }}
+    {%- if block.settings.enable_quick_add -%}
+      {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+      <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+    <li
+      class="stl-tile Block-{{ block.id }} grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+      {% if settings.animations_reveal_on_scroll and animation_order %}
+        data-cascade
+        style="--animation-order: {{ animation_order }};"
+      {% endif %}
+      {{ block.shopify_attributes }}
+    >
+      <modal-opener data-modal="#StlPopup-{{ block.id }}" class="stl-tile__opener">
+        <button type="button" class="stl-tile__button" aria-haspopup="dialog">
+          <img
+            class="stl-tile__image"
+            srcset="
+              {%- if tile_image.width >= 550 -%}{{ tile_image | image_url: width: 550 }} 550w,{%- endif -%}
+              {%- if tile_image.width >= 1100 -%}{{ tile_image | image_url: width: 1100 }} 1100w,{%- endif -%}
+              {%- if tile_image.width >= 1445 -%}{{ tile_image | image_url: width: 1445 }} 1445w,{%- endif -%}
+              {%- if tile_image.width >= 2048 -%}{{ tile_image | image_url: width: 2048 }} 2048w,{%- endif -%}
+              {{ tile_image | image_url }} {{ tile_image.width }}w
+            "
+            sizes="(min-width: 990px) 50vw, 100vw"
+            src="{{ tile_image | image_url: width: 1100 }}"
+            alt="{{ tile_image.alt | default: block.settings.cta_label | escape }}"
+            loading="lazy"
+            width="{{ tile_image.width }}"
+            height="{{ tile_image.height }}"
+          >
+          <span class="stl-tile__cta">{{ block.settings.cta_label | escape }}</span>
+        </button>
+      </modal-opener>
+      <modal-dialog id="StlPopup-{{ block.id }}" class="stl-popup">
+        <div
+          role="dialog"
+          aria-label="{{ block.settings.popup_heading | default: block.settings.cta_label | escape }}"
+          aria-modal="true"
+          class="stl-popup__content"
+          tabindex="-1"
+        >
+          <button
+            id="ModalClose-STL-{{ block.id }}"
+            type="button"
+            class="stl-popup__close"
+            aria-label="{{ 'accessibility.close' | t }}"
+          >
+            {{- 'icon-close.svg' | inline_asset_content -}}
+          </button>
+          {%- if block.settings.popup_heading != blank -%}
+            <h2 class="stl-popup__heading">{{ block.settings.popup_heading }}</h2>
+          {%- endif -%}
+          <div class="stl-popup__rows">
+            {{ stl_rows }}
+          </div>
+        </div>
+      </modal-dialog>
+      {%- if block.settings.enable_quick_add -%}
+        {%- comment -%} Same guards as the rows loop so modals and openers stay 1:1. {%- endcomment -%}
+        {%- for stl_product in outfit.products.value -%}
+          {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: stl_product -%}{%- endcapture -%}
+          {%- assign lock_content = lock_content | strip -%}
+          {%- if lock_content == 'true' -%}
+            {%- continue -%}
+          {%- endif -%}
+          {%- if stl_product.tags contains 'Badge-Coming Soon' -%}
+            {%- continue -%}
+          {%- endif -%}
+          {%- liquid
+            assign stl_qty_rules = false
+            if stl_product.selected_or_first_available_variant.quantity_rule.min > 1 or stl_product.selected_or_first_available_variant.quantity_rule.max != null or stl_product.selected_or_first_available_variant.quantity_rule.increment > 1
+              assign stl_qty_rules = true
+            endif
+          -%}
+          {%- if stl_product.variants_count > 1 or stl_qty_rules -%}
+            <quick-add-modal id="QuickAddSTL-{{ block.id }}-{{ stl_product.id }}" class="quick-add-modal">
+              <div
+                role="dialog"
+                aria-label="{{ 'products.product.choose_product_options' | t: product_name: stl_product.title | escape }}"
+                aria-modal="true"
+                class="quick-add-modal__content global-settings-popup"
+                tabindex="-1"
+              >
+                <button
+                  id="ModalClose-STL-{{ block.id }}-{{ stl_product.id }}"
+                  type="button"
+                  class="quick-add-modal__toggle"
+                  aria-label="{{ 'accessibility.close' | t }}"
+                >
+                  {{- 'icon-close.svg' | inline_asset_content -}}
+                </button>
+                <div id="QuickAddInfo-STL-{{ block.id }}-{{ stl_product.id }}" class="quick-add-modal__content-info"></div>
+              </div>
+            </quick-add-modal>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+      <script>
+        // Close the Shop-the-Look popup before its quick-add modal opens so two
+        // modal-dialogs never stack — stacked dialogs fight over the body scroll
+        // lock (the quick-add's hide() would unlock scrolling while the popup
+        // underneath is still open).
+        if (!window.stlTileQuickAddDelegated) {
+          window.stlTileQuickAddDelegated = true;
+          document.addEventListener(
+            'click',
+            function (event) {
+              if (!event.target.closest) return;
+              var opener = event.target.closest('.stl-popup [data-stl-quick-add]');
+              if (!opener) return;
+              var popup = opener.closest('.stl-popup');
+              if (popup && typeof popup.hide === 'function') popup.hide();
+            },
+            true
+          );
+        }
+      </script>
+    </li>
+  {%- endif -%}
+{%- endif -%}

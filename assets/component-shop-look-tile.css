@@ -1,0 +1,158 @@
+/* Shop-the-Look tile + popup (snippets/shop-the-look-tile.liquid).
+   Self-contained: the popup renders on collection pages, so nothing here may
+   depend on section-main-product.css. */
+
+.stl-tile {
+  position: relative;
+}
+
+.stl-tile__opener,
+.stl-tile__button {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.stl-tile__button {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+.stl-tile__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stl-tile__cta {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 1.2rem;
+  font-family: var(--font-mono-family);
+  font-size: 1.1rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+  color: #fff;
+  text-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.45);
+}
+
+/* Popup — same open/close mechanics as .quick-add-modal (modal-dialog). */
+.stl-popup {
+  box-sizing: border-box;
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(var(--color-foreground), 0.2);
+}
+
+.stl-popup[open] {
+  opacity: 1;
+  visibility: visible;
+  z-index: 101;
+}
+
+/* Mobile: bottom sheet. */
+.stl-popup__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  max-height: 85vh;
+  overflow-y: auto;
+  background-color: rgb(var(--color-background));
+  padding: 2rem 1.5rem 2.4rem;
+}
+
+/* Desktop: centered sheet. */
+@media screen and (min-width: 750px) {
+  .stl-popup__content {
+    bottom: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(48rem, calc(100% - 3rem));
+    padding: 2.4rem;
+  }
+}
+
+.stl-popup__close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  margin: 0;
+  padding: 0.4rem;
+  border: 0;
+  background: transparent;
+  color: rgb(var(--color-foreground));
+  cursor: pointer;
+}
+
+.stl-popup__close svg {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.stl-popup__heading {
+  margin: 0 2.4rem 0 0;
+  font-family: var(--font-mono-family);
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.stl-popup__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-top: 1.6rem;
+}
+
+.stl-popup__row {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.stl-popup__row .card-pairing {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.stl-popup__quick-add {
+  flex: 0 0 auto;
+}
+
+.stl-popup__add {
+  min-width: 4.4rem;
+  min-height: 4.4rem;
+  padding: 0 1rem;
+}
+
+.stl-popup__add .icon-wrap {
+  display: flex;
+}
+
+.stl-popup__add .icon-wrap svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.stl-popup__add .sold-out-message {
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
