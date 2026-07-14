@@ -225,7 +225,7 @@
         "swatch_card_height": 10,
         "swatch_card_radius": 0,
         "card_spacing_enable": true,
-        "card_info_padding_top": 12,
+        "card_info_padding_top": 10,
         "card_title_price_gap": 4,
         "card_swatch_space": 6,
         "card_swatch_gap": 6,
