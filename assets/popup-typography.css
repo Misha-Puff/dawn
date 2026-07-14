@@ -29,3 +29,53 @@
 .rebuy-cart .rebuy-money {
   font-family: var(--font-mono-family) !important;
 }
+
+/* Inventory Information app — the "FIND IN BROOKLYN" find-in-store drawer.
+   The app appends .iia-drawer to <body> as plain DOM (no iframe), so theme CSS
+   reaches it, but its own <style> tags are injected after ours and the header
+   note carries an inline font-weight: 100 (renders synthesized ultra-thin).
+   Typography + color only — layout and spacing stay app-controlled. */
+.iia-drawer h2 {
+  font-family: var(--font-mono-family) !important;
+  font-size: 1.3rem !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1rem !important;
+  color: rgb(var(--color-foreground)) !important;
+}
+
+.iia-drawer .iia-drawer-header .text-body {
+  font-family: var(--font-body-family) !important;
+  font-size: 1.2rem !important;
+  font-weight: 400 !important;
+  color: rgba(var(--color-foreground), 0.75) !important;
+}
+
+/* Location group header ("BROOKLYN") follows the PDP mono label treatment. */
+.iia-drawer .iia-groupby-header {
+  font-family: var(--font-mono-family) !important;
+  font-size: 1.1rem !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1rem !important;
+  color: rgb(var(--color-foreground)) !important;
+}
+
+.iia-drawer .iia-location-info,
+.iia-drawer .iia-location-info p,
+.iia-drawer .iia-location-info a,
+.iia-drawer .iia-name,
+.iia-drawer .iia-stock-threshold {
+  font-family: var(--font-body-family) !important;
+  font-size: 1.2rem !important;
+  font-weight: 400 !important;
+  color: rgb(var(--color-foreground)) !important;
+}
+
+.iia-drawer .iia-location-info a {
+  text-decoration: underline !important;
+}
+
+.iia-drawer .iia-stock-threshold {
+  color: rgba(var(--color-foreground), 0.75) !important;
+}
