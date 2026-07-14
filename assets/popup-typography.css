@@ -72,6 +72,11 @@
   color: rgb(var(--color-foreground)) !important;
 }
 
+/* Size labels arrive lowercase from the app ("2y") — render them uppercase. */
+.iia-drawer .iia-name {
+  text-transform: uppercase !important;
+}
+
 .iia-drawer .iia-location-info a {
   text-decoration: underline !important;
 }

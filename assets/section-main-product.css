@@ -1643,14 +1643,23 @@ a.product__text {
 
 #bis-form .form__fields {
   display: flex;
+  align-items: flex-end;
+  gap: 1rem;
 }
 
 #bis-form .field {
   margin: 0;
 }
 
+/* Match the input's inline 40px height (klaviyo-bis-form.liquid) instead of stretching
+   to the full field height (label row included); min-height beats base.css .button 4.5rem,
+   and the bottom margin mirrors the input's border-ring margin so the bottoms align. */
 #bis-form .button {
   min-width: fit-content;
+  height: 40px;
+  min-height: 40px;
+  margin-bottom: var(--inputs-border-width);
+  flex-shrink: 0;
 }
 
 #bis-form .form-status.success,
