@@ -208,7 +208,6 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "enable_overlay": false,
         "enable_swatches": true,
         "quick_add": "standard",
         "enable_filtering": true,

@@ -11,13 +11,11 @@
   "sections": {
     "shogun-helper": {
       "type": "shogun-helper",
-      "settings": {
-      }
+      "settings": {}
     },
     "shogun-above": {
       "type": "shogun-above",
-      "settings": {
-      }
+      "settings": {}
     },
     "banner": {
       "type": "main-collection-banner",
@@ -126,36 +124,35 @@
       "settings": {
         "products_per_page": 48,
         "columns_desktop": 3,
+        "columns_mobile": "2",
         "color_scheme": "",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "enable_overlay": false,
         "enable_swatches": true,
         "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "drawer",
         "enable_sorting": true,
-        "columns_mobile": "2",
         "padding_top": 0,
         "padding_bottom": 36
       }
     },
     "shogun-below": {
       "type": "shogun-below",
-      "settings": {
-      }
+      "settings": {}
     },
     "shogun-optimizer": {
       "type": "shogun-optimizer",
-      "settings": {
-      }
+      "settings": {}
     },
     "featured_collection_W7CiyH": {
       "type": "featured-collection",
       "settings": {
+        "collection": "child-corduroy",
+        "products_to_show": 25,
         "title": "",
         "heading_alignment": "left",
         "heading_size": "h2",
@@ -163,9 +160,8 @@
         "description": "<p>EXPLORE MORE CORDUROY</p>",
         "show_description": false,
         "description_style": "body",
-        "collection": "child-corduroy",
-        "products_to_show": 25,
         "columns_desktop": 4,
+        "enable_desktop_slider": true,
         "full_width": true,
         "enable_custom_spacing": true,
         "horizontal_spacing_desktop": 10,
@@ -174,7 +170,6 @@
         "vertical_spacing_mobile": 0,
         "show_view_all": true,
         "view_all_style": "outline",
-        "enable_desktop_slider": true,
         "color_scheme": "",
         "image_ratio": "adapt",
         "image_shape": "default",

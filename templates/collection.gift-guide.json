@@ -43,8 +43,7 @@
         "gg3Jv0sDf9Z_text": "<span style=\"color:#FFFFFF;font-size:36px;\">GIFT GUIDE</span>",
         "gg3ofOCLJGd_text": "<p>CURATED AND COVETABLE</p>",
         "gg05c4TXNcI_text": "NEW FOR HOME",
-        "ggauUS8CbgB_text": "<p><span style=\"font-size:13px;\">Pillows are here! Hand-knit heirlooms for your home, crafted in our luxe hand-dyed Merino wool.</span></p>",
-        "ggyPaJfov0k_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/mixed-kindred-silhouettes\"><span style=\"background-color:rgb(255,255,255);color:rgb(16,24,32);font-size:14px;\"><u>SHOP NOW</u></span></a></p>"
+        "ggauUS8CbgB_text": "<p><span style=\"font-size:13px;\">Pillows are here! Hand-knit heirlooms for your home, crafted in our luxe hand-dyed Merino wool.</span></p>"
       }
     },
     "rich_text_YJeCaw": {
@@ -311,7 +310,6 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "enable_overlay": false,
         "enable_swatches": true,
         "quick_add": "standard",
         "enable_filtering": true,
@@ -327,10 +325,7 @@
       "settings": {
         "section_preload": "off_lazy_script",
         "checksum": "",
-        "ggxkCq26Ish_text": "MORE TO EXPLORE",
-        "ggM8iyVSMAI_label": "<p><span style=\"font-size:12px;\">SHOP CHILD GIFTS</span></p>",
-        "gggyBAEFP-z_label": "<p><span style=\"font-size:12px;\">SHOP BABY GIFTS</span></p>",
-        "ggk0GR_xJq4_label": "<p><span style=\"font-size:12px;\">SHOP ADULT GIFTS</span></p>"
+        "ggxkCq26Ish_text": "MORE TO EXPLORE"
       }
     },
     "rich_text_PFwcpc": {
