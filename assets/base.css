@@ -2670,10 +2670,8 @@ details[open] .modal-overlay::after {
 .search-modal {
   opacity: 0;
   border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
-  /* +14px + 0.6rem = the static field label (10px × 1.4 line + gap): without the allowance the
-     taller form fills the header-height box and the modal loses its vertical breathing room. */
-  min-height: calc(100% + var(--inputs-margin-offset) + (2 * var(--inputs-border-width)) + 14px + 0.6rem);
-  height: auto;
+  min-height: calc(100% + var(--inputs-margin-offset) + (2 * var(--inputs-border-width)));
+  height: 100%;
 }
 
 .search-modal__content {

@@ -62,7 +62,8 @@
                 spellcheck="false"
               {%- endif -%}
             >
-            <label class="field__label" for="{{ input_id }}">{{ 'general.search.search' | t }}</label>
+            {%- comment -%} visually-hidden per Nathan's D1 ruling — the static-label conversion would otherwise show it above the input; placeholder + aria carry the affordance. {%- endcomment -%}
+            <label class="field__label visually-hidden" for="{{ input_id }}">{{ 'general.search.search' | t }}</label>
             <input type="hidden" name="options[prefix]" value="last">
             <button
               type="reset"
