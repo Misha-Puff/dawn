@@ -345,12 +345,20 @@
   text-overflow: ellipsis;
 }
 
-/* Let the title shrink inside the title/price flex row so the price never wraps below — desktop
-   only: at narrow (2-col mobile) card widths the price would squeeze the title down to nothing. */
+/* Ellipsis must live on the block-level link: text-overflow only elides inline content,
+   so on the h3 it raw-clips the block <a> mid-glyph with no "…". */
+.card-redesign .product-card-wrapper .card__heading a.full-unstyled-link {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Desktop wrap-then-truncate: title + price share the row when they fit; otherwise the price
+   wraps below (the row has flex-wrap). Only a title wider than the card alone truncates. */
 @media screen and (min-width: 750px) {
   .card-redesign .card__heading-row > .card__heading {
-    flex: 1;
-    min-width: 0;
+    flex: 1 1 auto; /* basis = title's max-content: price wraps below when the pair doesn't fit */
+    min-width: 0; /* title alone wider than the card → shrinks + ellipsizes */
   }
 }
 
