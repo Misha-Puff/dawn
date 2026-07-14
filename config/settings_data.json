@@ -43,7 +43,7 @@
     "page_width_padding": 50,
     "mobile_page_width_padding": 10,
     "spacing_sections": 0,
-    "spacing_grid_horizontal": 12,
+    "spacing_grid_horizontal": 16,
     "spacing_grid_vertical": 36,
     "animations_reveal_on_scroll": true,
     "button_vertical_padding": 6,
