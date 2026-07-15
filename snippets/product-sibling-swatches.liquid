@@ -3,12 +3,13 @@
 
   Swatches are linked (no-JS fallback navigates to the sibling PDP). With JS,
   clicking a swatch previews the sibling IN the card (image, title, price,
-  link all swap — assets/card-sibling-preview.js) Rachel-Comey style; badges,
-  quick-add and the availability strip hide while a sibling is previewed so a
-  stale control can never act on the wrong product. Each swatch carries its
-  swap payload server-rendered (price via {% render 'price' %}, so market /
-  currency context is always correct). The current product's color is
-  underlined.
+  link and size-overlay availability all swap — assets/card-sibling-preview.js)
+  Rachel-Comey style; badges and quick-add hide while a sibling is previewed
+  so a stale control can never act on the wrong product, and the overlay
+  hides only when the sibling has no availability payload. Each swatch
+  carries its swap payloads server-rendered (price via {% render 'price' %}
+  and variant availability, so market / currency context is always correct).
+  The current product's color is underlined.
 
   Accepts:
   - card_product: {Object} the product the card represents (required)

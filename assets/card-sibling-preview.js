@@ -2,13 +2,15 @@
  * <sibling-swatches> — click-to-preview colorway swatches on product cards.
  *
  * Wraps the swatch row rendered by snippets/product-sibling-swatches.liquid.
- * Clicking a swatch swaps the card in place (image, title, price, link) to the
- * sibling product using the swatch's server-rendered payload; clicking the
- * card's own swatch restores it. While a sibling is previewed the card root
- * carries `card--sibling-preview`, which hides quick-add, badges and the
- * availability strip (they still describe the original product). Swatches
- * without a payload (no featured image) keep their default link navigation,
- * as does everything when JS is unavailable.
+ * Clicking a swatch swaps the card in place (image, title, price, link, size
+ * overlay availability) to the sibling product using the swatch's
+ * server-rendered payloads; clicking the card's own swatch restores it. While
+ * a sibling is previewed the card root carries `card--sibling-preview`, which
+ * hides quick-add and badges (they still describe the original product); the
+ * size overlay stays up with the sibling's own availability when its payload
+ * exists (`card--sibling-availability`), else it hides too. Swatches without
+ * a payload (no featured image) keep their default link navigation, as does
+ * everything when JS is unavailable.
  */
 if (!customElements.get('sibling-swatches')) {
   customElements.define(
@@ -68,7 +70,24 @@ if (!customElements.get('sibling-swatches')) {
           if (next) price.replaceWith(next.cloneNode(true));
         }
 
+        // Size overlay follows the previewed colorway: swap in the sibling's
+        // server-rendered availability. Without a payload (excluded type,
+        // default-variant-only sibling) the overlay stays hidden via the
+        // card--sibling-availability class gate in component-card.css.
+        const availability = swatch.querySelector('template.card__swatch-availability');
+        const overlay = card.querySelector('.popup-overlay');
+        let availabilitySwapped = false;
+        if (availability && overlay) {
+          const next = availability.content.firstElementChild;
+          const current = overlay.querySelector('.variant-availability');
+          if (next && current) {
+            current.replaceWith(next.cloneNode(true));
+            availabilitySwapped = true;
+          }
+        }
+
         card.classList.toggle('card--sibling-preview', swatch.dataset.swapSelf !== 'true');
+        card.classList.toggle('card--sibling-availability', availabilitySwapped);
         this.querySelectorAll('.card__swatch--current').forEach((current) => {
           current.classList.remove('card__swatch--current');
           current.removeAttribute('aria-current');
