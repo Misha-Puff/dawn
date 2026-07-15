@@ -199,9 +199,11 @@
       width: auto !important;
       height: auto !important;
       /* The app's whitespace text nodes + 24px line-height create a phantom
-         line box that shoves the inline-block button ~16px down. */
+         line box that shoves the inline-block button ~16px down, and its 10px
+         container padding offsets the icon from the declared position. */
       font-size: 0 !important;
       line-height: 0 !important;
+      padding: 0 !important;
     }
 
     #shopify-section-{{ section.id }} .swym-wishlist-collections-v2 {
