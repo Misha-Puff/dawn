@@ -902,11 +902,9 @@ a.active-facets__button.focused .active-facets__button-inner {
   transition: text-decoration var(--duration-short) ease;
 }
 
-@media screen and (min-width: 750px) {
-  /* Desktop FILTER matches SORT's 1.3rem (Nathan's ruling: Sort's size, Filter's font) */
-  .mobile-facets__open-label.button-label {
-    font-size: 1.3rem;
-  }
+/* FILTER matches SORT's 1.3rem at all widths (desktop ruling a2a1753b; mobile un-scoped per Nathan 2026-07-15) */
+.mobile-facets__open-label.button-label {
+  font-size: 1.3rem;
 }
 
 .mobile-facets__open:hover .mobile-facets__open-label {

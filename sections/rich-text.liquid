@@ -25,8 +25,18 @@
   {%- if section.settings.enable_mobile_padding -%}
     @media screen and (max-width: 749px) {
       .section-{{ section.id }}-padding {
-        padding-top: {{ section.settings.padding_top_mobile }}px;
-        padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+        {%- if section.settings.padding_top_mobile >= 0 %}
+          padding-top: {{ section.settings.padding_top_mobile }}px;
+        {%- else %}
+          padding-top: 0;
+          margin-top: {{ section.settings.padding_top_mobile }}px;
+        {%- endif %}
+        {%- if section.settings.padding_bottom_mobile >= 0 %}
+          padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+        {%- else %}
+          padding-bottom: 0;
+          margin-bottom: {{ section.settings.padding_bottom_mobile }}px;
+        {%- endif %}
       }
     }
   {%- endif -%}
@@ -316,22 +326,24 @@
     {
       "type": "range",
       "id": "padding_top_mobile",
-      "min": 0,
+      "min": -40,
       "max": 100,
       "step": 2,
       "unit": "px",
       "label": "Mobile padding top",
+      "info": "Negative values pull the section up / the next section into it",
       "default": 28,
       "visible_if": "{{ section.settings.enable_mobile_padding }}"
     },
     {
       "type": "range",
       "id": "padding_bottom_mobile",
-      "min": 0,
+      "min": -40,
       "max": 100,
       "step": 2,
       "unit": "px",
       "label": "Mobile padding bottom",
+      "info": "Negative values pull the section up / the next section into it",
       "default": 28,
       "visible_if": "{{ section.settings.enable_mobile_padding }}"
     },
