@@ -362,10 +362,10 @@
         "enable_sorting": true,
         "padding_top": 0,
         "padding_bottom": 60,
-        "heart_custom": false,
+        "heart_custom": true,
         "heart_size": 13,
         "heart_top": 8,
-        "heart_right": 8
+        "heart_right": 6
       }
     },
     "shogun-below": {
