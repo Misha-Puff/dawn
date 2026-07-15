@@ -55,8 +55,11 @@ if (!customElements.get('sibling-swatches')) {
         card.querySelectorAll('.card__heading a.full-unstyled-link, a.full-unstyled-link[aria-labelledby^="CardLink"]').forEach((link) => {
           link.href = swatch.dataset.swapUrl;
         });
-        const titleLink = card.querySelector('.card__heading a.full-unstyled-link');
-        if (titleLink) titleLink.textContent = swatch.dataset.swapTitle || titleLink.textContent;
+        // Both headings (Dawn renders a hidden no-media fallback first) — the
+        // first-match-only update left the visible title stale during preview.
+        card.querySelectorAll('.card__heading a.full-unstyled-link').forEach((link) => {
+          link.textContent = swatch.dataset.swapTitle || link.textContent;
+        });
 
         const payload = swatch.querySelector('template.card__swatch-payload');
         const price = card.querySelector('.card__heading-row > .price');
