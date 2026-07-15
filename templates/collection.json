@@ -230,7 +230,7 @@
         "size_overlay_opacity": 60,
         "size_overlay_position": "bottom",
         "size_overlay_padding_top": 6,
-        "size_overlay_padding_bottom": 8,
+        "size_overlay_padding_bottom": 6,
         "enable_swatches": true,
         "swatch_card_width": 20,
         "swatch_card_height": 12,

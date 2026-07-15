@@ -104,7 +104,7 @@
         "padding_bottom": 48,
         "padding_left": 0,
         "padding_right": 0,
-        "enable_mobile_padding": false,
+        "enable_mobile_padding": true,
         "padding_top_mobile": 28,
         "padding_bottom_mobile": 28,
         "padding_left_mobile": 0,
