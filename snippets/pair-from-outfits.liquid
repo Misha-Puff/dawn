@@ -59,6 +59,24 @@
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
   {{ 'component-card-pairing.css' | asset_url | stylesheet_tag }}
   {{ 'component-pair-outfits.css' | asset_url | stylesheet_tag }}
+  {%- if block.settings.pair_gap_enable -%}
+    {%- comment -%}
+      The item-width calcs and the grid gap both consume the grid spacing vars,
+      so overriding them on the block root adjusts gap and widths coherently.
+    {%- endcomment -%}
+    {% style %}
+      .pair-outfits.Block-{{ block.id }} {
+        --grid-mobile-horizontal-spacing: {{ block.settings.pair_gap_mobile }}px;
+        --grid-desktop-horizontal-spacing: {{ block.settings.pair_gap_mobile }}px;
+      }
+
+      @media screen and (min-width: 990px) {
+        .pair-outfits.Block-{{ block.id }} {
+          --grid-desktop-horizontal-spacing: {{ block.settings.pair_gap_desktop }}px;
+        }
+      }
+    {% endstyle %}
+  {%- endif -%}
   <aside
     class="pair-outfits pair-outfits--cols-{{ pair_cols }} Block-{{ block.id }}"
     aria-label="{{ block.settings.block_heading | escape }}"

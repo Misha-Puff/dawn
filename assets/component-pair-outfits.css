@@ -45,3 +45,20 @@
   gap: 0.4rem;
   margin-top: 0.4rem;
 }
+
+/* Card parity with collection-grid cards (Nathan 2026-07-15): mirrors the
+   store-wide card recipe (11px / uppercase / 0.2px tracking / #1a1a1a).
+   Scoped to the PDP block so the Shop-the-Look popup's pairing cards keep
+   their signed-off look. */
+.pair-outfits .card-pairing__title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  color: #1a1a1a;
+}
+
+.pair-outfits .card-pairing__price .price {
+  font-size: 11px;
+  letter-spacing: 0.2px;
+  color: #1a1a1a;
+}

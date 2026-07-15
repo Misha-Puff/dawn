@@ -1825,7 +1825,11 @@
         {"type": "range", "id": "max_products", "min": 2, "max": 12, "step": 1, "default": 8, "label": "Maximum products"},
         {"type": "range", "id": "columns_desktop", "min": 2, "max": 4, "step": 1, "default": 3, "label": "Columns on desktop"},
         {"type": "select", "id": "image_ratio", "options": [{"value": "portrait", "label": "t:sections.main-product.blocks.complementary_products.settings.image_ratio.options.option_1"}, {"value": "square", "label": "t:sections.main-product.blocks.complementary_products.settings.image_ratio.options.option_2"}], "default": "portrait", "label": "t:sections.main-product.blocks.complementary_products.settings.image_ratio.label"},
-        {"type": "checkbox", "id": "show_color_line", "default": true, "label": "Show color name"}
+        {"type": "checkbox", "id": "show_color_line", "default": true, "label": "Show color name"},
+        {"type": "header", "content": "Spacing"},
+        {"type": "checkbox", "id": "pair_gap_enable", "default": false, "label": "Custom gap between products"},
+        {"type": "range", "id": "pair_gap_desktop", "min": 0, "max": 48, "step": 2, "unit": "px", "label": "Desktop gap", "default": 8, "visible_if": "{{ block.settings.pair_gap_enable }}"},
+        {"type": "range", "id": "pair_gap_mobile", "min": 0, "max": 48, "step": 2, "unit": "px", "label": "Mobile gap", "default": 8, "visible_if": "{{ block.settings.pair_gap_enable }}"}
       ]
     },
     {
