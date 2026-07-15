@@ -248,7 +248,7 @@
         "card_swatch_space_mobile": 6,
         "card_swatch_gap_mobile": 6,
         "card_badge_space_mobile": 8,
-        "card_badge_gap_mobile": 0,
+        "card_badge_gap_mobile": 8,
         "card_title_size": 11,
         "card_title_weight": "default",
         "card_title_case": "uppercase",
