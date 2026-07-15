@@ -394,12 +394,13 @@
           "type": "pair_from_outfits",
           "settings": {
             "block_heading": "PAIR IT WITH",
-            "max_products": 8,
-            "columns_desktop": 3,
+            "max_products": 6,
             "image_ratio": "portrait",
+            "image_width": 100,
             "show_color_line": false,
-            "pair_gap_enable": false,
-            "pair_gap_desktop": 8,
+            "enable_quick_add": true,
+            "pair_gap_enable": true,
+            "pair_gap_desktop": 16,
             "pair_gap_mobile": 10
           }
         }
