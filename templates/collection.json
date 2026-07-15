@@ -241,7 +241,7 @@
         "card_swatch_space": 6,
         "card_swatch_gap": 6,
         "card_badge_space": 8,
-        "card_badge_gap": 0,
+        "card_badge_gap": 6,
         "card_spacing_enable_mobile": true,
         "card_info_padding_top_mobile": 8,
         "card_title_price_gap_mobile": 2,
@@ -269,7 +269,7 @@
         "filter_type": "drawer",
         "enable_sorting": true,
         "padding_top": 0,
-        "padding_bottom": 40
+        "padding_bottom": 60
       }
     },
     "shogun-below": {
