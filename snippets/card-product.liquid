@@ -524,7 +524,11 @@
                   endif
                 -%}
                 {% if swatches_enabled %}
-                  {% render 'product-sibling-swatches', card_product: card_product, section_id: section_id %}
+                  {% render 'product-sibling-swatches',
+                    card_product: card_product,
+                    section_id: section_id,
+                    hide_color_suffix: hide_color_suffix
+                  %}
                 {% endif %}
               {% endif %}
 

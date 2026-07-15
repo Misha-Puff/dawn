@@ -1,0 +1,18 @@
+{% comment %}
+  Emits the <template> swap payload for one card swatch link: the sibling's
+  server-rendered price block (market/currency-correct because it renders in
+  the page's own context). Consumed by assets/card-sibling-preview.js, which
+  clones it over the card's price on preview. Rendered inside the <a>
+  (template is metadata content — valid anywhere, never displayed).
+
+  Accepts:
+  - payload_product: {Object} the product this swatch previews (required)
+
+  Usage:
+  {% render 'sibling-swatch-payload', payload_product: sibling %}
+{% endcomment %}
+{%- if payload_product.featured_media -%}
+  <template class="card__swatch-payload">
+    {%- render 'price', product: payload_product, price_class: '', show_compare_at_price: true -%}
+  </template>
+{%- endif -%}

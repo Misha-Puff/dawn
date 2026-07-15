@@ -830,3 +830,12 @@
   text-decoration: underline;
   text-underline-offset: 0.3rem;
 }
+
+/* Sibling-preview state (card-sibling-preview.js): while a swatch previews a
+   different colorway, controls that still describe the ORIGINAL product hide
+   so nothing can act on the wrong product. */
+.card--sibling-preview .quick-add,
+.card--sibling-preview .card__badges,
+.card--sibling-preview .variant-availability {
+  display: none;
+}

@@ -1,15 +1,23 @@
 {% comment %}
   Renders a row of style-sibling color swatches on a product card.
 
-  Swatches are static, linked (no JS) rectangles sourced from each sibling's
-  color-pattern metaobject. The current product's color is underlined.
+  Swatches are linked (no-JS fallback navigates to the sibling PDP). With JS,
+  clicking a swatch previews the sibling IN the card (image, title, price,
+  link all swap — assets/card-sibling-preview.js) Rachel-Comey style; badges,
+  quick-add and the availability strip hide while a sibling is previewed so a
+  stale control can never act on the wrong product. Each swatch carries its
+  swap payload server-rendered (price via {% render 'price' %}, so market /
+  currency context is always correct). The current product's color is
+  underlined.
 
   Accepts:
   - card_product: {Object} the product the card represents (required)
   - section_id: {String} id of the host section (optional, for unique scoping)
+  - hide_color_suffix: {Boolean} matches the card title's color-suffix behavior
+    so the swapped title renders exactly like a server-rendered card (optional)
 
   Usage:
-  {% render 'product-sibling-swatches', card_product: card_product, section_id: section_id %}
+  {% render 'product-sibling-swatches', card_product: card_product, section_id: section_id, hide_color_suffix: hide_color_suffix %}
 {% endcomment %}
 
 {%- liquid
@@ -42,7 +50,7 @@
     assign total_swatches = other_count | plus: 1
     assign shown = 0
   -%}
-  <div class="card__swatches">
+  <sibling-swatches class="card__swatches">
     {%- comment -%} When the current product isn't in its own list, prepend it so the active color is always shown. {%- endcomment -%}
     {%- unless self_present -%}
       {%- liquid
@@ -50,14 +58,17 @@
         assign self_color = card_product.options_by_name.color.values[0] | default: card_product.title
         assign shown = 1
       -%}
+      {%- capture payload -%}{% render 'sibling-swatch-payload', payload_product: card_product %}{%- endcapture -%}
       <a
         class="card__swatch card__swatch--current"
         href="{{ card_product.url }}"
         aria-current="true"
         title="{{ self_color | escape }}"
+        {% render 'sibling-swatch-attrs', payload_product: card_product, payload_self: true, hide_color_suffix: hide_color_suffix %}
       >
         {% render 'swatch', swatch_image: self_cp.image.value, shape: 'square' %}
         <span class="visually-hidden">{{ self_color | escape }}</span>
+        {{ payload }}
       </a>
     {%- endunless -%}
 
@@ -85,19 +96,22 @@
         assign sib_color = sibling.options_by_name.color.values[0] | default: sibling.title
         assign shown = shown | plus: 1
       -%}
+      {%- capture payload -%}{% render 'sibling-swatch-payload', payload_product: sibling %}{%- endcapture -%}
       <a
         class="card__swatch{% if is_self %} card__swatch--current{% endif %}"
         href="{{ sibling.url }}"
         {% if is_self %}aria-current="true"{% endif %}
         title="{{ sib_color | escape }}"
+        {% render 'sibling-swatch-attrs', payload_product: sibling, payload_self: is_self, hide_color_suffix: hide_color_suffix %}
       >
         {% render 'swatch', swatch_image: sib_cp.image.value, shape: 'square' %}
         <span class="visually-hidden">{{ sib_color | escape }}</span>
+        {{ payload }}
       </a>
     {%- endfor -%}
 
     {%- if total_swatches > max_swatches -%}
       <span class="card__swatch-more">+{{ total_swatches | minus: max_swatches }}</span>
     {%- endif -%}
-  </div>
+  </sibling-swatches>
 {%- endif -%}
