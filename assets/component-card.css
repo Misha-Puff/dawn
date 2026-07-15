@@ -136,7 +136,7 @@
 
 .card__information {
   grid-row-start: 2;
-  padding: var(--card-info-padding-top, 0.7rem) 1rem 0.7rem;
+  padding: var(--card-info-padding-top, 8px) 1rem 0.7rem;
 }
 
 .card:not(.ratio) > .card__content {
@@ -303,7 +303,7 @@
 .card__heading {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: var(--card-title-size, 12px);
+  font-size: var(--card-title-size, 11px);
   /* max() keeps the stock 20px line box at any font-size ≤ 15.38px; scales only when a merchant dials the title larger. */
   line-height: max(20px, 1.3em);
   /* Product names opt out of the global .h4/.h5 mono-uppercase heading overrides (theme.liquid). */
@@ -319,20 +319,20 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: var(--card-title-price-gap, 0.4rem) 1rem;
+  gap: var(--card-title-price-gap, 2px) 1rem;
   flex-wrap: wrap;
 }
 
 .card__heading-row > .price {
   flex-shrink: 0;
-  font-size: var(--card-price-size, 14px);
+  font-size: var(--card-price-size, 11px);
   line-height: calc(1 + 0.4 / var(--font-body-scale));
   color: rgb(var(--color-foreground));
 }
 
 /* Compare-at strike follows the card price control (component-price.css sets 1.3rem directly, bypassing .price). */
 .card__heading-row > .price--on-sale .price-item--regular {
-  font-size: var(--card-price-size, 1.3rem);
+  font-size: var(--card-price-size, 11px);
   /* The full struck→sale gap (stock was 1rem + a word-space); exact because of the flex rule below. */
   margin-right: var(--card-sale-price-gap, 0.8rem);
 }
@@ -349,7 +349,7 @@
    collection grid, and search results. .product-card-wrapper keeps search's article/page cards
    (which share .card__heading) out; the specificity also out-specifies base.css .h5 heading scaling. */
 .card-redesign .product-card-wrapper .card__heading {
-  font-size: var(--card-title-size, 12px);
+  font-size: var(--card-title-size, 11px);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -402,6 +402,37 @@
 
 .card-redesign .badge--card {
   text-transform: uppercase;
+}
+
+/* Store-wide card recipe as the card-redesign default look (Nathan 2026-07-15):
+   carousels (featured-collection, metafield sliders, recently-viewed, related)
+   match collection-grid cards with zero per-section setup. Grid sections emit
+   the same knobs under #shopify-section-<id>, which outranks all of this.
+   The var() fallbacks above carry the size/spacing recipe; these are the
+   non-var pieces. --card-badge-gap-default (not the emitted var) carries the
+   responsive 8/10px default without shadowing section emission. */
+.card-redesign {
+  --card-badge-gap-default: 8px;
+}
+
+.card-redesign .card__heading {
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+.card-redesign .card__heading-row > .price {
+  letter-spacing: 0.2px;
+  color: #1a1a1a;
+}
+
+.card-redesign .badge--card {
+  letter-spacing: 0.2px;
+}
+
+@media screen and (min-width: 750px) {
+  .card-redesign {
+    --card-badge-gap-default: 10px;
+  }
 }
 
 .card--horizontal .card__heading-row > .price {
@@ -726,7 +757,7 @@
 }
 
 .variant-availability span {
-  font-size: var(--card-availability-size, 12px);
+  font-size: var(--card-availability-size, 11px);
   margin-right: 4px;
   text-transform: uppercase;
 }
@@ -749,7 +780,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: var(--card-swatch-gap, 0.6rem);
-  margin-top: var(--card-swatch-space, 0.8rem);
+  margin-top: var(--card-swatch-space, 6px);
 }
 
 .card__swatch {
@@ -761,8 +792,8 @@
 }
 
 .card__swatch .swatch {
-  --swatch--size: var(--swatch-card-width, 2rem);
-  --swatch--height: var(--swatch-card-height, auto);
+  --swatch--size: var(--swatch-card-width, 20px);
+  --swatch--height: var(--swatch-card-height, 12px);
   /* Card chips default to hard corners; swatch_card_radius > 0 re-rounds them. */
   --swatch--border-radius: var(--swatch-card-radius, 0);
 }
@@ -774,7 +805,7 @@
 .card__swatch-more {
   align-self: center;
   /* Same var as the availability strip; distinct fallbacks preserve both stock values when unset. */
-  font-size: var(--card-availability-size, 1.1rem);
+  font-size: var(--card-availability-size, 11px);
   letter-spacing: 0.07rem;
   color: rgba(var(--color-foreground), 0.7);
 }
@@ -783,8 +814,8 @@
 .card__badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem var(--card-badge-gap, 1.2rem);
-  margin-top: var(--card-badge-space, 0.6rem);
+  gap: 0.4rem var(--card-badge-gap, var(--card-badge-gap-default, 8px));
+  margin-top: var(--card-badge-space, 8px);
   text-align: var(--text-alignment);
 }
 

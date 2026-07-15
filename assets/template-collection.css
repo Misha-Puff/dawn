@@ -105,7 +105,7 @@
 
 .product-card-wrapper .card__information .price {
   /* Wins over component-card.css .card__heading-row > .price on specificity, so it must consume the same var. */
-  font-size: var(--card-price-size, 12px);
+  font-size: var(--card-price-size, 11px);
   margin-top: 0 !important;
 }
 
