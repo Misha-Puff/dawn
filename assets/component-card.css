@@ -728,6 +728,7 @@
 .variant-availability span {
   font-size: var(--card-availability-size, 12px);
   margin-right: 4px;
+  text-transform: uppercase;
 }
 
 .variant-availability .unavailable {

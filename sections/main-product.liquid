@@ -137,6 +137,15 @@
             {%- if info_pr > 0 %} padding-right: {{ info_pr }}px;{% endif -%}
           }
         }
+        {%- comment -%} Below the 1100px two-column breakpoint the fixed px insets eat a big share of the narrower columns, so scale them with the viewport instead. The vw value equals the px value at 1100px, so the transition is continuous and everything ≥1100px keeps the tuned look. {%- endcomment -%}
+        {%- assign info_pl_vw = info_pl | times: 100.0 | divided_by: 1100 | round: 3 -%}
+        {%- assign info_pr_vw = info_pr | times: 100.0 | divided_by: 1100 | round: 3 -%}
+        @media screen and (min-width: 750px) and (max-width: 1099px) {
+          #MainProduct-{{ section.id }} .product__info-wrapper {
+            {%- if info_pl > 0 %} padding-left: {{ info_pl_vw }}vw;{% endif -%}
+            {%- if info_pr > 0 %} padding-right: {{ info_pr_vw }}vw;{% endif -%}
+          }
+        }
       {%- endif -%}
       {%- if info_pt_m > 0 or info_pb_m > 0 or info_pl_m > 0 or info_pr_m > 0 -%}
         @media screen and (max-width: 749px) {

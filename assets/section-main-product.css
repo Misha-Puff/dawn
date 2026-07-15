@@ -261,6 +261,10 @@ a.product__text {
   display: none;
 }
 
+/* space-between pins the price right while it shares the title's line; when a
+   long title forces a wrap, the price's single-item flex line starts at
+   flex-start, so it lands left-aligned under the title. No margin-auto /
+   right-align pin on the price — that kept the wrapped line right-aligned. */
 .product__title--with-price {
   display: flex;
   align-items: baseline;
@@ -269,18 +273,13 @@ a.product__text {
   column-gap: 2rem;
 }
 
-.product__title--with-price .product__title-price {
-  margin-left: auto;
-  text-align: right;
-}
-
 .product__title--with-price .product__title-price .price__container {
   margin-bottom: 0;
 }
 
 /* Align title/price row and description to the 44rem cap shared by
    .product-form__input, .product-form__buttons, and .mending-options;
-   the price is pinned right via margin-left: auto, so capping the row
+   the price is pinned right via space-between, so capping the row
    pulls it in to the same edge. */
 .product__title,
 .product__description {
@@ -1665,6 +1664,16 @@ a.product__text {
 #bis-form .form-status.success,
 #bis-form .form-status.error {
   display: none;
+}
+
+/* Float the close X in the sheet's top-right corner (Klaviyo-style). The stock
+   toggle is an in-flow sticky row, so it sat inset by the popup padding and
+   pushed the title down; the sheet is position: absolute, so this anchors to it. */
+.bis-modal .product-popup-modal__toggle {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  margin: 0;
 }
 
 .product__text.inline-richtext {

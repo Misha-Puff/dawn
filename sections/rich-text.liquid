@@ -86,6 +86,32 @@
         }
       {%- endif -%}
     {%- endif -%}
+    {%- assign tg_alignv = block.settings.tg_align | default: 'default' -%}
+    {%- if tg_alignv != 'default' and tg_alignv != blank -%}
+      #{{ tg_scope }} .Block-{{ block.id }} { text-align: {{ tg_alignv }}; }
+    {%- endif -%}
+    {%- if block.settings.tg_enable_padding -%}
+      {%- liquid
+        assign tg_pt = block.settings.tg_padding_top | default: 0
+        assign tg_pb = block.settings.tg_padding_bottom | default: 0
+        assign tg_pt_m = block.settings.tg_padding_top_mobile | default: 0
+        assign tg_pb_m = block.settings.tg_padding_bottom_mobile | default: 0
+      -%}
+      {%- if tg_pt > 0 or tg_pb > 0 -%}
+        #{{ tg_scope }} .Block-{{ block.id }} {
+          {%- if tg_pt > 0 %} padding-top: {{ tg_pt }}px;{% endif -%}
+          {%- if tg_pb > 0 %} padding-bottom: {{ tg_pb }}px;{% endif -%}
+        }
+      {%- endif -%}
+      {%- if tg_pt_m > 0 or tg_pb_m > 0 -%}
+        @media screen and (max-width: 749px) {
+          #{{ tg_scope }} .Block-{{ block.id }} {
+            {%- if tg_pt_m > 0 %} padding-top: {{ tg_pt_m }}px;{% endif -%}
+            {%- if tg_pb_m > 0 %} padding-bottom: {{ tg_pb_m }}px;{% endif -%}
+          }
+        }
+      {%- endif -%}
+    {%- endif -%}
   {%- endfor -%}
 {%- endstyle -%}
 
@@ -520,6 +546,75 @@
           "info": "0 = same as desktop",
           "default": 0,
           "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_align",
+          "options": [
+            { "value": "default", "label": "Section default" },
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "default",
+          "label": "Alignment",
+          "info": "Overrides the section's content alignment for this block"
+        },
+        {
+          "type": "header",
+          "content": "Padding"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_enable_padding",
+          "default": false,
+          "label": "Enable padding"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding top",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding bottom",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_top_mobile",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Mobile padding top",
+          "info": "0 = same as desktop",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_bottom_mobile",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Mobile padding bottom",
+          "info": "0 = same as desktop",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
         }
       ]
     },
@@ -692,6 +787,75 @@
           "info": "0 = same as desktop",
           "default": 0,
           "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_align",
+          "options": [
+            { "value": "default", "label": "Section default" },
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "default",
+          "label": "Alignment",
+          "info": "Overrides the section's content alignment for this block"
+        },
+        {
+          "type": "header",
+          "content": "Padding"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_enable_padding",
+          "default": false,
+          "label": "Enable padding"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding top",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding bottom",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_top_mobile",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Mobile padding top",
+          "info": "0 = same as desktop",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_bottom_mobile",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Mobile padding bottom",
+          "info": "0 = same as desktop",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
         }
       ]
     },
@@ -838,6 +1002,75 @@
           "info": "0 = same as desktop",
           "default": 0,
           "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_align",
+          "options": [
+            { "value": "default", "label": "Section default" },
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "default",
+          "label": "Alignment",
+          "info": "Overrides the section's content alignment for this block"
+        },
+        {
+          "type": "header",
+          "content": "Padding"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_enable_padding",
+          "default": false,
+          "label": "Enable padding"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding top",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Padding bottom",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_top_mobile",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Mobile padding top",
+          "info": "0 = same as desktop",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_padding_bottom_mobile",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "label": "Mobile padding bottom",
+          "info": "0 = same as desktop",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_padding }}"
         }
       ]
     },
