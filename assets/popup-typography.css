@@ -84,3 +84,22 @@
 .iia-drawer .iia-stock-threshold {
   color: rgba(var(--color-foreground), 0.75) !important;
 }
+
+/* Rebuy carousels OUTSIDE the Smart Cart (Nathan 2026-07-15): match the
+   store-wide card recipe. widget-type-cart (the flyout upsell grid) is
+   excluded — the cart is Rebuy-owned and already themed. */
+.rebuy-widget:not(.widget-type-cart) .rebuy-product-title {
+  font-family: var(--font-heading-family);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  color: #1a1a1a;
+}
+
+.rebuy-widget:not(.widget-type-cart) .rebuy-product-price,
+.rebuy-widget:not(.widget-type-cart) .rebuy-money {
+  font-family: var(--font-mono-family);
+  font-size: 11px;
+  letter-spacing: 0.2px;
+  color: #1a1a1a;
+}
