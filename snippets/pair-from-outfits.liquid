@@ -2,8 +2,12 @@
   Renders the "Pair It With (Outfits)" product-info block: every product from
   every Shop-the-Look outfit this product belongs to
   (product_page.shop_the_look_outfits), current product excluded, deduped,
-  Locksmith-guarded, capped at the block's maximum — as a slider of minimal
-  pairing cards. Renders nothing when no products resolve (design-mode hint only).
+  Locksmith-guarded, capped at the block's maximum — as a stacked row list
+  (image left; title, price, and optional quick add stacked right).
+  Renders nothing when no products resolve (design-mode hint only).
+
+  The per-product quick-add modals are emitted after the row list with the
+  same guards as the row loop, so openers and modals stay 1:1.
 
   Accepts:
   - block: {Object} the pair_from_outfits block
@@ -16,7 +20,9 @@
 {%- liquid
   assign outfits = product.metafields.product_page.shop_the_look_outfits.value
   assign pair_max = block.settings.max_products
-  assign pair_cols = block.settings.columns_desktop
+  assign pair_img_w = block.settings.image_width | default: 100
+  assign pair_img_w2 = pair_img_w | times: 2
+  assign pair_img_w3 = pair_img_w | times: 3
   assign seen_ids = ','
   assign pair_shown = 0
 -%}
@@ -41,12 +47,105 @@
       {%- endif -%}
       {%- assign seen_ids = seen_ids | append: pair_product.id | append: ',' -%}
       {%- assign pair_shown = pair_shown | plus: 1 -%}
-      <li id="Slide-{{ block.id }}-{{ pair_shown }}" class="pair-outfits__item grid__item slider__slide">
-        {% render 'card-pairing',
-          pairing_product: pair_product,
-          image_ratio: block.settings.image_ratio,
-          show_color_line: block.settings.show_color_line
-        %}
+      {%- assign pair_media = pair_product.featured_media -%}
+      <li class="pair-outfits__row">
+        <a href="{{ pair_product.url }}" class="pair-outfits__row-media pair-outfits__row-media--{{ block.settings.image_ratio }}">
+          {%- if pair_media != null -%}
+            <img
+              srcset="
+                {%- if pair_media.width >= pair_img_w -%}{{ pair_media | image_url: width: pair_img_w }} {{ pair_img_w }}w,{%- endif -%}
+                {%- if pair_media.width >= pair_img_w2 -%}{{ pair_media | image_url: width: pair_img_w2 }} {{ pair_img_w2 }}w,{%- endif -%}
+                {%- if pair_media.width >= pair_img_w3 -%}{{ pair_media | image_url: width: pair_img_w3 }} {{ pair_img_w3 }}w,{%- endif -%}
+                {{ pair_media | image_url }} {{ pair_media.width }}w
+              "
+              src="{{ pair_media | image_url: width: pair_img_w2 }}"
+              sizes="{{ pair_img_w }}px"
+              alt="{{ pair_media.alt | escape }}"
+              loading="lazy"
+              width="{{ pair_media.width }}"
+              height="{{ pair_media.height }}"
+            >
+          {%- endif -%}
+        </a>
+        <div class="pair-outfits__row-info">
+          <a href="{{ pair_product.url }}" class="pair-outfits__row-title">{{ pair_product.title | escape }}</a>
+          {%- if block.settings.show_color_line and pair_product.options[0] == 'Color' -%}
+            <p class="pair-outfits__row-color">{{ pair_product.selected_or_first_available_variant.options[0] }}</p>
+          {%- endif -%}
+          <div class="pair-outfits__row-price">
+            {%- render 'price', product: pair_product -%}
+          </div>
+          {%- if block.settings.enable_quick_add -%}
+            {%- unless pair_product.tags contains 'Badge-Coming Soon' -%}
+              {%- liquid
+                assign pair_form_id = 'pair-quick-add-' | append: block.id | append: '-' | append: pair_product.id
+                assign pair_qty_rules = false
+                if pair_product.selected_or_first_available_variant.quantity_rule.min > 1 or pair_product.selected_or_first_available_variant.quantity_rule.max != null or pair_product.selected_or_first_available_variant.quantity_rule.increment > 1
+                  assign pair_qty_rules = true
+                endif
+              -%}
+              {%- if pair_product.variants_count > 1 or pair_qty_rules -%}
+                <modal-opener data-modal="#QuickAddPair-{{ block.id }}-{{ pair_product.id }}" class="pair-outfits__row-atc">
+                  <button
+                    id="{{ pair_form_id }}-submit"
+                    type="button"
+                    class="pair-outfits__row-atc-button"
+                    aria-haspopup="dialog"
+                    aria-label="{{ 'products.product.choose_options' | t }} — {{ pair_product.title | escape }}"
+                    data-product-url="{{ pair_product.url }}"
+                  >
+                    <span>{{ 'products.product.choose_options' | t }}</span>
+                    {%- render 'loading-spinner' -%}
+                  </button>
+                </modal-opener>
+              {%- else -%}
+                <product-form data-section-id="{{ section.id }}" class="pair-outfits__row-atc">
+                  {%- form 'product',
+                    pair_product,
+                    id: pair_form_id,
+                    class: 'form',
+                    novalidate: 'novalidate',
+                    data-type: 'add-to-cart-form'
+                  -%}
+                    <input
+                      type="hidden"
+                      name="id"
+                      value="{{ pair_product.selected_or_first_available_variant.id }}"
+                      class="product-variant-id"
+                      {% if pair_product.selected_or_first_available_variant.available == false %}
+                        disabled
+                      {% endif %}
+                    >
+                    <button
+                      id="{{ pair_form_id }}-submit"
+                      type="submit"
+                      name="add"
+                      class="pair-outfits__row-atc-button"
+                      aria-label="{{ 'products.product.add_to_cart' | t }} — {{ pair_product.title | escape }}"
+                      aria-live="polite"
+                      data-sold-out-message="true"
+                      {% if pair_product.selected_or_first_available_variant.available == false %}
+                        disabled
+                      {% endif %}
+                    >
+                      <span>
+                        {%- if pair_product.selected_or_first_available_variant.available -%}
+                          {{ 'products.product.add_to_cart' | t }}
+                        {%- else -%}
+                          {{ 'products.product.sold_out' | t }}
+                        {%- endif -%}
+                      </span>
+                      <span class="sold-out-message hidden">
+                        {{ 'products.product.sold_out' | t }}
+                      </span>
+                      {%- render 'loading-spinner' -%}
+                    </button>
+                  {%- endform -%}
+                </product-form>
+              {%- endif -%}
+            {%- endunless -%}
+          {%- endif -%}
+        </div>
       </li>
     {%- endfor -%}
     {%- if pair_shown >= pair_max -%}
@@ -55,67 +154,103 @@
   {%- endfor -%}
 {%- endcapture -%}
 {%- if pair_shown > 0 -%}
-  {{ 'component-slider.css' | asset_url | stylesheet_tag }}
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
-  {{ 'component-card-pairing.css' | asset_url | stylesheet_tag }}
   {{ 'component-pair-outfits.css' | asset_url | stylesheet_tag }}
-  {%- if block.settings.pair_gap_enable -%}
-    {%- comment -%}
-      The item-width calcs and the grid gap both consume the grid spacing vars,
-      so overriding them on the block root adjusts gap and widths coherently.
-    {%- endcomment -%}
+  {%- if block.settings.enable_quick_add -%}
+    {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+  {%- if pair_img_w != 100 -%}
     {% style %}
       .pair-outfits.Block-{{ block.id }} {
-        --grid-mobile-horizontal-spacing: {{ block.settings.pair_gap_mobile }}px;
-        --grid-desktop-horizontal-spacing: {{ block.settings.pair_gap_mobile }}px;
+        --pair-image-width: {{ pair_img_w }}px;
+      }
+    {% endstyle %}
+  {%- endif -%}
+  {%- if block.settings.pair_gap_enable -%}
+    {% style %}
+      .pair-outfits.Block-{{ block.id }} {
+        --pair-row-gap: {{ block.settings.pair_gap_mobile }}px;
       }
 
       @media screen and (min-width: 990px) {
         .pair-outfits.Block-{{ block.id }} {
-          --grid-desktop-horizontal-spacing: {{ block.settings.pair_gap_desktop }}px;
+          --pair-row-gap: {{ block.settings.pair_gap_desktop }}px;
         }
       }
     {% endstyle %}
   {%- endif -%}
   <aside
-    class="pair-outfits pair-outfits--cols-{{ pair_cols }} Block-{{ block.id }}"
+    class="pair-outfits Block-{{ block.id }}"
     aria-label="{{ block.settings.block_heading | escape }}"
     {{ block.shopify_attributes }}
   >
     <h2 class="h3 pair-outfits__heading">{{ block.settings.block_heading }}</h2>
-    <slider-component class="slider-mobile-gutter">
-      <ul
-        id="Slider-{{ block.id }}"
-        class="pair-outfits__grid grid grid--1-col slider slider--everywhere"
-        role="list"
-      >
-        {{ pair_items }}
-      </ul>
-      {%- if pair_shown > pair_cols -%}
-        <div class="slider-buttons">
-          <button
-            type="button"
-            class="slider-button slider-button--prev"
-            name="previous"
-            aria-label="{{ 'general.slider.previous_slide' | t }}"
-          >
-            <span class="svg-wrapper">
-              {{- 'icon-caret.svg' | inline_asset_content -}}
-            </span>
-          </button>
-          <button
-            type="button"
-            class="slider-button slider-button--next"
-            name="next"
-            aria-label="{{ 'general.slider.next_slide' | t }}"
-          >
-            <span class="svg-wrapper">
-              {{- 'icon-caret.svg' | inline_asset_content -}}
-            </span>
-          </button>
-        </div>
-      {%- endif -%}
-    </slider-component>
+    <ul class="pair-outfits__list" role="list">
+      {{ pair_items }}
+    </ul>
+    {%- if block.settings.enable_quick_add -%}
+      {%- comment -%} Same guards as the row loop so openers and modals stay 1:1. {%- endcomment -%}
+      {%- liquid
+        assign modal_seen_ids = ','
+        assign modal_shown = 0
+      -%}
+      {%- for outfit in outfits -%}
+        {%- for pair_product in outfit.products.value -%}
+          {%- if modal_shown >= pair_max -%}
+            {%- break -%}
+          {%- endif -%}
+          {%- if pair_product.id == product.id -%}
+            {%- continue -%}
+          {%- endif -%}
+          {%- assign pair_id_key = ',' | append: pair_product.id | append: ',' -%}
+          {%- if modal_seen_ids contains pair_id_key -%}
+            {%- continue -%}
+          {%- endif -%}
+          {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: pair_product -%}{%- endcapture -%}
+          {%- assign lock_content = lock_content | strip -%}
+          {%- if lock_content == 'true' -%}
+            {%- continue -%}
+          {%- endif -%}
+          {%- assign modal_seen_ids = modal_seen_ids | append: pair_product.id | append: ',' -%}
+          {%- assign modal_shown = modal_shown | plus: 1 -%}
+          {%- if pair_product.tags contains 'Badge-Coming Soon' -%}
+            {%- continue -%}
+          {%- endif -%}
+          {%- liquid
+            assign pair_qty_rules = false
+            if pair_product.selected_or_first_available_variant.quantity_rule.min > 1 or pair_product.selected_or_first_available_variant.quantity_rule.max != null or pair_product.selected_or_first_available_variant.quantity_rule.increment > 1
+              assign pair_qty_rules = true
+            endif
+          -%}
+          {%- if pair_product.variants_count > 1 or pair_qty_rules -%}
+            <quick-add-modal id="QuickAddPair-{{ block.id }}-{{ pair_product.id }}" class="quick-add-modal">
+              <div
+                role="dialog"
+                aria-label="{{ 'products.product.choose_product_options' | t: product_name: pair_product.title | escape }}"
+                aria-modal="true"
+                class="quick-add-modal__content global-settings-popup"
+                tabindex="-1"
+              >
+                <button
+                  id="ModalClose-Pair-{{ block.id }}-{{ pair_product.id }}"
+                  type="button"
+                  class="quick-add-modal__toggle"
+                  aria-label="{{ 'accessibility.close' | t }}"
+                >
+                  {{- 'icon-close.svg' | inline_asset_content -}}
+                </button>
+                <div id="QuickAddInfo-Pair-{{ block.id }}-{{ pair_product.id }}" class="quick-add-modal__content-info"></div>
+              </div>
+            </quick-add-modal>
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if modal_shown >= pair_max -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
   </aside>
 {%- elsif request.design_mode -%}
   <div class="pair-outfits Block-{{ block.id }}" {{ block.shopify_attributes }}>

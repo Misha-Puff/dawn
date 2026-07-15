@@ -9,56 +9,128 @@
   margin: 0 0 1.2rem;
 }
 
-.pair-outfits__grid {
-  padding: 0;
-  list-style: none;
-}
-
-/* Mobile: 2-across peek slider. */
-.pair-outfits .pair-outfits__grid > .pair-outfits__item {
-  width: calc(50% - var(--grid-mobile-horizontal-spacing) / 2);
-  max-width: calc(50% - var(--grid-mobile-horizontal-spacing) / 2);
-  flex-shrink: 0;
-}
-
-/* Desktop: width per the block's columns setting. */
-@media screen and (min-width: 990px) {
-  .pair-outfits--cols-2 .pair-outfits__grid > .pair-outfits__item {
-    width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
-    max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
-  }
-
-  .pair-outfits--cols-3 .pair-outfits__grid > .pair-outfits__item {
-    width: calc(100% / 3 - var(--grid-desktop-horizontal-spacing) * 2 / 3);
-    max-width: calc(100% / 3 - var(--grid-desktop-horizontal-spacing) * 2 / 3);
-  }
-
-  .pair-outfits--cols-4 .pair-outfits__grid > .pair-outfits__item {
-    width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
-    max-width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
-  }
-}
-
-.pair-outfits .slider-buttons {
+.pair-outfits__list {
   display: flex;
-  justify-content: flex-end;
-  gap: 0.4rem;
-  margin-top: 0.4rem;
+  flex-direction: column;
+  gap: var(--pair-row-gap, 20px);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pair-outfits__row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.pair-outfits__row-media {
+  flex: 0 0 var(--pair-image-width, 100px);
+  width: var(--pair-image-width, 100px);
+  overflow: hidden;
+  background: rgba(var(--color-foreground), 0.04);
+}
+
+.pair-outfits__row-media--portrait {
+  aspect-ratio: 2 / 3;
+}
+
+.pair-outfits__row-media--square {
+  aspect-ratio: 1 / 1;
+}
+
+.pair-outfits__row-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pair-outfits__row-info {
+  min-width: 0;
 }
 
 /* Card parity with collection-grid cards (Nathan 2026-07-15): mirrors the
-   store-wide card recipe (11px / uppercase / 0.2px tracking / #1a1a1a).
-   Scoped to the PDP block so the Shop-the-Look popup's pairing cards keep
-   their signed-off look. */
-.pair-outfits .card-pairing__title {
+   store-wide card recipe (11px / uppercase / 0.2px tracking / #1a1a1a). */
+.pair-outfits__row-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin: 0;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.2px;
   color: #1a1a1a;
+  text-decoration: none;
 }
 
-.pair-outfits .card-pairing__price .price {
+.pair-outfits__row-color {
+  margin: 2px 0 0;
+  font-size: 10px;
+  color: rgba(var(--color-foreground), 0.7);
+}
+
+.pair-outfits__row-price {
+  margin-top: 4px;
+}
+
+.pair-outfits__row-price .price {
+  font-family: var(--font-mono-family);
   font-size: 11px;
   letter-spacing: 0.2px;
   color: #1a1a1a;
+}
+
+/* Add to cart as an underlined text link (Rachel Comey-style rows). */
+.pair-outfits__row-atc {
+  display: block;
+  margin-top: 10px;
+}
+
+.pair-outfits__row-atc .form {
+  margin: 0;
+}
+
+.pair-outfits__row-atc-button {
+  position: relative;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-mono-family);
+  font-size: 11px;
+  letter-spacing: 0.2px;
+  color: #1a1a1a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pair-outfits__row-atc-button[disabled] {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Loading spinner — mirrors base.css .button.loading, scoped to the text link. */
+.pair-outfits__row-atc-button.loading {
+  color: transparent;
+}
+
+.pair-outfits__row-atc-button.loading > .loading__spinner {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.pair-outfits__row-atc-button.loading > .loading__spinner .spinner {
+  width: fit-content;
+}
+
+.pair-outfits__row-atc-button > .loading__spinner .path {
+  stroke: #1a1a1a;
 }
