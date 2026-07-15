@@ -607,6 +607,13 @@
           {%- endcase -%}
         {%- endfor -%}
       {%- endif -%}
+      {%- if block.type == 'price' and block.settings.price_beside_title -%}
+        {%- comment -%} Vertical gap between the title and the price when the row wraps — flex row-gap only exists between wrapped lines, so the one-line case is untouched. {%- endcomment -%}
+        {%- assign pw_gap = block.settings.price_wrap_gap | default: 0 -%}
+        {%- if pw_gap > 0 -%}
+          #{{ tg_scope }} .product__title--with-price { row-gap: {{ pw_gap }}px; }
+        {%- endif -%}
+      {%- endif -%}
       {%- if block.type == 'buy_buttons' and block.settings.tg_pickup_enable -%}
         {%- comment -%} Find-in-store / pickup availability text. On this store the visible line ("FIND IN BROOKLYN") is the Inventory Information app block — a .iia-container div filled client-side, sitting inside #ProductInfo — so the rules target its text elements (.iia-drawer-link / .iia-header) alongside Shopify's native <pickup-availability> markup, which currently renders inert (no pickup-enabled locations) but stays covered in case that changes. CSS rules survive both apps' JS re-renders; both store-list drawers append to document.body and keep their own styling. buy_buttons has limit 1, so scoping by the section id alone is stable without the Block-id wrapper (which only exists when padding is enabled). {%- endcomment -%}
         {%- liquid
@@ -1767,6 +1774,7 @@
       "settings": [
         {"type": "header", "content": "Layout"},
         {"type": "checkbox", "id": "price_beside_title", "default": false, "label": "Show beside product title", "info": "Places the price on the same row as the title, aligned right. Requires a Title block."},
+        {"type": "range", "id": "price_wrap_gap", "min": 0, "max": 40, "step": 1, "unit": "px", "label": "Wrapped price spacing", "info": "Vertical gap between the title and the price when a long title wraps it to its own line. 0 = default", "default": 0, "visible_if": "{{ block.settings.price_beside_title }}"},
         {"type": "header", "content": "Typography"},
         {"type": "checkbox", "id": "tg_enable_type", "default": false, "label": "Enable typography"},
         {"type": "font_picker", "id": "tg_font", "default": "assistant_n4", "label": "Font", "visible_if": "{{ block.settings.tg_enable_type }}"},
