@@ -463,8 +463,8 @@
         "info_block_spacing": 0,
         "info_padding_top_mobile": 0,
         "info_padding_bottom_mobile": 0,
-        "info_padding_left_mobile": 0,
-        "info_padding_right_mobile": 0,
+        "info_padding_left_mobile": 8,
+        "info_padding_right_mobile": 8,
         "media_enable_padding": true,
         "media_padding_left": 30,
         "media_padding_right": 0
