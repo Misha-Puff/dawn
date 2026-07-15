@@ -229,7 +229,7 @@
         "size_overlay_bg_color": "#ffffff",
         "size_overlay_opacity": 60,
         "size_overlay_position": "bottom",
-        "size_overlay_padding_top": 8,
+        "size_overlay_padding_top": 6,
         "size_overlay_padding_bottom": 8,
         "enable_swatches": true,
         "swatch_card_width": 20,
