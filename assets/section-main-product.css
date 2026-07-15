@@ -1767,3 +1767,30 @@ a.product__text {
     row-gap: 2.4rem;
   }
 }
+
+/* --- Bidirectional tall-info sticky (M&P custom) ---
+   product-info.js publishes --info-column-height inline on the info column,
+   maintains a flow spacer before it, and toggles .info-anchor-top on scroll
+   direction changes. Var unset (no JS, quick-add clones) => min() collapses
+   to the stock header-height offset. 24px = bottom breathing room, mirrored
+   in product-info.js. Scoped to .product__info-container so
+   media-gallery.product__column-sticky (all layouts) is untouched; (0,2,0)
+   beats both earlier .product__column-sticky blocks (~:23 and ~:642). */
+@media screen and (min-width: 750px) {
+  .product__info-container.product__column-sticky {
+    top: min(var(--header-height, 55px), calc(100vh - var(--info-column-height, 0px) - 24px));
+  }
+
+  /* Scroll-up mode: rendered top = min(flow top, header line). The JS spacer
+     (real sibling, not margin — margins contract the sticky constraint rect
+     and block the catch) provides upward displacement room. */
+  .product__info-container.product__column-sticky.info-anchor-top {
+    top: auto;
+    bottom: calc(100vh - var(--header-height, 55px) - var(--info-column-height, 0px));
+  }
+}
+
+/* base.css div:empty (0,1,1) would hide the empty spacer — armor at (0,2,0) */
+.product__info-spacer:empty {
+  display: block;
+}

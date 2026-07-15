@@ -10,6 +10,7 @@ if (!customElements.get('product-info')) {
       pendingRequestUrl = null;
       preProcessHtmlCallbacks = [];
       postProcessHtmlCallbacks = [];
+      infoStickyCleanup = undefined;
 
       constructor() {
         super();
@@ -26,6 +27,7 @@ if (!customElements.get('product-info')) {
         );
 
         this.initQuantityHandlers();
+        this.initInfoColumnSticky();
         this.dispatchEvent(new CustomEvent('product-info:loaded', { bubbles: true }));
       }
 
@@ -48,6 +50,123 @@ if (!customElements.get('product-info')) {
       disconnectedCallback() {
         this.onVariantChangeUnsubscriber();
         this.cartUpdateUnsubscriber?.();
+        this.infoStickyCleanup?.();
+      }
+
+      // Bidirectional tall-info sticky: when the info column is taller than the viewport, let it
+      // scroll fully into view (bottom-stuck 24px above the viewport bottom) before sticking, and
+      // re-anchor its top at the header line as soon as the user scrolls back up. Publishes
+      // --info-column-height for the section-main-product.css min()/bottom math and, on each scroll
+      // direction change, freezes the column's flow slot at its current rendered position before
+      // toggling .info-anchor-top so native position:sticky does all the traveling jump-free. The
+      // freeze must be a real spacer sibling, not margin-top — sticky clamps the margin box inside
+      // the containing block, so a frozen margin leaves no upward displacement room and the
+      // up-anchor catch never engages. Short columns are untouched (the CSS min() collapses).
+      initInfoColumnSticky() {
+        if (this.dataset.originalSection || this.closest('quick-add-modal')) return;
+        const column = this.querySelector('.product__info-container.product__column-sticky');
+        const wrapper = column?.parentElement;
+        if (!column || !wrapper?.classList.contains('product__info-wrapper')) return;
+
+        const BOTTOM_GAP = 24; // px below the bottom-stuck column, mirrored in section-main-product.css
+        const mql = window.matchMedia('(min-width: 750px)');
+        let spacer;
+        let active = false;
+        let anchorTop = false;
+        let lastY = Math.max(0, window.scrollY);
+        let lastDirection = 0;
+        let resetY = 0;
+
+        const headerHeight = () =>
+          parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height'), 10) || 55;
+
+        // Wrapper padding + column margin — reads the info_thumb_top_offset margin without writing it.
+        const naturalTopOffset = () =>
+          parseFloat(getComputedStyle(wrapper).paddingTop) + parseFloat(getComputedStyle(column).marginTop);
+
+        const ensureSpacer = () => {
+          if (!spacer) {
+            spacer = document.createElement('div');
+            spacer.className = 'product__info-spacer';
+            spacer.setAttribute('aria-hidden', 'true');
+          }
+          if (spacer.parentElement !== wrapper) wrapper.insertBefore(spacer, column);
+          return spacer;
+        };
+
+        const reset = () => {
+          anchorTop = false;
+          column.classList.remove('info-anchor-top');
+          if (spacer) spacer.style.height = '0px';
+        };
+
+        const freezeFlow = () => {
+          const gap = column.getBoundingClientRect().top - wrapper.getBoundingClientRect().top - naturalTopOffset();
+          ensureSpacer().style.height = `${Math.max(0, gap)}px`;
+        };
+
+        const evaluate = () => {
+          const height = column.offsetHeight;
+          if (height === 0) return; // dying display:none ghost during HTMLUpdateUtility.viewTransition
+          column.style.setProperty('--info-column-height', `${height}px`);
+          active =
+            mql.matches &&
+            height + headerHeight() + BOTTOM_GAP > window.innerHeight &&
+            wrapper.clientHeight - height > 1; // no travel room => inert (no-media, gift card, info-tallest)
+          if (!active) reset();
+        };
+
+        const onScroll = () => {
+          if (!active) return;
+          const y = Math.max(0, window.scrollY); // iOS rubber-band
+          if (anchorTop && y <= resetY) {
+            // The un-spacered flow top is back at/above the header line: return to natural flow
+            // jump-free (also self-heals scrollTo(0,0) and anchor jumps).
+            reset();
+            lastY = y;
+            lastDirection = -1;
+            return;
+          }
+          const delta = y - lastY;
+          if (Math.abs(delta) < 2) return; // hysteresis: accumulate sub-threshold jitter, don't advance lastY
+          const direction = delta > 0 ? 1 : -1;
+          if (direction !== lastDirection) {
+            if (direction === -1) {
+              resetY = wrapper.getBoundingClientRect().top + y + naturalTopOffset() - headerHeight();
+              if (y <= resetY) {
+                reset();
+              } else {
+                freezeFlow();
+                anchorTop = true;
+                column.classList.add('info-anchor-top');
+              }
+            } else if (anchorTop) {
+              freezeFlow();
+              anchorTop = false;
+              column.classList.remove('info-anchor-top');
+            }
+            lastDirection = direction;
+          }
+          lastY = y;
+        };
+
+        // Wrapper resize = grid row height changes (media images settling, variant media swaps);
+        // column resize = accordions / variant content. Both re-derive the tall + travel guards.
+        const resizeObserver = new ResizeObserver(evaluate);
+        resizeObserver.observe(column);
+        resizeObserver.observe(wrapper);
+        const onResize = debounce(evaluate, 100); // ResizeObserver misses pure viewport-height changes
+        window.addEventListener('resize', onResize);
+        mql.addEventListener('change', evaluate);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        evaluate();
+
+        this.infoStickyCleanup = () => {
+          resizeObserver.disconnect();
+          window.removeEventListener('scroll', onScroll);
+          window.removeEventListener('resize', onResize);
+          mql.removeEventListener('change', evaluate);
+        };
       }
 
       initializeProductSwapUtility() {
