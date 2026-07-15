@@ -380,7 +380,7 @@
           "label": "t:sections.image-with-text.settings.desktop_image_width.options__3.label"
         }
       ],
-      "default": "medium",
+      "default": "small",
       "label": "t:sections.image-with-text.settings.desktop_image_width.label"
     },
     {
@@ -392,7 +392,7 @@
       "unit": "%",
       "label": "Custom image width (desktop)",
       "info": "0 = use the Desktop image width option above",
-      "default": 0
+      "default": 45
     },
     {
       "type": "range",
@@ -410,7 +410,7 @@
       "id": "full_width",
       "label": "Make section full width",
       "info": "Removes the side page padding so the image can run edge to edge",
-      "default": false
+      "default": true
     },
     {
       "type": "select",
@@ -485,7 +485,7 @@
           "label": "t:sections.image-with-text.settings.desktop_content_position.options__3.label"
         }
       ],
-      "default": "top",
+      "default": "middle",
       "label": "t:sections.image-with-text.settings.desktop_content_position.label"
     },
     {
@@ -548,7 +548,7 @@
       "unit": "px",
       "label": "Content horizontal padding",
       "info": "0 = theme default",
-      "default": 0
+      "default": 100
     },
     {
       "type": "range",
@@ -570,7 +570,7 @@
       "unit": "px",
       "label": "Content horizontal padding (mobile)",
       "info": "0 = no extra padding",
-      "default": 0
+      "default": 12
     },
     {
       "type": "range",
@@ -581,7 +581,7 @@
       "unit": "px",
       "label": "Content vertical padding (mobile)",
       "info": "0 = no extra padding",
-      "default": 0
+      "default": 30
     },
     {
       "type": "header",
@@ -611,7 +611,7 @@
       "step": 4,
       "unit": "px",
       "label": "t:sections.all.padding.padding_top",
-      "default": 36
+      "default": 0
     },
     {
       "type": "range",
@@ -621,12 +621,12 @@
       "step": 4,
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
+      "default": 80
     },
     {
       "type": "checkbox",
       "id": "enable_mobile_padding",
-      "default": false,
+      "default": true,
       "label": "Custom mobile section padding",
       "info": "Off = mobile uses 75% of the desktop padding"
     },
@@ -638,7 +638,7 @@
       "step": 2,
       "unit": "px",
       "label": "Mobile padding top",
-      "default": 28,
+      "default": 20,
       "visible_if": "{{ section.settings.enable_mobile_padding }}"
     },
     {
@@ -649,7 +649,7 @@
       "step": 2,
       "unit": "px",
       "label": "Mobile padding bottom",
-      "default": 28,
+      "default": 60,
       "visible_if": "{{ section.settings.enable_mobile_padding }}"
     },
     {
