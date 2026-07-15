@@ -814,7 +814,7 @@
         "tg_font_size": 12,
         "tg_line_height": 0,
         "tg_text_case": "uppercase",
-        "tg_letter_spacing": 0.2,
+        "tg_letter_spacing": 0.1,
         "tg_color": "#1a1a1a",
         "product_list": "{{ product.metafields.product_page.color_siblings.value }}",
         "collection": "",
