@@ -34,7 +34,30 @@
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
-        "color_scheme": "scheme-1"
+        "color_scheme": "scheme-1",
+        "tt_enable_type": false,
+        "tt_font": "assistant_n4",
+        "tt_custom_font": "default",
+        "tt_font_weight": "default",
+        "tt_font_size": 0,
+        "tt_font_size_mobile": 0,
+        "tt_text_case": "default",
+        "tt_letter_spacing": 0,
+        "tt_color": "",
+        "td_enable_type": false,
+        "td_font": "assistant_n4",
+        "td_custom_font": "default",
+        "td_font_weight": "default",
+        "td_font_size": 0,
+        "td_font_size_mobile": 0,
+        "td_text_case": "default",
+        "td_letter_spacing": 0,
+        "td_color": "",
+        "pad_enable": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
       }
     },
     "rich_text_YJeCaw": {
@@ -53,7 +76,7 @@
             "tg_line_height": 0,
             "tg_text_case": "uppercase",
             "tg_letter_spacing": 0,
-            "tg_color": "#1A1A1A",
+            "tg_color": "#1a1a1a",
             "tg_font_size_mobile": 0
           }
         },
@@ -70,7 +93,7 @@
             "tg_line_height": 150,
             "tg_text_case": "default",
             "tg_letter_spacing": 0.1,
-            "tg_color": "#1A1A1A",
+            "tg_color": "#1a1a1a",
             "tg_font_size_mobile": 0
           }
         },
@@ -107,8 +130,8 @@
         "enable_mobile_padding": true,
         "padding_top_mobile": 28,
         "padding_bottom_mobile": 28,
-        "padding_left_mobile": 0,
-        "padding_right_mobile": 0
+        "padding_left_mobile": 14,
+        "padding_right_mobile": 14
       }
     },
     "buttons_Y667Cy": {
@@ -120,8 +143,18 @@
             "label": "TOPS",
             "open_new_tab": true,
             "link": "shopify://collections/child-tops",
+            "display_style": "button",
             "type": "secondary",
-            "on_click": ""
+            "on_click": "",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_font_size_mobile": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": ""
           }
         },
         "button_JBYUhC": {
@@ -130,8 +163,18 @@
             "label": "BOTTOMS",
             "open_new_tab": true,
             "link": "shopify://collections/child-bottoms",
+            "display_style": "button",
             "type": "secondary",
-            "on_click": ""
+            "on_click": "",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_font_size_mobile": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": ""
           }
         },
         "button_YkEgYX": {
@@ -140,8 +183,18 @@
             "label": "DRESSES",
             "open_new_tab": true,
             "link": "shopify://collections/child-dresses",
+            "display_style": "button",
             "type": "secondary",
-            "on_click": ""
+            "on_click": "",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_font_size_mobile": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": ""
           }
         },
         "button_HKEnRa": {
@@ -150,8 +203,18 @@
             "label": "SHOP BABY SUMMER",
             "open_new_tab": true,
             "link": "shopify://collections/baby-summer",
+            "display_style": "button",
             "type": "secondary",
-            "on_click": ""
+            "on_click": "",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_font_size_mobile": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": ""
           }
         },
         "button_HWFEKG": {
@@ -160,8 +223,18 @@
             "label": "KINDRED SILHOUETTES",
             "open_new_tab": true,
             "link": "shopify://collections/mixed-kindred-silhouettes",
+            "display_style": "button",
             "type": "secondary",
-            "on_click": ""
+            "on_click": "",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_font_size_mobile": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": ""
           }
         }
       },
@@ -245,7 +318,7 @@
         "show_vendor": false,
         "show_rating": false,
         "show_size_overlay": true,
-        "size_overlay_bg_color": "#FFFFFF",
+        "size_overlay_bg_color": "#ffffff",
         "size_overlay_opacity": 60,
         "size_overlay_position": "bottom",
         "size_overlay_padding_top": 6,
@@ -288,7 +361,11 @@
         "filter_type": "drawer",
         "enable_sorting": true,
         "padding_top": 0,
-        "padding_bottom": 60
+        "padding_bottom": 60,
+        "heart_custom": false,
+        "heart_size": 13,
+        "heart_top": 8,
+        "heart_right": 8
       }
     },
     "shogun-below": {
