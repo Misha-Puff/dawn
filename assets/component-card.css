@@ -781,6 +781,11 @@
   align-items: center;
   gap: var(--card-swatch-gap, 0.6rem);
   margin-top: var(--card-swatch-space, 6px);
+  /* Above the stretched card link (.card__heading a::after) — without this,
+     hit-testing sends every swatch click to the card's own product. This was
+     latent on the static swatches too; click-to-preview made it visible. */
+  position: relative;
+  z-index: 1;
 }
 
 .card__swatch {

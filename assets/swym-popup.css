@@ -64,10 +64,18 @@ span.swym-variant-selector-status svg path {
   font-family: var(--font-mono-family) !important;
 }
 
-/* Collection-card wishlist heart: the app embed's Button size setting drives the
-   button box / position math only — the visible icon is an <img> hard-attributed
-   20x20. Attribute sizing loses to any CSS declaration, so no !important needed. */
+/* Collection-card wishlist heart: the app embed's Button size setting sizes the
+   BUTTON BOX only — the visible icon is an <img> hard-attributed 20x20 that the
+   app never scales. Sizing the icon to the button box wires the embed's Button
+   size slider directly to the visible heart (padding zeroed so box = icon). */
+.swym-wishlist-collections-v2 {
+  box-sizing: content-box !important;
+  padding: 0 !important;
+}
+
 .swym-wishlist-collections-v2 #swym-atw-collections-img-icon {
-  width: 16px;
-  height: 16px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
