@@ -422,6 +422,18 @@
 
 <div class="section-{{ section.id }}-padding card-redesign gradient color-{{ section.settings.color_scheme }}">
   {%- paginate collection.products by section.settings.products_per_page -%}
+    {%- if section.settings.show_breadcrumb -%}
+      <div class="page-width">
+        {% render 'breadcrumbs',
+          bc_custom: section.settings.bc_custom,
+          bc_size: section.settings.bc_size,
+          bc_ls: section.settings.bc_ls,
+          bc_color: section.settings.bc_color,
+          bc_margin_top: section.settings.bc_margin_top,
+          bc_margin_bottom: section.settings.bc_margin_bottom
+        %}
+      </div>
+    {%- endif -%}
     {%- comment -%}
       Lateral-shopping tabs live OUTSIDE #ProductGridContainer so facet AJAX
       never touches them, and above the Collection / Campaign toggle so they
@@ -832,6 +844,77 @@
   "name": "t:sections.main-collection-product-grid.name",
   "class": "section",
   "settings": [
+    {
+      "type": "header",
+      "content": "Breadcrumbs"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumb",
+      "default": false,
+      "label": "Show breadcrumb",
+      "info": "Home / Collection above the grid"
+    },
+    {
+      "type": "checkbox",
+      "id": "bc_custom",
+      "default": false,
+      "label": "Custom breadcrumb style",
+      "visible_if": "{{ section.settings.show_breadcrumb }}"
+    },
+    {
+      "type": "range",
+      "id": "bc_size",
+      "min": 0,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Breadcrumb font size",
+      "info": "0 = theme default",
+      "default": 0,
+      "visible_if": "{{ section.settings.bc_custom }}"
+    },
+    {
+      "type": "range",
+      "id": "bc_ls",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Breadcrumb letter spacing",
+      "info": "0 = theme default",
+      "default": 0,
+      "visible_if": "{{ section.settings.bc_custom }}"
+    },
+    {
+      "type": "color",
+      "id": "bc_color",
+      "label": "Breadcrumb color",
+      "info": "Leave blank to inherit",
+      "visible_if": "{{ section.settings.bc_custom }}"
+    },
+    {
+      "type": "range",
+      "id": "bc_margin_top",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Breadcrumb padding top",
+      "default": 0,
+      "visible_if": "{{ section.settings.bc_custom }}"
+    },
+    {
+      "type": "range",
+      "id": "bc_margin_bottom",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Breadcrumb padding bottom",
+      "default": 24,
+      "visible_if": "{{ section.settings.bc_custom }}"
+    },
     {
       "type": "range",
       "id": "products_per_page",
