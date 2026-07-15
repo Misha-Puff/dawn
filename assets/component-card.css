@@ -838,9 +838,12 @@
 
 /* Sibling-preview state (card-sibling-preview.js): while a swatch previews a
    different colorway, controls that still describe the ORIGINAL product hide
-   so nothing can act on the wrong product. */
+   so nothing can act on the wrong product. The whole size overlay hides, not
+   just its availability content — otherwise its empty chrome still slides in
+   on hover. */
 .card--sibling-preview .quick-add,
 .card--sibling-preview .card__badges,
+.card--sibling-preview .popup-overlay,
 .card--sibling-preview .variant-availability {
   display: none;
 }
