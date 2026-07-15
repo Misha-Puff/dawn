@@ -11,13 +11,11 @@
   "sections": {
     "shogun-helper": {
       "type": "shogun-helper",
-      "settings": {
-      }
+      "settings": {}
     },
     "shogun-above": {
       "type": "shogun-above",
-      "settings": {
-      }
+      "settings": {}
     },
     "banner": {
       "type": "main-collection-banner",
@@ -182,18 +180,41 @@
         "enable_sorting": true,
         "columns_mobile": "2",
         "padding_top": 0,
-        "padding_bottom": 36
+        "padding_bottom": 60,
+        "card_availability_size": 11,
+        "card_badge_gap": 10,
+        "card_badge_gap_mobile": 8,
+        "card_badge_letter_spacing": 0.2,
+        "card_badge_space": 8,
+        "card_badge_space_mobile": 8,
+        "card_info_padding_top": 8,
+        "card_info_padding_top_mobile": 8,
+        "card_price_color": "#1a1a1a",
+        "card_price_letter_spacing": 0.2,
+        "card_price_size": 11,
+        "card_spacing_enable": true,
+        "card_spacing_enable_mobile": true,
+        "card_swatch_space": 6,
+        "card_swatch_space_mobile": 6,
+        "card_title_case": "uppercase",
+        "card_title_letter_spacing": 0.2,
+        "card_title_price_gap": 2,
+        "card_title_price_gap_mobile": 2,
+        "card_title_size": 11,
+        "size_overlay_bg_color": "#ffffff",
+        "size_overlay_padding_bottom": 6,
+        "size_overlay_padding_top": 6,
+        "swatch_card_height": 12,
+        "swatch_card_width": 20
       }
     },
     "shogun-below": {
       "type": "shogun-below",
-      "settings": {
-      }
+      "settings": {}
     },
     "shogun-optimizer": {
       "type": "shogun-optimizer",
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [
