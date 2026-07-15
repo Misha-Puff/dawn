@@ -245,6 +245,7 @@
         "button_HKEnRa",
         "button_HWFEKG"
       ],
+      "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
