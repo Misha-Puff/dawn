@@ -183,6 +183,31 @@
     {%- endif -%}
   {%- endif -%}
 
+  {%- comment -%}
+    Wishlist heart (Swym app-injected). The app pins the heart with an inline
+    transform computed in JS and !important box-size rules from its Button
+    size setting, so every override here needs !important + the ID scope.
+    Size flows to the visible icon via the img { width/height: 100% } wiring
+    in swym-popup.css. Zero CSS when the checkbox is off (app stays in charge).
+  {%- endcomment -%}
+  {%- if section.settings.heart_custom -%}
+    #shopify-section-{{ section.id }} .swym-wishlist-collections-v2-container {
+      top: {{ section.settings.heart_top }}px !important;
+      right: {{ section.settings.heart_right }}px !important;
+      left: auto !important;
+      bottom: auto !important;
+      width: auto !important;
+      height: auto !important;
+    }
+
+    #shopify-section-{{ section.id }} .swym-wishlist-collections-v2 {
+      transform: none !important;
+      width: {{ section.settings.heart_size }}px !important;
+      min-width: {{ section.settings.heart_size }}px !important;
+      height: {{ section.settings.heart_size }}px !important;
+    }
+  {%- endif -%}
+
   @media screen and (max-width: 1099px) {
     .collection {
       padding: 0;
@@ -422,18 +447,6 @@
 
 <div class="section-{{ section.id }}-padding card-redesign gradient color-{{ section.settings.color_scheme }}">
   {%- paginate collection.products by section.settings.products_per_page -%}
-    {%- if section.settings.show_breadcrumb -%}
-      <div class="page-width">
-        {% render 'breadcrumbs',
-          bc_custom: section.settings.bc_custom,
-          bc_size: section.settings.bc_size,
-          bc_ls: section.settings.bc_ls,
-          bc_color: section.settings.bc_color,
-          bc_margin_top: section.settings.bc_margin_top,
-          bc_margin_bottom: section.settings.bc_margin_bottom
-        %}
-      </div>
-    {%- endif -%}
     {%- comment -%}
       Lateral-shopping tabs live OUTSIDE #ProductGridContainer so facet AJAX
       never touches them, and above the Collection / Campaign toggle so they
@@ -845,77 +858,6 @@
   "class": "section",
   "settings": [
     {
-      "type": "header",
-      "content": "Breadcrumbs"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_breadcrumb",
-      "default": false,
-      "label": "Show breadcrumb",
-      "info": "Home / Collection above the grid"
-    },
-    {
-      "type": "checkbox",
-      "id": "bc_custom",
-      "default": false,
-      "label": "Custom breadcrumb style",
-      "visible_if": "{{ section.settings.show_breadcrumb }}"
-    },
-    {
-      "type": "range",
-      "id": "bc_size",
-      "min": 0,
-      "max": 28,
-      "step": 1,
-      "unit": "px",
-      "label": "Breadcrumb font size",
-      "info": "0 = theme default",
-      "default": 0,
-      "visible_if": "{{ section.settings.bc_custom }}"
-    },
-    {
-      "type": "range",
-      "id": "bc_ls",
-      "min": 0,
-      "max": 4,
-      "step": 0.1,
-      "unit": "px",
-      "label": "Breadcrumb letter spacing",
-      "info": "0 = theme default",
-      "default": 0,
-      "visible_if": "{{ section.settings.bc_custom }}"
-    },
-    {
-      "type": "color",
-      "id": "bc_color",
-      "label": "Breadcrumb color",
-      "info": "Leave blank to inherit",
-      "visible_if": "{{ section.settings.bc_custom }}"
-    },
-    {
-      "type": "range",
-      "id": "bc_margin_top",
-      "min": 0,
-      "max": 80,
-      "step": 2,
-      "unit": "px",
-      "label": "Breadcrumb padding top",
-      "default": 0,
-      "visible_if": "{{ section.settings.bc_custom }}"
-    },
-    {
-      "type": "range",
-      "id": "bc_margin_bottom",
-      "min": 0,
-      "max": 80,
-      "step": 2,
-      "unit": "px",
-      "label": "Breadcrumb padding bottom",
-      "default": 24,
-      "visible_if": "{{ section.settings.bc_custom }}"
-    },
-    {
       "type": "range",
       "id": "products_per_page",
       "min": 8,
@@ -1069,9 +1011,18 @@
       "type": "select",
       "id": "size_overlay_position",
       "options": [
-        { "value": "bottom", "label": "Bottom (theme default)" },
-        { "value": "center", "label": "Center" },
-        { "value": "top", "label": "Top" }
+        {
+          "value": "bottom",
+          "label": "Bottom (theme default)"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "top",
+          "label": "Top"
+        }
       ],
       "default": "bottom",
       "label": "Size overlay position",
@@ -1314,12 +1265,30 @@
       "type": "select",
       "id": "card_title_weight",
       "options": [
-        { "value": "default", "label": "Theme default" },
-        { "value": "300", "label": "Light" },
-        { "value": "400", "label": "Regular" },
-        { "value": "500", "label": "Medium" },
-        { "value": "600", "label": "Semibold" },
-        { "value": "700", "label": "Bold" }
+        {
+          "value": "default",
+          "label": "Theme default"
+        },
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semibold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
       ],
       "default": "default",
       "label": "Title weight"
@@ -1328,10 +1297,22 @@
       "type": "select",
       "id": "card_title_case",
       "options": [
-        { "value": "default", "label": "Theme default" },
-        { "value": "uppercase", "label": "Uppercase" },
-        { "value": "capitalize", "label": "Capitalize" },
-        { "value": "lowercase", "label": "Lowercase" }
+        {
+          "value": "default",
+          "label": "Theme default"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        }
       ],
       "default": "uppercase",
       "label": "Card title text case"
@@ -1362,12 +1343,30 @@
       "type": "select",
       "id": "card_price_weight",
       "options": [
-        { "value": "default", "label": "Theme default" },
-        { "value": "300", "label": "Light" },
-        { "value": "400", "label": "Regular" },
-        { "value": "500", "label": "Medium" },
-        { "value": "600", "label": "Semibold" },
-        { "value": "700", "label": "Bold" }
+        {
+          "value": "default",
+          "label": "Theme default"
+        },
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semibold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
       ],
       "default": "default",
       "label": "Price weight"
@@ -1416,12 +1415,30 @@
       "type": "select",
       "id": "card_badge_weight",
       "options": [
-        { "value": "default", "label": "Theme default" },
-        { "value": "300", "label": "Light" },
-        { "value": "400", "label": "Regular" },
-        { "value": "500", "label": "Medium" },
-        { "value": "600", "label": "Semibold" },
-        { "value": "700", "label": "Bold" }
+        {
+          "value": "default",
+          "label": "Theme default"
+        },
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semibold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
       ],
       "default": "default",
       "label": "Badge weight"
@@ -1452,12 +1469,30 @@
       "type": "select",
       "id": "card_availability_weight",
       "options": [
-        { "value": "default", "label": "Theme default" },
-        { "value": "300", "label": "Light" },
-        { "value": "400", "label": "Regular" },
-        { "value": "500", "label": "Medium" },
-        { "value": "600", "label": "Semibold" },
-        { "value": "700", "label": "Bold" }
+        {
+          "value": "default",
+          "label": "Theme default"
+        },
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semibold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
       ],
       "default": "default",
       "label": "Availability weight"
@@ -1550,6 +1585,50 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Wishlist heart"
+    },
+    {
+      "type": "checkbox",
+      "id": "heart_custom",
+      "default": false,
+      "label": "Custom heart size & position",
+      "info": "Off = the Wishlist Plus app embed controls the heart"
+    },
+    {
+      "type": "range",
+      "id": "heart_size",
+      "min": 6,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Heart size",
+      "default": 13,
+      "visible_if": "{{ section.settings.heart_custom }}"
+    },
+    {
+      "type": "range",
+      "id": "heart_top",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Heart top padding",
+      "default": 8,
+      "visible_if": "{{ section.settings.heart_custom }}"
+    },
+    {
+      "type": "range",
+      "id": "heart_right",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Heart right padding",
+      "default": 8,
+      "visible_if": "{{ section.settings.heart_custom }}"
     }
   ],
   "blocks": [
