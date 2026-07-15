@@ -397,7 +397,7 @@
             "max_products": 8,
             "columns_desktop": 3,
             "image_ratio": "portrait",
-            "show_color_line": true
+            "show_color_line": false
           }
         }
       },
