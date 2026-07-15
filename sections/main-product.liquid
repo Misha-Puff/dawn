@@ -689,6 +689,10 @@
   {%- endstyle -%}
 
   <script>
+    // IIFE: this script re-executes when quick-add.js injects a fetched
+    // product page into a quick-add modal on a PDP — top-level const/let
+    // here would collide with the host page's own declarations.
+    (() => {
     const recentlyViewedProductData = {
       productID: '{{ product.id }}',
       cardProduct: `
@@ -737,6 +741,7 @@
         localStorage.setItem('MPRecentlyViewed', JSON.stringify(recentlyViewed));
       }
     }
+    })();
   </script>
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>

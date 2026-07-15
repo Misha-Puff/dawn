@@ -84,6 +84,17 @@ if (!customElements.get('quick-add-modal')) {
         const modalDialog = productElement.querySelectorAll('modal-dialog');
         if (modalDialog) modalDialog.forEach((modal) => modal.remove());
 
+        // Pair-It-With quick add can't operate from inside a quick-add modal:
+        // a nested quick-add-modal upgrades after the host modal has been
+        // hoisted to <body>, where closest('.shopify-section') is null and
+        // connectedCallback throws. Strip the nested modals and their opener
+        // controls so the pair rows stay plain image/title/price links.
+        const nestedQuickAdd = productElement.querySelectorAll('quick-add-modal');
+        nestedQuickAdd.forEach((modal) => modal.remove());
+
+        const pairQuickAdd = productElement.querySelectorAll('.pair-outfits__row-atc');
+        pairQuickAdd.forEach((el) => el.remove());
+
         // The BIS popup is removed with the modal-dialogs above, so the notify trigger
         // reverts to the plain disabled sold-out button inside quick-add.
         const bisTrigger = productElement.querySelector('[data-bis-trigger]');
