@@ -398,9 +398,9 @@
             "columns_desktop": 3,
             "image_ratio": "portrait",
             "show_color_line": false,
-            "pair_gap_enable": false,
+            "pair_gap_enable": true,
             "pair_gap_desktop": 8,
-            "pair_gap_mobile": 8
+            "pair_gap_mobile": 10
           }
         }
       },
