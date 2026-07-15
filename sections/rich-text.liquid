@@ -22,33 +22,30 @@
     Custom mobile section padding — emitted after the base rule so it wins the
     same-specificity tie and replaces the stock 75%-of-desktop scaling.
   {%- endcomment -%}
+  {%- comment -%}
+    With the checkbox on, all four mobile sliders are ABSOLUTE values: top/bottom
+    replace the stock 75%-of-desktop scaling, and left/right replace the page-width
+    gutter + the wrapper's stock mobile width shave (0 = edge to edge). The
+    #shopify-section id scope outranks section-rich-text.css's
+    .rich-text:not(.rich-text--full-width) .rich-text__wrapper width rule and
+    base.css's ≤1099px .page-width gutter.
+  {%- endcomment -%}
   {%- if section.settings.enable_mobile_padding -%}
     @media screen and (max-width: 749px) {
       .section-{{ section.id }}-padding {
-        {%- if section.settings.padding_top_mobile >= 0 %}
-          padding-top: {{ section.settings.padding_top_mobile }}px;
-        {%- else %}
-          padding-top: 0;
-          margin-top: {{ section.settings.padding_top_mobile }}px;
-        {%- endif %}
-        {%- if section.settings.padding_bottom_mobile >= 0 %}
-          padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
-        {%- else %}
-          padding-bottom: 0;
-          margin-bottom: {{ section.settings.padding_bottom_mobile }}px;
-        {%- endif %}
+        padding-top: {{ section.settings.padding_top_mobile }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
       }
-    }
-  {%- endif -%}
-  {%- liquid
-    assign rt_pl_m = section.settings.padding_left_mobile | default: 0
-    assign rt_pr_m = section.settings.padding_right_mobile | default: 0
-  -%}
-  {%- if rt_pl_m > 0 or rt_pr_m > 0 -%}
-    @media screen and (max-width: 749px) {
-      .section-{{ section.id }}-padding .rich-text__blocks {
-        {%- if rt_pl_m > 0 %} padding-left: {{ rt_pl_m }}px;{% endif -%}
-        {%- if rt_pr_m > 0 %} padding-right: {{ rt_pr_m }}px;{% endif -%}
+
+      #shopify-section-{{ section.id }} .isolate {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      #shopify-section-{{ section.id }} .rich-text__wrapper {
+        width: 100%;
+        padding-left: {{ section.settings.padding_left_mobile | default: 0 }}px;
+        padding-right: {{ section.settings.padding_right_mobile | default: 0 }}px;
       }
     }
   {%- endif -%}
@@ -321,29 +318,27 @@
       "id": "enable_mobile_padding",
       "default": false,
       "label": "Custom mobile section padding",
-      "info": "Off = mobile uses 75% of the desktop padding"
+      "info": "Off = mobile uses 75% of the desktop vertical padding and the standard side gutters. On = the four sliders below are the exact mobile padding."
     },
     {
       "type": "range",
       "id": "padding_top_mobile",
-      "min": -40,
+      "min": 0,
       "max": 100,
       "step": 2,
       "unit": "px",
       "label": "Mobile padding top",
-      "info": "Negative values pull the section up / the next section into it",
       "default": 28,
       "visible_if": "{{ section.settings.enable_mobile_padding }}"
     },
     {
       "type": "range",
       "id": "padding_bottom_mobile",
-      "min": -40,
+      "min": 0,
       "max": 100,
       "step": 2,
       "unit": "px",
       "label": "Mobile padding bottom",
-      "info": "Negative values pull the section up / the next section into it",
       "default": 28,
       "visible_if": "{{ section.settings.enable_mobile_padding }}"
     },
@@ -355,8 +350,9 @@
       "step": 2,
       "unit": "px",
       "label": "Mobile padding left",
-      "info": "0 = none. Applies to the content wrapper on mobile only",
-      "default": 0
+      "info": "Exact side inset on mobile — replaces the standard gutter. 0 = edge to edge.",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_mobile_padding }}"
     },
     {
       "type": "range",
@@ -366,8 +362,9 @@
       "step": 2,
       "unit": "px",
       "label": "Mobile padding right",
-      "info": "0 = none. Applies to the content wrapper on mobile only",
-      "default": 0
+      "info": "Exact side inset on mobile — replaces the standard gutter. 0 = edge to edge.",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_mobile_padding }}"
     }
   ],
   "blocks": [

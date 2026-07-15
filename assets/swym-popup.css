@@ -63,3 +63,11 @@ span.swym-variant-selector-status svg path {
 .swym-collections-variant-popup-parent .swym-price {
   font-family: var(--font-mono-family) !important;
 }
+
+/* Collection-card wishlist heart: the app embed's Button size setting drives the
+   button box / position math only — the visible icon is an <img> hard-attributed
+   20x20. Attribute sizing loses to any CSS declaration, so no !important needed. */
+.swym-wishlist-collections-v2 #swym-atw-collections-img-icon {
+  width: 16px;
+  height: 16px;
+}
