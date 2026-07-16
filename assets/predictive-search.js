@@ -231,6 +231,11 @@ class PredictiveSearch extends SearchForm {
 
     this.setLiveRegionResults();
     this.open();
+    // Signals search-tabs.js that a settled predictive render landed (count
+    // probes piggyback on the input debounce + network settle for free).
+    this.dispatchEvent(
+      new CustomEvent('predictive-search:rendered', { bubbles: true, detail: { term: this.searchTerm } })
+    );
   }
 
   setLiveRegionResults() {

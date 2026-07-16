@@ -4,9 +4,18 @@
   Accepts:
   - input_id: {String} Id for the search input element (required)
 
+  Reads the "Search tabs" settings (enable_search_tabs etc.) directly off the
+  ambient `section` object — this snippet is only rendered from header.liquid,
+  whose schema carries them.
+
   Usage:
   {% render 'header-search', input_id: 'My-Id'%}
 {% endcomment %}
+
+{%- if section.settings.enable_search_tabs and settings.predictive_search_enabled -%}
+  {{ 'component-search-tabs.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'search-tabs.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
 
 <details-modal class="header__search">
   <details>
@@ -80,6 +89,16 @@
               </span>
             </button>
           </div>
+
+          {%- if section.settings.enable_search_tabs and settings.predictive_search_enabled -%}
+            {%- render 'search-tabs',
+              context: 'modal',
+              all_label: section.settings.search_tabs_all_label,
+              primary_values: section.settings.search_tabs_primary,
+              secondary_values: section.settings.search_tabs_secondary,
+              show_counts: section.settings.search_tabs_show_counts
+            -%}
+          {%- endif -%}
 
           {%- if settings.predictive_search_enabled -%}
             <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
