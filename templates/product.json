@@ -520,7 +520,7 @@
         "content_max_width": 0,
         "content_padding_x": 100,
         "content_padding_y": 0,
-        "content_padding_x_mobile": 12,
+        "content_padding_x_mobile": 20,
         "content_padding_y_mobile": 30,
         "section_color_scheme": "",
         "color_scheme": "",
