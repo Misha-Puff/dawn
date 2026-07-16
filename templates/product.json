@@ -1001,10 +1001,10 @@
         "mobile_padding_bottom": 20,
         "mobile_padding_left": 12,
         "mobile_padding_right": 12,
-        "heart_custom": false,
+        "heart_custom": true,
         "heart_size": 13,
         "heart_top": 8,
-        "heart_right": 8
+        "heart_right": 6
       }
     },
     "shop_the_look_outfits_7Vw8xb": {
@@ -1276,7 +1276,7 @@
         "mobile_padding_bottom": 20,
         "mobile_padding_left": 12,
         "mobile_padding_right": 12,
-        "heart_custom": false,
+        "heart_custom": true,
         "heart_size": 13,
         "heart_top": 8,
         "heart_right": 8
