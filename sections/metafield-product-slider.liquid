@@ -347,16 +347,15 @@
       {%- endif -%}
     </div>
   </div>
-{% endunless %}
-
-{% comment %}
-  Editor-only empty state. The Collection / Products settings resolve from product
-  metafields (product_page.dynamic_collection / color_siblings / ...), so on preview
-  products without data the section renders nothing and merchants can't find or
-  configure it in the editor. Everything below is gated on request.design_mode and
-  the whitespace controls keep storefront output byte-identical.
-{% endcomment %}
-{%- if request.design_mode and num_products == 0 -%}
+{% endunless %}{%- if request.design_mode and num_products == 0 -%}
+  {%- comment -%}
+    Editor-only empty state. The Collection / Products settings resolve from product
+    metafields (product_page.dynamic_collection / color_siblings / ...), so on preview
+    products without data the section renders nothing and merchants can't find or
+    configure it in the editor. This whole branch is gated on request.design_mode,
+    and the if-tag hugs endunless with no text nodes between, so storefront output
+    is byte-identical.
+  {%- endcomment -%}
   <div class="color-{{ section.settings.color_scheme }} isolate gradient">
     <div
       class="section-{{ section.id }} collection section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}"
@@ -398,7 +397,7 @@
       </div>
     </div>
   </div>
-{%- endif -%}
+{%- endif %}
 
 {% schema %}
 {
