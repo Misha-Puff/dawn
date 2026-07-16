@@ -3,14 +3,16 @@
  *
  * Wraps the swatch row rendered by snippets/product-sibling-swatches.liquid.
  * Clicking a swatch swaps the card in place (image, title, price, link, size
- * overlay availability) to the sibling product using the swatch's
- * server-rendered payloads; clicking the card's own swatch restores it. While
- * a sibling is previewed the card root carries `card--sibling-preview`, which
- * hides quick-add and badges (they still describe the original product); the
- * size overlay stays up with the sibling's own availability when its payload
- * exists (`card--sibling-availability`), else it hides too. Swatches without
- * a payload (no featured image) keep their default link navigation, as does
- * everything when JS is unavailable.
+ * overlay availability, quick-add target) to the sibling product using the
+ * swatch's server-rendered payloads; clicking the card's own swatch restores
+ * it. While a sibling is previewed the card root carries
+ * `card--sibling-preview`, which hides badges (they still describe the
+ * original product); the size overlay stays up with the sibling's own
+ * availability when its payload exists (`card--sibling-availability`) and
+ * quick add stays up retargeted at the sibling's product URL
+ * (`card--sibling-quick-add`) — each hides instead when its swap couldn't
+ * happen. Swatches without a payload (no featured image) keep their default
+ * link navigation, as does everything when JS is unavailable.
  */
 if (!customElements.get('sibling-swatches')) {
   customElements.define(
@@ -86,8 +88,17 @@ if (!customElements.get('sibling-swatches')) {
           }
         }
 
+        // Quick add follows the previewed colorway too: the standard quick-add
+        // modal fetches its content from the opener's data-product-url on every
+        // open, so retargeting that URL is all it takes. Only the modal path is
+        // retargetable — a single-variant card's direct form carries a baked
+        // variant id, so it keeps the preview-state hide (class gate below).
+        const quickAddOpener = card.querySelector('modal-opener[data-modal^="#QuickAdd-"] [data-product-url]');
+        if (quickAddOpener) quickAddOpener.setAttribute('data-product-url', swatch.dataset.swapUrl);
+
         card.classList.toggle('card--sibling-preview', swatch.dataset.swapSelf !== 'true');
         card.classList.toggle('card--sibling-availability', availabilitySwapped);
+        card.classList.toggle('card--sibling-quick-add', !!quickAddOpener);
         this.querySelectorAll('.card__swatch--current').forEach((current) => {
           current.classList.remove('card__swatch--current');
           current.removeAttribute('aria-current');

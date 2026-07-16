@@ -838,12 +838,13 @@
 
 /* Sibling-preview state (card-sibling-preview.js): while a swatch previews a
    different colorway, controls that still describe the ORIGINAL product hide
-   so nothing can act on the wrong product. The size overlay is the exception:
-   the swap installs the sibling's own availability and marks the card
-   card--sibling-availability, so it stays visible with correct values — it
-   only hides when no sibling availability payload exists (its empty chrome
-   would otherwise still slide in on hover). */
-.card--sibling-preview .quick-add,
+   so nothing can act on the wrong product. Two exceptions follow the
+   previewed colorway instead of hiding: the size overlay (the swap installs
+   the sibling's own availability -> card--sibling-availability) and quick add
+   (the swap retargets the modal opener's data-product-url ->
+   card--sibling-quick-add). Each hides only when its swap couldn't happen
+   (no availability payload / no retargetable modal opener). */
+.card--sibling-preview:not(.card--sibling-quick-add) .quick-add,
 .card--sibling-preview .card__badges,
 .card--sibling-preview:not(.card--sibling-availability) .popup-overlay {
   display: none;
