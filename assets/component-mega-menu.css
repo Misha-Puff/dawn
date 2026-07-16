@@ -36,7 +36,7 @@
 
 .mega-menu__list {
   display: grid;
-  gap: 1.8rem 4rem;
+  gap: var(--mm-list-row-gap, 1.8rem) var(--mm-list-col-gap, 4rem);
   grid-template-columns: repeat(6, minmax(0, 1fr));
   list-style: none;
   padding: 28px;
