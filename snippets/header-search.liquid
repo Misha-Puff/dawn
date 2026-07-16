@@ -90,19 +90,26 @@
             </button>
           </div>
 
-          {%- if section.settings.enable_search_tabs and settings.predictive_search_enabled -%}
-            {%- render 'search-tabs',
-              context: 'modal',
-              all_label: section.settings.search_tabs_all_label,
-              primary_values: section.settings.search_tabs_primary,
-              secondary_values: section.settings.search_tabs_secondary,
-              show_counts: section.settings.search_tabs_show_counts
-            -%}
-          {%- endif -%}
-
           {%- if settings.predictive_search_enabled -%}
-            <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
-              {%- render 'loading-spinner', class: 'predictive-search__loading-state' -%}
+            {%- comment -%}
+              The tab bar lives INSIDE the results popup (Nathan's 2026-07-16 review ask)
+              but OUTSIDE the [data-predictive-search] wrapper, whose innerHTML is replaced
+              on every predictive render — the popup box keeps its .predictive-search classes
+              (show/hide + positioning key off them) while only the inner wrapper is wiped.
+            {%- endcomment -%}
+            <div class="predictive-search predictive-search--header" tabindex="-1">
+              {%- if section.settings.enable_search_tabs -%}
+                {%- render 'search-tabs',
+                  context: 'modal',
+                  all_label: section.settings.search_tabs_all_label,
+                  primary_values: section.settings.search_tabs_primary,
+                  secondary_values: section.settings.search_tabs_secondary,
+                  show_counts: section.settings.search_tabs_show_counts
+                -%}
+              {%- endif -%}
+              <div data-predictive-search>
+                {%- render 'loading-spinner', class: 'predictive-search__loading-state' -%}
+              </div>
             </div>
 
             <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>

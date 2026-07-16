@@ -73,20 +73,16 @@ button.search-tabs__tab {
   display: none;
 }
 
-/* The stock search modal is inset-pinned to the header height, so the form
-   plus a visible tab row (~75px) overflows it and the input clips at the top.
-   When the tab feature is in the modal, unpin the bottom edge so the box can
-   grow with its content; min-height (stock calc(100% + 2px)) keeps the closed
-   state's exact stock height, and the padding only engages once the grown
-   content exceeds it. */
-.header__search .search-modal:has(search-tabs) {
-  bottom: auto;
-  height: auto;
-  padding-block: 1.1rem;
+/* The modal tab bar lives inside the results popup, as its header row: the
+   <search-tabs> element sits inside .predictive-search--header but outside the
+   [data-predictive-search] wrapper that predictive renders wipe. */
+.predictive-search--header search-tabs {
+  display: block;
+  padding: 2rem 2rem 0;
 }
 
-.search-modal .search-tabs {
-  margin: 1.6rem 0 0;
+.predictive-search--header .search-tabs {
+  margin-bottom: 0;
 }
 
 .search-tabs__empty-item .predictive-search__item-content {
