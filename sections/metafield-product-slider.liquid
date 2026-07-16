@@ -389,9 +389,10 @@
       <div style="display: grid; grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr); gap: 12px;">
         {%- for i in (1..section.settings.columns_desktop) -%}
           <div aria-hidden="true">
-            <div style="aspect-ratio: 3 / 4; background: #f0ede8; border: 1px dashed #c9c2b8;"></div>
-            <div style="height: 10px; width: 70%; margin-top: 10px; background: #ece8e1;"></div>
-            <div style="height: 10px; width: 40%; margin-top: 6px; background: #ece8e1;"></div>
+            {%- comment -%} display:block inline — base.css `div:empty { display: none }` hides empty styled divs {%- endcomment -%}
+            <div style="display: block; aspect-ratio: 3 / 4; background: #f0ede8; border: 1px dashed #c9c2b8;"></div>
+            <div style="display: block; height: 10px; width: 70%; margin-top: 10px; background: #ece8e1;"></div>
+            <div style="display: block; height: 10px; width: 40%; margin-top: 6px; background: #ece8e1;"></div>
           </div>
         {%- endfor -%}
       </div>
