@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.footer.name",
   "type": "footer",
@@ -9,27 +18,31 @@
           "type": "link_list",
           "settings": {
             "heading": "Discover",
-            "menu": "dawn-footer-discover"
+            "menu": "dawn-footer-discover",
+            "block_span": "1"
           }
         },
         "link_list_ntWG9g": {
           "type": "link_list",
           "settings": {
             "heading": "IMPACT",
-            "menu": "dawn-footer-impact"
+            "menu": "dawn-footer-impact",
+            "block_span": "1"
           }
         },
         "link_list_KjjBzU": {
           "type": "link_list",
           "settings": {
             "heading": "Support",
-            "menu": "dawn-footer-support"
+            "menu": "dawn-footer-support",
+            "block_span": "1"
           }
         },
         "newsletter_Y8mDBK": {
           "type": "newsletter",
           "settings": {
-            "newsletter_heading": "Subscribe"
+            "newsletter_heading": "Subscribe",
+            "block_span": "2"
           }
         }
       },
@@ -49,7 +62,31 @@
         "show_policy": false,
         "margin_top": 28,
         "padding_top": 36,
-        "padding_bottom": 24
+        "padding_bottom": 24,
+        "padding_left": 0,
+        "padding_right": 0,
+        "enable_padding_mobile": true,
+        "padding_top_mobile": 27,
+        "padding_bottom_mobile": 18,
+        "padding_left_mobile": 40,
+        "padding_right_mobile": 40,
+        "stack_spacing_mobile": 32,
+        "block_gap": 0,
+        "blocks_justify": "space-between",
+        "footer_enable_type": true,
+        "fh_custom_font": "default",
+        "fh_font_size": 0,
+        "fh_font_size_mobile": 0,
+        "fh_font_weight": "default",
+        "fh_letter_spacing": 0,
+        "fh_text_case": "default",
+        "fh_margin_bottom": 10,
+        "fl_custom_font": "default",
+        "fl_font_size": 0,
+        "fl_font_size_mobile": 0,
+        "fl_font_weight": "default",
+        "fl_letter_spacing": 0,
+        "fl_text_case": "default"
       }
     }
   },
