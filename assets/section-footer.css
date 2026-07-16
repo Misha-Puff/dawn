@@ -539,9 +539,11 @@ localization-form {
    settings). Desktop block headings keep their flat 14px: without it they'd fall to the
    stock responsive calc rule above (~14.4px), since .footer-block__heading out-specifies
    the global h2 element override. */
+/* The !important can't be beaten by specificity — the footer section reaches this
+   declaration through the custom property; unset var = the original pinned value. */
 .footer-accordion .accordion__title,
 .footer-block__heading {
-  margin-bottom: 10px !important;
+  margin-bottom: var(--mp-footer-heading-mb, 10px) !important;
 }
 
 .footer-block__heading {

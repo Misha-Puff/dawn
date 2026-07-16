@@ -72,7 +72,142 @@
       max-width: fit-content;
     }
   }
+
+  {%- comment -%}
+    Redesign controls below are default-inert: 0-sentinel ranges, default selects and
+    checkbox gates emit nothing until dialed, so the untouched render stays byte-identical.
+  {%- endcomment -%}
+  {%- if section.settings.padding_left > 0 or section.settings.padding_right > 0 -%}
+    @media screen and (min-width: 750px) {
+      #shopify-section-{{ section.id }} .footer__content-top {
+        {%- if section.settings.padding_left > 0 %} padding-left: {{ section.settings.padding_left }}px;{% endif -%}
+        {%- if section.settings.padding_right > 0 %} padding-right: {{ section.settings.padding_right }}px;{% endif %}
+      }
+    }
+  {%- endif -%}
+
+  {%- comment -%}
+    The wrapper-scoped var override feeds .grid column-gap, the stock 20% block-width
+    calc and the span calcs below in one move — they all read the inherited var.
+  {%- endcomment -%}
+  {%- if section.settings.block_gap > 0 -%}
+    #shopify-section-{{ section.id }} .footer__blocks-wrapper {
+      --grid-desktop-horizontal-spacing: {{ section.settings.block_gap }}px;
+    }
+  {%- endif -%}
+
+  {%- if section.settings.blocks_justify != blank and section.settings.blocks_justify != 'space-around' -%}
+    #shopify-section-{{ section.id }} .footer__blocks-wrapper {
+      justify-content: {{ section.settings.blocks_justify }};
+    }
+  {%- endif -%}
+
+  {%- liquid
+    assign has_span_2 = false
+    assign has_span_3 = false
+    for block in section.blocks
+      if block.settings.block_span == '2'
+        assign has_span_2 = true
+      elsif block.settings.block_span == '3'
+        assign has_span_3 = true
+      endif
+    endfor
+  -%}
+  {%- comment -%}
+    Span-N = N x 20% minus the same 3/4-gap share the stock single-block rule carries,
+    so a fully-spanned row totals exactly 100% (the naive N*(20% - g*3/4) + (N-1)*g
+    overflows a full row by g/4 and wraps it — .grid__item has flex-shrink: 0).
+  {%- endcomment -%}
+  {%- if has_span_2 or has_span_3 -%}
+    @media screen and (min-width: 1100px) {
+      {%- if has_span_2 %}
+      #shopify-section-{{ section.id }} .grid--4-col-desktop .footer-block--span-2 {
+        width: calc(40% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+        max-width: calc(40% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+      }
+      {%- endif %}
+      {%- if has_span_3 %}
+      #shopify-section-{{ section.id }} .grid--4-col-desktop .footer-block--span-3 {
+        width: calc(60% - var(--grid-desktop-horizontal-spacing) / 2);
+        max-width: calc(60% - var(--grid-desktop-horizontal-spacing) / 2);
+      }
+      {%- endif %}
+    }
+  {%- endif -%}
+
+  {%- if section.settings.enable_padding_mobile -%}
+    @media screen and (max-width: 749px) {
+      #shopify-section-{{ section.id }} .footer {
+        padding-top: {{ section.settings.padding_top_mobile }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+      }
+      #shopify-section-{{ section.id }} .footer__content-top {
+        padding-left: {{ section.settings.padding_left_mobile }}px;
+        padding-right: {{ section.settings.padding_right_mobile }}px;
+      }
+      #shopify-section-{{ section.id }} .footer-block.grid__item {
+        margin-top: {{ section.settings.stack_spacing_mobile }}px;
+        margin-bottom: {{ section.settings.stack_spacing_mobile }}px;
+      }
+      #shopify-section-{{ section.id }} .footer-block.grid__item:first-child {
+        margin-top: 0;
+      }
+    }
+  {%- endif -%}
 {%- endstyle -%}
+
+{%- comment -%}
+  Optional footer typography, donor: header.liquid nav_enable_type loop. Two groups
+  keyed by prefix (fh_ = block headings, fl_ = menu link items); one entry per
+  selector since the heading treatment must also hit the mobile/tablet accordion
+  title (visible through 1099px) and the accordion's own link list.
+  #shopify-section-<id> gives every rule an ID, so it beats the flat pins in
+  section-footer.css and the uppercase pins in the style block above.
+{%- endcomment -%}
+{%- if section.settings.footer_enable_type -%}
+  {%- capture footer_type_css -%}
+    {%- assign footer_type_groups = 'fh|.footer-block__heading;fh|.footer-accordion .accordion__title;fl|.footer-block__details-content .list-menu__item;fl|.footer-accordion .accordion__content .list-menu__item' | split: ';' -%}
+    {%- for grp in footer_type_groups -%}
+      {%- assign grp_parts = grp | split: '|' -%}
+      {%- assign gp = grp_parts[0] -%}
+      {%- assign sel = grp_parts[1] -%}
+      {%- assign k_font = gp | append: '_custom_font' -%}
+      {%- assign k_weight = gp | append: '_font_weight' -%}
+      {%- assign k_size = gp | append: '_font_size' -%}
+      {%- assign k_case = gp | append: '_text_case' -%}
+      {%- assign k_ls = gp | append: '_letter_spacing' -%}
+      {%- capture grp_brand -%}{% render 'brand-font', font: section.settings[k_font] %}{%- endcapture -%}
+      {%- assign grp_brand = grp_brand | strip -%}
+      {%- capture grp_decl -%}
+        {%- if grp_brand != blank %}font-family: {{ grp_brand }};{% endif -%}
+        {%- if section.settings[k_weight] != 'default' and section.settings[k_weight] != blank %} font-weight: {{ section.settings[k_weight] }};{% endif -%}
+        {%- if section.settings[k_size] > 0 %} font-size: {{ section.settings[k_size] }}px;{% endif -%}
+        {%- if section.settings[k_case] != 'default' and section.settings[k_case] != blank %} text-transform: {{ section.settings[k_case] }};{% endif -%}
+        {%- if section.settings[k_ls] > 0 %} letter-spacing: {{ section.settings[k_ls] }}px;{% endif -%}
+      {%- endcapture -%}
+      {%- assign grp_decl = grp_decl | strip -%}
+      {%- if grp_decl != blank -%}
+        #shopify-section-{{ section.id }} {{ sel }} { {{ grp_decl }} }
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if section.settings.fh_font_size_mobile > 0 or section.settings.fl_font_size_mobile > 0 -%}
+      @media screen and (max-width: 749px) {
+        {%- if section.settings.fh_font_size_mobile > 0 -%}
+          #shopify-section-{{ section.id }} .footer-block__heading, #shopify-section-{{ section.id }} .footer-accordion .accordion__title { font-size: {{ section.settings.fh_font_size_mobile }}px; }
+        {%- endif -%}
+        {%- if section.settings.fl_font_size_mobile > 0 -%}
+          #shopify-section-{{ section.id }} .footer-block__details-content .list-menu__item, #shopify-section-{{ section.id }} .footer-accordion .accordion__content .list-menu__item { font-size: {{ section.settings.fl_font_size_mobile }}px; }
+        {%- endif -%}
+      }
+    {%- endif -%}
+  {%- endcapture -%}
+  {%- assign footer_type_css = footer_type_css | strip -%}
+  {%- if footer_type_css != blank -%}
+    <style>
+      {{ footer_type_css }}
+    </style>
+  {%- endif -%}
+{%- endif -%}
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
   {%- liquid
@@ -114,7 +249,7 @@
           >
             {%- for block in section.blocks -%}
               <div
-                class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if block.settings.block_span != blank and block.settings.block_span != '1' %} footer-block--span-{{ block.settings.block_span }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
@@ -419,7 +554,8 @@
           "id": "menu",
           "default": "footer",
           "label": "t:sections.footer.blocks.link_list.settings.menu.label"
-        }
+        },
+        { "type": "select", "id": "block_span", "options": [ { "value": "1", "label": "1 column" }, { "value": "2", "label": "2 columns" }, { "value": "3", "label": "3 columns" } ], "default": "1", "label": "Column span", "info": "Desktop only (1100px and up)." }
       ]
     },
     {
@@ -436,7 +572,8 @@
           "default": true,
           "label": "t:sections.footer.blocks.brand_information.settings.show_social.label",
           "info": "t:sections.footer.blocks.brand_information.settings.show_social.info"
-        }
+        },
+        { "type": "select", "id": "block_span", "options": [ { "value": "1", "label": "1 column" }, { "value": "2", "label": "2 columns" }, { "value": "3", "label": "3 columns" } ], "default": "1", "label": "Column span", "info": "Desktop only (1100px and up)." }
       ]
     },
     {
@@ -454,7 +591,8 @@
           "id": "subtext",
           "default": "t:sections.footer.blocks.text.settings.subtext.default",
           "label": "t:sections.footer.blocks.text.settings.subtext.label"
-        }
+        },
+        { "type": "select", "id": "block_span", "options": [ { "value": "1", "label": "1 column" }, { "value": "2", "label": "2 columns" }, { "value": "3", "label": "3 columns" } ], "default": "1", "label": "Column span", "info": "Desktop only (1100px and up)." }
       ]
     },
     {
@@ -495,7 +633,8 @@
             }
           ],
           "default": "center"
-        }
+        },
+        { "type": "select", "id": "block_span", "options": [ { "value": "1", "label": "1 column" }, { "value": "2", "label": "2 columns" }, { "value": "3", "label": "3 columns" } ], "default": "1", "label": "Column span", "info": "Desktop only (1100px and up)." }
       ]
     },
     {
@@ -507,7 +646,8 @@
           "id": "newsletter_heading",
           "default": "t:sections.footer.settings.newsletter_heading.default",
           "label": "t:sections.footer.settings.newsletter_heading.label"
-        }
+        },
+        { "type": "select", "id": "block_span", "options": [ { "value": "1", "label": "1 column" }, { "value": "2", "label": "2 columns" }, { "value": "3", "label": "3 columns" } ], "default": "1", "label": "Column span", "info": "Desktop only (1100px and up)." }
       ]
     }
   ],
@@ -605,7 +745,35 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
-    }
+    },
+    { "type": "range", "id": "padding_left", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Padding left (desktop)", "info": "Blocks area, 750px and up. 0 = theme default.", "default": 0 },
+    { "type": "range", "id": "padding_right", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Padding right (desktop)", "info": "Blocks area, 750px and up. 0 = theme default.", "default": 0 },
+    { "type": "header", "content": "Mobile padding", "info": "Applies below 750px. Defaults reproduce the current mobile render." },
+    { "type": "checkbox", "id": "enable_padding_mobile", "default": false, "label": "Enable custom mobile padding" },
+    { "type": "range", "id": "padding_top_mobile", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding top", "default": 27, "visible_if": "{{ section.settings.enable_padding_mobile }}" },
+    { "type": "range", "id": "padding_bottom_mobile", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding bottom", "default": 18, "visible_if": "{{ section.settings.enable_padding_mobile }}" },
+    { "type": "range", "id": "padding_left_mobile", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding left", "info": "Blocks area.", "default": 40, "visible_if": "{{ section.settings.enable_padding_mobile }}" },
+    { "type": "range", "id": "padding_right_mobile", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding right", "info": "Blocks area.", "default": 40, "visible_if": "{{ section.settings.enable_padding_mobile }}" },
+    { "type": "range", "id": "stack_spacing_mobile", "min": 0, "max": 80, "step": 1, "unit": "px", "label": "Block stack spacing", "info": "Vertical gap between stacked footer blocks.", "default": 32, "visible_if": "{{ section.settings.enable_padding_mobile }}" },
+    { "type": "header", "content": "Blocks layout" },
+    { "type": "range", "id": "block_gap", "min": 0, "max": 60, "step": 1, "unit": "px", "label": "Block gap (desktop)", "info": "0 = theme default (global grid spacing). Drives the gap and the block-width math at 1100px and up.", "default": 0 },
+    { "type": "select", "id": "blocks_justify", "options": [ { "value": "space-around", "label": "Spread out (theme default)" }, { "value": "space-between", "label": "Flush to edges" } ], "default": "space-around", "label": "Block alignment (desktop)" },
+    { "type": "header", "content": "Footer typography" },
+    { "type": "checkbox", "id": "footer_enable_type", "default": false, "label": "Enable custom footer typography", "info": "Styles block headings and menu links, including the mobile accordion. Leave a control at its default to inherit." },
+    { "type": "header", "content": "Block headings" },
+    { "type": "select", "id": "fh_custom_font", "options": [ { "value": "default", "label": "None (inherit theme)" }, { "value": "ibm_plex_sans", "label": "IBM Plex Sans" }, { "value": "ibm_plex_mono", "label": "IBM Plex Mono" }, { "value": "inter", "label": "Inter" }, { "value": "geist", "label": "Geist" }, { "value": "geist_mono", "label": "Geist Mono" }, { "value": "overpass", "label": "Overpass" }, { "value": "overpass_mono", "label": "Overpass Mono" }, { "value": "dm_sans", "label": "DM Sans" }, { "value": "dm_mono", "label": "DM Mono" }, { "value": "manrope", "label": "Manrope" }, { "value": "open_sans", "label": "Open Sans" } ], "default": "default", "label": "Brand font", "visible_if": "{{ section.settings.footer_enable_type }}" },
+    { "type": "range", "id": "fh_font_size", "min": 0, "max": 32, "step": 1, "unit": "px", "label": "Font size", "info": "0 = theme default (14px)", "default": 0, "visible_if": "{{ section.settings.footer_enable_type }}" },
+    { "type": "range", "id": "fh_font_size_mobile", "min": 0, "max": 32, "step": 1, "unit": "px", "label": "Font size (mobile)", "info": "Below 750px. 0 = same as larger screens", "default": 0, "visible_if": "{{ section.settings.footer_enable_type }}" },
+    { "type": "select", "id": "fh_font_weight", "options": [ { "value": "default", "label": "Theme default" }, { "value": "300", "label": "Light" }, { "value": "400", "label": "Regular" }, { "value": "500", "label": "Medium" }, { "value": "600", "label": "Semibold" }, { "value": "700", "label": "Bold" } ], "default": "default", "label": "Font weight", "visible_if": "{{ section.settings.footer_enable_type }}" },
+    { "type": "range", "id": "fh_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Letter spacing", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.footer_enable_type }}" },
+    { "type": "select", "id": "fh_text_case", "options": [ { "value": "default", "label": "Theme default" }, { "value": "uppercase", "label": "Uppercase" }, { "value": "capitalize", "label": "Capitalize" }, { "value": "lowercase", "label": "Lowercase" }, { "value": "none", "label": "Normal (remove uppercase)" } ], "default": "default", "label": "Text case", "visible_if": "{{ section.settings.footer_enable_type }}" },
+    { "type": "header", "content": "Menu items" },
+    { "type": "select", "id": "fl_custom_font", "options": [ { "value": "default", "label": "None (inherit theme)" }, { "value": "ibm_plex_sans", "label": "IBM Plex Sans" }, { "value": "ibm_plex_mono", "label": "IBM Plex Mono" }, { "value": "inter", "label": "Inter" }, { "value": "geist", "label": "Geist" }, { "value": "geist_mono", "label": "Geist Mono" }, { "value": "overpass", "label": "Overpass" }, { "value": "overpass_mono", "label": "Overpass Mono" }, { "value": "dm_sans", "label": "DM Sans" }, { "value": "dm_mono", "label": "DM Mono" }, { "value": "manrope", "label": "Manrope" }, { "value": "open_sans", "label": "Open Sans" } ], "default": "default", "label": "Brand font", "visible_if": "{{ section.settings.footer_enable_type }}" },
+    { "type": "range", "id": "fl_font_size", "min": 0, "max": 24, "step": 1, "unit": "px", "label": "Font size", "info": "0 = theme default (12px)", "default": 0, "visible_if": "{{ section.settings.footer_enable_type }}" },
+    { "type": "range", "id": "fl_font_size_mobile", "min": 0, "max": 24, "step": 1, "unit": "px", "label": "Font size (mobile)", "info": "Below 750px. 0 = same as larger screens", "default": 0, "visible_if": "{{ section.settings.footer_enable_type }}" },
+    { "type": "select", "id": "fl_font_weight", "options": [ { "value": "default", "label": "Theme default" }, { "value": "300", "label": "Light" }, { "value": "400", "label": "Regular" }, { "value": "500", "label": "Medium" }, { "value": "600", "label": "Semibold" }, { "value": "700", "label": "Bold" } ], "default": "default", "label": "Font weight", "visible_if": "{{ section.settings.footer_enable_type }}" },
+    { "type": "range", "id": "fl_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Letter spacing", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.footer_enable_type }}" },
+    { "type": "select", "id": "fl_text_case", "options": [ { "value": "default", "label": "Theme default" }, { "value": "uppercase", "label": "Uppercase" }, { "value": "capitalize", "label": "Capitalize" }, { "value": "lowercase", "label": "Lowercase" }, { "value": "none", "label": "Normal (remove uppercase)" } ], "default": "default", "label": "Text case", "visible_if": "{{ section.settings.footer_enable_type }}" }
   ],
   "default": {
     "blocks": [
