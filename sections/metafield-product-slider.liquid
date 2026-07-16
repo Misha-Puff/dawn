@@ -142,6 +142,28 @@
     }
 
     {%- comment -%}
+      Heading-to-cards gap override, gated on enable_custom_spacing. Emitted after
+      the heading_margin rule above so it wins at equal specificity. 0-sentinels:
+      live instances already run with the gate on, so the defaults emit nothing.
+    {%- endcomment -%}
+    {%- if section.settings.enable_custom_spacing -%}
+      {%- assign hg = section.settings.heading_gap_desktop | default: 0 -%}
+      {%- assign hg_m = section.settings.heading_gap_mobile | default: 0 -%}
+      {%- if hg > 0 -%}
+        .section-{{ section.id }} .collection__title.title-wrapper {
+          margin-bottom: {{ hg }}px !important;
+        }
+      {%- endif -%}
+      {%- if hg_m > 0 -%}
+        @media screen and (max-width: 749px) {
+          .section-{{ section.id }} .collection__title.title-wrapper {
+            margin-bottom: {{ hg_m }}px !important;
+          }
+        }
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- comment -%}
       "SHOP {color}" heading typography (per-instance). Emitted after the hardcoded
       15px rule above so a set font-size wins; the (0,3,0) selector out-specifies the
       .uppercase class (0,1,0) so text case "none" can remove the forced uppercase.
@@ -174,6 +196,14 @@
         {%- if tg_ls > 0 %} letter-spacing: {{ tg_ls }}px;{% endif -%}
         {%- if tg_col != blank %} color: {{ tg_col }};{% endif -%}
       }
+      {%- assign tg_fs_m = section.settings.tg_font_size_mobile | default: 0 -%}
+      {%- if tg_fs_m > 0 -%}
+        @media screen and (max-width: 749px) {
+          .section-{{ section.id }} .collection__title .title {
+            font-size: {{ tg_fs_m }}px;
+          }
+        }
+      {%- endif -%}
     {%- endif -%}
 
     {% render 'card-settings-styles' %}
@@ -318,6 +348,57 @@
     </div>
   </div>
 {% endunless %}
+
+{% comment %}
+  Editor-only empty state. The Collection / Products settings resolve from product
+  metafields (product_page.dynamic_collection / color_siblings / ...), so on preview
+  products without data the section renders nothing and merchants can't find or
+  configure it in the editor. Everything below is gated on request.design_mode and
+  the whitespace controls keep storefront output byte-identical.
+{% endcomment %}
+{%- if request.design_mode and num_products == 0 -%}
+  <div class="color-{{ section.settings.color_scheme }} isolate gradient">
+    <div
+      class="section-{{ section.id }} collection section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}"
+      id="collection-{{ section.id }}"
+      data-id="{{ section.id }}"
+      style="padding: {{ section.settings.desktop_padding_top }}px {{ section.settings.desktop_padding_right }}px {{ section.settings.desktop_padding_bottom }}px {{ section.settings.desktop_padding_left }}px;"
+    >
+      <div class="collection__title title-wrapper title-wrapper--no-top-margin {{ section.settings.heading_alignment }}">
+        {%- if section.settings.title != blank -%}
+          <h2 class="title inline-richtext uppercase {{ section.settings.heading_size }}">
+            {{ section.settings.title }}
+          </h2>
+        {%- endif -%}
+      </div>
+      <div
+        class="metafield-slider-empty-note"
+        style="padding: 8px 12px; margin: 0 0 16px; background: #fff8e1; border: 1px dashed #b28704; color: #6b5104; font-size: 12px; font-family: 'Courier New', monospace; letter-spacing: 0.05em;"
+      >
+        NOTHING TO SHOW ON THIS PREVIEW PRODUCT — this section is driven by product metafields, and
+        {%- if section.settings.collection != blank and section.settings.collection.products.length > 0 %}
+          all {{ section.settings.collection.products.length }} product(s) in the connected collection &quot;{{ section.settings.collection.title | escape }}&quot; are hidden by &quot;Hide Sold Out Products&quot;.
+        {%- elsif section.settings.product_list.count > 0 %}
+          all {{ section.settings.product_list.count }} product(s) in the Products list are hidden by &quot;Hide Sold Out Products&quot;.
+        {%- elsif section.settings.collection != blank %}
+          the connected collection &quot;{{ section.settings.collection.title | escape }}&quot; is empty and the Products list is too.
+        {%- else %}
+          the Collection source (e.g. product_page.dynamic_collection) and the Products source (e.g. product_page.color_siblings) are both empty on this preview product.
+        {%- endif %}
+        On the storefront it only appears on products whose metafields are populated. Placeholders below stand in for the product cards.
+      </div>
+      <div style="display: grid; grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr); gap: 12px;">
+        {%- for i in (1..section.settings.columns_desktop) -%}
+          <div aria-hidden="true">
+            <div style="aspect-ratio: 3 / 4; background: #f0ede8; border: 1px dashed #c9c2b8;"></div>
+            <div style="height: 10px; width: 70%; margin-top: 10px; background: #ece8e1;"></div>
+            <div style="height: 10px; width: 40%; margin-top: 6px; background: #ece8e1;"></div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}
 
 {% schema %}
 {
@@ -502,6 +583,7 @@
       "info": "Leave blank for theme default",
       "visible_if": "{{ section.settings.tg_enable_type }}"
     },
+    { "type": "range", "id": "tg_font_size_mobile", "min": 0, "max": 72, "step": 1, "unit": "px", "label": "Mobile font size", "info": "0 = same as desktop", "default": 0, "visible_if": "{{ section.settings.tg_enable_type }}" },
     {
       "type": "product_list",
       "id": "product_list",
@@ -588,6 +670,8 @@
       "unit": "px",
       "label": "Mobile Vertical Spacing"
     },
+    { "type": "range", "id": "heading_gap_desktop", "min": 0, "max": 80, "step": 1, "unit": "px", "label": "Heading to cards gap", "info": "0 = use Heading margin", "default": 0, "visible_if": "{{ section.settings.enable_custom_spacing }}" },
+    { "type": "range", "id": "heading_gap_mobile", "min": 0, "max": 80, "step": 1, "unit": "px", "label": "Heading to cards gap (mobile)", "info": "0 = same as desktop", "default": 0, "visible_if": "{{ section.settings.enable_custom_spacing }}" },
     {
       "type": "checkbox",
       "id": "show_view_all",
