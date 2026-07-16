@@ -53,7 +53,7 @@
       "settings": {
         "logo_position": "middle-center",
         "mobile_logo_position": "center",
-        "menu": "dawn-nav-w-o-limited",
+        "menu": "dawn-nav-v2",
         "menu_type_desktop": "mega",
         "nav_enable_type": true,
         "mainnav_custom_font": "overpass_mono",
