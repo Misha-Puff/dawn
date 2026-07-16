@@ -38,6 +38,19 @@ if (!customElements.get('search-tabs')) {
 
     /* -------------------------------- shared -------------------------------- */
 
+    // Shopify-side re-serialization (seen from the live theme's app-rendered
+    // search) can turn options[prefix]=last into a single mangled
+    // options={"prefix" => "last"} param; hrefs derived from such a URL
+    // propagate it. Normalize back to the canonical form so tab clicks and
+    // probes self-heal the URL.
+    static cleanParams(searchParams) {
+      if (searchParams.has('options')) {
+        searchParams.delete('options');
+        searchParams.set('options[prefix]', 'last');
+      }
+      return searchParams;
+    }
+
     countUrl(term, value) {
       const params = new URLSearchParams();
       params.set('q', term);
@@ -258,6 +271,7 @@ if (!customElements.get('search-tabs')) {
         if (link.getAttribute('aria-current') === 'page') return;
         const url = new URL(link.href, window.location.origin);
         url.searchParams.delete('page');
+        SearchTabs.cleanParams(url.searchParams);
         FacetFiltersForm.renderPage(url.searchParams.toString());
       });
       this.refreshResultsCounts();
@@ -274,6 +288,7 @@ if (!customElements.get('search-tabs')) {
         if (!span || span.textContent) return;
         const url = new URL(link.href, window.location.origin);
         url.searchParams.delete('page');
+        SearchTabs.cleanParams(url.searchParams);
         url.searchParams.set('section_id', 'search-tab-counts');
         this.fetchCount(url.toString())
           .then((count) => {

@@ -87,15 +87,26 @@
 
       # Base URL = current URL minus the whole division group (url_to_remove
       # keeps q, options[prefix], sort_by and other facets), minus any page=.
+      # A bare "options=" param is Shopify-side hash re-serialization of
+      # options[prefix]=last (seen arriving from the live theme's app-rendered
+      # search) — swap it back to the canonical form so hrefs self-heal the
+      # URL instead of propagating the mangle. The legit param encodes as
+      # options%5Bprefix%5D so it never matches the bare "options=" head.
       assign base_url = line_filter.url_to_remove
       assign url_halves = base_url | split: '?'
       assign base_path = url_halves[0]
       assign clean_query = ''
+      assign mangled_options = false
       if url_halves.size > 1
         assign qparams = url_halves[1] | split: '&'
         for p in qparams
           assign p_head = p | slice: 0, 5
           if p_head == 'page='
+            continue
+          endif
+          assign p_head8 = p | slice: 0, 8
+          if p_head8 == 'options='
+            assign mangled_options = true
             continue
           endif
           if clean_query == ''
@@ -104,6 +115,16 @@
             assign clean_query = clean_query | append: '&' | append: p
           endif
         endfor
+        if mangled_options
+          assign canonical_options = 'options%5Bprefix%5D=last'
+          unless clean_query contains 'options%5Bprefix%5D='
+            if clean_query == ''
+              assign clean_query = canonical_options
+            else
+              assign clean_query = clean_query | append: '&' | append: canonical_options
+            endif
+          endunless
+        endif
       endif
       if clean_query == ''
         assign all_href = base_path

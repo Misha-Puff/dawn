@@ -14,14 +14,15 @@ search-tabs {
   overflow-x: auto;
 }
 
-/* Auto margins center the row when it fits but, unlike justify-content:
-   center, keep the first tab reachable when it overflows and scrolls. */
-.search-tabs__tab:first-child {
-  margin-left: auto;
-}
-
-.search-tabs__tab:last-child {
-  margin-right: auto;
+/* Pseudo-element spacers center the row when it fits but, unlike
+   justify-content: center, keep the first tab reachable when it overflows and
+   scrolls. Spacers instead of first/last-child auto margins because the last
+   child can be a HIDDEN secondary tab (display:none still matches :last-child,
+   which would dump all the free space on one side and right-flush the row). */
+.search-tabs::before,
+.search-tabs::after {
+  content: '';
+  margin: auto;
 }
 
 .search-tabs__tab {
@@ -66,6 +67,17 @@ button.search-tabs__tab {
 /* Tabs appear only once predictive results are open */
 .header__search predictive-search:not([open]) search-tabs {
   display: none;
+}
+
+/* The stock search modal is inset-pinned to the header height, so the form
+   plus a visible tab row (~75px) overflows it and the input clips at the top.
+   When the tab feature is in the modal, unpin the bottom edge so the box can
+   grow with its content; min-height (stock calc(100% + 2px)) keeps the closed
+   state's exact stock height, and the padding only engages once the grown
+   content exceeds it. */
+.header__search .search-modal:has(search-tabs) {
+  bottom: auto;
+  padding-block: 1.1rem;
 }
 
 .search-modal .search-tabs {
