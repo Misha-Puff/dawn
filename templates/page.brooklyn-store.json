@@ -1,0 +1,83 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "hero": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/mp-brooklyn-storefront.jpg",
+        "image_height": "adapt",
+        "show_text_box": false,
+        "image_overlay_opacity": 0,
+        "stack_images_on_mobile": true
+      }
+    },
+    "info": {
+      "type": "store-info",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "BROOKLYN STORE",
+            "heading_tag": "h1",
+            "heading_size": "h2"
+          }
+        },
+        "intro": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our boutique is located in the charming Boerum Hill neighborhood at 349 Atlantic Ave, Brooklyn. The shop features a curated selection of styles from our Baby, Child, and Adult Collections.</p><p>Personalized shopping experiences, help with sizing, and recommendations are available.</p>"
+          }
+        },
+        "hours": {
+          "type": "hours",
+          "settings": {
+            "label": "",
+            "hours": "<p>Open Monday through Saturday 11am-6pm<br/>Sunday 11am-5pm</p>"
+          }
+        },
+        "contact": {
+          "type": "contact",
+          "settings": {
+            "address": "<p>349 Atlantic Ave.<br/>Brooklyn, NY 11217</p>",
+            "phone": "(646) 620-7970",
+            "email": "brooklyn@misha-and-puff.com",
+            "email_prefix": "For inquiries, please email"
+          }
+        },
+        "returns": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We are unable to accept any online order returns at our store locations. Read our full return policy <a href=\"https://help.misha-and-puff.com/en-US#article-62371\" target=\"_blank\" rel=\"noopener\">here</a>.</p>"
+          }
+        }
+      },
+      "block_order": ["heading", "intro", "hours", "contact", "returns"],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "content_max_width": 720,
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": ["main", "hero", "info"]
+}

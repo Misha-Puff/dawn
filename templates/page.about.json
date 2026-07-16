@@ -1,0 +1,59 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "page_width": "narrow",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "story": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "ABOUT",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Founded in 2012 by Anna Wallack, Misha &amp; Puff is a brand devoted to craft and creates thoughtful, long-lasting pieces with a conscious approach — objects of memory, made to last and meant to be lived in.</p><p>The company began soon after Anna had her first child, when she started designing and knitting clothing for her newborn from her living room in styles absent from the existing children’s apparel market. Her pieces gained notoriety — and the rest is history.</p><p>We draw inspiration from nostalgia, handwork, color, artistry, children, vintage silhouettes, and a commitment to conscious practices. Our collections are eclectic, craft-led, color-forward, often accented by iconic prints, and ultimately designed for the joy of dressing.</p><p>Over the past decade, we’ve evolved in many ways, but a reverence for things made well and thoughtfully continues.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": ["caption", "text"],
+      "settings": {
+        "image": "shopify://shop_images/mp-about-hero.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "full_width": false,
+        "color_scheme": "",
+        "section_color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": ["main", "story"]
+}
