@@ -14,6 +14,7 @@
 
 <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'recently-viewed.js' | asset_url }}" defer="defer"></script>
 
 {%- style -%}
   @media screen and (max-width: 1080px) {
@@ -103,8 +104,20 @@
     margin-bottom: 0 !important;
   }
 
-  {%- comment -%} Card markup is baked into the capture card on the product page; the shared snippet only styles it. {%- endcomment -%}
+  {%- comment -%} Cards are fetched live via sections/recently-viewed-cards.liquid; the shared snippet only styles them. {%- endcomment -%}
   {% render 'card-settings-styles' %}
+
+  {%- unless section.settings.show_card_swatches -%}
+    #shopify-section-{{ section.id }} .card__swatches {
+      display: none;
+    }
+  {%- endunless -%}
+
+  {%- unless section.settings.show_size_overlay -%}
+    #shopify-section-{{ section.id }} .popup-overlay {
+      display: none;
+    }
+  {%- endunless -%}
 {%- endstyle -%}
 
 <div
@@ -123,7 +136,13 @@
       {%- endif -%}
     </div>
 
-    <slider-component class="slider-mobile-gutter card-redesign slider-component-desktop{% if section.settings.full_width %} slider-component-full-width{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    <recently-viewed-products
+      data-search-url="{{ routes.search_url }}"
+      data-section-id="{{ section.id }}"
+      data-products-to-show="{{ section.settings.products_to_show }}"
+      data-current-product-id="{{ product.id }}"
+    >
+      <slider-component class="slider-mobile-gutter card-redesign slider-component-desktop{% if section.settings.full_width %} slider-component-full-width{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       <ul
         id="Slider-{{ section.id }}"
         data-id="{{ section.id }}"
@@ -147,7 +166,7 @@
           <span class="slider-counter--current">1</span>
           <span aria-hidden="true"> / </span>
           <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
-          <span class="slider-counter--total">{{ products_to_display }}</span>
+          <span class="slider-counter--total"></span>
         </div>
         <button
           type="button"
@@ -162,43 +181,9 @@
         </button>
       </div>
     </slider-component>
+    </recently-viewed-products>
   </div>
 </div>
-
-<script>
-  const generateLiEl = (idx, cardProduct) => `
-    <li
-      id="Slide-{{ section.id }}-${idx}"
-      class="grid__item slider__slide{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-      {% if settings.animations_reveal_on_scroll %}
-        data-cascade
-        style="--animation-order: ${idx};"
-      {% endif %}
-    >${cardProduct}</li>
-  `;
-
-  recentlyViewed = localStorage.getItem('MPRecentlyViewed');
-
-  if (recentlyViewed !== null && recentlyViewed !== undefined) {
-    recentlyViewed = JSON.parse(recentlyViewed);
-
-    const recentlyViewedParentEl = document.getElementById('Slider-{{ section.id }}');
-
-    let recentlyViewedBlock = [];
-
-    for (let i = 0; i < recentlyViewed.length; i++) {
-      const { productID, cardProduct } = recentlyViewed[i];
-      
-      if(i == {{ section.settings.products_to_show }}) break;
-
-      recentlyViewedBlock.push(generateLiEl(i, cardProduct));
-    }
-
-    recentlyViewedBlock = recentlyViewedBlock.join('');
-
-    recentlyViewedParentEl.innerHTML = recentlyViewedBlock;
-  }
-</script>
 
 {% schema %}
 {
@@ -211,11 +196,17 @@
   "settings": [
     {
       "type": "header",
-      "content": "Card swatches"
+      "content": "Product card"
     },
     {
       "type": "paragraph",
-      "content": "Swatch/size markup is baked into the card when it's captured on a product page (see the main product section's Recently-viewed card settings). These sliders only size the swatches shown here."
+      "content": "Cards are fetched live from the store when the slider comes into view, so prices, badges, and availability are always current. These settings hide or style card details in this slider only."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_card_swatches",
+      "default": true,
+      "label": "Show color swatches"
     },
     {
       "type": "range",
@@ -255,7 +246,7 @@
       "id": "show_size_overlay",
       "default": true,
       "label": "Show size availability on hover (desktop)",
-      "info": "The overlay markup is baked into the card when it's captured on a product page; this toggle only controls the styling below."
+      "info": "Unchecking hides the overlay on this slider's cards; the settings below style it."
     },
     {
       "type": "color",

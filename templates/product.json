@@ -451,8 +451,6 @@
         "mcc_gap": 0,
         "mcc_margin_top": 0,
         "mcc_margin_bottom": 16,
-        "rv_card_swatches": true,
-        "rv_card_size_overlay": true,
         "media_position": "left",
         "image_zoom": "none",
         "hide_variants": true,

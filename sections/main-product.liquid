@@ -692,56 +692,26 @@
     // IIFE: this script re-executes when quick-add.js injects a fetched
     // product page into a quick-add modal on a PDP — top-level const/let
     // here would collide with the host page's own declarations.
+    // Records only the product id; the recently-viewed slider fetches fresh
+    // cards via the Section Rendering API (sections/recently-viewed-cards.liquid).
     (() => {
-    const recentlyViewedProductData = {
-      productID: '{{ product.id }}',
-      cardProduct: `
-        {% render 'card-product',
-          card_product: product,
-          media_aspect_ratio: 'adapt',
-          image_shape: 'default',
-          show_secondary_image: true,
-          show_vendor: false,
-          show_rating: true,
-          skip_styles: true,
-          section_id: section.id,
-          quick_add: 'standard',
-          quick_add_mobile_only: true,
-          show_swatches_availability: true,
-          enable_swatches: section.settings.rv_card_swatches,
-          size_overlay: section.settings.rv_card_size_overlay,
-          hide_color_suffix: true
-        %}
-      `,
-    };
-
-    let recentlyViewed = localStorage.getItem('MPRecentlyViewed');
-
-    if (recentlyViewed === null || recentlyViewed === undefined) {
-      localStorage.setItem('MPRecentlyViewed', JSON.stringify([recentlyViewedProductData]));
-    } else {
-      recentlyViewed = JSON.parse(recentlyViewed);
-
-      if (recentlyViewed.length === 0) {
-        localStorage.setItem('MPRecentlyViewed', JSON.stringify([recentlyViewedProductData]));
-      } else {
-        for (let i = 0; i < recentlyViewed.length; i++) {
-          const { productID } = recentlyViewed[i];
-
-          if (productID === recentlyViewedProductData.productID) {
-            recentlyViewed.splice(i, 1);
-
-            break;
-          }
-        }
-
-        recentlyViewed.unshift(recentlyViewedProductData);
-
-        recentlyViewed = recentlyViewed.slice(0, 12);
-
-        localStorage.setItem('MPRecentlyViewed', JSON.stringify(recentlyViewed));
+      const currentId = '{{ product.id }}';
+      let entries = [];
+      try {
+        entries = JSON.parse(localStorage.getItem('MPRecentlyViewed')) || [];
+      } catch (e) {
+        entries = [];
       }
-    }
+      if (!Array.isArray(entries)) entries = [];
+      entries = entries
+        .filter((entry) => entry && entry.productID && String(entry.productID) !== currentId)
+        .map((entry) => ({ productID: String(entry.productID) }));
+      entries.unshift({ productID: currentId });
+      try {
+        localStorage.setItem('MPRecentlyViewed', JSON.stringify(entries.slice(0, 12)));
+      } catch (e) {
+        // storage full/disabled — recently viewed just won't update
+      }
     })();
   </script>
 
@@ -2317,9 +2287,6 @@
     {"type": "range", "id": "mcc_gap", "min": 0, "max": 60, "step": 2, "unit": "px", "default": 0, "label": "Gap between arrows and counter", "info": "0 = theme default", "visible_if": "{{ section.settings.mcc_enable }}"},
     {"type": "range", "id": "mcc_margin_top", "min": 0, "max": 60, "step": 2, "unit": "px", "default": 0, "label": "Space above controls", "info": "The whole gap between the last image and the controls — replaces the theme's ~24px default. 0 = theme default.", "visible_if": "{{ section.settings.mcc_enable }}"},
     {"type": "range", "id": "mcc_margin_bottom", "min": 0, "max": 60, "step": 2, "unit": "px", "default": 0, "label": "Space below controls", "info": "0 = theme default", "visible_if": "{{ section.settings.mcc_enable }}"},
-    {"type": "header", "content": "Recently-viewed card"},
-    {"type": "checkbox", "id": "rv_card_swatches", "default": true, "label": "Color swatches on the captured card", "info": "Baked into the card when this product page is viewed; existing recently-viewed entries update on next visit."},
-    {"type": "checkbox", "id": "rv_card_size_overlay", "default": true, "label": "Size availability overlay on the captured card"},
     {"type": "select", "id": "media_position", "options": [{"value": "left", "label": "t:sections.main-product.settings.media_position.options__1.label"}, {"value": "right", "label": "t:sections.main-product.settings.media_position.options__2.label"}], "default": "left", "label": "t:sections.main-product.settings.media_position.label"},
     {"type": "select", "id": "image_zoom", "options": [{"value": "lightbox", "label": "t:sections.main-product.settings.image_zoom.options__1.label"}, {"value": "hover", "label": "t:sections.main-product.settings.image_zoom.options__2.label"}, {"value": "none", "label": "t:sections.main-product.settings.image_zoom.options__3.label"}], "default": "lightbox", "label": "t:sections.main-product.settings.image_zoom.label"},
     {"type": "checkbox", "id": "hide_variants", "default": false, "label": "t:sections.main-product.settings.hide_variants.label"},
