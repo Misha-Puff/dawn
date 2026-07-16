@@ -104,12 +104,14 @@
 .mega-menu__inner .mega-menu__list {
   flex: 1 1 auto;
   padding-left: 0;
+  padding-right: 0;
 }
 
 .mega-menu__images {
   display: flex;
   flex: 0 0 auto;
   gap: var(--mm-images-gap, 2rem);
+  padding-top: calc(28px + 0.6rem); /* match .mega-menu__list top pad + first link pad-top */
 }
 
 .mega-menu__image {

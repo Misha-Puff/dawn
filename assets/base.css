@@ -106,7 +106,6 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
     padding: 0 20px;
   } */
 
-  .header.page-width,
   .utility-bar__grid.page-width {
     padding-left: 3.2rem;
     padding-right: 3.2rem;
@@ -127,8 +126,8 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 
 @media screen and (min-width: 1100px) {
   .header:not(.drawer-menu).page-width {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: var(--page-width-padding);
+    padding-right: var(--page-width-padding);
   }
 
   .page-width--narrow {

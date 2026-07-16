@@ -130,10 +130,10 @@
     #shopify-section-{{ section.id }} .header { {% if section.settings.padding_top > 0 %}padding-top: {{ section.settings.padding_top }}px;{% endif %}{% if section.settings.padding_bottom > 0 %} padding-bottom: {{ section.settings.padding_bottom }}px;{% endif %} }
   {%- endif -%}
   {%- if section.settings.padding_left_mobile > 0 or section.settings.padding_right_mobile > 0 -%}
-    @media screen and (max-width: 749px) { #shopify-section-{{ section.id }} .header { {% if section.settings.padding_left_mobile > 0 %}padding-left: {{ section.settings.padding_left_mobile }}px;{% endif %}{% if section.settings.padding_right_mobile > 0 %} padding-right: {{ section.settings.padding_right_mobile }}px;{% endif %} } }
+    @media screen and (max-width: 1099px) { #shopify-section-{{ section.id }} .header { {% if section.settings.padding_left_mobile > 0 %}padding-left: {{ section.settings.padding_left_mobile }}px;{% endif %}{% if section.settings.padding_right_mobile > 0 %} padding-right: {{ section.settings.padding_right_mobile }}px;{% endif %} } }
   {%- endif -%}
   {%- if section.settings.padding_left > 0 or section.settings.padding_right > 0 -%}
-    @media screen and (min-width: 750px) { #shopify-section-{{ section.id }} .header { {% if section.settings.padding_left > 0 %}padding-left: {{ section.settings.padding_left }}px;{% endif %}{% if section.settings.padding_right > 0 %} padding-right: {{ section.settings.padding_right }}px;{% endif %} } }
+    @media screen and (min-width: 1100px) { #shopify-section-{{ section.id }} .header { {% if section.settings.padding_left > 0 %}padding-left: {{ section.settings.padding_left }}px;{% endif %}{% if section.settings.padding_right > 0 %} padding-right: {{ section.settings.padding_right }}px;{% endif %} } }
   {%- endif -%}
   {%- if section.settings.megamenu_row_gap > 0 or section.settings.megamenu_col_gap > 0 -%}
     #shopify-section-{{ section.id }} { {% if section.settings.megamenu_row_gap > 0 %}--mm-list-row-gap: {{ section.settings.megamenu_row_gap }}px;{% endif %}{% if section.settings.megamenu_col_gap > 0 %} --mm-list-col-gap: {{ section.settings.megamenu_col_gap }}px;{% endif %} }
@@ -205,7 +205,7 @@
 %}
 {%- style -%}
   .header {
-    padding: 10px 1.4rem;
+    padding: 10px var(--mobile-page-width-padding);
   }
 
   .section-header {
@@ -1164,10 +1164,10 @@
       "info": "0 = theme default (10px)",
       "default": 0
     },
-    { "type": "range", "id": "padding_left", "min": 0, "max": 120, "step": 2, "unit": "px", "label": "Padding left (desktop)", "info": "Applies from 750px up. 0 = theme default (3.2rem, 20px above 1100px)", "default": 0 },
-    { "type": "range", "id": "padding_right", "min": 0, "max": 120, "step": 2, "unit": "px", "label": "Padding right (desktop)", "info": "Applies from 750px up. 0 = theme default (3.2rem, 20px above 1100px)", "default": 0 },
-    { "type": "range", "id": "padding_left_mobile", "min": 0, "max": 60, "step": 2, "unit": "px", "label": "Padding left (mobile)", "info": "Applies below 750px. 0 = theme default (1.4rem)", "default": 0 },
-    { "type": "range", "id": "padding_right_mobile", "min": 0, "max": 60, "step": 2, "unit": "px", "label": "Padding right (mobile)", "info": "Applies below 750px. 0 = theme default (1.4rem)", "default": 0 },
+    { "type": "range", "id": "padding_left", "min": 0, "max": 120, "step": 2, "unit": "px", "label": "Padding left (desktop)", "info": "Applies from 1100px up. 0 = theme default (50px)", "default": 0 },
+    { "type": "range", "id": "padding_right", "min": 0, "max": 120, "step": 2, "unit": "px", "label": "Padding right (desktop)", "info": "Applies from 1100px up. 0 = theme default (50px)", "default": 0 },
+    { "type": "range", "id": "padding_left_mobile", "min": 0, "max": 60, "step": 2, "unit": "px", "label": "Padding left (mobile)", "info": "Applies below 1100px. 0 = theme default (10px)", "default": 0 },
+    { "type": "range", "id": "padding_right_mobile", "min": 0, "max": 60, "step": 2, "unit": "px", "label": "Padding right (mobile)", "info": "Applies below 1100px. 0 = theme default (10px)", "default": 0 },
     { "type": "header", "content": "Design review" },
     {
       "type": "text",
