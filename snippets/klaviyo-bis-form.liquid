@@ -124,7 +124,14 @@
       </div>
     </div>
   </modal-dialog>
-  <script>
+  <script data-bis-form-script>
+    // IIFE: this script re-executes when quick-add.js injects a fetched
+    // product page into a quick-add modal on a PDP — top-level const/let
+    // here would collide with the host page's own declarations.
+    // quick-add.js also strips this tag (data-bis-form-script) from injected
+    // content: the injected copy's #bis-form is removed with the modal-dialog,
+    // so re-execution would double-bind the host page's form instead.
+    (() => {
     const bisForm = document.querySelector('#bis-form');
 
     if (bisForm) {
@@ -194,5 +201,6 @@
           });
       });
     }
+    })();
   </script>
 {%- endif -%}

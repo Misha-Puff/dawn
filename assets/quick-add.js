@@ -95,8 +95,13 @@ if (!customElements.get('quick-add-modal')) {
         const pairQuickAdd = productElement.querySelectorAll('.pair-outfits__row-atc');
         pairQuickAdd.forEach((el) => el.remove());
 
-        // The BIS popup is removed with the modal-dialogs above, so the notify trigger
-        // reverts to the plain disabled sold-out button inside quick-add.
+        // The BIS popup is removed with the modal-dialogs above; drop its inline
+        // script too — with the injected #bis-form gone, re-executing it would
+        // bind a duplicate submit listener on the host page's form.
+        const bisScript = productElement.querySelectorAll('script[data-bis-form-script]');
+        bisScript.forEach((script) => script.remove());
+
+        // The notify trigger reverts to the plain disabled sold-out button inside quick-add.
         const bisTrigger = productElement.querySelector('[data-bis-trigger]');
         if (bisTrigger) {
           bisTrigger.removeAttribute('data-bis-trigger');
