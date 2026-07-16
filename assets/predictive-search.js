@@ -107,14 +107,21 @@ class PredictiveSearch extends SearchForm {
 
   updateSearchForTerm(previousTerm, newTerm) {
     const searchForTextElement = this.querySelector('[data-predictive-search-search-for-text]');
-    const currentButtonText = searchForTextElement?.innerText;
-    if (currentButtonText) {
-      if (currentButtonText.match(new RegExp(previousTerm, 'g')).length > 1) {
-        // The new term matches part of the button text and not just the search term, do not replace to avoid mistakes
+    // textContent, NOT innerText: innerText reflects CSS text-transform, and this
+    // store renders the button uppercase — the case-sensitive match below then
+    // returned null and threw on every keystroke after the first, freezing the
+    // dropdown on the first term. Also escape the term (regex metacharacters)
+    // and null-guard the match; a failed patch is harmless — the fresh fetch
+    // repaints the button anyway.
+    const currentButtonText = searchForTextElement?.textContent;
+    if (currentButtonText && previousTerm) {
+      const escapedTerm = previousTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const matches = currentButtonText.match(new RegExp(escapedTerm, 'g'));
+      if (!matches || matches.length > 1) {
+        // No safe single occurrence of the previous term in the button text — do not replace to avoid mistakes
         return;
       }
-      const newButtonText = currentButtonText.replace(previousTerm, newTerm);
-      searchForTextElement.innerText = newButtonText;
+      searchForTextElement.textContent = currentButtonText.replace(previousTerm, newTerm);
     }
   }
 
