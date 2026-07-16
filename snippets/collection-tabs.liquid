@@ -37,7 +37,7 @@
             aria-current="page"
           {% endif %}
         >
-          {{- tab_collection.title -}}
+          {%- render 'sanitizer', input: tab_collection.title -%}
         </a>
       {%- endunless -%}
     {%- endfor -%}
