@@ -228,7 +228,7 @@
 
     .collection-view-tabs {
       display: flex;
-      justify-content: center;
+      justify-content: {% case section.settings.view_tabs_alignment %}{% when 'left' %}flex-start{% when 'right' %}flex-end{% else %}center{% endcase %};
       gap: 2.4rem;
       margin-bottom: 2.4rem;
       border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.15);
@@ -269,6 +269,85 @@
       outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
       outline-offset: 0.3rem;
     }
+  {%- endif -%}
+
+  {%- comment -%}
+    Lateral collection-tabs settings (tabs_*). Every branch is gated on a
+    non-default value so untouched settings emit zero CSS and the stock
+    template-collection.css values stay authoritative. The first/last-child
+    auto margins there are load-bearing: unlike justify-content, they keep
+    tab 1 reachable by horizontal scroll when the row overflows — the left/
+    right overrides below only zero out ONE side so overflow stays scrollable.
+  {%- endcomment -%}
+  {%- if section.settings.tabs_enable_type -%}
+    {%- liquid
+      assign tabs_font = section.settings.tabs_font
+      assign tabs_weight = section.settings.tabs_font_weight | default: 'default'
+      assign tabs_fs = section.settings.tabs_font_size | default: 0
+      assign tabs_case = section.settings.tabs_text_case | default: 'default'
+      assign tabs_ls = section.settings.tabs_letter_spacing | default: 0
+    -%}
+    {%- capture tabs_brand_stack -%}{% render 'brand-font', font: section.settings.tabs_custom_font %}{%- endcapture -%}
+    {%- assign tabs_brand_stack = tabs_brand_stack | strip -%}
+    {%- if tabs_font != blank and tabs_brand_stack == blank -%}{{ tabs_font | font_face: font_display: 'swap' }}{%- endif -%}
+    {%- if tabs_font != blank and tabs_brand_stack == blank and tabs_weight != 'default' -%}
+      {%- assign tabs_wfont = tabs_font | font_modify: 'weight', tabs_weight -%}
+      {%- if tabs_wfont -%}{{ tabs_wfont | font_face: font_display: 'swap' }}{%- endif -%}
+    {%- endif -%}
+    #shopify-section-{{ section.id }} .collection-tabs__tab {
+      {%- if tabs_brand_stack != blank %} font-family: {{ tabs_brand_stack }};{% elsif tabs_font != blank %} font-family: {{ tabs_font.family }}, {{ tabs_font.fallback_families }};{% endif -%}
+      {%- if tabs_weight != 'default' and tabs_weight != blank %} font-weight: {{ tabs_weight }};{% endif -%}
+      {%- if tabs_fs > 0 %} font-size: {{ tabs_fs }}px;{% endif -%}
+      {%- if tabs_case != 'default' and tabs_case != blank %} text-transform: {{ tabs_case }};{% endif -%}
+      {%- if tabs_ls > 0 %} letter-spacing: {{ tabs_ls }}px;{% endif -%}
+      {%- if section.settings.tabs_color != blank %} color: {{ section.settings.tabs_color }};{% endif -%}
+    }
+    {%- assign tabs_fs_m = section.settings.tabs_font_size_mobile | default: 0 -%}
+    {%- if tabs_fs_m > 0 -%}
+      @media screen and (max-width: 749px) {
+        #shopify-section-{{ section.id }} .collection-tabs__tab {
+          font-size: {{ tabs_fs_m }}px;
+        }
+      }
+    {%- endif -%}
+  {%- endif -%}
+  {%- liquid
+    assign tabs_gap = section.settings.tabs_gap | default: 0
+    assign tabs_mb = section.settings.tabs_margin_bottom | default: 0
+    assign tabs_pb = section.settings.tabs_padding_bottom | default: 0
+    assign tabs_rail = section.settings.tabs_divider_thickness | default: 0
+    assign tabs_underline = section.settings.tabs_underline_thickness | default: 0
+  -%}
+  {%- if tabs_gap > 0 or tabs_mb > 0 -%}
+    #shopify-section-{{ section.id }} .collection-tabs {
+      {%- if tabs_gap > 0 %} gap: {{ tabs_gap }}px;{% endif -%}
+      {%- if tabs_mb > 0 %} margin-bottom: {{ tabs_mb }}px;{% endif -%}
+    }
+  {%- endif -%}
+  {%- if tabs_pb > 0 -%}
+    #shopify-section-{{ section.id }} .collection-tabs__tab { padding-bottom: {{ tabs_pb }}px; }
+  {%- endif -%}
+  {%- if section.settings.tabs_alignment == 'left' -%}
+    #shopify-section-{{ section.id }} .collection-tabs__tab:first-child { margin-left: 0; }
+  {%- elsif section.settings.tabs_alignment == 'right' -%}
+    #shopify-section-{{ section.id }} .collection-tabs__tab:last-child { margin-right: 0; }
+  {%- endif -%}
+  {%- if section.settings.tabs_divider_enable -%}
+    {%- if tabs_rail > 0 or section.settings.tabs_divider_color != blank -%}
+      #shopify-section-{{ section.id }} .collection-tabs {
+        {%- if tabs_rail > 0 %} border-bottom-width: {{ tabs_rail }}px;{% endif -%}
+        {%- if section.settings.tabs_divider_color != blank %} border-bottom-color: {{ section.settings.tabs_divider_color }};{% endif -%}
+      }
+    {%- endif -%}
+    {%- if tabs_rail > 0 -%}
+      #shopify-section-{{ section.id }} .collection-tabs__tab { margin-bottom: -{{ tabs_rail }}px; }
+    {%- endif -%}
+  {%- else -%}
+    #shopify-section-{{ section.id }} .collection-tabs { border-bottom: 0; }
+    #shopify-section-{{ section.id }} .collection-tabs__tab { margin-bottom: 0; }
+  {%- endif -%}
+  {%- if tabs_underline > 0 -%}
+    #shopify-section-{{ section.id }} .collection-tabs__tab { border-bottom-width: {{ tabs_underline }}px; }
   {%- endif -%}
 {%- endstyle -%}
 
@@ -1405,6 +1484,27 @@
       "default": true,
       "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
     },
+    { "type": "header", "content": "Collection tabs" },
+    { "type": "paragraph", "content": "Lateral tabs render only on collections assigned a tab group (content.tab_group metafield). Defaults reproduce the current look exactly." },
+    { "type": "checkbox", "id": "tabs_enable_type", "default": false, "label": "Enable tab typography" },
+    { "type": "font_picker", "id": "tabs_font", "default": "assistant_n4", "label": "Font", "visible_if": "{{ section.settings.tabs_enable_type }}" },
+    { "type": "select", "id": "tabs_custom_font", "options": [ { "value": "default", "label": "None (use font picker)" }, { "value": "ibm_plex_sans", "label": "IBM Plex Sans" }, { "value": "ibm_plex_mono", "label": "IBM Plex Mono" }, { "value": "inter", "label": "Inter" }, { "value": "geist", "label": "Geist" }, { "value": "geist_mono", "label": "Geist Mono" }, { "value": "overpass", "label": "Overpass" }, { "value": "overpass_mono", "label": "Overpass Mono" }, { "value": "dm_sans", "label": "DM Sans" }, { "value": "dm_mono", "label": "DM Mono" }, { "value": "manrope", "label": "Manrope" }, { "value": "open_sans", "label": "Open Sans" } ], "default": "default", "label": "Brand font", "info": "Overrides the font picker above when set", "visible_if": "{{ section.settings.tabs_enable_type }}" },
+    { "type": "select", "id": "tabs_font_weight", "options": [ { "value": "default", "label": "Theme default" }, { "value": "300", "label": "Light" }, { "value": "400", "label": "Regular" }, { "value": "500", "label": "Medium" }, { "value": "600", "label": "Semibold" }, { "value": "700", "label": "Bold" } ], "default": "default", "label": "Font weight", "visible_if": "{{ section.settings.tabs_enable_type }}" },
+    { "type": "range", "id": "tabs_font_size", "min": 0, "max": 40, "step": 1, "unit": "px", "label": "Font size", "info": "0 = theme default (10.4px)", "default": 0, "visible_if": "{{ section.settings.tabs_enable_type }}" },
+    { "type": "range", "id": "tabs_font_size_mobile", "min": 0, "max": 40, "step": 1, "unit": "px", "label": "Mobile font size", "info": "0 = same as desktop", "default": 0, "visible_if": "{{ section.settings.tabs_enable_type }}" },
+    { "type": "select", "id": "tabs_text_case", "options": [ { "value": "default", "label": "Theme default" }, { "value": "uppercase", "label": "Uppercase" }, { "value": "capitalize", "label": "Capitalize" }, { "value": "lowercase", "label": "Lowercase" }, { "value": "none", "label": "Normal (remove uppercase)" } ], "default": "default", "label": "Text case", "visible_if": "{{ section.settings.tabs_enable_type }}" },
+    { "type": "range", "id": "tabs_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Letter spacing", "info": "0 = theme default (0.8px)", "default": 0, "visible_if": "{{ section.settings.tabs_enable_type }}" },
+    { "type": "color", "id": "tabs_color", "label": "Label color", "info": "Leave blank to inherit. Applies to active and inactive tabs; the active tab stays marked by its underline.", "visible_if": "{{ section.settings.tabs_enable_type }}" },
+    { "type": "range", "id": "tabs_gap", "min": 0, "max": 60, "step": 1, "unit": "px", "label": "Tab gap", "info": "0 = theme default (19.2px)", "default": 0 },
+    { "type": "range", "id": "tabs_margin_bottom", "min": 0, "max": 60, "step": 1, "unit": "px", "label": "Row bottom margin", "info": "0 = theme default (19.2px)", "default": 0 },
+    { "type": "range", "id": "tabs_padding_bottom", "min": 0, "max": 40, "step": 1, "unit": "px", "label": "Tab bottom padding", "info": "0 = theme default (9.6px)", "default": 0 },
+    { "type": "select", "id": "tabs_alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" } ], "default": "center", "label": "Tab alignment" },
+    { "type": "checkbox", "id": "tabs_divider_enable", "default": true, "label": "Show divider rail" },
+    { "type": "range", "id": "tabs_divider_thickness", "min": 0, "max": 10, "step": 1, "unit": "px", "label": "Divider thickness", "info": "0 = theme default (0.8px)", "default": 0, "visible_if": "{{ section.settings.tabs_divider_enable }}" },
+    { "type": "color", "id": "tabs_divider_color", "label": "Divider color", "info": "Leave blank for theme default", "visible_if": "{{ section.settings.tabs_divider_enable }}" },
+    { "type": "range", "id": "tabs_underline_thickness", "min": 0, "max": 10, "step": 1, "unit": "px", "label": "Active underline thickness", "info": "0 = theme default (1.6px)", "default": 0 },
+    { "type": "header", "content": "Campaign toggle" },
+    { "type": "select", "id": "view_tabs_alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" } ], "default": "center", "label": "Toggle alignment", "info": "Alignment of the Collection / Campaign view toggle row." },
     {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"
