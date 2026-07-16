@@ -85,6 +85,12 @@ button.search-tabs__tab {
   margin-bottom: 0;
 }
 
+/* The height clamp (predictive-search.js open()) lands on the results wrapper,
+   so the wrapper owns the scrolling — the tab row stays pinned above it. */
+.predictive-search--header [data-predictive-search] {
+  overflow-y: auto;
+}
+
 .search-tabs__empty-item .predictive-search__item-content {
   gap: 0.8rem;
   padding: 2rem 0;

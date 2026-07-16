@@ -251,8 +251,12 @@ class PredictiveSearch extends SearchForm {
   }
 
   getResultsMaxHeight() {
-    this.resultsMaxHeight =
-      window.innerHeight - document.querySelector('.section-header')?.getBoundingClientRect().bottom;
+    let maxHeight = window.innerHeight - document.querySelector('.section-header')?.getBoundingClientRect().bottom;
+    // The tab bar renders inside the popup but outside the clamped results
+    // wrapper — subtract it so the popup's bottom stays inside the viewport.
+    const tabs = this.querySelector('search-tabs');
+    if (tabs) maxHeight -= tabs.getBoundingClientRect().height;
+    this.resultsMaxHeight = maxHeight;
     return this.resultsMaxHeight;
   }
 
