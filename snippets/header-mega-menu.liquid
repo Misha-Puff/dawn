@@ -5,13 +5,26 @@
   {% render 'header-mega-menu' %}
 {% endcomment %}
 
+{%- liquid
+  # Editor-only review tool: hold one mega menu open while editing (see 'Design review' setting).
+  assign pinned_handle = ''
+  if request.design_mode
+    assign pinned_handle = section.settings.pin_mega_menu_handle | strip | downcase
+  endif
+-%}
 <nav class="header__inline-menu">
   <ul class="list-menu list-menu--inline" role="list">
     {%- for link in section.settings.menu.links -%}
       <li>
         {%- if link.links != blank -%}
           <header-menu>
-            <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
+            <details
+              id="Details-HeaderMenu-{{ forloop.index }}"
+              class="mega-menu"
+              {% if pinned_handle != blank and link.handle == pinned_handle %}
+                open
+              {% endif %}
+            >
               <summary
                 id="HeaderMenu-{{ link.handle }}"
                 class="header__menu-item list-menu__item link focus-inset"
@@ -154,28 +167,30 @@
   </ul>
 </nav>
 
-<script>
-  const headerWrapper = document.querySelector('.header-wrapper');
-  const menuItems = headerWrapper.querySelectorAll('details.mega-menu');
-  let currentOpen = null;
+{%- if pinned_handle == blank -%}
+  <script>
+    const headerWrapper = document.querySelector('.header-wrapper');
+    const menuItems = headerWrapper.querySelectorAll('details.mega-menu');
+    let currentOpen = null;
 
-  menuItems.forEach((item) => {
-    item.querySelector('summary').addEventListener('mouseenter', () => {
-      if (currentOpen && currentOpen !== item) {
+    menuItems.forEach((item) => {
+      item.querySelector('summary').addEventListener('mouseenter', () => {
+        if (currentOpen && currentOpen !== item) {
+          currentOpen.removeAttribute('open');
+          currentOpen.querySelector('summary').setAttribute('aria-expanded', 'false');
+        }
+        item.setAttribute('open', true);
+        item.querySelector('summary').setAttribute('aria-expanded', 'true');
+        currentOpen = item;
+      });
+    });
+
+    headerWrapper.addEventListener('mouseleave', () => {
+      if (currentOpen) {
         currentOpen.removeAttribute('open');
         currentOpen.querySelector('summary').setAttribute('aria-expanded', 'false');
+        currentOpen = null;
       }
-      item.setAttribute('open', true);
-      item.querySelector('summary').setAttribute('aria-expanded', 'true');
-      currentOpen = item;
     });
-  });
-
-  headerWrapper.addEventListener('mouseleave', () => {
-    if (currentOpen) {
-      currentOpen.removeAttribute('open');
-      currentOpen.querySelector('summary').setAttribute('aria-expanded', 'false');
-      currentOpen = null;
-    }
-  });
-</script>
+  </script>
+{%- endif -%}
