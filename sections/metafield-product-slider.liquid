@@ -24,6 +24,41 @@
 
     assign num_products = num_products | plus: 1
   endfor
+
+  comment
+    Editor-only fallback: the Collection/Products settings resolve from product metafields,
+    so on preview products without data the section renders nothing and merchants cannot
+    see their settings applied. In the editor, stand in with the child-all collection so
+    real cards render through the normal path below (an amber notice flags the stand-in).
+    Falls through to the placeholder empty-state when child-all is missing/empty too.
+  endcomment
+  assign editor_preview_data = false
+  if request.design_mode and num_products == 0
+    assign preview_products = collections['child-all'].products
+    if preview_products.size > 0
+      assign products = preview_products
+      for product in products
+        if section.settings.hide_sold_out
+          assign coming_soon = false
+
+          if product.tags contains 'Badge-Coming Soon'
+            assign coming_soon = true
+          endif
+
+          unless coming_soon
+            if product.available == false
+              continue
+            endif
+          endunless
+        endif
+
+        assign num_products = num_products | plus: 1
+      endfor
+      if num_products > 0
+        assign editor_preview_data = true
+      endif
+    endif
+  endif
 %}
 
 {% unless num_products == 0 %}
@@ -244,6 +279,16 @@
           </h2>
         {%- endif -%}
       </div>
+      {%- if editor_preview_data %}
+        <div
+          class="metafield-slider-empty-note"
+          style="padding: 8px 12px; margin: 0 0 16px; background: #fff8e1; border: 1px dashed #b28704; color: #6b5104; font-size: 12px; font-family: 'Courier New', monospace; letter-spacing: 0.05em;"
+        >
+          EDITOR PREVIEW DATA — the metafield sources (Collection / Products) are empty on this preview
+          product, so products from &quot;Child — All&quot; are standing in below. On the storefront this
+          section only appears on products whose metafields are populated.
+        </div>
+      {%- endif %}
 
       <slider-component class="slider-mobile-gutter card-redesign{% if section.settings.full_width %} slider-component-full-width{% endif %}{% if show_desktop_slider %} slider-component-desktop{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <ul
