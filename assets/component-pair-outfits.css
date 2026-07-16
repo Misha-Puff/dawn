@@ -6,7 +6,7 @@
 }
 
 .pair-outfits__heading {
-  margin: 0 0 1.2rem;
+  margin: 0 0 var(--pair-heading-gap, 1.2rem);
 }
 
 .pair-outfits__list {

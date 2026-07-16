@@ -168,6 +168,13 @@
       }
     {% endstyle %}
   {%- endif -%}
+  {%- if block.settings.pair_heading_gap > 0 -%}
+    {% style %}
+      .pair-outfits.Block-{{ block.id }} {
+        --pair-heading-gap: {{ block.settings.pair_heading_gap }}px;
+      }
+    {% endstyle %}
+  {%- endif -%}
   {%- if block.settings.pair_gap_enable -%}
     {% style %}
       .pair-outfits.Block-{{ block.id }} {

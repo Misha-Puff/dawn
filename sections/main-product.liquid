@@ -359,6 +359,9 @@
               #{{ tg_scope }} .Block-{{ block.id }} .accordion__title { {{ tg_typedecl }} }
             {%- when 'rating' -%}
               #{{ tg_scope }} .Block-{{ block.id }} .rating-text, #{{ tg_scope }} .Block-{{ block.id }} .rating-count { {{ tg_typedecl }} }
+            {%- when 'pair_from_outfits' -%}
+              {%- comment -%} Heading only — the rows keep the card-parity recipe, and a rule on the aside wrapper never reaches the h2 (base.css heading rules win), so the declaration lands on .pair-outfits__heading directly. Color rides along: the loop has no block-level color emission outside variant_picker. {%- endcomment -%}
+              #{{ tg_scope }} .Block-{{ block.id }} .pair-outfits__heading { {{ tg_typedecl }}{% if tg_col != blank %} color: {{ tg_col }};{% endif %} }
             {%- when 'size-chart' -%}
               {%- comment -%} Button elements block font inheritance, so the full declaration (incl. font-style/weight/line-height) lands on the button directly — covers both the standalone and inline Size-row placements (both wrappers carry Block-id) and out-specifies the hardcoded #ProductPopup-<id> font-size. {%- endcomment -%}
               #{{ tg_scope }} .Block-{{ block.id }} .product-popup-modal__button { {{ tg_typedecl }}{% if tg_font != blank %} font-style: {{ tg_font.style }};{% if tg_weight == 'default' %} font-weight: {{ tg_font.weight }};{% endif %}{% endif %}{% if tg_lh > 0 %} line-height: {{ tg_lh }}%;{% endif %} }
@@ -376,6 +379,9 @@
           {%- if block.type == 'collapsible_tab' -%}
             {%- comment -%} The wrapper rule never reaches the h2 heading (base.css sets heading line-height), so land it on the title directly. {%- endcomment -%}
             #{{ tg_scope }} .Block-{{ block.id }} .accordion__title { line-height: {{ tg_lh }}%; }
+          {%- elsif block.type == 'pair_from_outfits' -%}
+            {%- comment -%} Same heading trap, and the group is heading-scoped — keep line-height off the rows. {%- endcomment -%}
+            #{{ tg_scope }} .Block-{{ block.id }} .pair-outfits__heading { line-height: {{ tg_lh }}%; }
           {%- else -%}
             #{{ tg_scope }} .Block-{{ block.id }} { line-height: {{ tg_lh }}%; }
           {%- endif -%}
@@ -1806,7 +1812,22 @@
         {"type": "header", "content": "Spacing"},
         {"type": "checkbox", "id": "pair_gap_enable", "default": false, "label": "Custom gap between products"},
         {"type": "range", "id": "pair_gap_desktop", "min": 0, "max": 48, "step": 2, "unit": "px", "label": "Desktop gap", "default": 8, "visible_if": "{{ block.settings.pair_gap_enable }}"},
-        {"type": "range", "id": "pair_gap_mobile", "min": 0, "max": 48, "step": 2, "unit": "px", "label": "Mobile gap", "default": 8, "visible_if": "{{ block.settings.pair_gap_enable }}"}
+        {"type": "range", "id": "pair_gap_mobile", "min": 0, "max": 48, "step": 2, "unit": "px", "label": "Mobile gap", "default": 8, "visible_if": "{{ block.settings.pair_gap_enable }}"},
+        {"type": "range", "id": "pair_heading_gap", "min": 0, "max": 48, "step": 2, "unit": "px", "label": "Heading spacing", "info": "Space below the heading; 0 = theme default", "default": 0},
+        {"type": "header", "content": "Heading typography"},
+        {"type": "checkbox", "id": "tg_enable_type", "default": false, "label": "Enable typography"},
+        {"type": "font_picker", "id": "tg_font", "default": "assistant_n4", "label": "Font", "visible_if": "{{ block.settings.tg_enable_type }}"},
+        {"type": "select", "id": "tg_custom_font", "options": [{"value": "default", "label": "None (use font picker)"}, {"value": "ibm_plex_sans", "label": "IBM Plex Sans"}, {"value": "ibm_plex_mono", "label": "IBM Plex Mono"}, {"value": "inter", "label": "Inter"}, {"value": "geist", "label": "Geist"}, {"value": "geist_mono", "label": "Geist Mono"}, {"value": "overpass", "label": "Overpass"}, {"value": "overpass_mono", "label": "Overpass Mono"}, {"value": "dm_sans", "label": "DM Sans"}, {"value": "dm_mono", "label": "DM Mono"}, {"value": "manrope", "label": "Manrope"}, {"value": "open_sans", "label": "Open Sans"}], "default": "default", "label": "Brand font", "info": "Overrides the font picker above when set", "visible_if": "{{ block.settings.tg_enable_type }}"},
+        {"type": "select", "id": "tg_font_weight", "options": [{"value": "default", "label": "Theme default"}, {"value": "300", "label": "Light"}, {"value": "400", "label": "Regular"}, {"value": "500", "label": "Medium"}, {"value": "600", "label": "Semibold"}, {"value": "700", "label": "Bold"}], "default": "default", "label": "Font weight", "visible_if": "{{ block.settings.tg_enable_type }}"},
+        {"type": "range", "id": "tg_font_size", "min": 0, "max": 72, "step": 1, "unit": "px", "label": "Font size", "info": "0 = theme default", "default": 0, "visible_if": "{{ block.settings.tg_enable_type }}"},
+        {"type": "range", "id": "tg_line_height", "min": 0, "max": 250, "step": 5, "unit": "%", "label": "Line height", "info": "0 = theme default", "default": 0, "visible_if": "{{ block.settings.tg_enable_type }}"},
+        {"type": "select", "id": "tg_text_case", "options": [{"value": "default", "label": "Theme default"}, {"value": "uppercase", "label": "Uppercase"}, {"value": "capitalize", "label": "Capitalize"}, {"value": "lowercase", "label": "Lowercase"}, {"value": "none", "label": "Normal (remove uppercase)"}], "default": "default", "label": "Text case", "visible_if": "{{ block.settings.tg_enable_type }}"},
+        {"type": "range", "id": "tg_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Letter spacing", "info": "0 = theme default", "default": 0, "visible_if": "{{ block.settings.tg_enable_type }}"},
+        {"type": "color", "id": "tg_color", "label": "Text color", "info": "Leave blank for theme default", "visible_if": "{{ block.settings.tg_enable_type }}"},
+        {"type": "header", "content": "Padding"},
+        {"type": "checkbox", "id": "tg_enable_padding", "default": false, "label": "Enable padding"},
+        {"type": "range", "id": "tg_padding_top", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Padding top", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}"},
+        {"type": "range", "id": "tg_padding_bottom", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Padding bottom", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}"}
       ]
     },
     {
