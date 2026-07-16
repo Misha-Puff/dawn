@@ -1,0 +1,41 @@
+{%- comment -%}
+  Section Rendering API fetch target for the quick-search modal's tier tabs —
+  never placed in a template, and no presets, so it stays out of the editor's
+  add-section picker.
+
+  assets/search-tabs.js requests it on the search route:
+    {{ routes.search_url }}?q=<term>&options[prefix]=last
+      &filter.p.m.taxonomy.division=<value>&section_id=search-modal-results
+  and swaps the returned <li> options into the predictive dropdown's product
+  list. [data-tab-count] doubles as the fetched tier's count probe. Items
+  render through the same snippet as sections/predictive-search.liquid so the
+  markup (styles + arrow-key nav selectors) can't drift.
+{%- endcomment -%}
+
+{%- if search.performed -%}
+  <span data-tab-count hidden>{{ search.results_count }}</span>
+  {%- paginate search.results by 10 -%}
+    <ul hidden>
+      {%- assign option_index = 0 -%}
+      {%- for result in search.results -%}
+        {%- if result.object_type != 'product' -%}
+          {%- continue -%}
+        {%- endif -%}
+        {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: result -%}{%- endcapture -%}
+        {%- assign lock_content = lock_content | strip -%}
+        {%- if lock_content == 'true' -%}
+          {%- continue -%}
+        {%- endif -%}
+        {%- assign option_index = option_index | plus: 1 -%}
+        {% render 'predictive-search-product-item', product: result, index: option_index %}
+      {%- endfor -%}
+    </ul>
+  {%- endpaginate -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Search modal results",
+  "settings": []
+}
+{% endschema %}

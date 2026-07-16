@@ -572,7 +572,10 @@
       "title": "Search results",
       "search_for": "Search for “{{ terms }}”",
       "suggestions": "Suggestions",
-      "pages": "Pages"
+      "pages": "Pages",
+      "tabs_label": "Filter search results by line",
+      "tabs_no_results_html": "No {{ label }} results for “{{ terms }}”",
+      "tabs_show_all": "Show all results"
     },
     "cart": {
       "cart": "Cart"
