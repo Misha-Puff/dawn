@@ -169,15 +169,16 @@
 
 {%- if pinned_handle != blank -%}
   {%- comment -%}
-    While pinned, the hover script never runs, so HeaderMenu.onToggle captures
-    --header-bottom-position-desktop from the load-time toggle of the
-    server-rendered open <details> — before layout settles — freezing a huge
-    value that crushes the panel's max-height. Re-base the cap on
-    --header-height (kept fresh by StickyHeader on every connect).
+    While pinned, the viewport-based max-height misbehaves: both header-height
+    vars (--header-bottom-position-desktop via HeaderMenu.onToggle,
+    --header-height via StickyHeader) get measured while the server-rendered
+    open panel is mid-load/re-render and freeze inflated values, crushing the
+    panel into a short scrollable strip. Editor-only review tool → drop the
+    cap entirely and let the panel take its natural height.
   {%- endcomment -%}
   <style>
     .shopify-section-header-sticky .mega-menu__content {
-      max-height: calc(100vh - var(--header-height, 20rem) - 4rem);
+      max-height: none;
     }
   </style>
 {%- else -%}
