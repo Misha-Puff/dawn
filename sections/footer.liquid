@@ -190,6 +190,7 @@
         #shopify-section-{{ section.id }} {{ sel }} { {{ grp_decl }} }
       {%- endif -%}
     {%- endfor -%}
+    #shopify-section-{{ section.id }} { --mp-footer-heading-mb: {{ section.settings.fh_margin_bottom }}px; }
     {%- if section.settings.fh_font_size_mobile > 0 or section.settings.fl_font_size_mobile > 0 -%}
       @media screen and (max-width: 749px) {
         {%- if section.settings.fh_font_size_mobile > 0 -%}
@@ -767,6 +768,7 @@
     { "type": "select", "id": "fh_font_weight", "options": [ { "value": "default", "label": "Theme default" }, { "value": "300", "label": "Light" }, { "value": "400", "label": "Regular" }, { "value": "500", "label": "Medium" }, { "value": "600", "label": "Semibold" }, { "value": "700", "label": "Bold" } ], "default": "default", "label": "Font weight", "visible_if": "{{ section.settings.footer_enable_type }}" },
     { "type": "range", "id": "fh_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Letter spacing", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.footer_enable_type }}" },
     { "type": "select", "id": "fh_text_case", "options": [ { "value": "default", "label": "Theme default" }, { "value": "uppercase", "label": "Uppercase" }, { "value": "capitalize", "label": "Capitalize" }, { "value": "lowercase", "label": "Lowercase" }, { "value": "none", "label": "Normal (remove uppercase)" } ], "default": "default", "label": "Text case", "visible_if": "{{ section.settings.footer_enable_type }}" },
+    { "type": "range", "id": "fh_margin_bottom", "min": 0, "max": 40, "step": 1, "unit": "px", "label": "Bottom spacing", "info": "Space below headings, incl. the mobile accordion title", "default": 10, "visible_if": "{{ section.settings.footer_enable_type }}" },
     { "type": "header", "content": "Menu items" },
     { "type": "select", "id": "fl_custom_font", "options": [ { "value": "default", "label": "None (inherit theme)" }, { "value": "ibm_plex_sans", "label": "IBM Plex Sans" }, { "value": "ibm_plex_mono", "label": "IBM Plex Mono" }, { "value": "inter", "label": "Inter" }, { "value": "geist", "label": "Geist" }, { "value": "geist_mono", "label": "Geist Mono" }, { "value": "overpass", "label": "Overpass" }, { "value": "overpass_mono", "label": "Overpass Mono" }, { "value": "dm_sans", "label": "DM Sans" }, { "value": "dm_mono", "label": "DM Mono" }, { "value": "manrope", "label": "Manrope" }, { "value": "open_sans", "label": "Open Sans" } ], "default": "default", "label": "Brand font", "visible_if": "{{ section.settings.footer_enable_type }}" },
     { "type": "range", "id": "fl_font_size", "min": 0, "max": 24, "step": 1, "unit": "px", "label": "Font size", "info": "0 = theme default (12px)", "default": 0, "visible_if": "{{ section.settings.footer_enable_type }}" },
