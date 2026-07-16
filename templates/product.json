@@ -1223,7 +1223,7 @@
         "card_availability_weight": "default",
         "title": "RECENTLY VIEWED",
         "heading_alignment": "left",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "heading_margin": 14,
         "products_to_show": 20,
         "columns_desktop": 4,
