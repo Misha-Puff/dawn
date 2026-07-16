@@ -39,7 +39,7 @@
         "tt_custom_font": "overpass_mono",
         "tt_font_weight": "default",
         "tt_font_size": 10,
-        "tt_font_size_mobile": 9,
+        "tt_font_size_mobile": 10,
         "tt_text_case": "uppercase",
         "tt_letter_spacing": 0.2,
         "tt_color": "#BBBBBB",
