@@ -1,0 +1,70 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "hero": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/mp-values-hero.jpg",
+        "mobile_image": "shopify://shop_images/mp-values-hero.jpg",
+        "image_height": "adapt",
+        "show_text_box": false,
+        "image_overlay_opacity": 0,
+        "stack_images_on_mobile": true
+      }
+    },
+    "info": {
+      "type": "store-info",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "VALUES",
+            "heading_tag": "h1",
+            "heading_size": "h2"
+          }
+        },
+        "made_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "MADE WITH CARE, MADE TO LAST",
+            "heading_tag": "h2",
+            "heading_size": "h2"
+          }
+        },
+        "made_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Getting dressed is a ritual with intention. We believe that everyone should embrace the joy of dressing — this includes children. We want you to rethink the way that you might be building your family’s wardrobe. Consider what inspires you, what inspires your child — from a color palette to a silhouette. What creates a sense of self and how do we feel when we truly feel ourselves? When what we wear grounds us, balances us, and empowers us, it becomes an heirloom.</p><p>Our approach to children’s clothing is serious, not meaning that the clothes take themselves too seriously or are uptight, but that we’re serious about art, color, design, originality, ease of wear, durability, inclusivity, and longevity. These things weave themselves into every collection.</p><p>We strive to create community through the objects that we create and their stories. Items gifted and passed down through generations, shared between siblings, family, and friends. Many hands make Misha &amp; Puff, from an object’s initial concept to something currently in production being hand-knit — and then the life that a garment has after it leaves our studio.</p><p>By championing a more sustainable and equitable supply chain, we create pieces that are in tune with people’s lives and the world we live in. We believe in products that are thoughtfully made and honor the people and processes that created them. This connection to the craft of others helps inspire us to be, do, and make more ourselves.</p><p>Each collection is ethically handcrafted by a network of talented knitters and artisans, using premium natural fibers and low-impact dyes and all materials are sustainably made in Peru, Portugal, India, and Japan.</p><p>Our commitment to craft and quality materials allows every piece to go on to live many lives. In doing so, we create objects of memory — connecting people, stories, eras. By creating things made to last, we thread the past through the present, and towards the future.</p><p><a href=\"/pages/people\">Read next</a> &gt; <a href=\"/pages/people\">People</a></p>"
+          }
+        }
+      },
+      "block_order": ["heading", "made_heading", "made_text"],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "content_max_width": 720,
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": ["main", "hero", "info"]
+}

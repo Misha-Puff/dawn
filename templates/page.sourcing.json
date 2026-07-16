@@ -1,0 +1,84 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "hero": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/mp-sourcing-hero.jpg",
+        "mobile_image": "shopify://shop_images/mp-sourcing-hero.jpg",
+        "image_height": "adapt",
+        "show_text_box": false,
+        "image_overlay_opacity": 0,
+        "stack_images_on_mobile": true
+      }
+    },
+    "info": {
+      "type": "store-info",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "SOURCING",
+            "heading_tag": "h1",
+            "heading_size": "h2"
+          }
+        },
+        "intro_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "LOVE IS WORN OFTEN, WORN IN, AND PASSED DOWN",
+            "heading_tag": "h2",
+            "heading_size": "h2"
+          }
+        },
+        "intro_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We’re committed to responsible sourcing practices. The mutual passion for craftsmanship and the quality of our materials between us and our vendors are the bonds that unite us worldwide.</p>"
+          }
+        },
+        "where_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "WHERE WE MAKE THINGS TODAY",
+            "heading_tag": "h2",
+            "heading_size": "h2"
+          }
+        },
+        "where_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>PERU</em> — We started with a small group of 10 women in a knitting cooperative. Today, this partnership is a thriving community, numbering in the hundreds, of (mostly) women-supported and women-owned businesses that we work with year-round.</p><p><em>INDIA</em> — We source organic fabrics that meet our high standards of quality and work with small vendors on projects, such as traditional Indian hand block printing techniques and embroidery, which require years of experience to master.</p><p><em>JAPAN</em> — We use the highest quality denim from Japan, handcrafted by skilled artisans who blend traditional craftsmanship with modern techniques. Our focus is on small productions with special details that showcase the history and craft.</p><p><em>PORTUGAL</em> — We work with a family-run business that is certified by the <a href=\"https://global-standard.org/\" target=\"_blank\" rel=\"noopener\">Global Organic Textile Standard</a>, reflecting European heritage and quality.</p><p><em>NEWBURYPORT</em> — Our historic seaside home, where you can smell the ocean from our front door. Our small <a href=\"/pages/newburyport-store\" target=\"_blank\" rel=\"noopener\">flagship store</a> is located here so that Anna, our Creative Director, can ride her bike over.</p><p><em>BROOKLYN</em> — Our <a href=\"/pages/brooklyn-store\" target=\"_blank\" rel=\"noopener\">newest store</a>, located in the charming Boerum Hill neighborhood.</p>"
+          }
+        }
+      },
+      "block_order": ["heading", "intro_heading", "intro_text", "where_heading", "where_text"],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "content_max_width": 720,
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": ["main", "hero", "info"]
+}
