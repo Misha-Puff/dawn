@@ -141,7 +141,7 @@
         "subitem_font_weight": "default",
         "subitem_letter_spacing": 0.1,
         "subitem_text_case": "default",
-        "megamenu_row_gap": 0,
+        "megamenu_row_gap": 10,
         "megamenu_col_gap": 40,
         "drawer_enable_type": true,
         "drawer_l1_custom_font": "overpass",
