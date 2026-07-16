@@ -122,7 +122,7 @@
       data-filter-param="{{ division_param }}"
       {% unless show_counts %}data-hide-counts{% endunless %}
     >
-      <nav class="search-tabs" aria-label="{{ 'templates.search.tabs_label' | t }}">
+      <nav class="search-tabs page-width" aria-label="{{ 'templates.search.tabs_label' | t }}">
         <a class="search-tabs__tab" data-tab-value="" href="{{ all_href }}"{% if active_value == '' %} aria-current="page"{% endif %}>
           {{- all_label -}}
           {%- if show_counts -%}
@@ -151,9 +151,14 @@
               assign is_active = true
             endif
           -%}
+          {%- comment -%} Inactive-tab counts are JS-probed: value.count proved unreliable on this store (serve-verified: value.count 223 for Child vs 417 actual). SSR only paints results_count for the active view. {%- endcomment -%}
           <a class="search-tabs__tab{% if tab_count == 0 and is_active == false %} search-tabs__tab--zero{% endif %}" data-tab-value="{{ tab_value | escape }}" href="{{ tier_href_base }}{{ tab_value | url_encode }}"{% if is_active %} aria-current="page"{% endif %}>
             {{- tab_label -}}
-            {%- if show_counts %} <span class="search-tabs__count">({{ tab_count }})</span>{% endif -%}
+            {%- if show_counts -%}
+              {%- if is_active %} <span class="search-tabs__count">({{ results.results_count }})</span>
+              {%- else %} <span class="search-tabs__count" data-count></span>
+              {%- endif -%}
+            {%- endif -%}
           </a>
         {%- endfor -%}
         {%- for raw_value in secondary_list -%}
@@ -179,7 +184,11 @@
           {%- if tab_count > 0 or is_active -%}
             <a class="search-tabs__tab search-tabs__tab--secondary" data-tab-value="{{ tab_value | escape }}" href="{{ tier_href_base }}{{ tab_value | url_encode }}"{% if is_active %} aria-current="page"{% endif %}>
               {{- tab_label -}}
-              {%- if show_counts %} <span class="search-tabs__count">({{ tab_count }})</span>{% endif -%}
+              {%- if show_counts -%}
+                {%- if is_active %} <span class="search-tabs__count">({{ results.results_count }})</span>
+                {%- else %} <span class="search-tabs__count" data-count></span>
+                {%- endif -%}
+              {%- endif -%}
             </a>
           {%- endif -%}
         {%- endfor -%}

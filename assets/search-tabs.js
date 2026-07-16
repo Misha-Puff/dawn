@@ -260,25 +260,29 @@ if (!customElements.get('search-tabs')) {
         url.searchParams.delete('page');
         FacetFiltersForm.renderPage(url.searchParams.toString());
       });
-      this.backfillAllCount();
+      this.refreshResultsCounts();
     }
 
-    // Page loaded with a tier active: SSR can't know the unfiltered total, so
-    // one probe (derived from the ALL link, preserving q + other facets)
-    // fills the pending ALL count.
-    backfillAllCount() {
-      const pending = this.querySelector('[data-all-count-pending]');
-      if (!pending) return;
-      const allLink = this.querySelector('a.search-tabs__tab[data-tab-value=""]');
-      if (!allLink) return;
-      const url = new URL(allLink.href, window.location.origin);
-      url.searchParams.delete('page');
-      url.searchParams.set('section_id', 'search-tab-counts');
-      this.fetchCount(url.toString())
-        .then((count) => {
-          pending.textContent = `(${count})`;
-        })
-        .catch(() => {});
+    // SSR can only trust results_count for the CURRENT view: value.count
+    // proved unreliable on this store (serve-verified 223 vs 417 actual for
+    // Child), so every non-active tab count — including ALL when a tier is
+    // active — is probed. Each probe derives from the tab's own href so other
+    // active facets stay in scope; responses are cached per URL.
+    refreshResultsCounts() {
+      Array.from(this.querySelectorAll('a.search-tabs__tab')).forEach((link) => {
+        const span = link.querySelector('[data-count], [data-all-count-pending]');
+        if (!span || span.textContent) return;
+        const url = new URL(link.href, window.location.origin);
+        url.searchParams.delete('page');
+        url.searchParams.set('section_id', 'search-tab-counts');
+        this.fetchCount(url.toString())
+          .then((count) => {
+            span.textContent = `(${count})`;
+            if (link.dataset.tabValue) link.classList.toggle('search-tabs__tab--zero', count === 0);
+            if (link.classList.contains('search-tabs__tab--secondary')) link.hidden = count === 0;
+          })
+          .catch(() => {});
+      });
     }
   }
 
