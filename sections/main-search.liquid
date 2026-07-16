@@ -262,8 +262,7 @@
               context: 'results',
               results: search,
               all_label: section.settings.search_tabs_all_label,
-              primary_values: section.settings.search_tabs_primary,
-              secondary_values: section.settings.search_tabs_secondary,
+              values: section.settings.search_tabs_values,
               show_counts: section.settings.search_tabs_show_counts
             -%}
           {%- endif -%}
@@ -1177,8 +1176,7 @@
     { "type": "checkbox", "id": "enable_search_tabs", "default": true, "label": "Enable search category tabs", "info": "Requires the 'Line' filter in Search & Discovery" },
     { "type": "checkbox", "id": "search_tabs_show_counts", "default": true, "label": "Show result counts on tabs" },
     { "type": "text", "id": "search_tabs_all_label", "default": "All", "label": "'All' tab label" },
-    { "type": "text", "id": "search_tabs_primary", "default": "Child,Baby,Adult", "label": "Tabs always shown", "info": "Comma-separated Line values (must match Search & Discovery values exactly)" },
-    { "type": "text", "id": "search_tabs_secondary", "default": "Studio,Home", "label": "Tabs hidden at 0 results", "info": "Comma-separated Line values (must match Search & Discovery values exactly)" }
+    { "type": "text", "id": "search_tabs_values", "default": "Child,Baby,Adult,Studio,Home", "label": "Tabs", "info": "Comma-separated Line values (must match Search & Discovery values exactly). A tab only shows when it has results." }
   ]
 }
 {% endschema %}

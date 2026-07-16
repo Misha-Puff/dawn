@@ -84,9 +84,10 @@
       <div class="predictive-search__result-group">
         {%- if predictive_search.resources.products.size > 0 -%}
           <div>
+            {%- comment -%} Header visually hidden per Nathan's 2026-07-16 review — kept for the list's aria-labelledby. {%- endcomment -%}
             <h2
               id="predictive-search-products"
-              class="predictive-search__heading text-body caption-with-letter-spacing"
+              class="predictive-search__heading visually-hidden"
             >
               {{- 'templates.search.products' | t -}}
             </h2>

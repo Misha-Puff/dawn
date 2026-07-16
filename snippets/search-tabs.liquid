@@ -10,19 +10,17 @@
   - context: {String} 'results' (SSR'd links on /search) or 'modal' (buttons in the quick-search modal)
   - results: {Object} the search object (results context only)
   - all_label: {String} label for the All tab
-  - primary_values: {String} comma-separated Line values always shown
-  - secondary_values: {String} comma-separated Line values hidden at 0 results
+  - values: {String} comma-separated Line values; EVERY tab hides at 0 results (Nathan's 2026-07-16 ruling — no always-shown tier)
   - show_counts: {Boolean} paint result counts on tabs
 
   Usage:
-  {% render 'search-tabs', context: 'results', results: search, all_label: section.settings.search_tabs_all_label, primary_values: section.settings.search_tabs_primary, secondary_values: section.settings.search_tabs_secondary, show_counts: section.settings.search_tabs_show_counts %}
+  {% render 'search-tabs', context: 'results', results: search, all_label: section.settings.search_tabs_all_label, values: section.settings.search_tabs_values, show_counts: section.settings.search_tabs_show_counts %}
 {% endcomment %}
 
 {%- liquid
   assign division_param = 'filter.p.m.taxonomy.division'
   assign all_label = all_label | default: 'All'
-  assign primary_list = primary_values | default: 'Child,Baby,Adult' | split: ','
-  assign secondary_list = secondary_values | default: '' | split: ','
+  assign tab_list = values | default: 'Child,Baby,Adult,Studio,Home' | split: ','
 -%}
 
 {%- if context == 'modal' -%}
@@ -38,18 +36,11 @@
         {{- all_label -}}
         {%- if show_counts %} <span class="search-tabs__count" data-count></span>{% endif -%}
       </button>
-      {%- for raw_value in primary_list -%}
+      {%- comment -%} Every tier button starts hidden; the count probes unhide the ones with results. {%- endcomment -%}
+      {%- for raw_value in tab_list -%}
         {%- assign tab_value = raw_value | strip -%}
         {%- if tab_value == blank -%}{%- continue -%}{%- endif -%}
-        <button type="button" class="search-tabs__tab" data-tab-value="{{ tab_value | escape }}" aria-pressed="false">
-          {{- tab_value -}}
-          {%- if show_counts %} <span class="search-tabs__count" data-count></span>{% endif -%}
-        </button>
-      {%- endfor -%}
-      {%- for raw_value in secondary_list -%}
-        {%- assign tab_value = raw_value | strip -%}
-        {%- if tab_value == blank -%}{%- continue -%}{%- endif -%}
-        <button type="button" class="search-tabs__tab search-tabs__tab--secondary" data-tab-value="{{ tab_value | escape }}" aria-pressed="false" hidden>
+        <button type="button" class="search-tabs__tab" data-tab-value="{{ tab_value | escape }}" aria-pressed="false" hidden>
           {{- tab_value -}}
           {%- if show_counts %} <span class="search-tabs__count" data-count></span>{% endif -%}
         </button>
@@ -152,7 +143,15 @@
             {%- endif -%}
           {%- endif -%}
         </a>
-        {%- for raw_value in primary_list -%}
+        {%- comment -%}
+          Every tier tab hides at 0 results (no always-shown tier). Inactive-tab
+          counts are JS-probed — value.count proved unreliable on this store
+          (serve-verified: 223 for Child vs 417 actual) — so SSR paints only the
+          active view's results_count, and SSR visibility uses value.count merely
+          as an indicative signal (rendered-but-hidden tabs are probed and
+          unhidden client-side, so a false SSR zero self-corrects).
+        {%- endcomment -%}
+        {%- for raw_value in tab_list -%}
           {%- assign tab_value = raw_value | strip -%}
           {%- if tab_value == blank -%}{%- continue -%}{%- endif -%}
           {%- liquid
@@ -172,8 +171,7 @@
               assign is_active = true
             endif
           -%}
-          {%- comment -%} Inactive-tab counts are JS-probed: value.count proved unreliable on this store (serve-verified: value.count 223 for Child vs 417 actual). SSR only paints results_count for the active view. {%- endcomment -%}
-          <a class="search-tabs__tab{% if tab_count == 0 and is_active == false %} search-tabs__tab--zero{% endif %}" data-tab-value="{{ tab_value | escape }}" href="{{ tier_href_base }}{{ tab_value | url_encode }}"{% if is_active %} aria-current="page"{% endif %}>
+          <a class="search-tabs__tab" data-tab-value="{{ tab_value | escape }}" href="{{ tier_href_base }}{{ tab_value | url_encode }}"{% if is_active %} aria-current="page"{% endif %}{% unless tab_count > 0 or is_active %} hidden{% endunless %}>
             {{- tab_label -}}
             {%- if show_counts -%}
               {%- if is_active %} <span class="search-tabs__count">({{ results.results_count }})</span>
@@ -181,37 +179,6 @@
               {%- endif -%}
             {%- endif -%}
           </a>
-        {%- endfor -%}
-        {%- for raw_value in secondary_list -%}
-          {%- assign tab_value = raw_value | strip -%}
-          {%- if tab_value == blank -%}{%- continue -%}{%- endif -%}
-          {%- liquid
-            assign tab_value_down = tab_value | downcase
-            assign tab_count = 0
-            assign tab_label = tab_value
-            for v in line_filter.values
-              assign v_down = v.value | downcase
-              if v_down == tab_value_down
-                assign tab_count = v.count
-                assign tab_label = v.label
-                break
-              endif
-            endfor
-            assign is_active = false
-            if active_value != '' and active_value_down == tab_value_down
-              assign is_active = true
-            endif
-          -%}
-          {%- if tab_count > 0 or is_active -%}
-            <a class="search-tabs__tab search-tabs__tab--secondary" data-tab-value="{{ tab_value | escape }}" href="{{ tier_href_base }}{{ tab_value | url_encode }}"{% if is_active %} aria-current="page"{% endif %}>
-              {{- tab_label -}}
-              {%- if show_counts -%}
-                {%- if is_active %} <span class="search-tabs__count">({{ results.results_count }})</span>
-                {%- else %} <span class="search-tabs__count" data-count></span>
-                {%- endif -%}
-              {%- endif -%}
-            </a>
-          {%- endif -%}
         {%- endfor -%}
       </nav>
     </search-tabs>

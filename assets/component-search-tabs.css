@@ -47,10 +47,6 @@ search-tabs {
   border-bottom-color: rgb(var(--color-foreground));
 }
 
-.search-tabs__tab--zero {
-  opacity: 0.45;
-}
-
 .search-tabs__count {
   font-family: var(--font-mono-family);
   font-size: 1.1rem;

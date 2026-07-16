@@ -89,8 +89,13 @@ if (!customElements.get('search-tabs')) {
         const countSpan = button.querySelector('[data-count]');
         if (countSpan) countSpan.textContent = `(${count})`;
       }
-      if (button.dataset.tabValue) button.classList.toggle('search-tabs__tab--zero', count === 0);
-      if (button.classList.contains('search-tabs__tab--secondary')) button.hidden = count === 0;
+      // Every tier tab hides at 0 results; the active tab stays visible so an
+      // empty composed view (tier + facets) keeps its escape hatch.
+      if (button.dataset.tabValue) {
+        const isActive =
+          button.getAttribute('aria-pressed') === 'true' || button.getAttribute('aria-current') === 'page';
+        button.hidden = count === 0 && !isActive;
+      }
     }
 
     /* -------------------------------- modal --------------------------------- */
@@ -201,9 +206,11 @@ if (!customElements.get('search-tabs')) {
       const list = this.productsList();
       const button = this.buttonFor(value);
       if (!list || !button) return;
+      // Activate BEFORE painting the count: paintCount hides zero-count tabs
+      // unless active, and a just-clicked tier must never hide itself.
+      this.setActiveState(value);
       this.paintCount(button, payload.count);
       list.innerHTML = payload.listHTML || this.emptyStateHTML(value);
-      this.setActiveState(value);
       this.announce(`${value} (${payload.count})`);
     }
 
@@ -293,8 +300,9 @@ if (!customElements.get('search-tabs')) {
         this.fetchCount(url.toString())
           .then((count) => {
             span.textContent = `(${count})`;
-            if (link.dataset.tabValue) link.classList.toggle('search-tabs__tab--zero', count === 0);
-            if (link.classList.contains('search-tabs__tab--secondary')) link.hidden = count === 0;
+            if (link.dataset.tabValue) {
+              link.hidden = count === 0 && link.getAttribute('aria-current') !== 'page';
+            }
           })
           .catch(() => {});
       });
