@@ -21,6 +21,7 @@
       "type": "image-banner",
       "settings": {
         "image": "shopify://shop_images/mp-brooklyn-storefront.jpg",
+        "mobile_image": "shopify://shop_images/mp-brooklyn-storefront.jpg",
         "image_height": "adapt",
         "show_text_box": false,
         "image_overlay_opacity": 0,
