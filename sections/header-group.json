@@ -66,7 +66,7 @@
             "caption_text_case": "default",
             "image_width": 200,
             "images_gap": 20,
-            "caption_gap": 8,
+            "caption_gap": 6,
             "panel_gap": 0
           }
         },
