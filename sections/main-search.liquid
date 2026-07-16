@@ -35,6 +35,11 @@
 
 <script src="{{ 'main-search.js' | asset_url }}" defer="defer"></script>
 
+{%- if section.settings.enable_search_tabs -%}
+  {{ 'component-search-tabs.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'search-tabs.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
 <style>
   .template-search__header {
     margin-bottom: 3rem;
@@ -245,12 +250,23 @@
                 enable_filtering: section.settings.enable_filtering,
                 enable_sorting: section.settings.enable_sorting,
                 filter_type: section.settings.filter_type,
-                paginate: paginate
+                paginate: paginate,
+                hide_division_facet: section.settings.enable_search_tabs
               %}
             </aside>
           {%- endif -%}
         {%- endif -%}
         <div class="product-grid-container card-redesign" id="ProductGridContainer">
+          {%- if section.settings.enable_search_tabs -%}
+            {%- render 'search-tabs',
+              context: 'results',
+              results: search,
+              all_label: section.settings.search_tabs_all_label,
+              primary_values: section.settings.search_tabs_primary,
+              secondary_values: section.settings.search_tabs_secondary,
+              show_counts: section.settings.search_tabs_show_counts
+            -%}
+          {%- endif -%}
           {%- if search.results.size == 0 and search.filters != empty -%}
             <div
               class="template-search__results collection collection--empty{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}"
@@ -1156,7 +1172,13 @@
       "label": "Heart right padding",
       "default": 8,
       "visible_if": "{{ section.settings.heart_custom }}"
-    }
+    },
+    { "type": "header", "content": "Search tabs" },
+    { "type": "checkbox", "id": "enable_search_tabs", "default": true, "label": "Enable search category tabs", "info": "Requires the 'Line' filter in Search & Discovery" },
+    { "type": "checkbox", "id": "search_tabs_show_counts", "default": true, "label": "Show result counts on tabs" },
+    { "type": "text", "id": "search_tabs_all_label", "default": "All", "label": "'All' tab label" },
+    { "type": "text", "id": "search_tabs_primary", "default": "Child,Baby,Adult", "label": "Tabs always shown", "info": "Comma-separated Line values (must match Search & Discovery values exactly)" },
+    { "type": "text", "id": "search_tabs_secondary", "default": "Studio,Home", "label": "Tabs hidden at 0 results", "info": "Comma-separated Line values (must match Search & Discovery values exactly)" }
   ]
 }
 {% endschema %}
