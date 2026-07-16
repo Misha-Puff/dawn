@@ -1794,3 +1794,15 @@ a.product__text {
 .product__info-spacer:empty {
   display: block;
 }
+
+/* Quick-add clones: quick-add.css downgrades the info column to
+   position:relative top:0, but the tall-info sticky top above ties it on
+   specificity (0,2,0) and this file loads later when the modal injects the
+   fetched product page — so the clone shifted down by the header height and
+   grew a second scrollbar inside the modal. Re-assert at (0,3,0). */
+@media screen and (min-width: 750px) {
+  .quick-add-modal__content-info .product__info-container.product__column-sticky {
+    top: 0;
+    bottom: auto;
+  }
+}
