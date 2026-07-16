@@ -16,10 +16,27 @@
   if payload_product.options[0] == 'Color' and hide_color_suffix != true
     assign swap_title = swap_title | append: ' - ' | append: payload_product.selected_or_first_available_variant.options[0]
   endif
+
+  comment
+    Direct-capable mirrors card-product's quick-add branch: a single-variant,
+    no-quantity-rules product renders a direct add form instead of the modal,
+    so its swatch swap needs the variant id rather than a URL retarget.
+  endcomment
+  assign swap_qty_rules = false
+  if payload_product.selected_or_first_available_variant.quantity_rule.min > 1 or payload_product.selected_or_first_available_variant.quantity_rule.max != null or payload_product.selected_or_first_available_variant.quantity_rule.increment > 1
+    assign swap_qty_rules = true
+  endif
 -%}
 {%- if swap_media -%}
   data-swap-url="{{ payload_product.url }}"
   data-swap-title="{{ swap_title | escape }}"
+  data-swap-variant-id="{{ payload_product.selected_or_first_available_variant.id }}"
+  {%- if payload_product.variants_count == 1 and swap_qty_rules == false %}
+    data-swap-direct="true"
+  {%- endif %}
+  {%- unless payload_product.selected_or_first_available_variant.available %}
+    data-swap-available="false"
+  {%- endunless %}
   data-swap-img-src="{{ swap_media | image_url: width: 533 }}"
   data-swap-img-alt="{{ swap_media.alt | escape }}"
   data-swap-img-srcset="

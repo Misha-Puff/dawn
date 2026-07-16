@@ -88,17 +88,34 @@ if (!customElements.get('sibling-swatches')) {
           }
         }
 
-        // Quick add follows the previewed colorway too: the standard quick-add
-        // modal fetches its content from the opener's data-product-url on every
-        // open, so retargeting that URL is all it takes. Only the modal path is
-        // retargetable — a single-variant card's direct form carries a baked
-        // variant id, so it keeps the preview-state hide (class gate below).
+        // Quick add follows the previewed colorway too. Modal path: the
+        // standard quick-add modal fetches its content from the opener's
+        // data-product-url on every open, so retargeting that URL is all it
+        // takes. Direct-form path (single-variant card): swap the form's
+        // variant id to the sibling's (carried on the swatch) and mirror its
+        // availability on the submit button — but only when the sibling is
+        // itself direct-capable (single variant, no quantity rules); a sized
+        // sibling has no picker here, so the card keeps the preview-state
+        // hide via the class gate below.
+        let quickAddSwapped = false;
         const quickAddOpener = card.querySelector('modal-opener[data-modal^="#QuickAdd-"] [data-product-url]');
-        if (quickAddOpener) quickAddOpener.setAttribute('data-product-url', swatch.dataset.swapUrl);
+        if (quickAddOpener) {
+          quickAddOpener.setAttribute('data-product-url', swatch.dataset.swapUrl);
+          quickAddSwapped = true;
+        } else if (swatch.dataset.swapDirect === 'true' && swatch.dataset.swapVariantId) {
+          const directForm = card.querySelector('.quick-add product-form');
+          const directInput = directForm && directForm.querySelector('.product-variant-id');
+          const directButton = directForm && directForm.querySelector('.quick-add__submit');
+          if (directInput && directButton) {
+            directInput.value = swatch.dataset.swapVariantId;
+            directButton.disabled = swatch.dataset.swapAvailable === 'false';
+            quickAddSwapped = true;
+          }
+        }
 
         card.classList.toggle('card--sibling-preview', swatch.dataset.swapSelf !== 'true');
         card.classList.toggle('card--sibling-availability', availabilitySwapped);
-        card.classList.toggle('card--sibling-quick-add', !!quickAddOpener);
+        card.classList.toggle('card--sibling-quick-add', quickAddSwapped);
         this.querySelectorAll('.card__swatch--current').forEach((current) => {
           current.classList.remove('card__swatch--current');
           current.removeAttribute('aria-current');
