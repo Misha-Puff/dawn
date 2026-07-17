@@ -127,10 +127,18 @@
 /* Lateral-shopping tabs (links to sibling collections in the same tab group) */
 .collection-tabs {
   display: flex;
+  flex-wrap: nowrap; /* explicit; documents single-row intent */
   gap: 2.4rem;
   margin-bottom: 2.4rem;
   border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.15);
   overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* old Edge */
+  -webkit-overflow-scrolling: touch; /* iOS momentum */
+}
+
+.collection-tabs::-webkit-scrollbar {
+  display: none; /* Safari/Chrome */
 }
 
 /* Auto margins center the row when it fits but, unlike justify-content:
@@ -151,6 +159,7 @@
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
+  flex-shrink: 0; /* never compress; row scrolls instead of squashing */
   color: rgba(var(--color-foreground), 0.6);
   border-bottom: 0.2rem solid transparent;
 }
