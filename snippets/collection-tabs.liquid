@@ -1,19 +1,15 @@
 {% comment %}
   Renders lateral-shopping tabs for this collection's tab group
-  (content.tab_group metaobject). Two data models, chosen automatically:
+  (content.tab_group metaobject, rich `tabs` model). Each tab
+  (tab_group.tabs — a list of `collection_tab` metaobjects) has a label, an
+  optional collection (blank = current collection) and an optional raw filter
+  fragment (e.g. filter.p.tag=knits). A tab that targets the current collection
+  filters it in place via <collection-tabs> + facets.js (no reload); a tab that
+  targets another collection is a full-page link.
 
-  - RICH (tab_group.tabs — list of `collection_tab` metaobjects): each tab has
-    a label, an optional collection (blank = current collection) and an optional
-    raw filter fragment (e.g. filter.p.tag=knits). A tab that targets the
-    current collection filters it in place via <collection-tabs> + facets.js
-    (no reload); a tab that targets another collection is a full-page link.
-  - LEGACY fallback (tab_group.collections — list of collection references):
-    plain full-page sibling links, byte-identical to the original snippet. The
-    live groups keep rendering exactly as before until migrated to `tabs`.
-
-  Presence-activated in both models — outputs nothing unless at least two tabs
-  resolve (a lone self-tab is noise). The tab matching the current view is
-  marked aria-current="page" (SSR best-effort; collection-tabs.js re-syncs it).
+  Presence-activated — outputs nothing unless at least two tabs resolve (a lone
+  self-tab is noise). The tab matching the current view is marked
+  aria-current="page" (SSR best-effort; collection-tabs.js re-syncs it).
 
   Accepts:
   - collection: {Object} the collection being rendered (required)
@@ -155,46 +151,4 @@
       </p>
     {%- endif -%}
   {%- endif -%}
-{%- else -%}
-{%- liquid
-  assign tab_count = 0
-  assign has_active_tab = false
-  if tab_group != blank
-    assign tab_cols = tab_group.collections.value
-    for tab_collection in tab_cols
-      unless tab_collection == blank
-        assign tab_count = tab_count | plus: 1
-        if tab_collection.handle == collection.handle
-          assign has_active_tab = true
-        endif
-      endunless
-    endfor
-  endif
--%}
-
-{%- if tab_count > 1 -%}
-  <nav class="collection-tabs page-width" aria-label="{{ 'sections.collection_tabs.label' | t }}">
-    {%- for tab_collection in tab_cols -%}
-      {%- unless tab_collection == blank -%}
-        <a
-          class="collection-tabs__tab"
-          href="{{ tab_collection.url }}"
-          {% if tab_collection.handle == collection.handle %}
-            aria-current="page"
-          {% endif %}
-        >
-          {%- render 'sanitizer', input: tab_collection.title -%}
-        </a>
-      {%- endunless -%}
-    {%- endfor -%}
-  </nav>{%- if request.design_mode and has_active_tab == false -%}
-    {%- comment -%}
-      Editor-only wiring hint, gated on request.design_mode with the if-tag
-      hugging </nav> so storefront output stays byte-identical.
-    {%- endcomment -%}
-    <p class="page-width" style="margin: 0.6rem auto 0; padding: 0.8rem 1.2rem; background: #fff4e0; border: 0.1rem solid #b8860b; color: #6b4e00; font-size: 1.3rem;">
-      Editor note: this collection isn&rsquo;t in its own tab group &mdash; no tab will show the active underline here. Add the collection to its tab group metaobject to fix.
-    </p>
-  {%- endif -%}
-{%- endif -%}
 {%- endif -%}
