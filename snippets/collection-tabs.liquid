@@ -1,10 +1,19 @@
 {% comment %}
-  Renders lateral-shopping tabs: full-page links to the sibling collections
-  in this collection's tab group (content.tab_group metaobject).
+  Renders lateral-shopping tabs for this collection's tab group
+  (content.tab_group metaobject). Two data models, chosen automatically:
 
-  Presence-activated — outputs nothing unless the collection belongs to a
-  tab group that resolves to at least two collections (a lone self-tab is
-  noise). The current collection's tab is marked with aria-current="page".
+  - RICH (tab_group.tabs — list of `collection_tab` metaobjects): each tab has
+    a label, an optional collection (blank = current collection) and an optional
+    raw filter fragment (e.g. filter.p.tag=knits). A tab that targets the
+    current collection filters it in place via <collection-tabs> + facets.js
+    (no reload); a tab that targets another collection is a full-page link.
+  - LEGACY fallback (tab_group.collections — list of collection references):
+    plain full-page sibling links, byte-identical to the original snippet. The
+    live groups keep rendering exactly as before until migrated to `tabs`.
+
+  Presence-activated in both models — outputs nothing unless at least two tabs
+  resolve (a lone self-tab is noise). The tab matching the current view is
+  marked aria-current="page" (SSR best-effort; collection-tabs.js re-syncs it).
 
   Accepts:
   - collection: {Object} the collection being rendered (required)
@@ -15,6 +24,115 @@
 
 {%- liquid
   assign tab_group = collection.metafields.content.tab_group.value
+  assign rich_tabs = nil
+  if tab_group != blank
+    assign rich_tabs = tab_group.tabs.value
+  endif
+-%}
+
+{%- if rich_tabs != blank -%}
+  {%- comment -%}
+    RICH PATH. Build the current active-filter set once (param=value pairs from
+    collection.filters, plus active price range), wrapped in & sentinels so a
+    tab's target set can be membership-tested against it. SSR aria-current is
+    best-effort — value/space encoding can differ from the merchant's fragment,
+    so collection-tabs.js recomputes it from the real URL on load/click/popstate.
+  {%- endcomment -%}
+  {%- liquid
+    assign current_wrapped = '&'
+    assign current_count = 0
+    for filter in collection.filters
+      if filter.type == 'price_range'
+        if filter.min_value.value != blank
+          assign current_wrapped = current_wrapped | append: 'filter.v.price.gte=' | append: filter.min_value.value | append: '&'
+          assign current_count = current_count | plus: 1
+        endif
+        if filter.max_value.value != blank
+          assign current_wrapped = current_wrapped | append: 'filter.v.price.lte=' | append: filter.max_value.value | append: '&'
+          assign current_count = current_count | plus: 1
+        endif
+      else
+        for v in filter.active_values
+          assign current_wrapped = current_wrapped | append: v.param_name | append: '=' | append: v.value | append: '&'
+          assign current_count = current_count | plus: 1
+        endfor
+      endif
+    endfor
+
+    assign tab_count = 0
+    assign rich_has_active = false
+  -%}
+  {%- capture tabs_markup -%}
+    {%- for tab in rich_tabs -%}
+      {%- assign tab_label = tab.label.value -%}
+      {%- if tab_label == blank -%}{%- continue -%}{%- endif -%}
+      {%- assign tab_count = tab_count | plus: 1 -%}
+      {%- liquid
+        assign base_col = tab.collection.value | default: collection
+        assign base_url = base_col.url
+        assign tab_filter = tab.filter.value | strip
+        if tab_filter != blank
+          assign href = base_url | append: '?' | append: tab_filter
+        else
+          assign href = base_url
+        endif
+
+        # SSR active detection: the tab must target the current collection
+        # (blank collection, or same handle) AND its filter set must equal the
+        # current active set (empty == empty for an "All" tab).
+        assign is_current_target = false
+        if tab.collection.value == blank
+          assign is_current_target = true
+        elsif base_col.handle == collection.handle
+          assign is_current_target = true
+        endif
+
+        assign tab_active = false
+        if is_current_target
+          if tab_filter == blank
+            if current_count == 0
+              assign tab_active = true
+            endif
+          else
+            assign target_pairs = tab_filter | split: '&'
+            assign all_present = true
+            for pair in target_pairs
+              assign needle = '&' | append: pair | append: '&'
+              unless current_wrapped contains needle
+                assign all_present = false
+                break
+              endunless
+            endfor
+            if all_present and target_pairs.size == current_count
+              assign tab_active = true
+            endif
+          endif
+        endif
+        if tab_active
+          assign rich_has_active = true
+        endif
+      -%}
+      <a class="collection-tabs__tab" href="{{ href }}"{% if tab_active %} aria-current="page"{% endif %}>{%- render 'sanitizer', input: tab_label -%}</a>
+    {%- endfor -%}
+  {%- endcapture -%}
+
+  {%- if tab_count > 1 -%}
+    <collection-tabs data-base-path="{{ collection.url }}">
+      <nav class="collection-tabs page-width" aria-label="{{ 'sections.collection_tabs.label' | t }}">
+        {{- tabs_markup -}}
+      </nav>
+    </collection-tabs>{%- if request.design_mode and rich_has_active == false -%}
+      {%- comment -%}
+        Editor-only wiring hint, gated on request.design_mode with the if-tag
+        hugging </collection-tabs> so storefront output stays byte-identical.
+      {%- endcomment -%}
+      <p class="page-width" style="margin: 0.6rem auto 0; padding: 0.8rem 1.2rem; background: #fff4e0; border: 0.1rem solid #b8860b; color: #6b4e00; font-size: 1.3rem;">
+        Editor note: no tab matches the current view, so none will show the active underline. Add an &ldquo;All&rdquo; tab (blank collection + blank filter) to the group, or check that a tab&rsquo;s filter matches the applied facets.
+      </p>
+    {%- endif -%}
+  {%- endif -%}
+{%- else -%}
+{%- liquid
   assign tab_count = 0
   assign has_active_tab = false
   if tab_group != blank
@@ -54,4 +172,5 @@
       Editor note: this collection isn&rsquo;t in its own tab group &mdash; no tab will show the active underline here. Add the collection to its tab group metaobject to fix.
     </p>
   {%- endif -%}
+{%- endif -%}
 {%- endif -%}
