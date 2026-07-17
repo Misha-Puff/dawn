@@ -16,11 +16,15 @@
 {%- liquid
   assign tab_group = collection.metafields.content.tab_group.value
   assign tab_count = 0
+  assign has_active_tab = false
   if tab_group != blank
     assign tab_cols = tab_group.collections.value
     for tab_collection in tab_cols
       unless tab_collection == blank
         assign tab_count = tab_count | plus: 1
+        if tab_collection.handle == collection.handle
+          assign has_active_tab = true
+        endif
       endunless
     endfor
   endif
@@ -41,5 +45,13 @@
         </a>
       {%- endunless -%}
     {%- endfor -%}
-  </nav>
+  </nav>{%- if request.design_mode and has_active_tab == false -%}
+    {%- comment -%}
+      Editor-only wiring hint, gated on request.design_mode with the if-tag
+      hugging </nav> so storefront output stays byte-identical.
+    {%- endcomment -%}
+    <p class="page-width" style="margin: 0.6rem auto 0; padding: 0.8rem 1.2rem; background: #fff4e0; border: 0.1rem solid #b8860b; color: #6b4e00; font-size: 1.3rem;">
+      Editor note: this collection isn&rsquo;t in its own tab group &mdash; no tab will show the active underline here. Add the collection to its tab group metaobject to fix.
+    </p>
+  {%- endif -%}
 {%- endif -%}

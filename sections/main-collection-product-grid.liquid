@@ -1502,7 +1502,7 @@
     { "type": "checkbox", "id": "tabs_divider_enable", "default": true, "label": "Show divider rail" },
     { "type": "range", "id": "tabs_divider_thickness", "min": 0, "max": 10, "step": 1, "unit": "px", "label": "Divider thickness", "info": "0 = theme default (0.8px)", "default": 0, "visible_if": "{{ section.settings.tabs_divider_enable }}" },
     { "type": "color", "id": "tabs_divider_color", "label": "Divider color", "info": "Leave blank for theme default", "visible_if": "{{ section.settings.tabs_divider_enable }}" },
-    { "type": "range", "id": "tabs_underline_thickness", "min": 0, "max": 10, "step": 1, "unit": "px", "label": "Active underline thickness", "info": "0 = theme default (1.6px)", "default": 0 },
+    { "type": "range", "id": "tabs_underline_thickness", "min": 0, "max": 10, "step": 1, "unit": "px", "label": "Active underline thickness", "info": "0 = theme default (1.6px). Shows on the tab matching the current collection.", "default": 0 },
     { "type": "header", "content": "Campaign toggle" },
     { "type": "select", "id": "view_tabs_alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" } ], "default": "center", "label": "Toggle alignment", "info": "Alignment of the Collection / Campaign view toggle row." },
     {
