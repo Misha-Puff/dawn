@@ -156,17 +156,22 @@
   {%- endif -%}
 
   {%- comment -%}
-    Bottom-area sliders own the whole Subscribe-to-ship-to distance: the empty
-    payment column that used to pad it 12px is display: none'd in section-footer.css,
-    so the 36px default = the old 24px padding + that removed phantom.
+    Bottom-area sliders. The top slider owns the whole Subscribe-to-ship-to
+    distance: the empty payment column that used to pad it 12px is display: none'd
+    in section-footer.css, so the 36px default = the old 24px padding + that
+    removed phantom. The gap slider adds sibling margins — the bottom wrapper is
+    display: block on mobile (.footer .grid wins), so flex row-gap would be inert;
+    at 0 nothing is emitted and the stock line-box spacing stands.
   {%- endcomment -%}
   @media screen and (max-width: 749px) {
     #shopify-section-{{ section.id }} .footer__content-top {
       padding-bottom: {{ section.settings.bottom_spacing_top }}px;
     }
-    #shopify-section-{{ section.id }} .footer__content-bottom-wrapper {
-      row-gap: {{ section.settings.bottom_gap }}px;
+    {%- if section.settings.bottom_gap > 0 %}
+    #shopify-section-{{ section.id }} .footer__content-bottom-wrapper.grid > .grid__item + .grid__item {
+      margin-top: {{ section.settings.bottom_gap }}px;
     }
+    {%- endif %}
   }
 {%- endstyle -%}
 
@@ -776,7 +781,7 @@
     { "type": "range", "id": "stack_spacing_mobile", "min": 0, "max": 80, "step": 1, "unit": "px", "label": "Block stack spacing", "info": "Vertical gap between stacked footer blocks.", "default": 32, "visible_if": "{{ section.settings.enable_padding_mobile }}" },
     { "type": "header", "content": "Bottom area (mobile)", "info": "The ship-to / copyright / policy-links cluster below 750px. Defaults reproduce the current render." },
     { "type": "range", "id": "bottom_spacing_top", "min": 0, "max": 80, "step": 2, "unit": "px", "label": "Space above bottom area", "default": 36 },
-    { "type": "range", "id": "bottom_gap", "min": 0, "max": 40, "step": 1, "unit": "px", "label": "Item spacing", "default": 12 },
+    { "type": "range", "id": "bottom_gap", "min": 0, "max": 40, "step": 1, "unit": "px", "label": "Item spacing", "info": "Extra space between the ship-to / copyright / policy items. 0 = theme default.", "default": 0 },
     { "type": "header", "content": "Blocks layout" },
     { "type": "range", "id": "block_gap", "min": 0, "max": 120, "step": 2, "unit": "px", "label": "Block gap (desktop)", "info": "0 = theme default (global grid spacing). Minimum desktop gap between footer columns at 1100px and up — remaining space is spread evenly.", "default": 0 },
     { "type": "select", "id": "blocks_justify", "options": [ { "value": "space-around", "label": "Spread out (theme default)" }, { "value": "space-between", "label": "Flush to edges" } ], "default": "space-around", "label": "Block alignment (desktop)" },
