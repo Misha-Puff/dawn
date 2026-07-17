@@ -535,6 +535,12 @@
     text-decoration: underline;
     text-underline-offset: 0.3rem;
   }
+
+  /* Misha Puff: product-card titles do not underline on hover
+     (all collection templates + product preview grid + every product-card grid). */
+  .product-card-wrapper.underline-links-hover:hover .card__heading a {
+    text-decoration: none;
+  }
 }
 
 .card--standard.card--media .card__inner .card__information,
