@@ -124,7 +124,7 @@
         "color_scheme": "",
         "full_width": true,
         "padding_top": 48,
-        "padding_bottom": 28,
+        "padding_bottom": 48,
         "padding_left": 0,
         "padding_right": 72,
         "enable_mobile_padding": true,
@@ -293,6 +293,7 @@
         "button_MxqCCb",
         "button_8aey7V"
       ],
+      "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
