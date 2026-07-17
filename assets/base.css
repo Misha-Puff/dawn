@@ -2652,23 +2652,8 @@ details[open] > .search-modal {
   animation: animateMenuOpen var(--duration-default) ease;
 }
 
-details[open] .modal-overlay {
-  display: block;
-}
-
-details[open] .modal-overlay::after {
-  position: absolute;
-  content: '';
-  background-color: rgb(var(--color-foreground), 0.5);
-  top: 100%;
-  left: 0;
-  right: 0;
-  height: 100vh;
-}
-
 .search-modal {
   opacity: 0;
-  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
   min-height: calc(100% + var(--inputs-margin-offset) + (2 * var(--inputs-border-width)));
   height: 100%;
 }
@@ -3522,6 +3507,8 @@ details-disclosure > details {
 }
 
 .spinner {
+  width: 1.8rem;
+  height: 1.8rem;
   animation: rotator 1.4s linear infinite;
 }
 
