@@ -809,6 +809,8 @@
                   {%- if block.settings.col1_offset_mobile != blank -%}--c1-offm:{{ block.settings.col1_offset_mobile }}px;{%- endif -%}
                   {%- if block.settings.col2_offset_mobile != blank -%}--c2-offm:{{ block.settings.col2_offset_mobile }}px;{%- endif -%}
                   {%- if block.settings.col1_gap != blank -%}--c1-gap:{{ block.settings.col1_gap }}px;{%- endif -%}
+                  {%- if block.settings.col1_ratio != blank -%}--c1-ar:{{ block.settings.col1_ratio }};{%- endif -%}
+                  {%- if block.settings.col2_ratio != blank -%}--c2-ar:{{ block.settings.col2_ratio }};{%- endif -%}
                   {%- if block.settings.pad_top != blank -%}--cb-pt:{{ block.settings.pad_top }}px;{%- endif -%}
                   {%- if block.settings.pad_bottom != blank -%}--cb-pb:{{ block.settings.pad_bottom }}px;{%- endif -%}
                   {%- if block.settings.pad_top_mobile != blank -%}--cb-ptm:{{ block.settings.pad_top_mobile }}px;{%- endif -%}
@@ -2288,6 +2290,8 @@
         {"type": "text", "id": "col1_offset_mobile", "label": "First column offset mobile (px)"},
         {"type": "text", "id": "col2_offset_mobile", "label": "Second column offset mobile (px)"},
         {"type": "text", "id": "col1_gap", "label": "Text to image gap (px)", "info": "Text + image left layout only"},
+        {"type": "text", "id": "col1_ratio", "label": "First image crop ratio", "info": "e.g. 3 / 4. Blank = natural."},
+        {"type": "text", "id": "col2_ratio", "label": "Second image crop ratio", "info": "e.g. 3 / 4. Blank = natural."},
         {"type": "select", "id": "valign", "options": [{"value": "top", "label": "Top"}, {"value": "bottom", "label": "Bottom"}], "default": "top", "label": "Vertical alignment"},
         {"type": "checkbox", "id": "first_flush", "label": "First column flush to left edge", "default": false},
         {"type": "checkbox", "id": "second_flush", "label": "Second column flush to right edge", "default": false},

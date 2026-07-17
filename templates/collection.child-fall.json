@@ -243,7 +243,8 @@
             "pad_top": "50",
             "pad_bottom": "200",
             "pad_top_mobile": "0",
-            "pad_bottom_mobile": "90"
+            "pad_bottom_mobile": "90",
+            "col1_ratio": "3 / 4"
           }
         },
         "campaign_b04_fa26": {
@@ -293,7 +294,8 @@
             "col2_pct_mobile": "38.5",
             "col2_offset": "188",
             "col2_offset_mobile": "55",
-            "valign": "top"
+            "valign": "top",
+            "col1_ratio": "3 / 4"
           }
         },
         "campaign_b08_fa26": {
@@ -357,7 +359,8 @@
             "valign": "bottom",
             "second_flush": true,
             "pad_bottom": "200",
-            "pad_bottom_mobile": "80"
+            "pad_bottom_mobile": "80",
+            "col1_ratio": "3 / 4"
           }
         },
         "campaign_b13_fa26": {

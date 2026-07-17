@@ -330,6 +330,16 @@
   height: auto;
 }
 
+.campaign-collage__col--first .campaign-collage__image {
+  aspect-ratio: var(--c1-ar, auto);
+  object-fit: cover;
+}
+
+.campaign-collage__col--second .campaign-collage__image {
+  aspect-ratio: var(--c2-ar, auto);
+  object-fit: cover;
+}
+
 .campaign-collage__text {
   grid-column: 1;
   text-align: right;
@@ -375,10 +385,17 @@
   grid-row: 1 / span 2;
 }
 
+/* Explicit rows: grid sparse auto-flow would otherwise bump the image to
+   row 2 after placing the text in row 1 / column 3. */
 .campaign-collage--image_text .campaign-collage__text {
   grid-column: 3;
+  grid-row: 1;
   align-self: center;
   margin-top: var(--c2-off, 0);
+}
+
+.campaign-collage--image_text .campaign-collage__col--first {
+  grid-row: 1;
 }
 
 /* Products: minimal cards + image tiles */
