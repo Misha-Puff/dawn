@@ -573,8 +573,11 @@ localization-form {
 
   /* Subscribe cell: form-width, flush right at the page-width padding.
      margin-left:auto absorbs all free space, making the ID-scoped
-     space-between rule inert. Shrinks instead of wrapping on narrow desktops. */
-  .footer__blocks-wrapper.grid--4-col-desktop .footer-block.grid__item:not(.footer-block--menu) {
+     space-between rule inert. Shrinks instead of wrapping on narrow desktops.
+     :has() guard: on the newsletter-signup template the cell renders empty
+     (footer.liquid suppresses its contents) and must not reserve this width. */
+  .footer__blocks-wrapper.grid--4-col-desktop
+    .footer-block.grid__item:not(.footer-block--menu):has(.footer-block--newsletter) {
     width: var(--footer-subscribe-width);
     max-width: var(--footer-subscribe-width);
     margin-left: auto;
