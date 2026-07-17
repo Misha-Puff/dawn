@@ -56,14 +56,34 @@
           "type": "heading",
           "settings": {
             "heading": "Mystery Bundles",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 0,
+            "tg_text_case": "uppercase",
+            "tg_letter_spacing": 0,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "text_BbpNBn": {
           "type": "text",
           "settings": {
             "text": "<p>Enjoy an exclusive selection of Child styles at a very special price. <br/><br/>Each bundle contains five (5) surprise pieces, which may include signature styles and past-season favorites. Every bundle is thoughtfully curated \u2014 \u00a0a versatile mix of seasons and silhouettes \u2014 and includes at least two knit pieces (wool or cotton), alongside two to three cotton or woven styles; select bundles may also include an accessory (no hair accessories). The average retail value per bundle is approximately $550 \u2014 and in some cases, even higher. Quantities are limited.</p><p>Mystery Bundles are available in two categories:<br/><strong>Girl</strong> \u2014 May include at least one skirt, ruffle style, pink piece, or dress<br/><strong>Unisex</strong> \u2014 Will not include any of the styles listed in the \u201cGirl\u201d category</p>",
-            "line_height": 22
+            "line_height": 22,
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "button_YNhfEz": {

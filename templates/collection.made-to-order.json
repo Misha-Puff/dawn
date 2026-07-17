@@ -48,7 +48,17 @@
           "type": "heading",
           "settings": {
             "heading": "Made-to-Order",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 0,
+            "tg_text_case": "uppercase",
+            "tg_letter_spacing": 0,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "text_MDgMVV": {
@@ -56,14 +66,34 @@
           "disabled": true,
           "settings": {
             "text": "<p>Check your order status below and sign up to be notified for future MTO collections below.</p>",
-            "line_height": 22
+            "line_height": 22,
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "text_WCkKMA": {
           "type": "text",
           "settings": {
             "text": "<p>Our Made-to-Order process is rooted in care \u2014 for the hands who make, the pace we keep, and those who ask for pieces long after they\u2019re gone. It ensures steady work for our artisan partners and access to special, often-requested archival styles. </p><p>This MTO collection closes Friday, December 19 at noon ET unless capacity is reached sooner.</p>",
-            "line_height": 22
+            "line_height": 22,
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "button_9DxNK6": {

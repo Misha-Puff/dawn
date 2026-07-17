@@ -66,17 +66,17 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "THE FALL COLLECTION",
+            "heading": "The Fall Collection",
             "heading_size": "h2",
-            "tg_enable_type": false,
+            "tg_enable_type": true,
             "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
+            "tg_custom_font": "inter",
             "tg_font_weight": "default",
-            "tg_font_size": 0,
+            "tg_font_size": 12,
             "tg_line_height": 0,
-            "tg_text_case": "default",
+            "tg_text_case": "uppercase",
             "tg_letter_spacing": 0,
-            "tg_color": "",
+            "tg_color": "#1a1a1a",
             "tg_font_size_mobile": 0
           }
         },
@@ -85,15 +85,15 @@
           "settings": {
             "text": "<p>This season is shaped by the art of Craft. Hand-worked details and cross-stitch prints move through a textured mix of Pima cotton, Merino knits, denim, and wovens in bright, saturated hues grounded by the earthy tones of fall.</p>",
             "line_height": 22,
-            "tg_enable_type": false,
+            "tg_enable_type": true,
             "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
+            "tg_custom_font": "inter",
             "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_line_height": 0,
+            "tg_font_size": 12,
+            "tg_line_height": 150,
             "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": "",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1a1a1a",
             "tg_font_size_mobile": 0
           }
         },
@@ -146,15 +146,15 @@
             "display_style": "button",
             "type": "secondary",
             "on_click": "",
-            "tg_enable_type": false,
+            "tg_enable_type": true,
             "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
+            "tg_custom_font": "overpass_mono",
+            "tg_font_weight": "400",
+            "tg_font_size": 12,
             "tg_font_size_mobile": 0,
             "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
+            "tg_letter_spacing": 0.4,
+            "tg_color": "#1a1a1a"
           }
         },
         "button_jY7GWc": {

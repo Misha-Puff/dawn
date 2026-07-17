@@ -56,14 +56,34 @@
           "type": "heading",
           "settings": {
             "heading": "RWS Yarn",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 0,
+            "tg_text_case": "uppercase",
+            "tg_letter_spacing": 0,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "text_89pzk9": {
           "type": "text",
           "settings": {
             "text": "<p>In 2023, Misha & Puff achieved <a href=\"https://textileexchange.org/responsible-wool-standard/\" target=\"_blank\">Responsible Wool Standard</a> (RWS) certification on select yarn skeins. The Responsible Wool Standard guarantees high standards of care for animals across the entire production chain, from farms to transporters. Read more about our materials <a href=\"/pages/materials\">here</a>.</p>",
-            "line_height": 22
+            "line_height": 22,
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "button_xPFHNc": {

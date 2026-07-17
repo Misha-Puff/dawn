@@ -67,14 +67,34 @@
           "type": "heading",
           "settings": {
             "heading": "Child Fall \u2014 Reserve",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 0,
+            "tg_text_case": "uppercase",
+            "tg_letter_spacing": 0,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
             "text": "<p>Insider Access \u2014 Enjoy early access to reserve highly anticipated Fall 2025 pieces before they open to the public in August.<br/><br/>Reserve gives you a chance to secure some of our most in-demand styles early, with less stress and more peace of mind. These styles are exclusive to Misha & Puff and won\u2019t be sold elsewhere. Once they\u2019re gone, they\u2019re gone. Reserve closes Friday, August 1, at 11:59 PM ET.</p><p>Thank you for loving what we make!\u00a0Get inspired \u2014 explore the full season and start planning your Fall looks.</p>",
-            "line_height": 22
+            "line_height": 22,
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "button_Yh3Xhh": {

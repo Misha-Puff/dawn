@@ -56,14 +56,34 @@
           "type": "heading",
           "settings": {
             "heading": "Our Yarn",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 0,
+            "tg_text_case": "uppercase",
+            "tg_letter_spacing": 0,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
             "text": "<p>All of our yarn skeins are 100% hand-dyed Merino wool or Pima cotton.</p><p>We\u2019re excited to introduce Pima cotton as the newest addition to our yarn collection. Like our Merino Limited yarn, it\u2019s made from apparel production overages and offered in small batches.</p><p>Our RWS skeins meet the Responsible Wool Standard (RWS), ensuring high standards of animal welfare and ethical production from farm to fiber.</p><p>Read more about our materials <a href=\"/pages/materials\" target=\"_blank\" title=\"Materials\">here</a>.</p>",
-            "line_height": 24
+            "line_height": 24,
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "button_Yh3Xhh": {

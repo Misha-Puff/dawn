@@ -66,14 +66,34 @@
           "type": "heading",
           "settings": {
             "heading": "Made by Hand",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 0,
+            "tg_text_case": "uppercase",
+            "tg_letter_spacing": 0,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
             "text": "<p>A reverence for the human touch that shapes every stitch, print, and dye. From the first sketch to the final stitch, many hands make Misha & Puff, and our pieces reflect the time, care, and individuality of the artisans who craft them \u2014 celebrating the presence of the hand in every step of the process. </p><p>The styles in this section include hand-knit and hand-crocheted pieces, as well as designs finished with hand-worked details \u2014 each one a testament to the skill and dedication of the maker. Read more about our <a href=\"/pages/people\" target=\"_blank\" title=\"People\">artisan partners</a>.</p>",
-            "line_height": 22
+            "line_height": 22,
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "button_Yh3Xhh": {

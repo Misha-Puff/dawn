@@ -67,14 +67,34 @@
           "type": "heading",
           "settings": {
             "heading": "Coastal Prints",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 0,
+            "tg_text_case": "uppercase",
+            "tg_letter_spacing": 0,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
             "text": "<p>The Summer Collection was designed with the New England coast in mind \u2014 the place we call home.</p><p>Across coastlines everywhere there is a shared character: salt air, weathered patina, and the long tradition of the summer holiday by the sea. This season\u2019s prints draw from that world: lighthearted, nostalgic, and made for warm days near the water.</p>",
-            "line_height": 22
+            "line_height": 22,
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "button_Yh3Xhh": {

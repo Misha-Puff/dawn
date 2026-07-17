@@ -67,14 +67,34 @@
           "type": "heading",
           "settings": {
             "heading": "Adult Fall/Winter Collection",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 0,
+            "tg_text_case": "uppercase",
+            "tg_letter_spacing": 0,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
             "text": "<p>This season, the Adult Fall/Winter Collection evolves. Highland wool, Merino wool, and Pima cotton bring warmth, structure, and texture, complemented by layering pieces and accessories for the shifting season.\u00a0</p><p>From outerwear layers to the coveted Log Cabin, reimagined fluted lace pointelle, accessories, and timeless classics \u2014\u00a0styles with presence in rich colors and nuanced hand-dyes. Collections shaped by color, texture, and the enduring joy of getting dressed. View the latest and upcoming styles in the <a href=\"https://shop.misha-and-puff.com/blogs/journal/adult-winter-25\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/blogs/journal/adult-winter-25\">winter lookbook</a>.</p>",
-            "line_height": 24
+            "line_height": 24,
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "button_Yh3Xhh": {

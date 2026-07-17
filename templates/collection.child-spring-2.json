@@ -67,14 +67,34 @@
           "type": "heading",
           "settings": {
             "heading": "Child Spring Collection",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 0,
+            "tg_text_case": "uppercase",
+            "tg_letter_spacing": 0,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
             "text": "<p>Drawing from vintage references and storybook lore, this season balances nostalgia with practicality. From cotton knits and easy woven layers, to new colorblock denim, handcrafted prints and appliqu\u00e9 details, sporty touches, and thoughtful construction, this season emphasizes craft \u2014 all in a mostly new, dreamy color palette. Whimsical details and playful shapes invite discovery in every outfit.</p>",
-            "line_height": 24
+            "line_height": 24,
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "button_Yh3Xhh": {

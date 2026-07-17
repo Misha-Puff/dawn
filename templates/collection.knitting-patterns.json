@@ -56,14 +56,34 @@
           "type": "heading",
           "settings": {
             "heading": "Knitting Patterns",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 0,
+            "tg_text_case": "uppercase",
+            "tg_letter_spacing": 0,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "text_QeRMap": {
           "type": "text",
           "settings": {
             "text": "<p>Discover our lovingly curated collection of knitting patterns from our archives, bringing you the essentials and signature pieces from our early collections.</p><p>Featuring child and baby knitting patterns, as well as womens\u2019 knitwear patterns. These patterns are road maps to your own unique creation, letting you customize size, color, and embrace the magic of the creative process. </p>",
-            "line_height": 24
+            "line_height": 24,
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "button_zKjgA7": {

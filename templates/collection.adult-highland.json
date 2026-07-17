@@ -67,14 +67,34 @@
           "type": "heading",
           "settings": {
             "heading": "Highland Wool Styles",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 0,
+            "tg_text_case": "uppercase",
+            "tg_letter_spacing": 0,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
             "text": "<p>Since we introduced our Andean Highland wool last winter, it\u2019s become an instant favorite \u2014 unassuming yet full of character. Lofty, a little rustic, and very hard-working.</p><p>Thoughtfully crafted in both hand-knit and machine-knit styles, depending on intention. Hand-knit brings a touch of craft and irresistible squish; machine-knit offers structure and a smooth, low-pill finish. Both deliver lasting warmth and comfort.</p>",
-            "line_height": 24
+            "line_height": 24,
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "button_Yh3Xhh": {

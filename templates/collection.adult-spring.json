@@ -56,14 +56,34 @@
           "type": "heading",
           "settings": {
             "heading": "Adult Spring Collection",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 0,
+            "tg_text_case": "uppercase",
+            "tg_letter_spacing": 0,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
             "text": "<p>The Adult Spring Collection celebrates elevated ease through transitional pieces and timeless silhouettes. Designed for effortless layering and everyday comfort, hand-crocheted and hand-knit Pima cotton knits and soft cotton staples carry vintage inspiration, nuanced hand-dyes, textures, and a touch of charm. Naturally soft, breathable, and resilient \u2014 moving with the season as the days stretch lighter.<br/><br/>View the <a href=\"/blogs/journal/adult-spring-summer-26\" target=\"_blank\" title=\"Adults Spring/Summer 2026\">lookbook</a> to see the full season at a glance.</p>",
-            "line_height": 22
+            "line_height": 22,
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "button_Yh3Xhh": {

@@ -56,14 +56,34 @@
           "type": "heading",
           "settings": {
             "heading": "Cyber Monday",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 0,
+            "tg_text_case": "uppercase",
+            "tg_letter_spacing": 0,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "text_ibURUW": {
           "type": "text",
           "settings": {
             "text": "<p>Enjoy 30-60% off select styles, including Fall.<br/>Exclusions apply.<a href=\"/pages/cyber-monday-terms\" target=\"_blank\" title=\"Cyber Monday Terms\">*</a></p>",
-            "line_height": 22
+            "line_height": 22,
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "button_rNDEqX": {

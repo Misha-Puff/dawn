@@ -56,14 +56,34 @@
           "type": "heading",
           "settings": {
             "heading": "Summer Collection",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 0,
+            "tg_text_case": "uppercase",
+            "tg_letter_spacing": 0,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "text_bdVDk3": {
           "type": "text",
           "settings": {
             "text": "<p>This collection was photographed at The Gallery Inn in Puerto Rico, a singular place layered with art, history, music, and the spirit of the sea. In its weathered walls, winding terraces, and stunning courtyards, we found a setting that reflects something familiar: the shared character of coastlines everywhere \u2014 sun-washed colors, patina, and the enduring ease of summer by the water.</p><p>This season turns toward the New England coast \u2014 a reflection on the place we call home, shaped by salt air, shoreline colors, and a long tradition of coastal summers.</p><p>The final arrivals of the Summer Collection launch June 11 at 10 AM ET, online and at our\u00a0<a href=\"https://ctrk.klclick.com/l/01KJD7J4C1BWNYE7J5G1C4KTBF_9\" target=\"_blank\">Brooklyn store</a>.</p>",
-            "line_height": 24
+            "line_height": 24,
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "text_FWX7U7": {
@@ -71,7 +91,17 @@
           "disabled": true,
           "settings": {
             "text": "<p>This collection is a jewel box of technique, featuring new knits, wovens, denim, and Pima. Rich in color and intricate craftsmanship, designed to create mix-and-match looks in diverse fabrications \u2014 for comfort, versatility, and dimension. Styles that feel both familiar and unexpected.</p><p>Part 2 of the Spring Collection launches Thursday, March 13 at 11 AM ET \u2014 explore, favorite, and plan your looks now.</p>",
-            "line_height": 22
+            "line_height": 22,
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "button_CEpfd9": {
