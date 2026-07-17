@@ -1,3 +1,13 @@
+{%- liquid
+  case section.settings.button_alignment
+    when 'left'
+      assign button_justify = 'flex-start'
+    when 'right'
+      assign button_justify = 'flex-end'
+    else
+      assign button_justify = 'center'
+  endcase
+-%}
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.mobile_padding_top }}px;
@@ -13,6 +23,10 @@
 
   .button-wrapper {
     gap: {{ section.settings.button_gap }}px;
+  }
+
+  #Buttons-{{ section.id }} .button-wrapper {
+    justify-content: {{ button_justify }};
   }
 
   #Buttons-{{ section.id }} .title-wrapper--no-top-margin {
@@ -77,7 +91,7 @@
         </h2>
       </div>
     {%- endunless -%}
-    <div class="button-wrapper is-flex is-flex-wrap is-justify-center">
+    <div class="button-wrapper is-flex is-flex-wrap">
       {% for block in section.blocks %}
         {%- if block.settings.label != blank -%}
           <a
@@ -129,6 +143,17 @@
       "min": 5,
       "unit": "px",
       "step": 1
+    },
+    {
+      "type": "select",
+      "id": "button_alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center",
+      "label": "Button alignment"
     },
     {
       "type": "select",
