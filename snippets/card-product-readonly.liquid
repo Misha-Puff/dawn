@@ -151,14 +151,12 @@
       </div>
       <div class="card__content">
         <div class="card__information">
-          <h3
-            class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
-          >
-            <span class="full-unstyled-link">
-              {{ card_product.title | escape }}
-            </span>
-          </h3>
-          <div class="card-information">
+          <div class="card__heading-row">
+            <h3
+              class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
+            >
+              {{- card_product.title | escape -}}
+            </h3>
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
           </div>
         </div>

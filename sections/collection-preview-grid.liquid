@@ -69,7 +69,7 @@
   endif
 %}
 
-<div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
+<div class="section-{{ section.id }}-padding card-redesign gradient color-{{ section.settings.color_scheme }}">
   {%- if has_products == false and current_page_num > 1 -%}
     <script>window.location.replace('{{ collection.url }}');</script>
   {%- endif -%}
