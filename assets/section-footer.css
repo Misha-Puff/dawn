@@ -558,3 +558,38 @@ localization-form {
 .footer-block.grid__item .list-menu__item {
   padding: 0;
 }
+
+@media screen and (min-width: 1100px) {
+  .footer__blocks-wrapper.grid--4-col-desktop {
+    --footer-subscribe-width: 380px; /* px: 1rem = 8px on this store (body_scale 80) */
+  }
+
+  /* Link columns hug their content; gutter between them = block_gap setting. */
+  .footer__blocks-wrapper.grid--4-col-desktop .footer-block--menu.grid__item {
+    width: max-content;
+    max-width: max-content;
+    flex-grow: 0;
+  }
+
+  /* Subscribe cell: form-width, flush right at the page-width padding.
+     margin-left:auto absorbs all free space, making the ID-scoped
+     space-between rule inert. Shrinks instead of wrapping on narrow desktops. */
+  .footer__blocks-wrapper.grid--4-col-desktop .footer-block.grid__item:not(.footer-block--menu) {
+    width: var(--footer-subscribe-width);
+    max-width: var(--footer-subscribe-width);
+    margin-left: auto;
+    flex-grow: 0;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  /* Left-aligned stack: kill the form's self-centering + 36rem (288px) cap. */
+  .footer-block__newsletter .footer__newsletter {
+    margin: 0;
+    max-width: var(--footer-subscribe-width);
+  }
+
+  .footer-block__newsletter .newsletter-form__field-wrapper {
+    max-width: var(--footer-subscribe-width);
+  }
+}

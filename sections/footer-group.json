@@ -42,7 +42,7 @@
           "type": "newsletter",
           "settings": {
             "newsletter_heading": "Subscribe",
-            "block_span": "2"
+            "block_span": "1"
           }
         }
       },
@@ -71,7 +71,7 @@
         "padding_left_mobile": 20,
         "padding_right_mobile": 20,
         "stack_spacing_mobile": 16,
-        "block_gap": 0,
+        "block_gap": 60,
         "blocks_justify": "space-between",
         "footer_enable_type": true,
         "fh_custom_font": "geist_mono",
