@@ -522,8 +522,13 @@
 
     <div class="{% if section.settings.filter_type == 'vertical' %} facets-vertical page-width{% endif %}">
       {{ 'component-facets.css' | asset_url | stylesheet_tag }}
-      <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+      {% comment %}
+        collection-tabs.js loads BEFORE facets.js so its popstate listener
+        registers first — it reconciles FacetFiltersForm's history state before
+        facets' own listener fires on a cross-collection back/forward.
+      {% endcomment %}
       <script src="{{ 'collection-tabs.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
       {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
         <aside
           aria-labelledby="verticalTitle"
