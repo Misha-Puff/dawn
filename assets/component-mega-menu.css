@@ -109,7 +109,9 @@
 
 .mega-menu__images {
   display: flex;
-  flex: 0 0 auto;
+  /* always reserve the two-image width so link columns sit in the same spot in every menu */
+  flex: 0 0 calc(2 * var(--mm-image-width, 22rem) + var(--mm-images-gap, 2rem));
+  justify-content: flex-end;
   gap: var(--mm-images-gap, 2rem);
   padding-top: calc(28px + 0.6rem); /* match .mega-menu__list top pad + first link pad-top */
 }
