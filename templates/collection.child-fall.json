@@ -66,15 +66,35 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "The Fall Collection",
-            "heading_size": "h2"
+            "heading": "THE FALL COLLECTION",
+            "heading_size": "h2",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": "",
+            "tg_font_size_mobile": 0
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
             "text": "<p>This season is shaped by the art of Craft. Hand-worked details and cross-stitch prints move through a textured mix of Pima cotton, Merino knits, denim, and wovens in bright, saturated hues grounded by the earthy tones of fall.</p>",
-            "line_height": 22
+            "line_height": 22,
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": "",
+            "tg_font_size_mobile": 0
           }
         },
         "button_Yh3Xhh": {
@@ -123,8 +143,18 @@
             "label": "SHOP TOPS",
             "open_new_tab": true,
             "link": "shopify://collections/child-tops",
+            "display_style": "button",
             "type": "secondary",
-            "on_click": ""
+            "on_click": "",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_font_size_mobile": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": ""
           }
         },
         "button_jY7GWc": {
@@ -133,8 +163,18 @@
             "label": "SWEATERS",
             "open_new_tab": true,
             "link": "shopify://collections/child-sweaters-cardigans",
+            "display_style": "button",
             "type": "secondary",
-            "on_click": ""
+            "on_click": "",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_font_size_mobile": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": ""
           }
         },
         "button_i4FCmB": {
@@ -143,8 +183,18 @@
             "label": "DENIM",
             "open_new_tab": true,
             "link": "shopify://collections/child-denim",
+            "display_style": "button",
             "type": "secondary",
-            "on_click": ""
+            "on_click": "",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_font_size_mobile": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": ""
           }
         },
         "button_pPHEdG": {
@@ -153,8 +203,18 @@
             "label": "ACCESSORIES",
             "open_new_tab": true,
             "link": "shopify://collections/child-accessories",
+            "display_style": "button",
             "type": "secondary",
-            "on_click": ""
+            "on_click": "",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_font_size_mobile": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": ""
           }
         },
         "button_RtQ6RG": {
@@ -163,8 +223,18 @@
             "label": "SHOP BABY FALL",
             "open_new_tab": true,
             "link": "shopify://collections/baby-fall",
+            "display_style": "button",
             "type": "secondary",
-            "on_click": ""
+            "on_click": "",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_font_size_mobile": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": ""
           }
         }
       },
@@ -175,6 +245,7 @@
         "button_pPHEdG",
         "button_RtQ6RG"
       ],
+      "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
@@ -197,8 +268,11 @@
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
             "content": "",
+            "text_size": 13,
             "text_color": "#000000",
             "content_position": "middle-center",
+            "text_horizontal_padding": 16,
+            "text_vertical_padding": 16,
             "row_start_desktop": 1,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -216,8 +290,11 @@
             "image": "shopify://shop_images/MP_FA24_TransitionalLayers_3.jpg",
             "link": "",
             "content": "",
+            "text_size": 13,
             "text_color": "#000000",
             "content_position": "middle-center",
+            "text_horizontal_padding": 16,
+            "text_vertical_padding": 16,
             "row_start_desktop": 6,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
@@ -231,16 +308,28 @@
         "campaign_hero_fa26": {
           "type": "campaign_hero",
           "settings": {
+            "heading": "",
+            "heading_size": "h1",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
             "video_url": "https://cdn.shopify.com/videos/c/o/v/8d6bf164a9154af0a1fc09dc2b2f91bf.mov",
             "full_screen": true,
             "overlay_eyebrow": "THE WORLD OF",
-            "overlay_image": "shopify://shop_images/campaign-fa26-child-fall-wordmark.png"
+            "overlay_image": "shopify://shop_images/campaign-fa26-child-fall-wordmark.png",
+            "pad_top": "",
+            "pad_bottom": "",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": ""
           }
         },
         "campaign_b02_fa26": {
           "type": "campaign_lifestyle",
           "settings": {
             "image": "shopify://shop_images/campaign-fa26-child-fall-b02.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
             "width_pct": "44.4",
             "width_pct_mobile": "74.4",
             "pad_top": "150",
@@ -255,7 +344,7 @@
             "layout": "text_first",
             "image_1": "shopify://shop_images/campaign-fa26-child-fall-b03-1.jpg",
             "image_2": "shopify://shop_images/campaign-fa26-child-fall-b03-2.jpg",
-            "eyebrow": "THE FALL COLLECTION \u2014 PART 1",
+            "eyebrow": "THE FALL COLLECTION — PART 1",
             "heading": "Care, routine, and time\nas a lived experience",
             "col1_pct": "36.7",
             "col2_pct": "51.5",
@@ -266,22 +355,29 @@
             "col1_offset_mobile": "48",
             "col2_offset_mobile": "0",
             "col1_gap": "175",
+            "col1_ratio": "3 / 4",
+            "col2_ratio": "",
             "valign": "top",
+            "first_flush": false,
             "second_flush": true,
             "pad_top": "50",
             "pad_bottom": "200",
             "pad_top_mobile": "0",
-            "pad_bottom_mobile": "90",
-            "col1_ratio": "3 / 4"
+            "pad_bottom_mobile": "90"
           }
         },
         "campaign_b04_fa26": {
           "type": "campaign_lifestyle",
           "settings": {
             "image": "shopify://shop_images/campaign-fa26-child-fall-b04.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
             "width_pct": "51.4",
             "width_pct_mobile": "89.7",
+            "pad_top": "",
             "pad_bottom": "200",
+            "pad_top_mobile": "",
             "pad_bottom_mobile": "80"
           }
         },
@@ -289,21 +385,31 @@
           "type": "campaign_lifestyle",
           "settings": {
             "image": "shopify://shop_images/campaign-fa26-child-fall-b05.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
             "width_pct": "100",
             "width_pct_mobile": "100",
+            "pad_top": "",
+            "pad_bottom": "",
+            "pad_top_mobile": "",
             "pad_bottom_mobile": "80"
           }
         },
         "campaign_b06_fa26": {
           "type": "campaign_products",
           "settings": {
+            "heading": "",
+            "product_list": [],
+            "columns_desktop": 3,
             "source_collection": "child-new",
             "products_to_show": 3,
             "display": "cards",
-            "columns_desktop": 3,
             "width_pct": "65.3",
             "width_pct_mobile": "94.9",
             "tile_gap": "32",
+            "cta_label": "",
+            "cta_link": "",
             "pad_top": "200",
             "pad_bottom": "224",
             "pad_top_mobile": "20",
@@ -316,20 +422,35 @@
             "layout": "images",
             "image_1": "shopify://shop_images/campaign-fa26-child-fall-b07-1.jpg",
             "image_2": "shopify://shop_images/campaign-fa26-child-fall-b07-2.jpg",
+            "eyebrow": "",
+            "heading": "",
             "col1_pct": "49.7",
             "col2_pct": "35.6",
             "col1_pct_mobile": "53.8",
             "col2_pct_mobile": "38.5",
+            "col1_offset": "",
             "col2_offset": "188",
+            "col1_offset_mobile": "",
             "col2_offset_mobile": "55",
+            "col1_gap": "",
+            "col1_ratio": "3 / 4",
+            "col2_ratio": "",
             "valign": "top",
-            "col1_ratio": "3 / 4"
+            "first_flush": false,
+            "second_flush": false,
+            "pad_top": "",
+            "pad_bottom": "",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": ""
           }
         },
         "campaign_b08_fa26": {
           "type": "campaign_lifestyle",
           "settings": {
             "image": "shopify://shop_images/campaign-fa26-child-fall-b08.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
             "width_pct": "65.3",
             "width_pct_mobile": "74.4",
             "pad_top": "200",
@@ -341,9 +462,15 @@
         "campaign_b09_fa26": {
           "type": "campaign_lifestyle",
           "settings": {
+            "heading": "",
+            "product_list": [],
             "video_url": "https://cdn.shopify.com/videos/c/o/v/5dff5fa6afc342e0a6559fd799db164e.mov",
             "width_pct": "93.1",
-            "width_pct_mobile": "94.9"
+            "width_pct_mobile": "94.9",
+            "pad_top": "",
+            "pad_bottom": "",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": ""
           }
         },
         "campaign_b10_fa26": {
@@ -351,13 +478,22 @@
           "settings": {
             "layout": "image_text",
             "image_1": "shopify://shop_images/campaign-fa26-child-fall-b10.jpg",
+            "eyebrow": "",
             "heading": "finding joy in the clothes we choose to return to,\nday after day",
             "col1_pct": "40.8",
             "col2_pct": "36.2",
             "col1_pct_mobile": "45.9",
             "col2_pct_mobile": "33.6",
-            "first_flush": true,
+            "col1_offset": "",
+            "col2_offset": "",
+            "col1_offset_mobile": "",
+            "col2_offset_mobile": "",
+            "col1_gap": "",
+            "col1_ratio": "",
+            "col2_ratio": "",
             "valign": "top",
+            "first_flush": true,
+            "second_flush": false,
             "pad_top": "200",
             "pad_bottom": "200",
             "pad_top_mobile": "100",
@@ -368,8 +504,15 @@
           "type": "campaign_lifestyle",
           "settings": {
             "image": "shopify://shop_images/campaign-fa26-child-fall-b11.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
             "width_pct": "100",
-            "width_pct_mobile": "100"
+            "width_pct_mobile": "100",
+            "pad_top": "",
+            "pad_bottom": "",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": ""
           }
         },
         "campaign_b12_fa26": {
@@ -378,26 +521,40 @@
             "layout": "images",
             "image_1": "shopify://shop_images/campaign-fa26-child-fall-b12-1.jpg",
             "image_2": "shopify://shop_images/campaign-fa26-child-fall-b12-2.jpg",
+            "eyebrow": "",
+            "heading": "",
             "col1_pct": "37",
             "col2_pct": "51.8",
             "col1_pct_mobile": "47.4",
             "col2_pct_mobile": "47.4",
+            "col1_offset": "",
             "col2_offset": "200",
+            "col1_offset_mobile": "",
             "col2_offset_mobile": "80",
+            "col1_gap": "",
+            "col1_ratio": "3 / 4",
+            "col2_ratio": "",
             "valign": "bottom",
+            "first_flush": false,
             "second_flush": true,
+            "pad_top": "",
             "pad_bottom": "200",
-            "pad_bottom_mobile": "80",
-            "col1_ratio": "3 / 4"
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": "80"
           }
         },
         "campaign_b13_fa26": {
           "type": "campaign_lifestyle",
           "settings": {
             "image": "shopify://shop_images/campaign-fa26-child-fall-b13.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
             "width_pct": "72.2",
             "width_pct_mobile": "94.9",
+            "pad_top": "",
             "pad_bottom": "200",
+            "pad_top_mobile": "",
             "pad_bottom_mobile": "80"
           }
         },
@@ -405,9 +562,14 @@
           "type": "campaign_lifestyle",
           "settings": {
             "image": "shopify://shop_images/campaign-fa26-child-fall-b14.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
             "width_pct": "51.4",
             "width_pct_mobile": "74.4",
+            "pad_top": "",
             "pad_bottom": "200",
+            "pad_top_mobile": "",
             "pad_bottom_mobile": "100"
           }
         },
@@ -415,24 +577,34 @@
           "type": "campaign_lifestyle",
           "settings": {
             "image": "shopify://shop_images/campaign-fa26-child-fall-b15.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
             "width_pct": "93.1",
             "width_pct_mobile": "100",
+            "pad_top": "",
             "pad_bottom": "200",
+            "pad_top_mobile": "",
             "pad_bottom_mobile": "80"
           }
         },
         "campaign_b16_fa26": {
           "type": "campaign_products",
           "settings": {
+            "heading": "",
+            "product_list": [],
+            "columns_desktop": 4,
             "source_collection": "child-fall",
             "products_to_show": 9,
             "display": "tiles",
-            "columns_desktop": 4,
             "width_pct": "100",
             "width_pct_mobile": "100",
             "tile_gap": "6",
             "cta_label": "SHOP THE COLLECTION",
             "cta_link": "/collections/child-fall",
+            "pad_top": "",
+            "pad_bottom": "",
+            "pad_top_mobile": "",
             "pad_bottom_mobile": "40"
           }
         }
@@ -467,52 +639,49 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "enable_swatches": true,
-        "quick_add": "standard",
-        "enable_filtering": true,
-        "filter_type": "drawer",
-        "enable_sorting": true,
-        "padding_top": 0,
-        "padding_bottom": 60,
-        "card_availability_size": 11,
-        "card_badge_gap": 10,
-        "card_badge_gap_mobile": 8,
-        "card_badge_letter_spacing": 0,
-        "card_badge_space": 8,
-        "card_badge_space_mobile": 8,
-        "card_info_padding_top": 10,
-        "card_info_padding_top_mobile": 8,
-        "card_price_color": "#1a1a1a",
-        "card_price_letter_spacing": 0.2,
-        "card_price_size": 11,
-        "card_spacing_enable": true,
-        "card_spacing_enable_mobile": true,
-        "card_swatch_space": 6,
-        "card_swatch_space_mobile": 6,
-        "card_title_case": "uppercase",
-        "card_title_letter_spacing": 0.2,
-        "card_title_price_gap": 2,
-        "card_title_price_gap_mobile": 2,
-        "card_title_size": 11,
-        "size_overlay_bg_color": "#ffffff",
-        "size_overlay_padding_bottom": 6,
-        "size_overlay_padding_top": 6,
-        "swatch_card_height": 12,
-        "swatch_card_width": 20,
-        "campaign_gap": "0",
         "show_size_overlay": true,
+        "size_overlay_bg_color": "#ffffff",
         "size_overlay_opacity": 60,
         "size_overlay_position": "bottom",
+        "size_overlay_padding_top": 6,
+        "size_overlay_padding_bottom": 6,
+        "enable_swatches": true,
+        "swatch_card_width": 20,
+        "swatch_card_height": 12,
         "swatch_card_radius": 0,
+        "card_spacing_enable": true,
+        "card_info_padding_top": 10,
+        "card_title_price_gap": 2,
+        "card_swatch_space": 6,
         "card_swatch_gap": 6,
+        "card_badge_space": 8,
+        "card_badge_gap": 10,
+        "card_spacing_enable_mobile": true,
+        "card_info_padding_top_mobile": 8,
+        "card_title_price_gap_mobile": 2,
+        "card_swatch_space_mobile": 6,
         "card_swatch_gap_mobile": 6,
+        "card_badge_space_mobile": 8,
+        "card_badge_gap_mobile": 8,
+        "card_title_size": 11,
         "card_title_weight": "default",
+        "card_title_case": "uppercase",
+        "card_title_letter_spacing": 0.2,
+        "card_price_size": 11,
         "card_price_weight": "default",
+        "card_price_letter_spacing": 0.2,
+        "card_price_color": "#1a1a1a",
         "card_sale_price_gap": 0,
         "card_badge_size": 0,
         "card_badge_weight": "default",
+        "card_badge_letter_spacing": 0,
+        "card_availability_size": 11,
         "card_availability_weight": "default",
+        "quick_add": "standard",
         "quick_add_mobile_only": true,
+        "enable_filtering": true,
+        "filter_type": "drawer",
+        "enable_sorting": true,
         "tabs_enable_type": true,
         "tabs_font": "assistant_n4",
         "tabs_custom_font": "overpass_mono",
@@ -531,10 +700,13 @@
         "tabs_divider_color": "#1a1a1a",
         "tabs_underline_thickness": 1,
         "view_tabs_alignment": "center",
+        "padding_top": 0,
+        "padding_bottom": 60,
         "heart_custom": true,
         "heart_size": 13,
         "heart_top": 10,
-        "heart_right": 10
+        "heart_right": 10,
+        "campaign_gap": "0"
       }
     },
     "shogun-below": {
