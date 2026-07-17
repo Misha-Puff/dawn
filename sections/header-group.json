@@ -183,7 +183,7 @@
         "padding_right": 50,
         "padding_left_mobile": 0,
         "padding_right_mobile": 0,
-        "pin_mega_menu_handle": "child",
+        "pin_mega_menu_handle": "",
         "enable_search_tabs": true,
         "search_tabs_show_counts": true,
         "search_tabs_all_label": "All",
