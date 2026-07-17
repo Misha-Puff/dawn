@@ -49,12 +49,11 @@
                 {%- endcomment -%}
                 {%- assign menu_images_block = blank -%}
                 {%- for block in section.blocks -%}
-                  {%- if block.type == 'menu_images'
-                    and block.settings.menu_item_handle == link.handle
-                    and block.settings.image_1 != blank
-                  -%}
-                    {%- assign menu_images_block = block -%}
-                    {%- break -%}
+                  {%- if block.type == 'menu_images' and block.settings.menu_item_handle == link.handle -%}
+                    {%- if block.settings.image_1 != blank or block.settings.image_2 != blank -%}
+                      {%- assign menu_images_block = block -%}
+                      {%- break -%}
+                    {%- endif -%}
                   {%- endif -%}
                 {%- endfor -%}
                 {%- capture mega_menu_items -%}
