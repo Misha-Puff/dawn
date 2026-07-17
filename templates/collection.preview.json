@@ -164,53 +164,10 @@
             "tg_letter_spacing": 0.1,
             "tg_color": "#1a1a1a"
           }
-        },
-        "button_MdW9Jh": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "label": "VIEW ONLY EXCLUSIVES",
-            "open_new_tab": true,
-            "link": "",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_i7JnE7": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "display_style": "button",
-            "type": "primary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
         }
       },
       "block_order": [
-        "button_dy8XDD",
-        "button_MdW9Jh",
-        "button_i7JnE7"
+        "button_dy8XDD"
       ],
       "name": "Buttons",
       "settings": {
