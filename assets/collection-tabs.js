@@ -65,17 +65,30 @@ if (!customElements.get('collection-tabs')) {
       });
     }
 
-    // Recompute each tab's aria-current by comparing its filter params to the
+    // Recompute the active tab by comparing each tab's filter params to the
     // current URL's — used on load and on back/forward. Only a same-path tab
     // (a current-collection filter) can be active; cross-collection tabs never
-    // are on this page.
+    // are on this page. At most ONE tab is marked active: when two tabs resolve
+    // to the same URL (a group shared across collections, where an "other" tab's
+    // collection == the current one), the MOST SPECIFIC wins — a tab that
+    // explicitly names this collection (data-explicit-collection) beats a
+    // blank/implicit-current one; ties keep the first. Mirrors the SSR ranking.
     syncFromLocation() {
       const locKey = CollectionTabs.filterKey(new URLSearchParams(window.location.search));
+      let best = null;
+      let bestSpec = 0;
       this.tabs.forEach((link) => {
         const url = new URL(link.href, window.location.origin);
-        const active =
-          url.pathname === window.location.pathname && CollectionTabs.filterKey(url.searchParams) === locKey;
-        if (active) {
+        if (url.pathname !== window.location.pathname) return;
+        if (CollectionTabs.filterKey(url.searchParams) !== locKey) return;
+        const spec = link.hasAttribute('data-explicit-collection') ? 2 : 1;
+        if (spec > bestSpec) {
+          bestSpec = spec;
+          best = link;
+        }
+      });
+      this.tabs.forEach((link) => {
+        if (link === best) {
           link.setAttribute('aria-current', 'page');
         } else {
           link.removeAttribute('aria-current');

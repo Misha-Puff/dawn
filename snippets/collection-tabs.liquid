@@ -61,6 +61,60 @@
 
     assign tab_count = 0
     assign rich_has_active = false
+
+    # Pre-pass: pick the ONE tab to mark active. A tab matches when it targets
+    # the current collection (blank collection, or same handle) AND its filter
+    # set equals the current active set (empty == empty for an "All" tab). When
+    # several match — a group shared across collections makes an "other" tab
+    # collapse onto the in-place filter tab once you're viewing that other
+    # collection — the MOST SPECIFIC wins: a tab that explicitly names this
+    # collection (spec 2) beats a blank/implicit-current one (spec 1); ties
+    # fall back to order. collection-tabs.js applies the same ranking client-side.
+    assign active_index = -1
+    assign active_spec = 0
+    for tab in rich_tabs
+      if tab.label.value == blank
+        continue
+      endif
+      assign is_current_target = false
+      if tab.collection.value == blank
+        assign is_current_target = true
+      elsif tab.collection.value.handle == collection.handle
+        assign is_current_target = true
+      endif
+      if is_current_target
+        assign pp_filter = tab.filter.value | strip
+        assign pp_matches = false
+        if pp_filter == blank
+          if current_count == 0
+            assign pp_matches = true
+          endif
+        else
+          assign pp_pairs = pp_filter | split: '&'
+          assign pp_present = true
+          for pair in pp_pairs
+            assign needle = '&' | append: pair | append: '&'
+            unless current_wrapped contains needle
+              assign pp_present = false
+              break
+            endunless
+          endfor
+          if pp_present and pp_pairs.size == current_count
+            assign pp_matches = true
+          endif
+        endif
+        if pp_matches
+          assign pp_spec = 1
+          if tab.collection.value != blank
+            assign pp_spec = 2
+          endif
+          if pp_spec > active_spec
+            assign active_spec = pp_spec
+            assign active_index = forloop.index0
+          endif
+        endif
+      endif
+    endfor
   -%}
   {%- capture tabs_markup -%}
     {%- for tab in rich_tabs -%}
@@ -76,43 +130,13 @@
         else
           assign href = base_url
         endif
-
-        # SSR active detection: the tab must target the current collection
-        # (blank collection, or same handle) AND its filter set must equal the
-        # current active set (empty == empty for an "All" tab).
-        assign is_current_target = false
-        if tab.collection.value == blank
-          assign is_current_target = true
-        elsif base_col.handle == collection.handle
-          assign is_current_target = true
-        endif
-
         assign tab_active = false
-        if is_current_target
-          if tab_filter == blank
-            if current_count == 0
-              assign tab_active = true
-            endif
-          else
-            assign target_pairs = tab_filter | split: '&'
-            assign all_present = true
-            for pair in target_pairs
-              assign needle = '&' | append: pair | append: '&'
-              unless current_wrapped contains needle
-                assign all_present = false
-                break
-              endunless
-            endfor
-            if all_present and target_pairs.size == current_count
-              assign tab_active = true
-            endif
-          endif
-        endif
-        if tab_active
+        if forloop.index0 == active_index
+          assign tab_active = true
           assign rich_has_active = true
         endif
       -%}
-      <a class="collection-tabs__tab" href="{{ href }}"{% if tab_active %} aria-current="page"{% endif %}>{%- render 'sanitizer', input: tab_label -%}</a>
+      <a class="collection-tabs__tab"{% if tab.collection.value != blank %} data-explicit-collection{% endif %} href="{{ href }}"{% if tab_active %} aria-current="page"{% endif %}>{%- render 'sanitizer', input: tab_label -%}</a>
     {%- endfor -%}
   {%- endcapture -%}
 
