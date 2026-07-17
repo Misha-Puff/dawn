@@ -757,7 +757,7 @@
     { "type": "range", "id": "padding_right_mobile", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding right", "info": "Blocks area.", "default": 40, "visible_if": "{{ section.settings.enable_padding_mobile }}" },
     { "type": "range", "id": "stack_spacing_mobile", "min": 0, "max": 80, "step": 1, "unit": "px", "label": "Block stack spacing", "info": "Vertical gap between stacked footer blocks.", "default": 32, "visible_if": "{{ section.settings.enable_padding_mobile }}" },
     { "type": "header", "content": "Blocks layout" },
-    { "type": "range", "id": "block_gap", "min": 0, "max": 120, "step": 2, "unit": "px", "label": "Block gap (desktop)", "info": "0 = theme default (global grid spacing). Desktop gap between footer columns at 1100px and up.", "default": 0 },
+    { "type": "range", "id": "block_gap", "min": 0, "max": 120, "step": 2, "unit": "px", "label": "Block gap (desktop)", "info": "0 = theme default (global grid spacing). Minimum desktop gap between footer columns at 1100px and up — remaining space is spread evenly.", "default": 0 },
     { "type": "select", "id": "blocks_justify", "options": [ { "value": "space-around", "label": "Spread out (theme default)" }, { "value": "space-between", "label": "Flush to edges" } ], "default": "space-around", "label": "Block alignment (desktop)" },
     { "type": "header", "content": "Footer typography" },
     { "type": "checkbox", "id": "footer_enable_type", "default": false, "label": "Enable custom footer typography", "info": "Styles block headings and menu links, including the mobile accordion. Leave a control at its default to inherit." },
