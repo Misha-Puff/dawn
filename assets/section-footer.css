@@ -81,6 +81,12 @@
   .footer__localization:empty + .footer__column {
     padding-top: 1.5rem;
   }
+
+  /* Payment off leaves this column truly empty (Liquid trims the whitespace);
+     without this it still renders the 1.5rem phantom above the bottom cluster. */
+  .footer__column--info:empty {
+    display: none;
+  }
 }
 
 .footer__column {
@@ -226,7 +232,7 @@
     display: flex;
     flex-direction: column;
     flex: 1 1 100%;
-    align-items: center;
+    align-items: stretch;
     gap: 3rem;
   }
 
@@ -239,6 +245,23 @@
 
   .footer-block__newsletter {
     flex-direction: column;
+  }
+}
+
+/* Accordion layout (below 1100px): the form spans the footer's content width
+   instead of the stock 36rem cap — 36rem computes to 288px at this body scale. */
+@media screen and (max-width: 1099px) {
+  .footer-block--newsletter .newsletter-form__field-wrapper {
+    max-width: none;
+  }
+
+  .footer-block--newsletter .newsletter-form {
+    max-width: none;
+    align-items: stretch;
+  }
+
+  .footer-block--newsletter .newsletter-form .button {
+    width: 100%;
   }
 }
 
@@ -544,6 +567,20 @@ localization-form {
 .footer-accordion .accordion__title,
 .footer-block__heading {
   margin-bottom: var(--mp-footer-heading-mb, 10px) !important;
+}
+
+/* Caret mirrors the left content edge: no inboard offset, full-width summary row. */
+.footer-accordion details,
+.footer-accordion summary {
+  width: 100%;
+}
+
+.footer-accordion summary .svg-wrapper {
+  margin-right: 0;
+}
+
+.footer-accordion summary .icon-caret {
+  right: 0;
 }
 
 .footer-block__heading {

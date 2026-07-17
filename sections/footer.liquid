@@ -154,6 +154,20 @@
       }
     }
   {%- endif -%}
+
+  {%- comment -%}
+    Bottom-area sliders own the whole Subscribe-to-ship-to distance: the empty
+    payment column that used to pad it 12px is display: none'd in section-footer.css,
+    so the 36px default = the old 24px padding + that removed phantom.
+  {%- endcomment -%}
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .footer__content-top {
+      padding-bottom: {{ section.settings.bottom_spacing_top }}px;
+    }
+    #shopify-section-{{ section.id }} .footer__content-bottom-wrapper {
+      row-gap: {{ section.settings.bottom_gap }}px;
+    }
+  }
 {%- endstyle -%}
 
 {%- comment -%}
@@ -176,6 +190,8 @@
       {%- assign k_size = gp | append: '_font_size' -%}
       {%- assign k_case = gp | append: '_text_case' -%}
       {%- assign k_ls = gp | append: '_letter_spacing' -%}
+      {%- assign k_color = gp | append: '_color' -%}
+      {%- assign k_lh = gp | append: '_line_height' -%}
       {%- capture grp_brand -%}{% render 'brand-font', font: section.settings[k_font] %}{%- endcapture -%}
       {%- assign grp_brand = grp_brand | strip -%}
       {%- capture grp_decl -%}
@@ -184,6 +200,8 @@
         {%- if section.settings[k_size] > 0 %} font-size: {{ section.settings[k_size] }}px;{% endif -%}
         {%- if section.settings[k_case] != 'default' and section.settings[k_case] != blank %} text-transform: {{ section.settings[k_case] }};{% endif -%}
         {%- if section.settings[k_ls] > 0 %} letter-spacing: {{ section.settings[k_ls] }}px;{% endif -%}
+        {%- if section.settings[k_color] != blank %} color: {{ section.settings[k_color] }};{% endif -%}
+        {%- if section.settings[k_lh] > 0 %} line-height: {{ section.settings[k_lh] }}px;{% endif -%}
       {%- endcapture -%}
       {%- assign grp_decl = grp_decl | strip -%}
       {%- if grp_decl != blank -%}
@@ -756,6 +774,9 @@
     { "type": "range", "id": "padding_left_mobile", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding left", "info": "Blocks area.", "default": 40, "visible_if": "{{ section.settings.enable_padding_mobile }}" },
     { "type": "range", "id": "padding_right_mobile", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding right", "info": "Blocks area.", "default": 40, "visible_if": "{{ section.settings.enable_padding_mobile }}" },
     { "type": "range", "id": "stack_spacing_mobile", "min": 0, "max": 80, "step": 1, "unit": "px", "label": "Block stack spacing", "info": "Vertical gap between stacked footer blocks.", "default": 32, "visible_if": "{{ section.settings.enable_padding_mobile }}" },
+    { "type": "header", "content": "Bottom area (mobile)", "info": "The ship-to / copyright / policy-links cluster below 750px. Defaults reproduce the current render." },
+    { "type": "range", "id": "bottom_spacing_top", "min": 0, "max": 80, "step": 2, "unit": "px", "label": "Space above bottom area", "default": 36 },
+    { "type": "range", "id": "bottom_gap", "min": 0, "max": 40, "step": 1, "unit": "px", "label": "Item spacing", "default": 12 },
     { "type": "header", "content": "Blocks layout" },
     { "type": "range", "id": "block_gap", "min": 0, "max": 120, "step": 2, "unit": "px", "label": "Block gap (desktop)", "info": "0 = theme default (global grid spacing). Minimum desktop gap between footer columns at 1100px and up — remaining space is spread evenly.", "default": 0 },
     { "type": "select", "id": "blocks_justify", "options": [ { "value": "space-around", "label": "Spread out (theme default)" }, { "value": "space-between", "label": "Flush to edges" } ], "default": "space-around", "label": "Block alignment (desktop)" },
@@ -775,7 +796,9 @@
     { "type": "range", "id": "fl_font_size_mobile", "min": 0, "max": 24, "step": 1, "unit": "px", "label": "Font size (mobile)", "info": "Below 750px. 0 = same as larger screens", "default": 0, "visible_if": "{{ section.settings.footer_enable_type }}" },
     { "type": "select", "id": "fl_font_weight", "options": [ { "value": "default", "label": "Theme default" }, { "value": "300", "label": "Light" }, { "value": "400", "label": "Regular" }, { "value": "500", "label": "Medium" }, { "value": "600", "label": "Semibold" }, { "value": "700", "label": "Bold" } ], "default": "default", "label": "Font weight", "visible_if": "{{ section.settings.footer_enable_type }}" },
     { "type": "range", "id": "fl_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Letter spacing", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.footer_enable_type }}" },
-    { "type": "select", "id": "fl_text_case", "options": [ { "value": "default", "label": "Theme default" }, { "value": "uppercase", "label": "Uppercase" }, { "value": "capitalize", "label": "Capitalize" }, { "value": "lowercase", "label": "Lowercase" }, { "value": "none", "label": "Normal (remove uppercase)" } ], "default": "default", "label": "Text case", "visible_if": "{{ section.settings.footer_enable_type }}" }
+    { "type": "select", "id": "fl_text_case", "options": [ { "value": "default", "label": "Theme default" }, { "value": "uppercase", "label": "Uppercase" }, { "value": "capitalize", "label": "Capitalize" }, { "value": "lowercase", "label": "Lowercase" }, { "value": "none", "label": "Normal (remove uppercase)" } ], "default": "default", "label": "Text case", "visible_if": "{{ section.settings.footer_enable_type }}" },
+    { "type": "color", "id": "fl_color", "label": "Item color", "info": "Leave unset to inherit the theme color.", "visible_if": "{{ section.settings.footer_enable_type }}" },
+    { "type": "range", "id": "fl_line_height", "min": 0, "max": 40, "step": 1, "unit": "px", "label": "Line height", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.footer_enable_type }}" }
   ],
   "default": {
     "blocks": [
