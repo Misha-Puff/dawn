@@ -81,12 +81,6 @@
   .footer__localization:empty + .footer__column {
     padding-top: 1.5rem;
   }
-
-  /* Payment off leaves this column truly empty (Liquid trims the whitespace);
-     without this it still renders the 1.5rem phantom above the bottom cluster. */
-  .footer__column--info:empty {
-    display: none;
-  }
 }
 
 .footer__column {
@@ -579,8 +573,12 @@ localization-form {
   margin-right: 0;
 }
 
+/* The abspos svg otherwise takes width: 100% (.svg-wrapper > svg) against the
+   summary, stretching edge-to-edge so the glyph paints at row center. 1rem
+   matches the 10x6 viewBox at the stock 0.6rem height. */
 .footer-accordion summary .icon-caret {
   right: 0;
+  width: 1rem;
 }
 
 .footer-block__heading {
