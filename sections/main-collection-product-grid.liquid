@@ -245,7 +245,10 @@
       cursor: pointer;
     }
 
-    /* Default view: campaign hidden, grid shown. */
+    /* Base state hides the campaign view; the campaign radio ships :checked
+       (see markup), so the :checked rule below reveals it and hides the grid
+       on load — Campaign is the default view. Selecting Collection unchecks it
+       and restores this base state (grid shown, campaign hidden). */
     .collection-view--campaign {
       display: none;
     }
@@ -268,6 +271,18 @@
     #view-campaign-{{ section.id }}:focus-visible ~ .collection-view-tabs label[for="view-campaign-{{ section.id }}"] {
       outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
       outline-offset: 0.3rem;
+    }
+
+    /* The Link tab is a real outbound anchor, not a radio state — strip the
+       default underline so it matches the label tabs, and give it a hover/focus
+       affordance since it never gets the :checked active color. */
+    .collection-view-tabs__tab--link {
+      text-decoration: none;
+    }
+
+    .collection-view-tabs__tab--link:hover,
+    .collection-view-tabs__tab--link:focus-visible {
+      color: rgb(var(--color-foreground));
     }
   {%- endif -%}
 
@@ -394,22 +409,32 @@
           type="radio"
           class="collection-views__radio"
           name="collection-view-{{ section.id }}"
-          id="view-collection-{{ section.id }}"
+          id="view-campaign-{{ section.id }}"
           checked
         >
         <input
           type="radio"
           class="collection-views__radio"
           name="collection-view-{{ section.id }}"
-          id="view-campaign-{{ section.id }}"
+          id="view-collection-{{ section.id }}"
         >
         <div class="collection-view-tabs page-width">
-          <label class="collection-view-tabs__tab" for="view-collection-{{ section.id }}">
-            {{ 'sections.collection_template.view_collection' | t }}
-          </label>
           <label class="collection-view-tabs__tab" for="view-campaign-{{ section.id }}">
             {{ 'sections.collection_template.view_campaign' | t }}
           </label>
+          <label class="collection-view-tabs__tab" for="view-collection-{{ section.id }}">
+            {{ 'sections.collection_template.view_collection' | t }}
+          </label>
+          {%- if section.settings.link_tab_url != blank -%}
+            <a
+              class="collection-view-tabs__tab collection-view-tabs__tab--link"
+              href="{{ section.settings.link_tab_url }}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ section.settings.link_tab_label | default: 'Link' }}
+            </a>
+          {%- endif -%}
         </div>
         <script>
           // Ambient campaign videos carry the autoplay attribute, but autoplay
@@ -1757,6 +1782,8 @@
     { "type": "range", "id": "tabs_underline_thickness", "min": 0, "max": 10, "step": 1, "unit": "px", "label": "Active underline thickness", "info": "0 = theme default (1.6px). Shows on the tab matching the current collection.", "default": 0 },
     { "type": "header", "content": "Campaign toggle" },
     { "type": "select", "id": "view_tabs_alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" } ], "default": "center", "label": "Toggle alignment", "info": "Alignment of the Collection / Campaign view toggle row." },
+    { "type": "text", "id": "link_tab_label", "label": "Link tab label", "default": "Link" },
+    { "type": "url", "id": "link_tab_url", "label": "Link tab URL", "info": "Opens in a new tab. Leave blank to hide the Link tab." },
     {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"
