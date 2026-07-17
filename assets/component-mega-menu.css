@@ -42,6 +42,12 @@
   padding: 28px;
 }
 
+/* page-width sits on the list itself when there's no images block; restore its gutter over the 28px shorthand */
+.mega-menu__list.page-width {
+  padding-left: var(--page-width-padding);
+  padding-right: var(--page-width-padding);
+}
+
 .mega-menu__link {
   color: rgba(var(--color-foreground));
   display: block;
