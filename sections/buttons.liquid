@@ -25,6 +25,15 @@
     gap: {{ section.settings.button_gap }}px;
   }
 
+  {%- comment -%}
+    The section wrapper is display:flex, which shrink-wraps .page-width to
+    the buttons' width and auto-margin-centers it. Force it full-width so the
+    button-wrapper row has free space for justify-content to align against.
+  {%- endcomment -%}
+  #Buttons-{{ section.id }} .page-width {
+    width: 100%;
+  }
+
   #Buttons-{{ section.id }} .button-wrapper {
     justify-content: {{ button_justify }};
   }
