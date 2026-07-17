@@ -49,12 +49,13 @@ search-tabs {
   color: rgba(var(--color-foreground), 0.55);
 }
 
-/* Modal context: <button> tabs reset to the link-like tab appearance */
+/* Modal context: <button> tabs reset to the link-like tab appearance. All
+   borders zeroed (border, not just three sides): with the active underline
+   gone there is nothing to reserve on the bottom edge, and this also clears the
+   browser's default <button> border-bottom so no line shows under modal tabs. */
 button.search-tabs__tab {
   background-color: transparent;
-  border-top: 0;
-  border-right: 0;
-  border-left: 0;
+  border: 0;
   cursor: pointer;
   font-family: inherit;
 }
