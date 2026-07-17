@@ -547,7 +547,7 @@
     grid-column: 1 / -1;
     text-align: left;
     margin-top: 48px;
-    margin-left: calc(var(--mobile-page-width-padding, 10px) + 10px);
+    margin-left: 10px;
   }
 
   .campaign-collage--text_first .campaign-collage__col--first {
@@ -576,6 +576,6 @@
   }
 
   .campaign-products__cta-wrap {
-    padding-top: 40px;
+    padding-top: 50px;
   }
 }

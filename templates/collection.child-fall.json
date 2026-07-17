@@ -279,7 +279,7 @@
             "pad_top": "200",
             "pad_bottom": "224",
             "pad_top_mobile": "20",
-            "pad_bottom_mobile": "128"
+            "pad_bottom_mobile": "110"
           }
         },
         "campaign_b07_fa26": {
@@ -404,7 +404,8 @@
             "width_pct_mobile": "100",
             "tile_gap": "6",
             "cta_label": "SHOP THE COLLECTION",
-            "cta_link": "/collections/child-fall"
+            "cta_link": "/collections/child-fall",
+            "pad_bottom_mobile": "40"
           }
         }
       },

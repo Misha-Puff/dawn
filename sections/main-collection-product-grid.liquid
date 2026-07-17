@@ -405,6 +405,29 @@
             {{ 'sections.collection_template.view_campaign' | t }}
           </label>
         </div>
+        <script>
+          // Ambient campaign videos carry the autoplay attribute, but autoplay
+          // fires while the campaign view is still display:none and never
+          // starts. Progressive nudge: play them when the campaign radio is
+          // selected (videos are muted + playsinline; without JS they show
+          // their first frame).
+          (function () {
+            var radio = document.getElementById('view-campaign-{{ section.id }}');
+            if (!radio) return;
+            var play = function () {
+              if (!radio.checked) return;
+              document
+                .querySelectorAll('.campaign-hero__ambient, .campaign-lifestyle__ambient')
+                .forEach(function (v) {
+                  v.play().catch(function () {});
+                });
+            };
+            document.querySelectorAll('input[name="collection-view-{{ section.id }}"]').forEach(function (r) {
+              r.addEventListener('change', play);
+            });
+            play();
+          })();
+        </script>
         <div class="collection-view collection-view--grid">
     {%- endif -%}
     {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
