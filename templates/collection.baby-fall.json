@@ -353,11 +353,330 @@
             "col_start_mobile": "1",
             "col_span_mobile": "1"
           }
+        },
+        "campaign_hero_fa26": {
+          "type": "campaign_hero",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/8d6bf164a9154af0a1fc09dc2b2f91bf.mov",
+            "full_screen": true,
+            "overlay_eyebrow": "THE WORLD OF",
+            "overlay_image": "shopify://shop_images/campaign-fa26-child-fall-wordmark.png",
+            "pad_top": "",
+            "pad_bottom": "",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": ""
+          }
+        },
+        "campaign_b02_fa26": {
+          "type": "campaign_lifestyle",
+          "settings": {
+            "image": "shopify://shop_images/campaign-fa26-child-fall-b02.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
+            "width_pct": "44.4",
+            "width_pct_mobile": "74.4",
+            "pad_top": "150",
+            "pad_bottom": "150",
+            "pad_top_mobile": "80",
+            "pad_bottom_mobile": "80"
+          }
+        },
+        "campaign_b03_fa26": {
+          "type": "campaign_collage",
+          "settings": {
+            "layout": "text_first",
+            "image_1": "shopify://shop_images/campaign-fa26-child-fall-b03-1.jpg",
+            "image_2": "shopify://shop_images/campaign-fa26-child-fall-b03-2.jpg",
+            "eyebrow": "THE FALL COLLECTION — PART 1",
+            "heading": "Care, routine, and time\nas a lived experience",
+            "col1_pct": "36.7",
+            "col2_pct": "51.5",
+            "col1_pct_mobile": "37.9",
+            "col2_pct_mobile": "56.9",
+            "col1_offset": "32",
+            "col2_offset": "0",
+            "col1_offset_mobile": "48",
+            "col2_offset_mobile": "0",
+            "col1_gap": "175",
+            "col1_ratio": "3 / 4",
+            "col2_ratio": "",
+            "valign": "top",
+            "first_flush": false,
+            "second_flush": true,
+            "pad_top": "50",
+            "pad_bottom": "200",
+            "pad_top_mobile": "0",
+            "pad_bottom_mobile": "90"
+          }
+        },
+        "campaign_b04_fa26": {
+          "type": "campaign_lifestyle",
+          "settings": {
+            "image": "shopify://shop_images/campaign-fa26-child-fall-b04.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
+            "width_pct": "51.4",
+            "width_pct_mobile": "89.7",
+            "pad_top": "",
+            "pad_bottom": "200",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": "80"
+          }
+        },
+        "campaign_b05_fa26": {
+          "type": "campaign_lifestyle",
+          "settings": {
+            "image": "shopify://shop_images/campaign-fa26-child-fall-b05.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
+            "width_pct": "100",
+            "width_pct_mobile": "100",
+            "pad_top": "",
+            "pad_bottom": "",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": "80"
+          }
+        },
+        "campaign_b06_fa26": {
+          "type": "campaign_products",
+          "settings": {
+            "heading": "",
+            "product_list": [],
+            "columns_desktop": 3,
+            "source_collection": "baby-new",
+            "products_to_show": 3,
+            "display": "cards",
+            "width_pct": "65.3",
+            "width_pct_mobile": "94.9",
+            "tile_gap": "32",
+            "cta_label": "",
+            "cta_link": "",
+            "pad_top": "200",
+            "pad_bottom": "224",
+            "pad_top_mobile": "20",
+            "pad_bottom_mobile": "110"
+          }
+        },
+        "campaign_b07_fa26": {
+          "type": "campaign_collage",
+          "settings": {
+            "layout": "images",
+            "image_1": "shopify://shop_images/campaign-fa26-child-fall-b07-1.jpg",
+            "image_2": "shopify://shop_images/campaign-fa26-child-fall-b07-2.jpg",
+            "eyebrow": "",
+            "heading": "",
+            "col1_pct": "49.7",
+            "col2_pct": "35.6",
+            "col1_pct_mobile": "53.8",
+            "col2_pct_mobile": "38.5",
+            "col1_offset": "",
+            "col2_offset": "188",
+            "col1_offset_mobile": "",
+            "col2_offset_mobile": "55",
+            "col1_gap": "",
+            "col1_ratio": "3 / 4",
+            "col2_ratio": "",
+            "valign": "top",
+            "first_flush": false,
+            "second_flush": false,
+            "pad_top": "",
+            "pad_bottom": "",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": ""
+          }
+        },
+        "campaign_b08_fa26": {
+          "type": "campaign_lifestyle",
+          "settings": {
+            "image": "shopify://shop_images/campaign-fa26-child-fall-b08.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
+            "width_pct": "65.3",
+            "width_pct_mobile": "74.4",
+            "pad_top": "200",
+            "pad_bottom": "200",
+            "pad_top_mobile": "80",
+            "pad_bottom_mobile": "80"
+          }
+        },
+        "campaign_b09_fa26": {
+          "type": "campaign_lifestyle",
+          "settings": {
+            "heading": "",
+            "product_list": [],
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/5dff5fa6afc342e0a6559fd799db164e.mov",
+            "width_pct": "93.1",
+            "width_pct_mobile": "94.9",
+            "pad_top": "",
+            "pad_bottom": "",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": ""
+          }
+        },
+        "campaign_b10_fa26": {
+          "type": "campaign_collage",
+          "settings": {
+            "layout": "image_text",
+            "image_1": "shopify://shop_images/campaign-fa26-child-fall-b10.jpg",
+            "eyebrow": "",
+            "heading": "finding joy in the clothes we choose to return to,\nday after day",
+            "col1_pct": "40.8",
+            "col2_pct": "36.2",
+            "col1_pct_mobile": "45.9",
+            "col2_pct_mobile": "33.6",
+            "col1_offset": "",
+            "col2_offset": "",
+            "col1_offset_mobile": "",
+            "col2_offset_mobile": "",
+            "col1_gap": "",
+            "col1_ratio": "",
+            "col2_ratio": "",
+            "valign": "top",
+            "first_flush": true,
+            "second_flush": false,
+            "pad_top": "200",
+            "pad_bottom": "200",
+            "pad_top_mobile": "100",
+            "pad_bottom_mobile": "140"
+          }
+        },
+        "campaign_b11_fa26": {
+          "type": "campaign_lifestyle",
+          "settings": {
+            "image": "shopify://shop_images/campaign-fa26-child-fall-b11.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
+            "width_pct": "100",
+            "width_pct_mobile": "100",
+            "pad_top": "",
+            "pad_bottom": "",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": ""
+          }
+        },
+        "campaign_b12_fa26": {
+          "type": "campaign_collage",
+          "settings": {
+            "layout": "images",
+            "image_1": "shopify://shop_images/campaign-fa26-child-fall-b12-1.jpg",
+            "image_2": "shopify://shop_images/campaign-fa26-child-fall-b12-2.jpg",
+            "eyebrow": "",
+            "heading": "",
+            "col1_pct": "37",
+            "col2_pct": "51.8",
+            "col1_pct_mobile": "47.4",
+            "col2_pct_mobile": "47.4",
+            "col1_offset": "",
+            "col2_offset": "200",
+            "col1_offset_mobile": "",
+            "col2_offset_mobile": "80",
+            "col1_gap": "",
+            "col1_ratio": "3 / 4",
+            "col2_ratio": "",
+            "valign": "bottom",
+            "first_flush": false,
+            "second_flush": true,
+            "pad_top": "",
+            "pad_bottom": "200",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": "80"
+          }
+        },
+        "campaign_b13_fa26": {
+          "type": "campaign_lifestyle",
+          "settings": {
+            "image": "shopify://shop_images/campaign-fa26-child-fall-b13.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
+            "width_pct": "72.2",
+            "width_pct_mobile": "94.9",
+            "pad_top": "",
+            "pad_bottom": "200",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": "80"
+          }
+        },
+        "campaign_b14_fa26": {
+          "type": "campaign_lifestyle",
+          "settings": {
+            "image": "shopify://shop_images/campaign-fa26-child-fall-b14.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
+            "width_pct": "51.4",
+            "width_pct_mobile": "74.4",
+            "pad_top": "",
+            "pad_bottom": "200",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": "100"
+          }
+        },
+        "campaign_b15_fa26": {
+          "type": "campaign_lifestyle",
+          "settings": {
+            "image": "shopify://shop_images/campaign-fa26-child-fall-b15.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
+            "width_pct": "93.1",
+            "width_pct_mobile": "100",
+            "pad_top": "",
+            "pad_bottom": "200",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": "80"
+          }
+        },
+        "campaign_b16_fa26": {
+          "type": "campaign_products",
+          "settings": {
+            "heading": "",
+            "product_list": [],
+            "columns_desktop": 4,
+            "source_collection": "baby-fall",
+            "products_to_show": 9,
+            "display": "tiles",
+            "width_pct": "100",
+            "width_pct_mobile": "100",
+            "tile_gap": "6",
+            "cta_label": "SHOP THE COLLECTION",
+            "cta_link": "/collections/baby-fall",
+            "pad_top": "",
+            "pad_bottom": "",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": "40"
+          }
         }
       },
       "block_order": [
         "image_f8UJrh",
-        "image_gkgQFt"
+        "image_gkgQFt",
+        "campaign_hero_fa26",
+        "campaign_b02_fa26",
+        "campaign_b03_fa26",
+        "campaign_b04_fa26",
+        "campaign_b05_fa26",
+        "campaign_b06_fa26",
+        "campaign_b07_fa26",
+        "campaign_b08_fa26",
+        "campaign_b09_fa26",
+        "campaign_b10_fa26",
+        "campaign_b11_fa26",
+        "campaign_b12_fa26",
+        "campaign_b13_fa26",
+        "campaign_b14_fa26",
+        "campaign_b15_fa26",
+        "campaign_b16_fa26"
       ],
       "settings": {
         "products_per_page": 48,
@@ -430,7 +749,7 @@
         "tabs_divider_thickness": 0,
         "tabs_divider_color": "#1a1a1a",
         "tabs_underline_thickness": 1,
-        "view_tabs_alignment": "center",
+        "view_tabs_alignment": "left",
         "link_tab_label": "Link",
         "link_tab_url": "",
         "padding_top": 0,
@@ -439,7 +758,7 @@
         "heart_size": 13,
         "heart_top": 10,
         "heart_right": 10,
-        "campaign_gap": ""
+        "campaign_gap": "0"
       }
     },
     "shogun-below": {
