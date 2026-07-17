@@ -162,7 +162,7 @@
             "tg_font_size_mobile": 0,
             "tg_text_case": "uppercase",
             "tg_letter_spacing": 0.1,
-            "tg_color": "#1A1A1A"
+            "tg_color": "#1a1a1a"
           }
         },
         "button_MdW9Jh": {
@@ -216,6 +216,7 @@
       "settings": {
         "title": "",
         "button_gap": 12,
+        "button_alignment": "left",
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,
@@ -712,6 +713,8 @@
         "tabs_divider_color": "#1a1a1a",
         "tabs_underline_thickness": 1,
         "view_tabs_alignment": "center",
+        "link_tab_label": "Link",
+        "link_tab_url": "",
         "padding_top": 0,
         "padding_bottom": 60,
         "heart_custom": true,
@@ -844,6 +847,7 @@
       "settings": {
         "title": "More to Explore",
         "button_gap": 10,
+        "button_alignment": "center",
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 20,
