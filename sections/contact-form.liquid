@@ -12,6 +12,48 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  {%- comment -%}
+    Optional heading typography, same tg_ model as the store-info blocks but at
+    section level (one heading, so no block loop). Scoped with the section wrapper
+    id so it beats the heading-size theme classes; only hits the .title h2 — the
+    form-status headings carry no .title class. Only emits when Enable typography
+    is on.
+  {%- endcomment -%}
+  {%- if section.settings.tg_enable_type -%}
+    {%- liquid
+      assign tg_font = section.settings.tg_font
+      assign tg_weight = section.settings.tg_font_weight | default: 'default'
+      assign tg_fs = section.settings.tg_font_size | default: 0
+      assign tg_lh = section.settings.tg_line_height | default: 0
+      assign tg_case = section.settings.tg_text_case | default: 'default'
+      assign tg_ls = section.settings.tg_letter_spacing | default: 0
+    -%}
+    {%- capture tg_brand_stack -%}{% render 'brand-font', font: section.settings.tg_custom_font %}{%- endcapture -%}
+    {%- assign tg_brand_stack = tg_brand_stack | strip -%}
+    {%- if tg_font != blank and tg_brand_stack == blank -%}{{ tg_font | font_face: font_display: 'swap' }}{%- endif -%}
+    {%- if tg_font != blank and tg_brand_stack == blank and tg_weight != 'default' -%}
+      {%- assign tg_wfont = tg_font | font_modify: 'weight', tg_weight -%}
+      {%- if tg_wfont -%}{{ tg_wfont | font_face: font_display: 'swap' }}{%- endif -%}
+    {%- endif -%}
+    #shopify-section-{{ section.id }} .title {
+      {%- if tg_brand_stack != blank %} font-family: {{ tg_brand_stack }};{% elsif tg_font != blank %} font-family: {{ tg_font.family }}, {{ tg_font.fallback_families }};{% endif -%}
+      {%- if tg_weight != 'default' and tg_weight != blank %} font-weight: {{ tg_weight }};{% endif -%}
+      {%- if tg_fs > 0 %} font-size: {{ tg_fs }}px;{% endif -%}
+      {%- if tg_lh > 0 %} line-height: {{ tg_lh }}%;{% endif -%}
+      {%- if tg_case != 'default' and tg_case != blank %} text-transform: {{ tg_case }};{% endif -%}
+      {%- if tg_ls > 0 %} letter-spacing: {{ tg_ls }}px;{% endif -%}
+      {%- if section.settings.tg_color != blank %} color: {{ section.settings.tg_color }};{% endif -%}
+    }
+    {%- assign tg_fs_m = section.settings.tg_font_size_mobile | default: 0 -%}
+    {%- if tg_fs_m > 0 -%}
+      @media screen and (max-width: 749px) {
+        #shopify-section-{{ section.id }} .title {
+          font-size: {{ tg_fs_m }}px;
+        }
+      }
+    {%- endif -%}
+  {%- endif -%}
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
@@ -178,6 +220,17 @@
       "default": "h1",
       "label": "t:sections.all.heading_size.label"
     },
+    { "type": "header", "content": "Typography" },
+    { "type": "checkbox", "id": "tg_enable_type", "default": false, "label": "Enable typography" },
+    { "type": "font_picker", "id": "tg_font", "default": "assistant_n4", "label": "Font", "visible_if": "{{ section.settings.tg_enable_type }}" },
+    { "type": "select", "id": "tg_custom_font", "options": [{ "value": "default", "label": "None (use font picker)" }, { "value": "ibm_plex_sans", "label": "IBM Plex Sans" }, { "value": "ibm_plex_mono", "label": "IBM Plex Mono" }, { "value": "inter", "label": "Inter" }, { "value": "geist", "label": "Geist" }, { "value": "geist_mono", "label": "Geist Mono" }, { "value": "overpass", "label": "Overpass" }, { "value": "overpass_mono", "label": "Overpass Mono" }, { "value": "dm_sans", "label": "DM Sans" }, { "value": "dm_mono", "label": "DM Mono" }, { "value": "manrope", "label": "Manrope" }, { "value": "open_sans", "label": "Open Sans" }], "default": "default", "label": "Brand font", "info": "Overrides the font picker above when set", "visible_if": "{{ section.settings.tg_enable_type }}" },
+    { "type": "select", "id": "tg_font_weight", "options": [{ "value": "default", "label": "Theme default" }, { "value": "300", "label": "Light" }, { "value": "400", "label": "Regular" }, { "value": "500", "label": "Medium" }, { "value": "600", "label": "Semibold" }, { "value": "700", "label": "Bold" }], "default": "default", "label": "Font weight", "visible_if": "{{ section.settings.tg_enable_type }}" },
+    { "type": "range", "id": "tg_font_size", "min": 0, "max": 72, "step": 1, "unit": "px", "label": "Font size", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.tg_enable_type }}" },
+    { "type": "range", "id": "tg_line_height", "min": 0, "max": 250, "step": 5, "unit": "%", "label": "Line height", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.tg_enable_type }}" },
+    { "type": "select", "id": "tg_text_case", "options": [{ "value": "default", "label": "Theme default" }, { "value": "uppercase", "label": "Uppercase" }, { "value": "capitalize", "label": "Capitalize" }, { "value": "lowercase", "label": "Lowercase" }, { "value": "none", "label": "Normal (remove uppercase)" }], "default": "default", "label": "Text case", "visible_if": "{{ section.settings.tg_enable_type }}" },
+    { "type": "range", "id": "tg_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Letter spacing", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.tg_enable_type }}" },
+    { "type": "color", "id": "tg_color", "label": "Text color", "info": "Leave blank to inherit", "visible_if": "{{ section.settings.tg_enable_type }}" },
+    { "type": "range", "id": "tg_font_size_mobile", "min": 0, "max": 72, "step": 1, "unit": "px", "label": "Mobile font size", "info": "0 = same as desktop", "default": 0, "visible_if": "{{ section.settings.tg_enable_type }}" },
     {
       "type": "color_scheme",
       "id": "color_scheme",
