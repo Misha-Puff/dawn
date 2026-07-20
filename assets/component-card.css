@@ -776,7 +776,7 @@
 
 @media screen and (max-width: 1099px) {
   .card__content .card__information {
-    padding-left: 1rem !important;
+    padding-left: 4px !important;
   }
 }
 
