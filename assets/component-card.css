@@ -347,18 +347,18 @@
 
 /* Colorway line under the title row — shown only when the card renders no swatches
    (mutually exclusive, decided in card-product.liquid). Defaults mirror the redesign
-   title exactly; font-weight is explicit because the title is an h3 (heading weight)
-   and this is a p (body weight). */
+   title except case: sentence case (the name as stored), with a per-section case
+   select. font-weight is explicit because the title is an h3 (heading weight) and
+   this is a p (body weight). */
 .card__color-line {
   margin: var(--card-color-space-top, 2px) 0 var(--card-color-space-bottom, 0px);
   font-family: var(--font-heading-family);
   font-weight: var(--font-heading-weight);
   font-size: var(--card-color-size, var(--card-title-size, 11px));
   line-height: max(20px, 1.3em);
-  text-transform: uppercase;
   letter-spacing: 0.2px;
   text-align: left;
-  color: rgba(var(--color-foreground), var(--card-color-opacity, 1));
+  color: rgb(var(--color-foreground));
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

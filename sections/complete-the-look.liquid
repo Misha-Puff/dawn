@@ -747,14 +747,28 @@
       "default": 11
     },
     {
-      "type": "range",
-      "id": "card_color_opacity",
-      "min": 20,
-      "max": 100,
-      "step": 5,
-      "unit": "%",
-      "label": "Color name opacity",
-      "default": 100
+      "type": "select",
+      "id": "card_color_case",
+      "options": [
+        {
+          "value": "default",
+          "label": "Sentence case"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        }
+      ],
+      "default": "default",
+      "label": "Color name case"
     },
     {
       "type": "range",

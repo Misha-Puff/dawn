@@ -60,7 +60,7 @@
 {%- liquid
   assign ct_size = section.settings.card_title_size | default: 0
   assign cc_size = section.settings.card_color_size | default: 0
-  assign cc_op = section.settings.card_color_opacity | default: 0
+  assign cc_case = section.settings.card_color_case | default: 'default'
   assign cp_size = section.settings.card_price_size | default: 0
   assign cb_size = section.settings.card_badge_size | default: 0
   assign ca_size = section.settings.card_availability_size | default: 0
@@ -75,12 +75,11 @@
   assign cp_col = section.settings.card_price_color
   assign cp_gap = section.settings.card_sale_price_gap | default: 0
 -%}
-{%- if ct_size > 0 or cc_size > 0 or cc_op > 0 or cp_size > 0 or cb_size > 0 or ca_size > 0 or cp_gap > 0 -%}
+{%- if ct_size > 0 or cc_size > 0 or cp_size > 0 or cb_size > 0 or ca_size > 0 or cp_gap > 0 -%}
   {%- comment -%} Card typography size vars; component-card.css consumes them via var() fallbacks equal to stock. {%- endcomment -%}
   #shopify-section-{{ section.id }} {
     {%- if ct_size > 0 %} --card-title-size: {{ ct_size }}px;{% endif -%}
     {%- if cc_size > 0 %} --card-color-size: {{ cc_size }}px;{% endif -%}
-    {%- if cc_op > 0 %} --card-color-opacity: {{ cc_op | divided_by: 100.0 }};{% endif -%}
     {%- if cp_size > 0 %} --card-price-size: {{ cp_size }}px;{% endif -%}
     {%- if cb_size > 0 %} --card-badge-size: {{ cb_size }}px;{% endif -%}
     {%- if ca_size > 0 %} --card-availability-size: {{ ca_size }}px;{% endif -%}
@@ -109,6 +108,9 @@
     {%- if ct_case != 'default' %} text-transform: {{ ct_case }};{% endif -%}
     {%- if ct_ls > 0 %} letter-spacing: {{ ct_ls }}px;{% endif -%}
   }
+{%- endif -%}
+{%- if cc_case != 'default' -%}
+  #shopify-section-{{ section.id }} .card__color-line { text-transform: {{ cc_case }}; }
 {%- endif -%}
 {%- if cp_ls > 0 or cp_col != blank -%}
   #shopify-section-{{ section.id }} .card__heading-row > .price {
