@@ -267,6 +267,12 @@
       display: block;
     }
 
+    /* Campaign content sits flush under the tab row's hairline; the grid view
+       keeps the 2.4rem breathing room below the tabs. */
+    #view-campaign-{{ section.id }}:checked ~ .collection-view-tabs {
+      margin-bottom: 0;
+    }
+
     #view-collection-{{ section.id }}:focus-visible ~ .collection-view-tabs label[for="view-collection-{{ section.id }}"],
     #view-campaign-{{ section.id }}:focus-visible ~ .collection-view-tabs label[for="view-campaign-{{ section.id }}"] {
       outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
