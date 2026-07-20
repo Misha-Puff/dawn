@@ -149,7 +149,7 @@
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
             "tg_custom_font": "overpass_mono",
-            "tg_font_weight": "default",
+            "tg_font_weight": "600",
             "tg_font_size": 12,
             "tg_font_size_mobile": 0,
             "tg_text_case": "default",
