@@ -67,6 +67,12 @@
   if current_group != blank and current_group.products.value != blank
     assign has_products = true
   endif
+
+  # Explicit lock.shoppable = false forces read-only cards for everyone; unset keeps per-product tiers
+  assign force_readonly = false
+  if collection.metafields.lock.shoppable.value == false and request.design_mode == false
+    assign force_readonly = true
+  endif
 %}
 
 <div class="section-{{ section.id }}-padding card-redesign gradient color-{{ section.settings.color_scheme }}">
@@ -106,6 +112,7 @@
             {%- assign rendered = rendered | plus: 1 -%}
             {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: product -%}{%- endcapture -%}
             {%- assign lock_content = lock_content | strip -%}
+            {%- if force_readonly -%}{%- assign lock_content = 'true' -%}{%- endif -%}
             {%- assign preview_badge = '' -%}
             {%- if lock_content == 'true' -%}
               {%- unless product.tags contains 'Badge-Coming Soon' -%}
