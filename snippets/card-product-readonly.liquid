@@ -1,6 +1,8 @@
 {% doc %}
   Renders a read-only product card with no links, IDs, or actionable elements.
   Used on preview collections for non-VIP/non-staff customers.
+  Shows the colorway line when the host section's swatch setting is off,
+  following the same swatches ⇄ color line rule as card-product.
 
   @param {product} card_product - The product to render
   @param {string} [media_aspect_ratio] - Image aspect ratio: "square", "portrait", or "adapt" (default)
@@ -119,6 +121,19 @@
             </h3>
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
           </div>
+          {%- liquid
+            # Same rule as card-product: the colorway line shows only when the host
+            # section's swatch setting is off. Readonly cards never render swatches,
+            # but keying off the SETTING keeps shoppable and readonly cards
+            # consistent within one mixed grid.
+            assign show_color_line = false
+            if card_product.options[0] == 'Color' and section.settings.enable_swatches != true
+              assign show_color_line = true
+            endif
+          -%}
+          {%- if show_color_line -%}
+            <p class="card__color-line">{{ card_product.selected_or_first_available_variant.options[0] | escape }}</p>
+          {%- endif -%}
           {% render 'card-product-badges',
             card_product: card_product,
             preview_badge: preview_badge,
