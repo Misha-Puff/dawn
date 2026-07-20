@@ -20,7 +20,7 @@
   - hide_sold_out_badge: {Boolean} Suppress the "Sold out" badge. Default: false (optional)
   - size_overlay: {Boolean} Show the size-availability strip over the media on card hover (desktop only). Skipped for products with no sizes to show. Default: false (optional)
   - quick_add_mobile_only: {Boolean} Hide the quick-add button at desktop widths (>= 1100px) via large-up-hide. Default: false (optional)
-  - hide_color_suffix: {Boolean} Don't append " - <Color>" to the card title (used by the card-redesign surfaces: carousels, collection grid, search). Default: false (optional)
+  - force_color_line: {Boolean} Render the colorway line even when swatches are enabled (SRA fragments that can't read the display section's settings — the host shows exactly one via scoped CSS). Default: false (optional)
   - enable_swatches: {Boolean} Explicit override for the swatches/availability branch. When nil, falls back to section.settings.enable_swatches (grid behavior). Needed by render sites whose host section isn't the card's display section (the recently-viewed capture card in main-product). (optional)
 
   Usage:
@@ -435,10 +435,7 @@
                   class="full-unstyled-link"
                   aria-labelledby="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }} NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
                 >
-                  {{ card_product.title | escape -}}
-                  {%- if card_product.options[0] == 'Color' and hide_color_suffix != true %}
-                    - {{ card_product.selected_or_first_available_variant.options[0] -}}
-                  {%- endif %}
+                  {{ card_product.title | escape }}
                 </a>
               </h3>
             </div>
@@ -449,6 +446,25 @@
         </a>
       {% endif %}
       {% unless hide_content %}
+        {%- liquid
+          # Swatches and the colorway line are mutually exclusive, decided by the swatch
+          # SETTING (not rendered output): swatches enabled → no color line, even for
+          # sibling-less products. force_color_line overrides for SRA fragments.
+          assign swatches_enabled = section.settings.enable_swatches
+          if enable_swatches != nil
+            assign swatches_enabled = enable_swatches
+          endif
+          assign render_swatches = false
+          if show_swatches_availability and swatches_enabled
+            assign render_swatches = true
+          endif
+          assign show_color_line = false
+          if card_product.options[0] == 'Color'
+            if render_swatches == false or force_color_line
+              assign show_color_line = true
+            endif
+          endif
+        -%}
         <div class="card__content">
           <div class="card__information">
             <div class="card__heading-row">
@@ -464,14 +480,14 @@
                   class="full-unstyled-link"
                   aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
                 >
-                  {{ card_product.title | escape -}}
-                  {%- if card_product.options[0] == 'Color' and hide_color_suffix != true %}
-                    - {{ card_product.selected_or_first_available_variant.options[0] -}}
-                  {%- endif %}
+                  {{ card_product.title | escape }}
                 </a>
               </h3>
               {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
             </div>
+            {%- if show_color_line -%}
+              <p class="card__color-line">{{ card_product.selected_or_first_available_variant.options[0] | escape }}</p>
+            {%- endif -%}
             <div class="card-information">
               {%- if show_vendor -%}
                 <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
@@ -516,20 +532,8 @@
                 </p>
               {%- endif -%}
 
-              {% if show_swatches_availability %}
-                {%- liquid
-                  assign swatches_enabled = section.settings.enable_swatches
-                  if enable_swatches != nil
-                    assign swatches_enabled = enable_swatches
-                  endif
-                -%}
-                {% if swatches_enabled %}
-                  {% render 'product-sibling-swatches',
-                    card_product: card_product,
-                    section_id: section_id,
-                    hide_color_suffix: hide_color_suffix
-                  %}
-                {% endif %}
+              {% if render_swatches %}
+                {% render 'product-sibling-swatches', card_product: card_product, section_id: section_id %}
               {% endif %}
 
               {% render 'card-product-badges',

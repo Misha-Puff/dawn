@@ -5,17 +5,13 @@
   Accepts:
   - payload_product: {Object} the product this swatch previews (required)
   - payload_self: {Boolean} true when this swatch is the card's own product
-  - hide_color_suffix: {Boolean} matches the card title's color-suffix behavior
 
   Usage:
-  {% render 'sibling-swatch-attrs', payload_product: sibling, payload_self: false, hide_color_suffix: hide_color_suffix %}
+  {% render 'sibling-swatch-attrs', payload_product: sibling, payload_self: false %}
 {% endcomment %}
 {%- liquid
   assign swap_media = payload_product.featured_media
   assign swap_title = payload_product.title
-  if payload_product.options[0] == 'Color' and hide_color_suffix != true
-    assign swap_title = swap_title | append: ' - ' | append: payload_product.selected_or_first_available_variant.options[0]
-  endif
 
   comment
     Direct-capable mirrors card-product's quick-add branch: a single-variant,

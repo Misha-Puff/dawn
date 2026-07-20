@@ -345,6 +345,25 @@
   align-items: baseline;
 }
 
+/* Colorway line under the title row — shown only when the card renders no swatches
+   (mutually exclusive, decided in card-product.liquid). Defaults mirror the redesign
+   title exactly; font-weight is explicit because the title is an h3 (heading weight)
+   and this is a p (body weight). */
+.card__color-line {
+  margin: var(--card-color-space-top, 2px) 0 var(--card-color-space-bottom, 0px);
+  font-family: var(--font-heading-family);
+  font-weight: var(--font-heading-weight);
+  font-size: var(--card-color-size, var(--card-title-size, 11px));
+  line-height: max(20px, 1.3em);
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  text-align: left;
+  color: rgba(var(--color-foreground), var(--card-color-opacity, 1));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* Redesigned card treatment — .card-redesign on the card-list wrapper of the carousels, the
    collection grid, and search results. .product-card-wrapper keeps search's article/page cards
    (which share .card__heading) out; the specificity also out-specifies base.css .h5 heading scaling. */

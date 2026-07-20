@@ -15,11 +15,9 @@
   Accepts:
   - card_product: {Object} the product the card represents (required)
   - section_id: {String} id of the host section (optional, for unique scoping)
-  - hide_color_suffix: {Boolean} matches the card title's color-suffix behavior
-    so the swapped title renders exactly like a server-rendered card (optional)
 
   Usage:
-  {% render 'product-sibling-swatches', card_product: card_product, section_id: section_id, hide_color_suffix: hide_color_suffix %}
+  {% render 'product-sibling-swatches', card_product: card_product, section_id: section_id %}
 {% endcomment %}
 
 {%- liquid
@@ -62,7 +60,7 @@
       href="{{ card_product.url }}"
       aria-current="true"
       title="{{ self_color | escape }}"
-      {% render 'sibling-swatch-attrs', payload_product: card_product, payload_self: true, hide_color_suffix: hide_color_suffix %}
+      {% render 'sibling-swatch-attrs', payload_product: card_product, payload_self: true %}
     >
       {% render 'swatch', swatch_image: self_cp.image.value, shape: 'square' %}
       <span class="visually-hidden">{{ self_color | escape }}</span>
@@ -94,7 +92,7 @@
         class="card__swatch"
         href="{{ sibling.url }}"
         title="{{ sib_color | escape }}"
-        {% render 'sibling-swatch-attrs', payload_product: sibling, payload_self: false, hide_color_suffix: hide_color_suffix %}
+        {% render 'sibling-swatch-attrs', payload_product: sibling, payload_self: false %}
       >
         {% render 'swatch', swatch_image: sib_cp.image.value, shape: 'square' %}
         <span class="visually-hidden">{{ sib_color | escape }}</span>

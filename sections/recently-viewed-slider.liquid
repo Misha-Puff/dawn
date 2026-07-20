@@ -151,11 +151,20 @@
   {%- comment -%} Cards are fetched live via sections/recently-viewed-cards.liquid; the shared snippet only styles them. {%- endcomment -%}
   {% render 'card-settings-styles' %}
 
-  {%- unless section.settings.show_card_swatches -%}
+  {%- comment -%}
+    The SRA fragment emits BOTH the swatch row and the colorway line
+    (force_color_line); this setting decides which one shows — mutually
+    exclusive, matching the setting-level rule in card-product.liquid.
+  {%- endcomment -%}
+  {%- if section.settings.show_card_swatches -%}
+    #shopify-section-{{ section.id }} .card__color-line {
+      display: none;
+    }
+  {%- else -%}
     #shopify-section-{{ section.id }} .card__swatches {
       display: none;
     }
-  {%- endunless -%}
+  {%- endif -%}
 
   {%- comment -%}
     The SRA fragment (recently-viewed-cards) always emits rating markup — it cannot
@@ -263,7 +272,8 @@
       "type": "checkbox",
       "id": "show_card_swatches",
       "default": true,
-      "label": "Show color swatches"
+      "label": "Show color swatches",
+      "info": "When off, the colorway name shows as text instead."
     },
     { "type": "checkbox", "id": "show_rating", "default": true, "label": "Show product rating", "info": "Stars read the reviews.rating metafield. Unchecking hides them on this slider's cards only." },
     {
@@ -408,6 +418,29 @@
     },
     {
       "type": "range",
+      "id": "card_color_space_top",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above color name",
+      "info": "Color name shows only when swatches don't.",
+      "default": 2,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "card_color_space_bottom",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Space below color name",
+      "default": 0,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "range",
       "id": "card_swatch_space",
       "min": 0,
       "max": 40,
@@ -477,6 +510,29 @@
       "unit": "px",
       "label": "Title to price gap (mobile)",
       "default": 2,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "card_color_space_top_mobile",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above color name (mobile)",
+      "info": "Color name shows only when swatches don't.",
+      "default": 2,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "card_color_space_bottom_mobile",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Space below color name (mobile)",
+      "default": 0,
       "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
     },
     {
@@ -604,6 +660,26 @@
       "label": "Card title letter spacing",
       "info": "0 = theme default",
       "default": 0.2
+    },
+    {
+      "type": "range",
+      "id": "card_color_size",
+      "min": 8,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Color name size",
+      "default": 11
+    },
+    {
+      "type": "range",
+      "id": "card_color_opacity",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Color name opacity",
+      "default": 100
     },
     {
       "type": "range",
