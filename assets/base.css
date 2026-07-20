@@ -1642,6 +1642,18 @@ details[open] > .share-button__fallback {
   color: rgba(var(--color-foreground), 0.75);
 }
 
+/* iOS Safari auto-zooms the page when a focused control's font-size computes below 16px.
+   With body_scale 80, 1rem = 8px, so 1.6rem = 12.8px — keep touch-size controls at 16px. */
+@media screen and (max-width: 749px) {
+  .field__input,
+  .select__select,
+  .text-area,
+  .customer .field input,
+  .customer select {
+    font-size: max(1.6rem, 16px);
+  }
+}
+
 .field__input:hover,
 .customer .field input:hover,
 .select:hover.select:after,
