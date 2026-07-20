@@ -10,6 +10,7 @@
   @param {boolean} [skip_styles] - Skip component styles
   @param {string} [preview_badge] - Optional badge label rendered alongside other badges (e.g. "Coming Soon", "Early Access")
   @param {boolean} [hide_sold_out_badge] - Suppress the "Sold out" badge (default: false)
+  @param {string} [section_id] - Host section id, used to make badge ids unique
 
   @example
   {% render 'card-product-readonly', card_product: product, media_aspect_ratio: 'adapt' %}
@@ -106,47 +107,6 @@
               </span>
             </h3>
           </div>
-          <div class="card__badge {{ settings.badge_position }}">
-            {%- liquid
-              assign tags_str = card_product.tags | join: ','
-              assign coming_soon = false
-              if tags_str contains 'Badge-Coming Soon'
-                assign coming_soon = true
-              endif
-            -%}
-            {%- if preview_badge != blank -%}
-              <span class="badge badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}">
-                {{ preview_badge }}
-              </span>
-            {%- endif -%}
-            {% if tags_str contains 'Badge-' %}
-              {% assign custom_tags = '' | split: '😉' %}
-              {% for tag in card_product.tags %}
-                {% if tag contains 'Badge-' %}
-                  {% assign custom_tag = tag | split: 'Badge-' | last | split: '😉' %}
-                  {% assign custom_tags = custom_tags | concat: custom_tag %}
-                {% endif %}
-              {% endfor %}
-              {%- if custom_tags.size > 0 -%}
-                {% for custom_tag in custom_tags %}
-                  <span class="badge badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}">
-                    {{ custom_tag }}
-                  </span>
-                {% endfor %}
-              {% endif %}
-            {% endif %}
-            {% if card_product.available == false and coming_soon == false %}
-              {%- unless hide_sold_out_badge -%}
-                <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">
-                  {{- 'products.product.sold_out' | t -}}
-                </span>
-              {%- endunless -%}
-            {% elsif card_product.compare_at_price > card_product.price %}
-              <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">
-                {{- 'products.product.on_sale' | t -}}
-              </span>
-            {% endif %}
-          </div>
         </div>
       </div>
       <div class="card__content">
@@ -159,47 +119,13 @@
             </h3>
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
           </div>
-        </div>
-        <div class="card__badge {{ settings.badge_position }}">
-          {%- liquid
-            assign tags_str = card_product.tags | join: ','
-            assign coming_soon = false
-            if tags_str contains 'Badge-Coming Soon'
-              assign coming_soon = true
-            endif
-          -%}
-          {%- if preview_badge != blank -%}
-            <span class="badge badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}">
-              {{ preview_badge }}
-            </span>
-          {%- endif -%}
-          {% if tags_str contains 'Badge-' %}
-            {% assign custom_tags = '' | split: '😉' %}
-            {% for tag in card_product.tags %}
-              {% if tag contains 'Badge-' %}
-                {% assign custom_tag = tag | split: 'Badge-' | last | split: '😉' %}
-                {% assign custom_tags = custom_tags | concat: custom_tag %}
-              {% endif %}
-            {% endfor %}
-            {%- if custom_tags.size > 0 -%}
-              {% for custom_tag in custom_tags %}
-                <span class="badge badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}">
-                  {{ custom_tag }}
-                </span>
-              {% endfor %}
-            {% endif %}
-          {% endif %}
-          {% if card_product.available == false and coming_soon == false %}
-            {%- unless hide_sold_out_badge -%}
-              <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">
-                {{- 'products.product.sold_out' | t -}}
-              </span>
-            {%- endunless -%}
-          {% elsif card_product.compare_at_price > card_product.price %}
-            <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">
-              {{- 'products.product.on_sale' | t -}}
-            </span>
-          {% endif %}
+          {% render 'card-product-badges',
+            card_product: card_product,
+            preview_badge: preview_badge,
+            hide_sold_out_badge: hide_sold_out_badge,
+            section_id: section_id,
+            card: true
+          %}
         </div>
       </div>
     </div>
