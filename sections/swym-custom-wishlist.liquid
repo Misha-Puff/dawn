@@ -344,12 +344,13 @@
       swat.replayAddToCart(
         { empi: empi, du: du, qty: qty },
         epi,
-        (success) => {
+        () => {
           button.innerHTML = settings.swym_wishlist_item_cta_addedtocart;
-          const variant = JSON.parse(success).items[0];
-          const productTitle = variant.title;
-          let successMessage = `<strong>${productTitle}</strong> has been added to cart!`;
-          swat.ui.showSuccessNotification({ message: successMessage });
+          // Build the message from the wishlist item itself — the replay success
+          // payload doesn't carry the /cart/add.js {items:[...]} shape this used
+          // to parse (it announced "undefined").
+          swat.ui.showSuccessNotification({ message: `<strong>${item.dt}</strong> has been added to cart!` });
+          refreshCartIconBubble();
         },
         (error) => {
           button.innerHTML = originalButtonState;
@@ -375,6 +376,22 @@
     });
 
     elements.itemsContainer.appendChild(wishlistItem);
+  }
+
+  // Swym's replayAddToCart bypasses Dawn's add-to-cart flow, so nothing
+  // re-renders the header count. Re-render it through the Section Rendering
+  // API the same way cart-notification.js does.
+  function refreshCartIconBubble() {
+    fetch(`${window.Shopify.routes.root}?sections=cart-icon-bubble`)
+      .then((response) => response.json())
+      .then((sections) => {
+        const bubble = document.getElementById('cart-icon-bubble');
+        const sectionHTML = new DOMParser()
+          .parseFromString(sections['cart-icon-bubble'], 'text/html')
+          .querySelector('.shopify-section');
+        if (bubble && sectionHTML) bubble.innerHTML = sectionHTML.innerHTML;
+      })
+      .catch(() => {});
   }
 
   function updateUIState(wishlist) {
