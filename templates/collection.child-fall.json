@@ -631,7 +631,6 @@
         "campaign_b16_fa26"
       ],
       "settings": {
-        "enable_campaign": false,
         "products_per_page": 48,
         "columns_desktop": 4,
         "columns_mobile": "2",
@@ -702,6 +701,7 @@
         "tabs_divider_thickness": 0,
         "tabs_divider_color": "#1a1a1a",
         "tabs_underline_thickness": 1,
+        "enable_campaign": true,
         "view_tabs_alignment": "left",
         "link_tab_label": "Lookbook",
         "link_tab_url": "https://shop.misha-and-puff.com/blogs/journal/child-fall-26",
