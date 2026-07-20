@@ -27,14 +27,16 @@
   <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
-{% comment %} Campaign view is offered only when the section has at least one campaign block. Image and Shop-the-Look tiles render inside the grid, not the campaign view. {% endcomment %}
+{% comment %} Campaign view is offered only when the "Enable campaign view" checkbox is on and the section has at least one campaign block. Image and Shop-the-Look tiles render inside the grid, not the campaign view. {% endcomment %}
 {% assign has_campaign = false %}
-{% for block in section.blocks %}
-  {% unless block.type == 'image' or block.type == 'shop_look_tile' %}
-    {% assign has_campaign = true %}
-    {% break %}
-  {% endunless %}
-{% endfor %}
+{% if section.settings.enable_campaign %}
+  {% for block in section.blocks %}
+    {% unless block.type == 'image' or block.type == 'shop_look_tile' %}
+      {% assign has_campaign = true %}
+      {% break %}
+    {% endunless %}
+  {% endfor %}
+{% endif %}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -1815,6 +1817,7 @@
     { "type": "color", "id": "tabs_divider_color", "label": "Divider color", "info": "Leave blank for theme default", "visible_if": "{{ section.settings.tabs_divider_enable }}" },
     { "type": "range", "id": "tabs_underline_thickness", "min": 0, "max": 10, "step": 1, "unit": "px", "label": "Active underline thickness", "info": "0 = theme default (1.6px). Shows on the tab matching the current collection.", "default": 0 },
     { "type": "header", "content": "Campaign toggle" },
+    { "type": "checkbox", "id": "enable_campaign", "default": true, "label": "Enable campaign view", "info": "Uncheck to hide the campaign entirely — shoppers (and the editor) see the standard collection grid. Campaign blocks are kept but render nothing." },
     { "type": "select", "id": "view_tabs_alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" } ], "default": "center", "label": "Toggle alignment", "info": "Alignment of the Collection / Campaign view toggle row." },
     { "type": "text", "id": "link_tab_label", "label": "Link tab label", "default": "Link" },
     { "type": "url", "id": "link_tab_url", "label": "Link tab URL", "info": "Opens in a new tab. Leave blank to hide the Link tab." },
