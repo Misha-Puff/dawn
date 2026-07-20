@@ -292,6 +292,66 @@
     .collection-view-tabs__tab--link:focus-visible {
       color: rgb(var(--color-foreground));
     }
+
+    /* Floating escape hatch back to the product grid, revealed only while the
+       campaign radio is checked. Must sit as a later sibling of the radios in
+       the DOM for the :checked ~ selector to reach it, even though it renders
+       fixed to the viewport. Typography defaults mirror .campaign-products__cta
+       (template-collection.css) minus the underline; jump_* settings override. */
+    {%- liquid
+      assign jump_weight = section.settings.jump_font_weight | default: 'default'
+      assign jump_fs = section.settings.jump_font_size | default: 0
+      assign jump_case = section.settings.jump_text_case | default: 'default'
+      assign jump_ls = section.settings.jump_letter_spacing | default: 0
+    -%}
+    {%- capture jump_brand_stack -%}{% render 'brand-font', font: section.settings.jump_custom_font %}{%- endcapture -%}
+    {%- assign jump_brand_stack = jump_brand_stack | strip -%}
+    .collection-views__jump {
+      display: none;
+      position: fixed;
+      {% case section.settings.jump_alignment -%}
+        {%- when 'left' %} left: 1.6rem;
+        {%- when 'right' %} right: 1.6rem;
+        {%- else %} left: 50%; transform: translateX(-50%);
+      {%- endcase %}
+      bottom: calc(1.6rem + env(safe-area-inset-bottom, 0px));
+      z-index: 10;
+      padding: 1.1rem 2rem;
+      {%- if section.settings.jump_pill_enable %}
+      background: rgba(255, 255, 255, 0.92);
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(26, 26, 26, 0.15);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      {%- else %}
+      /* Pill chrome off: match .campaign-products__cta's underlined-text look;
+         the padding stays for the tap target. */
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      {%- endif %}
+      font-family: {% if jump_brand_stack != blank %}{{ jump_brand_stack }}{% else %}var(--font-mono-family){% endif %};
+      font-size: {% if jump_fs > 0 %}{{ jump_fs }}px{% else %}12px{% endif %};
+      font-weight: {% if jump_weight != 'default' and jump_weight != blank %}{{ jump_weight }}{% else %}600{% endif %};
+      letter-spacing: {% if jump_ls > 0 %}{{ jump_ls }}px{% else %}1px{% endif %};
+      text-transform: {% if jump_case != 'default' and jump_case != blank %}{{ jump_case }}{% else %}uppercase{% endif %};
+      color: {% if section.settings.jump_color != blank %}{{ section.settings.jump_color }}{% else %}rgb(26, 26, 26){% endif %};
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    #view-campaign-{{ section.id }}:checked ~ .collection-views__jump {
+      display: block;
+    }
+
+    /* Rebuy mounts an EMPTY, transparent, pointer-events:auto 40x40 fixed
+       container (#rebuy-bubble-global-alert-modal, z-index 100000) at the
+       viewport bottom-center — exactly over this pill's default tap point —
+       which silently swallows dead-center clicks. Neutralize it only while
+       empty: if Rebuy ever renders a real alert into it, :empty stops
+       matching and the container becomes interactive again. */
+    #rebuy-bubble-global-alert-modal:empty {
+      pointer-events: none;
+    }
   {%- endif -%}
 
   {%- comment -%}
@@ -486,6 +546,26 @@
               r.addEventListener('change', play);
               r.addEventListener('change', syncURL);
             });
+
+            // The floating jump link swaps views via native label->radio
+            // behavior (which also fires syncURL above); JS only adds the
+            // scroll back to top. Bound on the label, not the radios' change,
+            // so clicking the top Collection tab doesn't also scroll. The
+            // label sits at the END of the wrapper (the :checked ~ CSS needs
+            // it after the radios) so it doesn't exist yet while this script
+            // parses — defer the lookup; on editor re-renders the DOM is
+            // already complete and the fresh node binds immediately.
+            var bindJump = function () {
+              var jump = document.querySelector('label[for="view-collection-{{ section.id }}"].collection-views__jump');
+              if (jump) {
+                jump.addEventListener('click', function () {
+                  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                  window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+                });
+              }
+            };
+            if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bindJump);
+            else bindJump();
             play();
           })();
         </script>
@@ -1077,6 +1157,11 @@
             {%- endcase -%}
           {%- endfor -%}
         </div>
+        {%- if section.settings.jump_link_enable and section.settings.jump_link_label != blank -%}
+          <label class="collection-views__jump" for="view-collection-{{ section.id }}">
+            {{- section.settings.jump_link_label | escape -}}
+          </label>
+        {%- endif -%}
       </div>
       {%- comment -%} /.collection-views {%- endcomment -%}
     {%- endif -%}
@@ -1821,6 +1906,16 @@
     { "type": "select", "id": "view_tabs_alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" } ], "default": "center", "label": "Toggle alignment", "info": "Alignment of the Collection / Campaign view toggle row." },
     { "type": "text", "id": "link_tab_label", "label": "Link tab label", "default": "Link" },
     { "type": "url", "id": "link_tab_url", "label": "Link tab URL", "info": "Opens in a new tab. Leave blank to hide the Link tab." },
+    { "type": "checkbox", "id": "jump_link_enable", "default": false, "label": "Show floating collection link", "info": "Fixed to the bottom of the screen while the campaign view is active; jumps to the collection view." },
+    { "type": "text", "id": "jump_link_label", "label": "Floating link text", "default": "View collection", "visible_if": "{{ section.settings.jump_link_enable }}" },
+    { "type": "checkbox", "id": "jump_pill_enable", "default": true, "label": "Pill background", "info": "Off = plain underlined text, matching the campaign CTA style.", "visible_if": "{{ section.settings.jump_link_enable }}" },
+    { "type": "select", "id": "jump_custom_font", "options": [ { "value": "default", "label": "Default (theme mono)" }, { "value": "ibm_plex_sans", "label": "IBM Plex Sans" }, { "value": "ibm_plex_mono", "label": "IBM Plex Mono" }, { "value": "inter", "label": "Inter" }, { "value": "geist", "label": "Geist" }, { "value": "geist_mono", "label": "Geist Mono" }, { "value": "overpass", "label": "Overpass" }, { "value": "overpass_mono", "label": "Overpass Mono" }, { "value": "dm_sans", "label": "DM Sans" }, { "value": "dm_mono", "label": "DM Mono" }, { "value": "manrope", "label": "Manrope" }, { "value": "open_sans", "label": "Open Sans" } ], "default": "default", "label": "Floating link font", "visible_if": "{{ section.settings.jump_link_enable }}" },
+    { "type": "select", "id": "jump_font_weight", "options": [ { "value": "default", "label": "Default (600)" }, { "value": "300", "label": "Light" }, { "value": "400", "label": "Regular" }, { "value": "500", "label": "Medium" }, { "value": "600", "label": "Semibold" }, { "value": "700", "label": "Bold" } ], "default": "default", "label": "Floating link weight", "visible_if": "{{ section.settings.jump_link_enable }}" },
+    { "type": "range", "id": "jump_font_size", "min": 0, "max": 24, "step": 1, "unit": "px", "label": "Floating link size", "info": "0 = default (12px)", "default": 0, "visible_if": "{{ section.settings.jump_link_enable }}" },
+    { "type": "select", "id": "jump_text_case", "options": [ { "value": "default", "label": "Default (uppercase)" }, { "value": "uppercase", "label": "Uppercase" }, { "value": "capitalize", "label": "Capitalize" }, { "value": "lowercase", "label": "Lowercase" }, { "value": "none", "label": "Normal" } ], "default": "default", "label": "Floating link case", "visible_if": "{{ section.settings.jump_link_enable }}" },
+    { "type": "range", "id": "jump_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Floating link letter spacing", "info": "0 = default (1px)", "default": 0, "visible_if": "{{ section.settings.jump_link_enable }}" },
+    { "type": "color", "id": "jump_color", "label": "Floating link color", "info": "Leave blank for default (#1A1A1A)", "visible_if": "{{ section.settings.jump_link_enable }}" },
+    { "type": "select", "id": "jump_alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" } ], "default": "center", "label": "Floating link alignment", "visible_if": "{{ section.settings.jump_link_enable }}" },
     {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"
