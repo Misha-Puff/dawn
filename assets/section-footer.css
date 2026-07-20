@@ -599,16 +599,19 @@ localization-form {
     --footer-subscribe-width: 380px; /* px: 1rem = 8px on this store (body_scale 80) */
   }
 
-  /* Link columns hug their content; the section's space-between rule spreads
-     the free space equally across all gaps, with block_gap as the floor. */
+  /* Link columns hug their content. Two section-emitted layout modes:
+     space-between spreads the free space equally across all gaps (block_gap as
+     the floor); flex-start + an auto left margin on the subscribe cell packs
+     the link columns at exactly block_gap with subscribe alone flush right. */
   .footer__blocks-wrapper.grid--4-col-desktop .footer-block--menu.grid__item {
     width: max-content;
     max-width: max-content;
     flex-grow: 0;
   }
 
-  /* Subscribe cell: form-width; space-between pins it flush right at the
-     page-width padding. Shrinks instead of wrapping on narrow desktops.
+  /* Subscribe cell: form-width; pinned flush right at the page-width padding
+     by either mode (space-between directly, flex-start via the section's auto
+     left margin). Shrinks instead of wrapping on narrow desktops.
      :has() guard: on the newsletter-signup template the cell renders empty
      (footer.liquid suppresses its contents) and must not reserve this width. */
   .footer__blocks-wrapper.grid--4-col-desktop

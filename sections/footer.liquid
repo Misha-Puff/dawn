@@ -102,6 +102,22 @@
     }
   {%- endif -%}
 
+  {%- comment -%}
+    Packed layout: the subscribe cell's auto left margin absorbs the free space
+    before justify-content distributes it, so the link columns sit exactly
+    block_gap apart while subscribe stays flush right. Same :has() guard as the
+    base subscribe-cell rule — the empty cell on the newsletter-signup template
+    must not get the auto margin.
+  {%- endcomment -%}
+  {%- if section.settings.blocks_justify == 'flex-start' -%}
+    @media screen and (min-width: 1100px) {
+      #shopify-section-{{ section.id }} .footer__blocks-wrapper.grid--4-col-desktop
+        .footer-block.grid__item:not(.footer-block--menu):has(.footer-block--newsletter) {
+        margin-left: auto;
+      }
+    }
+  {%- endif -%}
+
   {%- liquid
     assign has_span_2 = false
     assign has_span_3 = false
@@ -151,6 +167,9 @@
       }
       #shopify-section-{{ section.id }} .footer-block.grid__item:first-child {
         margin-top: 0;
+      }
+      #shopify-section-{{ section.id }} .footer-block--newsletter {
+        margin-top: {{ section.settings.newsletter_spacing_top }}px;
       }
     }
   {%- endif -%}
@@ -778,12 +797,13 @@
     { "type": "range", "id": "padding_left_mobile", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding left", "info": "Blocks area.", "default": 40, "visible_if": "{{ section.settings.enable_padding_mobile }}" },
     { "type": "range", "id": "padding_right_mobile", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding right", "info": "Blocks area.", "default": 40, "visible_if": "{{ section.settings.enable_padding_mobile }}" },
     { "type": "range", "id": "stack_spacing_mobile", "min": 0, "max": 80, "step": 1, "unit": "px", "label": "Block stack spacing", "info": "Vertical gap between stacked footer blocks.", "default": 32, "visible_if": "{{ section.settings.enable_padding_mobile }}" },
+    { "type": "range", "id": "newsletter_spacing_top", "min": 0, "max": 80, "step": 2, "unit": "px", "label": "Space above subscribe block", "info": "Extra space above the newsletter block, independent of section padding. Values below Block stack spacing are floored by it.", "default": 24, "visible_if": "{{ section.settings.enable_padding_mobile }}" },
     { "type": "header", "content": "Bottom area (mobile)", "info": "The ship-to / copyright / policy-links cluster below 750px. Defaults reproduce the current render." },
     { "type": "range", "id": "bottom_spacing_top", "min": 0, "max": 80, "step": 2, "unit": "px", "label": "Space above bottom area", "default": 24 },
     { "type": "range", "id": "bottom_gap", "min": 0, "max": 40, "step": 1, "unit": "px", "label": "Item spacing", "info": "Extra space between the ship-to / copyright / policy items. 0 = theme default.", "default": 0 },
     { "type": "header", "content": "Blocks layout" },
     { "type": "range", "id": "block_gap", "min": 0, "max": 120, "step": 2, "unit": "px", "label": "Block gap (desktop)", "info": "0 = theme default (global grid spacing). Minimum desktop gap between footer columns at 1100px and up — remaining space is spread evenly.", "default": 0 },
-    { "type": "select", "id": "blocks_justify", "options": [ { "value": "space-around", "label": "Spread out (theme default)" }, { "value": "space-between", "label": "Flush to edges" } ], "default": "space-around", "label": "Block alignment (desktop)" },
+    { "type": "select", "id": "blocks_justify", "options": [ { "value": "space-around", "label": "Spread out (theme default)" }, { "value": "space-between", "label": "Flush to edges" }, { "value": "flex-start", "label": "Link columns left, subscribe right" } ], "default": "space-around", "label": "Block alignment (desktop)" },
     { "type": "header", "content": "Footer typography" },
     { "type": "checkbox", "id": "footer_enable_type", "default": false, "label": "Enable custom footer typography", "info": "Styles block headings and menu links, including the mobile accordion. Leave a control at its default to inherit." },
     { "type": "header", "content": "Block headings" },
