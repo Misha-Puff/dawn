@@ -536,7 +536,7 @@ localization-form {
 
 .footer__content-bottom-wrapper .grid__item,
 .copyright__content {
-  font-size: 1.3rem !important;
+  font-size: 1.3rem;
   color: rgb(var(--color-foreground));
 }
 

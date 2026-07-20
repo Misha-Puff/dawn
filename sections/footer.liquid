@@ -197,13 +197,17 @@
   Optional footer typography, donor: header.liquid nav_enable_type loop. Two groups
   keyed by prefix (fh_ = block headings, fl_ = menu link items); one entry per
   selector since the heading treatment must also hit the mobile/tablet accordion
-  title (visible through 1099px) and the accordion's own link list.
+  title (visible through 1099px) and the accordion's own link list. fl_ also
+  covers the bottom legal row (Accessibility/Do-Not-Sell links, the (c)-line and
+  its shop-name/policy links, the country selector) so it converges with the
+  columns above; .copyright__content a needs its own entry because the flat CSS
+  gives those links a separate color rule.
   #shopify-section-<id> gives every rule an ID, so it beats the flat pins in
   section-footer.css and the uppercase pins in the style block above.
 {%- endcomment -%}
 {%- if section.settings.footer_enable_type -%}
   {%- capture footer_type_css -%}
-    {%- assign footer_type_groups = 'fh|.footer-block__heading;fh|.footer-accordion .accordion__title;fl|.footer-block__details-content .list-menu__item;fl|.footer-accordion .accordion__content .list-menu__item' | split: ';' -%}
+    {%- assign footer_type_groups = 'fh|.footer-block__heading;fh|.footer-accordion .accordion__title;fl|.footer-block__details-content .list-menu__item;fl|.footer-accordion .accordion__content .list-menu__item;fl|.footer__content-bottom-wrapper > a.grid__item;fl|.copyright__content;fl|.copyright__content a;fl|.localization-form__select' | split: ';' -%}
     {%- for grp in footer_type_groups -%}
       {%- assign grp_parts = grp | split: '|' -%}
       {%- assign gp = grp_parts[0] -%}
@@ -238,7 +242,7 @@
           #shopify-section-{{ section.id }} .footer-block__heading, #shopify-section-{{ section.id }} .footer-accordion .accordion__title { font-size: {{ section.settings.fh_font_size_mobile }}px; }
         {%- endif -%}
         {%- if section.settings.fl_font_size_mobile > 0 -%}
-          #shopify-section-{{ section.id }} .footer-block__details-content .list-menu__item, #shopify-section-{{ section.id }} .footer-accordion .accordion__content .list-menu__item { font-size: {{ section.settings.fl_font_size_mobile }}px; }
+          #shopify-section-{{ section.id }} .footer-block__details-content .list-menu__item, #shopify-section-{{ section.id }} .footer-accordion .accordion__content .list-menu__item, #shopify-section-{{ section.id }} .footer__content-bottom-wrapper > a.grid__item, #shopify-section-{{ section.id }} .copyright__content, #shopify-section-{{ section.id }} .copyright__content a, #shopify-section-{{ section.id }} .localization-form__select { font-size: {{ section.settings.fl_font_size_mobile }}px; }
         {%- endif -%}
       }
     {%- endif -%}
