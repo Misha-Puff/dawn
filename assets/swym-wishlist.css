@@ -96,6 +96,11 @@ div#swymcs-wishlist-list-options-container {
   letter-spacing: normal;
 }
 
+/* <button class="link"> doesn't inherit the 1.4rem body size the way <a> does. */
+.swymcs-wishlist-list-actions .link {
+  font-size: 1.4rem;
+}
+
 .swymcs-wishlist-list-actions a[href='#'] {
   cursor: not-allowed;
   opacity: 0.5;
@@ -113,8 +118,9 @@ select.swym-mutliple-list {
   appearance: initial;
 }
 
+/* Width comes from the section's .page-width class so tiles line up with
+   collection-grid cards (an extra 1200px cap used to shrink them). */
 .swymcs-custom-wishlist {
-  max-width: 1200px;
   font-size: 14px;
   line-height: 20px;
   display: block;
@@ -167,17 +173,31 @@ select.swym-mutliple-list {
   margin-top: 15px;
 }
 
+/* Tile grid mirrors the collection grid: 2-across mobile / 4-across desktop,
+   gaps from the theme's global grid-spacing vars (emitted at :root in
+   theme.liquid; fallbacks are the collection grid's computed values). */
 .swymcs-custom-wishlist #swymcs-wishlist-items-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 45px 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: var(--grid-mobile-horizontal-spacing, 12px);
+  row-gap: var(--grid-mobile-vertical-spacing, 20px);
   margin-top: 10px;
+}
+
+@media screen and (min-width: 750px) {
+  .swymcs-custom-wishlist #swymcs-wishlist-items-container {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: var(--grid-desktop-horizontal-spacing, 24px);
+    row-gap: var(--grid-desktop-vertical-spacing, 40px);
+  }
 }
 
 .swymcs-wishlistplus-item {
   position: relative;
-  width: 32%;
   overflow: hidden;
+  /* Without this the nowrap title sets the track's min-content and the grid
+     blows out instead of ellipsizing (same trick as .card__information). */
+  min-width: 0;
 }
 
 .swymcs-wishlist-modal-container-exit,
@@ -206,39 +226,81 @@ select.swym-mutliple-list {
   object-fit: cover;
 }
 
-/* Item tiles follow the collection-card system: 12px Inter titles, 12px mono prices. */
+/* Item tiles follow the storewide card recipe (component-card.css): 11px
+   uppercase ellipsized titles + 11px mono prices sharing one row. Insets
+   match the collection grid's computed card padding (10px top / 8px sides). */
 .swymcs-wishlistplus-item-content {
-  padding-top: 7px;
-  font-size: 12px;
+  padding: 10px 8px 0;
 }
 
-.swymcs-wishlistplus-item-content .swymcs-wishlistplus-item-title {
+/* Title + price share the row like .card__heading-row: the title shrinks and
+   ellipsizes rather than the price wrapping under it. On mobile the title
+   takes the full row and the price wraps beneath — mirroring the card rules. */
+.swymcs-item-heading-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2px 1rem;
+  flex-wrap: wrap;
+}
+
+.swymcs-item-heading-row .swymcs-wishlistplus-item-title {
+  flex: 1 1 100%;
+  min-width: 0;
   text-decoration: none;
-  color: rgb(var(--color-foreground));
+  color: #1a1a1a;
+  font-family: var(--font-heading-family);
+  font-size: 11px;
   font-weight: 400;
+  line-height: max(20px, 1.3em);
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
 }
 
-.swymcs-product-price {
-  color: rgb(var(--color-foreground));
+@media screen and (min-width: 750px) {
+  .swymcs-item-heading-row .swymcs-wishlistplus-item-title {
+    /* The title's wrap-decision floor; it then grows into leftover space
+       and ellipsizes (component-card.css:373-396 behavior). */
+    flex: 1 1 min(10ch, 20%);
+  }
+}
+
+.swymcs-wishlistplus-item-title:hover {
+  text-decoration: underline;
+}
+
+/* Ellipsis needs the block-level inner div — text-overflow only elides
+   inline content. */
+.swymcs-wishlistplus-item-title-content {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.swymcs-item-heading-row .swymcs-product-price {
+  flex-shrink: 0;
+  color: #1a1a1a;
   font-family: var(--font-mono-family);
-  font-size: 12px;
-  margin-bottom: 10px;
+  font-size: 11px;
+  letter-spacing: 0.2px;
+  line-height: calc(1 + 0.4 / var(--font-body-scale));
+  margin: 0;
 }
 
+/* Compare-at strike matches the card sale treatment: struck regular price,
+   same color, 6.4px gap before the sale price (collection-grid computed). */
 .swymcs-product-price-compare {
   text-decoration: line-through;
-  color: rgb(var(--color-foreground));
-  margin-right: 1rem;
+  color: #1a1a1a;
+  margin-right: 6.4px;
+}
+
+.swymcs-wishlist-action-container {
+  margin-top: 10px;
 }
 
 #share-wishlist {
   position: relative;
-}
-
-@media only screen and (max-width: 767px) {
-  .swymcs-wishlistplus-item {
-    width: 47%;
-  }
 }
 
 @media only screen and (max-width: 400px) {
@@ -251,9 +313,5 @@ select.swym-mutliple-list {
 
   .swymcs-wishlist-list-actions > * {
     padding-left: 0;
-  }
-
-  .swymcs-wishlistplus-item {
-    width: 100%;
   }
 }

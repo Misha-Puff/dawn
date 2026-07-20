@@ -1,11 +1,13 @@
-/* Popup typography pass (deck 7.10 "pop-ups audit"): pin app-rendered popup
-   surfaces to the theme type system (Inter body / Overpass Mono prices).
-   Audited 2026-07-14 on dev theme: BIS modal, quick-add modal, size overlay,
-   Shop-the-Look popup and Swym surfaces are already on-system — only the
-   surfaces below ship their own font stacks.
+/* App-surface typography + parity (deck 7.10 "pop-ups audit", extended
+   2026-07-20 with full Rebuy Smart Cart parity): pin app-rendered surfaces
+   to the theme type system (Inter body / Overpass Mono prices) and carry
+   the storewide card/button recipe into the Rebuy cart.
+   Audited 2026-07-14 + 2026-07-20 on dev theme: BIS modal, quick-add modal,
+   size overlay, Shop-the-Look popup and Swym surfaces are already on-system —
+   only the surfaces below need overrides.
 
    Loaded globally from layout/theme.liquid (these surfaces appear on any page).
-   !important is required: both apps inline their font styles. */
+   !important is required where noted: the apps' own styles land after ours. */
 
 /* Klaviyo signup forms (popup + embeds) — heading/button ship as Arial/Helvetica.
    Font family only: sizes, colors and spacing stay dashboard-controlled. */
@@ -85,10 +87,11 @@
   color: rgba(var(--color-foreground), 0.75) !important;
 }
 
-/* Rebuy carousels OUTSIDE the Smart Cart (Nathan 2026-07-15): match the
-   store-wide card recipe. widget-type-cart (the flyout upsell grid) is
-   excluded — the cart is Rebuy-owned and already themed. */
-.rebuy-widget:not(.widget-type-cart) .rebuy-product-title {
+/* Rebuy product cards everywhere — page carousels AND the flyout upsell grid
+   (Nathan 2026-07-20 dropped the widget-type-cart exclusion): match the
+   store-wide card recipe. The cart-scoped rules below re-assert these with
+   !important where Rebuy's own cart stylesheet out-cascades them. */
+.rebuy-widget .rebuy-product-title {
   font-family: var(--font-heading-family);
   font-size: 11px;
   text-transform: uppercase;
@@ -96,10 +99,120 @@
   color: #1a1a1a;
 }
 
-.rebuy-widget:not(.widget-type-cart) .rebuy-product-price,
-.rebuy-widget:not(.widget-type-cart) .rebuy-money {
+.rebuy-widget .rebuy-product-price,
+.rebuy-widget .rebuy-money {
   font-family: var(--font-mono-family);
   font-size: 11px;
   letter-spacing: 0.2px;
   color: #1a1a1a;
+}
+
+/* Rebuy Smart Cart parity (Nathan 2026-07-20): the visible cart joins the
+   storewide vocabulary — card-recipe titles/prices, mono uppercase buttons,
+   square corners. Audited live 2026-07-20; Rebuy's cart stylesheet loads
+   after this file, so these carry !important. Structural layout, icons,
+   progress-bar colors and copy stay Rebuy-admin-owned. */
+
+/* Flyout title — overlay-heading treatment (mono uppercase, matching the
+   in-cart "You may also like" heading and theme button tracking). */
+.rebuy-cart .rebuy-cart__title {
+  font-family: var(--font-mono-family) !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.96px !important;
+  color: #1a1a1a !important;
+}
+
+/* Line-item titles follow the card recipe (was 14px sentence-case with a
+   permanent underline). */
+.rebuy-cart .rebuy-cart__flyout-item-product-title {
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.2px !important;
+  color: #1a1a1a !important;
+  text-decoration: none !important;
+}
+
+.rebuy-cart .rebuy-cart__flyout-item-product-title:hover {
+  text-decoration: underline !important;
+}
+
+/* Variant meta (cart lines + upsell cards) — card-recipe scale, keeps
+   Rebuy's muted grey. */
+.rebuy-cart .rebuy-cart__flyout-item-variant-title,
+.rebuy-cart .rebuy-variant-title {
+  font-size: 11px !important;
+  letter-spacing: 0.2px !important;
+}
+
+/* All cart prices (line items + upsell) — size/tracking/color on top of the
+   mono pin above. */
+.rebuy-cart .rebuy-money {
+  font-size: 11px !important;
+  letter-spacing: 0.2px !important;
+  color: #1a1a1a !important;
+}
+
+/* Upsell product titles — re-assert the card recipe against Rebuy's cart
+   stylesheet (14px/500) and the global mono h5 override (they're <h5>s). */
+.rebuy-cart .rebuy-product-title,
+.rebuy-cart .rebuy-product-title a {
+  font-family: var(--font-heading-family) !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.2px !important;
+  color: #1a1a1a !important;
+}
+
+/* Subtotal row: label joins the card-title treatment; amount joins the mono
+   price treatment (was 12px bold Inter), one step up from line-item scale. */
+.rebuy-cart .rebuy-cart__flyout-subtotal-label {
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.2px !important;
+  color: #1a1a1a !important;
+}
+
+.rebuy-cart .rebuy-cart__flyout-subtotal-amount {
+  font-family: var(--font-mono-family) !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.2px !important;
+  color: #1a1a1a !important;
+}
+
+/* Buttons (checkout + upsell add/options) — theme .button typography
+   (mono, uppercase, 0.96px tracking at 12px) + square corners. Background
+   pinned to the theme button black (Rebuy admin ships #101820); disabled
+   states keep Rebuy's greyed treatment. */
+.rebuy-cart .rebuy-button {
+  font-family: var(--font-mono-family) !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.96px !important;
+  border-radius: 0 !important;
+}
+
+.rebuy-cart .rebuy-button:not([disabled]) {
+  background-color: rgb(18, 18, 18) !important;
+  color: rgb(255, 255, 255) !important;
+}
+
+/* Quantity stepper glyphs arrive bold — normalize to the theme's weight. */
+.rebuy-cart .rebuy-cart__flyout-item-quantity-widget-button {
+  font-weight: 400 !important;
+  color: #1a1a1a !important;
+}
+
+/* Free-shipping step label ("Free Shipping") — mono badge treatment; the
+   progress prompt copy stays Inter via the family pin above. */
+.rebuy-cart .rebuy-cart__progress-step-label {
+  font-family: var(--font-mono-family) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.2px !important;
 }

@@ -269,6 +269,10 @@
           : settings.swym_wishlist_item_cta_addtocart
         : settings.swym_wishlist_item_cta_soldout;
 
+    // Card parity: the tile shows only the colorway (option1) — "Persimmon / 2y" → "Persimmon".
+    const variantColor = (selectedVariant.title || '').split(' / ')[0];
+    const itemTitle = variantColor && variantColor !== 'Default Title' ? `${item.dt} - ${variantColor}` : item.dt;
+
     const compareAtPrice = item.productData.compare_at_price / 100;
 
     const priceContent =
@@ -287,10 +291,12 @@
         <img src="${productImage}" class="swymcs-wishlistplus-item-image" />
       </a>
       <div class="swymcs-wishlistplus-item-content">
-        <a href="${item.du}" class="swymcs-wishlistplus-item-title">
-          <div class="swymcs-wishlistplus-item-title-content">${item.dt} - ${selectedVariant.title}</div>
-        </a>
-        ${settings.swym_wishlist_show_price ? priceContent : ''}
+        <div class="swymcs-item-heading-row">
+          <a href="${item.du}" class="swymcs-wishlistplus-item-title">
+            <div class="swymcs-wishlistplus-item-title-content">${itemTitle}</div>
+          </a>
+          ${settings.swym_wishlist_show_price ? priceContent : ''}
+        </div>
         <div class="swymcs-wishlist-action-container">
           ${
             settings.swym_wishlist_show_addtocart
