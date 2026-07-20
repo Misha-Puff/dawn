@@ -251,7 +251,13 @@ class FacetFiltersForm extends HTMLElement {
   }
 
   static updateURLHash(searchParams) {
-    history.pushState({ searchParams }, '', `${window.location.pathname}${searchParams && '?'.concat(searchParams)}`);
+    // Carry the campaign/collection view param (?display=) through filter/sort
+    // rewrites; the { searchParams } state payload stays form-derived.
+    const url = new URLSearchParams(searchParams);
+    const display = new URLSearchParams(window.location.search).get('display');
+    if (display) url.set('display', display);
+    const qs = url.toString();
+    history.pushState({ searchParams }, '', `${window.location.pathname}${qs && '?'.concat(qs)}`);
   }
 
   static getSections() {

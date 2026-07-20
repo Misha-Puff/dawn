@@ -650,7 +650,7 @@
             "width_pct_mobile": "100",
             "tile_gap": "6",
             "cta_label": "SHOP THE COLLECTION",
-            "cta_link": "/collections/baby-fall",
+            "cta_link": "/collections/baby-fall?display=collection",
             "pad_top": "",
             "pad_bottom": "",
             "pad_top_mobile": "",
