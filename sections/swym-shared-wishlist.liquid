@@ -122,18 +122,36 @@
     const variantColor = (selectedVariant.title || '').split(' / ')[0];
     const itemTitle = variantColor && variantColor !== 'Default Title' ? `${item.dt} - ${variantColor}` : item.dt;
 
-    const compareAtPrice = item.productData.compare_at_price;
+    // The product .js payload is already in the buyer's selected (Markets)
+    // currency — format with Intl so symbol + decimals follow that currency
+    // (XAF has none), matching the collection card's money_with_currency
+    // treatment. Sale detection compares within the same payload: item.pr is
+    // Swym's add-time price in whatever currency was active then, so
+    // comparing against it fabricates sales after a currency switch.
+    const price = item.productData.price / 100;
+    const compareAtPrice = (item.productData.compare_at_price || 0) / 100;
+    const currency = window.Shopify?.currency?.active || 'USD';
+    let moneyFormatter;
+    try {
+      moneyFormatter = new Intl.NumberFormat(document.documentElement.lang || 'en', {
+        style: 'currency',
+        currency,
+        currencyDisplay: 'narrowSymbol',
+      });
+    } catch (e) {
+      moneyFormatter = new Intl.NumberFormat(document.documentElement.lang || 'en', {
+        style: 'currency',
+        currency,
+      });
+    }
+    const formatMoney = (amount) => `${moneyFormatter.format(amount)} ${currency}`;
 
     const priceContent =
-      compareAtPrice && compareAtPrice > item.pr
-        ? `<div class="swymcs-product-price"><span class="swymcs-product-price-compare">${_swat.currency}${(
-            compareAtPrice / 100
-          ).toFixed(2)}</span><span class="swymcs-product-price-final">${_swat.currency}${(
-            item.productData.price / 100
-          ).toFixed(2)}</span></div>`
-        : `<div class="swymcs-product-price"><span class="swymcs-product-price-final">${_swat.currency}${(
-            item.productData.price / 100
-          ).toFixed(2)}</span></div>`;
+      compareAtPrice > price
+        ? `<div class="swymcs-product-price"><span class="swymcs-product-price-compare">${formatMoney(
+            compareAtPrice
+          )}</span><span class="swymcs-product-price-final">${formatMoney(price)}</span></div>`
+        : `<div class="swymcs-product-price"><span class="swymcs-product-price-final">${formatMoney(price)}</span></div>`;
 
     wishlistItem.innerHTML = `
       <a href="${item.du}" class="swymcs-wishlist-image-container">
