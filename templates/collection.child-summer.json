@@ -13,7 +13,6 @@
     "shogun-above",
     "banner",
     "rich_text_YJeCaw",
-    "buttons_Y667Cy",
     "product-grid",
     "shogun-below",
     "shogun-optimizer",
@@ -132,130 +131,6 @@
         "padding_bottom_mobile": 28,
         "padding_left_mobile": 14,
         "padding_right_mobile": 14
-      }
-    },
-    "buttons_Y667Cy": {
-      "type": "buttons",
-      "blocks": {
-        "button_NatF3b": {
-          "type": "button",
-          "settings": {
-            "label": "TOPS",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-tops",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": true,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "overpass_mono",
-            "tg_font_weight": "400",
-            "tg_font_size": 12,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0.4,
-            "tg_color": "#1a1a1a"
-          }
-        },
-        "button_JBYUhC": {
-          "type": "button",
-          "settings": {
-            "label": "BOTTOMS",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-bottoms",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_YkEgYX": {
-          "type": "button",
-          "settings": {
-            "label": "DRESSES",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-dresses",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_HKEnRa": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP BABY SUMMER",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-summer",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_HWFEKG": {
-          "type": "button",
-          "settings": {
-            "label": "KINDRED SILHOUETTES",
-            "open_new_tab": true,
-            "link": "shopify://collections/mixed-kindred-silhouettes",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "button_NatF3b",
-        "button_JBYUhC",
-        "button_YkEgYX",
-        "button_HKEnRa",
-        "button_HWFEKG"
-      ],
-      "disabled": true,
-      "name": "Buttons",
-      "settings": {
-        "title": "",
-        "button_gap": 12,
-        "heading_size": "h2",
-        "color_scheme": "",
-        "desktop_padding_top": 0,
-        "desktop_padding_bottom": 28,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 24
       }
     },
     "product-grid": {
