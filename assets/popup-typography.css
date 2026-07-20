@@ -216,3 +216,60 @@
   text-transform: uppercase !important;
   letter-spacing: 0.2px !important;
 }
+
+/* Klaviyo subscribe-page embed (form TXsXhC only — the wrapper div in
+   templates/page.subscribe.json; the popup is separate DOM appended to <body>
+   and stays dashboard-styled). Klaviyo inlines font styles on the rendered
+   spans, so every declaration carries !important; these selectors also
+   out-specify the .klaviyo-form * family pin above where they overlap.
+   Colors, backgrounds and layout stay dashboard-controlled.
+   Audited live 2026-07-20: heading ships as bold-15px inline-styled spans
+   (no hN) in the first form-row, SMS consent as an inline-12px span in the
+   last; both selectors are coupled to that dashboard row order. */
+
+/* Headline — global h2 treatment (14px/400; family already Inter via the pin
+   above). The 1px outer spans are Klaviyo wrappers; sizing them with the text
+   is harmless. */
+.klaviyo-form-TXsXhC [data-testid='form-row']:first-child span {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
+/* SIGN UP button — theme .button typography and geometry (mono uppercase at
+   the 12px button scale, padding box, square corners); Klaviyo's fixed 38px
+   height gives way to the padding. Fill colors stay dashboard-owned. */
+.klaviyo-form-TXsXhC .klaviyo-form-button {
+  font-family: var(--font-mono-family) !important;
+  font-size: 1.5rem !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  padding: var(--button-vertical-padding) var(--button-horizontal-padding) !important;
+  height: auto !important;
+  border-radius: 0 !important;
+}
+
+/* Inputs join the theme field scale (1.6rem, square corners). */
+.klaviyo-form-TXsXhC input[type='tel'],
+.klaviyo-form-TXsXhC input[type='email'],
+.klaviyo-form-TXsXhC input[type='text'] {
+  font-size: 1.6rem !important;
+  border-radius: 0 !important;
+}
+
+/* iOS zoom floor, mirroring the base.css touch-control guard. */
+@media screen and (max-width: 749px) {
+  .klaviyo-form-TXsXhC input[type='tel'],
+  .klaviyo-form-TXsXhC input[type='email'],
+  .klaviyo-form-TXsXhC input[type='text'] {
+    font-size: max(1.6rem, 16px) !important;
+  }
+}
+
+/* SMS-consent fine print — IIA drawer precedent (1.2rem muted). The size
+   also rides on the span because Klaviyo inlines 12px there. */
+.klaviyo-form-TXsXhC [data-testid='form-row']:last-child p,
+.klaviyo-form-TXsXhC [data-testid='form-row']:last-child p span {
+  font-size: 1.2rem !important;
+  color: rgba(var(--color-foreground), 0.75) !important;
+}
