@@ -131,6 +131,7 @@
       </div>
     </div>
   </div>
+  <p id="swymcs-atc-live-region" class="visually-hidden" aria-live="polite"></p>
 </swymcs-custom-wishlist>
 
 <script>
@@ -348,13 +349,17 @@
           button.innerHTML = settings.swym_wishlist_item_cta_addedtocart;
           // Build the message from the wishlist item itself — the replay success
           // payload doesn't carry the /cart/add.js {items:[...]} shape this used
-          // to parse (it announced "undefined").
+          // to parse (it announced "undefined"). Swym's toast never mounts on
+          // this page, so the visible feedback is the button + Rebuy flyout;
+          // the live region covers screen readers.
           swat.ui.showSuccessNotification({ message: `<strong>${item.dt}</strong> has been added to cart!` });
+          announceCartUpdate(`${item.dt} has been added to your cart.`);
           refreshCartIconBubble();
         },
         (error) => {
           button.innerHTML = originalButtonState;
           swat.ui.showErrorNotification({ message: error.description });
+          announceCartUpdate(error.description || 'Could not add to cart.');
         }
       );
     });
@@ -376,6 +381,14 @@
     });
 
     elements.itemsContainer.appendChild(wishlistItem);
+  }
+
+  // Clear-then-set so repeating the same message re-announces.
+  function announceCartUpdate(message) {
+    const liveRegion = document.getElementById('swymcs-atc-live-region');
+    if (!liveRegion) return;
+    liveRegion.textContent = '';
+    requestAnimationFrame(() => (liveRegion.textContent = message));
   }
 
   // Swym's replayAddToCart bypasses Dawn's add-to-cart flow, so nothing
