@@ -267,6 +267,18 @@
       display: block;
     }
 
+    {% unless request.design_mode %}
+      /* Immersive campaign: the toggle row exists only in the grid view — the
+         campaign's end-of-page CTA (?display=collection) is the route back to
+         the grid. The editor keeps the row visible so merchants can still flip
+         views in the customizer. The radios stay clip-hidden (not display:none)
+         above, so keyboard focus + arrow switching survive while the labels
+         are hidden. */
+      #view-campaign-{{ section.id }}:checked ~ .collection-view-tabs {
+        display: none;
+      }
+    {% endunless %}
+
     #view-collection-{{ section.id }}:focus-visible ~ .collection-view-tabs label[for="view-collection-{{ section.id }}"],
     #view-campaign-{{ section.id }}:focus-visible ~ .collection-view-tabs label[for="view-campaign-{{ section.id }}"] {
       outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
