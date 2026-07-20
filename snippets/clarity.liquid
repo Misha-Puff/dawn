@@ -1,3 +1,15 @@
+{%- liquid
+  assign customer_segment = 'guest'
+  if customer
+    assign customer_segment = 'member'
+    if customer.metafields.clienteling.very_important_customer or customer.metafields.clienteling.super_vip or customer.metafields.clienteling.vip
+      assign customer_segment = 'vip'
+    endif
+    if customer.tags contains 'staff'
+      assign customer_segment = 'staff'
+    endif
+  endif
+-%}
 <script type="text/javascript">
   (function (c, l, a, r, i, t, y) {
     c[a] =
@@ -11,4 +23,5 @@
     y = l.getElementsByTagName(r)[0];
     y.parentNode.insertBefore(t, y);
   })(window, document, 'clarity', 'script', '75c2w177pq');
+  window.clarity('set', 'customer_segment', {{ customer_segment | json }});
 </script>
