@@ -479,13 +479,14 @@
           class="collection-views__radio"
           name="collection-view-{{ section.id }}"
           id="view-campaign-{{ section.id }}"
-          checked
+          {% if section.settings.view_tabs_order != 'collection_first' %}checked{% endif %}
         >
         <input
           type="radio"
           class="collection-views__radio"
           name="collection-view-{{ section.id }}"
           id="view-collection-{{ section.id }}"
+          {% if section.settings.view_tabs_order == 'collection_first' %}checked{% endif %}
         >
         {%- capture campaign_tab_html -%}
           <label class="collection-view-tabs__tab" for="view-campaign-{{ section.id }}">
@@ -541,13 +542,17 @@
                 });
             };
 
-            // Keep the address bar a shareable deep link. replaceState only (no
-            // new history entries); pass history.state through so facets.js
-            // popstate payloads ({ searchParams }) are never clobbered.
+            // Keep the address bar a shareable deep link: the default (first)
+            // tab's view keeps a clean URL, the other carries ?display=.
+            // replaceState only (no new history entries); pass history.state
+            // through so facets.js popstate payloads ({ searchParams }) are
+            // never clobbered.
+            var defaultView = {% if section.settings.view_tabs_order == 'collection_first' %}'collection'{% else %}'campaign'{% endif %};
             var syncURL = function () {
               var url = new URL(window.location.href);
-              if (grid.checked) url.searchParams.set('display', 'collection');
-              else url.searchParams.delete('display');
+              var current = grid.checked ? 'collection' : 'campaign';
+              if (current === defaultView) url.searchParams.delete('display');
+              else url.searchParams.set('display', current);
               history.replaceState(history.state, '', url);
             };
 
@@ -1991,7 +1996,7 @@
     { "type": "header", "content": "Campaign toggle" },
     { "type": "checkbox", "id": "enable_campaign", "default": true, "label": "Enable campaign view", "info": "Uncheck to hide the campaign entirely — shoppers (and the editor) see the standard collection grid. Campaign blocks are kept but render nothing." },
     { "type": "select", "id": "view_tabs_alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" } ], "default": "center", "label": "Toggle alignment", "info": "Alignment of the Collection / Campaign view toggle row." },
-    { "type": "select", "id": "view_tabs_order", "options": [ { "value": "campaign_first", "label": "Campaign, Collection" }, { "value": "collection_first", "label": "Collection, Campaign" } ], "default": "campaign_first", "label": "Toggle tab order", "info": "Order of the two view tabs. The Link tab always sits last; Campaign stays the default view either way." },
+    { "type": "select", "id": "view_tabs_order", "options": [ { "value": "campaign_first", "label": "Campaign, Collection" }, { "value": "collection_first", "label": "Collection, Campaign" } ], "default": "campaign_first", "label": "Toggle tab order", "info": "Order of the two view tabs — the page loads showing the first tab's view. The Link tab always sits last." },
     { "type": "text", "id": "link_tab_label", "label": "Link tab label", "default": "Link" },
     { "type": "url", "id": "link_tab_url", "label": "Link tab URL", "info": "Opens in a new tab. Leave blank to hide the Link tab." },
     { "type": "checkbox", "id": "jump_link_enable", "default": false, "label": "Show floating collection link", "info": "Fixed to the bottom of the screen while the campaign view is active; jumps to the collection view." },
