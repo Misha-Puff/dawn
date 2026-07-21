@@ -11,24 +11,31 @@
   "sections": {
     "gp_section_603859875377709983": {
       "settings": {
-        "checksum": "0b3d6acbccd079ff02517377c28e19193968bdce1f6b6b3528e4883008961cbf_1_1_1_0__1",
+        "checksum": "0b3d6acbccd079ff02517377c28e19193968bdce1f6b6b3528e4883008961cbf_1_1_0_0__1",
         "gg2NAAt5DbD_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\"><span style=\"font-size:11px;\">JOURNAL</span></a></p>",
+        "gg9WuMBDLCX_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_Custom_1.27_Sale.jpg",
+        "gg9WuMBDLCX_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_Custom_1.27_Sale.jpg",
+        "gg9bhgJS-gs_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_Custom_1.27_Journal.jpg",
         "ggRzArRZUz6_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-sale\">SALE — New Markdowns</a></p>"
       },
       "type": "gp-section-603859875377709983"
     },
     "gp_section_603859875377775519": {
       "settings": {
-        "checksum": "9a49f13000b73733fe6b080fe301dc558a154473cd15fa9f2c8b3b4e94716473_1_1_1_0__1",
+        "checksum": "9a49f13000b73733fe6b080fe301dc558a154473cd15fa9f2c8b3b4e94716473_1_1_0_0__1",
         "gg-Y6akhjPy_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-WINTER\"><span style=\"font-size:11px;\">BABY COLLECTION</span></a></p>",
+        "ggkByHG1lk2_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_Custom_1.27.26_Baby_HP_f9cc2d1e-4c2d-48ce-8e84-3ecb87da2469.jpg",
         "gglv94RH8qJ_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-hand-knit\"><span style=\"font-size:11px;\">KNITWEAR</span></a></p>",
-        "section_preload": "true"
+        "ggskSaomHYe_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_Custom_1.27_Child_Knits.jpg",
+        "ggskSaomHYe_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_Custom_1.27_Child_Knits.jpg"
       },
       "type": "gp-section-603859875377775519"
     },
     "gp_section_603859875377841055": {
       "settings": {
-        "checksum": "9e5e17304bbe9f4dfcbe4d0893c1d385bd17f2310e1140058437a8be7f444c5b_1_1_1_0__1",
+        "checksum": "9e5e17304bbe9f4dfcbe4d0893c1d385bd17f2310e1140058437a8be7f444c5b_1_1_0_0__1",
+        "gg_Inch1Dpn_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_Site_1.27.26_Child_HP.jpg",
+        "gg_Inch1Dpn_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_Custom_1.27.26_Child_HP.jpg",
         "gggbwV7YbXZ_label": "<p>NEW ARRIVALS</p>",
         "section_preload": "true"
       },
@@ -36,9 +43,10 @@
     },
     "gp_section_603876627696321031": {
       "settings": {
-        "checksum": "bfb3d38d6f33c94915d37dfa1e015cf17f82af89ff567f447872b9d4e7d11c2c_1_1_1_0__1",
+        "checksum": "bfb3d38d6f33c94915d37dfa1e015cf17f82af89ff567f447872b9d4e7d11c2c_1_1_0_0__1",
         "ggJ0OG_fSYB_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-fall\"><span style=\"font-size:11px;\">ADULT COLLECTION</span></a></p>",
-        "section_preload": "true"
+        "ggzV3fDhgqD_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_Site_1.27_Adult_HP.jpg",
+        "ggzV3fDhgqD_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_Custom_1.27_Adult_HP.jpg"
       },
       "type": "gp-section-603876627696321031"
     }

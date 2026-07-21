@@ -11,7 +11,7 @@
   "sections": {
     "gp_section_565435429168350276": {
       "settings": {
-        "checksum": "0d5ace2a35e91a4794d2cd0fec202a00e32545923143638b9403200ad15da50f_1_1_1_0__1",
+        "checksum": "0d5ace2a35e91a4794d2cd0fec202a00e32545923143638b9403200ad15da50f_1_1_0_0__1",
         "gg5_GEvhnAz_label": "<p>SALE</p>",
         "ggHLnNHWcjZ_label": "<p>TOPS</p>",
         "ggHLv-ZKTlu_label": "<p>PIMA STAPLES</p>",
@@ -23,39 +23,37 @@
     },
     "gp_section_565435429168415812": {
       "settings": {
-        "checksum": "478553fe7cb087bdea0e43edad8b6aa6d0ec6ab359f85a30ddbeb33d97dfca93_1_1_1_0__1"
+        "checksum": "478553fe7cb087bdea0e43edad8b6aa6d0ec6ab359f85a30ddbeb33d97dfca93_1_1_0_0__1"
       },
       "type": "gp-section-565435429168415812"
     },
     "gp_section_565435429168546884": {
       "settings": {
-        "checksum": "c1b9ea196e7bd93f063baf204244f9044349fff82dcd6dcf75da87ff8c73327a_1_1_1_0__1",
+        "checksum": "c1b9ea196e7bd93f063baf204244f9044349fff82dcd6dcf75da87ff8c73327a_1_1_0_0__1",
         "ggAru6fM4U3_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-new\"><span style=\"font-size:11px;\">NEW ARRIVALS</span></a></p>",
         "ggIGELazyYT_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_B2_39936c63-d132-46a3-a4f8-11cbfd108b25.jpg",
         "ggIGELazyYT_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_B2.jpg",
         "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/coastal-prints\"><span style=\"font-size:11px;\">COASTAL PRINTS</span></a></p>",
-        "ggwERI3h1Ic_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_B1.jpg",
-        "section_preload": "true"
+        "ggwERI3h1Ic_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_B1.jpg"
       },
       "type": "gp-section-565435429168546884"
     },
     "gp_section_565743274438952146": {
       "settings": {
-        "checksum": "49f3e2f1c4a7c44c1a1cf94076a418880ad6adb40babebb82b155d727a259c90_1_1_1_0__1",
+        "checksum": "49f3e2f1c4a7c44c1a1cf94076a418880ad6adb40babebb82b155d727a259c90_1_1_0_0__1",
         "ggNIzGr-zG6_text": "<span style=\"font-size:11px;\">SUMMER FAVORITES</span>",
         "ggfEg-ZUUju_errorMessage": "Cannot add product to cart",
         "ggfEg-ZUUju_label": "ADD TO CART",
         "ggfEg-ZUUju_outOfStockLabel": "Out of stock",
         "ggfEg-ZUUju_successMessage": "Add product to cart successfully",
         "ggfEg-ZUUju_unavailableLabel": "Unavailable",
-        "ggfEg-ZUUju_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
-        "section_preload": "true"
+        "ggfEg-ZUUju_variantSelectionRequiredMessage": "Please select a variant to add product to cart"
       },
       "type": "gp-section-565743274438952146"
     },
     "gp_section_594874688266568465": {
       "settings": {
-        "checksum": "db9868ca1729facdd1582e3a4349d8d876ec8f488f7aea5a35e6f633c5b42d08_1_1_1_0__1",
+        "checksum": "db9868ca1729facdd1582e3a4349d8d876ec8f488f7aea5a35e6f633c5b42d08_1_1_0_0__1",
         "ggSHGSCkCi3_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\"><span style=\"font-size:11px;\">JOURNAL</span></a></p>",
         "ggcoaIGj9mS_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_journal_2_f1590d28-8d53-4f72-9dc3-ea5f7dabae11.jpg",
         "ggcoaIGj9mS_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_journal_5.jpg"
@@ -64,7 +62,7 @@
     },
     "gp_section_605470085745738326": {
       "settings": {
-        "checksum": "7dd310007fbdb02bf235e4500a2e39a02d0bc3682a3d428677da667661da9751_1_1_1_0__1",
+        "checksum": "7dd310007fbdb02bf235e4500a2e39a02d0bc3682a3d428677da667661da9751_1_1_0_0__1",
         "ggGaHyM2xcW_text": "<p><span style=\"font-size:11px;\">NEW ARRIVALS</span></p>",
         "ggKqnWfxDgA_label": "<p>SHOP COLLECTION</p>",
         "ggffPdqKv-__text": "<p>SUMMER COLLECTION, PART 3</p>",
