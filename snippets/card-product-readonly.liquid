@@ -1,6 +1,9 @@
 {% doc %}
-  Renders a read-only product card with no links, IDs, or actionable elements.
+  Renders a read-only product card with no visible links, IDs, or actionable elements.
   Used on preview collections for non-VIP/non-staff customers.
+  The one exception is an inert zero-size anchor carrying the product URL: the Swym
+  collections embed (Dawn config) reads `.card.card--standard a.full-unstyled-link`
+  to resolve the tile's product and inject its wishlist heart natively.
   Shows the colorway line when the host section's swatch setting is off,
   following the same swatches ⇄ color line rule as card-product.
 
@@ -46,6 +49,13 @@
       "
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
+      <a
+        class="full-unstyled-link"
+        href="{{ card_product.url }}"
+        tabindex="-1"
+        aria-hidden="true"
+        style="position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none;"
+      ></a>
       <div
         class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}"
         style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
