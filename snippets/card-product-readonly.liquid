@@ -14,6 +14,7 @@
   @param {boolean} [lazy_load] - Lazy load images (default: true)
   @param {boolean} [skip_styles] - Skip component styles
   @param {string} [preview_badge] - Optional badge label rendered alongside other badges (e.g. "Coming Soon", "Early Access")
+  @param {boolean} [size_overlay] - Show the size list on hover; informational only, sizes never render as sold out
   @param {boolean} [hide_sold_out_badge] - Suppress the "Sold out" badge (default: false)
   @param {string} [section_id] - Host section id, used to make badge ids unique
 
@@ -109,6 +110,19 @@
             </div>
           </div>
         {%- endif -%}
+        {%- liquid
+          assign show_size_overlay = false
+          if size_overlay
+            unless card_product.type == 'Yarn Skein' or card_product.type == 'Pattern' or card_product.type == 'Repair' or card_product.has_only_default_variant
+              assign show_size_overlay = true
+            endunless
+          endif
+        -%}
+        {% if show_size_overlay %}
+          <div class="popup-overlay background">
+            {% render 'variant-availability', product: card_product, ignore_availability: true %}
+          </div>
+        {% endif %}
         <div class="card__content">
           <div class="card__information">
             <h3
