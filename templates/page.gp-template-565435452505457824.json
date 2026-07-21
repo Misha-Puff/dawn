@@ -11,7 +11,7 @@
   "sections": {
     "gp_section_565435452589343904": {
       "settings": {
-        "checksum": "4c83dc38807a384b3b62b675b44f0e9e9b58507dc062f55082bd8a471beeb083_1_1_1_0__1",
+        "checksum": "4c83dc38807a384b3b62b675b44f0e9e9b58507dc062f55082bd8a471beeb083_1_1_0_0__1",
         "ggK0AfVBMiV_label": "<p>BOTTOMS</p>",
         "ggSFNG5Xr-f_label": "<p>BEST SELLERS</p>",
         "ggW-o9tY_db_label": "<p>PIMA STAPLES</p>",
@@ -23,41 +23,39 @@
     },
     "gp_section_565435452589409440": {
       "settings": {
-        "checksum": "d777f2f889feb81973c89d73adeeed103f8c2f14e1df6d0ba4ea2f080b14bf30_1_1_1_0__1",
+        "checksum": "d777f2f889feb81973c89d73adeeed103f8c2f14e1df6d0ba4ea2f080b14bf30_1_1_0_0__1",
         "gg1Ve0XA89y_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_A4.jpg",
         "gg1Ve0XA89y_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_A4.jpg",
         "ggIGELazyYT_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_A3.jpg",
         "ggIGELazyYT_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_A3.jpg",
         "ggIGELazyYT_srcSet_tablet_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_A3.jpg",
         "ggbDd2zt18S_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-pima-cotton\">LOUNGEABLE LAYERS</a></p>",
-        "ggsTJ7CdiHi_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/mixed-kindred-silhouettes\">KINDRED SILHOUETTES</a></p>",
-        "section_preload": "true"
+        "ggsTJ7CdiHi_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/mixed-kindred-silhouettes\">KINDRED SILHOUETTES</a></p>"
       },
       "type": "gp-section-565435452589409440"
     },
     "gp_section_565435452589474976": {
       "settings": {
-        "checksum": "69fbaa501f64246d85cf4596804fffcbb51bca14a798efc056ee44cb8f6ec232_1_1_1_0__1"
+        "checksum": "69fbaa501f64246d85cf4596804fffcbb51bca14a798efc056ee44cb8f6ec232_1_1_0_0__1"
       },
       "type": "gp-section-565435452589474976"
     },
     "gp_section_565743354969654482": {
       "settings": {
-        "checksum": "72d3bd3bac81e56a71127ac66a502539eae723d22190b167aff2993900a4101d_1_1_1_0__1",
+        "checksum": "72d3bd3bac81e56a71127ac66a502539eae723d22190b167aff2993900a4101d_1_1_0_0__1",
         "ggCFij8kVJX_text": "<span style=\"font-size:11px;\">BEST SELLERS</span>",
         "ggjkEChLl3S_errorMessage": "Cannot add product to cart",
         "ggjkEChLl3S_label": "ADD TO CART",
         "ggjkEChLl3S_outOfStockLabel": "Out of stock",
         "ggjkEChLl3S_successMessage": "Add product to cart successfully",
         "ggjkEChLl3S_unavailableLabel": "Unavailable",
-        "ggjkEChLl3S_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
-        "section_preload": "true"
+        "ggjkEChLl3S_variantSelectionRequiredMessage": "Please select a variant to add product to cart"
       },
       "type": "gp-section-565743354969654482"
     },
     "gp_section_594876262657295282": {
       "settings": {
-        "checksum": "a511bd30061dcc9fbf592aa5ce4c6058a3cac5867000f301f1fae4dac461b8c2_1_1_1_0__1",
+        "checksum": "a511bd30061dcc9fbf592aa5ce4c6058a3cac5867000f301f1fae4dac461b8c2_1_1_0_0__1",
         "ggVv7jGqoi7_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_journal_2_f1590d28-8d53-4f72-9dc3-ea5f7dabae11.jpg",
         "ggVv7jGqoi7_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_journal_5.jpg",
         "ggVv7jGqoi7_background_tablet_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_journal_2_f1590d28-8d53-4f72-9dc3-ea5f7dabae11.jpg",
@@ -67,7 +65,7 @@
     },
     "gp_section_611214031427994411": {
       "settings": {
-        "checksum": "d453a2fe7b8ade640415dc1db42355bf2dc52a13c4c6c33d9279e3980de9a9cc_1_1_1_0__1",
+        "checksum": "d453a2fe7b8ade640415dc1db42355bf2dc52a13c4c6c33d9279e3980de9a9cc_1_1_0_0__1",
         "gg-ZfgEyhaM_text": "<p>ADULT SPRING/SUMMER</p>",
         "ggg8FkLUN8T_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_LEADER_6.11_ADULT.jpg",
         "ggg8FkLUN8T_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_AH1_45f51a8a-63fd-4dac-ba46-8380c1b1f759.jpg",
