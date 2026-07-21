@@ -1,20 +1,67 @@
 
-    {% render 'gp-head', 'isThemeSection: true' %}
+    {% render 'gp-head', isThemeSection: true %}
     
-    <style {% if section.settings.section_preload == "false" %} class="gps-link gps-style" type="text/disabled-css" {% endif %}>.gps-592816782889190205.gps.gpsil [style*="--bg:"]{background:var(--bg)}.gps-592816782889190205.gps.gpsil [style*="--bga:"]{background-attachment:var(--bga)}.gps-592816782889190205.gps.gpsil [style*="--bgc:"]{background-color:var(--bgc)}.gps-592816782889190205.gps.gpsil [style*="--bgi:"]{background-image:var(--bgi)}.gps-592816782889190205.gps.gpsil [style*="--bgp:"]{background-position:var(--bgp)}.gps-592816782889190205.gps.gpsil [style*="--bgr:"]{background-repeat:var(--bgr)}.gps-592816782889190205.gps.gpsil [style*="--bgs:"]{background-size:var(--bgs)}.gps-592816782889190205.gps.gpsil [style*="--b:"]{border:var(--b)}.gps-592816782889190205.gps.gpsil [style*="--bb:"]{border-bottom:var(--bb)}.gps-592816782889190205.gps.gpsil [style*="--bc:"]{border-color:var(--bc)}.gps-592816782889190205.gps.gpsil [style*="--bblr:"]{border-bottom-left-radius:var(--bblr)}.gps-592816782889190205.gps.gpsil [style*="--bbrr:"]{border-bottom-right-radius:var(--bbrr)}.gps-592816782889190205.gps.gpsil [style*="--bs:"]{border-style:var(--bs)}.gps-592816782889190205.gps.gpsil [style*="--bt:"]{border-top:var(--bt)}.gps-592816782889190205.gps.gpsil [style*="--btlr:"]{border-top-left-radius:var(--btlr)}.gps-592816782889190205.gps.gpsil [style*="--btrr:"]{border-top-right-radius:var(--btrr)}.gps-592816782889190205.gps.gpsil [style*="--bw:"]{border-width:var(--bw)}.gps-592816782889190205.gps.gpsil [style*="--shadow:"]{box-shadow:var(--shadow)}.gps-592816782889190205.gps.gpsil [style*="--c:"]{color:var(--c)}.gps-592816782889190205.gps.gpsil [style*="--cg:"]{-moz-column-gap:var(--cg);column-gap:var(--cg)}.gps-592816782889190205.gps.gpsil [style*="--ff:"]{font-family:var(--ff)}.gps-592816782889190205.gps.gpsil [style*="--size:"]{font-size:var(--size)}.gps-592816782889190205.gps.gpsil [style*="--weight:"]{font-weight:var(--weight)}.gps-592816782889190205.gps.gpsil [style*="--gtc:"]{grid-template-columns:var(--gtc)}.gps-592816782889190205.gps.gpsil [style*="--h:"]{height:var(--h)}.gps-592816782889190205.gps.gpsil [style*="--jc:"]{justify-content:var(--jc)}.gps-592816782889190205.gps.gpsil [style*="--ls:"]{letter-spacing:var(--ls)}.gps-592816782889190205.gps.gpsil [style*="--lh:"]{line-height:var(--lh)}.gps-592816782889190205.gps.gpsil [style*="--tdt:"]{text-decoration-thickness:var(--tdt)}.gps-592816782889190205.gps.gpsil [style*="--tdl:"]{text-decoration-line:var(--tdl)}.gps-592816782889190205.gps.gpsil [style*="--m:"]{margin:var(--m)}.gps-592816782889190205.gps.gpsil [style*="--mb:"]{margin-bottom:var(--mb)}.gps-592816782889190205.gps.gpsil [style*="--op:"]{opacity:var(--op)}.gps-592816782889190205.gps.gpsil [style*="--o:"]{order:var(--o)}.gps-592816782889190205.gps.gpsil [style*="--pc:"]{place-content:var(--pc)}.gps-592816782889190205.gps.gpsil [style*="--p:"]{padding:var(--p)}.gps-592816782889190205.gps.gpsil [style*="--pb:"]{padding-bottom:var(--pb)}.gps-592816782889190205.gps.gpsil [style*="--pl:"]{padding-left:var(--pl)}.gps-592816782889190205.gps.gpsil [style*="--pr:"]{padding-right:var(--pr)}.gps-592816782889190205.gps.gpsil [style*="--pt:"]{padding-top:var(--pt)}.gps-592816782889190205.gps.gpsil [style*="--rg:"]{row-gap:var(--rg)}.gps-592816782889190205.gps.gpsil [style*="--ta:"]{text-align:var(--ta)}.gps-592816782889190205.gps.gpsil [style*="--ts:"]{text-shadow:var(--ts)}.gps-592816782889190205.gps.gpsil [style*="--t:"]{transform:var(--t)}.gps-592816782889190205.gps.gpsil [style*="--w:"]{width:var(--w)}@media only screen and (max-width:1024px){.gps-592816782889190205.gps.gpsil [style*="--size-tablet:"]{font-size:var(--size-tablet)}.gps-592816782889190205.gps.gpsil [style*="--h-tablet:"]{height:var(--h-tablet)}.gps-592816782889190205.gps.gpsil [style*="--ls-tablet:"]{letter-spacing:var(--ls-tablet)}.gps-592816782889190205.gps.gpsil [style*="--lh-tablet:"]{line-height:var(--lh-tablet)}.gps-592816782889190205.gps.gpsil [style*="--mb-tablet:"]{margin-bottom:var(--mb-tablet)}.gps-592816782889190205.gps.gpsil [style*="--pb-tablet:"]{padding-bottom:var(--pb-tablet)}.gps-592816782889190205.gps.gpsil [style*="--pl-tablet:"]{padding-left:var(--pl-tablet)}.gps-592816782889190205.gps.gpsil [style*="--pr-tablet:"]{padding-right:var(--pr-tablet)}.gps-592816782889190205.gps.gpsil [style*="--pt-tablet:"]{padding-top:var(--pt-tablet)}.gps-592816782889190205.gps.gpsil [style*="--rg-tablet:"]{row-gap:var(--rg-tablet)}.gps-592816782889190205.gps.gpsil [style*="--w-tablet:"]{width:var(--w-tablet)}}@media only screen and (max-width:767px){.gps-592816782889190205.gps.gpsil [style*="--size-mobile:"]{font-size:var(--size-mobile)}.gps-592816782889190205.gps.gpsil [style*="--gtc-mobile:"]{grid-template-columns:var(--gtc-mobile)}.gps-592816782889190205.gps.gpsil [style*="--h-mobile:"]{height:var(--h-mobile)}.gps-592816782889190205.gps.gpsil [style*="--ls-mobile:"]{letter-spacing:var(--ls-mobile)}.gps-592816782889190205.gps.gpsil [style*="--lh-mobile:"]{line-height:var(--lh-mobile)}.gps-592816782889190205.gps.gpsil [style*="--mb-mobile:"]{margin-bottom:var(--mb-mobile)}.gps-592816782889190205.gps.gpsil [style*="--pb-mobile:"]{padding-bottom:var(--pb-mobile)}.gps-592816782889190205.gps.gpsil [style*="--pl-mobile:"]{padding-left:var(--pl-mobile)}.gps-592816782889190205.gps.gpsil [style*="--pr-mobile:"]{padding-right:var(--pr-mobile)}.gps-592816782889190205.gps.gpsil [style*="--pt-mobile:"]{padding-top:var(--pt-mobile)}.gps-592816782889190205.gps.gpsil [style*="--rg-mobile:"]{row-gap:var(--rg-mobile)}.gps-592816782889190205.gps.gpsil [style*="--w-mobile:"]{width:var(--w-mobile)}}.gps-592816782889190205 .gp-relative{position:relative}.gps-592816782889190205 .gp-mx-auto{margin-left:auto;margin-right:auto}.gps-592816782889190205 .gp-mb-0{margin-bottom:0}.gps-592816782889190205 .gp-flex{display:flex}.gps-592816782889190205 .gp-inline-flex{display:inline-flex}.gps-592816782889190205 .gp-grid{display:grid}.gps-592816782889190205 .\!gp-hidden{display:none!important}.gps-592816782889190205 .gp-hidden{display:none}.gps-592816782889190205 .gp-h-full{height:100%}.gps-592816782889190205 .gp-max-w-full{max-width:100%}.gps-592816782889190205 .gp-grid-rows-\[1fr\]{grid-template-rows:1fr}.gps-592816782889190205 .gp-flex-col{flex-direction:column}.gps-592816782889190205 .gp-items-center{align-items:center}.gps-592816782889190205 .gp-justify-center{justify-content:center}.gps-592816782889190205 .gp-overflow-hidden{overflow:hidden}.gps-592816782889190205 .gp-break-words{overflow-wrap:break-word}.gps-592816782889190205 .gp-text-center{text-align:center}.gps-592816782889190205 .gp-text-g-text-3{color:var(--g-c-text-3)}.gps-592816782889190205 .gp-no-underline{text-decoration-line:none}.gps-592816782889190205 .gp-transition-colors{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-592816782889190205 .gp-duration-200{transition-duration:.2s}.gps-592816782889190205 .gp-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-592816782889190205 .disabled\:gp-btn-disabled:disabled{cursor:default}.gps-592816782889190205 .disabled\:gp-opacity-30:disabled{opacity:.3}.gps-592816782889190205 .gp-group\/button:active .group-active\/button\:\!gp-text-inherit{color:inherit!important}.gps-592816782889190205 .gp-group[data-state=loading] .group-data-\[state\=loading\]\:gp-invisible{visibility:hidden}@media (max-width:1024px){.gps-592816782889190205 .tablet\:\!gp-hidden{display:none!important}.gps-592816782889190205 .tablet\:gp-hidden{display:none}}@media (max-width:767px){.gps-592816782889190205 .mobile\:\!gp-hidden{display:none!important}.gps-592816782889190205 .mobile\:gp-hidden{display:none}}.gps-592816782889190205 .\[\&_\*\]\:gp-max-w-full *{max-width:100%}.gps-592816782889190205 .\[\&_p\]\:gp-whitespace-pre-line p{white-space:pre-line}</style>
+    <style {% if section.settings.section_preload == "false" %} class="gps-link gps-style" type="text/disabled-css" {% endif %}>.gps-592816782889190205.gps.gpsil [style*="--bg:"]{background:var(--bg)}.gps-592816782889190205.gps.gpsil [style*="--bga:"]{background-attachment:var(--bga)}.gps-592816782889190205.gps.gpsil [style*="--bgc:"]{background-color:var(--bgc)}.gps-592816782889190205.gps.gpsil [style*="--bgi:"]{background-image:var(--bgi)}.gps-592816782889190205.gps.gpsil [style*="--bgp:"]{background-position:var(--bgp)}.gps-592816782889190205.gps.gpsil [style*="--bgr:"]{background-repeat:var(--bgr)}.gps-592816782889190205.gps.gpsil [style*="--bgs:"]{background-size:var(--bgs)}.gps-592816782889190205.gps.gpsil [style*="--b:"]{border:var(--b)}.gps-592816782889190205.gps.gpsil [style*="--bb:"]{border-bottom:var(--bb)}.gps-592816782889190205.gps.gpsil [style*="--bc:"]{border-color:var(--bc)}.gps-592816782889190205.gps.gpsil [style*="--bblr:"]{border-bottom-left-radius:var(--bblr)}.gps-592816782889190205.gps.gpsil [style*="--bbrr:"]{border-bottom-right-radius:var(--bbrr)}.gps-592816782889190205.gps.gpsil [style*="--bs:"]{border-style:var(--bs)}.gps-592816782889190205.gps.gpsil [style*="--bt:"]{border-top:var(--bt)}.gps-592816782889190205.gps.gpsil [style*="--btlr:"]{border-top-left-radius:var(--btlr)}.gps-592816782889190205.gps.gpsil [style*="--btrr:"]{border-top-right-radius:var(--btrr)}.gps-592816782889190205.gps.gpsil [style*="--bw:"]{border-width:var(--bw)}.gps-592816782889190205.gps.gpsil [style*="--shadow:"]{box-shadow:var(--shadow)}.gps-592816782889190205.gps.gpsil [style*="--c:"]{color:var(--c)}.gps-592816782889190205.gps.gpsil [style*="--cg:"]{-moz-column-gap:var(--cg);column-gap:var(--cg)}.gps-592816782889190205.gps.gpsil [style*="--ff:"]{font-family:var(--ff)}.gps-592816782889190205.gps.gpsil [style*="--size:"]{font-size:var(--size)}.gps-592816782889190205.gps.gpsil [style*="--weight:"]{font-weight:var(--weight)}.gps-592816782889190205.gps.gpsil [style*="--gtc:"]{grid-template-columns:var(--gtc)}.gps-592816782889190205.gps.gpsil [style*="--h:"]{height:var(--h)}.gps-592816782889190205.gps.gpsil [style*="--jc:"]{justify-content:var(--jc)}.gps-592816782889190205.gps.gpsil [style*="--ls:"]{letter-spacing:var(--ls)}.gps-592816782889190205.gps.gpsil [style*="--lh:"]{line-height:var(--lh)}.gps-592816782889190205.gps.gpsil [style*="--tdt:"]{text-decoration-thickness:var(--tdt)}.gps-592816782889190205.gps.gpsil [style*="--m:"]{margin:var(--m)}.gps-592816782889190205.gps.gpsil [style*="--mb:"]{margin-bottom:var(--mb)}.gps-592816782889190205.gps.gpsil [style*="--op:"]{opacity:var(--op)}.gps-592816782889190205.gps.gpsil [style*="--o:"]{order:var(--o)}.gps-592816782889190205.gps.gpsil [style*="--pc:"]{place-content:var(--pc)}.gps-592816782889190205.gps.gpsil [style*="--p:"]{padding:var(--p)}.gps-592816782889190205.gps.gpsil [style*="--pb:"]{padding-bottom:var(--pb)}.gps-592816782889190205.gps.gpsil [style*="--pl:"]{padding-left:var(--pl)}.gps-592816782889190205.gps.gpsil [style*="--pr:"]{padding-right:var(--pr)}.gps-592816782889190205.gps.gpsil [style*="--pt:"]{padding-top:var(--pt)}.gps-592816782889190205.gps.gpsil [style*="--rg:"]{row-gap:var(--rg)}.gps-592816782889190205.gps.gpsil [style*="--ta:"]{text-align:var(--ta)}.gps-592816782889190205.gps.gpsil [style*="--ts:"]{text-shadow:var(--ts)}.gps-592816782889190205.gps.gpsil [style*="--t:"]{transform:var(--t)}.gps-592816782889190205.gps.gpsil [style*="--w:"]{width:var(--w)}@media only screen and (max-width:1024px){.gps-592816782889190205.gps.gpsil [style*="--size-tablet:"]{font-size:var(--size-tablet)}.gps-592816782889190205.gps.gpsil [style*="--h-tablet:"]{height:var(--h-tablet)}.gps-592816782889190205.gps.gpsil [style*="--ls-tablet:"]{letter-spacing:var(--ls-tablet)}.gps-592816782889190205.gps.gpsil [style*="--lh-tablet:"]{line-height:var(--lh-tablet)}.gps-592816782889190205.gps.gpsil [style*="--mb-tablet:"]{margin-bottom:var(--mb-tablet)}.gps-592816782889190205.gps.gpsil [style*="--pb-tablet:"]{padding-bottom:var(--pb-tablet)}.gps-592816782889190205.gps.gpsil [style*="--pl-tablet:"]{padding-left:var(--pl-tablet)}.gps-592816782889190205.gps.gpsil [style*="--pr-tablet:"]{padding-right:var(--pr-tablet)}.gps-592816782889190205.gps.gpsil [style*="--pt-tablet:"]{padding-top:var(--pt-tablet)}.gps-592816782889190205.gps.gpsil [style*="--rg-tablet:"]{row-gap:var(--rg-tablet)}.gps-592816782889190205.gps.gpsil [style*="--w-tablet:"]{width:var(--w-tablet)}}@media only screen and (max-width:767px){.gps-592816782889190205.gps.gpsil [style*="--size-mobile:"]{font-size:var(--size-mobile)}.gps-592816782889190205.gps.gpsil [style*="--gtc-mobile:"]{grid-template-columns:var(--gtc-mobile)}.gps-592816782889190205.gps.gpsil [style*="--h-mobile:"]{height:var(--h-mobile)}.gps-592816782889190205.gps.gpsil [style*="--ls-mobile:"]{letter-spacing:var(--ls-mobile)}.gps-592816782889190205.gps.gpsil [style*="--lh-mobile:"]{line-height:var(--lh-mobile)}.gps-592816782889190205.gps.gpsil [style*="--mb-mobile:"]{margin-bottom:var(--mb-mobile)}.gps-592816782889190205.gps.gpsil [style*="--pb-mobile:"]{padding-bottom:var(--pb-mobile)}.gps-592816782889190205.gps.gpsil [style*="--pl-mobile:"]{padding-left:var(--pl-mobile)}.gps-592816782889190205.gps.gpsil [style*="--pr-mobile:"]{padding-right:var(--pr-mobile)}.gps-592816782889190205.gps.gpsil [style*="--pt-mobile:"]{padding-top:var(--pt-mobile)}.gps-592816782889190205.gps.gpsil [style*="--rg-mobile:"]{row-gap:var(--rg-mobile)}.gps-592816782889190205.gps.gpsil [style*="--w-mobile:"]{width:var(--w-mobile)}}.gps-592816782889190205 .gp-relative{position:relative}.gps-592816782889190205 .gp-mx-auto{margin-left:auto;margin-right:auto}.gps-592816782889190205 .gp-mb-0{margin-bottom:0}.gps-592816782889190205 .gp-flex{display:flex}.gps-592816782889190205 .gp-inline-flex{display:inline-flex}.gps-592816782889190205 .gp-grid{display:grid}.gps-592816782889190205 .\!gp-hidden{display:none!important}.gps-592816782889190205 .gp-hidden{display:none}.gps-592816782889190205 .gp-h-full{height:100%}.gps-592816782889190205 .gp-max-w-full{max-width:100%}.gps-592816782889190205 .gp-grid-rows-\[1fr\]{grid-template-rows:1fr}.gps-592816782889190205 .gp-flex-col{flex-direction:column}.gps-592816782889190205 .gp-items-center{align-items:center}.gps-592816782889190205 .gp-justify-center{justify-content:center}.gps-592816782889190205 .gp-overflow-hidden{overflow:hidden}.gps-592816782889190205 .gp-break-words{overflow-wrap:break-word}.gps-592816782889190205 .gp-text-center{text-align:center}.gps-592816782889190205 .gp-text-g-text-3{color:var(--g-c-text-3)}.gps-592816782889190205 .gp-no-underline{text-decoration-line:none}.gps-592816782889190205 .gp-transition-colors{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-592816782889190205 .gp-duration-200{transition-duration:.2s}.gps-592816782889190205 .gp-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-592816782889190205 .disabled\:gp-btn-disabled:disabled{cursor:default}.gps-592816782889190205 .disabled\:gp-opacity-30:disabled{opacity:.3}.gps-592816782889190205 .gp-group\/button:active .group-active\/button\:\!gp-text-inherit{color:inherit!important}.gps-592816782889190205 .gp-group[data-state=loading] .group-data-\[state\=loading\]\:gp-invisible{visibility:hidden}@media (max-width:1024px){.gps-592816782889190205 .tablet\:\!gp-hidden{display:none!important}.gps-592816782889190205 .tablet\:gp-hidden{display:none}}@media (max-width:767px){.gps-592816782889190205 .mobile\:\!gp-hidden{display:none!important}.gps-592816782889190205 .mobile\:gp-hidden{display:none}}.gps-592816782889190205 .\[\&_\*\]\:gp-max-w-full *{max-width:100%}.gps-592816782889190205 .\[\&_p\]\:gp-whitespace-pre-line p{white-space:pre-line}</style>
     <style {% if section.settings.section_preload == "false" %} class="gps-link" type="text/disabled-css" {% endif %}>@font-face {
   font-family: 'Roboto Mono';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/robotomono/v31/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vqPQw.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/robotomono/v31/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_ROW-.woff) format('woff');
 }
+/* cyrillic-ext */
 @font-face {
-  font-family: 'Saira Stencil One';
+  font-family: 'Roboto Mono';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/sairastencilone/v18/SLXSc03I6HkvZGJ1GvvipLoYSTEL9AsM.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/robotomono/v31/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_SeW-AJi8SJQtQ4Y.woff) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/robotomono/v31/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_QOW-AJi8SJQtQ4Y.woff) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/robotomono/v31/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_R-W-AJi8SJQtQ4Y.woff) format('woff');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/robotomono/v31/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_S-W-AJi8SJQtQ4Y.woff) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/robotomono/v31/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_SuW-AJi8SJQtQ4Y.woff) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/robotomono/v31/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_ROW-AJi8SJQt.woff) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 </style>
   
@@ -30,7 +77,7 @@
           style="--w:100%;--w-tablet:calc(var(--g-ct-w, 100%) + 2 * var(--g-ct-p, 15px));--w-mobile:calc(var(--g-ct-w, 100%) + 2 * var(--g-ct-p, 15px));--pl:none;--pr:none"
         >
           
-    <gp-row gp-data='{"background":{"desktop":{"type":"color","color":"transparent","image":{"src":"","width":0,"height":0},"size":"cover","position":{"x":50,"y":50},"repeat":"no-repeat","attachment":"scroll"}},"uid":"gZO3Ni3j6k"}' data-id="gZO3Ni3j6k" id="gZO3Ni3j6k" data-same-height-subgrid-container class="gZO3Ni3j6k gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--pt:0px;--pb:100px;--pt-tablet:0px;--pb-tablet:100px;--pt-mobile:0px;--pb-mobile:60px;--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:solid;--bw:0px;--bc:#121212;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--shadow:none;--op:100%;--cg:32px;--gtc:minmax(0, 12fr);--w:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"gZO3Ni3j6k"}' data-id="gZO3Ni3j6k" id="gZO3Ni3j6k" data-same-height-subgrid-container class="gZO3Ni3j6k gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--pt:0px;--pb:100px;--pt-mobile:0px;--pb-mobile:60px;--pt-tablet:0px;--pb-tablet:100px;--cg:32px;--gtc:minmax(0, 12fr);--w:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
       
 
       <div
@@ -56,14 +103,13 @@
     {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
     <div data-id="gxkCq26Ish"
         class="gxkCq26Ish"
-        style="--ta:left;--mb:0px;--pt:16px;--pb:16px;--mb-tablet:0px;--pt-tablet:10px;--pb-tablet:10px;--mb-mobile:0px;--pt-mobile:0px;--pb-mobile:10px;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--op:100%;--dynamic-source-color:#F4F4F4"
-        data-test-force-publish="1763409007992"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--mb:0px;--pt:16px;--pb:16px;--mb-mobile:0px;--pt-mobile:0px;--pb-mobile:10px;--mb-tablet:0px;--pt-tablet:10px;--pb-tablet:10px;--dynamic-source-color:#F4F4F4"
       >
       <div class="gp-flex" style="--jc:left">
         <h2
           data-gp-text
           class=" gp-text-instant gp-text"
-          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--b:none;--bc:#121212;--bw:1px 1px 1px 1px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--shadow:none;--ts:none;--ta:center;--ff:var(--g-font-Roboto-Mono, 'Roboto Mono'), var(--g-font-heading, heading);--weight:400;--size:20px;--size-tablet:20px;--size-mobile:20px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--ls:1px;--ls-tablet:1px;--ls-mobile:1px;--c:#101820;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden;--tdl:"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--b:none;--bc:#121212;--bw:1px 1px 1px 1px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--shadow:none;--ts:none;--ta:center;--ff:var(--g-font-Roboto-Mono, 'Roboto Mono'), var(--g-font-heading, heading);--weight:400;--size:20px;--size-tablet:20px;--size-mobile:20px;--lh:130%;--lh-tablet:130%;--lh-mobile:130%;--ls:1px;--ls-tablet:1px;--ls-mobile:1px;--c:#101820;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
         >
           {{ section.settings.ggxkCq26Ish_text | replace: '$locationOrigin', locationOrigin }}
         </h2>
@@ -75,7 +121,7 @@
     
 
     
-    <gp-row gp-data='{"uid":"gOG8Z5YF4R"}' data-id="gOG8Z5YF4R" id="gOG8Z5YF4R" data-same-height-subgrid-container class="gOG8Z5YF4R gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--pt:16px;--pl:300px;--pb:50px;--pr:300px;--pt-tablet:16px;--pl-tablet:200px;--pb-tablet:50px;--pr-tablet:200px;--pl-mobile:20px;--pr-mobile:20px;--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--op:100%;--cg:10px;--rg:16px;--rg-tablet:16px;--rg-mobile:16px;--gtc:minmax(0, 4fr) minmax(0, 4fr) minmax(0, 4fr);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--h:auto;--pc:start">
+    <gp-row gp-data='{"background":{},"uid":"gOG8Z5YF4R"}' data-id="gOG8Z5YF4R" id="gOG8Z5YF4R" data-same-height-subgrid-container class="gOG8Z5YF4R gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--pt:16px;--pl:300px;--pb:50px;--pr:300px;--pl-mobile:20px;--pr-mobile:20px;--pt-tablet:16px;--pl-tablet:200px;--pb-tablet:50px;--pr-tablet:200px;--cg:10px;--rg:16px;--rg-tablet:16px;--rg-mobile:16px;--gtc:minmax(0, 4fr) minmax(0, 4fr) minmax(0, 4fr);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--h:auto;--pc:start">
       
 
       <div
@@ -85,11 +131,11 @@
     >
       
     <gp-button
-      gp-data='{"btnLink":{"type":"open-page","link":"https://shop.misha-and-puff.com/collections/baby-WINTER","target":"_blank"}}'
+      gp-data='{"btnLink":{"link":"https://shop.misha-and-puff.com/collections/baby-WINTER","target":"_blank","type":"open-page"}}'
       
       class="gp-flex gp-flex-col"
     >
-      <div style="--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--op:100%;--ta:center" >
+      <div style="--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center" >
         <style>[data-id="gVlcuXNH6r"].gp-button-base::before, [data-id="gVlcuXNH6r-interaction"].gp-button-base::before {
       
     content: "";
@@ -122,7 +168,7 @@
           data-id="gVlcuXNH6r" dataId="gVlcuXNH6r" data-state="idle" aria-label="<p><span style='color:#E64435;font-size:12px;'>SHOP BABY COLLECTION</span></p>"
           
           href="https://shop.misha-and-puff.com/collections/baby-WINTER" target="_blank"
-          style="--w:Auto;--w-tablet:Auto;--w-mobile:Auto;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:19px;--pr:19px;--pt:3px;--pb:3px;--pl-mobile:21px;--pr-mobile:21px;--pt-mobile:3px;--pb-mobile:3px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--bgi:;--bg:#FFFFFF;--c:var(--g-c-text-3, text-3);--ff:var(--g-font-Roboto-Mono, 'Roboto Mono'), var(--g-font-body, body);--weight:400;--size:12px;--size-tablet:13px;--size-mobile:12px;--lh:22px;--lh-tablet:22px;--lh-mobile:22px;--ls:;--ls-tablet:;--ls-mobile:"
+          style="--w:Auto;--w-tablet:Auto;--w-mobile:Auto;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:19px;--pr:19px;--pt:3px;--pb:3px;--pl-mobile:21px;--pr-mobile:21px;--pt-mobile:3px;--pb-mobile:3px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--bg:#FFFFFF;--c:var(--g-c-text-3, text-3);--ff:var(--g-font-Roboto-Mono, 'Roboto Mono'), var(--g-font-body, body);--weight:400;--size:12px;--size-tablet:13px;--size-mobile:12px;--lh:22px;--lh-tablet:22px;--lh-mobile:22px"
           class="gVlcuXNH6r gp-text-center gp-button-base gp-group gp-relative gp-inline-flex gp-max-w-full gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-200 disabled:gp-btn-disabled disabled:gp-opacity-30 gp-text-g-text-3 "
         >
         
@@ -131,10 +177,10 @@
           
     <span
       data-gp-text
-      style="--ff:var(--g-font-Roboto-Mono, 'Roboto Mono'), var(--g-font-body, body);--weight:400;--size:12px;--size-tablet:13px;--size-mobile:12px;--lh:22px;--lh-tablet:22px;--lh-mobile:22px;--ls:;--ls-tablet:;--ls-mobile:;--ts:none;word-break:break-word"
+      style="--ff:var(--g-font-Roboto-Mono, 'Roboto Mono'), var(--g-font-body, body);--weight:400;--size:12px;--size-tablet:13px;--size-mobile:12px;--lh:22px;--lh-tablet:22px;--lh-mobile:22px;--ts:none;word-break:break-word"
       class="gp-content-product-button group-active/button:!gp-text-inherit gp-relative gp-flex gp-h-full gp-items-center gp-overflow-hidden gp-break-words group-data-[state=loading]:gp-invisible [&_p]:gp-whitespace-pre-line gp-text button-text"
     >
-      {{ section.settings.ggVlcuXNH6r_label }}
+      <p><span style="color:#E64435;font-size:12px;">{{ section.settings.ggVlcuXNH6r_label }}</span></p>
     </span>
         </div>
         
@@ -150,11 +196,11 @@
     >
       
     <gp-button
-      gp-data='{"btnLink":{"type":"open-page","link":"https://shop.misha-and-puff.com/collections/child-winter","target":"_blank"}}'
+      gp-data='{"btnLink":{"link":"https://shop.misha-and-puff.com/collections/child-winter","target":"_blank","type":"open-page"}}'
       
       class="gp-flex gp-flex-col"
     >
-      <div style="--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--op:100%;--ta:center" >
+      <div style="--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center" >
         <style>[data-id="gcP4DSkK2U"].gp-button-base::before, [data-id="gcP4DSkK2U-interaction"].gp-button-base::before {
       
     content: "";
@@ -187,7 +233,7 @@
           data-id="gcP4DSkK2U" dataId="gcP4DSkK2U" data-state="idle" aria-label="<p><span style='color:#E64435;font-size:12px;'>SHOP CHILD COLLECTION</span></p>"
           
           href="https://shop.misha-and-puff.com/collections/child-winter" target="_blank"
-          style="--w:Auto;--w-tablet:Auto;--w-mobile:Auto;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:19px;--pr:19px;--pt:3px;--pb:3px;--pl-mobile:18px;--pr-mobile:18px;--pt-mobile:3px;--pb-mobile:3px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--bgi:;--bg:#FFFFFF;--c:var(--g-c-text-3, text-3);--ff:var(--g-font-Roboto-Mono, 'Roboto Mono'), var(--g-font-body, body);--weight:400;--size:12px;--size-tablet:13px;--size-mobile:12px;--lh:22px;--lh-tablet:22px;--lh-mobile:22px;--ls:;--ls-tablet:;--ls-mobile:"
+          style="--w:Auto;--w-tablet:Auto;--w-mobile:Auto;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:19px;--pr:19px;--pt:3px;--pb:3px;--pl-mobile:18px;--pr-mobile:18px;--pt-mobile:3px;--pb-mobile:3px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--bg:#FFFFFF;--c:var(--g-c-text-3, text-3);--ff:var(--g-font-Roboto-Mono, 'Roboto Mono'), var(--g-font-body, body);--weight:400;--size:12px;--size-tablet:13px;--size-mobile:12px;--lh:22px;--lh-tablet:22px;--lh-mobile:22px"
           class="gcP4DSkK2U gp-text-center gp-button-base gp-group gp-relative gp-inline-flex gp-max-w-full gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-200 disabled:gp-btn-disabled disabled:gp-opacity-30 gp-text-g-text-3 "
         >
         
@@ -196,10 +242,10 @@
           
     <span
       data-gp-text
-      style="--ff:var(--g-font-Roboto-Mono, 'Roboto Mono'), var(--g-font-body, body);--weight:400;--size:12px;--size-tablet:13px;--size-mobile:12px;--lh:22px;--lh-tablet:22px;--lh-mobile:22px;--ls:;--ls-tablet:;--ls-mobile:;--ts:none;word-break:break-word"
+      style="--ff:var(--g-font-Roboto-Mono, 'Roboto Mono'), var(--g-font-body, body);--weight:400;--size:12px;--size-tablet:13px;--size-mobile:12px;--lh:22px;--lh-tablet:22px;--lh-mobile:22px;--ts:none;word-break:break-word"
       class="gp-content-product-button group-active/button:!gp-text-inherit gp-relative gp-flex gp-h-full gp-items-center gp-overflow-hidden gp-break-words group-data-[state=loading]:gp-invisible [&_p]:gp-whitespace-pre-line gp-text button-text"
     >
-      {{ section.settings.ggcP4DSkK2U_label }}
+      <p><span style="color:#E64435;font-size:12px;">{{ section.settings.ggcP4DSkK2U_label }}</span></p>
     </span>
         </div>
         
@@ -215,11 +261,11 @@
     >
       
     <gp-button
-      gp-data='{"btnLink":{"type":"open-page","link":"https://shop.misha-and-puff.com/collections/adult-fall","target":"_blank"}}'
+      gp-data='{"btnLink":{"link":"https://shop.misha-and-puff.com/collections/adult-fall","target":"_blank","type":"open-page"}}'
       
       class="gp-flex gp-flex-col"
     >
-      <div style="--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--op:100%;--ta:center" >
+      <div style="--bs:none;--bw:1px 1px 1px 1px;--bc:var(--g-c-line-3, line-3);--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center" >
         <style>[data-id="gN19a-0ngE"].gp-button-base::before, [data-id="gN19a-0ngE-interaction"].gp-button-base::before {
       
     content: "";
@@ -252,7 +298,7 @@
           data-id="gN19a-0ngE" dataId="gN19a-0ngE" data-state="idle" aria-label="<p><span style='color:#E64435;font-size:12px;'>SHOP ADULT COLLECTION</span></p>"
           
           href="https://shop.misha-and-puff.com/collections/adult-fall" target="_blank"
-          style="--w:Auto;--w-tablet:Auto;--w-mobile:Auto;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:19px;--pr:19px;--pt:3px;--pb:3px;--pl-mobile:18px;--pr-mobile:18px;--pt-mobile:3px;--pb-mobile:3px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--bgi:;--bg:#FFFFFF;--c:var(--g-c-text-3, text-3);--ff:var(--g-font-Roboto-Mono, 'Roboto Mono'), var(--g-font-body, body);--weight:400;--size:12px;--size-tablet:13px;--size-mobile:12px;--lh:22px;--lh-tablet:22px;--lh-mobile:22px;--ls:;--ls-tablet:;--ls-mobile:"
+          style="--w:Auto;--w-tablet:Auto;--w-mobile:Auto;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:19px;--pr:19px;--pt:3px;--pb:3px;--pl-mobile:18px;--pr-mobile:18px;--pt-mobile:3px;--pb-mobile:3px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--bg:#FFFFFF;--c:var(--g-c-text-3, text-3);--ff:var(--g-font-Roboto-Mono, 'Roboto Mono'), var(--g-font-body, body);--weight:400;--size:12px;--size-tablet:13px;--size-mobile:12px;--lh:22px;--lh-tablet:22px;--lh-mobile:22px"
           class="gN19a-0ngE gp-text-center gp-button-base gp-group gp-relative gp-inline-flex gp-max-w-full gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-200 disabled:gp-btn-disabled disabled:gp-opacity-30 gp-text-g-text-3 "
         >
         
@@ -261,10 +307,10 @@
           
     <span
       data-gp-text
-      style="--ff:var(--g-font-Roboto-Mono, 'Roboto Mono'), var(--g-font-body, body);--weight:400;--size:12px;--size-tablet:13px;--size-mobile:12px;--lh:22px;--lh-tablet:22px;--lh-mobile:22px;--ls:;--ls-tablet:;--ls-mobile:;--ts:none;word-break:break-word"
+      style="--ff:var(--g-font-Roboto-Mono, 'Roboto Mono'), var(--g-font-body, body);--weight:400;--size:12px;--size-tablet:13px;--size-mobile:12px;--lh:22px;--lh-tablet:22px;--lh-mobile:22px;--ts:none;word-break:break-word"
       class="gp-content-product-button group-active/button:!gp-text-inherit gp-relative gp-flex gp-h-full gp-items-center gp-overflow-hidden gp-break-words group-data-[state=loading]:gp-invisible [&_p]:gp-whitespace-pre-line gp-text button-text"
     >
-      {{ section.settings.ggN19a-0ngE_label }}
+      <p><span style="color:#E64435;font-size:12px;">{{ section.settings.ggN19a-0ngE_label }}</span></p>
     </span>
         </div>
         
@@ -300,7 +346,7 @@
     "name": "Gift Guide Footer - 25",
     "tag": "section",
     "class": "gps-592816782889190205 gps gpsil",
-    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/misha-and-puff/apps/gempages-cro/app/shopify/edit?pageType=THEME_SECTION&editorId=592816782889190205)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"ggxkCq26Ish_text","label":"ggxkCq26Ish_text","default":"MORE TO EXPLORE"},{"type":"html","id":"ggVlcuXNH6r_label","label":"ggVlcuXNH6r_label","default":"<p><span style=\"color:#E64435;font-size:12px;\">SHOP BABY COLLECTION</span></p>"},{"type":"html","id":"ggcP4DSkK2U_label","label":"ggcP4DSkK2U_label","default":"<p><span style=\"color:#E64435;font-size:12px;\">SHOP CHILD COLLECTION</span></p>"},{"type":"html","id":"ggN19a-0ngE_label","label":"ggN19a-0ngE_label","default":"<p><span style=\"color:#E64435;font-size:12px;\">SHOP ADULT COLLECTION</span></p>"}],
+    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/misha-and-puff/apps/gempages-cro/app/shopify/edit?pageType=THEME_SECTION&editorId=592816782889190205)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"ggxkCq26Ish_text","label":"ggxkCq26Ish_text","default":"MORE TO EXPLORE"},{"type":"html","id":"ggVlcuXNH6r_label","label":"ggVlcuXNH6r_label","default":"SHOP BABY COLLECTION"},{"type":"html","id":"ggcP4DSkK2U_label","label":"ggcP4DSkK2U_label","default":"SHOP CHILD COLLECTION"},{"type":"html","id":"ggN19a-0ngE_label","label":"ggN19a-0ngE_label","default":"SHOP ADULT COLLECTION"}],
     "blocks": [{"type": "@app"}],
     "locales": {}
   }
