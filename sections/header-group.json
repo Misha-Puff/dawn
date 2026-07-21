@@ -54,8 +54,8 @@
           "settings": {
             "menu_item_handle": "child",
             "image_1": "shopify://shop_images/MP_FA26_Menu_New.jpg",
-            "caption_1": "New Arrivals",
-            "link_1": "shopify://collections/child-new",
+            "caption_1": "Coming Soon",
+            "link_1": "shopify://collections/preview",
             "image_2": "shopify://shop_images/MP_FA26_Menu_Accs.jpg",
             "caption_2": "Accessories",
             "link_2": "shopify://collections/child-accessories",
