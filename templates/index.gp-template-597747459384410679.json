@@ -11,24 +11,33 @@
   "sections": {
     "gp_section_597747459485073975": {
       "settings": {
-        "checksum": "e677947e23391d482058967a1a97b79694bcd755df0068dc4cc38ab812ce59b6_1_1_1_0__1",
+        "checksum": "e677947e23391d482058967a1a97b79694bcd755df0068dc4cc38ab812ce59b6_1_1_0_0__1",
         "gg-Y6akhjPy_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-WINTER\"><span style=\"font-size:11px;\">BABY WINTER COLLECTION</span></a></p>",
         "ggDirZYnUhA_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/made-to-order\">MADE-TO-ORDER: Ends Friday</a></p>",
-        "gglv94RH8qJ_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/winter-25-gift-guide\"><span style=\"font-size:11px;\">GIFT GUIDE</span></a></p>"
+        "ggkByHG1lk2_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_4x5_12.3_Baby_1.jpg",
+        "gglv94RH8qJ_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/winter-25-gift-guide\"><span style=\"font-size:11px;\">GIFT GUIDE</span></a></p>",
+        "ggp6YPz2VgE_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_4x5_12.16_MTO.jpg",
+        "ggskSaomHYe_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_11.28_GiftGuide.jpg",
+        "ggskSaomHYe_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_11.28_GiftGuide.jpg"
       },
       "type": "gp-section-597747459485073975"
     },
     "gp_section_597747459485139511": {
       "settings": {
-        "checksum": "3026e731e3d31dd53c1340cfad6b71eac6c149fe7cc74bc1aaf79bcbee65c85f_1_1_1_0__1",
+        "checksum": "3026e731e3d31dd53c1340cfad6b71eac6c149fe7cc74bc1aaf79bcbee65c85f_1_1_0_0__1",
         "gg2NAAt5DbD_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\"><span style=\"font-size:11px;\">JOURNAL</span></a></p>",
+        "gg9WuMBDLCX_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_4x5_12.12_HolidayDress.jpg",
+        "gg9WuMBDLCX_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_4x5_12.12_HolidayDress.jpg",
+        "gg9bhgJS-gs_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_4x5_12.12_Journal.jpg",
         "ggRzArRZUz6_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-adult-holiday-dressing\"><span style=\"font-size:11px;\">ADULT HOLIDAY DRESSING</span></a></p>"
       },
       "type": "gp-section-597747459485139511"
     },
     "gp_section_597747459485205047": {
       "settings": {
-        "checksum": "7972f94d347c0f6f515afd01d8989b3c6dcdc7673692b73cc6e4f0c27c28e333_1_1_1_0__1",
+        "checksum": "7972f94d347c0f6f515afd01d8989b3c6dcdc7673692b73cc6e4f0c27c28e333_1_1_0_0__1",
+        "gg_Inch1Dpn_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_Site_12.12_Child_3.jpg",
+        "gg_Inch1Dpn_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_12.12_Child_3.jpg",
         "gggbwV7YbXZ_label": "<p><span style=\"font-size:10px;\">THE WINTER COLLECTION</span></p>",
         "section_preload": "true"
       },
@@ -36,7 +45,10 @@
     },
     "gp_section_597747459485270583": {
       "settings": {
-        "checksum": "767771019947af2cb46bb013637e25b09c38927a02c59cfbb70d1b8d664ccab7_1_1_1_0__1"
+        "checksum": "767771019947af2cb46bb013637e25b09c38927a02c59cfbb70d1b8d664ccab7_1_1_0_0__1",
+        "ggrl9b661sR_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_Site_12.12_Apolina_2_e9e72769-31af-4b05-8cce-61990c97e79c.jpg",
+        "ggrl9b661sR_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_4x5_12.12_Apolina_2.jpg",
+        "ggrl9b661sR_background_mobile_videoHtml5": "https://media.w3.org/2010/05/sintel/trailer.mp4"
       },
       "type": "gp-section-597747459485270583"
     }
