@@ -2062,6 +2062,7 @@
         {"type": "header", "content": "Product custom message", "info": "Prints the product_page.custom_message metafield when set."},
         {"type": "checkbox", "id": "show_metafield", "default": true, "label": "Show custom message metafield"},
         {"type": "color", "id": "metafield_color", "label": "Color", "info": "Leave blank to inherit", "visible_if": "{{ block.settings.show_metafield }}"},
+        {"type": "select", "id": "metafield_case", "label": "Text case", "options": [{"value": "default", "label": "Default"}, {"value": "uppercase", "label": "Uppercase"}], "default": "uppercase", "visible_if": "{{ block.settings.show_metafield }}"},
         {"type": "header", "content": "Free Adult returns", "info": "Shown on Adult-tagged products; hidden when tagged no-returns."},
         {"type": "checkbox", "id": "show_adult_returns", "default": true, "label": "Show free Adult returns note"},
         {"type": "text", "id": "adult_returns_text", "default": "Free returns on domestic Adult orders", "label": "Text", "visible_if": "{{ block.settings.show_adult_returns }}"},
