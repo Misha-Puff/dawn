@@ -1,10 +1,11 @@
 {% comment %}
-  Renders the "Pair It With (Outfits)" product-info block: every product from
-  every Shop-the-Look outfit this product belongs to
-  (product_page.shop_the_look_outfits), current product excluded, deduped,
-  Locksmith-guarded, capped at the block's maximum — as a stacked row list
-  (image left; title, price, and optional quick add stacked right).
-  Renders nothing when no products resolve (design-mode hint only).
+  Renders the "Pair It With" product-info block. Products come from the
+  product_page.pair_it_with metafield (manual list, shown in metafield order)
+  when set; otherwise from every Shop-the-Look outfit this product belongs to
+  (product_page.shop_the_look_outfits). Either source is current-product
+  excluded, deduped, Locksmith-guarded, capped at the block's maximum — as a
+  stacked row list (image left; title, price, and optional quick add stacked
+  right). Renders nothing when no products resolve (design-mode hint only).
 
   The per-product quick-add modals are emitted after the row list with the
   same guards as the row loop, so openers and modals stay 1:1.
@@ -18,7 +19,19 @@
   {% render 'pair-from-outfits', block: block, product: product, section: section %}
 {% endcomment %}
 {%- liquid
-  assign outfits = product.metafields.product_page.shop_the_look_outfits.value
+  assign manual_pairs = product.metafields.product_page.pair_it_with.value
+  if manual_pairs != blank
+    assign pair_source = manual_pairs
+  else
+    assign pair_source = '' | split: ','
+    assign outfits = product.metafields.product_page.shop_the_look_outfits.value
+    for outfit in outfits
+      assign outfit_products = outfit.products.value
+      if outfit_products != blank
+        assign pair_source = pair_source | concat: outfit_products
+      endif
+    endfor
+  endif
   assign pair_max = block.settings.max_products
   assign pair_img_w = block.settings.image_width | default: 100
   assign pair_img_w2 = pair_img_w | times: 2
@@ -27,130 +40,125 @@
   assign pair_shown = 0
 -%}
 {%- capture pair_items -%}
-  {%- for outfit in outfits -%}
-    {%- for pair_product in outfit.products.value -%}
-      {%- if pair_shown >= pair_max -%}
-        {%- break -%}
-      {%- endif -%}
-      {%- if pair_product.id == product.id -%}
-        {%- continue -%}
-      {%- endif -%}
-      {%- comment -%} Comma-delimited id keys so id 123 never substring-matches id 1234. {%- endcomment -%}
-      {%- assign pair_id_key = ',' | append: pair_product.id | append: ',' -%}
-      {%- if seen_ids contains pair_id_key -%}
-        {%- continue -%}
-      {%- endif -%}
-      {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: pair_product -%}{%- endcapture -%}
-      {%- assign lock_content = lock_content | strip -%}
-      {%- if lock_content == 'true' -%}
-        {%- continue -%}
-      {%- endif -%}
-      {%- assign seen_ids = seen_ids | append: pair_product.id | append: ',' -%}
-      {%- assign pair_shown = pair_shown | plus: 1 -%}
-      {%- assign pair_media = pair_product.featured_media -%}
-      <li class="pair-outfits__row">
-        <a href="{{ pair_product.url }}" class="pair-outfits__row-media pair-outfits__row-media--{{ block.settings.image_ratio }}">
-          {%- if pair_media != null -%}
-            <img
-              srcset="
-                {%- if pair_media.width >= pair_img_w -%}{{ pair_media | image_url: width: pair_img_w }} {{ pair_img_w }}w,{%- endif -%}
-                {%- if pair_media.width >= pair_img_w2 -%}{{ pair_media | image_url: width: pair_img_w2 }} {{ pair_img_w2 }}w,{%- endif -%}
-                {%- if pair_media.width >= pair_img_w3 -%}{{ pair_media | image_url: width: pair_img_w3 }} {{ pair_img_w3 }}w,{%- endif -%}
-                {{ pair_media | image_url }} {{ pair_media.width }}w
-              "
-              src="{{ pair_media | image_url: width: pair_img_w2 }}"
-              sizes="{{ pair_img_w }}px"
-              alt="{{ pair_media.alt | escape }}"
-              loading="lazy"
-              width="{{ pair_media.width }}"
-              height="{{ pair_media.height }}"
-            >
-          {%- endif -%}
-        </a>
-        <div class="pair-outfits__row-info">
-          <a href="{{ pair_product.url }}" class="pair-outfits__row-title">{{ pair_product.title | escape }}</a>
-          {%- if block.settings.show_color_line and pair_product.options[0] == 'Color' -%}
-            <p class="pair-outfits__row-color">{{ pair_product.selected_or_first_available_variant.options[0] }}</p>
-          {%- endif -%}
-          <div class="pair-outfits__row-price">
-            {%- render 'price', product: pair_product -%}
-          </div>
-          {%- if block.settings.enable_quick_add -%}
-            {%- unless pair_product.tags contains 'Badge-Coming Soon' -%}
-              {%- liquid
-                assign pair_form_id = 'pair-quick-add-' | append: block.id | append: '-' | append: pair_product.id
-                assign pair_qty_rules = false
-                if pair_product.selected_or_first_available_variant.quantity_rule.min > 1 or pair_product.selected_or_first_available_variant.quantity_rule.max != null or pair_product.selected_or_first_available_variant.quantity_rule.increment > 1
-                  assign pair_qty_rules = true
-                endif
-              -%}
-              {%- if pair_product.variants_count > 1 or pair_qty_rules -%}
-                <modal-opener data-modal="#QuickAddPair-{{ block.id }}-{{ pair_product.id }}" class="pair-outfits__row-atc">
-                  <button
-                    id="{{ pair_form_id }}-submit"
-                    type="button"
-                    class="pair-outfits__row-atc-button"
-                    aria-haspopup="dialog"
-                    aria-label="{{ 'products.product.choose_options' | t }} — {{ pair_product.title | escape }}"
-                    data-product-url="{{ pair_product.url }}"
-                  >
-                    <span>{{ 'products.product.choose_options' | t }}</span>
-                    {%- render 'loading-spinner' -%}
-                  </button>
-                </modal-opener>
-              {%- else -%}
-                <product-form data-section-id="{{ section.id }}" class="pair-outfits__row-atc">
-                  {%- form 'product',
-                    pair_product,
-                    id: pair_form_id,
-                    class: 'form',
-                    novalidate: 'novalidate',
-                    data-type: 'add-to-cart-form'
-                  -%}
-                    <input
-                      type="hidden"
-                      name="id"
-                      value="{{ pair_product.selected_or_first_available_variant.id }}"
-                      class="product-variant-id"
-                      {% if pair_product.selected_or_first_available_variant.available == false %}
-                        disabled
-                      {% endif %}
-                    >
-                    <button
-                      id="{{ pair_form_id }}-submit"
-                      type="submit"
-                      name="add"
-                      class="pair-outfits__row-atc-button"
-                      aria-label="{{ 'products.product.add_to_cart' | t }} — {{ pair_product.title | escape }}"
-                      aria-live="polite"
-                      data-sold-out-message="true"
-                      {% if pair_product.selected_or_first_available_variant.available == false %}
-                        disabled
-                      {% endif %}
-                    >
-                      <span>
-                        {%- if pair_product.selected_or_first_available_variant.available -%}
-                          {{ 'products.product.add_to_cart' | t }}
-                        {%- else -%}
-                          {{ 'products.product.sold_out' | t }}
-                        {%- endif -%}
-                      </span>
-                      <span class="sold-out-message hidden">
-                        {{ 'products.product.sold_out' | t }}
-                      </span>
-                      {%- render 'loading-spinner' -%}
-                    </button>
-                  {%- endform -%}
-                </product-form>
-              {%- endif -%}
-            {%- endunless -%}
-          {%- endif -%}
-        </div>
-      </li>
-    {%- endfor -%}
+  {%- for pair_product in pair_source -%}
     {%- if pair_shown >= pair_max -%}
       {%- break -%}
     {%- endif -%}
+    {%- if pair_product.id == product.id -%}
+      {%- continue -%}
+    {%- endif -%}
+    {%- comment -%} Comma-delimited id keys so id 123 never substring-matches id 1234. {%- endcomment -%}
+    {%- assign pair_id_key = ',' | append: pair_product.id | append: ',' -%}
+    {%- if seen_ids contains pair_id_key -%}
+      {%- continue -%}
+    {%- endif -%}
+    {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: pair_product -%}{%- endcapture -%}
+    {%- assign lock_content = lock_content | strip -%}
+    {%- if lock_content == 'true' -%}
+      {%- continue -%}
+    {%- endif -%}
+    {%- assign seen_ids = seen_ids | append: pair_product.id | append: ',' -%}
+    {%- assign pair_shown = pair_shown | plus: 1 -%}
+    {%- assign pair_media = pair_product.featured_media -%}
+    <li class="pair-outfits__row">
+      <a href="{{ pair_product.url }}" class="pair-outfits__row-media pair-outfits__row-media--{{ block.settings.image_ratio }}">
+        {%- if pair_media != null -%}
+          <img
+            srcset="
+              {%- if pair_media.width >= pair_img_w -%}{{ pair_media | image_url: width: pair_img_w }} {{ pair_img_w }}w,{%- endif -%}
+              {%- if pair_media.width >= pair_img_w2 -%}{{ pair_media | image_url: width: pair_img_w2 }} {{ pair_img_w2 }}w,{%- endif -%}
+              {%- if pair_media.width >= pair_img_w3 -%}{{ pair_media | image_url: width: pair_img_w3 }} {{ pair_img_w3 }}w,{%- endif -%}
+              {{ pair_media | image_url }} {{ pair_media.width }}w
+            "
+            src="{{ pair_media | image_url: width: pair_img_w2 }}"
+            sizes="{{ pair_img_w }}px"
+            alt="{{ pair_media.alt | escape }}"
+            loading="lazy"
+            width="{{ pair_media.width }}"
+            height="{{ pair_media.height }}"
+          >
+        {%- endif -%}
+      </a>
+      <div class="pair-outfits__row-info">
+        <a href="{{ pair_product.url }}" class="pair-outfits__row-title">{{ pair_product.title | escape }}</a>
+        {%- if block.settings.show_color_line and pair_product.options[0] == 'Color' -%}
+          <p class="pair-outfits__row-color">{{ pair_product.selected_or_first_available_variant.options[0] }}</p>
+        {%- endif -%}
+        <div class="pair-outfits__row-price">
+          {%- render 'price', product: pair_product -%}
+        </div>
+        {%- if block.settings.enable_quick_add -%}
+          {%- unless pair_product.tags contains 'Badge-Coming Soon' -%}
+            {%- liquid
+              assign pair_form_id = 'pair-quick-add-' | append: block.id | append: '-' | append: pair_product.id
+              assign pair_qty_rules = false
+              if pair_product.selected_or_first_available_variant.quantity_rule.min > 1 or pair_product.selected_or_first_available_variant.quantity_rule.max != null or pair_product.selected_or_first_available_variant.quantity_rule.increment > 1
+                assign pair_qty_rules = true
+              endif
+            -%}
+            {%- if pair_product.variants_count > 1 or pair_qty_rules -%}
+              <modal-opener data-modal="#QuickAddPair-{{ block.id }}-{{ pair_product.id }}" class="pair-outfits__row-atc">
+                <button
+                  id="{{ pair_form_id }}-submit"
+                  type="button"
+                  class="pair-outfits__row-atc-button"
+                  aria-haspopup="dialog"
+                  aria-label="{{ 'products.product.choose_options' | t }} — {{ pair_product.title | escape }}"
+                  data-product-url="{{ pair_product.url }}"
+                >
+                  <span>{{ 'products.product.choose_options' | t }}</span>
+                  {%- render 'loading-spinner' -%}
+                </button>
+              </modal-opener>
+            {%- else -%}
+              <product-form data-section-id="{{ section.id }}" class="pair-outfits__row-atc">
+                {%- form 'product',
+                  pair_product,
+                  id: pair_form_id,
+                  class: 'form',
+                  novalidate: 'novalidate',
+                  data-type: 'add-to-cart-form'
+                -%}
+                  <input
+                    type="hidden"
+                    name="id"
+                    value="{{ pair_product.selected_or_first_available_variant.id }}"
+                    class="product-variant-id"
+                    {% if pair_product.selected_or_first_available_variant.available == false %}
+                      disabled
+                    {% endif %}
+                  >
+                  <button
+                    id="{{ pair_form_id }}-submit"
+                    type="submit"
+                    name="add"
+                    class="pair-outfits__row-atc-button"
+                    aria-label="{{ 'products.product.add_to_cart' | t }} — {{ pair_product.title | escape }}"
+                    aria-live="polite"
+                    data-sold-out-message="true"
+                    {% if pair_product.selected_or_first_available_variant.available == false %}
+                      disabled
+                    {% endif %}
+                  >
+                    <span>
+                      {%- if pair_product.selected_or_first_available_variant.available -%}
+                        {{ 'products.product.add_to_cart' | t }}
+                      {%- else -%}
+                        {{ 'products.product.sold_out' | t }}
+                      {%- endif -%}
+                    </span>
+                    <span class="sold-out-message hidden">
+                      {{ 'products.product.sold_out' | t }}
+                    </span>
+                    {%- render 'loading-spinner' -%}
+                  </button>
+                {%- endform -%}
+              </product-form>
+            {%- endif -%}
+          {%- endunless -%}
+        {%- endif -%}
+      </div>
+    </li>
   {%- endfor -%}
 {%- endcapture -%}
 {%- if pair_shown > 0 -%}
@@ -203,58 +211,53 @@
         assign modal_seen_ids = ','
         assign modal_shown = 0
       -%}
-      {%- for outfit in outfits -%}
-        {%- for pair_product in outfit.products.value -%}
-          {%- if modal_shown >= pair_max -%}
-            {%- break -%}
-          {%- endif -%}
-          {%- if pair_product.id == product.id -%}
-            {%- continue -%}
-          {%- endif -%}
-          {%- assign pair_id_key = ',' | append: pair_product.id | append: ',' -%}
-          {%- if modal_seen_ids contains pair_id_key -%}
-            {%- continue -%}
-          {%- endif -%}
-          {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: pair_product -%}{%- endcapture -%}
-          {%- assign lock_content = lock_content | strip -%}
-          {%- if lock_content == 'true' -%}
-            {%- continue -%}
-          {%- endif -%}
-          {%- assign modal_seen_ids = modal_seen_ids | append: pair_product.id | append: ',' -%}
-          {%- assign modal_shown = modal_shown | plus: 1 -%}
-          {%- if pair_product.tags contains 'Badge-Coming Soon' -%}
-            {%- continue -%}
-          {%- endif -%}
-          {%- liquid
-            assign pair_qty_rules = false
-            if pair_product.selected_or_first_available_variant.quantity_rule.min > 1 or pair_product.selected_or_first_available_variant.quantity_rule.max != null or pair_product.selected_or_first_available_variant.quantity_rule.increment > 1
-              assign pair_qty_rules = true
-            endif
-          -%}
-          {%- if pair_product.variants_count > 1 or pair_qty_rules -%}
-            <quick-add-modal id="QuickAddPair-{{ block.id }}-{{ pair_product.id }}" class="quick-add-modal">
-              <div
-                role="dialog"
-                aria-label="{{ 'products.product.choose_product_options' | t: product_name: pair_product.title | escape }}"
-                aria-modal="true"
-                class="quick-add-modal__content global-settings-popup"
-                tabindex="-1"
-              >
-                <button
-                  id="ModalClose-Pair-{{ block.id }}-{{ pair_product.id }}"
-                  type="button"
-                  class="quick-add-modal__toggle"
-                  aria-label="{{ 'accessibility.close' | t }}"
-                >
-                  {{- 'icon-close.svg' | inline_asset_content -}}
-                </button>
-                <div id="QuickAddInfo-Pair-{{ block.id }}-{{ pair_product.id }}" class="quick-add-modal__content-info"></div>
-              </div>
-            </quick-add-modal>
-          {%- endif -%}
-        {%- endfor -%}
+      {%- for pair_product in pair_source -%}
         {%- if modal_shown >= pair_max -%}
           {%- break -%}
+        {%- endif -%}
+        {%- if pair_product.id == product.id -%}
+          {%- continue -%}
+        {%- endif -%}
+        {%- assign pair_id_key = ',' | append: pair_product.id | append: ',' -%}
+        {%- if modal_seen_ids contains pair_id_key -%}
+          {%- continue -%}
+        {%- endif -%}
+        {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: pair_product -%}{%- endcapture -%}
+        {%- assign lock_content = lock_content | strip -%}
+        {%- if lock_content == 'true' -%}
+          {%- continue -%}
+        {%- endif -%}
+        {%- assign modal_seen_ids = modal_seen_ids | append: pair_product.id | append: ',' -%}
+        {%- assign modal_shown = modal_shown | plus: 1 -%}
+        {%- if pair_product.tags contains 'Badge-Coming Soon' -%}
+          {%- continue -%}
+        {%- endif -%}
+        {%- liquid
+          assign pair_qty_rules = false
+          if pair_product.selected_or_first_available_variant.quantity_rule.min > 1 or pair_product.selected_or_first_available_variant.quantity_rule.max != null or pair_product.selected_or_first_available_variant.quantity_rule.increment > 1
+            assign pair_qty_rules = true
+          endif
+        -%}
+        {%- if pair_product.variants_count > 1 or pair_qty_rules -%}
+          <quick-add-modal id="QuickAddPair-{{ block.id }}-{{ pair_product.id }}" class="quick-add-modal">
+            <div
+              role="dialog"
+              aria-label="{{ 'products.product.choose_product_options' | t: product_name: pair_product.title | escape }}"
+              aria-modal="true"
+              class="quick-add-modal__content global-settings-popup"
+              tabindex="-1"
+            >
+              <button
+                id="ModalClose-Pair-{{ block.id }}-{{ pair_product.id }}"
+                type="button"
+                class="quick-add-modal__toggle"
+                aria-label="{{ 'accessibility.close' | t }}"
+              >
+                {{- 'icon-close.svg' | inline_asset_content -}}
+              </button>
+              <div id="QuickAddInfo-Pair-{{ block.id }}-{{ pair_product.id }}" class="quick-add-modal__content-info"></div>
+            </div>
+          </quick-add-modal>
         {%- endif -%}
       {%- endfor -%}
     {%- endif -%}
@@ -262,8 +265,9 @@
 {%- elsif request.design_mode -%}
   <div class="pair-outfits Block-{{ block.id }}" {{ block.shopify_attributes }}>
     <p class="caption">
-      Pair It With (Outfits): no products to show — this product isn't in any Shop-the-Look outfit
-      (product_page.shop_the_look_outfits), or every outfit product is the current product, a duplicate, or locked.
+      Pair It With: no products to show — set product_page.pair_it_with on this product, or add it to a
+      Shop-the-Look outfit (product_page.shop_the_look_outfits). Candidates that are the current product,
+      duplicates, or locked are skipped.
     </p>
   </div>
 {%- endif -%}

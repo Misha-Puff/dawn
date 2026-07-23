@@ -1799,10 +1799,10 @@
     },
     {
       "type": "pair_from_outfits",
-      "name": "Pair It With (Outfits)",
+      "name": "Pair It With",
       "limit": 1,
       "settings": [
-        {"type": "paragraph", "content": "Shows products from every Shop-the-Look outfit this product belongs to (product_page.shop_the_look_outfits), deduped, as a stacked list of rows. Renders nothing when the product is in no outfits."},
+        {"type": "paragraph", "content": "Shows the products from the Pair it with metafield (product_page.pair_it_with) when set; otherwise products from every Shop-the-Look outfit this product belongs to (product_page.shop_the_look_outfits). Deduped, as a stacked list of rows. Renders nothing when both sources are empty."},
         {"type": "text", "id": "block_heading", "default": "Pair it with", "label": "Heading"},
         {"type": "range", "id": "max_products", "min": 2, "max": 12, "step": 1, "default": 8, "label": "Maximum products"},
         {"type": "select", "id": "image_ratio", "options": [{"value": "portrait", "label": "t:sections.main-product.blocks.complementary_products.settings.image_ratio.options.option_1"}, {"value": "square", "label": "t:sections.main-product.blocks.complementary_products.settings.image_ratio.options.option_2"}], "default": "portrait", "label": "t:sections.main-product.blocks.complementary_products.settings.image_ratio.label"},
