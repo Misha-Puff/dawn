@@ -62,7 +62,7 @@
       title="{{ self_color | escape }}"
       {% render 'sibling-swatch-attrs', payload_product: card_product, payload_self: true %}
     >
-      {% render 'swatch', swatch_image: self_cp.image.value, shape: 'square' %}
+      {% render 'swatch', swatch_image: self_cp.image.value, swatch_color: self_cp.color.value, shape: 'square' %}
       <span class="visually-hidden">{{ self_color | escape }}</span>
       {{ payload }}
     </a>
@@ -94,7 +94,7 @@
         title="{{ sib_color | escape }}"
         {% render 'sibling-swatch-attrs', payload_product: sibling, payload_self: false %}
       >
-        {% render 'swatch', swatch_image: sib_cp.image.value, shape: 'square' %}
+        {% render 'swatch', swatch_image: sib_cp.image.value, swatch_color: sib_cp.color.value, shape: 'square' %}
         <span class="visually-hidden">{{ sib_color | escape }}</span>
         {{ payload }}
       </a>
