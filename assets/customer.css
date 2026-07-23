@@ -675,8 +675,15 @@
 label[for='AddressCountryNew'],
 label[for='AddressProvinceNew'] {
   display: block;
-  font-size: 1.4rem;
   margin-bottom: 0.6rem;
+  /* Selects keep their floating-label-free layout; match the static mono label treatment. */
+  font-family: var(--font-mono-family);
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  color: rgba(var(--color-foreground), 0.75);
 }
 
 .addresses form {

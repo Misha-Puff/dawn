@@ -36,10 +36,16 @@
 
 .mega-menu__list {
   display: grid;
-  gap: 1.8rem 4rem;
+  gap: var(--mm-list-row-gap, 1.8rem) var(--mm-list-col-gap, 4rem);
   grid-template-columns: repeat(6, minmax(0, 1fr));
   list-style: none;
   padding: 28px;
+}
+
+/* page-width sits on the list itself when there's no images block; restore its gutter over the 28px shorthand */
+.mega-menu__list.page-width {
+  padding-left: var(--page-width-padding);
+  padding-right: var(--page-width-padding);
 }
 
 .mega-menu__link {
@@ -90,4 +96,53 @@
 
 .mega-menu__link:not(.mega-menu__link--level-2) {
   font-size: 13px;
+}
+
+/* Batch 2: two-image sub-panel (only rendered when a menu_images block matches).
+   Spacing/typography read from block-scoped custom props set inline on .mega-menu__inner;
+   fallbacks are the defaults so the panel looks right even with no overrides. */
+.mega-menu__inner {
+  display: flex;
+  gap: var(--mm-inner-gap, 4rem);
+  align-items: flex-start;
+}
+
+.mega-menu__inner .mega-menu__list {
+  flex: 1 1 auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.mega-menu__images {
+  display: flex;
+  /* always reserve the two-image width so link columns sit in the same spot in every menu */
+  flex: 0 0 calc(2 * var(--mm-image-width, 22rem) + var(--mm-images-gap, 2rem));
+  justify-content: flex-end;
+  gap: var(--mm-images-gap, 2rem);
+  padding-top: calc(28px + 0.6rem); /* match .mega-menu__list top pad + first link pad-top */
+}
+
+.mega-menu__image {
+  display: block;
+  width: var(--mm-image-width, 22rem);
+  color: rgba(var(--color-foreground));
+  text-decoration: none;
+}
+
+.mega-menu__image-media {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.mega-menu__image-caption {
+  display: block;
+  margin-top: var(--mm-caption-gap, 0.8rem);
+  font-family: var(--mm-caption-font, inherit);
+  font-size: var(--mm-caption-size, 1.3rem);
+  font-weight: var(--mm-caption-weight, inherit);
+  letter-spacing: var(--mm-caption-ls, normal);
+  text-transform: var(--mm-caption-case, none);
 }

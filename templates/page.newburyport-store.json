@@ -1,0 +1,93 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "hero": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/mp-newburyport-storefront.jpg",
+        "mobile_image": "shopify://shop_images/mp-newburyport-storefront.jpg",
+        "image_height": "adapt",
+        "show_text_box": false,
+        "image_overlay_opacity": 0,
+        "stack_images_on_mobile": true
+      }
+    },
+    "info": {
+      "type": "store-info",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "NEWBURYPORT STORE",
+            "heading_tag": "h1",
+            "heading_size": "h2"
+          }
+        },
+        "intro": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our first store is located in our scenic seaside hometown of Newburyport, MA at 52 Pleasant Street. The shop features a curated selection of past season favorites from our Baby, Child, and Adult Collections at very special prices.</p><p>Personalized shopping experiences, help with sizing, and recommendations are available.</p>"
+          }
+        },
+        "hours_special": {
+          "type": "hours",
+          "settings": {
+            "label": "SPECIAL STORE HOURS",
+            "hours": "<p>Our Newburyport store will hold special hours from July 3-August 2 while we host our <a href=\"/pages/nbpt-sample-sale-26\">annual sample sale</a>.</p><p>Fridays 11-6 pm<br/>Saturdays 11-6 pm (open on July 4!)<br/>Sundays 11-6 pm</p>",
+            "note": "<p><em>*Please note: during the sample sale, the Newburyport store will not operate its regular hours and will only be open during the times listed above.</em></p><p>***The store will be closed Wednesday, July 1 and Thursday, July 2 in preparation for the sample sale.</p>"
+          }
+        },
+        "hours_regular": {
+          "type": "hours",
+          "settings": {
+            "label": "REGULAR STORE HOURS",
+            "hours": "<p>Wednesday through Saturday 11am-6pm<br/>Sunday 11am-5pm</p>",
+            "note": "<p><em>Closed Monday and Tuesday</em></p>"
+          }
+        },
+        "contact": {
+          "type": "contact",
+          "settings": {
+            "address": "<p>52 Pleasant Street<br/>Newburyport, MA 01950</p>",
+            "phone": "(978) 414-7997",
+            "email": "newburyport@misha-and-puff.com",
+            "email_prefix": "For inquiries, please email"
+          }
+        },
+        "returns": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We are unable to accept any online order returns at our store locations. Read our full return policy <a href=\"https://help.misha-and-puff.com/en-US#article-62371\" target=\"_blank\" rel=\"noopener\">here</a>.</p>"
+          }
+        }
+      },
+      "block_order": ["heading", "intro", "hours_special", "hours_regular", "contact", "returns"],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "content_max_width": 720,
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": ["main", "hero", "info"]
+}

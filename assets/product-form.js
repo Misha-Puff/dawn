@@ -19,6 +19,14 @@ if (!customElements.get('product-form')) {
 
       onSubmitHandler(evt) {
         evt.preventDefault();
+        // Sold-out variants render the submit as a BIS "Notify" trigger (buy-buttons.liquid); open the
+        // popup instead of adding to cart. Quick-add strips modal-dialogs, so fall back to disabled there.
+        if (this.submitButton.hasAttribute('data-bis-trigger')) {
+          const bisModal = document.querySelector(`#BisModal-${this.dataset.sectionId}`);
+          if (bisModal) bisModal.show(this.submitButton);
+          else this.toggleSubmitButton(true, window.variantStrings.soldOut);
+          return;
+        }
         if (this.submitButton.getAttribute('aria-disabled') === 'true') return;
 
         this.handleErrorMessage();

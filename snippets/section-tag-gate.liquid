@@ -1,0 +1,33 @@
+{% comment %}
+  Tag-gated section visibility (the show_section_tag setting).
+
+  Storefront: when the section sits on a product page and the product lacks the tag,
+  the section is hidden. Theme editor (request.design_mode): the section stays visible
+  so it can be found and edited, with an indicator banner explaining the storefront state.
+
+  Accepts:
+  - tag: {String} section.settings.show_section_tag
+  - hide_selector: {String} CSS selector that hides the whole section (e.g. '.section-<id>-padding')
+  - product: {Object} product object
+
+  Usage (render just inside the section's outer wrapper):
+  {% render 'section-tag-gate', tag: section.settings.show_section_tag, hide_selector: hide_selector, product: product %}
+{% endcomment %}
+{%- if template contains 'product' and tag != blank -%}
+  {%- unless product.tags contains tag -%}
+    {%- if request.design_mode -%}
+      <div
+        class="section-tag-gate-note"
+        style="padding: 8px 12px; margin: 0 0 8px; background: #fff8e1; border: 1px dashed #b28704; color: #6b5104; font-size: 12px; font-family: 'Courier New', monospace; letter-spacing: 0.05em;"
+      >
+        HIDDEN ON STOREFRONT — this product is missing the tag &quot;{{ tag | escape }}&quot;. Shown in the editor so it stays editable.
+      </div>
+    {%- else -%}
+      <style>
+        {{ hide_selector }} {
+          display: none;
+        }
+      </style>
+    {%- endif -%}
+  {%- endunless -%}
+{%- endif -%}

@@ -10,49 +10,72 @@
 {
   "sections": {
     "gp_global_section_595863519392433074-1": {
+      "type": "gp-global-section-595863519392433074",
       "settings": {
+        "section_preload": "false",
         "checksum": "",
-        "section_preload": "true"
-      },
-      "type": "gp-global-section-595863519392433074"
+        "gg47LCYd4EX_background_desktop_video_-152779725": "https://youtu.be/KOxfzBp72uk",
+        "ggdsK_IqAQs_youtubeUrl_264508443": "https://www.youtube.com/watch?v=drIt4RH_kyQ",
+        "ggdsK_IqAQs_vimeoUrl_1720246490": "https://vimeo.com/1095883398",
+        "ggdsK_IqAQs_html5Url_-677054861": "https://cdn.shopify.com/videos/c/o/v/2074444da92c4eee809a6f8a0338678b.mp4",
+        "gg48FkgVPD3_label": "ALMOST TIME",
+        "ggljP9RJXMP_text": "DECEMBER 4, 9 AM ET / 2 PM GMT"
+      }
     },
     "gp_global_section_595863570109957042-2": {
+      "type": "gp-global-section-595863570109957042",
       "settings": {
+        "section_preload": "false",
         "checksum": "",
-        "section_preload": "false"
-      },
-      "type": "gp-global-section-595863570109957042"
+        "ggZaSJFs5z6_background_desktop_video_-152779725": "https://youtu.be/KOxfzBp72uk",
+        "ggz6CERK3KQ_youtubeUrl_264508443": "https://www.youtube.com/watch?v=drIt4RH_kyQ",
+        "ggz6CERK3KQ_vimeoUrl_1720246490": "https://vimeo.com/1095883398",
+        "ggz6CERK3KQ_html5Url_2095064584": "https://cdn.shopify.com/videos/c/o/v/ac615a8740bc4e3991141095d0f72dde.mp4",
+        "ggxxpB4ljgk_text": "DECEMBER 4, 9 AM ET / 2 PM GMT",
+        "ggFzK60RKC7_label": "ALMOST TIME"
+      }
     },
     "gp_section_595846372255662865": {
+      "type": "gp-section-595846372255662865",
       "settings": {
-        "checksum": "a213da1e94610d69c48bb21749f136ad3e42e3fc044d54db371231c5aa79ef15_1_1_1_0__1",
-        "gg-Y6akhjPy_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-WINTER\">BABY WINTER COLLECTION</a></p>",
+        "checksum": "a213da1e94610d69c48bb21749f136ad3e42e3fc044d54db371231c5aa79ef15_1_1_0_0__1",
+        "ggskSaomHYe_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_4x5_12.3_Child_3.jpg",
+        "ggskSaomHYe_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_4x5_12.3_Child_2_a8312b7a-ffb2-4537-847a-c5e86d1dad30.jpg",
+        "gglv94RH8qJ_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-winter\">CHILD WINTER COLLECTION</a></p>",
+        "ggp6YPz2VgE_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_11.28_Adult_1.jpg",
         "ggDirZYnUhA_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-fall\">ADULT COLLECTION</a></p>",
-        "gglv94RH8qJ_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-winter\">CHILD WINTER COLLECTION</a></p>"
-      },
-      "type": "gp-section-595846372255662865"
+        "ggkByHG1lk2_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_4x5_12.3_Baby_1.jpg",
+        "gg-Y6akhjPy_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-WINTER\">BABY WINTER COLLECTION</a></p>"
+      }
     },
     "gp_section_595846372255728401": {
+      "type": "gp-section-595846372255728401",
       "settings": {
-        "checksum": "407b10b225fa9e401f932edc212f01409b296a2b7da6d40b234ce905e0e840cd_1_1_1_0__1",
+        "checksum": "407b10b225fa9e401f932edc212f01409b296a2b7da6d40b234ce905e0e840cd_1_1_0_0__1",
+        "ggsGyHxYP8I_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_Site_11.28_GiftGuide.jpg",
+        "ggsGyHxYP8I_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_11.28_GiftGuide.jpg",
         "ggS9MfaIZux_label": "<p><span style=\"font-size:12px;\">THE GIFT GUIDE</span></p>"
-      },
-      "type": "gp-section-595846372255728401"
+      }
     },
     "gp_section_595846372255793937": {
+      "type": "gp-section-595846372255793937",
       "settings": {
-        "checksum": "9890f48ca1591f5a8a539c89a41e94f9c49387f4e78bfa73f541b4adf54249f8_1_1_1_0__1",
+        "checksum": "9890f48ca1591f5a8a539c89a41e94f9c49387f4e78bfa73f541b4adf54249f8_1_1_0_0__1",
+        "gg_Oh1S4ZBO_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/2005/9307/files/image_demo.jpg",
+        "gg_Oh1S4ZBO_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_11.28_GiftGuide.jpg",
         "ggmKjQ6fm2Y_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/winter-25-gift-guide\">GIFT GUIDE</a></p>"
-      },
-      "type": "gp-section-595846372255793937"
+      }
     },
     "gp_section_595846372255859473": {
+      "type": "gp-section-595846372255859473",
       "settings": {
-        "checksum": "627c2c035abd3a1a3f010e4aeea65297be6545fa1ba0ceb51d9384f496763696_1_1_1_0__1",
-        "gg2NAAt5DbD_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\">JOURNAL</a></p>",
-        "ggRzArRZUz6_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-accessories\">ACCESSORIES</a></p>"
-      },
-      "type": "gp-section-595846372255859473"
+        "checksum": "627c2c035abd3a1a3f010e4aeea65297be6545fa1ba0ceb51d9384f496763696_1_1_0_0__1",
+        "gg9WuMBDLCX_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_4x5_12.3_Child_Accs.jpg",
+        "gg9WuMBDLCX_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_4x5_12.3_Child_Accs.jpg",
+        "ggRzArRZUz6_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-accessories\">ACCESSORIES</a></p>",
+        "gg9bhgJS-gs_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_11.28_Journal.jpg",
+        "gg2NAAt5DbD_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\">JOURNAL</a></p>"
+      }
     }
   },
   "order": [

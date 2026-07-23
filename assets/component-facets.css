@@ -136,6 +136,8 @@
   margin-bottom: 0;
   text-transform: uppercase;
   font-size: 1.3rem;
+  font-family: var(--font-mono-family);
+  letter-spacing: 0.08em;
 }
 
 .facets__disclosure[id*='SortBy'] .facets__display {
@@ -593,17 +595,9 @@
   margin-left: 2rem;
 }
 
-.facets__price .field {
-  align-items: center;
-}
-
 .facets__price .field-currency {
   align-self: center;
   margin-right: 0.6rem;
-}
-
-.facets__price .field__label {
-  left: 1.5rem;
 }
 
 button.facets__button {
@@ -906,6 +900,11 @@ a.active-facets__button.focused .active-facets__button-inner {
 
 .mobile-facets__open-label {
   transition: text-decoration var(--duration-short) ease;
+}
+
+/* FILTER matches SORT's 1.3rem at all widths (desktop ruling a2a1753b; mobile un-scoped per Nathan 2026-07-15) */
+.mobile-facets__open-label.button-label {
+  font-size: 1.3rem;
 }
 
 .mobile-facets__open:hover .mobile-facets__open-label {

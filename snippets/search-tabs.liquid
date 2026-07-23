@@ -1,0 +1,186 @@
+{% comment %}
+  Renders the search tier tab bar (All / Child / Baby / Adult + auto-hidden
+  secondary tiers), backed by the Search & Discovery "Line" filter
+  (param filter.p.m.taxonomy.division).
+
+  Presence-activated in the results context: renders nothing when the Line
+  filter is absent from results.filters (e.g. removed in Search & Discovery).
+
+  Accepts:
+  - context: {String} 'results' (SSR'd links on /search) or 'modal' (buttons in the quick-search modal)
+  - results: {Object} the search object (results context only)
+  - all_label: {String} label for the All tab
+  - values: {String} comma-separated Line values; EVERY tab hides at 0 results (Nathan's 2026-07-16 ruling — no always-shown tier)
+  - show_counts: {Boolean} paint result counts on tabs
+
+  Usage:
+  {% render 'search-tabs', context: 'results', results: search, all_label: section.settings.search_tabs_all_label, values: section.settings.search_tabs_values, show_counts: section.settings.search_tabs_show_counts %}
+{% endcomment %}
+
+{%- liquid
+  assign division_param = 'filter.p.m.taxonomy.division'
+  assign all_label = all_label | default: 'All'
+  assign tab_list = values | default: 'Child,Baby,Adult,Studio,Home' | split: ','
+-%}
+
+{%- if context == 'modal' -%}
+  <search-tabs
+    data-context="modal"
+    data-search-url="{{ routes.search_url }}"
+    data-filter-param="{{ division_param }}"
+    data-empty-text="{{ 'templates.search.tabs_no_results_html' | t: label: '__LABEL__', terms: '__TERMS__' | escape }}"
+    {% unless show_counts %}data-hide-counts{% endunless %}
+  >
+    <nav class="search-tabs" aria-label="{{ 'templates.search.tabs_label' | t }}">
+      <button type="button" class="search-tabs__tab" data-tab-value="" aria-pressed="true">
+        {{- all_label -}}
+        {%- if show_counts %} <span class="search-tabs__count" data-count></span>{% endif -%}
+      </button>
+      {%- comment -%} Every tier button starts hidden; the count probes unhide the ones with results. {%- endcomment -%}
+      {%- for raw_value in tab_list -%}
+        {%- assign tab_value = raw_value | strip -%}
+        {%- if tab_value == blank -%}{%- continue -%}{%- endif -%}
+        <button type="button" class="search-tabs__tab" data-tab-value="{{ tab_value | escape }}" aria-pressed="false" hidden>
+          {{- tab_value -}}
+          {%- if show_counts %} <span class="search-tabs__count" data-count></span>{% endif -%}
+        </button>
+      {%- endfor -%}
+    </nav>
+    <template data-search-tabs-empty-template>
+      <li class="predictive-search__list-item search-tabs__empty-item" role="option" aria-selected="false">
+        <div class="predictive-search__item-content predictive-search__item-content--centered">
+          <p class="predictive-search__item-heading h5" data-empty-message></p>
+          <button type="button" class="search-tabs__show-all link underlined-link">
+            {{- 'templates.search.tabs_show_all' | t -}}
+          </button>
+        </div>
+      </li>
+    </template>
+  </search-tabs>
+{%- elsif context == 'results' -%}
+  {%- liquid
+    assign line_filter = nil
+    for f in results.filters
+      if f.param_name == division_param
+        assign line_filter = f
+        break
+      endif
+    endfor
+  -%}
+  {%- if line_filter -%}
+    {%- liquid
+      assign active_value = ''
+      for v in line_filter.active_values
+        assign active_value = v.value
+        break
+      endfor
+      assign active_value_down = active_value | downcase
+
+      # Base URL = current URL minus the whole division group (url_to_remove
+      # keeps q, options[prefix], sort_by and other facets), minus any page=.
+      # A bare "options=" param is Shopify-side hash re-serialization of
+      # options[prefix]=last (seen arriving from the live theme's app-rendered
+      # search) — swap it back to the canonical form so hrefs self-heal the
+      # URL instead of propagating the mangle. The legit param encodes as
+      # options%5Bprefix%5D so it never matches the bare "options=" head.
+      assign base_url = line_filter.url_to_remove
+      assign url_halves = base_url | split: '?'
+      assign base_path = url_halves[0]
+      assign clean_query = ''
+      assign mangled_options = false
+      if url_halves.size > 1
+        assign qparams = url_halves[1] | split: '&'
+        for p in qparams
+          assign p_head = p | slice: 0, 5
+          if p_head == 'page='
+            continue
+          endif
+          assign p_head8 = p | slice: 0, 8
+          if p_head8 == 'options='
+            assign mangled_options = true
+            continue
+          endif
+          if clean_query == ''
+            assign clean_query = p
+          else
+            assign clean_query = clean_query | append: '&' | append: p
+          endif
+        endfor
+        if mangled_options
+          assign canonical_options = 'options%5Bprefix%5D=last'
+          unless clean_query contains 'options%5Bprefix%5D='
+            if clean_query == ''
+              assign clean_query = canonical_options
+            else
+              assign clean_query = clean_query | append: '&' | append: canonical_options
+            endif
+          endunless
+        endif
+      endif
+      if clean_query == ''
+        assign all_href = base_path
+      else
+        assign all_href = base_path | append: '?' | append: clean_query
+      endif
+      if all_href contains '?'
+        assign tier_href_base = all_href | append: '&' | append: division_param | append: '='
+      else
+        assign tier_href_base = all_href | append: '?' | append: division_param | append: '='
+      endif
+    -%}
+    <search-tabs
+      data-context="results"
+      data-search-url="{{ routes.search_url }}"
+      data-filter-param="{{ division_param }}"
+      {% unless show_counts %}data-hide-counts{% endunless %}
+    >
+      <nav class="search-tabs page-width" aria-label="{{ 'templates.search.tabs_label' | t }}">
+        <a class="search-tabs__tab" data-tab-value="" href="{{ all_href }}"{% if active_value == '' %} aria-current="page"{% endif %}>
+          {{- all_label -}}
+          {%- if show_counts -%}
+            {%- if active_value == '' %} <span class="search-tabs__count">({{ results.results_count }})</span>
+            {%- else %} <span class="search-tabs__count" data-all-count-pending></span>
+            {%- endif -%}
+          {%- endif -%}
+        </a>
+        {%- comment -%}
+          Every tier tab hides at 0 results (no always-shown tier). Inactive-tab
+          counts are JS-probed — value.count proved unreliable on this store
+          (serve-verified: 223 for Child vs 417 actual) — so SSR paints only the
+          active view's results_count, and SSR visibility uses value.count merely
+          as an indicative signal (rendered-but-hidden tabs are probed and
+          unhidden client-side, so a false SSR zero self-corrects).
+        {%- endcomment -%}
+        {%- for raw_value in tab_list -%}
+          {%- assign tab_value = raw_value | strip -%}
+          {%- if tab_value == blank -%}{%- continue -%}{%- endif -%}
+          {%- liquid
+            assign tab_value_down = tab_value | downcase
+            assign tab_count = 0
+            assign tab_label = tab_value
+            for v in line_filter.values
+              assign v_down = v.value | downcase
+              if v_down == tab_value_down
+                assign tab_count = v.count
+                assign tab_label = v.label
+                break
+              endif
+            endfor
+            assign is_active = false
+            if active_value != '' and active_value_down == tab_value_down
+              assign is_active = true
+            endif
+          -%}
+          <a class="search-tabs__tab" data-tab-value="{{ tab_value | escape }}" href="{{ tier_href_base }}{{ tab_value | url_encode }}"{% if is_active %} aria-current="page"{% endif %}{% unless tab_count > 0 or is_active %} hidden{% endunless %}>
+            {{- tab_label -}}
+            {%- if show_counts -%}
+              {%- if is_active %} <span class="search-tabs__count">({{ results.results_count }})</span>
+              {%- else %} <span class="search-tabs__count" data-count></span>
+              {%- endif -%}
+            {%- endif -%}
+          </a>
+        {%- endfor -%}
+      </nav>
+    </search-tabs>
+  {%- endif -%}
+{%- endif -%}

@@ -1,0 +1,154 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "hero": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/mp-materials-hero.jpg",
+        "mobile_image": "shopify://shop_images/mp-materials-hero.jpg",
+        "image_height": "adapt",
+        "show_text_box": false,
+        "image_overlay_opacity": 0,
+        "stack_images_on_mobile": true
+      }
+    },
+    "info": {
+      "type": "store-info",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "MATERIALS",
+            "heading_tag": "h1",
+            "heading_size": "h2"
+          }
+        },
+        "intro_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "BUILDING BONDS THROUGH ETHICAL FIBERS",
+            "heading_tag": "h2",
+            "heading_size": "h2"
+          }
+        },
+        "intro_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Each of our treasured partners provides unique contributions that amplify our appreciation of time-honored processes. Every piece we create blends craftsmanship, heritage, and quality. All of our materials are natural and sustainably sourced and we make our collections in Peru, Portugal, India, and Japan.</p>"
+          }
+        },
+        "wool_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "WOOL",
+            "heading_tag": "h2",
+            "heading_size": "h2"
+          }
+        },
+        "wool_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Wool — our first love — is a natural fiber celebrated for its warmth, versatility, and easy care. Since sheep grow a new fleece every year, wool is a remarkable renewable resource. Additionally, many wool growers are committed to ensuring the industry’s sustainable future.</p><p>We currently work with two yarn partners, both located in Peru, with over 80 combined years of experience working with natural fibers like Merino wool. Our Superwash Merino wool is crafted by these skilled artisans, using premium natural fibers and low-impact dyes.</p><p>The majority of our wool is Superwash Merino wool, which is special for many reasons. Unlike most wool, Superwash wool can be put through a washing machine.</p>"
+          }
+        },
+        "rws_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "THE RESPONSIBLE WOOL STANDARD",
+            "heading_tag": "h2",
+            "heading_size": "h2"
+          }
+        },
+        "rws_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>In 2023, Misha &amp; Puff achieved <a href=\"https://textileexchange.org/responsible-wool-standard/\" target=\"_blank\" rel=\"noopener\">Responsible Wool Standard</a> (RWS) certification on all of our new yarn skeins. The Responsible Wool Standard guarantees high standards of care for animals across the entire production chain, from farms to transporters.</p><p><a href=\"/collections/rws-yarn-skeins\" target=\"_blank\" rel=\"noopener\">SHOP RWS YARN</a></p>"
+          }
+        },
+        "pima_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "PIMA COTTON",
+            "heading_tag": "h2",
+            "heading_size": "h2"
+          }
+        },
+        "pima_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We love Pima cotton and it plays a big role in each of our collections. Pima cotton, which originated in Peru, is softer and more durable than standard cotton. All of our Pima cotton is 100% Pima cotton made in Peru.</p><p>When we can, we utilize Organic Pima cotton, which reduces water consumption by 91% compared to conventionally grown cotton. Our organic Pima cotton is sourced from a family-owned company in Peru that’s been a pioneer in the production and promotion of organic cotton for over 30 years. This company is certified by the <a href=\"https://global-standard.org/\" target=\"_blank\" rel=\"noopener\">Global Organic Textile Standard</a> (GOTS) and the <a href=\"https://wfto.com/\" target=\"_blank\" rel=\"noopener\">World Fair Trade Organization</a> (WFTO).</p>"
+          }
+        },
+        "dyes_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "OUR DYES",
+            "heading_tag": "h2",
+            "heading_size": "h2"
+          }
+        },
+        "dyes_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We care about what we put against our skin and how anything we do affects the planet. We use two types of dyes in our products: plant-based and low-impact.</p><p>Many of our most loved designs are made with our beautiful hand-dyed Superwash Merino wool. With each strand unique due to the hand-dye process, subtle nuances are introduced into every garment. The hand-dyed variation and natural patterns the yarn creates when knit mean no two garments are the same, and that’s exactly why we love it. With this process, we embrace unpredictability and celebrate the presence of the hand.</p><p>Plant-based dyes are as natural as you can get, but may tend to fade faster than other dyes. Low-impact dyes absorb better into the yarn, and in turn, it means less water is used during the rinse process and results in less run-off of dye.</p><p>When we use industrial dyes, we make sure they’re “low impact.” Low-impact dyes are still synthetic, chemical-based dyes, but they don’t use the same toxic chemicals as conventional dyes. These dyes are also known as “azo-free.”</p>"
+          }
+        },
+        "crafting_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "CRAFTING CONSCIOUSNESS",
+            "heading_tag": "h2",
+            "heading_size": "h2"
+          }
+        },
+        "crafting_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We source recycled paper options from local vendors for our print and packaging needs and we are constantly exploring new ways to be creative with a minimal footprint.</p><p><a href=\"/pages/sourcing\">Read next</a> &gt; <a href=\"/pages/sourcing\">Sourcing</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "intro_heading",
+        "intro_text",
+        "wool_heading",
+        "wool_text",
+        "rws_heading",
+        "rws_text",
+        "pima_heading",
+        "pima_text",
+        "dyes_heading",
+        "dyes_text",
+        "crafting_heading",
+        "crafting_text"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "content_max_width": 720,
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": ["main", "hero", "info"]
+}

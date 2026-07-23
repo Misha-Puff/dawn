@@ -11,60 +11,76 @@
   "sections": {
     "gp_section_609119529406170072": {
       "settings": {
-        "checksum": "6916cb044f277de6b6e67817542bc8c0777f53a81c43b7886fc473467c93fb5a_1_1_1_0__1",
+        "checksum": "6916cb044f277de6b6e67817542bc8c0777f53a81c43b7886fc473467c93fb5a_1_1_0_0__1",
         "ggJnjFWfueJ_text": "<p><span style=\"font-size:11px;\">NEW ARRIVALS</span></p>",
         "ggeX__Np1yG_label": "<p>SHOP NOW</p>",
         "ggt967mmF3O_text": "<p><span style=\"font-size:14px;\">SPRING COLLECTION</span></p>",
+        "ggyG6ewl5Ve_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_Site_3.5_Spring_1.jpg",
+        "ggyG6ewl5Ve_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_SiteMobile_Custom_3.5_Spring_1.jpg",
         "section_preload": "true"
       },
       "type": "gp-section-609119529406170072"
     },
     "gp_section_609119529406235608": {
       "settings": {
-        "checksum": "91aafa62409761f7a020d65b74abb54726028c3e661a24d8543a86e6b4bbcf41_1_1_1_0__1",
-        "ggAVW0-K4AB_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-fall\"><span style=\"font-size:11px;\">ADULT COLLECTION</span></a></p>"
+        "checksum": "91aafa62409761f7a020d65b74abb54726028c3e661a24d8543a86e6b4bbcf41_1_1_0_0__1",
+        "ggAVW0-K4AB_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-fall\"><span style=\"font-size:11px;\">ADULT COLLECTION</span></a></p>",
+        "ggzV3fDhgqD_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_Site_2.12_Adult_1_2391623d-65b6-41eb-b0b9-6373a18aef45.jpg",
+        "ggzV3fDhgqD_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_SiteMobile_Custom_2.26_Adult_1.jpg"
       },
       "type": "gp-section-609119529406235608"
     },
     "gp_section_609119529406301144": {
       "settings": {
-        "checksum": "8c761b01c9efbf012a81d8f021cbc0a6ee16b05d5e6d7e746fdbe81bac59d799_1_1_1_0__1",
+        "checksum": "8c761b01c9efbf012a81d8f021cbc0a6ee16b05d5e6d7e746fdbe81bac59d799_1_1_0_0__1",
+        "gg9WuMBDLCX_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_SiteMobile_Custom_2.26_Journal.jpg",
+        "gg9WuMBDLCX_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_SiteMobile_Custom_2.26_Journal.jpg",
         "ggRzArRZUz6_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\">JOURNAL</a></p>",
+        "ggZXyS5pQX2_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_Custom_1.27_Child_Knits.jpg",
+        "ggZXyS5pQX2_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_Custom_1.27_Child_Knits.jpg",
         "gg_CLfR2Zst_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-hand-knit\"><span style=\"font-size:11px;\">KNITWEAR</span></a></p>",
-        "gglv94RH8qJ_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-denim\"><span style=\"font-size:11px;\">DENIM COLLECTION — New Arrivals</span></a></p>"
+        "gglv94RH8qJ_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-denim\"><span style=\"font-size:11px;\">DENIM COLLECTION — New Arrivals</span></a></p>",
+        "ggskSaomHYe_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_SiteMobile_Custom_3.5_Denim_2.jpg",
+        "ggskSaomHYe_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_SiteMobile_Custom_3.5_Denim_2.jpg"
       },
       "type": "gp-section-609119529406301144"
     },
     "gp_section_609119529406366680": {
       "settings": {
-        "checksum": "683ae46d8fb152eb23c9f41ad31b2cd1c3d37ab1ad13a31c0a098098b1932357_1_1_1_0__1",
+        "checksum": "683ae46d8fb152eb23c9f41ad31b2cd1c3d37ab1ad13a31c0a098098b1932357_1_1_0_0__1",
         "ggQ4oCZM4Av_text": "<p><span style=\"font-size:11px;\">ADULT COLLECTION</span></p>",
-        "section_preload": "true"
+        "ggiexqXwLZn_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_Site_2.26_Adult_1.jpg",
+        "ggiexqXwLZn_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_SiteMobile_Custom_2.26_Adult_1.jpg"
       },
       "type": "gp-section-609119529406366680"
     },
     "gp_section_609119529406432216": {
       "settings": {
-        "checksum": "0ed265c328e259da00e130f70beaa181902aeedb0ed0fb8285d21876ef3b5bdf_1_1_1_0__1",
+        "checksum": "0ed265c328e259da00e130f70beaa181902aeedb0ed0fb8285d21876ef3b5bdf_1_1_0_0__1",
         "gg-Y6akhjPy_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-spring\"><span style=\"font-size:11px;\">BABY COLLECTION</span></a></p>",
         "ggN9N1NGZ4O_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-sale\"><span style=\"font-size:11px;\">30% OFF WINTER COLLECTION</span></a></p>",
-        "section_preload": "true"
+        "ggYRxJ3Xhuz_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_SiteMobile_Custom_Sale_2.gif",
+        "ggYRxJ3Xhuz_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_SiteMobile_Custom_Sale_2.gif",
+        "ggkByHG1lk2_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_SiteMobile_Custom_2.26_Baby_1.jpg"
       },
       "type": "gp-section-609119529406432216"
     },
     "gp_section_609263095902110280": {
       "settings": {
-        "checksum": "d590ddc11558e60c3515da7244eb22c07eb4506a320162faf90da45fed420aff_1_1_1_0__1",
+        "checksum": "d590ddc11558e60c3515da7244eb22c07eb4506a320162faf90da45fed420aff_1_1_0_0__1",
         "gg8mxFf3kvu_text": "DESIGNED BY ARTISTS, MADE BY ARTISANS",
-        "ggBVAa558V__text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(0,0,0);font-size:12px;\">Designed in New England and handcrafted by a network of highly skilled knitters and artisans around the world, Misha &amp; Puff is built on a shared love of craft and material integrity. With our partners, we've scaled handcrafted knits responsibly and respectfully, honoring our values and vision for the future.</span></p><p>&nbsp;</p><p><a href=\"https://shop.misha-and-puff.com/pages/people\" target=\"_blank\"><span style=\"background-color:rgb(255,255,255);color:rgb(16,24,32);font-size:11px;\"><u>READ MORE</u></span></a></p>"
+        "ggBVAa558V__text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(0,0,0);font-size:12px;\">Designed in New England and handcrafted by a network of highly skilled knitters and artisans around the world, Misha &amp; Puff is built on a shared love of craft and material integrity. With our partners, we've scaled handcrafted knits responsibly and respectfully, honoring our values and vision for the future.</span></p><p>&nbsp;</p><p><a href=\"https://shop.misha-and-puff.com/pages/people\" target=\"_blank\"><span style=\"background-color:rgb(255,255,255);color:rgb(16,24,32);font-size:11px;\"><u>READ MORE</u></span></a></p>",
+        "ggCf4D7i7Ij_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_SiteMobile_Custom_3.5_Artisan.jpg"
       },
       "type": "gp-section-609263095902110280"
     },
     "gp_section_609263244061705199": {
       "settings": {
-        "checksum": "23d983d55eaba9afa138fc5268125a3ac6dd2f47cbcb371ab1b0dbe625756c13_1_1_1_0__1",
+        "checksum": "23d983d55eaba9afa138fc5268125a3ac6dd2f47cbcb371ab1b0dbe625756c13_1_1_0_0__1",
         "gg1lz20aiLV_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(0,0,0);font-size:12px;\">Designed in New England and handcrafted by a network of highly skilled knitters and artisans around the world, Misha &amp; Puff is built on a shared love of craft and material integrity. With our partners, we've scaled handcrafted knits responsibly and respectfully, honoring our values and vision for the future.</span><br>&nbsp;</p><p><a href=\"https://shop.misha-and-puff.com/pages/people\" target=\"_blank\"><span style=\"background-color:rgb(255,255,255);color:rgb(16,24,32);font-size:11px;\"><u>READ MORE</u></span></a></p>",
-        "ggZatq06guc_text": "<span style=\"color:#101820;font-size:12px;\">DESIGNED BY ARTISTS, MADE BY ARTISANS</span>"
+        "ggZatq06guc_text": "<span style=\"color:#101820;font-size:12px;\">DESIGNED BY ARTISTS, MADE BY ARTISANS</span>",
+        "ggpI2wGsM8E_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/gempages_557305364022821686-464427c0-8549-4160-8c62-3605f9dbe562.png",
+        "ggpI2wGsM8E_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_SiteMobile_Custom_3.5_Artisan.jpg"
       },
       "type": "gp-section-609263244061705199"
     }

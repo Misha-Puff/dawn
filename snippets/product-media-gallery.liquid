@@ -41,6 +41,11 @@
   elsif section.settings.media_size == 'small'
     assign media_width = 0.45
   endif
+
+  assign show_rail = false
+  if section.settings.gallery_layout == 'stacked_scroll' and section.settings.show_thumbnail_rail
+    assign show_rail = true
+  endif
 -%}
 
 <media-gallery
@@ -203,10 +208,11 @@
     and media_count > 1
     and section.settings.gallery_layout contains 'thumbnail'
     or section.settings.mobile_thumbnails == 'show'
+    or show_rail
   -%}
     <slider-component
       id="GalleryThumbnails-{{ section.id }}"
-      class="thumbnail-slider slider-mobile-gutter quick-add-hidden{% unless section.settings.gallery_layout contains 'thumbnail' %} medium-hide large-up-hide{% endunless %}{% if section.settings.mobile_thumbnails != 'show' %} small-hide{% endif %}{% if media_count <= 3 %} thumbnail-slider--no-slide{% endif %}"
+      class="thumbnail-slider slider-mobile-gutter quick-add-hidden{% if show_rail %} thumbnail-slider--rail{% endif %}{% unless section.settings.gallery_layout contains 'thumbnail' or show_rail %} medium-hide large-up-hide{% endunless %}{% if section.settings.mobile_thumbnails != 'show' %} small-hide{% endif %}{% if media_count <= 3 %} thumbnail-slider--no-slide{% endif %}"
     >
       <button
         type="button"

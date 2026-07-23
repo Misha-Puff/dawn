@@ -104,7 +104,8 @@
 }
 
 .product-card-wrapper .card__information .price {
-  font-size: 12px;
+  /* Wins over component-card.css .card__heading-row > .price on specificity, so it must consume the same var. */
+  font-size: var(--card-price-size, 11px);
   margin-top: 0 !important;
 }
 
@@ -121,4 +122,468 @@
 
 [for='Filter-filter.v.availability-mobile-2'] {
   display: none;
+}
+
+/* Lateral-shopping tabs (links to sibling collections in the same tab group) */
+.collection-tabs {
+  display: flex;
+  flex-wrap: nowrap; /* explicit; documents single-row intent */
+  gap: 2.4rem;
+  margin-bottom: 2.4rem;
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.15);
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* old Edge */
+  -webkit-overflow-scrolling: touch; /* iOS momentum */
+}
+
+.collection-tabs::-webkit-scrollbar {
+  display: none; /* Safari/Chrome */
+}
+
+/* Auto margins center the row when it fits but, unlike justify-content:
+   center, keep the first tab reachable when it overflows and scrolls. */
+.collection-tabs__tab:first-child {
+  margin-left: auto;
+}
+
+.collection-tabs__tab:last-child {
+  margin-right: auto;
+}
+
+.collection-tabs__tab {
+  padding: 0 0 1.2rem;
+  margin-bottom: -0.1rem;
+  font-size: 1.3rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0; /* never compress; row scrolls instead of squashing */
+  color: rgba(var(--color-foreground), 0.6);
+  border-bottom: 0.2rem solid transparent;
+}
+
+.collection-tabs__tab[aria-current='page'] {
+  color: rgb(var(--color-foreground));
+  border-bottom-color: rgb(var(--color-foreground));
+}
+
+/* Campaign view (editorial mix shown via the Collection / Campaign toggle) */
+.collection-view--campaign {
+  display: flex;
+  flex-direction: column;
+  gap: var(--campaign-gap, 4rem);
+}
+
+.campaign-block {
+  margin: 0;
+}
+
+.campaign-hero__image,
+.campaign-hero__video,
+.campaign-lifestyle__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.campaign-hero__content {
+  margin-top: 1.6rem;
+  text-align: center;
+}
+
+.campaign-hero__text {
+  margin: 1rem 0 2rem;
+}
+
+.campaign-text {
+  max-width: 72rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.campaign-text__body {
+  margin-top: 1rem;
+}
+
+.campaign-lifestyle__heading,
+.campaign-products__heading {
+  margin-bottom: 1.6rem;
+}
+
+.campaign-lifestyle__callouts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  margin-top: 1.6rem;
+}
+
+.campaign-lifestyle__callout {
+  display: inline-flex;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.campaign-lifestyle__callout-price {
+  color: rgba(var(--color-foreground), 0.7);
+}
+
+.campaign-products__grid {
+  margin-top: 1.6rem;
+}
+
+/* --- Campaign parity system (FA26 port) ---
+   Per-block geometry arrives as CSS custom props set inline on each
+   .campaign-block (emitted by main-collection-product-grid.liquid):
+   --cb-w/--cb-wm  band width in vw (desktop/mobile; 100vw = full-bleed)
+   --cb-pt/--cb-pb/--cb-ptm/--cb-pbm  band paddings
+   Collage: --c1-w/--c2-w (+ -wm), --c1-off/--c2-off (+ -offm), --c1-gap
+   Products: --cp-cols, --cp-gap
+   Sized bands center themselves and may exceed the page-width container:
+   negative margin-inline halves absorb the overflow symmetrically
+   (html/body overflow-x: clip guards the scrollbar-width remainder). */
+.campaign-block {
+  padding-top: var(--cb-pt, 0);
+  padding-bottom: var(--cb-pb, 0);
+}
+
+.campaign-block--sized {
+  width: var(--cb-w, 100%);
+  margin-inline: calc((100% - var(--cb-w, 100%)) / 2);
+}
+
+/* Ambient hero (background-video mode) */
+.campaign-hero--ambient .campaign-hero__media {
+  position: relative;
+}
+
+.campaign-hero__ambient {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.campaign-hero__media--full .campaign-hero__ambient {
+  height: 100svh;
+}
+
+.campaign-hero__eyebrow {
+  position: absolute;
+  top: 34%;
+  left: 0;
+  right: 0;
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-mono-family);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 22px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.campaign-hero__overlay-image {
+  position: absolute;
+  top: 37.9%;
+  left: var(--page-width-padding, 50px);
+  right: var(--page-width-padding, 50px);
+  width: calc(100% - 2 * var(--page-width-padding, 50px));
+  height: auto;
+}
+
+/* Ambient lifestyle video */
+.campaign-lifestyle__ambient {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Collage */
+.campaign-collage {
+  display: grid;
+  grid-template-columns: var(--c1-w, 1fr) 1fr var(--c2-w, 1fr);
+  align-items: start;
+  padding-left: var(--page-width-padding, 50px);
+  padding-right: var(--page-width-padding, 50px);
+}
+
+.campaign-collage--bottom {
+  align-items: end;
+}
+
+.campaign-collage--flush-first {
+  padding-left: 0;
+}
+
+.campaign-collage--flush-second {
+  padding-right: 0;
+}
+
+.campaign-collage__col--first {
+  grid-column: 1;
+  margin-top: var(--c1-off, 0);
+}
+
+.campaign-collage__col--second {
+  grid-column: 3;
+  margin-top: var(--c2-off, 0);
+}
+
+.campaign-collage__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.campaign-collage__col--first .campaign-collage__image {
+  aspect-ratio: var(--c1-ar, auto);
+  object-fit: cover;
+}
+
+.campaign-collage__col--second .campaign-collage__image {
+  aspect-ratio: var(--c2-ar, auto);
+  object-fit: cover;
+}
+
+.campaign-collage__text {
+  grid-column: 1;
+  text-align: right;
+}
+
+.campaign-collage__eyebrow {
+  margin: 0;
+  font-family: var(--font-mono-family);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 22px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgb(16, 24, 32);
+}
+
+.campaign-collage__heading {
+  margin: 0;
+  font-family: var(--font-body-family);
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  color: rgb(16, 24, 32);
+}
+
+.campaign-collage--text_first {
+  grid-template-rows: auto 1fr;
+}
+
+.campaign-collage--text_first .campaign-collage__text {
+  grid-row: 1;
+  margin-top: var(--c1-off, 0);
+}
+
+.campaign-collage--text_first .campaign-collage__col--first {
+  grid-row: 2;
+  margin-top: var(--c1-gap, 0);
+}
+
+.campaign-collage--text_first .campaign-collage__col--second {
+  grid-row: 1 / span 2;
+}
+
+/* Explicit rows: grid sparse auto-flow would otherwise bump the image to
+   row 2 after placing the text in row 1 / column 3. */
+.campaign-collage--image_text .campaign-collage__text {
+  grid-column: 3;
+  grid-row: 1;
+  align-self: center;
+  margin-top: var(--c2-off, 0);
+}
+
+.campaign-collage--image_text .campaign-collage__col--first {
+  grid-row: 1;
+}
+
+/* Products: minimal cards + image tiles */
+.campaign-products__row {
+  display: grid;
+  grid-template-columns: repeat(var(--cp-cols, 4), 1fr);
+  gap: var(--cp-gap, 6px);
+  margin: 0;
+  padding: 0;
+}
+
+.campaign-products__card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.campaign-products__media {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+}
+
+.campaign-products__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.campaign-products__img--hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.campaign-products__card:hover .campaign-products__img--hover {
+  opacity: 1;
+}
+
+.campaign-products__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.campaign-products__title {
+  font-family: var(--font-body-family);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: rgb(26, 26, 26);
+}
+
+.campaign-products__price {
+  font-family: var(--font-mono-family);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 1px;
+  color: #000;
+  text-align: right;
+}
+
+.campaign-products__cta-wrap {
+  text-align: center;
+  padding-top: 60px;
+}
+
+.campaign-products__cta {
+  font-family: var(--font-mono-family);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: rgb(26, 26, 26);
+}
+
+@media screen and (max-width: 749px) {
+  .campaign-block {
+    padding-top: var(--cb-ptm, var(--cb-pt, 0));
+    padding-bottom: var(--cb-pbm, var(--cb-pb, 0));
+  }
+
+  .campaign-block--sized {
+    width: var(--cb-wm, var(--cb-w, 100%));
+    margin-inline: calc((100% - var(--cb-wm, var(--cb-w, 100%))) / 2);
+  }
+
+  .campaign-hero__eyebrow {
+    top: 45.7%;
+    font-size: 13px;
+  }
+
+  .campaign-hero__overlay-image {
+    top: 49.9%;
+    left: 50%;
+    right: auto;
+    width: 79.5vw;
+    transform: translateX(-50%);
+  }
+
+  .campaign-collage {
+    grid-template-columns: var(--c1-wm, var(--c1-w, 1fr)) 1fr var(--c2-wm, var(--c2-w, 1fr));
+    padding-left: var(--mobile-page-width-padding, 10px);
+    padding-right: var(--mobile-page-width-padding, 10px);
+  }
+
+  .campaign-collage--flush-first {
+    padding-left: 0;
+  }
+
+  .campaign-collage--flush-second {
+    padding-right: 0;
+  }
+
+  .campaign-collage__col--first {
+    margin-top: var(--c1-offm, var(--c1-off, 0));
+  }
+
+  .campaign-collage__col--second {
+    margin-top: var(--c2-offm, var(--c2-off, 0));
+  }
+
+  .campaign-collage__eyebrow {
+    font-size: 11px;
+  }
+
+  .campaign-collage__heading {
+    font-size: 15px;
+    line-height: 1.3;
+    letter-spacing: 1px;
+  }
+
+  /* Mobile text_first: images stay side-by-side on row 1, text drops below
+     them full-width and left-aligned (the Gempages mobile arrangement). */
+  .campaign-collage--text_first {
+    grid-template-rows: auto auto;
+  }
+
+  .campaign-collage--text_first .campaign-collage__text {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    text-align: left;
+    margin-top: 48px;
+    margin-left: 10px;
+  }
+
+  .campaign-collage--text_first .campaign-collage__col--first {
+    grid-row: 1;
+    margin-top: var(--c1-offm, 48px);
+  }
+
+  .campaign-collage--text_first .campaign-collage__col--second {
+    grid-row: 1;
+  }
+
+  .campaign-products__row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--cp-gapm, 6px);
+  }
+
+  .campaign-products__meta {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .campaign-products__title,
+  .campaign-products__price {
+    font-size: 10px;
+    text-align: left;
+  }
+
+  .campaign-products__cta-wrap {
+    padding-top: 50px;
+  }
 }

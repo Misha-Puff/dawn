@@ -33,6 +33,11 @@
   .rich-text__blocks {
     max-width: 50rem;
   }
+
+  .rich-text__wrapper--left .rich-text__blocks,
+  .rich-text__wrapper--right .rich-text__blocks {
+    max-width: 78rem;
+  }
 }
 
 @media screen and (min-width: 1100px) {

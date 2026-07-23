@@ -1,449 +1,361 @@
-{% render 'gp-head', 'isThemeSection: true' %}
-<style {% if section.settings.section_preload == "false" %} class="gps-link gps-style" type="text/disabled-css" {% endif %}>.gps-562236764387804340.gps.gpsil [style*="--bg:"]{background:var(--bg)}.gps-562236764387804340.gps.gpsil [style*="--hvr-bg:"]:hover{background:var(--hvr-bg)}.gps-562236764387804340.gps.gpsil [style*="--bga:"]{background-attachment:var(--bga)}.gps-562236764387804340.gps.gpsil [style*="--bgc:"]{background-color:var(--bgc)}.gps-562236764387804340.gps.gpsil [style*="--bgi:"]{background-image:var(--bgi)}.gps-562236764387804340.gps.gpsil [style*="--bgp:"]{background-position:var(--bgp)}.gps-562236764387804340.gps.gpsil [style*="--bgr:"]{background-repeat:var(--bgr)}.gps-562236764387804340.gps.gpsil [style*="--bgs:"]{background-size:var(--bgs)}.gps-562236764387804340.gps.gpsil [style*="--b:"]{border:var(--b)}.gps-562236764387804340.gps.gpsil [style*="--hvr-b:"]:hover{border:var(--hvr-b)}.gps-562236764387804340.gps.gpsil [style*="--bb:"]{border-bottom:var(--bb)}.gps-562236764387804340.gps.gpsil [style*="--bc:"]{border-color:var(--bc)}.gps-562236764387804340.gps.gpsil [style*="--bblr:"]{border-bottom-left-radius:var(--bblr)}.gps-562236764387804340.gps.gpsil [style*="--bbrr:"]{border-bottom-right-radius:var(--bbrr)}.gps-562236764387804340.gps.gpsil [style*="--bs:"]{border-style:var(--bs)}.gps-562236764387804340.gps.gpsil [style*="--bt:"]{border-top:var(--bt)}.gps-562236764387804340.gps.gpsil [style*="--btlr:"]{border-top-left-radius:var(--btlr)}.gps-562236764387804340.gps.gpsil [style*="--btrr:"]{border-top-right-radius:var(--btrr)}.gps-562236764387804340.gps.gpsil [style*="--bw:"]{border-width:var(--bw)}.gps-562236764387804340.gps.gpsil [style*="--shadow:"]{box-shadow:var(--shadow)}.gps-562236764387804340.gps.gpsil [style*="--c:"]{color:var(--c)}.gps-562236764387804340.gps.gpsil [style*="--hvr-c:"]:hover{color:var(--hvr-c)}.gps-562236764387804340.gps.gpsil [style*="--cg:"]{-moz-column-gap:var(--cg);column-gap:var(--cg)}.gps-562236764387804340.gps.gpsil [style*="--gtc:"]{grid-template-columns:var(--gtc)}.gps-562236764387804340.gps.gpsil [style*="--h:"]{height:var(--h)}.gps-562236764387804340.gps.gpsil [style*="--jc:"]{justify-content:var(--jc)}.gps-562236764387804340.gps.gpsil [style*="--op:"]{opacity:var(--op)}.gps-562236764387804340.gps.gpsil [style*="--o:"]{order:var(--o)}.gps-562236764387804340.gps.gpsil [style*="--pc:"]{place-content:var(--pc)}.gps-562236764387804340.gps.gpsil [style*="--p:"]{padding:var(--p)}.gps-562236764387804340.gps.gpsil [style*="--pb:"]{padding-bottom:var(--pb)}.gps-562236764387804340.gps.gpsil [style*="--pl:"]{padding-left:var(--pl)}.gps-562236764387804340.gps.gpsil [style*="--pr:"]{padding-right:var(--pr)}.gps-562236764387804340.gps.gpsil [style*="--pt:"]{padding-top:var(--pt)}.gps-562236764387804340.gps.gpsil [style*="--ta:"]{text-align:var(--ta)}.gps-562236764387804340.gps.gpsil [style*="--t:"]{transform:var(--t)}.gps-562236764387804340.gps.gpsil [style*="--w:"]{width:var(--w)}@media only screen and (max-width:1024px){.gps-562236764387804340.gps.gpsil [style*="--h-tablet:"]{height:var(--h-tablet)}.gps-562236764387804340.gps.gpsil [style*="--pl-tablet:"]{padding-left:var(--pl-tablet)}.gps-562236764387804340.gps.gpsil [style*="--pr-tablet:"]{padding-right:var(--pr-tablet)}.gps-562236764387804340.gps.gpsil [style*="--w-tablet:"]{width:var(--w-tablet)}}@media only screen and (max-width:767px){.gps-562236764387804340.gps.gpsil [style*="--gtc-mobile:"]{grid-template-columns:var(--gtc-mobile)}.gps-562236764387804340.gps.gpsil [style*="--h-mobile:"]{height:var(--h-mobile)}.gps-562236764387804340.gps.gpsil [style*="--pl-mobile:"]{padding-left:var(--pl-mobile)}.gps-562236764387804340.gps.gpsil [style*="--pr-mobile:"]{padding-right:var(--pr-mobile)}.gps-562236764387804340.gps.gpsil [style*="--pt-mobile:"]{padding-top:var(--pt-mobile)}.gps-562236764387804340.gps.gpsil [style*="--w-mobile:"]{width:var(--w-mobile)}}.gps-562236764387804340 .gp-g-heading-1{font-family:var(--g-h1-ff);font-size:var(--g-h1-size);font-style:var(--g-h1-fs);font-weight:var(--g-h1-weight);letter-spacing:var(--g-h1-ls);line-height:var(--g-h1-lh)}.gps-562236764387804340 .gp-g-paragraph-1{font-family:var(--g-p1-ff);font-size:var(--g-p1-size);font-style:var(--g-p1-fs);font-weight:var(--g-p1-weight);letter-spacing:var(--g-p1-ls);line-height:var(--g-p1-lh)}.gps-562236764387804340 .gp-relative{position:relative}.gps-562236764387804340 .gp-z-1{z-index:1}.gps-562236764387804340 .gp-mx-auto{margin-left:auto;margin-right:auto}.gps-562236764387804340 .gp-mb-0{margin-bottom:0}.gps-562236764387804340 .gp-flex{display:flex}.gps-562236764387804340 .gp-inline-flex{display:inline-flex}.gps-562236764387804340 .gp-grid{display:grid}.gps-562236764387804340 .\!gp-hidden{display:none!important}.gps-562236764387804340 .gp-hidden{display:none}.gps-562236764387804340 .gp-h-full{height:100%}.gps-562236764387804340 .gp-max-w-full{max-width:100%}.gps-562236764387804340 .gp-grid-rows-\[1fr\]{grid-template-rows:1fr}.gps-562236764387804340 .gp-flex-col{flex-direction:column}.gps-562236764387804340 .gp-items-center{align-items:center}.gps-562236764387804340 .gp-justify-center{justify-content:center}.gps-562236764387804340 .gp-gap-y-0{row-gap:0}.gps-562236764387804340 .gp-overflow-hidden{overflow:hidden}.gps-562236764387804340 .gp-break-words{overflow-wrap:break-word}.gps-562236764387804340 .gp-rounded-none{border-radius:0}.gps-562236764387804340 .gp-no-underline{text-decoration-line:none}.gps-562236764387804340 .gp-transition-colors{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-562236764387804340 .gp-duration-200{transition-duration:.2s}.gps-562236764387804340 .gp-duration-300{transition-duration:.3s}.gps-562236764387804340 .gp-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-562236764387804340 .disabled\:gp-btn-disabled:disabled{cursor:default}.gps-562236764387804340 .disabled\:gp-pointer-events-none:disabled{pointer-events:none}.gps-562236764387804340 .disabled\:gp-opacity-30:disabled{opacity:.3}@media (hover:hover) and (pointer:fine){.gps-562236764387804340 .gp-group\/button:hover .group-hover\/button\:\!gp-text-inherit{color:inherit!important}}.gps-562236764387804340 .gp-group\/button:active .group-active\/button\:\!gp-text-inherit{color:inherit!important}.gps-562236764387804340 .gp-group\/button[data-state=loading] .group-data-\[state\=loading\]\/button\:gp-invisible{visibility:hidden}@media (max-width:1024px){.gps-562236764387804340 .tablet\:\!gp-hidden{display:none!important}.gps-562236764387804340 .tablet\:gp-hidden{display:none}}@media (max-width:767px){.gps-562236764387804340 .mobile\:\!gp-hidden{display:none!important}.gps-562236764387804340 .mobile\:gp-hidden{display:none}}.gps-562236764387804340 .\[\&_\*\]\:gp-max-w-full *{max-width:100%}.gps-562236764387804340 .\[\&_p\]\:gp-inline p{display:inline}.gps-562236764387804340 .\[\&_p\]\:gp-whitespace-pre-line p{white-space:pre-line}.gps-562236764387804340 .\[\&_p\]\:after\:gp-whitespace-pre-wrap p:after{content:var(--tw-content);white-space:pre-wrap}.gps-562236764387804340 .\[\&_p\]\:after\:gp-content-\[\'\\A\'\] p:after{--tw-content:"\A";content:var(--tw-content)}</style>
 
-       
+    {% render 'gp-head', isThemeSection: true %}
+    
+    <style {% if section.settings.section_preload == "false" %} class="gps-link gps-style" type="text/disabled-css" {% endif %}>.gps-562236764387804340.gps.gpsil [style*="--bg:"]{background:var(--bg)}.gps-562236764387804340.gps.gpsil [style*="--hvr-bg:"]:hover{background:var(--hvr-bg)}.gps-562236764387804340.gps.gpsil [style*="--bga:"]{background-attachment:var(--bga)}.gps-562236764387804340.gps.gpsil [style*="--bgc:"]{background-color:var(--bgc)}.gps-562236764387804340.gps.gpsil [style*="--bgi:"]{background-image:var(--bgi)}.gps-562236764387804340.gps.gpsil [style*="--bgp:"]{background-position:var(--bgp)}.gps-562236764387804340.gps.gpsil [style*="--bgr:"]{background-repeat:var(--bgr)}.gps-562236764387804340.gps.gpsil [style*="--bgs:"]{background-size:var(--bgs)}.gps-562236764387804340.gps.gpsil [style*="--b:"]{border:var(--b)}.gps-562236764387804340.gps.gpsil [style*="--hvr-b:"]:hover{border:var(--hvr-b)}.gps-562236764387804340.gps.gpsil [style*="--bb:"]{border-bottom:var(--bb)}.gps-562236764387804340.gps.gpsil [style*="--hvr-bb:"]:hover{border-bottom:var(--hvr-bb)}.gps-562236764387804340.gps.gpsil [style*="--bc:"]{border-color:var(--bc)}.gps-562236764387804340.gps.gpsil [style*="--bblr:"]{border-bottom-left-radius:var(--bblr)}.gps-562236764387804340.gps.gpsil [style*="--hvr-bblr:"]:hover{border-bottom-left-radius:var(--hvr-bblr)}.gps-562236764387804340.gps.gpsil [style*="--bbrr:"]{border-bottom-right-radius:var(--bbrr)}.gps-562236764387804340.gps.gpsil [style*="--hvr-bbrr:"]:hover{border-bottom-right-radius:var(--hvr-bbrr)}.gps-562236764387804340.gps.gpsil [style*="--bs:"]{border-style:var(--bs)}.gps-562236764387804340.gps.gpsil [style*="--bt:"]{border-top:var(--bt)}.gps-562236764387804340.gps.gpsil [style*="--hvr-bt:"]:hover{border-top:var(--hvr-bt)}.gps-562236764387804340.gps.gpsil [style*="--btlr:"]{border-top-left-radius:var(--btlr)}.gps-562236764387804340.gps.gpsil [style*="--hvr-btlr:"]:hover{border-top-left-radius:var(--hvr-btlr)}.gps-562236764387804340.gps.gpsil [style*="--btrr:"]{border-top-right-radius:var(--btrr)}.gps-562236764387804340.gps.gpsil [style*="--hvr-btrr:"]:hover{border-top-right-radius:var(--hvr-btrr)}.gps-562236764387804340.gps.gpsil [style*="--bw:"]{border-width:var(--bw)}.gps-562236764387804340.gps.gpsil [style*="--shadow:"]{box-shadow:var(--shadow)}.gps-562236764387804340.gps.gpsil [style*="--c:"]{color:var(--c)}.gps-562236764387804340.gps.gpsil [style*="--hvr-c:"]:hover{color:var(--hvr-c)}.gps-562236764387804340.gps.gpsil [style*="--cg:"]{-moz-column-gap:var(--cg);column-gap:var(--cg)}.gps-562236764387804340.gps.gpsil [style*="--gtc:"]{grid-template-columns:var(--gtc)}.gps-562236764387804340.gps.gpsil [style*="--h:"]{height:var(--h)}.gps-562236764387804340.gps.gpsil [style*="--jc:"]{justify-content:var(--jc)}.gps-562236764387804340.gps.gpsil [style*="--tdt:"]{text-decoration-thickness:var(--tdt)}.gps-562236764387804340.gps.gpsil [style*="--op:"]{opacity:var(--op)}.gps-562236764387804340.gps.gpsil [style*="--o:"]{order:var(--o)}.gps-562236764387804340.gps.gpsil [style*="--pc:"]{place-content:var(--pc)}.gps-562236764387804340.gps.gpsil [style*="--p:"]{padding:var(--p)}.gps-562236764387804340.gps.gpsil [style*="--pb:"]{padding-bottom:var(--pb)}.gps-562236764387804340.gps.gpsil [style*="--pl:"]{padding-left:var(--pl)}.gps-562236764387804340.gps.gpsil [style*="--pr:"]{padding-right:var(--pr)}.gps-562236764387804340.gps.gpsil [style*="--pt:"]{padding-top:var(--pt)}.gps-562236764387804340.gps.gpsil [style*="--ta:"]{text-align:var(--ta)}.gps-562236764387804340.gps.gpsil [style*="--t:"]{transform:var(--t)}.gps-562236764387804340.gps.gpsil [style*="--w:"]{width:var(--w)}@media only screen and (max-width:1024px){.gps-562236764387804340.gps.gpsil [style*="--h-tablet:"]{height:var(--h-tablet)}.gps-562236764387804340.gps.gpsil [style*="--pl-tablet:"]{padding-left:var(--pl-tablet)}.gps-562236764387804340.gps.gpsil [style*="--pr-tablet:"]{padding-right:var(--pr-tablet)}.gps-562236764387804340.gps.gpsil [style*="--w-tablet:"]{width:var(--w-tablet)}}@media only screen and (max-width:767px){.gps-562236764387804340.gps.gpsil [style*="--gtc-mobile:"]{grid-template-columns:var(--gtc-mobile)}.gps-562236764387804340.gps.gpsil [style*="--h-mobile:"]{height:var(--h-mobile)}.gps-562236764387804340.gps.gpsil [style*="--pl-mobile:"]{padding-left:var(--pl-mobile)}.gps-562236764387804340.gps.gpsil [style*="--pr-mobile:"]{padding-right:var(--pr-mobile)}.gps-562236764387804340.gps.gpsil [style*="--pt-mobile:"]{padding-top:var(--pt-mobile)}.gps-562236764387804340.gps.gpsil [style*="--w-mobile:"]{width:var(--w-mobile)}}.gps-562236764387804340 .gp-g-heading-1{font-family:var(--g-h1-ff);font-size:var(--g-h1-size);font-style:var(--g-h1-fs);font-weight:var(--g-h1-weight);letter-spacing:var(--g-h1-ls);line-height:var(--g-h1-lh)}.gps-562236764387804340 .gp-g-paragraph-1{font-family:var(--g-p1-ff);font-size:var(--g-p1-size);font-style:var(--g-p1-fs);font-weight:var(--g-p1-weight);letter-spacing:var(--g-p1-ls);line-height:var(--g-p1-lh)}.gps-562236764387804340 .gp-relative{position:relative}.gps-562236764387804340 .gp-mx-auto{margin-left:auto;margin-right:auto}.gps-562236764387804340 .gp-mb-0{margin-bottom:0}.gps-562236764387804340 .gp-flex{display:flex}.gps-562236764387804340 .gp-inline-flex{display:inline-flex}.gps-562236764387804340 .gp-grid{display:grid}.gps-562236764387804340 .\!gp-hidden{display:none!important}.gps-562236764387804340 .gp-hidden{display:none}.gps-562236764387804340 .gp-h-full{height:100%}.gps-562236764387804340 .gp-max-w-full{max-width:100%}.gps-562236764387804340 .gp-grid-rows-\[1fr\]{grid-template-rows:1fr}.gps-562236764387804340 .gp-flex-col{flex-direction:column}.gps-562236764387804340 .gp-items-center{align-items:center}.gps-562236764387804340 .gp-justify-center{justify-content:center}.gps-562236764387804340 .gp-overflow-hidden{overflow:hidden}.gps-562236764387804340 .gp-break-words{overflow-wrap:break-word}.gps-562236764387804340 .gp-no-underline{text-decoration-line:none}.gps-562236764387804340 .gp-transition-colors{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-562236764387804340 .gp-duration-200{transition-duration:.2s}.gps-562236764387804340 .gp-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-562236764387804340 .disabled\:gp-btn-disabled:disabled{cursor:default}.gps-562236764387804340 .disabled\:gp-opacity-30:disabled{opacity:.3}.gps-562236764387804340 .gp-group\/button:active .group-active\/button\:\!gp-text-inherit{color:inherit!important}.gps-562236764387804340 .gp-group[data-state=loading] .group-data-\[state\=loading\]\:gp-invisible{visibility:hidden}@media (max-width:1024px){.gps-562236764387804340 .tablet\:\!gp-hidden{display:none!important}.gps-562236764387804340 .tablet\:gp-hidden{display:none}}@media (max-width:767px){.gps-562236764387804340 .mobile\:\!gp-hidden{display:none!important}.gps-562236764387804340 .mobile\:gp-hidden{display:none}}.gps-562236764387804340 .\[\&_\*\]\:gp-max-w-full *{max-width:100%}.gps-562236764387804340 .\[\&_p\]\:gp-whitespace-pre-line p{white-space:pre-line}</style>
+    
+  
+    
+    
+    
+
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+
+    
+        <section
+          class="gp-mx-auto gp-max-w-full [&_*]:gp-max-w-full {% if section.settings.section_preload == "false" %}gps-lazy {% endif %}"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--pl:none;--pl-tablet:none;--pl-mobile:none;--pr:none;--pr-tablet:none;--pr-mobile:none"
+        >
+          
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"g4MSCR0ZT6"}' data-id="g4MSCR0ZT6" id="g4MSCR0ZT6" data-same-height-subgrid-container class="g4MSCR0ZT6 gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--pt:var(--g-s-2xl);--pb:var(--g-s-2xl);--cg:32px;--gtc:minmax(0, auto);--gtc-mobile:minmax(0, auto);--w:100%;--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:center">
       
-            <section
-              class="gp-mx-auto gp-max-w-full {% if section.settings.section_preload == "false" %}gps-lazy {% endif %}"
-              style="--w:100%;--w-tablet:100%;--w-mobile:100%;--pl:0px;--pl-tablet:0px;--pl-mobile:0px;--pr:0px;--pr-tablet:0px;--pr-mobile:0px"
-            >
-              
-    <div
-      id="g4MSCR0ZT6" data-id="g4MSCR0ZT6"
-        style="--pt:var(--g-s-2xl);--pb:var(--g-s-2xl);--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:solid;--bw:0px;--bc:#121212;--shadow:none;--op:100%;--cg:32px;--pc:center;--gtc:minmax(0, auto);--gtc-mobile:minmax(0, auto);--w:100%;--w-tablet:100%;--w-mobile:100%;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
-        class="g4MSCR0ZT6 gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]"
-    >
-    <div
-      tag="Col" label="Block" type="component"
+
+      <div
+      data-same-height-display-contents
       style="--jc:start"
       class="gxt0XVgUaq gp-relative gp-flex gp-flex-col"
     >
       
-  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
-  <gp-text data-id="g8O-g_k-RG">
-    <div
-      parentTag="Col"
-        class="g8O-g_k-RG "
-        style="--ta:left;--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%"
+    {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+    <div data-id="g8O-g_k-RG"
+        class="g8O-g_k-RG"
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--dynamic-source-color:#F4F4F4"
       >
       <div class="gp-flex" style="--jc:left">
         <h2
-          
           data-gp-text
-          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-g-heading-1 gp-text"
-          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ta:center;--c:var(--g-c-text-2, text-2);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
-        >{{ section.settings.gg8O-g_k-RG_text | replace: '$locationOrigin', locationOrigin }}</h2>
+          class="gp-g-heading-1  gp-text-instant gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--tdt:auto;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center;--c:var(--g-c-text-2, text-2);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+        >
+          {{ section.settings.gg8O-g_k-RG_text | replace: '$locationOrigin', locationOrigin }}
+        </h2>
       </div>
     </div>
-    </gp-text>
     
-       
+    
+
+    
+
+    
+    <gp-row gp-data='{"background":{"desktop":{"attachment":"scroll","color":"transparent","image":{"height":0,"src":"","width":0},"position":{"x":50,"y":50},"repeat":"no-repeat","size":"cover","type":"color"}},"uid":"gpOh8qv7Pw"}' data-id="gpOh8qv7Pw" id="gpOh8qv7Pw" data-same-height-subgrid-container class="gpOh8qv7Pw gp-relative gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]" style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--pt-mobile:20px;--cg:8px;--gtc:minmax(0, 12fr);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pc:start">
       
-    <div
-      parentTag="Col" id="gpOh8qv7Pw" data-id="gpOh8qv7Pw"
-        style="--pt-mobile:20px;--d:grid;--d-tablet:grid;--d-mobile:grid;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--cg:8px;--pc:start;--gtc:minmax(0, 12fr);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--w-tablet:var(--g-ct-w, 100%);--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
-        class="gpOh8qv7Pw gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]"
-    >
-    <div
-      tag="Col" label="Block" type="component"
+
+      <div
+      data-same-height-display-contents
       style="--jc:start"
       class="g1X4QuXczk gp-relative gp-flex gp-flex-col"
     >
       
-  <gp-button >
-  <div
-    style="--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--ta:center"
-    
-  >
-    <style>
-    .gZE3i6rhIe.gp-button-base::before {
-      content: "";
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      pointer-events: none;
-      border-style: solid;
+    <gp-button
+      gp-data='{"btnLink":{"link":"","target":"_self"}}'
+      
+      class="gp-flex gp-flex-col"
+    >
+      <div style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center" >
+        <style>[data-id="gZE3i6rhIe"].gp-button-base::before, [data-id="gZE3i6rhIe-interaction"].gp-button-base::before {
+      
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    border-style: solid;
   border-width: 1px 1px 1px 1px;
   border-color: #000000;
   
-      
+    
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
       border-top-left-radius: 0px;
       border-top-right-radius: 0px;
       
+  
     }
-
-    .gZE3i6rhIe:hover::before {
+  
       
-      
-    }
-
-    .gZE3i6rhIe:hover .gp-button-icon {
-      color: #ffffff;
-    }
-
-     .gZE3i6rhIe .gp-button-icon {
-      color: #101820;
-    }
-
-    .gZE3i6rhIe:hover .gp-button-price {
-      color: #ffffff;
-    }
-
-    .gZE3i6rhIe .gp-button-price {
-      color: #101820;
-    }
-
-    .gZE3i6rhIe .gp-product-dot-price {
-       color: #101820;
-    }
-
-    .gZE3i6rhIe:hover .gp-product-dot-price {
-      color: #ffffff;
-    }
-  </style>
-    <button
-      type="button" data-id="gZE3i6rhIe" aria-label="<p>Button 1</p>"
-      
-      data-state="idle"
-      class="gZE3i6rhIe gp-button-base gp-group/button gp-rounded-none gp-max-w-full gp-relative gp-inline-flex gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-300 disabled:gp-btn-disabled disabled:gp-opacity-30 disabled:gp-pointer-events-none gp-g-paragraph-1"
-      style="--bg:#ffffff;--hvr-bg:#101820;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--shadow:none;--w:Auto;--w-tablet:Auto;--w-mobile:Auto;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:24px;--pr:24px;--pt:8px;--pb:8px;--c:#101820;--hvr-c:#ffffff"
+  [data-id="gZE3i6rhIe"]:hover::before, [data-id="gZE3i6rhIe-interaction"]:hover::before {
+    
+    
+  }</style>
+        
+        <button
+          data-id="gZE3i6rhIe" dataId="gZE3i6rhIe" data-state="idle" aria-label="<p>Button 1</p>"
+          
+          type="button"
+          style="--w:Auto;--w-tablet:Auto;--w-mobile:Auto;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:24px;--pr:24px;--pt:8px;--pb:8px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--hvr-bblr:0px;--hvr-bbrr:0px;--hvr-btlr:0px;--hvr-btrr:0px;--shadow:none;--hvr-bg:#101820;--bg:#ffffff;--hvr-c:#ffffff;--c:#101820"
+          class="gZE3i6rhIe gp-button-base gp-group gp-relative gp-inline-flex gp-max-w-full gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-200 disabled:gp-btn-disabled disabled:gp-opacity-30  gp-g-paragraph-1"
+        >
+        
+        <div class="gp-inline-flex">
+          
+          
+    <span
+      data-gp-text
+      style="word-break:break-word"
+      class="gp-content-product-button group-active/button:!gp-text-inherit gp-relative gp-flex gp-h-full gp-items-center gp-overflow-hidden gp-break-words group-data-[state=loading]:gp-invisible [&_p]:gp-whitespace-pre-line gp-text button-text"
     >
-      
-    <div
-    class="gp-inline-flex">
-    
-      <span
-        data-gp-text
-        class="gp-content-product-button group-hover/button:!gp-text-inherit group-active/button:!gp-text-inherit  gp-button-text-only gp-break-words group-data-[state=loading]/button:gp-invisible [&_p]:gp-whitespace-pre-line gp-z-1 gp-h-full gp-flex gp-items-center gp-overflow-hidden 
-        "
-        style="--c:#101820;--hvr-c:#ffffff"
-      >
-        {{ section.settings.ggZE3i6rhIe_label }}
-      </span>
+      <p>{{ section.settings.ggZE3i6rhIe_label }}</p>
+    </span>
+        </div>
+        
+        </button>
       </div>
-    
-    </button>
-  </div>
-  </gp-button>
-
-  <gp-button >
-  <div
-    style="--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--ta:center"
-    
-  >
-    <style>
-    .gSyemURnPz.gp-button-base::before {
-      content: "";
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      pointer-events: none;
-      border-style: solid;
+      <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-button-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    </gp-button>
+  
+    <gp-button
+      gp-data='{"btnLink":{"link":"","target":"_self"}}'
+      
+      class="gp-flex gp-flex-col"
+    >
+      <div style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center" >
+        <style>[data-id="gSyemURnPz"].gp-button-base::before, [data-id="gSyemURnPz-interaction"].gp-button-base::before {
+      
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    border-style: solid;
   border-width: 1px 1px 1px 1px;
   border-color: #000000;
   
-      
+    
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
       border-top-left-radius: 0px;
       border-top-right-radius: 0px;
       
+  
     }
-
-    .gSyemURnPz:hover::before {
+  
       
-      
-    }
-
-    .gSyemURnPz:hover .gp-button-icon {
-      color: #ffffff;
-    }
-
-     .gSyemURnPz .gp-button-icon {
-      color: #101820;
-    }
-
-    .gSyemURnPz:hover .gp-button-price {
-      color: #ffffff;
-    }
-
-    .gSyemURnPz .gp-button-price {
-      color: #101820;
-    }
-
-    .gSyemURnPz .gp-product-dot-price {
-       color: #101820;
-    }
-
-    .gSyemURnPz:hover .gp-product-dot-price {
-      color: #ffffff;
-    }
-  </style>
-    <button
-      type="button" data-id="gSyemURnPz" aria-label="<p>Button 2</p>"
-      
-      data-state="idle"
-      class="gSyemURnPz gp-button-base gp-group/button gp-rounded-none gp-max-w-full gp-relative gp-inline-flex gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-300 disabled:gp-btn-disabled disabled:gp-opacity-30 disabled:gp-pointer-events-none gp-g-paragraph-1"
-      style="--bg:#ffffff;--hvr-bg:#101820;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--shadow:none;--w:Auto;--w-tablet:Auto;--w-mobile:Auto;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:24px;--pr:24px;--pt:8px;--pb:8px;--c:#101820;--hvr-c:#ffffff"
+  [data-id="gSyemURnPz"]:hover::before, [data-id="gSyemURnPz-interaction"]:hover::before {
+    
+    
+  }</style>
+        
+        <button
+          data-id="gSyemURnPz" dataId="gSyemURnPz" data-state="idle" aria-label="<p>Button 2</p>"
+          
+          type="button"
+          style="--w:Auto;--w-tablet:Auto;--w-mobile:Auto;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:24px;--pr:24px;--pt:8px;--pb:8px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--hvr-bblr:0px;--hvr-bbrr:0px;--hvr-btlr:0px;--hvr-btrr:0px;--shadow:none;--hvr-bg:#101820;--bg:#ffffff;--hvr-c:#ffffff;--c:#101820"
+          class="gSyemURnPz gp-button-base gp-group gp-relative gp-inline-flex gp-max-w-full gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-200 disabled:gp-btn-disabled disabled:gp-opacity-30  gp-g-paragraph-1"
+        >
+        
+        <div class="gp-inline-flex">
+          
+          
+    <span
+      data-gp-text
+      style="word-break:break-word"
+      class="gp-content-product-button group-active/button:!gp-text-inherit gp-relative gp-flex gp-h-full gp-items-center gp-overflow-hidden gp-break-words group-data-[state=loading]:gp-invisible [&_p]:gp-whitespace-pre-line gp-text button-text"
     >
-      
-    <div
-    class="gp-inline-flex">
-    
-      <span
-        data-gp-text
-        class="gp-content-product-button group-hover/button:!gp-text-inherit group-active/button:!gp-text-inherit  gp-button-text-only gp-break-words group-data-[state=loading]/button:gp-invisible [&_p]:gp-whitespace-pre-line gp-z-1 gp-h-full gp-flex gp-items-center gp-overflow-hidden 
-        "
-        style="--c:#101820;--hvr-c:#ffffff"
-      >
-        {{ section.settings.ggSyemURnPz_label }}
-      </span>
+      <p>{{ section.settings.ggSyemURnPz_label }}</p>
+    </span>
+        </div>
+        
+        </button>
       </div>
-    
-    </button>
-  </div>
-  </gp-button>
-
-  <gp-button >
-  <div
-    style="--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--ta:center"
-    
-  >
-    <style>
-    .gpBbqOS8fp.gp-button-base::before {
-      content: "";
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      pointer-events: none;
-      border-style: solid;
+      <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-button-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    </gp-button>
+  
+    <gp-button
+      gp-data='{"btnLink":{"link":"","target":"_self"}}'
+      
+      class="gp-flex gp-flex-col"
+    >
+      <div style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center" >
+        <style>[data-id="gpBbqOS8fp"].gp-button-base::before, [data-id="gpBbqOS8fp-interaction"].gp-button-base::before {
+      
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    border-style: solid;
   border-width: 1px 1px 1px 1px;
   border-color: #000000;
   
-      
+    
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
       border-top-left-radius: 0px;
       border-top-right-radius: 0px;
       
+  
     }
-
-    .gpBbqOS8fp:hover::before {
+  
       
-      
-    }
-
-    .gpBbqOS8fp:hover .gp-button-icon {
-      color: #ffffff;
-    }
-
-     .gpBbqOS8fp .gp-button-icon {
-      color: #101820;
-    }
-
-    .gpBbqOS8fp:hover .gp-button-price {
-      color: #ffffff;
-    }
-
-    .gpBbqOS8fp .gp-button-price {
-      color: #101820;
-    }
-
-    .gpBbqOS8fp .gp-product-dot-price {
-       color: #101820;
-    }
-
-    .gpBbqOS8fp:hover .gp-product-dot-price {
-      color: #ffffff;
-    }
-  </style>
-    <button
-      type="button" data-id="gpBbqOS8fp" aria-label="<p>Button 3</p>"
-      
-      data-state="idle"
-      class="gpBbqOS8fp gp-button-base gp-group/button gp-rounded-none gp-max-w-full gp-relative gp-inline-flex gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-300 disabled:gp-btn-disabled disabled:gp-opacity-30 disabled:gp-pointer-events-none gp-g-paragraph-1"
-      style="--bg:#ffffff;--hvr-bg:#101820;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--shadow:none;--w:Auto;--w-tablet:Auto;--w-mobile:Auto;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:24px;--pr:24px;--pt:8px;--pb:8px;--c:#101820;--hvr-c:#ffffff"
+  [data-id="gpBbqOS8fp"]:hover::before, [data-id="gpBbqOS8fp-interaction"]:hover::before {
+    
+    
+  }</style>
+        
+        <button
+          data-id="gpBbqOS8fp" dataId="gpBbqOS8fp" data-state="idle" aria-label="<p>Button 3</p>"
+          
+          type="button"
+          style="--w:Auto;--w-tablet:Auto;--w-mobile:Auto;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:24px;--pr:24px;--pt:8px;--pb:8px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--hvr-bblr:0px;--hvr-bbrr:0px;--hvr-btlr:0px;--hvr-btrr:0px;--shadow:none;--hvr-bg:#101820;--bg:#ffffff;--hvr-c:#ffffff;--c:#101820"
+          class="gpBbqOS8fp gp-button-base gp-group gp-relative gp-inline-flex gp-max-w-full gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-200 disabled:gp-btn-disabled disabled:gp-opacity-30  gp-g-paragraph-1"
+        >
+        
+        <div class="gp-inline-flex">
+          
+          
+    <span
+      data-gp-text
+      style="word-break:break-word"
+      class="gp-content-product-button group-active/button:!gp-text-inherit gp-relative gp-flex gp-h-full gp-items-center gp-overflow-hidden gp-break-words group-data-[state=loading]:gp-invisible [&_p]:gp-whitespace-pre-line gp-text button-text"
     >
-      
-    <div
-    class="gp-inline-flex">
-    
-      <span
-        data-gp-text
-        class="gp-content-product-button group-hover/button:!gp-text-inherit group-active/button:!gp-text-inherit  gp-button-text-only gp-break-words group-data-[state=loading]/button:gp-invisible [&_p]:gp-whitespace-pre-line gp-z-1 gp-h-full gp-flex gp-items-center gp-overflow-hidden 
-        "
-        style="--c:#101820;--hvr-c:#ffffff"
-      >
-        {{ section.settings.ggpBbqOS8fp_label }}
-      </span>
+      <p>{{ section.settings.ggpBbqOS8fp_label }}</p>
+    </span>
+        </div>
+        
+        </button>
       </div>
-    
-    </button>
-  </div>
-  </gp-button>
-
-  <gp-button >
-  <div
-    style="--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--ta:center"
-    
-  >
-    <style>
-    .g5I17P2dVh.gp-button-base::before {
-      content: "";
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      pointer-events: none;
-      border-style: solid;
+      <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-button-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    </gp-button>
+  
+    <gp-button
+      gp-data='{"btnLink":{"link":"","target":"_self"}}'
+      
+      class="gp-flex gp-flex-col"
+    >
+      <div style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center" >
+        <style>[data-id="g5I17P2dVh"].gp-button-base::before, [data-id="g5I17P2dVh-interaction"].gp-button-base::before {
+      
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    border-style: solid;
   border-width: 1px 1px 1px 1px;
   border-color: #000000;
   
-      
+    
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
       border-top-left-radius: 0px;
       border-top-right-radius: 0px;
       
+  
     }
-
-    .g5I17P2dVh:hover::before {
+  
       
-      
-    }
-
-    .g5I17P2dVh:hover .gp-button-icon {
-      color: #ffffff;
-    }
-
-     .g5I17P2dVh .gp-button-icon {
-      color: #101820;
-    }
-
-    .g5I17P2dVh:hover .gp-button-price {
-      color: #ffffff;
-    }
-
-    .g5I17P2dVh .gp-button-price {
-      color: #101820;
-    }
-
-    .g5I17P2dVh .gp-product-dot-price {
-       color: #101820;
-    }
-
-    .g5I17P2dVh:hover .gp-product-dot-price {
-      color: #ffffff;
-    }
-  </style>
-    <button
-      type="button" data-id="g5I17P2dVh" aria-label="<p>Button 4</p>"
-      
-      data-state="idle"
-      class="g5I17P2dVh gp-button-base gp-group/button gp-rounded-none gp-max-w-full gp-relative gp-inline-flex gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-300 disabled:gp-btn-disabled disabled:gp-opacity-30 disabled:gp-pointer-events-none gp-g-paragraph-1"
-      style="--bg:#ffffff;--hvr-bg:#101820;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--shadow:none;--w:Auto;--w-tablet:Auto;--w-mobile:Auto;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:24px;--pr:24px;--pt:8px;--pb:8px;--c:#101820;--hvr-c:#ffffff"
+  [data-id="g5I17P2dVh"]:hover::before, [data-id="g5I17P2dVh-interaction"]:hover::before {
+    
+    
+  }</style>
+        
+        <button
+          data-id="g5I17P2dVh" dataId="g5I17P2dVh" data-state="idle" aria-label="<p>Button 4</p>"
+          
+          type="button"
+          style="--w:Auto;--w-tablet:Auto;--w-mobile:Auto;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:24px;--pr:24px;--pt:8px;--pb:8px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--hvr-bblr:0px;--hvr-bbrr:0px;--hvr-btlr:0px;--hvr-btrr:0px;--shadow:none;--hvr-bg:#101820;--bg:#ffffff;--hvr-c:#ffffff;--c:#101820"
+          class="g5I17P2dVh gp-button-base gp-group gp-relative gp-inline-flex gp-max-w-full gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-200 disabled:gp-btn-disabled disabled:gp-opacity-30  gp-g-paragraph-1"
+        >
+        
+        <div class="gp-inline-flex">
+          
+          
+    <span
+      data-gp-text
+      style="word-break:break-word"
+      class="gp-content-product-button group-active/button:!gp-text-inherit gp-relative gp-flex gp-h-full gp-items-center gp-overflow-hidden gp-break-words group-data-[state=loading]:gp-invisible [&_p]:gp-whitespace-pre-line gp-text button-text"
     >
-      
-    <div
-    class="gp-inline-flex">
-    
-      <span
-        data-gp-text
-        class="gp-content-product-button group-hover/button:!gp-text-inherit group-active/button:!gp-text-inherit  gp-button-text-only gp-break-words group-data-[state=loading]/button:gp-invisible [&_p]:gp-whitespace-pre-line gp-z-1 gp-h-full gp-flex gp-items-center gp-overflow-hidden 
-        "
-        style="--c:#101820;--hvr-c:#ffffff"
-      >
-        {{ section.settings.gg5I17P2dVh_label }}
-      </span>
+      <p>{{ section.settings.gg5I17P2dVh_label }}</p>
+    </span>
+        </div>
+        
+        </button>
       </div>
-    
-    </button>
-  </div>
-  </gp-button>
-
-  <gp-button >
-  <div
-    style="--d:block;--d-tablet:block;--d-mobile:block;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--op:100%;--ta:center"
-    
-  >
-    <style>
-    .gfNDhBIwE2.gp-button-base::before {
-      content: "";
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      pointer-events: none;
-      border-style: solid;
+      <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-button-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    </gp-button>
+  
+    <gp-button
+      gp-data='{"btnLink":{"link":"","target":"_self"}}'
+      
+      class="gp-flex gp-flex-col"
+    >
+      <div style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--ta:center" >
+        <style>[data-id="gfNDhBIwE2"].gp-button-base::before, [data-id="gfNDhBIwE2-interaction"].gp-button-base::before {
+      
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    border-style: solid;
   border-width: 1px 1px 1px 1px;
   border-color: #000000;
   
-      
+    
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
       border-top-left-radius: 0px;
       border-top-right-radius: 0px;
       
+  
     }
-
-    .gfNDhBIwE2:hover::before {
+  
       
-      
-    }
-
-    .gfNDhBIwE2:hover .gp-button-icon {
-      color: #ffffff;
-    }
-
-     .gfNDhBIwE2 .gp-button-icon {
-      color: #101820;
-    }
-
-    .gfNDhBIwE2:hover .gp-button-price {
-      color: #ffffff;
-    }
-
-    .gfNDhBIwE2 .gp-button-price {
-      color: #101820;
-    }
-
-    .gfNDhBIwE2 .gp-product-dot-price {
-       color: #101820;
-    }
-
-    .gfNDhBIwE2:hover .gp-product-dot-price {
-      color: #ffffff;
-    }
-  </style>
-    <button
-      type="button" data-id="gfNDhBIwE2" aria-label="<p>Button 5</p>"
-      
-      data-state="idle"
-      class="gfNDhBIwE2 gp-button-base gp-group/button gp-rounded-none gp-max-w-full gp-relative gp-inline-flex gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-300 disabled:gp-btn-disabled disabled:gp-opacity-30 disabled:gp-pointer-events-none gp-g-paragraph-1"
-      style="--bg:#ffffff;--hvr-bg:#101820;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--shadow:none;--w:Auto;--w-tablet:Auto;--w-mobile:Auto;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:24px;--pr:24px;--pt:8px;--pb:8px;--c:#101820;--hvr-c:#ffffff"
+  [data-id="gfNDhBIwE2"]:hover::before, [data-id="gfNDhBIwE2-interaction"]:hover::before {
+    
+    
+  }</style>
+        
+        <button
+          data-id="gfNDhBIwE2" dataId="gfNDhBIwE2" data-state="idle" aria-label="<p>Button 5</p>"
+          
+          type="button"
+          style="--w:Auto;--w-tablet:Auto;--w-mobile:Auto;--h:Auto;--h-tablet:Auto;--h-mobile:Auto;--pl:24px;--pr:24px;--pt:8px;--pb:8px;--bblr:0px;--bbrr:0px;--btlr:0px;--btrr:0px;--hvr-bblr:0px;--hvr-bbrr:0px;--hvr-btlr:0px;--hvr-btrr:0px;--shadow:none;--hvr-bg:#101820;--bg:#ffffff;--hvr-c:#ffffff;--c:#101820"
+          class="gfNDhBIwE2 gp-button-base gp-group gp-relative gp-inline-flex gp-max-w-full gp-items-center gp-justify-center gp-no-underline gp-transition-colors gp-duration-200 disabled:gp-btn-disabled disabled:gp-opacity-30  gp-g-paragraph-1"
+        >
+        
+        <div class="gp-inline-flex">
+          
+          
+    <span
+      data-gp-text
+      style="word-break:break-word"
+      class="gp-content-product-button group-active/button:!gp-text-inherit gp-relative gp-flex gp-h-full gp-items-center gp-overflow-hidden gp-break-words group-data-[state=loading]:gp-invisible [&_p]:gp-whitespace-pre-line gp-text button-text"
     >
-      
-    <div
-    class="gp-inline-flex">
-    
-      <span
-        data-gp-text
-        class="gp-content-product-button group-hover/button:!gp-text-inherit group-active/button:!gp-text-inherit  gp-button-text-only gp-break-words group-data-[state=loading]/button:gp-invisible [&_p]:gp-whitespace-pre-line gp-z-1 gp-h-full gp-flex gp-items-center gp-overflow-hidden 
-        "
-        style="--c:#101820;--hvr-c:#ffffff"
-      >
-        {{ section.settings.ggfNDhBIwE2_label }}
-      </span>
+      <p>{{ section.settings.ggfNDhBIwE2_label }}</p>
+    </span>
+        </div>
+        
+        </button>
       </div>
-    
-    </button>
-  </div>
-  </gp-button>
-
+      <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-button-v7-5.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+    </gp-button>
+  
     </div>
-    </div>
-   
-    
+
+      
+    </gp-row>
+  
+  
       <style id="custom-css-gpOh8qv7Pw">
         .gpOh8qv7Pw > div {
     display: flex;
@@ -461,20 +373,21 @@
       </script>
     
     </div>
-    </div>
+
+      
+    </gp-row>
   
-            </section>
-           
+        </section>
+      
+  
     
-
-
 {% schema %}
   {
     "presets": [{ "name": "Buttons w/ Header" }],
     "name": "Buttons w/ Header",
     "tag": "section",
     "class": "gps-562236764387804340 gps gpsil",
-    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/misha-and-puff/apps/gempages-cro/app/shopify/edit?pageType=THEME_SECTION&editorId=562236764387804340)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"gg8O-g_k-RG_text","label":"gg8O-g_k-RG_text","default":"Your heading text goes here"},{"type":"html","id":"ggZE3i6rhIe_label","label":"ggZE3i6rhIe_label","default":"<p>Button 1</p>"},{"type":"html","id":"ggSyemURnPz_label","label":"ggSyemURnPz_label","default":"<p>Button 2</p>"},{"type":"html","id":"ggpBbqOS8fp_label","label":"ggpBbqOS8fp_label","default":"<p>Button 3</p>"},{"type":"html","id":"gg5I17P2dVh_label","label":"gg5I17P2dVh_label","default":"<p>Button 4</p>"},{"type":"html","id":"ggfNDhBIwE2_label","label":"ggfNDhBIwE2_label","default":"<p>Button 5</p>"}],
+    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/misha-and-puff/apps/gempages-cro/app/shopify/edit?pageType=THEME_SECTION&editorId=562236764387804340)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"gg8O-g_k-RG_text","label":"gg8O-g_k-RG_text","default":"Your heading text goes here"},{"type":"html","id":"ggZE3i6rhIe_label","label":"ggZE3i6rhIe_label","default":"Button 1"},{"type":"html","id":"ggSyemURnPz_label","label":"ggSyemURnPz_label","default":"Button 2"},{"type":"html","id":"ggpBbqOS8fp_label","label":"ggpBbqOS8fp_label","default":"Button 3"},{"type":"html","id":"gg5I17P2dVh_label","label":"gg5I17P2dVh_label","default":"Button 4"},{"type":"html","id":"ggfNDhBIwE2_label","label":"ggfNDhBIwE2_label","default":"Button 5"}],
     "blocks": [{"type": "@app"}],
     "locales": {}
   }

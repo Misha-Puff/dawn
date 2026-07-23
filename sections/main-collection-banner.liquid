@@ -7,6 +7,94 @@
       padding-bottom: calc({{ settings.media_shadow_vertical_offset | at_least: 0 }}px + 2rem);
     }
   }
+
+  {%- comment -%}
+    Title / description typography (tg_ pattern, donor rich-text/buttons) and
+    opt-in section padding. The #shopify-section id scope outranks
+    template-collection.css's .collection-hero__title (1.3rem uppercase) and
+    component-collection-hero.css. Zero CSS when the checkboxes are off.
+  {%- endcomment -%}
+  {%- if section.settings.tt_enable_type -%}
+    {%- liquid
+      assign tt_font = section.settings.tt_font
+      assign tt_weight = section.settings.tt_font_weight | default: 'default'
+      assign tt_fs = section.settings.tt_font_size | default: 0
+      assign tt_case = section.settings.tt_text_case | default: 'default'
+      assign tt_ls = section.settings.tt_letter_spacing | default: 0
+    -%}
+    {%- capture tt_brand_stack -%}{% render 'brand-font', font: section.settings.tt_custom_font %}{%- endcapture -%}
+    {%- assign tt_brand_stack = tt_brand_stack | strip -%}
+    {%- if tt_font != blank and tt_brand_stack == blank -%}{{ tt_font | font_face: font_display: 'swap' }}{%- endif -%}
+    {%- if tt_font != blank and tt_brand_stack == blank and tt_weight != 'default' -%}
+      {%- assign tt_wfont = tt_font | font_modify: 'weight', tt_weight -%}
+      {%- if tt_wfont -%}{{ tt_wfont | font_face: font_display: 'swap' }}{%- endif -%}
+    {%- endif -%}
+    #shopify-section-{{ section.id }} .collection-hero__title {
+      {%- if tt_brand_stack != blank %} font-family: {{ tt_brand_stack }};{% elsif tt_font != blank %} font-family: {{ tt_font.family }}, {{ tt_font.fallback_families }};{% endif -%}
+      {%- if tt_weight != 'default' and tt_weight != blank %} font-weight: {{ tt_weight }};{% endif -%}
+      {%- if tt_fs > 0 %} font-size: {{ tt_fs }}px;{% endif -%}
+      {%- if tt_case != 'default' and tt_case != blank %} text-transform: {{ tt_case }};{% endif -%}
+      {%- if tt_ls > 0 %} letter-spacing: {{ tt_ls }}px;{% endif -%}
+      {%- if section.settings.tt_color != blank %} color: {{ section.settings.tt_color }};{% endif -%}
+    }
+    {%- assign tt_fs_m = section.settings.tt_font_size_mobile | default: 0 -%}
+    {%- if tt_fs_m > 0 -%}
+      @media screen and (max-width: 749px) {
+        #shopify-section-{{ section.id }} .collection-hero__title {
+          font-size: {{ tt_fs_m }}px;
+        }
+      }
+    {%- endif -%}
+  {%- endif -%}
+
+  {%- if section.settings.td_enable_type -%}
+    {%- liquid
+      assign td_font = section.settings.td_font
+      assign td_weight = section.settings.td_font_weight | default: 'default'
+      assign td_fs = section.settings.td_font_size | default: 0
+      assign td_case = section.settings.td_text_case | default: 'default'
+      assign td_ls = section.settings.td_letter_spacing | default: 0
+    -%}
+    {%- capture td_brand_stack -%}{% render 'brand-font', font: section.settings.td_custom_font %}{%- endcapture -%}
+    {%- assign td_brand_stack = td_brand_stack | strip -%}
+    {%- if td_font != blank and td_brand_stack == blank -%}{{ td_font | font_face: font_display: 'swap' }}{%- endif -%}
+    {%- if td_font != blank and td_brand_stack == blank and td_weight != 'default' -%}
+      {%- assign td_wfont = td_font | font_modify: 'weight', td_weight -%}
+      {%- if td_wfont -%}{{ td_wfont | font_face: font_display: 'swap' }}{%- endif -%}
+    {%- endif -%}
+    #shopify-section-{{ section.id }} .collection-hero__description {
+      {%- if td_brand_stack != blank %} font-family: {{ td_brand_stack }};{% elsif td_font != blank %} font-family: {{ td_font.family }}, {{ td_font.fallback_families }};{% endif -%}
+      {%- if td_weight != 'default' and td_weight != blank %} font-weight: {{ td_weight }};{% endif -%}
+      {%- if td_fs > 0 %} font-size: {{ td_fs }}px;{% endif -%}
+      {%- if td_case != 'default' and td_case != blank %} text-transform: {{ td_case }};{% endif -%}
+      {%- if td_ls > 0 %} letter-spacing: {{ td_ls }}px;{% endif -%}
+      {%- if section.settings.td_color != blank %} color: {{ section.settings.td_color }};{% endif -%}
+    }
+    {%- assign td_fs_m = section.settings.td_font_size_mobile | default: 0 -%}
+    {%- if td_fs_m > 0 -%}
+      @media screen and (max-width: 749px) {
+        #shopify-section-{{ section.id }} .collection-hero__description {
+          font-size: {{ td_fs_m }}px;
+        }
+      }
+    {%- endif -%}
+  {%- endif -%}
+
+  {%- if section.settings.pad_enable -%}
+    @media screen and (max-width: 749px) {
+      #shopify-section-{{ section.id }} .collection-hero {
+        padding-top: {{ section.settings.padding_top_mobile }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+      }
+    }
+
+    @media screen and (min-width: 750px) {
+      #shopify-section-{{ section.id }} .collection-hero {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+  {%- endif -%}
 {%- endstyle -%}
 
 <div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
@@ -71,6 +159,421 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Title typography"
+    },
+    {
+      "type": "checkbox",
+      "id": "tt_enable_type",
+      "default": false,
+      "label": "Enable typography"
+    },
+    {
+      "type": "font_picker",
+      "id": "tt_font",
+      "default": "assistant_n4",
+      "label": "Font",
+      "visible_if": "{{ section.settings.tt_enable_type }}"
+    },
+    {
+      "type": "select",
+      "id": "tt_custom_font",
+      "options": [
+        {
+          "value": "default",
+          "label": "None (use font picker)"
+        },
+        {
+          "value": "ibm_plex_sans",
+          "label": "IBM Plex Sans"
+        },
+        {
+          "value": "ibm_plex_mono",
+          "label": "IBM Plex Mono"
+        },
+        {
+          "value": "inter",
+          "label": "Inter"
+        },
+        {
+          "value": "geist",
+          "label": "Geist"
+        },
+        {
+          "value": "geist_mono",
+          "label": "Geist Mono"
+        },
+        {
+          "value": "overpass",
+          "label": "Overpass"
+        },
+        {
+          "value": "overpass_mono",
+          "label": "Overpass Mono"
+        },
+        {
+          "value": "dm_sans",
+          "label": "DM Sans"
+        },
+        {
+          "value": "dm_mono",
+          "label": "DM Mono"
+        },
+        {
+          "value": "manrope",
+          "label": "Manrope"
+        },
+        {
+          "value": "open_sans",
+          "label": "Open Sans"
+        }
+      ],
+      "default": "default",
+      "label": "Brand font",
+      "info": "Overrides the font picker above when set",
+      "visible_if": "{{ section.settings.tt_enable_type }}"
+    },
+    {
+      "type": "select",
+      "id": "tt_font_weight",
+      "options": [
+        {
+          "value": "default",
+          "label": "Theme default"
+        },
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semibold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "default",
+      "label": "Font weight",
+      "visible_if": "{{ section.settings.tt_enable_type }}"
+    },
+    {
+      "type": "range",
+      "id": "tt_font_size",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "info": "0 = theme default",
+      "default": 0,
+      "visible_if": "{{ section.settings.tt_enable_type }}"
+    },
+    {
+      "type": "range",
+      "id": "tt_font_size_mobile",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile font size",
+      "info": "0 = same as desktop",
+      "default": 0,
+      "visible_if": "{{ section.settings.tt_enable_type }}"
+    },
+    {
+      "type": "select",
+      "id": "tt_text_case",
+      "options": [
+        {
+          "value": "default",
+          "label": "Theme default"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        },
+        {
+          "value": "none",
+          "label": "Normal (remove uppercase)"
+        }
+      ],
+      "default": "default",
+      "label": "Text case",
+      "visible_if": "{{ section.settings.tt_enable_type }}"
+    },
+    {
+      "type": "range",
+      "id": "tt_letter_spacing",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Letter spacing",
+      "info": "0 = theme default",
+      "default": 0,
+      "visible_if": "{{ section.settings.tt_enable_type }}"
+    },
+    {
+      "type": "color",
+      "id": "tt_color",
+      "label": "Text color",
+      "info": "Leave blank to inherit",
+      "visible_if": "{{ section.settings.tt_enable_type }}"
+    },
+    {
+      "type": "header",
+      "content": "Description typography"
+    },
+    {
+      "type": "checkbox",
+      "id": "td_enable_type",
+      "default": false,
+      "label": "Enable typography"
+    },
+    {
+      "type": "font_picker",
+      "id": "td_font",
+      "default": "assistant_n4",
+      "label": "Font",
+      "visible_if": "{{ section.settings.td_enable_type }}"
+    },
+    {
+      "type": "select",
+      "id": "td_custom_font",
+      "options": [
+        {
+          "value": "default",
+          "label": "None (use font picker)"
+        },
+        {
+          "value": "ibm_plex_sans",
+          "label": "IBM Plex Sans"
+        },
+        {
+          "value": "ibm_plex_mono",
+          "label": "IBM Plex Mono"
+        },
+        {
+          "value": "inter",
+          "label": "Inter"
+        },
+        {
+          "value": "geist",
+          "label": "Geist"
+        },
+        {
+          "value": "geist_mono",
+          "label": "Geist Mono"
+        },
+        {
+          "value": "overpass",
+          "label": "Overpass"
+        },
+        {
+          "value": "overpass_mono",
+          "label": "Overpass Mono"
+        },
+        {
+          "value": "dm_sans",
+          "label": "DM Sans"
+        },
+        {
+          "value": "dm_mono",
+          "label": "DM Mono"
+        },
+        {
+          "value": "manrope",
+          "label": "Manrope"
+        },
+        {
+          "value": "open_sans",
+          "label": "Open Sans"
+        }
+      ],
+      "default": "default",
+      "label": "Brand font",
+      "info": "Overrides the font picker above when set",
+      "visible_if": "{{ section.settings.td_enable_type }}"
+    },
+    {
+      "type": "select",
+      "id": "td_font_weight",
+      "options": [
+        {
+          "value": "default",
+          "label": "Theme default"
+        },
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semibold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "default",
+      "label": "Font weight",
+      "visible_if": "{{ section.settings.td_enable_type }}"
+    },
+    {
+      "type": "range",
+      "id": "td_font_size",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "info": "0 = theme default",
+      "default": 0,
+      "visible_if": "{{ section.settings.td_enable_type }}"
+    },
+    {
+      "type": "range",
+      "id": "td_font_size_mobile",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile font size",
+      "info": "0 = same as desktop",
+      "default": 0,
+      "visible_if": "{{ section.settings.td_enable_type }}"
+    },
+    {
+      "type": "select",
+      "id": "td_text_case",
+      "options": [
+        {
+          "value": "default",
+          "label": "Theme default"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        },
+        {
+          "value": "none",
+          "label": "Normal (remove uppercase)"
+        }
+      ],
+      "default": "default",
+      "label": "Text case",
+      "visible_if": "{{ section.settings.td_enable_type }}"
+    },
+    {
+      "type": "range",
+      "id": "td_letter_spacing",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Letter spacing",
+      "info": "0 = theme default",
+      "default": 0,
+      "visible_if": "{{ section.settings.td_enable_type }}"
+    },
+    {
+      "type": "color",
+      "id": "td_color",
+      "label": "Text color",
+      "info": "Leave blank to inherit",
+      "visible_if": "{{ section.settings.td_enable_type }}"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "checkbox",
+      "id": "pad_enable",
+      "default": false,
+      "label": "Custom section padding",
+      "info": "Off = theme default spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 0,
+      "visible_if": "{{ section.settings.pad_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 0,
+      "visible_if": "{{ section.settings.pad_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile padding top",
+      "default": 0,
+      "visible_if": "{{ section.settings.pad_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile padding bottom",
+      "default": 0,
+      "visible_if": "{{ section.settings.pad_enable }}"
     }
   ]
 }

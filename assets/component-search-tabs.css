@@ -1,0 +1,98 @@
+/* Search tier tabs (shared by /search and the quick-search modal). Visual
+   language cloned from .collection-tabs in template-collection.css — new
+   class names because that file is not loaded in the header context. */
+
+search-tabs {
+  display: block;
+}
+
+/* No rail and no active underline (design ruling): the active tab is set apart
+   by full-opacity text alone. overflow-x: auto lets the row scroll horizontally
+   when the tabs don't all fit. */
+.search-tabs {
+  display: flex;
+  gap: 2.4rem;
+  margin-bottom: 2.4rem;
+  overflow-x: auto;
+}
+
+/* Pseudo-element spacers center the row when it fits but, unlike
+   justify-content: center, keep the first tab reachable when it overflows and
+   scrolls. Spacers instead of first/last-child auto margins because the last
+   child can be a HIDDEN secondary tab (display:none still matches :last-child,
+   which would dump all the free space on one side and right-flush the row). */
+.search-tabs::before,
+.search-tabs::after {
+  content: '';
+  margin: auto;
+}
+
+.search-tabs__tab {
+  padding: 0 0 1.2rem;
+  font-size: 1.3rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  color: rgba(var(--color-foreground), 0.6);
+}
+
+.search-tabs__tab[aria-current='page'],
+.search-tabs__tab[aria-pressed='true'] {
+  color: rgb(var(--color-foreground));
+}
+
+.search-tabs__count {
+  font-family: var(--font-mono-family);
+  font-size: 1.1rem;
+  letter-spacing: 0;
+  color: rgba(var(--color-foreground), 0.55);
+}
+
+/* Modal context: <button> tabs reset to the link-like tab appearance. All
+   borders zeroed (border, not just three sides): with the active underline
+   gone there is nothing to reserve on the bottom edge, and this also clears the
+   browser's default <button> border-bottom so no line shows under modal tabs. */
+button.search-tabs__tab {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Tabs appear only once predictive results are open */
+.header__search predictive-search:not([open]) search-tabs {
+  display: none;
+}
+
+/* The modal tab bar lives inside the results popup, as its header row: the
+   <search-tabs> element sits inside .predictive-search--header but outside the
+   [data-predictive-search] wrapper that predictive renders wipe. */
+.predictive-search--header search-tabs {
+  display: block;
+  padding: 2rem 2rem 0;
+}
+
+.predictive-search--header .search-tabs {
+  margin-bottom: 0;
+}
+
+/* The height clamp (predictive-search.js open()) lands on the results wrapper,
+   so the wrapper owns the scrolling — the tab row stays pinned above it. */
+.predictive-search--header [data-predictive-search] {
+  overflow-y: auto;
+}
+
+.search-tabs__empty-item .predictive-search__item-content {
+  gap: 0.8rem;
+  padding: 2rem 0;
+}
+
+.search-tabs__show-all {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: rgb(var(--color-foreground));
+}

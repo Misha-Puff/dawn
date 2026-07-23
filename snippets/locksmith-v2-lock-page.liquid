@@ -18,15 +18,6 @@
     endif
   endif
 
-  # Locks pages with the `lock.vip` metafield set
-  if page.metafields.lock.vip
-    assign lock_content = 'true'
-
-    if customer.tags contains 'staff' or customer.metafields.clienteling.very_important_customer or customer.metafields.clienteling.super_vip or customer.metafields.clienteling.vip
-      assign lock_content = 'false'
-    endif
-  endif
-
   if request.design_mode
     echo 'false'
   else

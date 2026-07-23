@@ -35,6 +35,7 @@
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'card-sibling-preview.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
@@ -50,6 +51,30 @@
       assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
       assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
     %}
+
+    {%- capture heading_brand_stack -%}{% render 'brand-font', font: settings.type_header_custom_font %}{%- endcapture -%}
+    {%- capture body_brand_stack -%}{% render 'brand-font', font: settings.type_body_custom_font %}{%- endcapture -%}
+    {%- capture heading_brand_file -%}{% render 'brand-font', font: settings.type_header_custom_font, part: 'file' %}{%- endcapture -%}
+    {%- capture body_brand_file -%}{% render 'brand-font', font: settings.type_body_custom_font, part: 'file' %}{%- endcapture -%}
+    {%- capture mono_brand_stack -%}{% render 'brand-font', font: settings.type_mono_custom_font %}{%- endcapture -%}
+    {%- capture mono_brand_file -%}{% render 'brand-font', font: settings.type_mono_custom_font, part: 'file' %}{%- endcapture -%}
+    {%- liquid
+      assign heading_brand_stack = heading_brand_stack | strip
+      assign body_brand_stack = body_brand_stack | strip
+      assign heading_brand_file = heading_brand_file | strip
+      assign body_brand_file = body_brand_file | strip
+      assign mono_brand_stack = mono_brand_stack | strip
+      assign mono_brand_file = mono_brand_file | strip
+      comment
+        The mono select has no "default" option so the stack always resolves; guard anyway so
+        --font-mono-family never renders blank if the setting value is ever missing or unknown.
+      endcomment
+      if mono_brand_stack == blank
+        assign mono_brand_stack = "'Overpass Mono Custom', 'Courier New', monospace"
+        assign mono_brand_file = 'font-overpass-mono-latin-wght.woff2'
+      endif
+    -%}
+    {% render 'brand-font-faces' %}
 
     {% style %}
       {{ settings.type_body_font | font_face: font_display: 'swap' }}
@@ -105,14 +130,30 @@
       }
 
       :root {
+        {%- comment -%} Brand override pins style/weight: picker-variant values (e.g. _n7/_i4) must not leak onto a different family. {%- endcomment -%}
+        {%- if body_brand_stack != blank %}
+        --font-body-family: {{ body_brand_stack }};
+        --font-body-style: normal;
+        --font-body-weight: 400;
+        --font-body-weight-bold: 700;
+        {%- else %}
         --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
         --font-body-style: {{ settings.type_body_font.style }};
         --font-body-weight: {{ settings.type_body_font.weight }};
         --font-body-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};
+        {%- endif %}
 
+        {%- if heading_brand_stack != blank %}
+        --font-heading-family: {{ heading_brand_stack }};
+        --font-heading-style: normal;
+        --font-heading-weight: 400;
+        {%- else %}
         --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
         --font-heading-style: {{ settings.type_header_font.style }};
         --font-heading-weight: {{ settings.type_header_font.weight }};
+        {%- endif %}
+
+        --font-mono-family: {{ mono_brand_stack }};
 
         --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
         --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
@@ -249,7 +290,7 @@
         grid-template-columns: 100%; */
         min-height: 100%;
         margin: 0;
-        font-size: 13px;
+        font-size: 12px;
         letter-spacing: 0.06rem;
         line-height: calc(1 + 0.8 / var(--font-body-scale));
         font-family: var(--font-body-family);
@@ -259,6 +300,46 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {%- comment -%}
+      Global per-level heading overrides (Headings h1-h6 theme settings). Must sit AFTER base.css:
+      the element/class selectors tie base.css's specificity, so document order decides — including
+      against base.css's responsive @media re-declarations. Per-section/block rules still win.
+    {%- endcomment -%}
+    {%- liquid
+      assign heading_levels = 'h1,h2,h3,h4,h5,h6' | split: ','
+    -%}
+    {%- capture heading_level_css -%}
+      {%- for hl in heading_levels -%}
+        {%- assign hl_key = hl | append: '_size' -%}
+        {%- assign hl_size = settings[hl_key] | default: 0 -%}
+        {%- assign hl_key = hl | append: '_line_height' -%}
+        {%- assign hl_lh = settings[hl_key] | default: 0 -%}
+        {%- assign hl_key = hl | append: '_weight' -%}
+        {%- assign hl_w = settings[hl_key] | default: 'default' -%}
+        {%- assign hl_key = hl | append: '_case' -%}
+        {%- assign hl_case = settings[hl_key] | default: 'default' -%}
+        {%- assign hl_key = hl | append: '_letter_spacing' -%}
+        {%- assign hl_ls = settings[hl_key] | default: 0 -%}
+        {%- assign hl_key = hl | append: '_font' -%}
+        {%- assign hl_font = settings[hl_key] | default: 'default' -%}
+        {%- capture hl_decl -%}
+          {%- if hl_font == 'body' -%}font-family: var(--font-body-family); font-style: var(--font-body-style);{%- elsif hl_font == 'mono' -%}font-family: var(--font-mono-family); font-style: normal;{%- endif -%}
+          {%- if hl_size > 0 -%}font-size: {{ hl_size }}px;{%- endif -%}
+          {%- if hl_lh > 0 -%}line-height: {{ hl_lh }}%;{%- endif -%}
+          {%- if hl_w != 'default' and hl_w != blank -%}font-weight: {{ hl_w }};{%- endif -%}
+          {%- if hl_case != 'default' and hl_case != blank -%}text-transform: {{ hl_case }};{%- endif -%}
+          {%- if hl_ls > 0 -%}letter-spacing: {{ hl_ls }}px;{%- endif -%}
+        {%- endcapture -%}
+        {%- if hl_decl != blank -%}
+          {{ hl }}, .{{ hl }} { {{ hl_decl }} }
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+    {%- if heading_level_css != blank -%}
+      <style id="heading-level-overrides">
+        {{ heading_level_css }}
+      </style>
+    {%- endif -%}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}
@@ -269,16 +350,35 @@
       {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
     {%- endif -%}
 
-    {%- unless settings.type_body_font.system? -%}
+    {%- if body_brand_file != blank -%}
       {% comment %}theme-check-disable AssetPreload{% endcomment %}
-      <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
+      <link rel="preload" as="font" href="{{ body_brand_file | asset_url }}" type="font/woff2" crossorigin>
       {% comment %}theme-check-enable AssetPreload{% endcomment %}
-    {%- endunless -%}
-    {%- unless settings.type_header_font.system? -%}
+    {%- else -%}
+      {%- unless settings.type_body_font.system? -%}
+        {% comment %}theme-check-disable AssetPreload{% endcomment %}
+        <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
+        {% comment %}theme-check-enable AssetPreload{% endcomment %}
+      {%- endunless -%}
+    {%- endif -%}
+    {%- if heading_brand_file != blank -%}
+      {%- unless heading_brand_file == body_brand_file -%}
+        {% comment %}theme-check-disable AssetPreload{% endcomment %}
+        <link rel="preload" as="font" href="{{ heading_brand_file | asset_url }}" type="font/woff2" crossorigin>
+        {% comment %}theme-check-enable AssetPreload{% endcomment %}
+      {%- endunless -%}
+    {%- else -%}
+      {%- unless settings.type_header_font.system? -%}
+        {% comment %}theme-check-disable AssetPreload{% endcomment %}
+        <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
+        {% comment %}theme-check-enable AssetPreload{% endcomment %}
+      {%- endunless -%}
+    {%- endif -%}
+    {%- if mono_brand_file != blank and mono_brand_file != body_brand_file and mono_brand_file != heading_brand_file -%}
       {% comment %}theme-check-disable AssetPreload{% endcomment %}
-      <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
+      <link rel="preload" as="font" href="{{ mono_brand_file | asset_url }}" type="font/woff2" crossorigin>
       {% comment %}theme-check-enable AssetPreload{% endcomment %}
-    {%- endunless -%}
+    {%- endif -%}
 
     {%- if localization.available_countries.size > 1 or localization.available_languages.size > 1 -%}
       {{ 'component-localization-form.css' | asset_url | stylesheet_tag: preload: true }}
@@ -301,6 +401,7 @@
     </script>
 
     {{ 'swym-popup.css' | asset_url | stylesheet_tag }}
+    {{ 'popup-typography.css' | asset_url | stylesheet_tag }}
     {% render 'shogun-head' %}
     {% render 'schemas' %}
 
@@ -344,7 +445,7 @@
           }
         </style>
         <div class="locksmith-v2-content-wrapper center">
-          {% if template.name == 'page' and page.metafields.lock.password != '' and page.metafields.lock.vip != true %}
+          {% if template.name == 'page' and page.metafields.lock.password != '' %}
             <p>
               {{ settings.locksmith_v2_password_text }}
             </p>
@@ -444,10 +545,6 @@
     <!-- ACCESSIBILITYSPARK START -->
     {% render 'accessibility-spark-widget' %}
     <!-- ACCESSIBILITYSPARK END -->
-
-    <!-- Widget : Crochet Gift with Purchase -->
-    <div data-rebuy-id="177218"></div>
-    <!-- End Widget : Crochet Gift with Purchase -->
 
     <!-- - Skimlinks Embed - -->
     <script type="text/javascript" src="https://s.skimresources.com/js/288797X1775567.skimlinks.js"></script>

@@ -1,0 +1,43 @@
+{% comment %}
+  Renders one quick-add modal shell for a "Pair It With" row. Emitted only for
+  products whose row shows a "Choose options" opener (multi-variant or with
+  quantity rules); Badge-Coming Soon products render no opener, so no modal.
+  Guard logic (self-exclusion, dedupe, Locksmith, cap) lives in the caller's
+  loops so openers and modals stay 1:1.
+
+  Accepts:
+  - pair_product: {Object} the product to render the modal for
+  - block: {Object} the pair_from_outfits block
+
+  Usage:
+  {% render 'pair-from-outfits-modal', pair_product: pair_product, block: block %}
+{% endcomment %}
+{%- unless pair_product.tags contains 'Badge-Coming Soon' -%}
+  {%- liquid
+    assign pair_qty_rules = false
+    if pair_product.selected_or_first_available_variant.quantity_rule.min > 1 or pair_product.selected_or_first_available_variant.quantity_rule.max != null or pair_product.selected_or_first_available_variant.quantity_rule.increment > 1
+      assign pair_qty_rules = true
+    endif
+  -%}
+  {%- if pair_product.variants_count > 1 or pair_qty_rules -%}
+    <quick-add-modal id="QuickAddPair-{{ block.id }}-{{ pair_product.id }}" class="quick-add-modal">
+      <div
+        role="dialog"
+        aria-label="{{ 'products.product.choose_product_options' | t: product_name: pair_product.title | escape }}"
+        aria-modal="true"
+        class="quick-add-modal__content global-settings-popup"
+        tabindex="-1"
+      >
+        <button
+          id="ModalClose-Pair-{{ block.id }}-{{ pair_product.id }}"
+          type="button"
+          class="quick-add-modal__toggle"
+          aria-label="{{ 'accessibility.close' | t }}"
+        >
+          {{- 'icon-close.svg' | inline_asset_content -}}
+        </button>
+        <div id="QuickAddInfo-Pair-{{ block.id }}-{{ pair_product.id }}" class="quick-add-modal__content-info"></div>
+      </div>
+    </quick-add-modal>
+  {%- endif -%}
+{%- endunless -%}

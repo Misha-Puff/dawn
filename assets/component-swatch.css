@@ -6,6 +6,8 @@
   display: block;
   width: var(--swatch--size);
   max-width: 100%;
+  /* Unset height resolves to auto and aspect-ratio keeps the square; an explicit height (block/section swatch size settings) wins over aspect-ratio. */
+  height: var(--swatch--height, auto);
   aspect-ratio: 1 / 1;
   background: var(--swatch--background);
   background-position: var(--swatch-focal-point, initial);

@@ -7,6 +7,7 @@
   - enable_sorting: {Boolean} Show sorting when true
   - filter_type: {String} Type of filter
   - paginate: {Object}
+  - hide_division_facet: {Boolean} Hide the "Line" (taxonomy.division) group + pills — the search-tabs bar is the control. Its active values are kept as hidden js-filter carriers so form serialization preserves them.
 
   Usage:
   {% render 'facets', results: collection, enable_filtering: true, enable_sorting: true, filter_type: 'vertical', paginate: paginate %}
@@ -20,6 +21,7 @@
   assign sort_by = results.sort_by | default: results.default_sort_by
   assign total_active_values = 0
   assign default_presentation = 'text'
+  assign division_param = 'filter.p.m.taxonomy.division'
   if results.url
     assign results_url = results.url
   else
@@ -73,6 +75,7 @@
                   </facet-remove>
                 </div>
                 {%- for filter in results.filters -%}
+                  {%- if hide_division_facet and filter.param_name == division_param -%}{%- continue -%}{%- endif -%}
                   {%- for value in filter.active_values -%}
                     <facet-remove>
                       <a href="{{ value.url_to_remove }}" class="active-facets__button active-facets__button--light">
@@ -110,6 +113,15 @@
             <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
             {% comment %} Filters for both horizontal and vertical filter {% endcomment %}
             {%- for filter in results.filters -%}
+              {%- if hide_division_facet and filter.param_name == division_param -%}
+                {%- comment -%} Group hidden (the search-tabs bar is the control) but its active values must survive facets.js form serialization — a js-filter carrier renderFilters keeps in sync. {%- endcomment -%}
+                <div class="js-filter" id="Filter-Division-Hidden-{{ section.id }}" hidden>
+                  {%- for value in filter.active_values -%}
+                    <input type="hidden" name="{{ value.param_name }}" value="{{ value.value }}">
+                  {%- endfor -%}
+                </div>
+                {%- continue -%}
+              {%- endif -%}
               {% liquid
                 assign total_active_values = total_active_values | plus: filter.active_values.size
                 assign presentation = filter.presentation | default: default_presentation
@@ -339,6 +351,7 @@
           {%- if filter_type == 'horizontal' -%}
             <div class="active-facets active-facets-desktop">
               {%- for filter in results.filters -%}
+                {%- if hide_division_facet and filter.param_name == division_param -%}{%- continue -%}{%- endif -%}
                 {%- for value in filter.active_values -%}
                   <facet-remove>
                     <a href="{{ value.url_to_remove }}" class="active-facets__button active-facets__button--light">
@@ -447,6 +460,7 @@
 
   <div class="active-facets active-facets-mobile medium-hide large-up-hide">
     {%- for filter in results.filters -%}
+      {%- if hide_division_facet and filter.param_name == division_param -%}{%- continue -%}{%- endif -%}
       {%- for value in filter.active_values -%}
         <facet-remove>
           <a href="{{ value.url_to_remove }}" class="active-facets__button active-facets__button--light">
@@ -550,7 +564,7 @@
           {% endcomment %}
           <span class="mobile-facets__open-label button-label medium-hide large-up-hide">
             {%- if enable_filtering and enable_sorting -%}
-              {{ 'products.facets.filter_and_sort' | t }}
+              {{ 'products.facets.filter_button' | t }} / {{ 'products.facets.sort_button' | t }}
             {%- elsif enable_filtering -%}
               {{ 'products.facets.filter_button' | t }}
             {%- elsif enable_sorting -%}
@@ -608,6 +622,15 @@
             >
               {%- if enable_filtering -%}
                 {%- for filter in results.filters -%}
+                  {%- if hide_division_facet and filter.param_name == division_param -%}
+                    {%- comment -%} Hidden carrier — see the desktop form above. This one is load-bearing in drawer filter_type, where FacetFiltersFormMobile is the live filter state. {%- endcomment -%}
+                    <div class="js-filter" id="Filter-Division-Hidden-Mobile-{{ section.id }}" hidden>
+                      {%- for value in filter.active_values -%}
+                        <input type="hidden" name="{{ value.param_name }}" value="{{ value.value }}">
+                      {%- endfor -%}
+                    </div>
+                    {%- continue -%}
+                  {%- endif -%}
                   {% liquid
                     assign presentation = filter.presentation | default: default_presentation
                     if presentation == 'image'
@@ -907,6 +930,7 @@
       <form id="FacetFiltersPillsForm" class="facets__form">
         <div class="active-facets active-facets-desktop">
           {%- for filter in results.filters -%}
+            {%- if hide_division_facet and filter.param_name == division_param -%}{%- continue -%}{%- endif -%}
             {%- for value in filter.active_values -%}
               <facet-remove>
                 <a href="{{ value.url_to_remove }}" class="active-facets__button active-facets__button--light">

@@ -492,7 +492,12 @@
     "collection_template": {
       "empty": "No products found",
       "title": "Collection",
-      "use_fewer_filters_html": "Use fewer filters or <a class=\"{{ class }}\" href=\"{{ link }}\">remove all</a>"
+      "use_fewer_filters_html": "Use fewer filters or <a class=\"{{ class }}\" href=\"{{ link }}\">remove all</a>",
+      "view_collection": "Collection",
+      "view_campaign": "Campaign"
+    },
+    "collection_tabs": {
+      "label": "Collections"
     },
     "video": {
       "load_video": "Load video: {{ description }}"
@@ -567,7 +572,10 @@
       "title": "Search results",
       "search_for": "Search for “{{ terms }}”",
       "suggestions": "Suggestions",
-      "pages": "Pages"
+      "pages": "Pages",
+      "tabs_label": "Filter search results by line",
+      "tabs_no_results_html": "No {{ label }} results for “{{ terms }}”",
+      "tabs_show_all": "Show all results"
     },
     "cart": {
       "cart": "Cart"

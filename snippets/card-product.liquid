@@ -18,6 +18,10 @@
   - placeholder_image: {String} The placeholder image to use when no product exists. Default: 'product-apparel-2' (optional)
   - preview_badge: {String} Optional badge label rendered alongside other badges (e.g. "Coming Soon", "Early Access"). Default: blank (optional)
   - hide_sold_out_badge: {Boolean} Suppress the "Sold out" badge. Default: false (optional)
+  - size_overlay: {Boolean} Show the size-availability strip over the media on card hover (desktop only). Skipped for products with no sizes to show. Default: false (optional)
+  - quick_add_mobile_only: {Boolean} Hide the quick-add button at desktop widths (>= 1100px) via large-up-hide. Default: false (optional)
+  - force_color_line: {Boolean} Render the colorway line even when swatches are enabled (SRA fragments that can't read the display section's settings — the host shows exactly one via scoped CSS). Default: false (optional)
+  - enable_swatches: {Boolean} Explicit override for the swatches/availability branch. When nil, falls back to section.settings.enable_swatches (grid behavior). Needed by render sites whose host section isn't the card's display section (the recently-viewed capture card in main-product). (optional)
 
   Usage:
   {% render 'card-product', show_vendor: section.settings.show_vendor %}
@@ -139,15 +143,10 @@
             </div>
           </div>
         {%- endif -%}
-        {% liquid
-          unless card_product.type == 'Yarn Skein' or card_product.type == 'Pattern' or card_product.type == 'Repair' or quick_add != 'none'
-            assign show_overlay_background = true
-          endunless
-        %}
         {% unless card_product.tags contains 'Badge-Coming Soon' %}
           {% assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id %}
           {% if quick_add == 'standard' %}
-            <div class="quick-add no-js-hidden">
+            <div class="quick-add no-js-hidden{% if quick_add_mobile_only %} large-up-hide{% endif %}">
               {%- liquid
                 assign qty_rules = false
                 if card_product.selected_or_first_available_variant.quantity_rule.min > 1 or card_product.selected_or_first_available_variant.quantity_rule.max != null or card_product.selected_or_first_available_variant.quantity_rule.increment > 1
@@ -248,7 +247,7 @@
               <quick-add-bulk
                 data-min="{{ card_product.selected_or_first_available_variant.quantity_rule.min }}"
                 id="quick-add-bulk-{{ card_product.selected_or_first_available_variant.id }}-{{ section.id }}"
-                class="quick-add-bulk"
+                class="quick-add-bulk{% if quick_add_mobile_only %} large-up-hide{% endif %}"
                 data-index="{{ card_product.selected_or_first_available_variant.id }}"
               >
                 {% if card_product.selected_or_first_available_variant.available == false %}
@@ -271,7 +270,7 @@
                 {% endif %}
               </quick-add-bulk>
             {% else %}
-              <div class="quick-add no-js-hidden">
+              <div class="quick-add no-js-hidden{% if quick_add_mobile_only %} large-up-hide{% endif %}">
                 {%- liquid
                   assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id
                   assign qty_rules = false
@@ -407,8 +406,16 @@
           {% endif %}
         {% endunless %}
 
-        {% if section.settings.enable_overlay %}
-          <div class="popup-overlay{% if show_overlay_background %} background{% endif %}">
+        {%- liquid
+          assign show_size_overlay = false
+          if size_overlay
+            unless card_product.type == 'Yarn Skein' or card_product.type == 'Pattern' or card_product.type == 'Repair' or card_product.has_only_default_variant
+              assign show_size_overlay = true
+            endunless
+          endif
+        -%}
+        {% if show_size_overlay %}
+          <div class="popup-overlay background">
             {% render 'variant-availability', product: card_product %}
           </div>
         {% endif %}
@@ -428,14 +435,10 @@
                   class="full-unstyled-link"
                   aria-labelledby="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }} NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
                 >
-                  {{ card_product.title | escape -}}
-                  {%- if card_product.options[0] == 'Color' %}
-                    - {{ card_product.selected_or_first_available_variant.options[0] -}}
-                  {%- endif %}
+                  {{ card_product.title | escape }}
                 </a>
               </h3>
             </div>
-            {% render 'card-product-badges', card_product: card_product, preview_badge: preview_badge, hide_sold_out_badge: hide_sold_out_badge %}
           </div>
         {% endunless %}
       </div>
@@ -443,28 +446,48 @@
         </a>
       {% endif %}
       {% unless hide_content %}
+        {%- liquid
+          # Swatches and the colorway line are mutually exclusive, decided by the swatch
+          # SETTING (not rendered output): swatches enabled → no color line, even for
+          # sibling-less products. force_color_line overrides for SRA fragments.
+          assign swatches_enabled = section.settings.enable_swatches
+          if enable_swatches != nil
+            assign swatches_enabled = enable_swatches
+          endif
+          assign render_swatches = false
+          if show_swatches_availability and swatches_enabled
+            assign render_swatches = true
+          endif
+          assign show_color_line = false
+          if card_product.options[0] == 'Color'
+            if render_swatches == false or force_color_line
+              assign show_color_line = true
+            endif
+          endif
+        -%}
         <div class="card__content">
           <div class="card__information">
-            <h3
-              class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
-              {% if card_product.featured_media or settings.card_style == 'card' %}
-                id="title-{{ section_id }}-{{ card_product.id }}"
-              {% endif %}
-            >
-              <a
-                href="{{ card_product.url | within: collection }}"
-                id="CardLink-{{ section_id }}-{{ card_product.id }}"
-                class="full-unstyled-link"
-                aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
+            <div class="card__heading-row">
+              <h3
+                class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
+                {% if card_product.featured_media or settings.card_style == 'card' %}
+                  id="title-{{ section_id }}-{{ card_product.id }}"
+                {% endif %}
               >
-                {{ card_product.title | escape -}}
-                {% unless section.settings.enable_swatches %}
-                  {%- if card_product.options[0] == 'Color' %}
-                    - {{ card_product.selected_or_first_available_variant.options[0] -}}
-                  {%- endif %}
-                {% endunless %}
-              </a>
-            </h3>
+                <a
+                  href="{{ card_product.url | within: collection }}"
+                  id="CardLink-{{ section_id }}-{{ card_product.id }}"
+                  class="full-unstyled-link"
+                  aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
+                >
+                  {{ card_product.title | escape }}
+                </a>
+              </h3>
+              {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+            </div>
+            {%- if show_color_line -%}
+              <p class="card__color-line">{{ card_product.selected_or_first_available_variant.options[0] | escape }}</p>
+            {%- endif -%}
             <div class="card-information">
               {%- if show_vendor -%}
                 <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
@@ -509,15 +532,17 @@
                 </p>
               {%- endif -%}
 
-              {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
-
-              {% if show_swatches_availability %}
-                {% if section.settings.enable_swatches %}
-                  {% render 'product-sibling-swatches', product: card_product %}
-                {% else %}
-                  {% render 'variant-availability', product: card_product %}
-                {% endif %}
+              {% if render_swatches %}
+                {% render 'product-sibling-swatches', card_product: card_product, section_id: section_id %}
               {% endif %}
+
+              {% render 'card-product-badges',
+                card_product: card_product,
+                preview_badge: preview_badge,
+                hide_sold_out_badge: hide_sold_out_badge,
+                section_id: section_id,
+                card: true
+              %}
 
               {%- if card_product.quantity_price_breaks_configured? -%}
                 {% if card_product.variants_count == 1 and quick_add == 'bulk' %}
@@ -602,7 +627,6 @@
               {%- endif -%}
             </div>
           </div>
-          {% render 'card-product-badges', card_product: card_product, preview_badge: preview_badge, hide_sold_out_badge: hide_sold_out_badge %}
         </div>
       {% endunless %}
     </div>
@@ -644,17 +668,19 @@
       </div>
       <div class="card__content">
         <div class="card__information">
-          <h3 class="card__heading card__heading--placeholder{% if settings.card_style == 'standard' %} h5{% endif %}">
-            <a role="link" aria-disabled="true" class="full-unstyled-link">
-              {{ 'onboarding.product_title' | t }}
-            </a>
-          </h3>
+          <div class="card__heading-row">
+            <h3 class="card__heading card__heading--placeholder{% if settings.card_style == 'standard' %} h5{% endif %}">
+              <a role="link" aria-disabled="true" class="full-unstyled-link">
+                {{ 'onboarding.product_title' | t }}
+              </a>
+            </h3>
+            {% render 'price', placeholder: placeholder, show_compare_at_price: true %}
+          </div>
           <div class="card-information">
             {%- if show_vendor -%}
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
               <div class="caption-with-letter-spacing light">{{ 'products.product.vendor' | t }}</div>
             {%- endif -%}
-            {% render 'price', placeholder: placeholder, show_compare_at_price: true %}
           </div>
         </div>
       </div>

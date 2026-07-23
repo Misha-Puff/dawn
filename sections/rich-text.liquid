@@ -17,6 +17,83 @@
       padding-right: {{ section.settings.padding_right }}px;
     }
   }
+
+  {%- comment -%}
+    Custom mobile section padding — emitted after the base rule so it wins the
+    same-specificity tie and replaces the stock 75%-of-desktop scaling.
+  {%- endcomment -%}
+  {%- comment -%}
+    With the checkbox on, all four mobile sliders are ABSOLUTE values: top/bottom
+    replace the stock 75%-of-desktop scaling, and left/right replace the page-width
+    gutter + the wrapper's stock mobile width shave (0 = edge to edge). The
+    #shopify-section id scope outranks section-rich-text.css's
+    .rich-text:not(.rich-text--full-width) .rich-text__wrapper width rule and
+    base.css's ≤1099px .page-width gutter.
+  {%- endcomment -%}
+  {%- if section.settings.enable_mobile_padding -%}
+    @media screen and (max-width: 749px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top_mobile }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+      }
+
+      #shopify-section-{{ section.id }} .isolate {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      #shopify-section-{{ section.id }} .rich-text__wrapper {
+        width: 100%;
+        padding-left: {{ section.settings.padding_left_mobile | default: 0 }}px;
+        padding-right: {{ section.settings.padding_right_mobile | default: 0 }}px;
+      }
+    }
+  {%- endif -%}
+
+  {%- comment -%}
+    Per-block typography overrides, ported from image-with-text. Scoped to the
+    .Block-<id> class added to each block root, prefixed with the section wrapper id
+    (#shopify-section-<section.id>) so the ID specificity beats the heading-size /
+    text-style theme classes and the text block's legacy line-height slider. Only
+    emits CSS when a block's Enable typography checkbox is on.
+  {%- endcomment -%}
+  {%- assign tg_scope = 'shopify-section-' | append: section.id -%}
+  {%- for block in section.blocks -%}
+    {%- if block.settings.tg_enable_type -%}
+      {%- liquid
+        assign tg_font = block.settings.tg_font
+        assign tg_weight = block.settings.tg_font_weight | default: 'default'
+        assign tg_fs = block.settings.tg_font_size | default: 0
+        assign tg_lh = block.settings.tg_line_height | default: 0
+        assign tg_case = block.settings.tg_text_case | default: 'default'
+        assign tg_ls = block.settings.tg_letter_spacing | default: 0
+      -%}
+      {%- capture tg_brand_stack -%}{% render 'brand-font', font: block.settings.tg_custom_font %}{%- endcapture -%}
+      {%- assign tg_brand_stack = tg_brand_stack | strip -%}
+      {%- if tg_font != blank and tg_brand_stack == blank -%}{{ tg_font | font_face: font_display: 'swap' }}{%- endif -%}
+      {%- if tg_font != blank and tg_brand_stack == blank and tg_weight != 'default' -%}
+        {%- assign tg_wfont = tg_font | font_modify: 'weight', tg_weight -%}
+        {%- if tg_wfont -%}{{ tg_wfont | font_face: font_display: 'swap' }}{%- endif -%}
+      {%- endif -%}
+      #{{ tg_scope }} .Block-{{ block.id }} {
+        {%- if tg_brand_stack != blank %} font-family: {{ tg_brand_stack }};{% elsif tg_font != blank %} font-family: {{ tg_font.family }}, {{ tg_font.fallback_families }};{% endif -%}
+        {%- if tg_weight != 'default' and tg_weight != blank %} font-weight: {{ tg_weight }};{% endif -%}
+        {%- if tg_fs > 0 %} font-size: {{ tg_fs }}px;{% endif -%}
+        {%- if tg_lh > 0 %} line-height: {{ tg_lh }}%;{% endif -%}
+        {%- if tg_case != 'default' and tg_case != blank %} text-transform: {{ tg_case }};{% endif -%}
+        {%- if tg_ls > 0 %} letter-spacing: {{ tg_ls }}px;{% endif -%}
+        {%- if block.settings.tg_color != blank %} color: {{ block.settings.tg_color }};{% endif -%}
+      }
+      {%- assign tg_fs_m = block.settings.tg_font_size_mobile | default: 0 -%}
+      {%- if tg_fs_m > 0 -%}
+        @media screen and (max-width: 749px) {
+          #{{ tg_scope }} .Block-{{ block.id }} {
+            font-size: {{ tg_fs_m }}px;
+          }
+        }
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
 {%- endstyle -%}
 
 <div class="isolate{% unless section.settings.full_width %} page-width{% endunless %}">
@@ -27,7 +104,7 @@
           {%- case block.type -%}
             {%- when 'heading' -%}
               <h2
-                class="rich-text__heading rte inline-richtext {{ block.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                class="rich-text__heading rte inline-richtext {{ block.settings.heading_size }} Block-{{ block.id }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
@@ -38,7 +115,7 @@
               </h2>
             {%- when 'caption' -%}
               <p
-                class="rich-text__caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                class="rich-text__caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }} Block-{{ block.id }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
@@ -54,7 +131,7 @@
                 }
               {% endstyle %}
               <div
-                class="rich-text__text rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} small block-{{ block.id }}"
+                class="rich-text__text rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} small block-{{ block.id }} Block-{{ block.id }}"
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
@@ -235,6 +312,59 @@
       "unit": "px",
       "label": "Right Padding",
       "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_mobile_padding",
+      "default": false,
+      "label": "Custom mobile section padding",
+      "info": "Off = mobile uses 75% of the desktop vertical padding and the standard side gutters. On = the four sliders below are the exact mobile padding."
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile padding top",
+      "default": 28,
+      "visible_if": "{{ section.settings.enable_mobile_padding }}"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile padding bottom",
+      "default": 28,
+      "visible_if": "{{ section.settings.enable_mobile_padding }}"
+    },
+    {
+      "type": "range",
+      "id": "padding_left_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile padding left",
+      "info": "Exact side inset on mobile — replaces the standard gutter. 0 = edge to edge.",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_mobile_padding }}"
+    },
+    {
+      "type": "range",
+      "id": "padding_right_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile padding right",
+      "info": "Exact side inset on mobile — replaces the standard gutter. 0 = edge to edge.",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_mobile_padding }}"
     }
   ],
   "blocks": [
@@ -276,6 +406,129 @@
           ],
           "default": "h1",
           "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "header",
+          "content": "Typography"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_enable_type",
+          "default": false,
+          "label": "Enable typography"
+        },
+        {
+          "type": "font_picker",
+          "id": "tg_font",
+          "default": "assistant_n4",
+          "label": "Font",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_custom_font",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_font_weight",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "300", "label": "Light" },
+            { "value": "400", "label": "Regular" },
+            { "value": "500", "label": "Medium" },
+            { "value": "600", "label": "Semibold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "default",
+          "label": "Font weight",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_font_size",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_line_height",
+          "min": 0,
+          "max": 250,
+          "step": 5,
+          "unit": "%",
+          "label": "Line height",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_text_case",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "uppercase", "label": "Uppercase" },
+            { "value": "capitalize", "label": "Capitalize" },
+            { "value": "lowercase", "label": "Lowercase" },
+            { "value": "none", "label": "Normal (remove uppercase)" }
+          ],
+          "default": "default",
+          "label": "Text case",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_letter_spacing",
+          "min": 0,
+          "max": 4,
+          "step": 0.1,
+          "unit": "px",
+          "label": "Letter spacing",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "color",
+          "id": "tg_color",
+          "label": "Text color",
+          "info": "Leave blank to inherit",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_font_size_mobile",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "unit": "px",
+          "label": "Mobile font size",
+          "info": "0 = same as desktop",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
         }
       ]
     },
@@ -325,6 +578,129 @@
           ],
           "default": "medium",
           "label": "t:sections.rich-text.blocks.caption.settings.caption_size.label"
+        },
+        {
+          "type": "header",
+          "content": "Typography"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_enable_type",
+          "default": false,
+          "label": "Enable typography"
+        },
+        {
+          "type": "font_picker",
+          "id": "tg_font",
+          "default": "assistant_n4",
+          "label": "Font",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_custom_font",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_font_weight",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "300", "label": "Light" },
+            { "value": "400", "label": "Regular" },
+            { "value": "500", "label": "Medium" },
+            { "value": "600", "label": "Semibold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "default",
+          "label": "Font weight",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_font_size",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_line_height",
+          "min": 0,
+          "max": 250,
+          "step": 5,
+          "unit": "%",
+          "label": "Line height",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_text_case",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "uppercase", "label": "Uppercase" },
+            { "value": "capitalize", "label": "Capitalize" },
+            { "value": "lowercase", "label": "Lowercase" },
+            { "value": "none", "label": "Normal (remove uppercase)" }
+          ],
+          "default": "default",
+          "label": "Text case",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_letter_spacing",
+          "min": 0,
+          "max": 4,
+          "step": 0.1,
+          "unit": "px",
+          "label": "Letter spacing",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "color",
+          "id": "tg_color",
+          "label": "Text color",
+          "info": "Leave blank to inherit",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_font_size_mobile",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "unit": "px",
+          "label": "Mobile font size",
+          "info": "0 = same as desktop",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
         }
       ]
     },
@@ -348,6 +724,129 @@
           "unit": "px",
           "label": "Line Height",
           "default": 24
+        },
+        {
+          "type": "header",
+          "content": "Typography"
+        },
+        {
+          "type": "checkbox",
+          "id": "tg_enable_type",
+          "default": false,
+          "label": "Enable typography"
+        },
+        {
+          "type": "font_picker",
+          "id": "tg_font",
+          "default": "assistant_n4",
+          "label": "Font",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_custom_font",
+          "options": [
+            { "value": "default", "label": "None (use font picker)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font",
+          "info": "Overrides the font picker above when set",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_font_weight",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "300", "label": "Light" },
+            { "value": "400", "label": "Regular" },
+            { "value": "500", "label": "Medium" },
+            { "value": "600", "label": "Semibold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "default",
+          "label": "Font weight",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_font_size",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_line_height",
+          "min": 0,
+          "max": 250,
+          "step": 5,
+          "unit": "%",
+          "label": "Line height",
+          "info": "0 = theme default. Overrides the px slider above when set",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "select",
+          "id": "tg_text_case",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "uppercase", "label": "Uppercase" },
+            { "value": "capitalize", "label": "Capitalize" },
+            { "value": "lowercase", "label": "Lowercase" },
+            { "value": "none", "label": "Normal (remove uppercase)" }
+          ],
+          "default": "default",
+          "label": "Text case",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_letter_spacing",
+          "min": 0,
+          "max": 4,
+          "step": 0.1,
+          "unit": "px",
+          "label": "Letter spacing",
+          "info": "0 = theme default",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "color",
+          "id": "tg_color",
+          "label": "Text color",
+          "info": "Leave blank to inherit",
+          "visible_if": "{{ block.settings.tg_enable_type }}"
+        },
+        {
+          "type": "range",
+          "id": "tg_font_size_mobile",
+          "min": 0,
+          "max": 72,
+          "step": 1,
+          "unit": "px",
+          "label": "Mobile font size",
+          "info": "0 = same as desktop",
+          "default": 0,
+          "visible_if": "{{ block.settings.tg_enable_type }}"
         }
       ]
     },

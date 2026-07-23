@@ -1,0 +1,61 @@
+{% comment %}
+  Emits the data-* swap payload attributes for one card swatch link
+  (consumed by assets/card-sibling-preview.js). Rendered inside the <a> tag.
+
+  Accepts:
+  - payload_product: {Object} the product this swatch previews (required)
+  - payload_self: {Boolean} true when this swatch is the card's own product
+
+  Usage:
+  {% render 'sibling-swatch-attrs', payload_product: sibling, payload_self: false %}
+{% endcomment %}
+{%- liquid
+  assign swap_media = payload_product.featured_media
+  assign swap_title = payload_product.title
+
+  comment
+    Direct-capable mirrors card-product's quick-add branch: a single-variant,
+    no-quantity-rules product renders a direct add form instead of the modal,
+    so its swatch swap needs the variant id rather than a URL retarget.
+  endcomment
+  assign swap_qty_rules = false
+  if payload_product.selected_or_first_available_variant.quantity_rule.min > 1 or payload_product.selected_or_first_available_variant.quantity_rule.max != null or payload_product.selected_or_first_available_variant.quantity_rule.increment > 1
+    assign swap_qty_rules = true
+  endif
+-%}
+{%- if swap_media -%}
+  data-swap-url="{{ payload_product.url }}"
+  data-swap-title="{{ swap_title | escape }}"
+  data-swap-variant-id="{{ payload_product.selected_or_first_available_variant.id }}"
+  {%- if payload_product.variants_count == 1 and swap_qty_rules == false %}
+    data-swap-direct="true"
+  {%- endif %}
+  {%- unless payload_product.selected_or_first_available_variant.available %}
+    data-swap-available="false"
+  {%- endunless %}
+  data-swap-img-src="{{ swap_media | image_url: width: 533 }}"
+  data-swap-img-alt="{{ swap_media.alt | escape }}"
+  data-swap-img-srcset="
+    {%- if swap_media.width >= 165 -%}{{ swap_media | image_url: width: 165 }} 165w,{%- endif -%}
+    {%- if swap_media.width >= 360 -%}{{ swap_media | image_url: width: 360 }} 360w,{%- endif -%}
+    {%- if swap_media.width >= 533 -%}{{ swap_media | image_url: width: 533 }} 533w,{%- endif -%}
+    {%- if swap_media.width >= 720 -%}{{ swap_media | image_url: width: 720 }} 720w,{%- endif -%}
+    {%- if swap_media.width >= 940 -%}{{ swap_media | image_url: width: 940 }} 940w,{%- endif -%}
+    {%- if swap_media.width >= 1066 -%}{{ swap_media | image_url: width: 1066 }} 1066w,{%- endif -%}
+    {{ swap_media | image_url }} {{ swap_media.width }}w
+  "
+  {%- if payload_product.media[1] != null %}
+    data-swap-img2-src="{{ payload_product.media[1] | image_url: width: 533 }}"
+    data-swap-img2-srcset="
+      {%- if payload_product.media[1].width >= 165 -%}{{ payload_product.media[1] | image_url: width: 165 }} 165w,{%- endif -%}
+      {%- if payload_product.media[1].width >= 360 -%}{{ payload_product.media[1] | image_url: width: 360 }} 360w,{%- endif -%}
+      {%- if payload_product.media[1].width >= 533 -%}{{ payload_product.media[1] | image_url: width: 533 }} 533w,{%- endif -%}
+      {%- if payload_product.media[1].width >= 720 -%}{{ payload_product.media[1] | image_url: width: 720 }} 720w,{%- endif -%}
+      {%- if payload_product.media[1].width >= 940 -%}{{ payload_product.media[1] | image_url: width: 940 }} 940w,{%- endif -%}
+      {{ payload_product.media[1] | image_url }} {{ payload_product.media[1].width }}w
+    "
+  {%- endif %}
+  {%- if payload_self %}
+    data-swap-self="true"
+  {%- endif %}
+{%- endif -%}

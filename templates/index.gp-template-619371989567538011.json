@@ -11,7 +11,7 @@
   "sections": {
     "gp_section_619371989651424091": {
       "settings": {
-        "checksum": "21b541cf06aaea6a28d2f9164d20032000ee85be27fe170d8da8b1c3d6e446bd_1_1_1_0__1",
+        "checksum": "21b541cf06aaea6a28d2f9164d20032000ee85be27fe170d8da8b1c3d6e446bd_1_1_0_0__1",
         "gg_y6cohRve_label": "<p>JOURNAL</p>",
         "ggilZSAhHop_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_4.23_Journal_86c99fae-8a59-4a2d-ac9a-719006c8441b.jpg",
         "ggilZSAhHop_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_4.23_Journal.jpg"
@@ -20,18 +20,17 @@
     },
     "gp_section_619371989651489627": {
       "settings": {
-        "checksum": "0d91c4b2565117b21e762276cfe7abf06142624371e28b06d9300057794faeae_1_1_1_0__1",
+        "checksum": "0d91c4b2565117b21e762276cfe7abf06142624371e28b06d9300057794faeae_1_1_0_0__1",
         "ggHmoAoR0E8_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(0,0,0);font-size:12px;\">Designed in New England and handcrafted by a network of highly skilled knitters and artisans around the world, Misha &amp; Puff is built on a shared love of craft and material integrity. With our partners, we've scaled handcrafted knits responsibly and respectfully, honoring our values and vision for the future.</span><br>&nbsp;</p><p>&nbsp;</p><p><a href=\"https://shop.misha-and-puff.com/pages/people\" target=\"_blank\"><span style=\"background-color:rgb(255,255,255);color:rgb(16,24,32);font-size:11px;\"><u>READ MORE</u></span></a></p>",
         "ggKtRgeGKpM_text": "<span style=\"color:#101820;font-size:11px;\">DESIGNED BY ARTISTS, MADE BY ARTISANS</span>",
         "ggOvQFpIyH9_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/gempages_557305364022821686-464427c0-8549-4160-8c62-3605f9dbe562.png",
-        "ggOvQFpIyH9_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_SiteMobile_Custom_3.5_Artisan.jpg",
-        "section_preload": "true"
+        "ggOvQFpIyH9_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_SiteMobile_Custom_3.5_Artisan.jpg"
       },
       "type": "gp-section-619371989651489627"
     },
     "gp_section_619371989651555163": {
       "settings": {
-        "checksum": "419e2b89a7f97dc280f39e086930e134a62dc2f125319cb31db08649d227a616_1_1_1_0__1",
+        "checksum": "419e2b89a7f97dc280f39e086930e134a62dc2f125319cb31db08649d227a616_1_1_0_0__1",
         "ggVmxxDDJlX_text": "<p><span style=\"font-size:11px;\">NEW ARRIVALS</span></p>",
         "ggeX__Np1yG_label": "<p>SHOP COLLECTION</p>",
         "ggt967mmF3O_text": "<p>SUMMER COLLECTION, PART 2</p>",
@@ -43,7 +42,7 @@
     },
     "gp_section_619371989651620699": {
       "settings": {
-        "checksum": "79c1d16e940ccaed5c7a68080cbd4eccffe2d92c7ee67a88fd5d0e3af8f85098_1_1_1_0__1",
+        "checksum": "79c1d16e940ccaed5c7a68080cbd4eccffe2d92c7ee67a88fd5d0e3af8f85098_1_1_0_0__1",
         "gg-Y6akhjPy_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-spring-summer\">ADULT COLLECTION</a></p>",
         "gg9P0PE5gnh_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_4.9_Baby_2.jpg",
         "gg9P0PE5gnh_srcSet_tablet_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_4.9_Baby_2.jpg",
@@ -52,14 +51,13 @@
         "ggX_NHFfoVI_srcSet_tablet_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_5.13_Adult_home_eb183cac-aaf0-4272-8f55-287d29bebcee.jpg",
         "gggnaSrImRL_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_5.14.26_Sabah.jpg",
         "gggnaSrImRL_srcSet_tablet_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_5.14.26_Sabah.jpg",
-        "ggrG03rh4vt_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-summer\"><span style=\"font-size:11px;\">BABY SUMMER COLLECTION</span></a></p>",
-        "section_preload": "true"
+        "ggrG03rh4vt_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-summer\"><span style=\"font-size:11px;\">BABY SUMMER COLLECTION</span></a></p>"
       },
       "type": "gp-section-619371989651620699"
     },
     "gp_section_619371989651686235": {
       "settings": {
-        "checksum": "7275946e6b6fe294a8f0ac66c856d2be096d1c35977110e27b58414482cb7371_1_1_1_0__1",
+        "checksum": "7275946e6b6fe294a8f0ac66c856d2be096d1c35977110e27b58414482cb7371_1_1_0_0__1",
         "ggbYWyHa2l9_text": "DESIGNED BY ARTISTS, MADE BY ARTISANS",
         "ggtaTkhnLwY_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SP26_SiteMobile_Custom_3.5_Artisan.jpg",
         "ggvsJppOkcN_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(0,0,0);font-size:12px;\">Designed in New England and handcrafted by a network of highly skilled knitters and artisans around the world, Misha &amp; Puff is built on a shared love of craft and material integrity. With our partners, we've scaled handcrafted knits responsibly and respectfully, honoring our values and vision for the future.</span></p><p>&nbsp;</p><p>&nbsp;</p><p><a href=\"https://shop.misha-and-puff.com/pages/people\" target=\"_blank\"><span style=\"background-color:rgb(255,255,255);color:rgb(16,24,32);font-size:12px;\"><u>READ MORE</u></span></a></p>"

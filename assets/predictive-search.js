@@ -107,14 +107,21 @@ class PredictiveSearch extends SearchForm {
 
   updateSearchForTerm(previousTerm, newTerm) {
     const searchForTextElement = this.querySelector('[data-predictive-search-search-for-text]');
-    const currentButtonText = searchForTextElement?.innerText;
-    if (currentButtonText) {
-      if (currentButtonText.match(new RegExp(previousTerm, 'g')).length > 1) {
-        // The new term matches part of the button text and not just the search term, do not replace to avoid mistakes
+    // textContent, NOT innerText: innerText reflects CSS text-transform, and this
+    // store renders the button uppercase — the case-sensitive match below then
+    // returned null and threw on every keystroke after the first, freezing the
+    // dropdown on the first term. Also escape the term (regex metacharacters)
+    // and null-guard the match; a failed patch is harmless — the fresh fetch
+    // repaints the button anyway.
+    const currentButtonText = searchForTextElement?.textContent;
+    if (currentButtonText && previousTerm) {
+      const escapedTerm = previousTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const matches = currentButtonText.match(new RegExp(escapedTerm, 'g'));
+      if (!matches || matches.length > 1) {
+        // No safe single occurrence of the previous term in the button text — do not replace to avoid mistakes
         return;
       }
-      const newButtonText = currentButtonText.replace(previousTerm, newTerm);
-      searchForTextElement.innerText = newButtonText;
+      searchForTextElement.textContent = currentButtonText.replace(previousTerm, newTerm);
     }
   }
 
@@ -231,6 +238,11 @@ class PredictiveSearch extends SearchForm {
 
     this.setLiveRegionResults();
     this.open();
+    // Signals search-tabs.js that a settled predictive render landed (count
+    // probes piggyback on the input debounce + network settle for free).
+    this.dispatchEvent(
+      new CustomEvent('predictive-search:rendered', { bubbles: true, detail: { term: this.searchTerm } })
+    );
   }
 
   setLiveRegionResults() {
@@ -239,8 +251,12 @@ class PredictiveSearch extends SearchForm {
   }
 
   getResultsMaxHeight() {
-    this.resultsMaxHeight =
-      window.innerHeight - document.querySelector('.section-header')?.getBoundingClientRect().bottom;
+    let maxHeight = window.innerHeight - document.querySelector('.section-header')?.getBoundingClientRect().bottom;
+    // The tab bar renders inside the popup but outside the clamped results
+    // wrapper — subtract it so the popup's bottom stays inside the viewport.
+    const tabs = this.querySelector('search-tabs');
+    if (tabs) maxHeight -= tabs.getBoundingClientRect().height;
+    this.resultsMaxHeight = maxHeight;
     return this.resultsMaxHeight;
   }
 

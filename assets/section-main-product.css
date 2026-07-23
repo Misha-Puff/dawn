@@ -23,7 +23,10 @@ product-info {
   .product__column-sticky {
     display: block;
     position: sticky;
-    top: 117px;
+    /* Match the actual header height so the sticky column tucks under the header
+       on scroll AND, because the grid rests below the header, sits flush with the
+       first image's top at rest (a larger fixed value overshoots downward). */
+    top: var(--header-height, 55px);
     z-index: 2;
   }
 
@@ -258,6 +261,36 @@ a.product__text {
   display: none;
 }
 
+/* space-between pins the price right while it shares the title's line; when a
+   long title forces a wrap, the price's single-item flex line starts at
+   flex-start, so it lands left-aligned under the title. No margin-auto /
+   right-align pin on the price — that kept the wrapped line right-aligned. */
+.product__title--with-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+}
+
+.product__title--with-price .product__title-price .price__container {
+  margin-bottom: 0;
+}
+
+/* Align title/price row and description to the 44rem cap shared by
+   .product-form__input, .product-form__buttons, and .mending-options;
+   the price is pinned right via space-between, so capping the row
+   pulls it in to the same edge. */
+.product__title,
+.product__description {
+  max-width: 44rem;
+}
+
+.product--no-media .product__title,
+.product--no-media .product__description {
+  max-width: 100%;
+}
+
 .product__title + .product__text.caption-with-letter-spacing {
   margin-top: -1.5rem;
 }
@@ -272,6 +305,27 @@ a.product__text {
 
 .product .price .badge {
   margin-bottom: 0.5rem;
+}
+
+.product__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.2rem;
+}
+
+/* Underline-only badges in the standalone PDP badges block — same treatment as .badge--card
+   on product cards (badges are always mono + underlined, top of PDP included). Font/size/case
+   come from the block's tg_ typography controls. `inherit` (not the foreground var) because the
+   badge spans carry color-scheme classes whose foreground could vanish once the background goes. */
+.product__badges .badge {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  color: inherit;
+  letter-spacing: 0.07rem;
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
 }
 
 .product .price__container {
@@ -299,6 +353,29 @@ a.product__text {
   .product__info-container > *:first-child {
     margin-top: 0;
   }
+}
+
+/* M&P: let the product-info content fill its column at every width, inset only
+   by the wrapper/page padding. On desktop the inter-column gap is the
+   .product__info-wrapper left padding — the product grid uses gap: 0, so that
+   padding is the ONLY inset. Below 750px the single-column layout was still
+   pinched by the 44rem element caps (352px at this store's 8px rem), which left
+   dead space at 500–749px viewports, so the un-cap is no longer @media-scoped.
+   Non-no-media scope keeps the gift-card centered layout's own widths. The
+   .product-prefixed selectors clear both the caps in this file and the inline
+   {% style %} caps in main-product.liquid (.mending-options / .divider-wrapper)
+   via specificity. */
+.product:not(.product--no-media) .product__info-container,
+.product:not(.product--no-media) .product__title,
+.product:not(.product--no-media) .product__description,
+.product:not(.product--no-media) .product-form__input,
+.product:not(.product--no-media) .product-form__buttons,
+.product:not(.product--no-media) .product__accordion,
+.product:not(.product--no-media) .product__pickup-availabilities,
+.product:not(.product--no-media) .iia-container,
+.product:not(.product--no-media) .mending-options,
+.product:not(.product--no-media) .divider-wrapper {
+  max-width: none;
 }
 
 .product__description-title {
@@ -367,6 +444,21 @@ a.product__text {
   max-width: 44rem;
 }
 
+/* Bottom-area elements capped to the 44rem purchase-block width so dividers,
+   accordions and app widgets share the pickers/ATC left edge (M&P design). */
+.product__accordion {
+  max-width: 44rem;
+}
+
+.product__pickup-availabilities {
+  max-width: 44rem;
+}
+
+/* FIND IN BROOKLYN — Inventory Information app fills .iia-container in the info column */
+.product__info-container .iia-container {
+  max-width: 44rem;
+}
+
 .product--no-media .product__info-container > modal-opener {
   display: block;
   text-align: center;
@@ -393,8 +485,8 @@ a.product__text {
   }
 
   .product__media-wrapper slider-component:not(.thumbnail-slider--no-slide) {
-    margin-left: calc(var(--page-width-padding) * -1);
-    margin-right: calc(var(--page-width-padding) * -1);
+    margin-left: calc(var(--mobile-page-width-padding) * -1);
+    margin-right: calc(var(--mobile-page-width-padding) * -1);
   }
 
   .slider.product__media-list::-webkit-scrollbar {
@@ -550,7 +642,7 @@ a.product__text {
   .product__column-sticky {
     display: block;
     position: sticky;
-    top: 137px;
+    top: var(--header-height, 55px);
     z-index: 2;
   }
 }
@@ -867,6 +959,23 @@ a.product__text {
   text-decoration-thickness: 0.2rem;
 }
 
+/* Inline Size Guide trigger on the variant picker's Size row */
+.product-form__input--size-guide {
+  position: relative;
+}
+
+.size-guide-inline {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.size-guide-inline .product-popup-modal__button {
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+}
+
 /* .product-popup-modal__content-info {
   padding-right: 4.4rem;
 } */
@@ -1057,6 +1166,13 @@ a.product__text {
 .product__modal-opener--image .product__media-zoom-none,
 .product__media-icon--none {
   display: none;
+}
+
+/* Hide the tap-to-zoom hint icon on mobile only — it overlaps the image's rounded corner and reads as a stray white blob. Tap-to-zoom still works via the full-area .product__media-toggle button. Video/model play icons (no --image modifier) are unaffected. */
+@media screen and (max-width: 749px) {
+  .product__media-icon--lightbox {
+    display: none;
+  }
 }
 
 .product__modal-opener > .loading__spinner {
@@ -1501,30 +1617,6 @@ a.product__text {
   }
 }
 
-.model-note {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 2px;
-  margin: 0;
-  opacity: 0;
-  background-color: #fff;
-  font-size: 1rem;
-}
-
-.product-media-container:hover .model-note {
-  opacity: 1;
-}
-
-@media screen and (max-width: 749px) {
-  .model-note {
-    position: initial;
-    opacity: 1;
-    padding: 0 var(--page-width-padding);
-    padding-top: 5px;
-  }
-}
-
 .product__title h1 {
   font-size: 14px;
 }
@@ -1537,11 +1629,9 @@ a.product__text {
   font-size: 12px;
 }
 
+/* Lives inside the BIS popup (klaviyo-bis-form.liquid modal-dialog); the modal sheet supplies box + padding. */
 #bis-form-wrapper {
   max-width: 44rem;
-  padding: 35px;
-  border: 0.1rem solid rgba(var(--color-foreground), 0.2);
-  margin: 4rem 0;
 }
 
 #bis-form-wrapper .title {
@@ -1550,19 +1640,38 @@ a.product__text {
 
 #bis-form .form__fields {
   display: flex;
+  align-items: flex-end;
+  gap: 1rem;
 }
 
 #bis-form .field {
   margin: 0;
 }
 
+/* Match the input's inline 40px height (klaviyo-bis-form.liquid) instead of stretching
+   to the full field height (label row included); min-height beats base.css .button 4.5rem,
+   and the bottom margin mirrors the input's border-ring margin so the bottoms align. */
 #bis-form .button {
   min-width: fit-content;
+  height: 40px;
+  min-height: 40px;
+  margin-bottom: var(--inputs-border-width);
+  flex-shrink: 0;
 }
 
 #bis-form .form-status.success,
 #bis-form .form-status.error {
   display: none;
+}
+
+/* Float the close X in the sheet's top-right corner (Klaviyo-style). The stock
+   toggle is an in-flow sticky row, so it sat inset by the popup padding and
+   pushed the title down; the sheet is position: absolute, so this anchors to it. */
+.bis-modal .product-popup-modal__toggle {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  margin: 0;
 }
 
 .product__text.inline-richtext {
@@ -1575,4 +1684,125 @@ a.product__text {
 
 .size-chart table tr th {
   font-weight: normal;
+}
+
+/* --- Stacked-scroll gallery layout (Rachel Comey-style), M&P custom --- */
+@media screen and (min-width: 750px) and (max-width: 1099px) {
+  /* stack is natively single-column here */
+  .thumbnail-slider--rail {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .product--stacked_scroll media-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    column-gap: var(--mp-thumb-gap, 1.6rem);
+  }
+
+  /* gallery must scroll normally so the rail can stick; info column stickiness untouched */
+  .product--stacked_scroll media-gallery.product__column-sticky {
+    position: static;
+  }
+
+  .product--stacked_scroll media-gallery > slider-component:not(.thumbnail-slider) {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .product--stacked_scroll media-gallery > .product__xr-button {
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .product--stacked_scroll .thumbnail-slider--rail {
+    order: -1;
+    flex: 0 0 auto;
+    width: var(--mp-thumb-size, 6.4rem);
+    position: sticky;
+    top: var(--header-height, 55px); /* mirrors .product__column-sticky offset; media-gallery.js reads --header-height */
+  }
+
+  .product--stacked_scroll .thumbnail-slider--rail .slider-button {
+    display: none;
+  }
+
+  .product--stacked_scroll .thumbnail-slider--rail .thumbnail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: calc(100vh - 153px);
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+
+  .product--stacked_scroll .thumbnail-slider--rail .thumbnail-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .product--stacked_scroll .thumbnail-slider--rail .thumbnail-list__item {
+    width: 100%;
+  }
+
+  /* 2:3 portrait thumbs in the rail (shared .thumbnail-list__item::before stays square) */
+  .product--stacked_scroll .thumbnail-slider--rail .thumbnail-list__item::before {
+    padding-bottom: 150%;
+  }
+
+  /* Selected rail thumb: single 1px border only. The stock aria-current box-shadow ring
+     (0.1rem = 0.8px at this store's 8px rem) lands on different pixels than the 1px border
+     at fractional widths and reads as a doubled outline. */
+  .product--stacked_scroll .thumbnail-slider--rail .thumbnail[aria-current] {
+    box-shadow: none;
+  }
+
+  .product--stacked_scroll .product__media-item {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .product--stacked_scroll .product__media-list {
+    row-gap: 2.4rem;
+  }
+}
+
+/* --- Bidirectional tall-info sticky (M&P custom) ---
+   product-info.js publishes --info-column-height inline on the info column,
+   maintains a flow spacer before it, and toggles .info-anchor-top on scroll
+   direction changes. Var unset (no JS, quick-add clones) => min() collapses
+   to the stock header-height offset. 24px = bottom breathing room, mirrored
+   in product-info.js. Scoped to .product__info-container so
+   media-gallery.product__column-sticky (all layouts) is untouched; (0,2,0)
+   beats both earlier .product__column-sticky blocks (~:23 and ~:642). */
+@media screen and (min-width: 750px) {
+  .product__info-container.product__column-sticky {
+    top: min(var(--header-height, 55px), calc(100vh - var(--info-column-height, 0px) - 24px));
+  }
+
+  /* Scroll-up mode: rendered top = min(flow top, header line). The JS spacer
+     (real sibling, not margin — margins contract the sticky constraint rect
+     and block the catch) provides upward displacement room. */
+  .product__info-container.product__column-sticky.info-anchor-top {
+    top: auto;
+    bottom: calc(100vh - var(--header-height, 55px) - var(--info-column-height, 0px));
+  }
+}
+
+/* base.css div:empty (0,1,1) would hide the empty spacer — armor at (0,2,0) */
+.product__info-spacer:empty {
+  display: block;
+}
+
+/* Quick-add clones: quick-add.css downgrades the info column to
+   position:relative top:0, but the tall-info sticky top above ties it on
+   specificity (0,2,0) and this file loads later when the modal injects the
+   fetched product page — so the clone shifted down by the header height and
+   grew a second scrollbar inside the modal. Re-assert at (0,3,0). */
+@media screen and (min-width: 750px) {
+  .quick-add-modal__content-info .product__info-container.product__column-sticky {
+    top: 0;
+    bottom: auto;
+  }
 }

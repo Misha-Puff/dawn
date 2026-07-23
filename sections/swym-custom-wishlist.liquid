@@ -131,6 +131,7 @@
       </div>
     </div>
   </div>
+  <p id="swymcs-atc-live-region" class="visually-hidden" aria-live="polite"></p>
 </swymcs-custom-wishlist>
 
 <script>
@@ -269,28 +270,52 @@
           : settings.swym_wishlist_item_cta_addtocart
         : settings.swym_wishlist_item_cta_soldout;
 
-    const compareAtPrice = item.productData.compare_at_price / 100;
+    // Card parity: the tile shows only the colorway (option1) — "Persimmon / 2y" → "Persimmon".
+    const variantColor = (selectedVariant.title || '').split(' / ')[0];
+    const itemTitle = variantColor && variantColor !== 'Default Title' ? `${item.dt} - ${variantColor}` : item.dt;
+
+    // The product .js payload is already in the buyer's selected (Markets)
+    // currency — format with Intl so symbol + decimals follow that currency
+    // (XAF has none), matching the collection card's money_with_currency
+    // treatment. Sale detection compares within the same payload: item.pr is
+    // Swym's add-time price in whatever currency was active then, so
+    // comparing against it fabricates sales after a currency switch.
+    const price = item.productData.price / 100;
+    const compareAtPrice = (item.productData.compare_at_price || 0) / 100;
+    const currency = window.Shopify?.currency?.active || 'USD';
+    let moneyFormatter;
+    try {
+      moneyFormatter = new Intl.NumberFormat(document.documentElement.lang || 'en', {
+        style: 'currency',
+        currency,
+        currencyDisplay: 'narrowSymbol',
+      });
+    } catch (e) {
+      moneyFormatter = new Intl.NumberFormat(document.documentElement.lang || 'en', {
+        style: 'currency',
+        currency,
+      });
+    }
+    const formatMoney = (amount) => `${moneyFormatter.format(amount)} ${currency}`;
 
     const priceContent =
-      compareAtPrice && compareAtPrice > item.pr
-        ? `<div class="swymcs-product-price"><span class="swymcs-product-price-compare">${
-            _swat.currency
-          }${compareAtPrice.toFixed(2)}</span><span class="swymcs-product-price-final">${_swat.currency}${(
-            item.productData.price / 100
-          ).toFixed(2)}</span></div>`
-        : `<div class="swymcs-product-price"><span class="swymcs-product-price-final">${_swat.currency}${(
-            item.productData.price / 100
-          ).toFixed(2)}</span></div>`;
+      compareAtPrice > price
+        ? `<div class="swymcs-product-price"><span class="swymcs-product-price-compare">${formatMoney(
+            compareAtPrice
+          )}</span><span class="swymcs-product-price-final">${formatMoney(price)}</span></div>`
+        : `<div class="swymcs-product-price"><span class="swymcs-product-price-final">${formatMoney(price)}</span></div>`;
 
     wishlistItem.innerHTML = `
       <a href="${item.du}" class="swymcs-wishlist-image-container">
         <img src="${productImage}" class="swymcs-wishlistplus-item-image" />
       </a>
       <div class="swymcs-wishlistplus-item-content">
-        <a href="${item.du}" class="swymcs-wishlistplus-item-title">
-          <div class="swymcs-wishlistplus-item-title-content">${item.dt} - ${selectedVariant.title}</div>
-        </a>
-        ${settings.swym_wishlist_show_price ? priceContent : ''}
+        <div class="swymcs-item-heading-row">
+          <a href="${item.du}" class="swymcs-wishlistplus-item-title">
+            <div class="swymcs-wishlistplus-item-title-content">${itemTitle}</div>
+          </a>
+          ${settings.swym_wishlist_show_price ? priceContent : ''}
+        </div>
         <div class="swymcs-wishlist-action-container">
           ${
             settings.swym_wishlist_show_addtocart
@@ -320,16 +345,21 @@
       swat.replayAddToCart(
         { empi: empi, du: du, qty: qty },
         epi,
-        (success) => {
+        () => {
           button.innerHTML = settings.swym_wishlist_item_cta_addedtocart;
-          const variant = JSON.parse(success).items[0];
-          const productTitle = variant.title;
-          let successMessage = `<strong>${productTitle}</strong> has been added to cart!`;
-          swat.ui.showSuccessNotification({ message: successMessage });
+          // Build the message from the wishlist item itself — the replay success
+          // payload doesn't carry the /cart/add.js {items:[...]} shape this used
+          // to parse (it announced "undefined"). Swym's toast never mounts on
+          // this page, so the visible feedback is the button + Rebuy flyout;
+          // the live region covers screen readers.
+          swat.ui.showSuccessNotification({ message: `<strong>${item.dt}</strong> has been added to cart!` });
+          announceCartUpdate(`${item.dt} has been added to your cart.`);
+          refreshCartIconBubble();
         },
         (error) => {
           button.innerHTML = originalButtonState;
           swat.ui.showErrorNotification({ message: error.description });
+          announceCartUpdate(error.description || 'Could not add to cart.');
         }
       );
     });
@@ -351,6 +381,30 @@
     });
 
     elements.itemsContainer.appendChild(wishlistItem);
+  }
+
+  // Clear-then-set so repeating the same message re-announces.
+  function announceCartUpdate(message) {
+    const liveRegion = document.getElementById('swymcs-atc-live-region');
+    if (!liveRegion) return;
+    liveRegion.textContent = '';
+    requestAnimationFrame(() => (liveRegion.textContent = message));
+  }
+
+  // Swym's replayAddToCart bypasses Dawn's add-to-cart flow, so nothing
+  // re-renders the header count. Re-render it through the Section Rendering
+  // API the same way cart-notification.js does.
+  function refreshCartIconBubble() {
+    fetch(`${window.Shopify.routes.root}?sections=cart-icon-bubble`)
+      .then((response) => response.json())
+      .then((sections) => {
+        const bubble = document.getElementById('cart-icon-bubble');
+        const sectionHTML = new DOMParser()
+          .parseFromString(sections['cart-icon-bubble'], 'text/html')
+          .querySelector('.shopify-section');
+        if (bubble && sectionHTML) bubble.innerHTML = sectionHTML.innerHTML;
+      })
+      .catch(() => {});
   }
 
   function updateUIState(wishlist) {

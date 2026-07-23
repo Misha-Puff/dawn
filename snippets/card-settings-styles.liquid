@@ -1,0 +1,189 @@
+{%- comment -%}
+  Card-product settings CSS emission, shared by every section that renders card-product.
+
+  Zero-parameter and section-ambient: reads section.settings.* by the collection grid's
+  setting ids and scopes all output to #shopify-section-{{ section.id }}. Every block is
+  nil-tolerant (default-assigned or checkbox-gated), so a host that carries only a subset
+  of the settings emits only what it has, and a host with none emits nothing.
+
+  Render from inside the host's style block. Never convert to the stylesheet tag
+  (it aggregates theme-wide regardless of render).
+
+  Blocks: A swatch sizing · B/C card spacing desktop/mobile · D card typography ·
+  E size-overlay styling · F Swym wishlist heart.
+{%- endcomment -%}
+
+{%- liquid
+  assign sw_card_w = section.settings.swatch_card_width | default: 0
+  assign sw_card_h = section.settings.swatch_card_height | default: 0
+  assign sw_card_r = section.settings.swatch_card_radius | default: 0
+-%}
+{%- if sw_card_w > 0 or sw_card_h > 0 or sw_card_r > 0 -%}
+  {%- comment -%} Card swatch size vars, scoped to this section; component-card.css consumes them through var() chains whose fallbacks equal the stock values (20px square, 2px radius). {%- endcomment -%}
+  #shopify-section-{{ section.id }} {
+    {%- if sw_card_w > 0 %} --swatch-card-width: {{ sw_card_w }}px;{% endif -%}
+    {%- if sw_card_h > 0 %} --swatch-card-height: {{ sw_card_h }}px;{% endif -%}
+    {%- if sw_card_r > 0 %} --swatch-card-radius: {{ sw_card_r }}px;{% endif -%}
+  }
+{%- endif -%}
+
+{%- if section.settings.card_spacing_enable -%}
+  {%- comment -%} Card spacing vars; component-card.css consumes them via var() fallbacks equal to stock. Enable-gated so an explicit 0 is honest (no 0-sentinel here). {%- endcomment -%}
+  #shopify-section-{{ section.id }} {
+    --card-info-padding-top: {{ section.settings.card_info_padding_top | default: 0 }}px;
+    --card-title-price-gap: {{ section.settings.card_title_price_gap | default: 0 }}px;
+    --card-color-space-top: {{ section.settings.card_color_space_top | default: 0 }}px;
+    --card-color-space-bottom: {{ section.settings.card_color_space_bottom | default: 0 }}px;
+    --card-swatch-space: {{ section.settings.card_swatch_space | default: 0 }}px;
+    --card-swatch-gap: {{ section.settings.card_swatch_gap | default: 0 }}px;
+    --card-badge-space: {{ section.settings.card_badge_space | default: 0 }}px;
+    --card-badge-gap: {{ section.settings.card_badge_gap | default: 0 }}px;
+  }
+{%- endif -%}
+
+{%- if section.settings.card_spacing_enable_mobile -%}
+  {%- comment -%} Mobile card spacing vars; same specificity as the desktop block above, later in source + media query, so they win under 750px. Independent of the desktop gate: when off, mobile inherits desktop values (or stock). {%- endcomment -%}
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} {
+      --card-info-padding-top: {{ section.settings.card_info_padding_top_mobile | default: 0 }}px;
+      --card-title-price-gap: {{ section.settings.card_title_price_gap_mobile | default: 0 }}px;
+      --card-color-space-top: {{ section.settings.card_color_space_top_mobile | default: 0 }}px;
+      --card-color-space-bottom: {{ section.settings.card_color_space_bottom_mobile | default: 0 }}px;
+      --card-swatch-space: {{ section.settings.card_swatch_space_mobile | default: 0 }}px;
+      --card-swatch-gap: {{ section.settings.card_swatch_gap_mobile | default: 0 }}px;
+      --card-badge-space: {{ section.settings.card_badge_space_mobile | default: 0 }}px;
+      --card-badge-gap: {{ section.settings.card_badge_gap_mobile | default: 0 }}px;
+    }
+  }
+{%- endif -%}
+
+{%- liquid
+  assign ct_size = section.settings.card_title_size | default: 0
+  assign cc_size = section.settings.card_color_size | default: 0
+  assign cc_case = section.settings.card_color_case | default: 'default'
+  assign cp_size = section.settings.card_price_size | default: 0
+  assign cb_size = section.settings.card_badge_size | default: 0
+  assign ca_size = section.settings.card_availability_size | default: 0
+  assign ct_w = section.settings.card_title_weight | default: 'default'
+  assign cp_w = section.settings.card_price_weight | default: 'default'
+  assign cb_w = section.settings.card_badge_weight | default: 'default'
+  assign ca_w = section.settings.card_availability_weight | default: 'default'
+  assign ct_case = section.settings.card_title_case | default: 'default'
+  assign ct_ls = section.settings.card_title_letter_spacing | default: 0
+  assign cp_ls = section.settings.card_price_letter_spacing | default: 0
+  assign cb_ls = section.settings.card_badge_letter_spacing | default: 0
+  assign cp_col = section.settings.card_price_color
+  assign cp_gap = section.settings.card_sale_price_gap | default: 0
+-%}
+{%- if ct_size > 0 or cc_size > 0 or cp_size > 0 or cb_size > 0 or ca_size > 0 or cp_gap > 0 -%}
+  {%- comment -%} Card typography size vars; component-card.css consumes them via var() fallbacks equal to stock. {%- endcomment -%}
+  #shopify-section-{{ section.id }} {
+    {%- if ct_size > 0 %} --card-title-size: {{ ct_size }}px;{% endif -%}
+    {%- if cc_size > 0 %} --card-color-size: {{ cc_size }}px;{% endif -%}
+    {%- if cp_size > 0 %} --card-price-size: {{ cp_size }}px;{% endif -%}
+    {%- if cb_size > 0 %} --card-badge-size: {{ cb_size }}px;{% endif -%}
+    {%- if ca_size > 0 %} --card-availability-size: {{ ca_size }}px;{% endif -%}
+    {%- if cp_gap > 0 %} --card-sale-price-gap: {{ cp_gap }}px;{% endif -%}
+  }
+{%- endif -%}
+{%- comment -%} Weights emitted directly (tg_ precedent): ID scope beats base.css heading/badge rules; zero CSS at defaults. {%- endcomment -%}
+{%- if ct_w != 'default' -%}
+  #shopify-section-{{ section.id }} .card__heading { font-weight: {{ ct_w }}; }
+{%- endif -%}
+{%- if cp_w != 'default' -%}
+  #shopify-section-{{ section.id }} .card__heading-row > .price { font-weight: {{ cp_w }}; }
+{%- endif -%}
+{%- if cb_w != 'default' or cb_ls > 0 -%}
+  #shopify-section-{{ section.id }} .badge--card {
+    {%- if cb_w != 'default' %} font-weight: {{ cb_w }};{% endif -%}
+    {%- if cb_ls > 0 %} letter-spacing: {{ cb_ls }}px;{% endif -%}
+  }
+{%- endif -%}
+{%- if ca_w != 'default' -%}
+  #shopify-section-{{ section.id }} .variant-availability span,
+  #shopify-section-{{ section.id }} .card__swatch-more { font-weight: {{ ca_w }}; }
+{%- endif -%}
+{%- if ct_case != 'default' or ct_ls > 0 -%}
+  #shopify-section-{{ section.id }} .card__heading {
+    {%- if ct_case != 'default' %} text-transform: {{ ct_case }};{% endif -%}
+    {%- if ct_ls > 0 %} letter-spacing: {{ ct_ls }}px;{% endif -%}
+  }
+{%- endif -%}
+{%- if cc_case != 'default' -%}
+  #shopify-section-{{ section.id }} .card__color-line { text-transform: {{ cc_case }}; }
+{%- endif -%}
+{%- if cp_ls > 0 or cp_col != blank -%}
+  #shopify-section-{{ section.id }} .card__heading-row > .price {
+    {%- if cp_ls > 0 %} letter-spacing: {{ cp_ls }}px;{% endif -%}
+    {%- if cp_col != blank %} color: {{ cp_col }};{% endif -%}
+  }
+{%- endif -%}
+
+{%- liquid
+  assign so_bg = section.settings.size_overlay_bg_color
+  assign so_op = section.settings.size_overlay_opacity | default: 60
+  assign so_pos = section.settings.size_overlay_position | default: 'bottom'
+  assign so_pt = section.settings.size_overlay_padding_top | default: 8
+  assign so_pb = section.settings.size_overlay_padding_bottom | default: 16
+-%}
+{%- if section.settings.show_size_overlay -%}
+  {%- comment -%} Size-overlay styling emitted directly (weight precedent): ID scope beats component-card.css; zero CSS at defaults. Stock: bottom-anchored, translateY(100%) off-canvas, rgba(bg, 0.6), padding 1rem 1rem 2rem. {%- endcomment -%}
+  {%- if so_bg != blank or so_op != 60 -%}
+    #shopify-section-{{ section.id }} .popup-overlay.background {
+      {%- if so_bg != blank -%}
+        background-color: rgba({{ so_bg.red }}, {{ so_bg.green }}, {{ so_bg.blue }}, {{ so_op | divided_by: 100.0 }});
+      {%- else -%}
+        background-color: rgba(var(--color-background), {{ so_op | divided_by: 100.0 }});
+      {%- endif -%}
+    }
+  {%- endif -%}
+  {%- if so_pos != 'bottom' or so_pt != 8 or so_pb != 16 -%}
+    #shopify-section-{{ section.id }} .popup-overlay {
+      {%- if so_pt != 8 %} padding-top: {{ so_pt }}px;{% endif -%}
+      {%- if so_pb != 16 %} padding-bottom: {{ so_pb }}px;{% endif -%}
+      {%- if so_pos == 'top' %} bottom: auto; top: 0; transform: translateY(-100%);{% endif -%}
+      {%- if so_pos == 'center' %} bottom: auto; top: 50%; transform: translateY(-50%); opacity: 0; pointer-events: none; transition: opacity var(--duration-default);{% endif -%}
+    }
+    {%- comment -%} This ID-scoped base rule (1,1,0) outranks the stock hover reveal .card-wrapper:hover .popup-overlay (0,3,0), so the hover state must be re-emitted ID-scoped. For center, transform is deliberately NOT re-emitted: the base rule beating stock hover's translateY(0) is what holds the overlay at -50% on hover. {%- endcomment -%}
+    {%- if so_pos == 'top' -%}
+      @media only screen and (min-width: 1100px) {
+        #shopify-section-{{ section.id }} .card-wrapper:hover .popup-overlay { transform: translateY(0); }
+      }
+    {%- elsif so_pos == 'center' -%}
+      @media only screen and (min-width: 1100px) {
+        #shopify-section-{{ section.id }} .card-wrapper:hover .popup-overlay { opacity: 1; }
+      }
+    {%- endif -%}
+  {%- endif -%}
+{%- endif -%}
+
+{%- comment -%}
+  Wishlist heart (Swym app-injected). The app pins the heart with an inline
+  transform computed in JS and !important box-size rules from its Button
+  size setting, so every override here needs !important + the ID scope.
+  Size flows to the visible icon via the img { width/height: 100% } wiring
+  in swym-popup.css. Zero CSS when the checkbox is off (app stays in charge).
+{%- endcomment -%}
+{%- if section.settings.heart_custom -%}
+  #shopify-section-{{ section.id }} .swym-wishlist-collections-v2-container {
+    top: {{ section.settings.heart_top }}px !important;
+    right: {{ section.settings.heart_right }}px !important;
+    left: auto !important;
+    bottom: auto !important;
+    width: auto !important;
+    height: auto !important;
+    /* The app's whitespace text nodes + 24px line-height create a phantom
+       line box that shoves the inline-block button ~16px down, and its 10px
+       container padding offsets the icon from the declared position. */
+    font-size: 0 !important;
+    line-height: 0 !important;
+    padding: 0 !important;
+  }
+
+  #shopify-section-{{ section.id }} .swym-wishlist-collections-v2 {
+    transform: none !important;
+    width: {{ section.settings.heart_size }}px !important;
+    min-width: {{ section.settings.heart_size }}px !important;
+    height: {{ section.settings.heart_size }}px !important;
+  }
+{%- endif -%}

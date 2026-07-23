@@ -91,7 +91,6 @@ predictive-search[loading] .predictive-search {
 }
 
 .predictive-search__heading {
-  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
   margin: 0 2rem;
   padding: 1.5rem 0 0.75rem;
   color: rgba(var(--color-foreground), 0.7);
@@ -171,6 +170,9 @@ predictive-search[loading] .predictive-search__results-groups-wrapper ~ .predict
 
 .predictive-search__item-heading {
   margin: 0;
+  /* Product names opt out of the global .h4/.h5 mono-uppercase heading overrides (theme.liquid). */
+  font-family: var(--font-heading-family);
+  text-transform: none;
 }
 
 .predictive-search__item-query-result *:not(mark) {

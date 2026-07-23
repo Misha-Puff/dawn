@@ -1,0 +1,122 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "hero": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/mp-people-hero.jpg",
+        "mobile_image": "shopify://shop_images/mp-people-hero.jpg",
+        "image_height": "adapt",
+        "show_text_box": false,
+        "image_overlay_opacity": 0,
+        "stack_images_on_mobile": true
+      }
+    },
+    "info": {
+      "type": "store-info",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "PEOPLE",
+            "heading_tag": "h1",
+            "heading_size": "h2"
+          }
+        },
+        "designed_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "DESIGNED BY ARTISTS, MADE BY ARTISANS",
+            "heading_tag": "h2",
+            "heading_size": "h2"
+          }
+        },
+        "designed_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Misha &amp; Puff is designed in New England and handcrafted by a network of highly talented and skilled knitters and artisans around the world. Our shared love of craft and the integrity of our materials are the threads that connect us globally. Together with our partners, we’ve found a way to scale handcrafted knits responsibly and respectfully, honoring the values and vision of our company.</p>"
+          }
+        },
+        "knitting_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "KNITTING PARTNERS",
+            "heading_tag": "h2",
+            "heading_size": "h2"
+          }
+        },
+        "knitting_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our incredible knitting partners are essential to our daily operations. Our knitting partners work closely with knitting leaders to manage groups of knitters, forming what’s called “knitting cooperatives.” These cooperatives provide reliable jobs and steady income for marginalized populations throughout Lima, Arequipa, and beyond. The knitters set their own payment terms and work schedules, balancing their work with other responsibilities like childcare. This flexibility allows many to work from home or in collaborative spaces, ensuring a steady income and work-life balance.</p><p>When we come up with a new design at Misha &amp; Puff, the knitting leader and their knitters will produce a sample and quote a price. The entire knitting process involves collaboration and feedback from the knitters and knitting leaders, helping us create better products.</p><p>Our knitting cooperatives employ a combination of hand-knitting, manual knitting machines, and industrial knitting machines, making Peruvian knitting unique. This blend of techniques, along with reliable pay and flexible work conditions, has allowed the number of cooperatives that we work with to grow since our founding. We aim to provide year-round work by having more frequent collections with staggered deliveries.</p>"
+          }
+        },
+        "yarn_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "YARN PARTNERS",
+            "heading_tag": "h2",
+            "heading_size": "h2"
+          }
+        },
+        "yarn_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our amazing Peruvian textile partners have over 80 years of experience working with natural fibers like Merino wool. Every kilo of our hand-dyed Superwash Merino wool yarn will be a little different because each kilo is dyed by a different person with their hands, turning and manipulating while adding their essence into each thread. Read more about our fibers and dyes <a href=\"/pages/materials\">here</a>.</p>"
+          }
+        },
+        "other_heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "OTHER PARTNERS",
+            "heading_tag": "h2",
+            "heading_size": "h2"
+          }
+        },
+        "other_text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>As of 2023, we also work with artisan partners in India and Japan.</p><p>Our partners in India provide organic fabrics, and we work with a handful of small vendors on skilled techniques, like Indian hand block prints and embroidery. Our partners in Japan create the highest quality Japanese denim, blending traditional craftsmanship with modern techniques.</p><p><a href=\"/pages/materials\">Read next</a> &gt; <a href=\"/pages/materials\">Materials</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "designed_heading",
+        "designed_text",
+        "knitting_heading",
+        "knitting_text",
+        "yarn_heading",
+        "yarn_text",
+        "other_heading",
+        "other_text"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "content_max_width": 720,
+        "color_scheme": "",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": ["main", "hero", "info"]
+}

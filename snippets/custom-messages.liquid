@@ -1,0 +1,134 @@
+{% comment %}
+  Renders the consolidated PDP "Custom Messages" block (main-product `custom_messages`).
+
+  Replaces the five legacy custom_liquid message blocks (D&T Info, Custom Message Metafield,
+  Free Adult Returns, Exclusive, Final Sale). Message conditions are built-in; copy and
+  per-message colors come from block settings. Shared typography/padding mirrors the
+  custom_liquid block's model (see sections/main-product.liquid `custom_liquid` case).
+
+  Accepts:
+  - block: {Object} the custom_messages block
+  - product: {Object} product object
+
+  Usage:
+  {% render 'custom-messages', block: block, product: product %}
+{% endcomment %}
+{%- comment -%}
+  Editor visibility: in the theme editor (request.design_mode) every ENABLED message renders
+  regardless of its storefront context gate, prefixed by an amber gate note (clones the
+  section-tag-gate banner style) stating the gate in plain words, so all copy stays findable
+  and editable. Each message's markup is captured once and the storefront branch outputs the
+  same capture under the original gate, so storefront rendering is byte-identical.
+{%- endcomment -%}
+{%- capture cm_gate_note_style -%}padding: 8px 12px; margin: 0 0 8px; background: #fff8e1; border: 1px dashed #b28704; color: #6b5104; font-size: 12px; font-family: 'Courier New', monospace; letter-spacing: 0.05em; text-align: left;{%- endcapture -%}
+{%- capture cm_messages -%}
+  {%- comment -%}
+    One flat message for every non-US buyer (Nathan's 2026-07-13 ruling). The hk market's
+    per-country copy (templates/product.context.hk.json on MAIN) is deliberately NOT ported.
+  {%- endcomment -%}
+  {%- if block.settings.show_dt and block.settings.dt_text != blank -%}
+    {%- capture cm_msg -%}
+      <p class="custom-message"{% if block.settings.dt_color != blank %} style="color: {{ block.settings.dt_color }};"{% endif %}>{{ block.settings.dt_text | escape }}</p>
+    {%- endcapture -%}
+    {%- if request.design_mode -%}
+      <div class="cm-gate-note" style="{{ cm_gate_note_style }}">Storefront gate: buyer country is not US (hidden for US buyers)</div>{{ cm_msg }}
+    {%- else -%}
+      {%- unless localization.country.iso_code == 'US' -%}{{ cm_msg }}{%- endunless -%}
+    {%- endif -%}
+  {%- endif -%}
+  {%- if block.settings.show_metafield -%}
+    {%- if request.design_mode -%}
+      <div class="cm-gate-note" style="{{ cm_gate_note_style }}">Storefront gate: product metafield product_page.custom_message has a value{% if product.metafields.product_page.custom_message == blank %} — empty on this product, so nothing shows{% endif %}</div>
+    {%- endif -%}
+    {%- if product.metafields.product_page.custom_message != blank -%}
+      <p class="custom-message"{% if block.settings.metafield_color != blank %} style="color: {{ block.settings.metafield_color }};"{% endif %}>{{ product.metafields.product_page.custom_message }}</p>
+    {%- endif -%}
+  {%- endif -%}
+  {%- if block.settings.show_adult_returns and block.settings.adult_returns_text != blank -%}
+    {%- capture cm_msg -%}
+      <p class="custom-message"{% if block.settings.adult_returns_color != blank %} style="color: {{ block.settings.adult_returns_color }};"{% endif %}>{{ block.settings.adult_returns_text | escape }}</p>
+    {%- endcapture -%}
+    {%- if request.design_mode -%}
+      <div class="cm-gate-note" style="{{ cm_gate_note_style }}">Storefront gate: product tagged Adult and not tagged no-returns</div>{{ cm_msg }}
+    {%- else -%}
+      {%- unless product.tags contains 'no-returns' -%}
+        {%- if product.tags contains 'Adult' -%}{{ cm_msg }}{%- endif -%}
+      {%- endunless -%}
+    {%- endif -%}
+  {%- endif -%}
+  {%- if block.settings.show_exclusive -%}
+    {%- if request.design_mode -%}
+      {%- if block.settings.exclusive_collab_text != blank -%}
+        <div class="cm-gate-note" style="{{ cm_gate_note_style }}">Storefront gate: product tagged Badge-Exclusive Collab</div>
+        <p class="custom-message"{% if block.settings.exclusive_color != blank %} style="color: {{ block.settings.exclusive_color }};"{% endif %}>{{ block.settings.exclusive_collab_text | escape }}</p>
+      {%- endif -%}
+      {%- if block.settings.exclusive_text != blank -%}
+        <div class="cm-gate-note" style="{{ cm_gate_note_style }}">Storefront gate: product tagged Badge-Exclusive (the Collab tag and its message take precedence)</div>
+        <p class="custom-message"{% if block.settings.exclusive_color != blank %} style="color: {{ block.settings.exclusive_color }};"{% endif %}>{{ block.settings.exclusive_text | escape }}</p>
+      {%- endif -%}
+    {%- elsif product.tags contains 'Badge-Exclusive Collab' and block.settings.exclusive_collab_text != blank -%}
+      <p class="custom-message"{% if block.settings.exclusive_color != blank %} style="color: {{ block.settings.exclusive_color }};"{% endif %}>{{ block.settings.exclusive_collab_text | escape }}</p>
+    {%- elsif product.tags contains 'Badge-Exclusive' and block.settings.exclusive_text != blank -%}
+      <p class="custom-message"{% if block.settings.exclusive_color != blank %} style="color: {{ block.settings.exclusive_color }};"{% endif %}>{{ block.settings.exclusive_text | escape }}</p>
+    {%- endif -%}
+  {%- endif -%}
+  {%- if block.settings.show_final_sale and block.settings.final_sale_text != blank -%}
+    {%- capture cm_msg -%}
+      <p class="custom-message"{% if block.settings.final_sale_color != blank %} style="color: {{ block.settings.final_sale_color }};"{% endif %}>{{ block.settings.final_sale_text | escape }}</p>
+    {%- endcapture -%}
+    {%- if request.design_mode -%}
+      <div class="cm-gate-note" style="{{ cm_gate_note_style }}">Storefront gate: product tagged no-returns (final sale)</div>{{ cm_msg }}
+    {%- else -%}
+      {%- if product.tags contains 'no-returns' -%}{{ cm_msg }}{%- endif -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endcapture -%}
+{%- if cm_messages != blank -%}
+  {%- capture cm_brand_stack -%}{% render 'brand-font', font: block.settings.custom_font_family %}{%- endcapture -%}
+  {%- assign cm_brand_stack = cm_brand_stack | strip -%}
+  {%- style -%}
+    {%- if block.settings.enable_typography and block.settings.font_family != blank and cm_brand_stack == blank -%}{{ block.settings.font_family | font_face: font_display: 'swap' }}{%- endif -%}
+    .custom-messages-block-{{ block.id }} {
+      font-weight: {{ block.settings.font_weight }};
+      text-align: {{ block.settings.text_align }};
+    }
+    {%- if block.settings.enable_typography -%}
+      {%- comment -%} Font declarations target the <p> directly: the global .custom-message 12px rule would beat inheritance from the wrapper. {%- endcomment -%}
+      .custom-messages-block-{{ block.id }} .custom-message {
+        {%- if cm_brand_stack != blank -%}font-family: {{ cm_brand_stack }};{%- elsif block.settings.font_family != blank -%}font-family: {{ block.settings.font_family.family }}, {{ block.settings.font_family.fallback_families }};{%- endif -%}
+        {%- if block.settings.font_size > 0 -%}font-size: {{ block.settings.font_size }}px;{%- endif -%}
+        {%- if block.settings.line_height > 0 -%}line-height: {{ block.settings.line_height }};{%- endif -%}
+        {%- if block.settings.letter_spacing != 0 -%}letter-spacing: {{ block.settings.letter_spacing }}em;{%- endif -%}
+      }
+    {%- endif -%}
+    {%- if block.settings.enable_padding -%}
+      {%- if block.settings.padding_top > 0 or block.settings.padding_bottom > 0 -%}
+        @media screen and (min-width: 750px) {
+          .custom-messages-block-{{ block.id }} {
+            {%- if block.settings.padding_top > 0 %} padding-top: {{ block.settings.padding_top }}px;{% endif -%}
+            {%- if block.settings.padding_bottom > 0 %} padding-bottom: {{ block.settings.padding_bottom }}px;{% endif -%}
+          }
+        }
+      {%- endif -%}
+      {%- liquid
+        assign cm_pt_m = block.settings.padding_top_mobile | default: 0
+        assign cm_pb_m = block.settings.padding_bottom_mobile | default: 0
+        assign cm_pl_m = block.settings.padding_left_mobile | default: 0
+        assign cm_pr_m = block.settings.padding_right_mobile | default: 0
+      -%}
+      {%- if cm_pt_m > 0 or cm_pb_m > 0 or cm_pl_m > 0 or cm_pr_m > 0 -%}
+        @media screen and (max-width: 749px) {
+          .custom-messages-block-{{ block.id }} {
+            {%- if cm_pt_m > 0 %} padding-top: {{ cm_pt_m }}px;{% endif -%}
+            {%- if cm_pb_m > 0 %} padding-bottom: {{ cm_pb_m }}px;{% endif -%}
+            {%- if cm_pl_m > 0 %} padding-left: {{ cm_pl_m }}px;{% endif -%}
+            {%- if cm_pr_m > 0 %} padding-right: {{ cm_pr_m }}px;{% endif -%}
+          }
+        }
+      {%- endif -%}
+    {%- endif -%}
+  {%- endstyle -%}
+  <div class="custom-messages-block-{{ block.id }}" {{ block.shopify_attributes }}>
+    {{- cm_messages -}}
+  </div>
+{%- endif -%}

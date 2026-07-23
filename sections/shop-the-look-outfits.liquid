@@ -15,6 +15,9 @@
   if use_blocks
     for block in section.blocks
       assign outfit = block.settings.outfit
+      if outfit.lead_image.value == blank
+        continue
+      endif
       if section.settings.enforce_product_minimum
         assign num_products = 0
         for product in outfit.products
@@ -29,6 +32,9 @@
     endfor
   else
     for outfit in outfits
+      if outfit.lead_image.value == blank
+        continue
+      endif
       if section.settings.enforce_product_minimum
         assign num_products = 0
         for product in outfit.products
@@ -48,10 +54,22 @@
 {% unless num_outfits == 0 %}
   {{ 'component-card.css' | asset_url | stylesheet_tag }}
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
-  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
 
-  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  {%- unless section.settings.quick_add == 'none' -%}
+    {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  {%- endunless -%}
+
+  {%- if section.settings.quick_add == 'standard' -%}
+    <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+
+  {%- if section.settings.quick_add == 'bulk' -%}
+    <script src="{{ 'quick-add-bulk.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
 
   <style>
     @media screen and (max-width: 1100px) {
@@ -183,17 +201,30 @@
       }
     }
   </style>
+  {%- comment -%}
+    Card-settings parity note: tiles render hide_content, so title/price/swatch/
+    overlay markup never exists here — the spacing/typography/overlay/swatch packs
+    would be dead settings and are deliberately omitted. Only the Swym heart
+    (app-injected onto the media) can emit from the shared snippet.
+  {%- endcomment -%}
+  {%- style -%}
+    {% render 'card-settings-styles' %}
+  {%- endstyle -%}
   <div class="section-{{ section.id }}-padding">
     {% if section.settings.title_text != blank %}
       <h1 class="carousel-title">{{ section.settings.title_text }}</h1>
     {% endif %}
-    <div class="carousel-container">
+    <div class="carousel-container card-redesign">
       <div class="carousel{% if section.settings.layout == 'stacked' %} carousel--stacked{% endif %}">
+        {% assign look_number = 0 %}
         {% if use_blocks %}
           {% for block in section.blocks %}
             {% liquid
               assign outfit = block.settings.outfit
               assign lead_image = outfit.lead_image.value
+              if lead_image == blank
+                continue
+              endif
               assign lead_image_link = outfit.lead_image_link
               assign products = outfit.products.value
               assign flats = outfit.flats.value
@@ -207,10 +238,12 @@
                   continue
                 endif
               endif
+
+              assign look_number = look_number | plus: 1
             %}
 
             <div class="carousel-slide" {{ block.shopify_attributes }}>
-              <p class="is-hidden-mobile-only desktop-look-title">LOOK #{{ forloop.index }}</p>
+              <p class="is-hidden-mobile-only desktop-look-title">LOOK #{{ look_number }}</p>
               <div class="slide-grid">
                 <div class="main-box">
                   {% if lead_image_link %}<a href="{{ lead_image_link }}">{% endif %}
@@ -235,7 +268,7 @@
                   >
                   {% if lead_image_link %}</a>{% endif %}
                 </div>
-                <p class="is-hidden-desktop-only mobile-look-title">LOOK #{{ forloop.index }}</p>
+                <p class="is-hidden-desktop-only mobile-look-title">LOOK #{{ look_number }}</p>
                 <div class="sub-grid">
                   {% for product in products limit: 4 %}
                     {% assign skip_card_product_styles = false %}
@@ -249,11 +282,12 @@
                             media_aspect_ratio: 'adapt',
                             image_shape: 'default',
                             show_secondary_image: false,
-                            show_vendor: section.settings.show_vendor,
-                            show_rating: section.settings.show_rating,
+                            show_vendor: false,
+                            show_rating: false,
                             skip_styles: skip_card_product_styles,
                             section_id: section.id,
-                            quick_add: 'standard',
+                            quick_add: section.settings.quick_add,
+                            quick_add_mobile_only: section.settings.quick_add_mobile_only,
                             custom_media: flat,
                             hide_content: true
                           %}
@@ -271,6 +305,9 @@
           {% for outfit in outfits %}
             {% liquid
               assign lead_image = outfit.lead_image.value
+              if lead_image == blank
+                continue
+              endif
               assign lead_image_link = outfit.lead_image_link
               assign products = outfit.products.value
               assign flats = outfit.flats.value
@@ -286,10 +323,12 @@
                   continue
                 endif
               endif
+
+              assign look_number = look_number | plus: 1
             %}
 
             <div class="carousel-slide">
-              <p class="is-hidden-mobile-only desktop-look-title">LOOK #{{ forloop.index }}</p>
+              <p class="is-hidden-mobile-only desktop-look-title">LOOK #{{ look_number }}</p>
               <div class="slide-grid">
                 <div class="main-box">
                   {% if lead_image_link %}<a href="{{ lead_image_link }}">{% endif %}
@@ -314,7 +353,7 @@
                   >
                   {% if lead_image_link %}</a>{% endif %}
                 </div>
-                <p class="is-hidden-desktop-only mobile-look-title">LOOK #{{ forloop.index }}</p>
+                <p class="is-hidden-desktop-only mobile-look-title">LOOK #{{ look_number }}</p>
                 <div class="sub-grid">
                   {% for product in products limit: 4 %}
                     {% assign skip_card_product_styles = false %}
@@ -328,11 +367,12 @@
                             media_aspect_ratio: 'adapt',
                             image_shape: 'default',
                             show_secondary_image: false,
-                            show_vendor: section.settings.show_vendor,
-                            show_rating: section.settings.show_rating,
+                            show_vendor: false,
+                            show_rating: false,
                             skip_styles: skip_card_product_styles,
                             section_id: section.id,
-                            quick_add: 'standard',
+                            quick_add: section.settings.quick_add,
+                            quick_add_mobile_only: section.settings.quick_add_mobile_only,
                             custom_media: flat,
                             hide_content: true
                           %}
@@ -419,6 +459,34 @@
       "label": "Enforce product minimum",
       "info": "If enabled, this will only display outfits with atleast 4 products",
       "default": false
+    },
+    {
+      "type": "select",
+      "id": "quick_add",
+      "default": "standard",
+      "label": "t:sections.main-collection-product-grid.settings.quick_add.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_1"
+        },
+        {
+          "value": "standard",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_2"
+        },
+        {
+          "value": "bulk",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_3"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "quick_add_mobile_only",
+      "default": true,
+      "label": "Quick add on mobile only",
+      "info": "Hide the quick-add button on desktop (sizes show on hover instead)",
+      "visible_if": "{{ section.settings.quick_add != 'none' }}"
     },
     {
       "type": "header",
@@ -575,6 +643,50 @@
       "unit": "px",
       "label": "Mobile Right Padding",
       "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Wishlist heart"
+    },
+    {
+      "type": "checkbox",
+      "id": "heart_custom",
+      "default": false,
+      "label": "Custom heart size & position",
+      "info": "Off = the Wishlist Plus app embed controls the heart"
+    },
+    {
+      "type": "range",
+      "id": "heart_size",
+      "min": 6,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Heart size",
+      "default": 13,
+      "visible_if": "{{ section.settings.heart_custom }}"
+    },
+    {
+      "type": "range",
+      "id": "heart_top",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Heart top padding",
+      "default": 8,
+      "visible_if": "{{ section.settings.heart_custom }}"
+    },
+    {
+      "type": "range",
+      "id": "heart_right",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Heart right padding",
+      "default": 8,
+      "visible_if": "{{ section.settings.heart_custom }}"
     }
   ],
   "blocks": [

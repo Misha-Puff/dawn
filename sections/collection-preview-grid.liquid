@@ -2,6 +2,10 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
+{% if section.settings.enable_swatches %}
+  {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
 {%- unless section.settings.quick_add == 'none' -%}
   {{ 'quick-add.css' | asset_url | stylesheet_tag }}
 {%- endunless -%}
@@ -10,6 +14,32 @@
   <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
+
+{% liquid
+  # Explicit lock.shoppable = false forces read-only cards for everyone; unset keeps per-product tiers
+  assign force_readonly = false
+  if collection.metafields.lock.shoppable.value == false and request.design_mode == false
+    assign force_readonly = true
+  endif
+
+  # Campaign view is VIP-only on this section: full Locksmith ladder (same
+  # conditional as locksmith-v2-lock-product); the editor always shows it.
+  # Read-only collections (force_readonly) never expose the campaign — its
+  # shoppable product blocks would leak past the lock.
+  assign show_campaign_views = false
+  if request.design_mode
+    assign show_campaign_views = true
+  elsif customer
+    if customer.tags contains 'staff' or customer.metafields.clienteling.very_important_customer or customer.metafields.clienteling.super_vip or customer.metafields.clienteling.vip
+      assign show_campaign_views = true
+    endif
+  endif
+
+  assign has_campaign = false
+  if show_campaign_views and section.settings.enable_campaign and force_readonly == false and section.blocks.size > 0
+    assign has_campaign = true
+  endif
+%}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -23,6 +53,152 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  {% render 'card-settings-styles' %}
+
+  {%- if has_campaign -%}
+    .collection-views {
+      position: relative;
+    }
+
+    #view-collection-{{ section.id }},
+    #view-campaign-{{ section.id }} {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+
+    .collection-view-tabs {
+      display: flex;
+      justify-content: {% case section.settings.view_tabs_alignment %}{% when 'left' %}flex-start{% when 'right' %}flex-end{% else %}center{% endcase %};
+      gap: 2.4rem;
+      margin-bottom: 2.4rem;
+      border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.15);
+    }
+
+    .collection-view-tabs__tab {
+      padding: 0 0 1.2rem;
+      margin-bottom: -0.1rem;
+      font-size: 1.3rem;
+      letter-spacing: 0.1rem;
+      text-transform: uppercase;
+      color: rgba(var(--color-foreground), 0.6);
+      border-bottom: 0.2rem solid transparent;
+      cursor: pointer;
+    }
+
+    /* Base state hides the campaign view; the campaign radio ships :checked
+       (see markup), so the :checked rule below reveals it and hides the grid
+       on load — Campaign is the default view. Selecting Collection unchecks it
+       and restores this base state (grid shown, campaign hidden). */
+    .collection-view--campaign {
+      display: none;
+    }
+
+    #view-collection-{{ section.id }}:checked ~ .collection-view-tabs label[for="view-collection-{{ section.id }}"],
+    #view-campaign-{{ section.id }}:checked ~ .collection-view-tabs label[for="view-campaign-{{ section.id }}"] {
+      color: rgb(var(--color-foreground));
+      border-bottom-color: rgb(var(--color-foreground));
+    }
+
+    #view-campaign-{{ section.id }}:checked ~ .collection-view--grid {
+      display: none;
+    }
+
+    #view-campaign-{{ section.id }}:checked ~ .collection-view--campaign {
+      display: block;
+    }
+
+    /* Campaign content sits flush under the tab row's hairline; the grid view
+       keeps the 2.4rem breathing room below the tabs. */
+    #view-campaign-{{ section.id }}:checked ~ .collection-view-tabs {
+      margin-bottom: 0;
+    }
+
+    #view-collection-{{ section.id }}:focus-visible ~ .collection-view-tabs label[for="view-collection-{{ section.id }}"],
+    #view-campaign-{{ section.id }}:focus-visible ~ .collection-view-tabs label[for="view-campaign-{{ section.id }}"] {
+      outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
+      outline-offset: 0.3rem;
+    }
+
+    /* The Link tab is a real outbound anchor, not a radio state — strip the
+       default underline so it matches the label tabs, and give it a hover/focus
+       affordance since it never gets the :checked active color. */
+    .collection-view-tabs__tab--link {
+      text-decoration: none;
+    }
+
+    .collection-view-tabs__tab--link:hover,
+    .collection-view-tabs__tab--link:focus-visible {
+      color: rgb(var(--color-foreground));
+    }
+
+    /* Floating escape hatch back to the product grid, revealed only while the
+       campaign radio is checked. Must sit as a later sibling of the radios in
+       the DOM for the :checked ~ selector to reach it, even though it renders
+       fixed to the viewport. Typography defaults mirror .campaign-products__cta
+       (template-collection.css) minus the underline; jump_* settings override. */
+    {%- liquid
+      assign jump_weight = section.settings.jump_font_weight | default: 'default'
+      assign jump_fs = section.settings.jump_font_size | default: 0
+      assign jump_case = section.settings.jump_text_case | default: 'default'
+      assign jump_ls = section.settings.jump_letter_spacing | default: 0
+    -%}
+    {%- capture jump_brand_stack -%}{% render 'brand-font', font: section.settings.jump_custom_font %}{%- endcapture -%}
+    {%- assign jump_brand_stack = jump_brand_stack | strip -%}
+    .collection-views__jump {
+      display: none;
+      position: fixed;
+      {% case section.settings.jump_alignment -%}
+        {%- when 'left' %} left: 1.6rem;
+        {%- when 'right' %} right: 1.6rem;
+        {%- else %} left: 50%; transform: translateX(-50%);
+      {%- endcase %}
+      bottom: calc(1.6rem + env(safe-area-inset-bottom, 0px));
+      z-index: 10;
+      padding: 1.1rem 2rem;
+      {%- if section.settings.jump_pill_enable %}
+      background: rgba(255, 255, 255, 0.92);
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(26, 26, 26, 0.15);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      {%- else %}
+      /* Pill chrome off: match .campaign-products__cta's underlined-text look;
+         the padding stays for the tap target. */
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      {%- endif %}
+      font-family: {% if jump_brand_stack != blank %}{{ jump_brand_stack }}{% else %}var(--font-mono-family){% endif %};
+      font-size: {% if jump_fs > 0 %}{{ jump_fs }}px{% else %}12px{% endif %};
+      font-weight: {% if jump_weight != 'default' and jump_weight != blank %}{{ jump_weight }}{% else %}600{% endif %};
+      letter-spacing: {% if jump_ls > 0 %}{{ jump_ls }}px{% else %}1px{% endif %};
+      text-transform: {% if jump_case != 'default' and jump_case != blank %}{{ jump_case }}{% else %}uppercase{% endif %};
+      color: {% if section.settings.jump_color != blank %}{{ section.settings.jump_color }}{% else %}rgb(26, 26, 26){% endif %};
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    #view-campaign-{{ section.id }}:checked ~ .collection-views__jump {
+      display: block;
+    }
+
+    /* Rebuy mounts an EMPTY, transparent, pointer-events:auto 40x40 fixed
+       container (#rebuy-bubble-global-alert-modal, z-index 100000) at the
+       viewport bottom-center — exactly over this pill's default tap point —
+       which silently swallows dead-center clicks. Neutralize it only while
+       empty: if Rebuy ever renders a real alert into it, :empty stops
+       matching and the container becomes interactive again. */
+    #rebuy-bubble-global-alert-modal:empty {
+      pointer-events: none;
+    }
+  {%- endif -%}
 {%- endstyle -%}
 
 {% liquid
@@ -63,9 +239,148 @@
   endif
 %}
 
-<div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
+<div class="section-{{ section.id }}-padding card-redesign gradient color-{{ section.settings.color_scheme }}">
   {%- if has_products == false and current_page_num > 1 -%}
     <script>window.location.replace('{{ collection.url }}');</script>
+  {%- endif -%}
+
+  {%- comment -%}
+    Collection / Campaign toggle (VIP-gated on this section — see has_campaign
+    above). The radios, tabs, grid view and campaign view are all direct
+    siblings, so the toggle is CSS-first (#view-*:checked ~ ...); a small
+    progressive script layers on ?display= deep links and keeps the URL in
+    sync with the selected view.
+  {%- endcomment -%}
+  {%- if has_campaign -%}
+    <div class="collection-views">
+      <input
+        type="radio"
+        class="collection-views__radio"
+        name="collection-view-{{ section.id }}"
+        id="view-campaign-{{ section.id }}"
+        {% if section.settings.view_tabs_order != 'collection_first' %}checked{% endif %}
+      >
+      <input
+        type="radio"
+        class="collection-views__radio"
+        name="collection-view-{{ section.id }}"
+        id="view-collection-{{ section.id }}"
+        {% if section.settings.view_tabs_order == 'collection_first' %}checked{% endif %}
+      >
+      {%- capture campaign_tab_html -%}
+        <label class="collection-view-tabs__tab" for="view-campaign-{{ section.id }}">
+          {{ 'sections.collection_template.view_campaign' | t }}
+        </label>
+      {%- endcapture -%}
+      {%- capture collection_tab_html -%}
+        <label class="collection-view-tabs__tab" for="view-collection-{{ section.id }}">
+          {{ 'sections.collection_template.view_collection' | t }}
+        </label>
+      {%- endcapture -%}
+      <div class="collection-view-tabs page-width">
+        {%- if section.settings.view_tabs_order == 'collection_first' -%}
+          {{ collection_tab_html }}{{ campaign_tab_html }}
+        {%- else -%}
+          {{ campaign_tab_html }}{{ collection_tab_html }}
+        {%- endif -%}
+        {%- if section.settings.link_tab_url != blank -%}
+          <a
+            class="collection-view-tabs__tab collection-view-tabs__tab--link"
+            href="{{ section.settings.link_tab_url }}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ section.settings.link_tab_label | default: 'Link' }}
+          </a>
+        {%- endif -%}
+      </div>
+      <script>
+        // Ambient campaign videos carry the autoplay attribute, but autoplay
+        // fires while the campaign view is still display:none and never
+        // starts. Progressive nudge: play them when the campaign radio is
+        // selected (videos are muted + playsinline; without JS they show
+        // their first frame).
+        (function () {
+          var campaign = document.getElementById('view-campaign-{{ section.id }}');
+          var grid = document.getElementById('view-collection-{{ section.id }}');
+          if (!campaign || !grid) return;
+
+          // Deep link (?display=collection|campaign): runs during parse,
+          // before either view's DOM exists below, so the :checked CSS state
+          // is correct before first paint. "view" is Shopify-reserved.
+          var v = new URLSearchParams(window.location.search).get('display');
+          if (v === 'collection') grid.checked = true;
+          else if (v === 'campaign') campaign.checked = true;
+
+          var play = function () {
+            if (!campaign.checked) return;
+            document
+              .querySelectorAll('.campaign-hero__ambient, .campaign-lifestyle__ambient')
+              .forEach(function (v) {
+                v.play().catch(function () {});
+              });
+          };
+
+          // Keep the address bar a shareable deep link: the default (first)
+          // tab's view keeps a clean URL, the other carries ?display=.
+          // replaceState only (no new history entries); pass history.state
+          // through so popstate payloads are never clobbered.
+          var defaultView = {% if section.settings.view_tabs_order == 'collection_first' %}'collection'{% else %}'campaign'{% endif %};
+          var syncURL = function () {
+            var url = new URL(window.location.href);
+            var current = grid.checked ? 'collection' : 'campaign';
+            if (current === defaultView) url.searchParams.delete('display');
+            else url.searchParams.set('display', current);
+            history.replaceState(history.state, '', url);
+          };
+
+          // This section's pagination links are hand-rolled bare ?page=N
+          // anchors (no facets.js AJAX), so a page change is a full
+          // navigation that would drop the selected view. Carry the current
+          // ?display= state onto every pagination link; re-run on each
+          // toggle (registered after syncURL, so the address bar is already
+          // updated when it reads it).
+          var syncPagination = function () {
+            var display = new URLSearchParams(window.location.search).get('display');
+            document.querySelectorAll('.pagination a[href]').forEach(function (a) {
+              var url = new URL(a.href, window.location.origin);
+              if (display) url.searchParams.set('display', display);
+              else url.searchParams.delete('display');
+              a.href = url;
+            });
+          };
+
+          document.querySelectorAll('input[name="collection-view-{{ section.id }}"]').forEach(function (r) {
+            r.addEventListener('change', play);
+            r.addEventListener('change', syncURL);
+            r.addEventListener('change', syncPagination);
+          });
+
+          // The floating jump link swaps views via native label->radio
+          // behavior (which also fires syncURL above); JS only adds the
+          // scroll back to top. Bound on the label, not the radios' change,
+          // so clicking the top Collection tab doesn't also scroll. The
+          // label sits at the END of the wrapper (the :checked ~ CSS needs
+          // it after the radios) so it doesn't exist yet while this script
+          // parses — defer the lookup; on editor re-renders the DOM is
+          // already complete and the fresh node binds immediately. Same
+          // deferral for the pagination sync — those links render below too.
+          var bindJump = function () {
+            var jump = document.querySelector('label[for="view-collection-{{ section.id }}"].collection-views__jump');
+            if (jump) {
+              jump.addEventListener('click', function () {
+                var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+              });
+            }
+            syncPagination();
+          };
+          if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bindJump);
+          else bindJump();
+          play();
+        })();
+      </script>
+      <div class="collection-view collection-view--grid">
   {%- endif -%}
 
   {%- unless has_products -%}
@@ -100,6 +415,7 @@
             {%- assign rendered = rendered | plus: 1 -%}
             {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: product -%}{%- endcapture -%}
             {%- assign lock_content = lock_content | strip -%}
+            {%- if force_readonly -%}{%- assign lock_content = 'true' -%}{%- endif -%}
             {%- assign preview_badge = '' -%}
             {%- if lock_content == 'true' -%}
               {%- unless product.tags contains 'Badge-Coming Soon' -%}
@@ -127,6 +443,8 @@
                   show_secondary_image: section.settings.show_secondary_image,
                   lazy_load: lazy_load,
                   skip_styles: skip_card_product_styles,
+                  section_id: section.id,
+                  size_overlay: section.settings.show_size_overlay,
                   preview_badge: preview_badge,
                   hide_sold_out_badge: true
                 %}
@@ -141,9 +459,11 @@
                   lazy_load: lazy_load,
                   skip_styles: skip_card_product_styles,
                   quick_add: section.settings.quick_add,
+                  quick_add_mobile_only: section.settings.quick_add_mobile_only,
                   section_id: section.id,
-                  preview_badge: preview_badge,
-                  hide_sold_out_badge: true
+                  show_swatches_availability: true,
+                  size_overlay: section.settings.show_size_overlay,
+                  preview_badge: preview_badge
                 %}
               {% endif %}
             </li>
@@ -233,6 +553,401 @@
       </div>
     </div>
   {%- endunless -%}
+
+  {%- if has_campaign -%}
+      </div>
+      {%- comment -%} /.collection-view--grid {%- endcomment -%}
+
+      <div
+        class="collection-view collection-view--campaign page-width"
+        {% if section.settings.campaign_gap != blank %}
+          style="--campaign-gap: {{ section.settings.campaign_gap }}px"
+        {% endif %}
+      >
+        {%- assign campaign_styles_loaded = false -%}
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'campaign_hero' -%}
+              {%- capture cb_style -%}
+                {%- if block.settings.pad_top != blank -%}--cb-pt:{{ block.settings.pad_top }}px;{%- endif -%}
+                {%- if block.settings.pad_bottom != blank -%}--cb-pb:{{ block.settings.pad_bottom }}px;{%- endif -%}
+                {%- if block.settings.pad_top_mobile != blank -%}--cb-ptm:{{ block.settings.pad_top_mobile }}px;{%- endif -%}
+                {%- if block.settings.pad_bottom_mobile != blank -%}--cb-pbm:{{ block.settings.pad_bottom_mobile }}px;{%- endif -%}
+              {%- endcapture -%}
+              <div
+                class="campaign-block campaign-hero{% if block.settings.video_url != blank %} campaign-hero--ambient campaign-block--sized{% endif %}"
+                {% if block.settings.video_url != blank %}
+                  style="--cb-w:100vw;--cb-wm:100vw;{{ cb_style }}"
+                {% elsif cb_style != blank %}
+                  style="{{ cb_style }}"
+                {% endif %}
+                {{ block.shopify_attributes }}
+              >
+                <div class="campaign-hero__media{% if block.settings.full_screen %} campaign-hero__media--full{% endif %}">
+                  {%- if block.settings.video_url != blank -%}
+                    <video
+                      class="campaign-hero__ambient"
+                      autoplay
+                      loop
+                      muted
+                      playsinline
+                      aria-hidden="true"
+                      {% if block.settings.image != blank %}poster="{{ block.settings.image | image_url: width: 1500 }}"{% endif %}
+                    >
+                      <source src="{{ block.settings.video_url | escape }}">
+                    </video>
+                    {%- if block.settings.overlay_eyebrow != blank or block.settings.overlay_image != blank -%}
+                      <div class="campaign-hero__overlay">
+                        {%- if block.settings.overlay_eyebrow != blank -%}
+                          <p class="campaign-hero__eyebrow">{{ block.settings.overlay_eyebrow | escape }}</p>
+                        {%- endif -%}
+                        {%- if block.settings.overlay_image != blank -%}
+                          {{
+                            block.settings.overlay_image
+                            | image_url: width: 2000
+                            | image_tag:
+                              loading: 'eager',
+                              sizes: '100vw',
+                              widths: '750, 1100, 1500, 2000',
+                              class: 'campaign-hero__overlay-image'
+                          }}
+                        {%- endif -%}
+                      </div>
+                    {%- endif -%}
+                  {%- elsif block.settings.video != blank -%}
+                    {%- assign hero_poster = block.settings.video.preview_image | default: block.settings.image -%}
+                    <video
+                      class="campaign-hero__video"
+                      controls
+                      playsinline
+                      preload="none"
+                      {% if hero_poster != blank %}poster="{{ hero_poster | image_url: width: 1500 }}"{% endif %}
+                    >
+                      {%- for source in block.settings.video.sources -%}
+                        <source src="{{ source.url }}" type="{{ source.mime_type }}">
+                      {%- endfor -%}
+                    </video>
+                  {%- elsif block.settings.image != blank -%}
+                    {{
+                      block.settings.image
+                      | image_url: width: 2000
+                      | image_tag:
+                        loading: 'lazy',
+                        sizes: '100vw',
+                        widths: '375, 750, 1100, 1500, 2000',
+                        class: 'campaign-hero__image'
+                    }}
+                  {%- endif -%}
+                </div>
+                {%- if block.settings.heading != blank or block.settings.text != blank or block.settings.button_label != blank -%}
+                  <div class="campaign-hero__content">
+                    {%- if block.settings.heading != blank -%}
+                      <h2 class="campaign-hero__heading inline-richtext {{ block.settings.heading_size }}">
+                        {{ block.settings.heading }}
+                      </h2>
+                    {%- endif -%}
+                    {%- if block.settings.text != blank -%}
+                      <div class="campaign-hero__text rte">{{ block.settings.text }}</div>
+                    {%- endif -%}
+                    {%- if block.settings.button_label != blank -%}
+                      <a
+                        class="button"
+                        {% if block.settings.button_link != blank %}
+                          href="{{ block.settings.button_link }}"
+                        {% else %}
+                          role="link" aria-disabled="true"
+                        {% endif %}
+                      >
+                        {{- block.settings.button_label | escape -}}
+                      </a>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+              </div>
+            {%- when 'campaign_text' -%}
+              <div class="campaign-block campaign-text" {{ block.shopify_attributes }}>
+                {%- if block.settings.heading != blank -%}
+                  <h2 class="campaign-text__heading inline-richtext {{ block.settings.heading_size }}">
+                    {{ block.settings.heading }}
+                  </h2>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <div class="campaign-text__body rte">{{ block.settings.text }}</div>
+                {%- endif -%}
+              </div>
+            {%- when 'campaign_lifestyle' -%}
+              {%- capture cb_style -%}
+                {%- if block.settings.width_pct != blank -%}--cb-w:{{ block.settings.width_pct }}vw;{%- endif -%}
+                {%- if block.settings.width_pct_mobile != blank -%}--cb-wm:{{ block.settings.width_pct_mobile }}vw;{%- endif -%}
+                {%- if block.settings.pad_top != blank -%}--cb-pt:{{ block.settings.pad_top }}px;{%- endif -%}
+                {%- if block.settings.pad_bottom != blank -%}--cb-pb:{{ block.settings.pad_bottom }}px;{%- endif -%}
+                {%- if block.settings.pad_top_mobile != blank -%}--cb-ptm:{{ block.settings.pad_top_mobile }}px;{%- endif -%}
+                {%- if block.settings.pad_bottom_mobile != blank -%}--cb-pbm:{{ block.settings.pad_bottom_mobile }}px;{%- endif -%}
+              {%- endcapture -%}
+              <div
+                class="campaign-block campaign-lifestyle{% if block.settings.width_pct != blank or block.settings.width_pct_mobile != blank %} campaign-block--sized{% endif %}"
+                {% if cb_style != blank %}
+                  style="{{ cb_style }}"
+                {% endif %}
+                {{ block.shopify_attributes }}
+              >
+                {%- if block.settings.video_url != blank -%}
+                  <div class="campaign-lifestyle__media">
+                    <video class="campaign-lifestyle__ambient" autoplay loop muted playsinline aria-hidden="true">
+                      <source src="{{ block.settings.video_url | escape }}">
+                    </video>
+                  </div>
+                {%- elsif block.settings.image != blank -%}
+                  <div class="campaign-lifestyle__media">
+                    {{
+                      block.settings.image
+                      | image_url: width: 2000
+                      | image_tag:
+                        loading: 'lazy',
+                        sizes: '100vw',
+                        widths: '375, 750, 1100, 1500, 2000',
+                        class: 'campaign-lifestyle__image'
+                    }}
+                  </div>
+                {%- endif -%}
+                {%- if block.settings.heading != blank -%}
+                  <h2 class="campaign-lifestyle__heading inline-richtext">{{ block.settings.heading }}</h2>
+                {%- endif -%}
+                {%- if block.settings.product_list != blank -%}
+                  {%- comment -%}
+                    Deviation from the main grid: skip tier-locked products, same
+                    guard as campaign_products. The tier lock is discovery-level
+                    only (the PDP buy box is gated by the Badge-Coming Soon tag,
+                    not by tier), so a callout link would hand an under-tier
+                    viewer a live buy box on a product nothing else links.
+                  {%- endcomment -%}
+                  <ul class="campaign-lifestyle__callouts list-unstyled" role="list">
+                    {%- for callout in block.settings.product_list -%}
+                      {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: callout -%}{%- endcapture -%}
+                      {%- assign lock_content = lock_content | strip -%}
+                      {%- if lock_content == 'true' -%}{%- continue -%}{%- endif -%}
+                      <li>
+                        <a class="campaign-lifestyle__callout" href="{{ callout.url }}">
+                          <span class="campaign-lifestyle__callout-title">{{ callout.title | escape }}</span>
+                          <span class="campaign-lifestyle__callout-price">{{ callout.price | money }}</span>
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                {%- endif -%}
+              </div>
+            {%- when 'campaign_collage' -%}
+              {%- capture cb_style -%}
+                {%- if block.settings.col1_pct != blank -%}--c1-w:{{ block.settings.col1_pct }}vw;{%- endif -%}
+                {%- if block.settings.col2_pct != blank -%}--c2-w:{{ block.settings.col2_pct }}vw;{%- endif -%}
+                {%- if block.settings.col1_pct_mobile != blank -%}--c1-wm:{{ block.settings.col1_pct_mobile }}vw;{%- endif -%}
+                {%- if block.settings.col2_pct_mobile != blank -%}--c2-wm:{{ block.settings.col2_pct_mobile }}vw;{%- endif -%}
+                {%- if block.settings.col1_offset != blank -%}--c1-off:{{ block.settings.col1_offset }}px;{%- endif -%}
+                {%- if block.settings.col2_offset != blank -%}--c2-off:{{ block.settings.col2_offset }}px;{%- endif -%}
+                {%- if block.settings.col1_offset_mobile != blank -%}--c1-offm:{{ block.settings.col1_offset_mobile }}px;{%- endif -%}
+                {%- if block.settings.col2_offset_mobile != blank -%}--c2-offm:{{ block.settings.col2_offset_mobile }}px;{%- endif -%}
+                {%- if block.settings.col1_gap != blank -%}--c1-gap:{{ block.settings.col1_gap }}px;{%- endif -%}
+                {%- if block.settings.col1_ratio != blank -%}--c1-ar:{{ block.settings.col1_ratio }};{%- endif -%}
+                {%- if block.settings.col2_ratio != blank -%}--c2-ar:{{ block.settings.col2_ratio }};{%- endif -%}
+                {%- if block.settings.pad_top != blank -%}--cb-pt:{{ block.settings.pad_top }}px;{%- endif -%}
+                {%- if block.settings.pad_bottom != blank -%}--cb-pb:{{ block.settings.pad_bottom }}px;{%- endif -%}
+                {%- if block.settings.pad_top_mobile != blank -%}--cb-ptm:{{ block.settings.pad_top_mobile }}px;{%- endif -%}
+                {%- if block.settings.pad_bottom_mobile != blank -%}--cb-pbm:{{ block.settings.pad_bottom_mobile }}px;{%- endif -%}
+              {%- endcapture -%}
+              <div
+                class="campaign-block campaign-block--sized campaign-collage campaign-collage--{{ block.settings.layout }}{% if block.settings.valign == 'bottom' %} campaign-collage--bottom{% endif %}{% if block.settings.first_flush %} campaign-collage--flush-first{% endif %}{% if block.settings.second_flush %} campaign-collage--flush-second{% endif %}"
+                style="--cb-w:100vw;--cb-wm:100vw;{{ cb_style }}"
+                {{ block.shopify_attributes }}
+              >
+                {%- if block.settings.layout != 'images' -%}
+                  {%- if block.settings.eyebrow != blank or block.settings.heading != blank -%}
+                    <div class="campaign-collage__text">
+                      {%- if block.settings.eyebrow != blank -%}
+                        <p class="campaign-collage__eyebrow">{{ block.settings.eyebrow | escape }}</p>
+                      {%- endif -%}
+                      {%- if block.settings.heading != blank -%}
+                        <h2 class="campaign-collage__heading">{{ block.settings.heading | escape | newline_to_br }}</h2>
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+                {%- endif -%}
+                {%- if block.settings.image_1 != blank -%}
+                  <div class="campaign-collage__col campaign-collage__col--first">
+                    {{
+                      block.settings.image_1
+                      | image_url: width: 2000
+                      | image_tag:
+                        loading: 'lazy',
+                        sizes: '60vw',
+                        widths: '375, 750, 1100, 1500, 2000',
+                        class: 'campaign-collage__image'
+                    }}
+                  </div>
+                {%- endif -%}
+                {%- if block.settings.image_2 != blank and block.settings.layout != 'image_text' -%}
+                  <div class="campaign-collage__col campaign-collage__col--second">
+                    {{
+                      block.settings.image_2
+                      | image_url: width: 2000
+                      | image_tag:
+                        loading: 'lazy',
+                        sizes: '60vw',
+                        widths: '375, 750, 1100, 1500, 2000',
+                        class: 'campaign-collage__image'
+                    }}
+                  </div>
+                {%- endif -%}
+              </div>
+            {%- when 'campaign_products' -%}
+              {%- liquid
+                assign cp_products = block.settings.product_list
+                assign cp_limit = 12
+                if cp_products == blank and block.settings.source_collection != blank
+                  assign cp_products = block.settings.source_collection.products
+                  assign cp_limit = block.settings.products_to_show
+                endif
+              -%}
+              {%- capture cb_style -%}
+                {%- if block.settings.width_pct != blank -%}--cb-w:{{ block.settings.width_pct }}vw;{%- endif -%}
+                {%- if block.settings.width_pct_mobile != blank -%}--cb-wm:{{ block.settings.width_pct_mobile }}vw;{%- endif -%}
+                {%- if block.settings.tile_gap != blank -%}--cp-gap:{{ block.settings.tile_gap }}px;{%- endif -%}
+                {%- if block.settings.pad_top != blank -%}--cb-pt:{{ block.settings.pad_top }}px;{%- endif -%}
+                {%- if block.settings.pad_bottom != blank -%}--cb-pb:{{ block.settings.pad_bottom }}px;{%- endif -%}
+                {%- if block.settings.pad_top_mobile != blank -%}--cb-ptm:{{ block.settings.pad_top_mobile }}px;{%- endif -%}
+                {%- if block.settings.pad_bottom_mobile != blank -%}--cb-pbm:{{ block.settings.pad_bottom_mobile }}px;{%- endif -%}
+                --cp-cols:{{ block.settings.columns_desktop }};
+              {%- endcapture -%}
+              <div
+                class="campaign-block campaign-products campaign-products--{{ block.settings.display }}{% if block.settings.width_pct != blank or block.settings.width_pct_mobile != blank %} campaign-block--sized{% endif %}"
+                style="{{ cb_style }}"
+                {{ block.shopify_attributes }}
+              >
+                {%- if block.settings.heading != blank -%}
+                  <h2 class="campaign-products__heading inline-richtext">{{ block.settings.heading }}</h2>
+                {%- endif -%}
+                {%- if cp_products != blank -%}
+                  {%- if block.settings.display == 'theme' -%}
+                    <ul
+                      class="campaign-products__grid grid product-grid list-unstyled grid--{{ section.settings.columns_mobile }}-col-tablet-down grid--{{ block.settings.columns_desktop }}-col-desktop"
+                      role="list"
+                    >
+                      {%- liquid
+                        assign cp_shown = 0
+                      -%}
+                      {%- for product in cp_products -%}
+                        {%- if cp_shown >= cp_limit -%}{%- break -%}{%- endif -%}
+                        {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: product -%}{%- endcapture -%}
+                        {%- assign lock_content = lock_content | strip -%}
+                        {%- if lock_content == 'true' -%}{%- continue -%}{%- endif -%}
+                        {%- assign cp_shown = cp_shown | plus: 1 -%}
+                        {%- comment -%}
+                          Deviation from the main grid: preview products keep their
+                          Early Access badge in campaign rows. Tag-gated (like the
+                          PDP, unlike the grid loop above) so hand-picked published
+                          products get no badge; locked products never reach this
+                          point, so no Coming Soon branch is needed. Sold-out stays
+                          visible — campaign rows only ever show viewer-shoppable
+                          products.
+                        {%- endcomment -%}
+                        {%- assign preview_badge = '' -%}
+                        {%- if product.tags contains 'preview-product' or product.tags contains 'supervip-product' or product.tags contains 'vip-product' -%}
+                          {%- unless product.tags contains 'Badge-Early Access' -%}
+                            {%- assign preview_badge = 'Early Access' -%}
+                          {%- endunless -%}
+                        {%- endif -%}
+                        <li class="grid__item">
+                          {% render 'card-product',
+                            card_product: product,
+                            media_aspect_ratio: section.settings.image_ratio,
+                            image_shape: section.settings.image_shape,
+                            show_secondary_image: section.settings.show_secondary_image,
+                            show_vendor: section.settings.show_vendor,
+                            show_rating: section.settings.show_rating,
+                            lazy_load: true,
+                            skip_styles: campaign_styles_loaded,
+                            quick_add: 'none',
+                            section_id: section.id,
+                            show_swatches_availability: true,
+                            size_overlay: section.settings.show_size_overlay,
+                            preview_badge: preview_badge
+                          %}
+                        </li>
+                        {%- assign campaign_styles_loaded = true -%}
+                      {%- endfor -%}
+                    </ul>
+                  {%- else -%}
+                    <ul class="campaign-products__row list-unstyled" role="list">
+                      {%- liquid
+                        assign cp_shown = 0
+                      -%}
+                      {%- for product in cp_products -%}
+                        {%- if cp_shown >= cp_limit -%}{%- break -%}{%- endif -%}
+                        {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: product -%}{%- endcapture -%}
+                        {%- assign lock_content = lock_content | strip -%}
+                        {%- if lock_content == 'true' -%}{%- continue -%}{%- endif -%}
+                        {%- assign cp_shown = cp_shown | plus: 1 -%}
+                        <li class="campaign-products__cell">
+                          <a href="{{ product.url }}" class="campaign-products__card">
+                            <div class="campaign-products__media">
+                              {%- if product.featured_media != blank -%}
+                                {{
+                                  product.featured_media
+                                  | image_url: width: 800
+                                  | image_tag:
+                                    loading: 'lazy',
+                                    sizes: '(min-width: 750px) 30vw, 34vw',
+                                    widths: '375, 550, 800',
+                                    class: 'campaign-products__img'
+                                }}
+                              {%- endif -%}
+                              {%- if block.settings.display == 'cards' and product.media[1] != null -%}
+                                {{
+                                  product.media[1]
+                                  | image_url: width: 800
+                                  | image_tag:
+                                    loading: 'lazy',
+                                    sizes: '(min-width: 750px) 30vw, 34vw',
+                                    widths: '375, 550, 800',
+                                    class: 'campaign-products__img campaign-products__img--hover'
+                                }}
+                              {%- endif -%}
+                            </div>
+                            {%- if block.settings.display == 'cards' -%}
+                              <div class="campaign-products__meta">
+                                <span class="campaign-products__title">{{ product.title | escape }}</span>
+                                <span class="campaign-products__price">{{ product.price | money }}</span>
+                              </div>
+                            {%- endif -%}
+                          </a>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+                {%- endif -%}
+                {%- if block.settings.cta_label != blank -%}
+                  <div class="campaign-products__cta-wrap">
+                    <a
+                      class="campaign-products__cta"
+                      {% if block.settings.cta_link != blank %}
+                        href="{{ block.settings.cta_link }}"
+                      {% endif %}
+                    >
+                      {{- block.settings.cta_label | escape -}}
+                    </a>
+                  </div>
+                {%- endif -%}
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+      {%- if section.settings.jump_link_enable and section.settings.jump_link_label != blank -%}
+        <label class="collection-views__jump" for="view-collection-{{ section.id }}">
+          {{- section.settings.jump_link_label | escape -}}
+        </label>
+      {%- endif -%}
+    </div>
+    {%- comment -%} /.collection-views {%- endcomment -%}
+  {%- endif -%}
 </div>
 
 {% schema %}
@@ -355,6 +1070,603 @@
       "info": "t:sections.main-collection-product-grid.settings.show_rating.info"
     },
     {
+      "type": "checkbox",
+      "id": "show_size_overlay",
+      "default": false,
+      "label": "Show size availability on hover (desktop)"
+    },
+    {
+      "type": "color",
+      "id": "size_overlay_bg_color",
+      "label": "Size overlay background color",
+      "info": "Leave blank to follow the card color scheme background.",
+      "default": "#ffffff",
+      "visible_if": "{{ section.settings.show_size_overlay }}"
+    },
+    {
+      "type": "range",
+      "id": "size_overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Size overlay background opacity",
+      "info": "Theme default: 60%.",
+      "default": 60,
+      "visible_if": "{{ section.settings.show_size_overlay }}"
+    },
+    {
+      "type": "select",
+      "id": "size_overlay_position",
+      "options": [
+        {
+          "value": "bottom",
+          "label": "Bottom (theme default)"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "top",
+          "label": "Top"
+        }
+      ],
+      "default": "bottom",
+      "label": "Size overlay position",
+      "info": "Top and bottom slide in on hover; center fades in.",
+      "visible_if": "{{ section.settings.show_size_overlay }}"
+    },
+    {
+      "type": "range",
+      "id": "size_overlay_padding_top",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Size overlay padding top",
+      "info": "Theme default: 8px.",
+      "default": 6,
+      "visible_if": "{{ section.settings.show_size_overlay }}"
+    },
+    {
+      "type": "range",
+      "id": "size_overlay_padding_bottom",
+      "min": 0,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "label": "Size overlay padding bottom",
+      "info": "Theme default: 16px.",
+      "default": 6,
+      "visible_if": "{{ section.settings.show_size_overlay }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_swatches",
+      "default": false,
+      "label": "Enable Product Swatches",
+      "info": "Off by default: sibling swatches can reveal unreleased colorways on preview grids."
+    },
+    {
+      "type": "range",
+      "id": "swatch_card_width",
+      "min": 0,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Swatch width",
+      "info": "0 = theme default (20px)",
+      "default": 20,
+      "visible_if": "{{ section.settings.enable_swatches }}"
+    },
+    {
+      "type": "range",
+      "id": "swatch_card_height",
+      "min": 0,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Swatch height",
+      "info": "0 = theme default (square)",
+      "default": 12,
+      "visible_if": "{{ section.settings.enable_swatches }}"
+    },
+    {
+      "type": "range",
+      "id": "swatch_card_radius",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Swatch corner radius",
+      "info": "0 = square corners (theme default)",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_swatches }}"
+    },
+    {
+      "type": "header",
+      "content": "Card spacing"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_spacing_enable",
+      "default": true,
+      "label": "Customize card spacing",
+      "info": "Defaults below match the theme's stock spacing."
+    },
+    {
+      "type": "range",
+      "id": "card_info_padding_top",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above title row",
+      "default": 8,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "card_title_price_gap",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Title to price gap",
+      "info": "Vertical gap when the price wraps below the title (mobile).",
+      "default": 2,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "card_color_space_top",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above color name",
+      "info": "Color name shows only when swatches don't.",
+      "default": 0,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "card_color_space_bottom",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Space below color name",
+      "default": 0,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "card_swatch_space",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above swatches",
+      "default": 6,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "card_swatch_gap",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Gap between swatches",
+      "default": 6,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "card_badge_space",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above badges",
+      "default": 8,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "card_badge_gap",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Gap between badges",
+      "default": 10,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_spacing_enable_mobile",
+      "default": true,
+      "label": "Customize card spacing (mobile)",
+      "info": "Overrides the values above on screens under 750px. When off, mobile uses the desktop values."
+    },
+    {
+      "type": "range",
+      "id": "card_info_padding_top_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above title row (mobile)",
+      "default": 8,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "card_title_price_gap_mobile",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Title to price gap (mobile)",
+      "default": 2,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "card_color_space_top_mobile",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above color name (mobile)",
+      "info": "Color name shows only when swatches don't.",
+      "default": 0,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "card_color_space_bottom_mobile",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Space below color name (mobile)",
+      "default": 0,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "card_swatch_space_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above swatches (mobile)",
+      "default": 6,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "card_swatch_gap_mobile",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Gap between swatches (mobile)",
+      "default": 6,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "card_badge_space_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above badges (mobile)",
+      "default": 8,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "card_badge_gap_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Gap between badges (mobile)",
+      "default": 8,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "header",
+      "content": "Card typography"
+    },
+    {
+      "type": "range",
+      "id": "card_title_size",
+      "min": 0,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Title size",
+      "info": "0 = theme default (12px)",
+      "default": 11
+    },
+    {
+      "type": "select",
+      "id": "card_title_weight",
+      "options": [
+        {
+          "value": "default",
+          "label": "Theme default"
+        },
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semibold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "default",
+      "label": "Title weight"
+    },
+    {
+      "type": "select",
+      "id": "card_title_case",
+      "options": [
+        {
+          "value": "default",
+          "label": "Theme default"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        }
+      ],
+      "default": "uppercase",
+      "label": "Card title text case"
+    },
+    {
+      "type": "range",
+      "id": "card_title_letter_spacing",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Card title letter spacing",
+      "info": "0 = theme default",
+      "default": 0.2
+    },
+    {
+      "type": "range",
+      "id": "card_color_size",
+      "min": 8,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Color name size",
+      "default": 11
+    },
+    {
+      "type": "select",
+      "id": "card_color_case",
+      "options": [
+        {
+          "value": "default",
+          "label": "Sentence case"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        }
+      ],
+      "default": "default",
+      "label": "Color name case"
+    },
+    {
+      "type": "range",
+      "id": "card_price_size",
+      "min": 0,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Price size",
+      "info": "0 = theme default (12px)",
+      "default": 11
+    },
+    {
+      "type": "select",
+      "id": "card_price_weight",
+      "options": [
+        {
+          "value": "default",
+          "label": "Theme default"
+        },
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semibold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "default",
+      "label": "Price weight"
+    },
+    {
+      "type": "range",
+      "id": "card_price_letter_spacing",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Price letter spacing",
+      "info": "0 = theme default",
+      "default": 0.2
+    },
+    {
+      "type": "color",
+      "id": "card_price_color",
+      "label": "Price color",
+      "info": "Leave blank for the theme default. Applies to sale and struck compare-at prices too.",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "range",
+      "id": "card_sale_price_gap",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Sale price gap",
+      "info": "Space between the struck-out compare-at price and the sale price. 0 = theme default (6px)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "card_badge_size",
+      "min": 0,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Badge size",
+      "info": "0 = theme default",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "card_badge_weight",
+      "options": [
+        {
+          "value": "default",
+          "label": "Theme default"
+        },
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semibold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "default",
+      "label": "Badge weight"
+    },
+    {
+      "type": "range",
+      "id": "card_badge_letter_spacing",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Badge letter spacing",
+      "info": "0 = theme default",
+      "default": 0.2
+    },
+    {
+      "type": "range",
+      "id": "card_availability_size",
+      "min": 0,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Availability size",
+      "info": "0 = theme default",
+      "default": 11
+    },
+    {
+      "type": "select",
+      "id": "card_availability_weight",
+      "options": [
+        {
+          "value": "default",
+          "label": "Theme default"
+        },
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semibold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "default",
+      "label": "Availability weight"
+    },
+    {
       "type": "select",
       "id": "quick_add",
       "default": "none",
@@ -370,6 +1682,14 @@
           "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_2"
         }
       ]
+    },
+    {
+      "type": "checkbox",
+      "id": "quick_add_mobile_only",
+      "default": true,
+      "label": "Quick add on mobile only",
+      "info": "Hide the quick-add button on desktop (sizes show on hover instead)",
+      "visible_if": "{{ section.settings.quick_add != 'none' }}"
     },
     {
       "type": "header",
@@ -394,6 +1714,283 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Wishlist heart"
+    },
+    {
+      "type": "checkbox",
+      "id": "heart_custom",
+      "default": false,
+      "label": "Custom heart size & position",
+      "info": "Off = the Wishlist Plus app embed controls the heart"
+    },
+    {
+      "type": "range",
+      "id": "heart_size",
+      "min": 6,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Heart size",
+      "default": 13,
+      "visible_if": "{{ section.settings.heart_custom }}"
+    },
+    {
+      "type": "range",
+      "id": "heart_top",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Heart top padding",
+      "default": 8,
+      "visible_if": "{{ section.settings.heart_custom }}"
+    },
+    {
+      "type": "range",
+      "id": "heart_right",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Heart right padding",
+      "default": 8,
+      "visible_if": "{{ section.settings.heart_custom }}"
+    },
+    { "type": "header", "content": "Campaign toggle" },
+    { "type": "paragraph", "content": "On this preview grid the campaign view renders only for staff and VIP-tier customers (always visible in the editor), and never on collections locked read-only via lock.shoppable." },
+    { "type": "checkbox", "id": "enable_campaign", "default": true, "label": "Enable campaign view", "info": "Uncheck to hide the campaign entirely — shoppers (and the editor) see the standard collection grid. Campaign blocks are kept but render nothing." },
+    { "type": "select", "id": "view_tabs_alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" } ], "default": "center", "label": "Toggle alignment", "info": "Alignment of the Collection / Campaign view toggle row." },
+    { "type": "select", "id": "view_tabs_order", "options": [ { "value": "campaign_first", "label": "Campaign, Collection" }, { "value": "collection_first", "label": "Collection, Campaign" } ], "default": "campaign_first", "label": "Toggle tab order", "info": "Order of the two view tabs — the page loads showing the first tab's view. The Link tab always sits last." },
+    { "type": "text", "id": "link_tab_label", "label": "Link tab label", "default": "Link" },
+    { "type": "url", "id": "link_tab_url", "label": "Link tab URL", "info": "Opens in a new tab. Leave blank to hide the Link tab." },
+    { "type": "checkbox", "id": "jump_link_enable", "default": false, "label": "Show floating collection link", "info": "Fixed to the bottom of the screen while the campaign view is active; jumps to the collection view." },
+    { "type": "text", "id": "jump_link_label", "label": "Floating link text", "default": "View collection", "visible_if": "{{ section.settings.jump_link_enable }}" },
+    { "type": "checkbox", "id": "jump_pill_enable", "default": true, "label": "Pill background", "info": "Off = plain underlined text, matching the campaign CTA style.", "visible_if": "{{ section.settings.jump_link_enable }}" },
+    { "type": "select", "id": "jump_custom_font", "options": [ { "value": "default", "label": "Default (theme mono)" }, { "value": "ibm_plex_sans", "label": "IBM Plex Sans" }, { "value": "ibm_plex_mono", "label": "IBM Plex Mono" }, { "value": "inter", "label": "Inter" }, { "value": "geist", "label": "Geist" }, { "value": "geist_mono", "label": "Geist Mono" }, { "value": "overpass", "label": "Overpass" }, { "value": "overpass_mono", "label": "Overpass Mono" }, { "value": "dm_sans", "label": "DM Sans" }, { "value": "dm_mono", "label": "DM Mono" }, { "value": "manrope", "label": "Manrope" }, { "value": "open_sans", "label": "Open Sans" } ], "default": "default", "label": "Floating link font", "visible_if": "{{ section.settings.jump_link_enable }}" },
+    { "type": "select", "id": "jump_font_weight", "options": [ { "value": "default", "label": "Default (600)" }, { "value": "300", "label": "Light" }, { "value": "400", "label": "Regular" }, { "value": "500", "label": "Medium" }, { "value": "600", "label": "Semibold" }, { "value": "700", "label": "Bold" } ], "default": "default", "label": "Floating link weight", "visible_if": "{{ section.settings.jump_link_enable }}" },
+    { "type": "range", "id": "jump_font_size", "min": 0, "max": 24, "step": 1, "unit": "px", "label": "Floating link size", "info": "0 = default (12px)", "default": 0, "visible_if": "{{ section.settings.jump_link_enable }}" },
+    { "type": "select", "id": "jump_text_case", "options": [ { "value": "default", "label": "Default (uppercase)" }, { "value": "uppercase", "label": "Uppercase" }, { "value": "capitalize", "label": "Capitalize" }, { "value": "lowercase", "label": "Lowercase" }, { "value": "none", "label": "Normal" } ], "default": "default", "label": "Floating link case", "visible_if": "{{ section.settings.jump_link_enable }}" },
+    { "type": "range", "id": "jump_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Floating link letter spacing", "info": "0 = default (1px)", "default": 0, "visible_if": "{{ section.settings.jump_link_enable }}" },
+    { "type": "color", "id": "jump_color", "label": "Floating link color", "info": "Leave blank for default (#1A1A1A)", "visible_if": "{{ section.settings.jump_link_enable }}" },
+    { "type": "select", "id": "jump_alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" } ], "default": "center", "label": "Floating link alignment", "visible_if": "{{ section.settings.jump_link_enable }}" },
+    {"type": "header", "content": "Campaign view"},
+    {"type": "text", "id": "campaign_gap", "label": "Space between campaign blocks (px)", "info": "Blank = 40"}
+  ],
+  "blocks": [
+    {
+      "type": "campaign_hero",
+      "name": "Campaign: Hero",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video",
+          "info": "Optional. Replaces the image. Plays on click — never autoplays."
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {"type": "header", "content": "Ambient mode"},
+        {"type": "text", "id": "video_url", "label": "Ambient video URL", "info": "Store-hosted .mp4/.mov. Autoplays muted and looped, full-bleed. Replaces the image and click-to-play video."},
+        {"type": "checkbox", "id": "full_screen", "label": "Full viewport height", "default": false},
+        {"type": "text", "id": "overlay_eyebrow", "label": "Overlay eyebrow"},
+        {"type": "image_picker", "id": "overlay_image", "label": "Overlay logo image"},
+        {"type": "header", "content": "Spacing"},
+        {"type": "text", "id": "pad_top", "label": "Padding top (px)"},
+        {"type": "text", "id": "pad_bottom", "label": "Padding bottom (px)"},
+        {"type": "text", "id": "pad_top_mobile", "label": "Padding top mobile (px)"},
+        {"type": "text", "id": "pad_bottom_mobile", "label": "Padding bottom mobile (px)"}
+      ]
+    },
+    {
+      "type": "campaign_text",
+      "name": "Campaign: Text",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "campaign_lifestyle",
+      "name": "Campaign: Lifestyle",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "product_list",
+          "id": "product_list",
+          "label": "Product callouts",
+          "limit": 6
+        },
+        {"type": "text", "id": "video_url", "label": "Ambient video URL", "info": "Store-hosted .mp4/.mov. Autoplays muted and looped. Replaces the image."},
+        {"type": "header", "content": "Layout"},
+        {"type": "text", "id": "width_pct", "label": "Width (% of viewport)", "info": "Blank = container width. 100 = full-bleed."},
+        {"type": "text", "id": "width_pct_mobile", "label": "Width mobile (% of viewport)"},
+        {"type": "text", "id": "pad_top", "label": "Padding top (px)"},
+        {"type": "text", "id": "pad_bottom", "label": "Padding bottom (px)"},
+        {"type": "text", "id": "pad_top_mobile", "label": "Padding top mobile (px)"},
+        {"type": "text", "id": "pad_bottom_mobile", "label": "Padding bottom mobile (px)"}
+      ]
+    },
+    {
+      "type": "campaign_collage",
+      "name": "Campaign: Collage",
+      "settings": [
+        {"type": "select", "id": "layout", "options": [{"value": "images", "label": "Two images"}, {"value": "text_first", "label": "Text + image left, image right"}, {"value": "image_text", "label": "Image left, text right"}], "default": "images", "label": "Layout"},
+        {"type": "image_picker", "id": "image_1", "label": "First image"},
+        {"type": "image_picker", "id": "image_2", "label": "Second image"},
+        {"type": "text", "id": "eyebrow", "label": "Eyebrow"},
+        {"type": "textarea", "id": "heading", "label": "Heading", "info": "Line breaks are kept."},
+        {"type": "header", "content": "Geometry"},
+        {"type": "text", "id": "col1_pct", "label": "First column width (% of viewport)"},
+        {"type": "text", "id": "col2_pct", "label": "Second column width (% of viewport)"},
+        {"type": "text", "id": "col1_pct_mobile", "label": "First column width mobile (%)"},
+        {"type": "text", "id": "col2_pct_mobile", "label": "Second column width mobile (%)"},
+        {"type": "text", "id": "col1_offset", "label": "First column offset (px)"},
+        {"type": "text", "id": "col2_offset", "label": "Second column offset (px)"},
+        {"type": "text", "id": "col1_offset_mobile", "label": "First column offset mobile (px)"},
+        {"type": "text", "id": "col2_offset_mobile", "label": "Second column offset mobile (px)"},
+        {"type": "text", "id": "col1_gap", "label": "Text to image gap (px)", "info": "Text + image left layout only"},
+        {"type": "text", "id": "col1_ratio", "label": "First image crop ratio", "info": "e.g. 3 / 4. Blank = natural."},
+        {"type": "text", "id": "col2_ratio", "label": "Second image crop ratio", "info": "e.g. 3 / 4. Blank = natural."},
+        {"type": "select", "id": "valign", "options": [{"value": "top", "label": "Top"}, {"value": "bottom", "label": "Bottom"}], "default": "top", "label": "Vertical alignment"},
+        {"type": "checkbox", "id": "first_flush", "label": "First column flush to left edge", "default": false},
+        {"type": "checkbox", "id": "second_flush", "label": "Second column flush to right edge", "default": false},
+        {"type": "header", "content": "Spacing"},
+        {"type": "text", "id": "pad_top", "label": "Padding top (px)"},
+        {"type": "text", "id": "pad_bottom", "label": "Padding bottom (px)"},
+        {"type": "text", "id": "pad_top_mobile", "label": "Padding top mobile (px)"},
+        {"type": "text", "id": "pad_bottom_mobile", "label": "Padding bottom mobile (px)"}
+      ]
+    },
+    {
+      "type": "campaign_products",
+      "name": "Campaign: Products",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "product_list",
+          "id": "product_list",
+          "label": "Products",
+          "limit": 12
+        },
+        {
+          "type": "range",
+          "id": "columns_desktop",
+          "min": 2,
+          "max": 5,
+          "step": 1,
+          "default": 4,
+          "label": "Number of columns on desktop"
+        },
+        {"type": "collection", "id": "source_collection", "label": "Source collection", "info": "Used when Products is empty: renders the first N products, skipping locked ones."},
+        {"type": "range", "id": "products_to_show", "min": 1, "max": 12, "step": 1, "default": 4, "label": "Products to show (collection source)"},
+        {"type": "select", "id": "display", "options": [{"value": "theme", "label": "Theme cards"}, {"value": "cards", "label": "Minimal cards"}, {"value": "tiles", "label": "Image tiles"}], "default": "theme", "label": "Display"},
+        {"type": "header", "content": "Layout"},
+        {"type": "text", "id": "width_pct", "label": "Width (% of viewport)", "info": "Blank = container width. 100 = full-bleed."},
+        {"type": "text", "id": "width_pct_mobile", "label": "Width mobile (% of viewport)"},
+        {"type": "text", "id": "tile_gap", "label": "Tile gap (px)"},
+        {"type": "text", "id": "cta_label", "label": "CTA label"},
+        {"type": "url", "id": "cta_link", "label": "CTA link"},
+        {"type": "header", "content": "Spacing"},
+        {"type": "text", "id": "pad_top", "label": "Padding top (px)"},
+        {"type": "text", "id": "pad_bottom", "label": "Padding bottom (px)"},
+        {"type": "text", "id": "pad_top_mobile", "label": "Padding top mobile (px)"},
+        {"type": "text", "id": "pad_bottom_mobile", "label": "Padding bottom mobile (px)"}
+      ]
     }
   ],
   "presets": [

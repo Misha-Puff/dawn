@@ -1,0 +1,62 @@
+{%- comment -%}
+  Section Rendering API fetch target for the recently-viewed slider — never
+  placed in a template, and no presets, so it stays out of the editor's
+  add-section picker.
+
+  assets/recently-viewed.js requests it on the search route:
+    {{ routes.search_url }}?section_id=recently-viewed-cards&type=product
+      &options[unavailable_products]=show&q=id:A OR id:B ...
+  and moves the returned <li data-product-id> slides into the slider in
+  sections/recently-viewed-slider.liquid, restoring stored recency order.
+  Ids missing from the response (deleted, unpublished, hidden from search,
+  Locksmith-locked) simply drop out.
+
+  Swatch/size-overlay/rating markup is always emitted here — this fragment cannot
+  read the display section's settings — so the slider section hides it per
+  instance via scoped CSS (show_card_swatches / show_size_overlay / show_rating).
+  Likewise force_color_line makes the fragment emit BOTH the swatch row and the
+  colorway line; the slider's scoped CSS shows exactly one per its
+  show_card_swatches setting.
+{%- endcomment -%}
+
+{%- if search.performed -%}
+  {%- paginate search.results by 50 -%}
+    <ul hidden>
+      {%- for result in search.results -%}
+        {%- if result.object_type != 'product' -%}
+          {%- continue -%}
+        {%- endif -%}
+        {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: result -%}{%- endcapture -%}
+        {%- assign lock_content = lock_content | strip -%}
+        {%- if lock_content == 'true' -%}
+          {%- continue -%}
+        {%- endif -%}
+        <li class="grid__item slider__slide" data-product-id="{{ result.id }}">
+          {% render 'card-product',
+            card_product: result,
+            media_aspect_ratio: 'adapt',
+            image_shape: 'default',
+            show_secondary_image: true,
+            show_vendor: false,
+            show_rating: true,
+            skip_styles: true,
+            section_id: section.id,
+            quick_add: 'standard',
+            quick_add_mobile_only: true,
+            show_swatches_availability: true,
+            enable_swatches: true,
+            size_overlay: true,
+            force_color_line: true
+          %}
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endpaginate -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Recently viewed cards",
+  "settings": []
+}
+{% endschema %}

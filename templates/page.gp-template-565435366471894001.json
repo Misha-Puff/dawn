@@ -11,13 +11,13 @@
   "sections": {
     "gp_section_565435366572622833": {
       "settings": {
-        "checksum": "83d53a7980e6bfc1af6d2bc86dfd42f577f959476582f52cead775998135a922_1_1_1_0__1"
+        "checksum": "83d53a7980e6bfc1af6d2bc86dfd42f577f959476582f52cead775998135a922_1_1_0_0__1"
       },
       "type": "gp-section-565435366572622833"
     },
     "gp_section_565435366572753905": {
       "settings": {
-        "checksum": "ed9b5a8eabfef0c7fdd040da5cebdfb1322247ad64038b3fb1402b0b3eeaa051_1_1_1_0__1",
+        "checksum": "ed9b5a8eabfef0c7fdd040da5cebdfb1322247ad64038b3fb1402b0b3eeaa051_1_1_0_0__1",
         "gg8CanJZH7q_text": "Explore More",
         "gg8xf4mbVAe_label": "<p>TOPS</p>",
         "ggD3Rt-KqFS_label": "<p>DENIM</p>",
@@ -29,7 +29,7 @@
     },
     "gp_section_565435366572819441": {
       "settings": {
-        "checksum": "f7121bd7b39057884d4e30189cf47c348f27c10dc3df6f98181103798e94122c_1_1_1_0__1",
+        "checksum": "f7121bd7b39057884d4e30189cf47c348f27c10dc3df6f98181103798e94122c_1_1_0_0__1",
         "gg9-Kh1-Dxa_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_C2.jpg",
         "gg9-Kh1-Dxa_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_C2.jpg",
         "gg9-Kh1-Dxa_srcSet_tablet_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_C2.jpg",
@@ -37,35 +37,33 @@
         "ggHpeVtcFoA_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_C1.jpg",
         "ggHpeVtcFoA_srcSet_tablet_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_C1.jpg",
         "ggSHGb3d4tQ_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-summer\">THE SUMMER COLLECTION</a></p>",
-        "ggb8GVRg5np_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-accessories\">ACCESSORIES</a></p>",
-        "section_preload": "true"
+        "ggb8GVRg5np_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-accessories\">ACCESSORIES</a></p>"
       },
       "type": "gp-section-565435366572819441"
     },
     "gp_section_565742999678485659": {
       "settings": {
-        "checksum": "91da6aeca8f3fd76672817585d0c771a8683d9621e454d72d2a8c3ad86030778_1_1_1_0__1",
+        "checksum": "91da6aeca8f3fd76672817585d0c771a8683d9621e454d72d2a8c3ad86030778_1_1_0_0__1",
         "ggSB_9sxwQ6_errorMessage": "Cannot add product to cart",
         "ggSB_9sxwQ6_label": "ADD TO CART",
         "ggSB_9sxwQ6_outOfStockLabel": "Out of stock",
         "ggSB_9sxwQ6_successMessage": "Add product to cart successfully",
         "ggSB_9sxwQ6_unavailableLabel": "Unavailable",
         "ggSB_9sxwQ6_variantSelectionRequiredMessage": "Please select a variant to add product to cart",
-        "ggT-TYiC6nr_text": "<span style=\"font-size:11px;\">NEW ARRIVALS</span>",
-        "section_preload": "true"
+        "ggT-TYiC6nr_text": "<span style=\"font-size:11px;\">NEW ARRIVALS</span>"
       },
       "type": "gp-section-565742999678485659"
     },
     "gp_section_592891683713057388": {
       "settings": {
-        "checksum": "64dc2bb4a67db742b2b6050df80a518c4f3823236467c9d2c8d7ad8b8bb97889_1_1_1_0__1",
+        "checksum": "64dc2bb4a67db742b2b6050df80a518c4f3823236467c9d2c8d7ad8b8bb97889_1_1_0_0__1",
         "ggn9OWBb600_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-new\"><span style=\"font-size:12px;\">JOURNAL</span></a></p>"
       },
       "type": "gp-section-592891683713057388"
     },
     "gp_section_594874653571285777": {
       "settings": {
-        "checksum": "9511a1efe1699093b9c3b90a63dced10f3b1f33f4d76f947f7629f1f8c4aca13_1_1_1_0__1",
+        "checksum": "9511a1efe1699093b9c3b90a63dced10f3b1f33f4d76f947f7629f1f8c4aca13_1_1_0_0__1",
         "ggF-V9spKq0_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\"><span style=\"font-size:11px;\">JOURNAL</span></a></p>",
         "ggxM8k1-jDK_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_journal_2_f1590d28-8d53-4f72-9dc3-ea5f7dabae11.jpg",
         "ggxM8k1-jDK_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_Custom_journal_5.jpg"
@@ -74,13 +72,13 @@
     },
     "gp_section_596022700527322005": {
       "settings": {
-        "checksum": "2eb3e7f2ac0ec36a94846a985696a09e63503129a747f9eac59d42855d643796_1_1_1_0__1"
+        "checksum": "2eb3e7f2ac0ec36a94846a985696a09e63503129a747f9eac59d42855d643796_1_1_0_0__1"
       },
       "type": "gp-section-596022700527322005"
     },
     "gp_section_605468970094429082": {
       "settings": {
-        "checksum": "014bb4992306af8a867b00fa65dcdb4d1f17bf38ba707293a48b7633c1c11177_1_1_1_0__1",
+        "checksum": "014bb4992306af8a867b00fa65dcdb4d1f17bf38ba707293a48b7633c1c11177_1_1_0_0__1",
         "gg7pvlkGGCJ_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_LEADER_6.11_CHILD1.jpg",
         "gg7pvlkGGCJ_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_BLOCK_6.11_HC.jpg",
         "gg7pvlkGGCJ_background_tablet_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SITE_LEADER_6.11_CHILD1.jpg",

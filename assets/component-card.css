@@ -136,7 +136,7 @@
 
 .card__information {
   grid-row-start: 2;
-  padding: 0.7rem 1rem;
+  padding: var(--card-info-padding-top, 8px) 1rem 0.7rem;
 }
 
 .card:not(.ratio) > .card__content {
@@ -303,12 +303,159 @@
 .card__heading {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 12px;
-  line-height: 20px;
+  font-size: var(--card-title-size, 11px);
+  /* max() keeps the stock 20px line box at any font-size ≤ 15.38px; scales only when a merchant dials the title larger. */
+  line-height: max(20px, 1.3em);
+  /* Product names opt out of the global .h4/.h5 mono-uppercase heading overrides (theme.liquid). */
+  font-family: var(--font-heading-family);
+  text-transform: none;
 }
 
 .card__heading:last-child {
   margin-bottom: 0;
+}
+
+.card__heading-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--card-title-price-gap, 2px) 1rem;
+  flex-wrap: wrap;
+}
+
+.card__heading-row > .price {
+  flex-shrink: 0;
+  font-size: var(--card-price-size, 11px);
+  line-height: calc(1 + 0.4 / var(--font-body-scale));
+  color: rgb(var(--color-foreground));
+}
+
+/* Compare-at strike follows the card price control (component-price.css sets 1.3rem directly, bypassing .price). */
+.card__heading-row > .price--on-sale .price-item--regular {
+  font-size: var(--card-price-size, 11px);
+  /* The full struck→sale gap (stock was 1rem + a word-space); exact because of the flex rule below. */
+  margin-right: var(--card-sale-price-gap, 0.8rem);
+}
+
+/* Flex drops the whitespace text node between the prices (a mono word-space, ~8px in Overpass Mono —
+   wider than the margin itself), so the gap above is exact; baseline keeps the mixed sizes aligned.
+   Stock component-price.css already declares flex-direction/flex-wrap on .price__sale expecting flex. */
+.card__heading-row > .price--on-sale .price__sale {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+/* Colorway line under the title row — shown only when the card renders no swatches
+   (mutually exclusive, decided in card-product.liquid). Defaults mirror the redesign
+   title except case: sentence case (the name as stored), with a per-section case
+   select. font-weight is explicit because the title is an h3 (heading weight) and
+   this is a p (body weight). */
+.card__color-line {
+  margin: var(--card-color-space-top, 0px) 0 var(--card-color-space-bottom, 0px);
+  font-family: var(--font-heading-family);
+  font-weight: var(--font-heading-weight);
+  font-size: var(--card-color-size, var(--card-title-size, 11px));
+  line-height: max(20px, 1.3em);
+  letter-spacing: 0.2px;
+  text-align: left;
+  color: rgb(var(--color-foreground));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Redesigned card treatment — .card-redesign on the card-list wrapper of the carousels, the
+   collection grid, and search results. .product-card-wrapper keeps search's article/page cards
+   (which share .card__heading) out; the specificity also out-specifies base.css .h5 heading scaling. */
+.card-redesign .product-card-wrapper .card__heading {
+  font-size: var(--card-title-size, 11px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Ellipsis must live on the block-level link: text-overflow only elides inline content,
+   so on the h3 it raw-clips the block <a> mid-glyph with no "…". */
+.card-redesign .product-card-wrapper .card__heading a.full-unstyled-link {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* .card__information is a grid item of .card__content: with min-width: auto its automatic
+   minimum tracks the nowrap title's min-content, so an over-long title escapes the card
+   (overlapping the neighbor) instead of ellipsizing. */
+.card-redesign .product-card-wrapper .card__information {
+  min-width: 0;
+}
+
+/* Desktop no-wrap (2026-07-14 ruling, amended): title + price share the row — the title shrinks
+   and ellipsizes instead of the price wrapping below. The flex-basis is the title's floor: under
+   flex-wrap: nowrap, wide-currency sale pairs (e.g. "DA 7,400.00 DZD" ×2) crushed the title to
+   nothing. The row keeps its base flex-wrap: wrap and line-breaking uses this basis (hypothetical,
+   pre-shrink size); the title then grows into all leftover space (and ellipsizes), so cards whose
+   price leaves the title at least the floor render exactly as nowrap did, and the price wraps
+   below only when the title would drop under it. 20% of the row (not a fixed 10ch) because a USD
+   sale pair with currency codes already leaves only ~9ch on the 4-col grid — a static 10ch floor
+   wrapped every USD sale card. */
+@media screen and (min-width: 750px) {
+  .card-redesign .card__heading-row > .card__heading {
+    flex: 1 1 min(10ch, 20%);
+    min-width: 0; /* narrower than its text → shrinks + ellipsizes */
+  }
+}
+
+/* Narrow cards: give the title the full row (still one-line ellipsis, now at full card width)
+   and let the price wrap beneath it — the row already has flex-wrap: wrap. */
+@media screen and (max-width: 749px) {
+  .card-redesign .card__heading-row > .card__heading {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+}
+
+.card-redesign .card__heading-row > .price,
+.card-redesign .badge--card {
+  font-family: var(--font-mono-family);
+}
+
+.card-redesign .badge--card {
+  text-transform: uppercase;
+}
+
+/* Store-wide card recipe as the card-redesign default look (Nathan 2026-07-15):
+   carousels (featured-collection, metafield sliders, recently-viewed, related)
+   match collection-grid cards with zero per-section setup. Grid sections emit
+   the same knobs under #shopify-section-<id>, which outranks all of this.
+   The var() fallbacks above carry the size/spacing recipe; these are the
+   non-var pieces. --card-badge-gap-default (not the emitted var) carries the
+   responsive 8/10px default without shadowing section emission. */
+.card-redesign {
+  --card-badge-gap-default: 8px;
+}
+
+.card-redesign .card__heading {
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+.card-redesign .card__heading-row > .price {
+  letter-spacing: 0.2px;
+  color: #1a1a1a;
+}
+
+.card-redesign .badge--card {
+  letter-spacing: 0.2px;
+}
+
+@media screen and (min-width: 750px) {
+  .card-redesign {
+    --card-badge-gap-default: 10px;
+  }
+}
+
+.card--horizontal .card__heading-row > .price {
+  color: rgba(var(--color-foreground), 0.75);
 }
 
 .card--horizontal .card__heading,
@@ -406,6 +553,12 @@
   .underline-links-hover:hover a {
     text-decoration: underline;
     text-underline-offset: 0.3rem;
+  }
+
+  /* Misha Puff: product-card titles do not underline on hover
+     (all collection templates + product preview grid + every product-card grid). */
+  .product-card-wrapper.underline-links-hover:hover .card__heading a {
+    text-decoration: none;
   }
 }
 
@@ -629,8 +782,9 @@
 }
 
 .variant-availability span {
-  font-size: 12px;
+  font-size: var(--card-availability-size, 11px);
   margin-right: 4px;
+  text-transform: uppercase;
 }
 
 .variant-availability .unavailable {
@@ -641,6 +795,82 @@
 
 @media screen and (max-width: 1099px) {
   .card__content .card__information {
-    padding-left: 1rem !important;
+    padding-left: 4px !important;
   }
+}
+
+/* Style-sibling color swatches on product cards */
+.card__swatches {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--card-swatch-gap, 0.6rem);
+  margin-top: var(--card-swatch-space, 6px);
+  /* Above the stretched card link (.card__heading a::after) — without this,
+     hit-testing sends every swatch click to the card's own product. This was
+     latent on the static swatches too; click-to-preview made it visible. */
+  position: relative;
+  z-index: 1;
+}
+
+.card__swatch {
+  display: inline-flex;
+  line-height: 0;
+  text-decoration: none;
+  padding-bottom: 0.3rem;
+  border-bottom: 0.2rem solid transparent;
+}
+
+.card__swatch .swatch {
+  --swatch--size: var(--swatch-card-width, 20px);
+  --swatch--height: var(--swatch-card-height, 12px);
+  /* Card chips default to hard corners; swatch_card_radius > 0 re-rounds them. */
+  --swatch--border-radius: var(--swatch-card-radius, 0);
+}
+
+.card__swatch--current {
+  border-bottom-color: rgb(var(--color-foreground));
+}
+
+.card__swatch-more {
+  align-self: center;
+  /* Same var as the availability strip; distinct fallbacks preserve both stock values when unset. */
+  font-size: var(--card-availability-size, 11px);
+  letter-spacing: 0.07rem;
+  color: rgba(var(--color-foreground), 0.7);
+}
+
+/* Underline-only badges relocated into the card details area */
+.card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem var(--card-badge-gap, var(--card-badge-gap-default, 8px));
+  margin-top: var(--card-badge-space, 8px);
+  text-align: var(--text-alignment);
+}
+
+.badge--card {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  color: rgb(var(--color-foreground));
+  font-size: var(--card-badge-size, 1.1rem);
+  letter-spacing: 0.07rem;
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+/* Sibling-preview state (card-sibling-preview.js): while a swatch previews a
+   different colorway, controls that still describe the ORIGINAL product hide
+   so nothing can act on the wrong product. Two exceptions follow the
+   previewed colorway instead of hiding: the size overlay (the swap installs
+   the sibling's own availability -> card--sibling-availability) and quick add
+   (the swap retargets the modal opener's data-product-url ->
+   card--sibling-quick-add). Each hides only when its swap couldn't happen
+   (no availability payload / no retargetable modal opener). */
+.card--sibling-preview:not(.card--sibling-quick-add) .quick-add,
+.card--sibling-preview .card__badges,
+.card--sibling-preview:not(.card--sibling-availability) .popup-overlay {
+  display: none;
 }

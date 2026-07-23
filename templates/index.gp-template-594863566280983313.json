@@ -11,39 +11,52 @@
   "sections": {
     "gp_section_594863566398554897": {
       "settings": {
-        "checksum": "a6a4342eadce68238182a09257af050a98a1c75acc72a374cddcc925644ff41c_1_1_1_0__1",
+        "checksum": "a6a4342eadce68238182a09257af050a98a1c75acc72a374cddcc925644ff41c_1_1_0_0__1",
         "gg-Y6akhjPy_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-WINTER\">BABY WINTER COLLECTION</a></p>",
         "ggDirZYnUhA_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-fall\">ADULT COLLECTION</a></p>",
-        "gglv94RH8qJ_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-sale\">SALE — Up to 50% Off, Including Fall Collections</a></p>"
+        "ggkByHG1lk2_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_11.28_Baby_3.jpg",
+        "gglv94RH8qJ_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-sale\">SALE — Up to 50% Off, Including Fall Collections</a></p>",
+        "ggp6YPz2VgE_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_11.28_Adult_1.jpg",
+        "ggskSaomHYe_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_11.28_BF.jpg",
+        "ggskSaomHYe_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_11.28_BF.jpg"
       },
       "type": "gp-section-594863566398554897"
     },
     "gp_section_594863566398620433": {
       "settings": {
-        "checksum": "578b0f2c9889f4a84760e00118c371e7ca2404c9d340a459557f953edb95ae9a_1_1_1_0__1",
+        "checksum": "578b0f2c9889f4a84760e00118c371e7ca2404c9d340a459557f953edb95ae9a_1_1_0_0__1",
         "ggS8exw2JLC_label": "<p><span style=\"font-size:12px;\">THE WINTER COLLECTION</span></p>",
+        "ggvnOngY2mj_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_Site_11.28_Child_2.jpg",
+        "ggvnOngY2mj_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_11.28_Child_2.jpg",
         "section_preload": "true"
       },
       "type": "gp-section-594863566398620433"
     },
     "gp_section_594863566398685969": {
       "settings": {
-        "checksum": "61f0afcab0975aac9add03e2eb4930dd25b794344d714f65a702cf4499f10cf4_1_1_1_0__1",
+        "checksum": "61f0afcab0975aac9add03e2eb4930dd25b794344d714f65a702cf4499f10cf4_1_1_0_0__1",
+        "gg_Oh1S4ZBO_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/2005/9307/files/image_demo.jpg",
+        "gg_Oh1S4ZBO_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_11.28_GiftGuide.jpg",
         "ggmKjQ6fm2Y_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/winter-25-gift-guide\">GIFT GUIDE</a></p>"
       },
       "type": "gp-section-594863566398685969"
     },
     "gp_section_594868477139878834": {
       "settings": {
-        "checksum": "da03a7172a9fb860dd7488e71fb2d6e1e06f5d084c94c6e8082906433a2b6d7f_1_1_1_0__1",
-        "ggS9MfaIZux_label": "<p><span style=\"font-size:12px;\">THE GIFT GUIDE</span></p>"
+        "checksum": "da03a7172a9fb860dd7488e71fb2d6e1e06f5d084c94c6e8082906433a2b6d7f_1_1_0_0__1",
+        "ggS9MfaIZux_label": "<p><span style=\"font-size:12px;\">THE GIFT GUIDE</span></p>",
+        "ggsGyHxYP8I_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_Site_11.28_GiftGuide.jpg",
+        "ggsGyHxYP8I_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_11.28_GiftGuide.jpg"
       },
       "type": "gp-section-594868477139878834"
     },
     "gp_section_594869636965597794": {
       "settings": {
-        "checksum": "9e6b46aba1ba0cc4807899764fd8fda9083a461511f563b021aaf95bc2022374_1_1_1_0__1",
+        "checksum": "9e6b46aba1ba0cc4807899764fd8fda9083a461511f563b021aaf95bc2022374_1_1_0_0__1",
         "gg2NAAt5DbD_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\">JOURNAL</a></p>",
+        "gg9WuMBDLCX_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_11.28_Accs_2.jpg",
+        "gg9WuMBDLCX_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_11.28_Accs_2.jpg",
+        "gg9bhgJS-gs_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_11.28_Journal.jpg",
         "ggRzArRZUz6_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-accessories\">ACCESSORIES</a></p>"
       },
       "type": "gp-section-594869636965597794"

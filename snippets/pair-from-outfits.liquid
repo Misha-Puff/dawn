@@ -1,0 +1,201 @@
+{% comment %}
+  Renders the "Pair It With" product-info block. Products come from the
+  product_page.pair_it_with metafield (manual list, shown in metafield order)
+  when set; otherwise from every Shop-the-Look outfit this product belongs to
+  (product_page.shop_the_look_outfits). Either source is current-product
+  excluded, deduped, Locksmith-guarded, capped at the block's maximum — as a
+  stacked row list (image left; title, price, and optional quick add stacked
+  right). Renders nothing when no products resolve (design-mode hint only).
+
+  The two sources are deliberately kept as separate loop branches: metaobject
+  field reference lists (outfit.products.value) only materialize through
+  {% for %} iteration — array filters (concat, map) on them silently yield
+  empty at serve time. Do not re-unify into one flattened array.
+
+  The per-product quick-add modals are emitted after the row list with the
+  same guards as the row loops, so openers and modals stay 1:1.
+
+  Accepts:
+  - block: {Object} the pair_from_outfits block
+  - product: {Object} current product
+  - section: {Object} the main product section
+
+  Usage:
+  {% render 'pair-from-outfits', block: block, product: product, section: section %}
+{% endcomment %}
+{%- liquid
+  assign manual_pairs = product.metafields.product_page.pair_it_with.value
+  assign use_manual = false
+  if manual_pairs != blank
+    assign use_manual = true
+  else
+    assign outfits = product.metafields.product_page.shop_the_look_outfits.value
+  endif
+  assign pair_max = block.settings.max_products
+  assign pair_img_w = block.settings.image_width | default: 100
+  assign pair_img_w2 = pair_img_w | times: 2
+  assign pair_img_w3 = pair_img_w | times: 3
+  assign seen_ids = ','
+  assign pair_shown = 0
+-%}
+{%- capture pair_items -%}
+  {%- if use_manual -%}
+    {%- for pair_product in manual_pairs -%}
+      {%- if pair_shown >= pair_max -%}
+        {%- break -%}
+      {%- endif -%}
+      {%- if pair_product.id == product.id -%}
+        {%- continue -%}
+      {%- endif -%}
+      {%- comment -%} Comma-delimited id keys so id 123 never substring-matches id 1234. {%- endcomment -%}
+      {%- assign pair_id_key = ',' | append: pair_product.id | append: ',' -%}
+      {%- if seen_ids contains pair_id_key -%}
+        {%- continue -%}
+      {%- endif -%}
+      {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: pair_product -%}{%- endcapture -%}
+      {%- assign lock_content = lock_content | strip -%}
+      {%- if lock_content == 'true' -%}
+        {%- continue -%}
+      {%- endif -%}
+      {%- assign seen_ids = seen_ids | append: pair_product.id | append: ',' -%}
+      {%- assign pair_shown = pair_shown | plus: 1 -%}
+      {%- render 'pair-from-outfits-row', pair_product: pair_product, block: block, section: section, pair_img_w: pair_img_w, pair_img_w2: pair_img_w2, pair_img_w3: pair_img_w3 -%}
+    {%- endfor -%}
+  {%- else -%}
+    {%- for outfit in outfits -%}
+      {%- for pair_product in outfit.products.value -%}
+        {%- if pair_shown >= pair_max -%}
+          {%- break -%}
+        {%- endif -%}
+        {%- if pair_product.id == product.id -%}
+          {%- continue -%}
+        {%- endif -%}
+        {%- comment -%} Comma-delimited id keys so id 123 never substring-matches id 1234. {%- endcomment -%}
+        {%- assign pair_id_key = ',' | append: pair_product.id | append: ',' -%}
+        {%- if seen_ids contains pair_id_key -%}
+          {%- continue -%}
+        {%- endif -%}
+        {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: pair_product -%}{%- endcapture -%}
+        {%- assign lock_content = lock_content | strip -%}
+        {%- if lock_content == 'true' -%}
+          {%- continue -%}
+        {%- endif -%}
+        {%- assign seen_ids = seen_ids | append: pair_product.id | append: ',' -%}
+        {%- assign pair_shown = pair_shown | plus: 1 -%}
+        {%- render 'pair-from-outfits-row', pair_product: pair_product, block: block, section: section, pair_img_w: pair_img_w, pair_img_w2: pair_img_w2, pair_img_w3: pair_img_w3 -%}
+      {%- endfor -%}
+      {%- if pair_shown >= pair_max -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endcapture -%}
+{%- if pair_shown > 0 -%}
+  {{ 'component-price.css' | asset_url | stylesheet_tag }}
+  {{ 'component-pair-outfits.css' | asset_url | stylesheet_tag }}
+  {%- if block.settings.enable_quick_add -%}
+    {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+  {%- if pair_img_w != 100 -%}
+    {% style %}
+      .pair-outfits.Block-{{ block.id }} {
+        --pair-image-width: {{ pair_img_w }}px;
+      }
+    {% endstyle %}
+  {%- endif -%}
+  {%- if block.settings.pair_heading_gap > 0 -%}
+    {% style %}
+      .pair-outfits.Block-{{ block.id }} {
+        --pair-heading-gap: {{ block.settings.pair_heading_gap }}px;
+      }
+    {% endstyle %}
+  {%- endif -%}
+  {%- if block.settings.pair_gap_enable -%}
+    {% style %}
+      .pair-outfits.Block-{{ block.id }} {
+        --pair-row-gap: {{ block.settings.pair_gap_mobile }}px;
+      }
+
+      @media screen and (min-width: 990px) {
+        .pair-outfits.Block-{{ block.id }} {
+          --pair-row-gap: {{ block.settings.pair_gap_desktop }}px;
+        }
+      }
+    {% endstyle %}
+  {%- endif -%}
+  <aside
+    class="pair-outfits Block-{{ block.id }}"
+    aria-label="{{ block.settings.block_heading | escape }}"
+    {{ block.shopify_attributes }}
+  >
+    <h2 class="h3 pair-outfits__heading">{{ block.settings.block_heading }}</h2>
+    <ul class="pair-outfits__list" role="list">
+      {{ pair_items }}
+    </ul>
+    {%- if block.settings.enable_quick_add -%}
+      {%- comment -%} Same guards as the row loops so openers and modals stay 1:1. {%- endcomment -%}
+      {%- liquid
+        assign modal_seen_ids = ','
+        assign modal_shown = 0
+      -%}
+      {%- if use_manual -%}
+        {%- for pair_product in manual_pairs -%}
+          {%- if modal_shown >= pair_max -%}
+            {%- break -%}
+          {%- endif -%}
+          {%- if pair_product.id == product.id -%}
+            {%- continue -%}
+          {%- endif -%}
+          {%- assign pair_id_key = ',' | append: pair_product.id | append: ',' -%}
+          {%- if modal_seen_ids contains pair_id_key -%}
+            {%- continue -%}
+          {%- endif -%}
+          {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: pair_product -%}{%- endcapture -%}
+          {%- assign lock_content = lock_content | strip -%}
+          {%- if lock_content == 'true' -%}
+            {%- continue -%}
+          {%- endif -%}
+          {%- assign modal_seen_ids = modal_seen_ids | append: pair_product.id | append: ',' -%}
+          {%- assign modal_shown = modal_shown | plus: 1 -%}
+          {%- render 'pair-from-outfits-modal', pair_product: pair_product, block: block -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- for outfit in outfits -%}
+          {%- for pair_product in outfit.products.value -%}
+            {%- if modal_shown >= pair_max -%}
+              {%- break -%}
+            {%- endif -%}
+            {%- if pair_product.id == product.id -%}
+              {%- continue -%}
+            {%- endif -%}
+            {%- assign pair_id_key = ',' | append: pair_product.id | append: ',' -%}
+            {%- if modal_seen_ids contains pair_id_key -%}
+              {%- continue -%}
+            {%- endif -%}
+            {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: pair_product -%}{%- endcapture -%}
+            {%- assign lock_content = lock_content | strip -%}
+            {%- if lock_content == 'true' -%}
+              {%- continue -%}
+            {%- endif -%}
+            {%- assign modal_seen_ids = modal_seen_ids | append: pair_product.id | append: ',' -%}
+            {%- assign modal_shown = modal_shown | plus: 1 -%}
+            {%- render 'pair-from-outfits-modal', pair_product: pair_product, block: block -%}
+          {%- endfor -%}
+          {%- if modal_shown >= pair_max -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+    {%- endif -%}
+  </aside>
+{%- elsif request.design_mode -%}
+  <div class="pair-outfits Block-{{ block.id }}" {{ block.shopify_attributes }}>
+    <p class="caption">
+      Pair It With: no products to show — set product_page.pair_it_with on this product, or add it to a
+      Shop-the-Look outfit (product_page.shop_the_look_outfits). Candidates that are the current product,
+      duplicates, or locked are skipped.
+    </p>
+  </div>
+{%- endif -%}

@@ -23,7 +23,30 @@
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
-        "color_scheme": "scheme-1"
+        "color_scheme": "scheme-1",
+        "tt_enable_type": false,
+        "tt_font": "assistant_n4",
+        "tt_custom_font": "default",
+        "tt_font_weight": "default",
+        "tt_font_size": 0,
+        "tt_font_size_mobile": 0,
+        "tt_text_case": "default",
+        "tt_letter_spacing": 0,
+        "tt_color": "",
+        "td_enable_type": false,
+        "td_font": "assistant_n4",
+        "td_custom_font": "default",
+        "td_font_weight": "default",
+        "td_font_size": 0,
+        "td_font_size_mobile": 0,
+        "td_text_case": "default",
+        "td_letter_spacing": 0,
+        "td_color": "",
+        "pad_enable": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
       }
     },
     "rich_text_yLT7QX": {
@@ -32,15 +55,35 @@
         "heading_4bAnVw": {
           "type": "heading",
           "settings": {
-            "heading": "Summer Collection",
-            "heading_size": "h2"
+            "heading": "THE FALL COLLECTION — PART 1",
+            "heading_size": "h2",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 0,
+            "tg_text_case": "uppercase",
+            "tg_letter_spacing": 0,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "text_bdVDk3": {
           "type": "text",
           "settings": {
-            "text": "<p>This collection was photographed at The Gallery Inn in Puerto Rico, a singular place layered with art, history, music, and the spirit of the sea. In its weathered walls, winding terraces, and stunning courtyards, we found a setting that reflects something familiar: the shared character of coastlines everywhere — sun-washed colors, patina, and the enduring ease of summer by the water.</p><p>This season turns toward the New England coast — a reflection on the place we call home, shaped by salt air, shoreline colors, and a long tradition of coastal summers.</p><p>The final arrivals of the Summer Collection launch June 11 at 10 AM ET, online and at our <a href=\"https://ctrk.klclick.com/l/01KJD7J4C1BWNYE7J5G1C4KTBF_9\" target=\"_blank\">Brooklyn store</a>.</p>",
-            "line_height": 24
+            "text": "<p>This season is a reflection on care, routine, and time as lived experience — a love letter to Japan and the enduring beauty of its craft traditions. Inspired by travel, Ivy of the 1960s, vintage Americana, workwear, and schoolyard dressing, every piece is designed to live together, celebrating dressing with intention and finding beauty in the everyday.</p>",
+            "line_height": 24,
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "text_FWX7U7": {
@@ -48,7 +91,17 @@
           "disabled": true,
           "settings": {
             "text": "<p>This collection is a jewel box of technique, featuring new knits, wovens, denim, and Pima. Rich in color and intricate craftsmanship, designed to create mix-and-match looks in diverse fabrications — for comfort, versatility, and dimension. Styles that feel both familiar and unexpected.</p><p>Part 2 of the Spring Collection launches Thursday, March 13 at 11 AM ET — explore, favorite, and plan your looks now.</p>",
-            "line_height": 22
+            "line_height": 22,
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0
           }
         },
         "button_CEpfd9": {
@@ -73,16 +126,20 @@
         "text_FWX7U7",
         "button_CEpfd9"
       ],
-      "disabled": true,
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
+        "desktop_content_position": "left",
+        "content_alignment": "left",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 60,
-        "padding_bottom": 32,
+        "padding_top": 48,
+        "padding_bottom": 28,
         "padding_left": 0,
-        "padding_right": 0
+        "padding_right": 72,
+        "enable_mobile_padding": true,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_left_mobile": 14,
+        "padding_right_mobile": 14
       }
     },
     "buttons_eEATqX": {
@@ -93,49 +150,36 @@
           "settings": {
             "label": "VIEW LOOKBOOK",
             "open_new_tab": true,
-            "link": "https://shop.misha-and-puff.com/blogs/journal/child-summer-26",
+            "link": "https://shop.misha-and-puff.com/blogs/journal/child-fall-26",
+            "display_style": "link",
             "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_MdW9Jh": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "label": "VIEW ONLY EXCLUSIVES",
-            "open_new_tab": true,
-            "link": "",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_i7JnE7": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
+            "on_click": "",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "overpass_mono",
+            "tg_font_weight": "600",
+            "tg_font_size": 12,
+            "tg_font_size_mobile": 0,
+            "tg_text_case": "uppercase",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1a1a1a"
           }
         }
       },
       "block_order": [
-        "button_dy8XDD",
-        "button_MdW9Jh",
-        "button_i7JnE7"
+        "button_dy8XDD"
       ],
-      "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 15,
-        "heading_size": "h1",
+        "button_gap": 12,
+        "button_alignment": "left",
+        "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,
-        "desktop_padding_bottom": 48,
+        "desktop_padding_bottom": 28,
         "mobile_padding_top": 0,
-        "mobile_padding_bottom": 38
+        "mobile_padding_bottom": 24
       }
     },
     "divider_nmzegr": {
@@ -168,7 +212,17 @@
           "type": "heading",
           "settings": {
             "heading": "Misha & Puff Exclusives",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": "",
+            "tg_font_size_mobile": 0
           }
         },
         "text_8xRXGV": {
@@ -176,7 +230,17 @@
           "disabled": true,
           "settings": {
             "text": "<p>These styles are only available on misha-and-puff.com.</p>",
-            "line_height": 22
+            "line_height": 22,
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": "",
+            "tg_font_size_mobile": 0
           }
         },
         "button_BL3a9c": {
@@ -209,7 +273,12 @@
         "padding_top": 40,
         "padding_bottom": 28,
         "padding_left": 0,
-        "padding_right": 0
+        "padding_right": 0,
+        "enable_mobile_padding": false,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0
       }
     },
     "featured_collection_aKRY9c": {
@@ -244,7 +313,52 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "show_size_overlay": true,
+        "size_overlay_bg_color": "#ffffff",
+        "size_overlay_opacity": 60,
+        "size_overlay_position": "bottom",
+        "size_overlay_padding_top": 6,
+        "size_overlay_padding_bottom": 6,
+        "enable_swatches": true,
+        "swatch_card_width": 20,
+        "swatch_card_height": 12,
+        "swatch_card_radius": 0,
+        "card_spacing_enable": true,
+        "card_info_padding_top": 8,
+        "card_title_price_gap": 2,
+        "card_color_space_top": 2,
+        "card_color_space_bottom": 0,
+        "card_swatch_space": 6,
+        "card_swatch_gap": 6,
+        "card_badge_space": 8,
+        "card_badge_gap": 10,
+        "card_spacing_enable_mobile": true,
+        "card_info_padding_top_mobile": 8,
+        "card_title_price_gap_mobile": 2,
+        "card_color_space_top_mobile": 2,
+        "card_color_space_bottom_mobile": 0,
+        "card_swatch_space_mobile": 6,
+        "card_swatch_gap_mobile": 6,
+        "card_badge_space_mobile": 8,
+        "card_badge_gap_mobile": 8,
+        "card_title_size": 11,
+        "card_title_weight": "default",
+        "card_title_case": "uppercase",
+        "card_title_letter_spacing": 0.2,
+        "card_color_size": 11,
+        "card_color_case": "default",
+        "card_price_size": 11,
+        "card_price_weight": "default",
+        "card_price_letter_spacing": 0.2,
+        "card_price_color": "#1a1a1a",
+        "card_sale_price_gap": 0,
+        "card_badge_size": 0,
+        "card_badge_weight": "default",
+        "card_badge_letter_spacing": 0.2,
+        "card_availability_size": 11,
+        "card_availability_weight": "default",
         "quick_add": "standard",
+        "quick_add_mobile_only": true,
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "section_full_width": false,
@@ -255,7 +369,11 @@
         "mobile_padding_top": 40,
         "mobile_padding_bottom": 36,
         "mobile_padding_left": 0,
-        "mobile_padding_right": 0
+        "mobile_padding_right": 0,
+        "heart_custom": false,
+        "heart_size": 13,
+        "heart_top": 8,
+        "heart_right": 8
       }
     },
     "divider_zahYiY": {
@@ -279,7 +397,17 @@
           "type": "heading",
           "settings": {
             "heading": "Summer Collection — Part 1",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": "",
+            "tg_font_size_mobile": 0
           }
         },
         "text_Eb3mJJ": {
@@ -287,7 +415,17 @@
           "disabled": true,
           "settings": {
             "text": "",
-            "line_height": 24
+            "line_height": 24,
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": "",
+            "tg_font_size_mobile": 0
           }
         },
         "button_pF6FVm": {
@@ -320,7 +458,12 @@
         "padding_top": 24,
         "padding_bottom": 24,
         "padding_left": 0,
-        "padding_right": 0
+        "padding_right": 0,
+        "enable_mobile_padding": false,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0
       }
     },
     "rich_text_n8yiAy": {
@@ -330,14 +473,34 @@
           "type": "heading",
           "settings": {
             "heading": "The Spring Collection",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": "",
+            "tg_font_size_mobile": 0
           }
         },
         "text_aDVaDa": {
           "type": "text",
           "settings": {
             "text": "<p>The Winter Collection — a showcase of rich textures and colors, rooted in holiday nostalgia. Cozy Merino knits, lush velvet and corduroy, inspired jacquards, and classic silhouettes with refined hand-worked details. Heirloom pieces for every cherished occasion.</p><p>Part 2 of the Winter Collection launches <a href=\"https://calendar.google.com/event?action=TEMPLATE&tmeid=OWQ5aXMza2k1NWdvOHYyY29vY2xqbmFxM28gY18wNjMycDQ1cDgyNzk2OXI2YWE0MmJ0ZWFza0Bn&tmsrc=c_0632p45p827969r6aa42bteask%40group.calendar.google.com\" target=\"_blank\" title=\"https://calendar.google.com/event?action=TEMPLATE&tmeid=OWQ5aXMza2k1NWdvOHYyY29vY2xqbmFxM28gY18wNjMycDQ1cDgyNzk2OXI2YWE0MmJ0ZWFza0Bn&tmsrc=c_0632p45p827969r6aa42bteask%40group.calendar.google.com\">Thursday, November 21 at 11 am ET</a>.<br/><br/></p><p><a href=\"https://shop.misha-and-puff.com/blogs/journal/child-winter-24\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/blogs/journal/child-winter-24\">VIEW THE LOOKBOOK</a><br/><br/></p>",
-            "line_height": 20
+            "line_height": 20,
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": "",
+            "tg_font_size_mobile": 0
           }
         },
         "button_J6VEqX": {
@@ -370,11 +533,352 @@
         "padding_top": 52,
         "padding_bottom": 28,
         "padding_left": 100,
-        "padding_right": 100
+        "padding_right": 100,
+        "enable_mobile_padding": false,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0
       }
     },
     "collection_preview_grid_8r8NYk": {
       "type": "collection-preview-grid",
+      "blocks": {
+        "campaign_hero_fa26": {
+          "type": "campaign_hero",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1",
+            "text": "",
+            "button_label": "",
+            "button_link": "",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/8d6bf164a9154af0a1fc09dc2b2f91bf.mov",
+            "full_screen": true,
+            "overlay_eyebrow": "THE WORLD OF",
+            "overlay_image": "shopify://shop_images/campaign-fa26-child-fall-wordmark.png",
+            "pad_top": "",
+            "pad_bottom": "",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": ""
+          }
+        },
+        "campaign_b02_fa26": {
+          "type": "campaign_lifestyle",
+          "settings": {
+            "image": "shopify://shop_images/campaign-fa26-child-fall-b02.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
+            "width_pct": "44.4",
+            "width_pct_mobile": "74.4",
+            "pad_top": "150",
+            "pad_bottom": "150",
+            "pad_top_mobile": "80",
+            "pad_bottom_mobile": "80"
+          }
+        },
+        "campaign_b03_fa26": {
+          "type": "campaign_collage",
+          "settings": {
+            "layout": "text_first",
+            "image_1": "shopify://shop_images/campaign-fa26-child-fall-b03-1.jpg",
+            "image_2": "shopify://shop_images/campaign-fa26-child-fall-b03-2.jpg",
+            "eyebrow": "THE FALL COLLECTION — PART 1",
+            "heading": "Care, routine, and time\nas a lived experience",
+            "col1_pct": "36.7",
+            "col2_pct": "51.5",
+            "col1_pct_mobile": "37.9",
+            "col2_pct_mobile": "56.9",
+            "col1_offset": "32",
+            "col2_offset": "0",
+            "col1_offset_mobile": "48",
+            "col2_offset_mobile": "0",
+            "col1_gap": "175",
+            "col1_ratio": "3 / 4",
+            "col2_ratio": "",
+            "valign": "top",
+            "first_flush": false,
+            "second_flush": true,
+            "pad_top": "50",
+            "pad_bottom": "200",
+            "pad_top_mobile": "0",
+            "pad_bottom_mobile": "90"
+          }
+        },
+        "campaign_b04_fa26": {
+          "type": "campaign_lifestyle",
+          "settings": {
+            "image": "shopify://shop_images/campaign-fa26-child-fall-b04.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
+            "width_pct": "51.4",
+            "width_pct_mobile": "89.7",
+            "pad_top": "",
+            "pad_bottom": "200",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": "80"
+          }
+        },
+        "campaign_b05_fa26": {
+          "type": "campaign_lifestyle",
+          "settings": {
+            "image": "shopify://shop_images/some_400_c_41_34762_138278_308291_003082910008_e_cd95e0b3-2280-4140-b463-eee6c4628a88.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
+            "width_pct": "100",
+            "width_pct_mobile": "100",
+            "pad_top": "",
+            "pad_bottom": "",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": "80"
+          }
+        },
+        "campaign_b06_fa26": {
+          "type": "campaign_products",
+          "settings": {
+            "heading": "",
+            "product_list": [
+              "fa26-child-motley-cardigan-mochi-space-dye",
+              "fa26-child-running-stitch-pinafore-cambridge",
+              "fa26-child-turtleneck-string-antique-rose-holyoke-floral"
+            ],
+            "columns_desktop": 3,
+            "source_collection": "child-new",
+            "products_to_show": 3,
+            "display": "cards",
+            "width_pct": "65.3",
+            "width_pct_mobile": "94.9",
+            "tile_gap": "32",
+            "cta_label": "",
+            "cta_link": "",
+            "pad_top": "200",
+            "pad_bottom": "224",
+            "pad_top_mobile": "20",
+            "pad_bottom_mobile": "110"
+          }
+        },
+        "campaign_b07_fa26": {
+          "type": "campaign_collage",
+          "settings": {
+            "layout": "images",
+            "image_1": "shopify://shop_images/campaign-fa26-child-fall-b07-1.jpg",
+            "image_2": "shopify://shop_images/campaign-fa26-child-fall-b07-2.jpg",
+            "eyebrow": "",
+            "heading": "",
+            "col1_pct": "49.7",
+            "col2_pct": "35.6",
+            "col1_pct_mobile": "53.8",
+            "col2_pct_mobile": "38.5",
+            "col1_offset": "",
+            "col2_offset": "188",
+            "col1_offset_mobile": "",
+            "col2_offset_mobile": "55",
+            "col1_gap": "",
+            "col1_ratio": "3 / 4",
+            "col2_ratio": "",
+            "valign": "top",
+            "first_flush": false,
+            "second_flush": false,
+            "pad_top": "",
+            "pad_bottom": "",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": ""
+          }
+        },
+        "campaign_b08_fa26": {
+          "type": "campaign_lifestyle",
+          "settings": {
+            "image": "shopify://shop_images/campaign-fa26-child-fall-b08.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
+            "width_pct": "65.3",
+            "width_pct_mobile": "74.4",
+            "pad_top": "200",
+            "pad_bottom": "200",
+            "pad_top_mobile": "80",
+            "pad_bottom_mobile": "80"
+          }
+        },
+        "campaign_b09_fa26": {
+          "type": "campaign_lifestyle",
+          "settings": {
+            "heading": "",
+            "product_list": [],
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/5dff5fa6afc342e0a6559fd799db164e.mov",
+            "width_pct": "93.1",
+            "width_pct_mobile": "94.9",
+            "pad_top": "",
+            "pad_bottom": "",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": ""
+          }
+        },
+        "campaign_b10_fa26": {
+          "type": "campaign_collage",
+          "settings": {
+            "layout": "image_text",
+            "image_1": "shopify://shop_images/campaign-fa26-child-fall-b10.jpg",
+            "eyebrow": "",
+            "heading": "finding joy in the clothes we choose to return to,\nday after day",
+            "col1_pct": "40.8",
+            "col2_pct": "36.2",
+            "col1_pct_mobile": "45.9",
+            "col2_pct_mobile": "33.6",
+            "col1_offset": "",
+            "col2_offset": "",
+            "col1_offset_mobile": "",
+            "col2_offset_mobile": "",
+            "col1_gap": "",
+            "col1_ratio": "",
+            "col2_ratio": "",
+            "valign": "top",
+            "first_flush": true,
+            "second_flush": false,
+            "pad_top": "200",
+            "pad_bottom": "200",
+            "pad_top_mobile": "100",
+            "pad_bottom_mobile": "140"
+          }
+        },
+        "campaign_b11_fa26": {
+          "type": "campaign_lifestyle",
+          "settings": {
+            "image": "shopify://shop_images/campaign-fa26-child-fall-b11.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
+            "width_pct": "100",
+            "width_pct_mobile": "100",
+            "pad_top": "",
+            "pad_bottom": "",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": ""
+          }
+        },
+        "campaign_b12_fa26": {
+          "type": "campaign_collage",
+          "settings": {
+            "layout": "images",
+            "image_1": "shopify://shop_images/campaign-fa26-child-fall-b12-1.jpg",
+            "image_2": "shopify://shop_images/campaign-fa26-child-fall-b12-2.jpg",
+            "eyebrow": "",
+            "heading": "",
+            "col1_pct": "37",
+            "col2_pct": "51.8",
+            "col1_pct_mobile": "47.4",
+            "col2_pct_mobile": "47.4",
+            "col1_offset": "",
+            "col2_offset": "200",
+            "col1_offset_mobile": "",
+            "col2_offset_mobile": "80",
+            "col1_gap": "",
+            "col1_ratio": "3 / 4",
+            "col2_ratio": "",
+            "valign": "bottom",
+            "first_flush": false,
+            "second_flush": true,
+            "pad_top": "",
+            "pad_bottom": "200",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": "80"
+          }
+        },
+        "campaign_b13_fa26": {
+          "type": "campaign_lifestyle",
+          "settings": {
+            "image": "shopify://shop_images/campaign-fa26-child-fall-b13.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
+            "width_pct": "72.2",
+            "width_pct_mobile": "94.9",
+            "pad_top": "",
+            "pad_bottom": "200",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": "80"
+          }
+        },
+        "campaign_b14_fa26": {
+          "type": "campaign_lifestyle",
+          "settings": {
+            "image": "shopify://shop_images/campaign-fa26-child-fall-b14.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
+            "width_pct": "51.4",
+            "width_pct_mobile": "74.4",
+            "pad_top": "",
+            "pad_bottom": "200",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": "100"
+          }
+        },
+        "campaign_b15_fa26": {
+          "type": "campaign_lifestyle",
+          "settings": {
+            "image": "shopify://shop_images/campaign-fa26-child-fall-b15.jpg",
+            "heading": "",
+            "product_list": [],
+            "video_url": "",
+            "width_pct": "93.1",
+            "width_pct_mobile": "100",
+            "pad_top": "",
+            "pad_bottom": "200",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": "80"
+          }
+        },
+        "campaign_b16_fa26": {
+          "type": "campaign_products",
+          "settings": {
+            "heading": "",
+            "product_list": [
+              "fa26-child-canvas-zip-jacket-string-afterschool-stripe",
+              "fa26-child-harvest-ringer-tee-shortbread",
+              "fa26-child-judy-skirt-sabi",
+              "fa26-child-a-pant-rose-gold-kyoto",
+              "fa26-child-running-stitch-top-onsen",
+              "fa26-child-rec-tee-nutmeg",
+              "fa26-child-alma-mater-jacket-onsen",
+              "fa26-child-canvas-slim-flared-pant-bough-portico"
+            ],
+            "columns_desktop": 4,
+            "source_collection": "child-fall",
+            "products_to_show": 8,
+            "display": "tiles",
+            "width_pct": "100",
+            "width_pct_mobile": "100",
+            "tile_gap": "6",
+            "cta_label": "SHOP THE COLLECTION",
+            "cta_link": "/collections/child-fall?display=collection",
+            "pad_top": "",
+            "pad_bottom": "",
+            "pad_top_mobile": "",
+            "pad_bottom_mobile": "40"
+          }
+        }
+      },
+      "block_order": [
+        "campaign_hero_fa26",
+        "campaign_b02_fa26",
+        "campaign_b03_fa26",
+        "campaign_b04_fa26",
+        "campaign_b05_fa26",
+        "campaign_b06_fa26",
+        "campaign_b07_fa26",
+        "campaign_b08_fa26",
+        "campaign_b09_fa26",
+        "campaign_b10_fa26",
+        "campaign_b11_fa26",
+        "campaign_b12_fa26",
+        "campaign_b13_fa26",
+        "campaign_b14_fa26",
+        "campaign_b15_fa26",
+        "campaign_b16_fa26"
+      ],
       "name": "Preview product grid",
       "settings": {
         "columns_desktop": 4,
@@ -385,9 +889,74 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "quick_add": "none",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "show_size_overlay": true,
+        "size_overlay_bg_color": "#ffffff",
+        "size_overlay_opacity": 60,
+        "size_overlay_position": "bottom",
+        "size_overlay_padding_top": 6,
+        "size_overlay_padding_bottom": 6,
+        "enable_swatches": false,
+        "swatch_card_width": 20,
+        "swatch_card_height": 12,
+        "swatch_card_radius": 0,
+        "card_spacing_enable": true,
+        "card_info_padding_top": 10,
+        "card_title_price_gap": 2,
+        "card_color_space_top": 0,
+        "card_color_space_bottom": 0,
+        "card_swatch_space": 6,
+        "card_swatch_gap": 6,
+        "card_badge_space": 8,
+        "card_badge_gap": 10,
+        "card_spacing_enable_mobile": true,
+        "card_info_padding_top_mobile": 8,
+        "card_title_price_gap_mobile": 1,
+        "card_color_space_top_mobile": 0,
+        "card_color_space_bottom_mobile": 0,
+        "card_swatch_space_mobile": 6,
+        "card_swatch_gap_mobile": 6,
+        "card_badge_space_mobile": 8,
+        "card_badge_gap_mobile": 8,
+        "card_title_size": 11,
+        "card_title_weight": "default",
+        "card_title_case": "uppercase",
+        "card_title_letter_spacing": 0.2,
+        "card_color_size": 11,
+        "card_color_case": "default",
+        "card_price_size": 11,
+        "card_price_weight": "default",
+        "card_price_letter_spacing": 0.2,
+        "card_price_color": "#1a1a1a",
+        "card_sale_price_gap": 0,
+        "card_badge_size": 0,
+        "card_badge_weight": "default",
+        "card_badge_letter_spacing": 0,
+        "card_availability_size": 11,
+        "card_availability_weight": "default",
+        "quick_add": "standard",
+        "quick_add_mobile_only": true,
+        "padding_top": 0,
+        "padding_bottom": 60,
+        "heart_custom": true,
+        "heart_size": 13,
+        "heart_top": 10,
+        "heart_right": 10,
+        "enable_campaign": true,
+        "view_tabs_alignment": "left",
+        "view_tabs_order": "campaign_first",
+        "link_tab_label": "Lookbook",
+        "link_tab_url": "https://shop.misha-and-puff.com/blogs/journal/child-fall-26",
+        "jump_link_enable": true,
+        "jump_link_label": "View collection",
+        "jump_pill_enable": true,
+        "jump_custom_font": "default",
+        "jump_font_weight": "default",
+        "jump_font_size": 11,
+        "jump_text_case": "default",
+        "jump_letter_spacing": 0,
+        "jump_color": "",
+        "jump_alignment": "center",
+        "campaign_gap": "0"
       }
     },
     "product-grid": {
@@ -403,14 +972,95 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "enable_overlay": false,
-        "enable_swatches": false,
+        "show_size_overlay": true,
+        "size_overlay_bg_color": "#ffffff",
+        "size_overlay_opacity": 60,
+        "size_overlay_position": "bottom",
+        "size_overlay_padding_top": 6,
+        "size_overlay_padding_bottom": 6,
+        "enable_swatches": true,
+        "swatch_card_width": 20,
+        "swatch_card_height": 12,
+        "swatch_card_radius": 0,
+        "card_spacing_enable": true,
+        "card_info_padding_top": 10,
+        "card_title_price_gap": 2,
+        "card_color_space_top": 2,
+        "card_color_space_bottom": 0,
+        "card_swatch_space": 6,
+        "card_swatch_gap": 6,
+        "card_badge_space": 8,
+        "card_badge_gap": 10,
+        "card_spacing_enable_mobile": true,
+        "card_info_padding_top_mobile": 8,
+        "card_title_price_gap_mobile": 2,
+        "card_color_space_top_mobile": 2,
+        "card_color_space_bottom_mobile": 0,
+        "card_swatch_space_mobile": 6,
+        "card_swatch_gap_mobile": 6,
+        "card_badge_space_mobile": 8,
+        "card_badge_gap_mobile": 8,
+        "card_title_size": 11,
+        "card_title_weight": "default",
+        "card_title_case": "uppercase",
+        "card_title_letter_spacing": 0.2,
+        "card_color_size": 11,
+        "card_color_case": "default",
+        "card_price_size": 11,
+        "card_price_weight": "default",
+        "card_price_letter_spacing": 0.2,
+        "card_price_color": "#1a1a1a",
+        "card_sale_price_gap": 0,
+        "card_badge_size": 0,
+        "card_badge_weight": "default",
+        "card_badge_letter_spacing": 0,
+        "card_availability_size": 11,
+        "card_availability_weight": "default",
         "quick_add": "standard",
+        "quick_add_mobile_only": true,
         "enable_filtering": true,
         "filter_type": "drawer",
         "enable_sorting": true,
+        "tabs_enable_type": true,
+        "tabs_font": "assistant_n4",
+        "tabs_custom_font": "overpass_mono",
+        "tabs_font_weight": "600",
+        "tabs_font_size": 11,
+        "tabs_font_size_mobile": 11,
+        "tabs_text_case": "uppercase",
+        "tabs_letter_spacing": 0.2,
+        "tabs_color": "#1a1a1a",
+        "tabs_gap": 40,
+        "tabs_gap_mobile": 0,
+        "tabs_margin_bottom": 10,
+        "tabs_padding_bottom": 1,
+        "tabs_alignment": "left",
+        "tabs_divider_enable": false,
+        "tabs_divider_thickness": 0,
+        "tabs_divider_color": "#1a1a1a",
+        "tabs_underline_thickness": 1,
+        "enable_campaign": true,
+        "view_tabs_alignment": "center",
+        "view_tabs_order": "campaign_first",
+        "link_tab_label": "Link",
+        "link_tab_url": "",
+        "jump_link_enable": false,
+        "jump_link_label": "View collection",
+        "jump_pill_enable": true,
+        "jump_custom_font": "default",
+        "jump_font_weight": "default",
+        "jump_font_size": 0,
+        "jump_text_case": "default",
+        "jump_letter_spacing": 0,
+        "jump_color": "",
+        "jump_alignment": "center",
         "padding_top": 0,
-        "padding_bottom": 36
+        "padding_bottom": 60,
+        "heart_custom": true,
+        "heart_size": 13,
+        "heart_top": 10,
+        "heart_right": 10,
+        "campaign_gap": ""
       }
     },
     "shogun-below": {
@@ -430,8 +1080,18 @@
             "label": "SHOP SALE",
             "open_new_tab": true,
             "link": "shopify://collections/child-sale",
+            "display_style": "button",
             "type": "secondary",
-            "on_click": ""
+            "on_click": "",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_font_size_mobile": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": ""
           }
         },
         "button_QmyM6w": {
@@ -440,8 +1100,18 @@
             "label": "BABY SALE",
             "open_new_tab": true,
             "link": "shopify://collections/baby-sale",
+            "display_style": "button",
             "type": "secondary",
-            "on_click": ""
+            "on_click": "",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_font_size_mobile": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": ""
           }
         },
         "button_t9xDNr": {
@@ -450,8 +1120,18 @@
             "label": "DENIM",
             "open_new_tab": true,
             "link": "shopify://collections/child-denim",
+            "display_style": "button",
             "type": "secondary",
-            "on_click": ""
+            "on_click": "",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_font_size_mobile": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": ""
           }
         },
         "button_G9yhBD": {
@@ -460,8 +1140,18 @@
             "label": "PIMA COTTON STAPLES",
             "open_new_tab": true,
             "link": "shopify://collections/child-cotton-staples",
+            "display_style": "button",
             "type": "secondary",
-            "on_click": ""
+            "on_click": "",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_font_size_mobile": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": ""
           }
         },
         "button_XJpKP6": {
@@ -470,8 +1160,18 @@
             "label": "SWEATERS",
             "open_new_tab": true,
             "link": "shopify://collections/child-sweaters-cardigans-legacy",
+            "display_style": "button",
             "type": "secondary",
-            "on_click": ""
+            "on_click": "",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_font_size_mobile": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": ""
           }
         }
       },
@@ -486,6 +1186,7 @@
       "settings": {
         "title": "More to Explore",
         "button_gap": 10,
+        "button_alignment": "center",
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 20,

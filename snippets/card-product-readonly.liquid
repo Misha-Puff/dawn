@@ -1,6 +1,11 @@
 {% doc %}
-  Renders a read-only product card with no links, IDs, or actionable elements.
+  Renders a read-only product card with no visible links, IDs, or actionable elements.
   Used on preview collections for non-VIP/non-staff customers.
+  The one exception is an inert zero-size anchor carrying the product URL: the Swym
+  collections embed (Dawn config) reads `.card.card--standard a.full-unstyled-link`
+  to resolve the tile's product and inject its wishlist heart natively.
+  Shows the colorway line when the host section's swatch setting is off,
+  following the same swatches ⇄ color line rule as card-product.
 
   @param {product} card_product - The product to render
   @param {string} [media_aspect_ratio] - Image aspect ratio: "square", "portrait", or "adapt" (default)
@@ -9,7 +14,9 @@
   @param {boolean} [lazy_load] - Lazy load images (default: true)
   @param {boolean} [skip_styles] - Skip component styles
   @param {string} [preview_badge] - Optional badge label rendered alongside other badges (e.g. "Coming Soon", "Early Access")
+  @param {boolean} [size_overlay] - Show the size list on hover; informational only, sizes never render as sold out
   @param {boolean} [hide_sold_out_badge] - Suppress the "Sold out" badge (default: false)
+  @param {string} [section_id] - Host section id, used to make badge ids unique
 
   @example
   {% render 'card-product-readonly', card_product: product, media_aspect_ratio: 'adapt' %}
@@ -43,6 +50,13 @@
       "
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
+      <a
+        class="full-unstyled-link"
+        href="{{ card_product.url }}"
+        tabindex="-1"
+        aria-hidden="true"
+        style="position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none;"
+      ></a>
       <div
         class="card__inner {% if settings.card_style == 'standard' %}color-{{ settings.card_color_scheme }} gradient{% endif %}{% if card_product.featured_media or settings.card_style == 'standard' %} ratio{% endif %}"
         style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
@@ -96,6 +110,19 @@
             </div>
           </div>
         {%- endif -%}
+        {%- liquid
+          assign show_size_overlay = false
+          if size_overlay
+            unless card_product.type == 'Yarn Skein' or card_product.type == 'Pattern' or card_product.type == 'Repair' or card_product.has_only_default_variant
+              assign show_size_overlay = true
+            endunless
+          endif
+        -%}
+        {% if show_size_overlay %}
+          <div class="popup-overlay background">
+            {% render 'variant-availability', product: card_product, ignore_availability: true %}
+          </div>
+        {% endif %}
         <div class="card__content">
           <div class="card__information">
             <h3
@@ -106,102 +133,38 @@
               </span>
             </h3>
           </div>
-          <div class="card__badge {{ settings.badge_position }}">
-            {%- liquid
-              assign tags_str = card_product.tags | join: ','
-              assign coming_soon = false
-              if tags_str contains 'Badge-Coming Soon'
-                assign coming_soon = true
-              endif
-            -%}
-            {%- if preview_badge != blank -%}
-              <span class="badge badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}">
-                {{ preview_badge }}
-              </span>
-            {%- endif -%}
-            {% if tags_str contains 'Badge-' %}
-              {% assign custom_tags = '' | split: '😉' %}
-              {% for tag in card_product.tags %}
-                {% if tag contains 'Badge-' %}
-                  {% assign custom_tag = tag | split: 'Badge-' | last | split: '😉' %}
-                  {% assign custom_tags = custom_tags | concat: custom_tag %}
-                {% endif %}
-              {% endfor %}
-              {%- if custom_tags.size > 0 -%}
-                {% for custom_tag in custom_tags %}
-                  <span class="badge badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}">
-                    {{ custom_tag }}
-                  </span>
-                {% endfor %}
-              {% endif %}
-            {% endif %}
-            {% if card_product.available == false and coming_soon == false %}
-              {%- unless hide_sold_out_badge -%}
-                <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">
-                  {{- 'products.product.sold_out' | t -}}
-                </span>
-              {%- endunless -%}
-            {% elsif card_product.compare_at_price > card_product.price %}
-              <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">
-                {{- 'products.product.on_sale' | t -}}
-              </span>
-            {% endif %}
-          </div>
         </div>
       </div>
       <div class="card__content">
         <div class="card__information">
-          <h3
-            class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
-          >
-            <span class="full-unstyled-link">
-              {{ card_product.title | escape }}
-            </span>
-          </h3>
-          <div class="card-information">
+          <div class="card__heading-row">
+            <h3
+              class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
+            >
+              {{- card_product.title | escape -}}
+            </h3>
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
           </div>
-        </div>
-        <div class="card__badge {{ settings.badge_position }}">
           {%- liquid
-            assign tags_str = card_product.tags | join: ','
-            assign coming_soon = false
-            if tags_str contains 'Badge-Coming Soon'
-              assign coming_soon = true
+            # Same rule as card-product: the colorway line shows only when the host
+            # section's swatch setting is off. Readonly cards never render swatches,
+            # but keying off the SETTING keeps shoppable and readonly cards
+            # consistent within one mixed grid.
+            assign show_color_line = false
+            if card_product.options[0] == 'Color' and section.settings.enable_swatches != true
+              assign show_color_line = true
             endif
           -%}
-          {%- if preview_badge != blank -%}
-            <span class="badge badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}">
-              {{ preview_badge }}
-            </span>
+          {%- if show_color_line -%}
+            <p class="card__color-line">{{ card_product.selected_or_first_available_variant.options[0] | escape }}</p>
           {%- endif -%}
-          {% if tags_str contains 'Badge-' %}
-            {% assign custom_tags = '' | split: '😉' %}
-            {% for tag in card_product.tags %}
-              {% if tag contains 'Badge-' %}
-                {% assign custom_tag = tag | split: 'Badge-' | last | split: '😉' %}
-                {% assign custom_tags = custom_tags | concat: custom_tag %}
-              {% endif %}
-            {% endfor %}
-            {%- if custom_tags.size > 0 -%}
-              {% for custom_tag in custom_tags %}
-                <span class="badge badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}">
-                  {{ custom_tag }}
-                </span>
-              {% endfor %}
-            {% endif %}
-          {% endif %}
-          {% if card_product.available == false and coming_soon == false %}
-            {%- unless hide_sold_out_badge -%}
-              <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">
-                {{- 'products.product.sold_out' | t -}}
-              </span>
-            {%- endunless -%}
-          {% elsif card_product.compare_at_price > card_product.price %}
-            <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">
-              {{- 'products.product.on_sale' | t -}}
-            </span>
-          {% endif %}
+          {% render 'card-product-badges',
+            card_product: card_product,
+            preview_badge: preview_badge,
+            hide_sold_out_badge: hide_sold_out_badge,
+            section_id: section_id,
+            card: true
+          %}
         </div>
       </div>
     </div>

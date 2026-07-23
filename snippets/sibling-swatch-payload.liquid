@@ -1,0 +1,31 @@
+{% comment %}
+  Emits the <template> swap payloads for one card swatch link: the sibling's
+  server-rendered price block (market/currency-correct because it renders in
+  the page's own context) and, when the sibling qualifies for the size
+  overlay, its variant-availability block so the hover overlay can show the
+  previewed colorway's sizes. Consumed by assets/card-sibling-preview.js,
+  which clones them over the card's price/overlay content on preview.
+  Rendered inside the <a> (template is metadata content — valid anywhere,
+  never displayed). The availability gate mirrors card-product's
+  show_size_overlay exclusions.
+
+  Accepts:
+  - payload_product: {Object} the product this swatch previews (required)
+
+  Usage:
+  {% render 'sibling-swatch-payload', payload_product: sibling %}
+{% endcomment %}
+{%- if payload_product.featured_media -%}
+  <template class="card__swatch-payload">
+    {%- render 'price', product: payload_product, price_class: '', show_compare_at_price: true -%}
+  </template>
+  {%- unless payload_product.type == 'Yarn Skein'
+    or payload_product.type == 'Pattern'
+    or payload_product.type == 'Repair'
+    or payload_product.has_only_default_variant
+  -%}
+    <template class="card__swatch-availability">
+      {%- render 'variant-availability', product: payload_product -%}
+    </template>
+  {%- endunless -%}
+{%- endif -%}

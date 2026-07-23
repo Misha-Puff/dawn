@@ -14,6 +14,26 @@
   {{ 'component-slider.css' | asset_url | stylesheet_tag }}
   {{ 'template-collection.css' | asset_url | stylesheet_tag }}
 
+  {% if section.settings.image_shape == 'blob' %}
+    {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+  {%- endif -%}
+
+  {%- unless section.settings.quick_add == 'none' -%}
+    {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  {%- endunless -%}
+
+  {%- if section.settings.quick_add == 'standard' -%}
+    <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+
+  {%- if section.settings.quick_add == 'bulk' -%}
+    <script src="{{ 'quick-add-bulk.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+
   {%- style -%}
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -34,6 +54,8 @@
     .collection__title .title {
       font-size: 15px;
     }
+
+    {% render 'card-settings-styles' %}
   {%- endstyle -%}
 
   {%- liquid
@@ -72,7 +94,7 @@
         {%- endif -%}
       </div>
 
-      <slider-component class="slider-mobile-gutter{% if section.settings.full_width %} slider-component-full-width{% endif %}{% if show_mobile_slider == false %} page-width{% endif %}{% if show_desktop_slider == false and section.settings.full_width == false %} page-width-desktop{% endif %}{% if show_desktop_slider %} slider-component-desktop{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <slider-component class="slider-mobile-gutter card-redesign{% if section.settings.full_width %} slider-component-full-width{% endif %}{% if show_mobile_slider == false %} page-width{% endif %}{% if show_desktop_slider == false and section.settings.full_width == false %} page-width-desktop{% endif %}{% if show_desktop_slider %} slider-component-desktop{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <ul
           id="Slider-{{ section.id }}"
           data-id="{{ section.id }}"
@@ -93,13 +115,16 @@
               {% render 'card-product',
                 card_product: product,
                 media_aspect_ratio: section.settings.image_ratio,
-                image_shape: 'default',
+                image_shape: section.settings.image_shape,
                 show_secondary_image: section.settings.show_secondary_image,
                 show_vendor: section.settings.show_vendor,
                 show_rating: section.settings.show_rating,
                 skip_styles: skip_card_product_styles,
                 section_id: section.id,
-                quick_add: false
+                quick_add: section.settings.quick_add,
+                quick_add_mobile_only: section.settings.quick_add_mobile_only,
+                show_swatches_availability: true,
+                size_overlay: section.settings.show_size_overlay
               %}
             </li>
             {%- assign skip_card_product_styles = true -%}
@@ -149,6 +174,9 @@
             {{ 'sections.featured_collection.view_all' | t }}
           </a>
         </div>
+      {%- endif -%}
+      {% if section.settings.image_shape == 'arch' %}
+        {{ 'mask-arch.svg' | inline_asset_content }}
       {%- endif -%}
     </div>
   </div>
@@ -257,6 +285,46 @@
       "label": "t:sections.featured-collection.settings.image_ratio.label"
     },
     {
+      "type": "select",
+      "id": "image_shape",
+      "options": [
+        {
+          "value": "default",
+          "label": "t:sections.all.image_shape.options__1.label"
+        },
+        {
+          "value": "arch",
+          "label": "t:sections.all.image_shape.options__2.label"
+        },
+        {
+          "value": "blob",
+          "label": "t:sections.all.image_shape.options__3.label"
+        },
+        {
+          "value": "chevronleft",
+          "label": "t:sections.all.image_shape.options__4.label"
+        },
+        {
+          "value": "chevronright",
+          "label": "t:sections.all.image_shape.options__5.label"
+        },
+        {
+          "value": "diamond",
+          "label": "t:sections.all.image_shape.options__6.label"
+        },
+        {
+          "value": "parallelogram",
+          "label": "t:sections.all.image_shape.options__7.label"
+        },
+        {
+          "value": "round",
+          "label": "t:sections.all.image_shape.options__8.label"
+        }
+      ],
+      "default": "default",
+      "label": "t:sections.all.image_shape.label"
+    },
+    {
       "type": "checkbox",
       "id": "show_secondary_image",
       "default": false,
@@ -274,6 +342,630 @@
       "default": false,
       "label": "t:sections.featured-collection.settings.show_rating.label",
       "info": "t:sections.featured-collection.settings.show_rating.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_size_overlay",
+      "default": true,
+      "label": "Show size availability on hover (desktop)"
+    },
+    {
+      "type": "color",
+      "id": "size_overlay_bg_color",
+      "label": "Size overlay background color",
+      "info": "Leave blank to follow the card color scheme background.",
+      "default": "#ffffff",
+      "visible_if": "{{ section.settings.show_size_overlay }}"
+    },
+    {
+      "type": "range",
+      "id": "size_overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Size overlay background opacity",
+      "info": "Theme default: 60%.",
+      "default": 60,
+      "visible_if": "{{ section.settings.show_size_overlay }}"
+    },
+    {
+      "type": "select",
+      "id": "size_overlay_position",
+      "options": [
+        {
+          "value": "bottom",
+          "label": "Bottom (theme default)"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "top",
+          "label": "Top"
+        }
+      ],
+      "default": "bottom",
+      "label": "Size overlay position",
+      "info": "Top and bottom slide in on hover; center fades in.",
+      "visible_if": "{{ section.settings.show_size_overlay }}"
+    },
+    {
+      "type": "range",
+      "id": "size_overlay_padding_top",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Size overlay padding top",
+      "info": "Theme default: 8px.",
+      "default": 6,
+      "visible_if": "{{ section.settings.show_size_overlay }}"
+    },
+    {
+      "type": "range",
+      "id": "size_overlay_padding_bottom",
+      "min": 0,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "label": "Size overlay padding bottom",
+      "info": "Theme default: 16px.",
+      "default": 6,
+      "visible_if": "{{ section.settings.show_size_overlay }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_swatches",
+      "default": true,
+      "label": "Enable Product Swatches"
+    },
+    {
+      "type": "range",
+      "id": "swatch_card_width",
+      "min": 0,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Swatch width",
+      "info": "0 = theme default (20px)",
+      "default": 20,
+      "visible_if": "{{ section.settings.enable_swatches }}"
+    },
+    {
+      "type": "range",
+      "id": "swatch_card_height",
+      "min": 0,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Swatch height",
+      "info": "0 = theme default (square)",
+      "default": 12,
+      "visible_if": "{{ section.settings.enable_swatches }}"
+    },
+    {
+      "type": "range",
+      "id": "swatch_card_radius",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Swatch corner radius",
+      "info": "0 = square corners (theme default)",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_swatches }}"
+    },
+    {
+      "type": "header",
+      "content": "Card spacing"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_spacing_enable",
+      "default": true,
+      "label": "Customize card spacing",
+      "info": "Defaults below match the theme's stock spacing."
+    },
+    {
+      "type": "range",
+      "id": "card_info_padding_top",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above title row",
+      "default": 8,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "card_title_price_gap",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Title to price gap",
+      "info": "Vertical gap when the price wraps below the title (mobile).",
+      "default": 2,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "card_color_space_top",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above color name",
+      "info": "Color name shows only when swatches don't.",
+      "default": 0,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "card_color_space_bottom",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Space below color name",
+      "default": 0,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "card_swatch_space",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above swatches",
+      "default": 6,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "card_swatch_gap",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Gap between swatches",
+      "default": 6,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "card_badge_space",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above badges",
+      "default": 8,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "range",
+      "id": "card_badge_gap",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Gap between badges",
+      "default": 10,
+      "visible_if": "{{ section.settings.card_spacing_enable }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "card_spacing_enable_mobile",
+      "default": true,
+      "label": "Customize card spacing (mobile)",
+      "info": "Overrides the values above on screens under 750px. When off, mobile uses the desktop values."
+    },
+    {
+      "type": "range",
+      "id": "card_info_padding_top_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above title row (mobile)",
+      "default": 8,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "card_title_price_gap_mobile",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Title to price gap (mobile)",
+      "default": 2,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "card_color_space_top_mobile",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above color name (mobile)",
+      "info": "Color name shows only when swatches don't.",
+      "default": 0,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "card_color_space_bottom_mobile",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Space below color name (mobile)",
+      "default": 0,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "card_swatch_space_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above swatches (mobile)",
+      "default": 6,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "card_swatch_gap_mobile",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Gap between swatches (mobile)",
+      "default": 6,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "card_badge_space_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Space above badges (mobile)",
+      "default": 8,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "range",
+      "id": "card_badge_gap_mobile",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Gap between badges (mobile)",
+      "default": 8,
+      "visible_if": "{{ section.settings.card_spacing_enable_mobile }}"
+    },
+    {
+      "type": "header",
+      "content": "Card typography"
+    },
+    {
+      "type": "range",
+      "id": "card_title_size",
+      "min": 0,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Title size",
+      "info": "0 = theme default (12px)",
+      "default": 11
+    },
+    {
+      "type": "select",
+      "id": "card_title_weight",
+      "options": [
+        {
+          "value": "default",
+          "label": "Theme default"
+        },
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semibold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "default",
+      "label": "Title weight"
+    },
+    {
+      "type": "select",
+      "id": "card_title_case",
+      "options": [
+        {
+          "value": "default",
+          "label": "Theme default"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        }
+      ],
+      "default": "uppercase",
+      "label": "Card title text case"
+    },
+    {
+      "type": "range",
+      "id": "card_title_letter_spacing",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Card title letter spacing",
+      "info": "0 = theme default",
+      "default": 0.2
+    },
+    {
+      "type": "range",
+      "id": "card_color_size",
+      "min": 8,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Color name size",
+      "default": 11
+    },
+    {
+      "type": "select",
+      "id": "card_color_case",
+      "options": [
+        {
+          "value": "default",
+          "label": "Sentence case"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        }
+      ],
+      "default": "default",
+      "label": "Color name case"
+    },
+    {
+      "type": "range",
+      "id": "card_price_size",
+      "min": 0,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Price size",
+      "info": "0 = theme default (12px)",
+      "default": 11
+    },
+    {
+      "type": "select",
+      "id": "card_price_weight",
+      "options": [
+        {
+          "value": "default",
+          "label": "Theme default"
+        },
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semibold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "default",
+      "label": "Price weight"
+    },
+    {
+      "type": "range",
+      "id": "card_price_letter_spacing",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Price letter spacing",
+      "info": "0 = theme default",
+      "default": 0.2
+    },
+    {
+      "type": "color",
+      "id": "card_price_color",
+      "label": "Price color",
+      "info": "Leave blank for the theme default. Applies to sale and struck compare-at prices too.",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "range",
+      "id": "card_sale_price_gap",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Sale price gap",
+      "info": "Space between the struck-out compare-at price and the sale price. 0 = theme default (6px)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "card_badge_size",
+      "min": 0,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Badge size",
+      "info": "0 = theme default",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "card_badge_weight",
+      "options": [
+        {
+          "value": "default",
+          "label": "Theme default"
+        },
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semibold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "default",
+      "label": "Badge weight"
+    },
+    {
+      "type": "range",
+      "id": "card_badge_letter_spacing",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Badge letter spacing",
+      "info": "0 = theme default",
+      "default": 0.2
+    },
+    {
+      "type": "range",
+      "id": "card_availability_size",
+      "min": 0,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Availability size",
+      "info": "0 = theme default",
+      "default": 11
+    },
+    {
+      "type": "select",
+      "id": "card_availability_weight",
+      "options": [
+        {
+          "value": "default",
+          "label": "Theme default"
+        },
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semibold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "default",
+      "label": "Availability weight"
+    },
+    {
+      "type": "select",
+      "id": "quick_add",
+      "default": "none",
+      "label": "t:sections.main-collection-product-grid.settings.quick_add.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_1"
+        },
+        {
+          "value": "standard",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_2"
+        },
+        {
+          "value": "bulk",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_3"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "quick_add_mobile_only",
+      "default": true,
+      "label": "Quick add on mobile only",
+      "info": "Hide the quick-add button on desktop (sizes show on hover instead)",
+      "visible_if": "{{ section.settings.quick_add != 'none' }}"
     },
     {
       "type": "header",
@@ -324,6 +1016,50 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Wishlist heart"
+    },
+    {
+      "type": "checkbox",
+      "id": "heart_custom",
+      "default": false,
+      "label": "Custom heart size & position",
+      "info": "Off = the Wishlist Plus app embed controls the heart"
+    },
+    {
+      "type": "range",
+      "id": "heart_size",
+      "min": 6,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Heart size",
+      "default": 13,
+      "visible_if": "{{ section.settings.heart_custom }}"
+    },
+    {
+      "type": "range",
+      "id": "heart_top",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Heart top padding",
+      "default": 8,
+      "visible_if": "{{ section.settings.heart_custom }}"
+    },
+    {
+      "type": "range",
+      "id": "heart_right",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Heart right padding",
+      "default": 8,
+      "visible_if": "{{ section.settings.heart_custom }}"
     }
   ],
   "presets": [

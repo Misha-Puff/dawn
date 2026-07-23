@@ -1,4 +1,12 @@
 if (!customElements.get('media-gallery')) {
+  // Scroll target offset for thumb clicks: the sticky-column offset
+  // (--header-height, mirrored in section-main-product.css) + breathing room.
+  // Read at click time so it tracks the live header height.
+  const STACKED_SCROLL_BREATHING = 13;
+  const stackedScrollTopOffset = () =>
+    (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height'), 10) || 55) +
+    STACKED_SCROLL_BREATHING;
+
   customElements.define(
     'media-gallery',
     class MediaGallery extends HTMLElement {
@@ -10,6 +18,8 @@ if (!customElements.get('media-gallery')) {
           thumbnails: this.querySelector('[id^="GalleryThumbnails"]'),
         };
         this.mql = window.matchMedia('(min-width: 750px)');
+        this.railMql = window.matchMedia('(min-width: 1100px)');
+        this.isStackedScroll = this.dataset.desktopLayout === 'stacked_scroll';
         if (!this.elements.thumbnails) return;
 
         this.elements.viewer.addEventListener('slideChanged', debounce(this.onSlideChanged.bind(this), 500));
@@ -19,12 +29,47 @@ if (!customElements.get('media-gallery')) {
             .addEventListener('click', this.setActiveMedia.bind(this, mediaToSwitch.dataset.target, false));
         });
         if (this.dataset.desktopLayout.includes('thumbnail') && this.mql.matches) this.removeListSemantic();
+        if (this.isStackedScroll) this.initScrollSpy();
+      }
+
+      initScrollSpy() {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            if (this.scrollSpySuppressed || !this.railMql.matches) return;
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              const thumbnail = this.elements.thumbnails.querySelector(
+                `[data-target="${entry.target.dataset.mediaId}"]`
+              );
+              this.setActiveThumbnail(thumbnail);
+            });
+          },
+          { rootMargin: '-25% 0px -65% 0px' }
+        );
+        this.elements.viewer.querySelectorAll('li[data-media-id]').forEach((item) => observer.observe(item));
+      }
+
+      // A scroll-spy scrollIntoView mid-animation can cancel the smooth page
+      // scroll in some engines, so the spy stays quiet until scrolling settles.
+      suppressScrollSpyUntilSettled() {
+        this.scrollSpySuppressed = true;
+        clearTimeout(this.scrollSpyReleaseTimer);
+        this.scrollSpyRelease =
+          this.scrollSpyRelease ||
+          (() => {
+            this.scrollSpySuppressed = false;
+            clearTimeout(this.scrollSpyReleaseTimer);
+            window.removeEventListener('scrollend', this.scrollSpyRelease);
+          });
+        window.addEventListener('scrollend', this.scrollSpyRelease);
+        this.scrollSpyReleaseTimer = setTimeout(this.scrollSpyRelease, 1500); // no-scrollend fallback
       }
 
       onSlideChanged(event) {
-        const thumbnail = this.elements.thumbnails.querySelector(
-          `[data-target="${event.detail.currentElement.dataset.mediaId}"]`
-        );
+        // Stacked-scroll desktop has no horizontal slider pages, so slideChanged can fire without a current element.
+        const currentElement = event.detail.currentElement;
+        if (!currentElement) return;
+        const thumbnail = this.elements.thumbnails.querySelector(`[data-target="${currentElement.dataset.mediaId}"]`);
         this.setActiveThumbnail(thumbnail);
       }
 
@@ -53,6 +98,13 @@ if (!customElements.get('media-gallery')) {
 
         this.preventStickyHeader();
         window.setTimeout(() => {
+          if (!prepend && this.isStackedScroll && this.railMql.matches) {
+            const top = activeMedia.getBoundingClientRect().top + window.scrollY - stackedScrollTopOffset();
+            if (Math.abs(top - window.scrollY) < 2) return;
+            this.suppressScrollSpyUntilSettled();
+            window.scrollTo({ top: top, behavior: 'smooth' });
+            return;
+          }
           if (!this.mql.matches || this.elements.thumbnails) {
             activeMedia.parentElement.scrollTo({ left: activeMedia.offsetLeft });
           }
@@ -77,6 +129,18 @@ if (!customElements.get('media-gallery')) {
           .querySelectorAll('button')
           .forEach((element) => element.removeAttribute('aria-current'));
         thumbnail.querySelector('button').setAttribute('aria-current', true);
+        if (this.isStackedScroll && this.railMql.matches) {
+          // scoped to the rail's own overflow — scrollIntoView could also move the page
+          const list = this.elements.thumbnails.slider;
+          const listRect = list.getBoundingClientRect();
+          const thumbRect = thumbnail.getBoundingClientRect();
+          if (thumbRect.top < listRect.top) {
+            list.scrollTop += thumbRect.top - listRect.top;
+          } else if (thumbRect.bottom > listRect.bottom) {
+            list.scrollTop += thumbRect.bottom - listRect.bottom;
+          }
+          return;
+        }
         if (this.elements.thumbnails.isSlideVisible(thumbnail, 10)) return;
 
         this.elements.thumbnails.slider.scrollTo({ left: thumbnail.offsetLeft });

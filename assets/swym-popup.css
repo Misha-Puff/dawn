@@ -50,3 +50,156 @@ span.swym-variant-selector-status svg path {
   content: 'My Wishlist(s)';
   visibility: visible;
 }
+
+/* Swym ships its own font stack; pin the popup to the theme's type system.
+   Prices inside the popup follow the storewide mono price treatment. */
+.swym-ui-component,
+.swym-collections-variant-popup-parent,
+.swym-collections-variant-popup-parent * {
+  font-family: var(--font-body-family) !important;
+}
+
+.swym-ui-component .swym-price,
+.swym-collections-variant-popup-parent .swym-price,
+#swym-custom-variant-price {
+  font-family: var(--font-mono-family) !important;
+}
+
+/* Collection-card wishlist heart: the app embed's Button size setting sizes the
+   BUTTON BOX only — the visible icon is an <img> hard-attributed 20x20 that the
+   app never scales. Sizing the icon to the button box wires the embed's Button
+   size slider directly to the visible heart (padding zeroed so box = icon). */
+.swym-wishlist-collections-v2 {
+  box-sizing: content-box !important;
+  padding: 0 !important;
+}
+
+.swym-wishlist-collections-v2 #swym-atw-collections-img-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Variant-selector popup: finish parity with the redesign type system.
+   Product title follows the collection-card recipe; header follows the
+   flyout mono-heading treatment; buttons follow the CTA recipe. */
+.swym-collections-variant-popup-header-title,
+.swym-collections-variant-popup-parent .swym-collections-variant-popup-header-title {
+  font-family: var(--font-mono-family) !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.96px !important;
+  color: #1a1a1a !important;
+}
+
+#swym-custom-product-title {
+  font-family: var(--font-heading-family) !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.2px !important;
+  color: #1a1a1a !important;
+}
+
+#swym-custom-variant-price {
+  font-size: 12px !important;
+  letter-spacing: 0.2px !important;
+  color: #1a1a1a !important;
+}
+
+#swymOptionName {
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.2px !important;
+}
+
+.swym-collections-variant-popup-parent .swym-radio-buttons-container label {
+  font-size: 12px !important;
+}
+
+#swym-vs-add-to-wishlist-single,
+#swym-vs-add-to-wishlist-single *,
+.swym-add-to-wishlist-single,
+div.swym-variant-selector-lists-btn-container button,
+div.swym-variant-selector-lists-btn-container button *,
+#swym-custom-confirm-list-button,
+#swym-custom-confirm-list-button * {
+  font-family: var(--font-mono-family) !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.96px !important;
+  color: #ffffff !important;
+}
+
+#swym-vs-add-to-wishlist-single,
+.swym-add-to-wishlist-single,
+div.swym-variant-selector-lists-btn-container button,
+#swym-custom-confirm-list-button {
+  background-color: rgb(18, 18, 18) !important;
+  border-radius: 0 !important;
+}
+
+/* Close button: the circle is drawn inside the svg path itself, so hide the
+   svg and swap in a bare ✕ (same trick as the wishlist-actions title above). */
+#swym-vs-close-popup {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+#swym-vs-close-popup svg {
+  display: none !important;
+}
+
+#swym-vs-close-popup::before {
+  content: '✕';
+  font-size: 17px;
+  line-height: 1;
+  color: #1a1a1a;
+}
+
+/* Confirmation toast (<swym-storefront-layout-notification>, "Item Saved" /
+   title + View): rendered in the light DOM but never covered by the popup
+   pins above. Titles follow the card recipe, the action button follows the
+   CTA recipe (kills Swym's Arial fallback), hairline border per the
+   cart-notification analog. */
+swym-storefront-layout-notification {
+  background: #ffffff !important;
+  border: 1px solid rgba(18, 18, 18, 0.15) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.swym-storefront-layout-notification-title,
+.swym-storefront-layout-notification-message {
+  font-family: var(--font-heading-family) !important;
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.2px !important;
+  color: #1a1a1a !important;
+}
+
+button.swym-storefront-layout-notification-action {
+  font-family: var(--font-mono-family) !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.96px !important;
+  background: rgb(18, 18, 18) !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
+.swym-storefront-layout-notification-image-container,
+img.swym-storefront-layout-notification-image {
+  width: 44px !important;
+  height: 44px !important;
+  object-fit: cover !important;
+}
+
+.swym-storefront-layout-notification-progress-bar {
+  background: #121212 !important;
+}

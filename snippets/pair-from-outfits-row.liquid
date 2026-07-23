@@ -1,0 +1,114 @@
+{% comment %}
+  Renders one row of the "Pair It With" block: image left; title, optional
+  color line, price, and optional quick add stacked right. Guard logic
+  (self-exclusion, dedupe, Locksmith, cap) lives in the caller's loops.
+
+  Accepts:
+  - pair_product: {Object} the product to render
+  - block: {Object} the pair_from_outfits block
+  - section: {Object} the main product section
+  - pair_img_w / pair_img_w2 / pair_img_w3: {Number} image widths (1x/2x/3x)
+
+  Usage:
+  {% render 'pair-from-outfits-row', pair_product: pair_product, block: block, section: section, pair_img_w: pair_img_w, pair_img_w2: pair_img_w2, pair_img_w3: pair_img_w3 %}
+{% endcomment %}
+{%- assign pair_media = pair_product.featured_media -%}
+<li class="pair-outfits__row">
+  <a href="{{ pair_product.url }}" class="pair-outfits__row-media pair-outfits__row-media--{{ block.settings.image_ratio }}">
+    {%- if pair_media != null -%}
+      <img
+        srcset="
+          {%- if pair_media.width >= pair_img_w -%}{{ pair_media | image_url: width: pair_img_w }} {{ pair_img_w }}w,{%- endif -%}
+          {%- if pair_media.width >= pair_img_w2 -%}{{ pair_media | image_url: width: pair_img_w2 }} {{ pair_img_w2 }}w,{%- endif -%}
+          {%- if pair_media.width >= pair_img_w3 -%}{{ pair_media | image_url: width: pair_img_w3 }} {{ pair_img_w3 }}w,{%- endif -%}
+          {{ pair_media | image_url }} {{ pair_media.width }}w
+        "
+        src="{{ pair_media | image_url: width: pair_img_w2 }}"
+        sizes="{{ pair_img_w }}px"
+        alt="{{ pair_media.alt | escape }}"
+        loading="lazy"
+        width="{{ pair_media.width }}"
+        height="{{ pair_media.height }}"
+      >
+    {%- endif -%}
+  </a>
+  <div class="pair-outfits__row-info">
+    <a href="{{ pair_product.url }}" class="pair-outfits__row-title">{{ pair_product.title | escape }}</a>
+    {%- if block.settings.show_color_line and pair_product.options[0] == 'Color' -%}
+      <p class="pair-outfits__row-color">{{ pair_product.selected_or_first_available_variant.options[0] }}</p>
+    {%- endif -%}
+    <div class="pair-outfits__row-price">
+      {%- render 'price', product: pair_product -%}
+    </div>
+    {%- if block.settings.enable_quick_add -%}
+      {%- unless pair_product.tags contains 'Badge-Coming Soon' -%}
+        {%- liquid
+          assign pair_form_id = 'pair-quick-add-' | append: block.id | append: '-' | append: pair_product.id
+          assign pair_qty_rules = false
+          if pair_product.selected_or_first_available_variant.quantity_rule.min > 1 or pair_product.selected_or_first_available_variant.quantity_rule.max != null or pair_product.selected_or_first_available_variant.quantity_rule.increment > 1
+            assign pair_qty_rules = true
+          endif
+        -%}
+        {%- if pair_product.variants_count > 1 or pair_qty_rules -%}
+          <modal-opener data-modal="#QuickAddPair-{{ block.id }}-{{ pair_product.id }}" class="pair-outfits__row-atc">
+            <button
+              id="{{ pair_form_id }}-submit"
+              type="button"
+              class="pair-outfits__row-atc-button"
+              aria-haspopup="dialog"
+              aria-label="{{ 'products.product.choose_options' | t }} — {{ pair_product.title | escape }}"
+              data-product-url="{{ pair_product.url }}"
+            >
+              <span>{{ 'products.product.choose_options' | t }}</span>
+              {%- render 'loading-spinner' -%}
+            </button>
+          </modal-opener>
+        {%- else -%}
+          <product-form data-section-id="{{ section.id }}" class="pair-outfits__row-atc">
+            {%- form 'product',
+              pair_product,
+              id: pair_form_id,
+              class: 'form',
+              novalidate: 'novalidate',
+              data-type: 'add-to-cart-form'
+            -%}
+              <input
+                type="hidden"
+                name="id"
+                value="{{ pair_product.selected_or_first_available_variant.id }}"
+                class="product-variant-id"
+                {% if pair_product.selected_or_first_available_variant.available == false %}
+                  disabled
+                {% endif %}
+              >
+              <button
+                id="{{ pair_form_id }}-submit"
+                type="submit"
+                name="add"
+                class="pair-outfits__row-atc-button"
+                aria-label="{{ 'products.product.add_to_cart' | t }} — {{ pair_product.title | escape }}"
+                aria-live="polite"
+                data-sold-out-message="true"
+                {% if pair_product.selected_or_first_available_variant.available == false %}
+                  disabled
+                {% endif %}
+              >
+                <span>
+                  {%- if pair_product.selected_or_first_available_variant.available -%}
+                    {{ 'products.product.add_to_cart' | t }}
+                  {%- else -%}
+                    {{ 'products.product.sold_out' | t }}
+                  {%- endif -%}
+                </span>
+                <span class="sold-out-message hidden">
+                  {{ 'products.product.sold_out' | t }}
+                </span>
+                {%- render 'loading-spinner' -%}
+              </button>
+            {%- endform -%}
+          </product-form>
+        {%- endif -%}
+      {%- endunless -%}
+    {%- endif -%}
+  </div>
+</li>

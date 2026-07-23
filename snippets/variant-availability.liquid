@@ -4,7 +4,7 @@
       {% if variant.option1 == 'Default Title' %}
         {% continue %}
       {% endif %}
-      <span class="{% unless variant.available %}unavailable{% endunless %}">
+      <span class="{% unless variant.available or ignore_availability %}unavailable{% endunless %}">
         {% if variant.option2 %}
           {{ variant.option2 }}
         {% else %}

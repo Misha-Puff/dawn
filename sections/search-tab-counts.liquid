@@ -1,0 +1,19 @@
+{%- comment -%}
+  Section Rendering API counts probe for the search tier tabs — never placed
+  in a template, and no presets, so it stays out of the editor's add-section
+  picker.
+
+  assets/search-tabs.js requests it on the search route:
+    {{ routes.search_url }}?q=<term>&options[prefix]=last
+      [&filter.p.m.taxonomy.division=<value>]&section_id=search-tab-counts
+  and reads [data-tab-count] (~1KB per probe).
+{%- endcomment -%}
+
+{%- if search.performed -%}<span data-tab-count hidden>{{ search.results_count }}</span>{%- endif -%}
+
+{% schema %}
+{
+  "name": "Search tab counts",
+  "settings": []
+}
+{% endschema %}

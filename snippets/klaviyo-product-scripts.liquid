@@ -1,4 +1,8 @@
 <script>
+  // IIFE: this script re-executes when quick-add.js injects a fetched
+  // product page into a quick-add modal on a PDP — top-level const/let
+  // here would collide with the host page's own declarations.
+  (() => {
   const tags = [{%- for tag in product.tags -%}'{{tag}}',{%- endfor -%}];
 
   let category = null;
@@ -60,4 +64,5 @@
       klaviyo.push(['track', 'Added to Cart', product]);
     });
   }
+  })();
 </script>

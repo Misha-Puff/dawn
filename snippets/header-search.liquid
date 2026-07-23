@@ -4,9 +4,18 @@
   Accepts:
   - input_id: {String} Id for the search input element (required)
 
+  Reads the "Search tabs" settings (enable_search_tabs etc.) directly off the
+  ambient `section` object — this snippet is only rendered from header.liquid,
+  whose schema carries them.
+
   Usage:
   {% render 'header-search', input_id: 'My-Id'%}
 {% endcomment %}
+
+{%- if section.settings.enable_search_tabs and settings.predictive_search_enabled -%}
+  {{ 'component-search-tabs.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'search-tabs.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
 
 <details-modal class="header__search">
   <details>
@@ -62,7 +71,8 @@
                 spellcheck="false"
               {%- endif -%}
             >
-            <label class="field__label" for="{{ input_id }}">{{ 'general.search.search' | t }}</label>
+            {%- comment -%} visually-hidden per Nathan's D1 ruling — the static-label conversion would otherwise show it above the input; placeholder + aria carry the affordance. {%- endcomment -%}
+            <label class="field__label visually-hidden" for="{{ input_id }}">{{ 'general.search.search' | t }}</label>
             <input type="hidden" name="options[prefix]" value="last">
             <button
               type="reset"
@@ -81,8 +91,24 @@
           </div>
 
           {%- if settings.predictive_search_enabled -%}
-            <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
-              {%- render 'loading-spinner', class: 'predictive-search__loading-state' -%}
+            {%- comment -%}
+              The tab bar lives INSIDE the results popup (Nathan's 2026-07-16 review ask)
+              but OUTSIDE the [data-predictive-search] wrapper, whose innerHTML is replaced
+              on every predictive render — the popup box keeps its .predictive-search classes
+              (show/hide + positioning key off them) while only the inner wrapper is wiped.
+            {%- endcomment -%}
+            <div class="predictive-search predictive-search--header" tabindex="-1">
+              {%- if section.settings.enable_search_tabs -%}
+                {%- render 'search-tabs',
+                  context: 'modal',
+                  all_label: section.settings.search_tabs_all_label,
+                  values: section.settings.search_tabs_values,
+                  show_counts: section.settings.search_tabs_show_counts
+                -%}
+              {%- endif -%}
+              <div data-predictive-search>
+                {%- render 'loading-spinner', class: 'predictive-search__loading-state' -%}
+              </div>
             </div>
 
             <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>

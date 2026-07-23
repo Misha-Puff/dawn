@@ -1,0 +1,275 @@
+/* App-surface typography + parity (deck 7.10 "pop-ups audit", extended
+   2026-07-20 with full Rebuy Smart Cart parity): pin app-rendered surfaces
+   to the theme type system (Inter body / Overpass Mono prices) and carry
+   the storewide card/button recipe into the Rebuy cart.
+   Audited 2026-07-14 + 2026-07-20 on dev theme: BIS modal, quick-add modal,
+   size overlay, Shop-the-Look popup and Swym surfaces are already on-system —
+   only the surfaces below need overrides.
+
+   Loaded globally from layout/theme.liquid (these surfaces appear on any page).
+   !important is required where noted: the apps' own styles land after ours. */
+
+/* Klaviyo signup forms (popup + embeds) — heading/button ship as Arial/Helvetica.
+   Font family only: sizes, colors and spacing stay dashboard-controlled. */
+.klaviyo-form,
+.klaviyo-form * {
+  font-family: var(--font-body-family) !important;
+}
+
+/* Rebuy Smart Cart — the flyout root/title inherit Inter, but inner copy and
+   buttons fall back to plain Arial. */
+.rebuy-cart,
+.rebuy-cart button,
+.rebuy-cart input,
+.rebuy-cart p,
+.rebuy-cart span,
+.rebuy-cart a {
+  font-family: var(--font-body-family) !important;
+}
+
+/* Cart prices follow the storewide mono price treatment (cards/PDP/wishlist). */
+.rebuy-cart .rebuy-money {
+  font-family: var(--font-mono-family) !important;
+}
+
+/* Inventory Information app — the "FIND IN BROOKLYN" find-in-store drawer.
+   The app appends .iia-drawer to <body> as plain DOM (no iframe), so theme CSS
+   reaches it, but its own <style> tags are injected after ours and the header
+   note carries an inline font-weight: 100 (renders synthesized ultra-thin).
+   Typography + color only — layout and spacing stay app-controlled. */
+.iia-drawer h2 {
+  font-family: var(--font-mono-family) !important;
+  font-size: 1.3rem !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1rem !important;
+  color: rgb(var(--color-foreground)) !important;
+}
+
+.iia-drawer .iia-drawer-header .text-body {
+  font-family: var(--font-body-family) !important;
+  font-size: 1.2rem !important;
+  font-weight: 400 !important;
+  color: rgba(var(--color-foreground), 0.75) !important;
+}
+
+/* Location group header ("BROOKLYN") follows the PDP mono label treatment. */
+.iia-drawer .iia-groupby-header {
+  font-family: var(--font-mono-family) !important;
+  font-size: 1.1rem !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1rem !important;
+  color: rgb(var(--color-foreground)) !important;
+}
+
+.iia-drawer .iia-location-info,
+.iia-drawer .iia-location-info p,
+.iia-drawer .iia-location-info a,
+.iia-drawer .iia-name,
+.iia-drawer .iia-stock-threshold {
+  font-family: var(--font-body-family) !important;
+  font-size: 1.2rem !important;
+  font-weight: 400 !important;
+  color: rgb(var(--color-foreground)) !important;
+}
+
+/* Size labels arrive lowercase from the app ("2y") — render them uppercase. */
+.iia-drawer .iia-name {
+  text-transform: uppercase !important;
+}
+
+.iia-drawer .iia-location-info a {
+  text-decoration: underline !important;
+}
+
+.iia-drawer .iia-stock-threshold {
+  color: rgba(var(--color-foreground), 0.75) !important;
+}
+
+/* Rebuy product cards everywhere — page carousels AND the flyout upsell grid
+   (Nathan 2026-07-20 dropped the widget-type-cart exclusion): match the
+   store-wide card recipe. The cart-scoped rules below re-assert these with
+   !important where Rebuy's own cart stylesheet out-cascades them. */
+.rebuy-widget .rebuy-product-title {
+  font-family: var(--font-heading-family);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  color: #1a1a1a;
+}
+
+.rebuy-widget .rebuy-product-price,
+.rebuy-widget .rebuy-money {
+  font-family: var(--font-mono-family);
+  font-size: 11px;
+  letter-spacing: 0.2px;
+  color: #1a1a1a;
+}
+
+/* Rebuy Smart Cart parity (Nathan 2026-07-20): the visible cart joins the
+   storewide vocabulary — card-recipe titles/prices, mono uppercase buttons,
+   square corners. Audited live 2026-07-20; Rebuy's cart stylesheet loads
+   after this file, so these carry !important. Structural layout, icons,
+   progress-bar colors and copy stay Rebuy-admin-owned. */
+
+/* Flyout title — overlay-heading treatment (mono uppercase, matching the
+   in-cart "You may also like" heading and theme button tracking). */
+.rebuy-cart .rebuy-cart__title {
+  font-family: var(--font-mono-family) !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.96px !important;
+  color: #1a1a1a !important;
+}
+
+/* Line-item titles follow the card recipe (was 14px sentence-case with a
+   permanent underline). */
+.rebuy-cart .rebuy-cart__flyout-item-product-title {
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.2px !important;
+  color: #1a1a1a !important;
+  text-decoration: none !important;
+}
+
+.rebuy-cart .rebuy-cart__flyout-item-product-title:hover {
+  text-decoration: underline !important;
+}
+
+/* Variant meta (cart lines + upsell cards) — card-recipe scale, keeps
+   Rebuy's muted grey. */
+.rebuy-cart .rebuy-cart__flyout-item-variant-title,
+.rebuy-cart .rebuy-variant-title {
+  font-size: 11px !important;
+  letter-spacing: 0.2px !important;
+}
+
+/* All cart prices (line items + upsell) — size/tracking/color on top of the
+   mono pin above. */
+.rebuy-cart .rebuy-money {
+  font-size: 11px !important;
+  letter-spacing: 0.2px !important;
+  color: #1a1a1a !important;
+}
+
+/* Upsell product titles — re-assert the card recipe against Rebuy's cart
+   stylesheet (14px/500) and the global mono h5 override (they're <h5>s). */
+.rebuy-cart .rebuy-product-title,
+.rebuy-cart .rebuy-product-title a {
+  font-family: var(--font-heading-family) !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.2px !important;
+  color: #1a1a1a !important;
+}
+
+/* Subtotal row: label joins the card-title treatment; amount joins the mono
+   price treatment (was 12px bold Inter), one step up from line-item scale. */
+.rebuy-cart .rebuy-cart__flyout-subtotal-label {
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.2px !important;
+  color: #1a1a1a !important;
+}
+
+.rebuy-cart .rebuy-cart__flyout-subtotal-amount {
+  font-family: var(--font-mono-family) !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.2px !important;
+  color: #1a1a1a !important;
+}
+
+/* Buttons (checkout + upsell add/options) — theme .button typography
+   (mono, uppercase, 0.96px tracking at 12px) + square corners. Background
+   pinned to the theme button black (Rebuy admin ships #101820); disabled
+   states keep Rebuy's greyed treatment. */
+.rebuy-cart .rebuy-button {
+  font-family: var(--font-mono-family) !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.96px !important;
+  border-radius: 0 !important;
+}
+
+.rebuy-cart .rebuy-button:not([disabled]) {
+  background-color: rgb(18, 18, 18) !important;
+  color: rgb(255, 255, 255) !important;
+}
+
+/* Quantity stepper glyphs arrive bold — normalize to the theme's weight. */
+.rebuy-cart .rebuy-cart__flyout-item-quantity-widget-button {
+  font-weight: 400 !important;
+  color: #1a1a1a !important;
+}
+
+/* Free-shipping step label ("Free Shipping") — mono badge treatment; the
+   progress prompt copy stays Inter via the family pin above. */
+.rebuy-cart .rebuy-cart__progress-step-label {
+  font-family: var(--font-mono-family) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.2px !important;
+}
+
+/* Klaviyo subscribe-page embed (form TXsXhC only — the wrapper div in
+   templates/page.subscribe.json; the popup is separate DOM appended to <body>
+   and stays dashboard-styled). Klaviyo inlines font styles on the rendered
+   spans, so every declaration carries !important; these selectors also
+   out-specify the .klaviyo-form * family pin above where they overlap.
+   Colors, backgrounds and layout stay dashboard-controlled.
+   Audited live 2026-07-20: heading ships as bold-15px inline-styled spans
+   (no hN) in the first form-row, SMS consent as an inline-12px span in the
+   last; both selectors are coupled to that dashboard row order. */
+
+/* Headline — global h2 treatment (14px/400; family already Inter via the pin
+   above). The 1px outer spans are Klaviyo wrappers; sizing them with the text
+   is harmless. */
+.klaviyo-form-TXsXhC [data-testid='form-row']:first-child span {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
+/* SIGN UP button — theme .button typography and geometry (mono uppercase at
+   the 12px button scale, padding box, square corners); Klaviyo's fixed 38px
+   height gives way to the padding. Fill colors stay dashboard-owned. */
+.klaviyo-form-TXsXhC .klaviyo-form-button {
+  font-family: var(--font-mono-family) !important;
+  font-size: 1.5rem !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  padding: var(--button-vertical-padding) var(--button-horizontal-padding) !important;
+  height: auto !important;
+  border-radius: 0 !important;
+}
+
+/* Inputs join the theme field scale (1.6rem, square corners). */
+.klaviyo-form-TXsXhC input[type='tel'],
+.klaviyo-form-TXsXhC input[type='email'],
+.klaviyo-form-TXsXhC input[type='text'] {
+  font-size: 1.6rem !important;
+  border-radius: 0 !important;
+}
+
+/* iOS zoom floor, mirroring the base.css touch-control guard. */
+@media screen and (max-width: 749px) {
+  .klaviyo-form-TXsXhC input[type='tel'],
+  .klaviyo-form-TXsXhC input[type='email'],
+  .klaviyo-form-TXsXhC input[type='text'] {
+    font-size: max(1.6rem, 16px) !important;
+  }
+}
+
+/* SMS-consent fine print — IIA drawer precedent (1.2rem muted). The size
+   also rides on the span because Klaviyo inlines 12px there. */
+.klaviyo-form-TXsXhC [data-testid='form-row']:last-child p,
+.klaviyo-form-TXsXhC [data-testid='form-row']:last-child p span {
+  font-size: 1.2rem !important;
+  color: rgba(var(--color-foreground), 0.75) !important;
+}

@@ -226,7 +226,7 @@
     display: flex;
     flex-direction: column;
     flex: 1 1 100%;
-    align-items: center;
+    align-items: stretch;
     gap: 3rem;
   }
 
@@ -239,6 +239,23 @@
 
   .footer-block__newsletter {
     flex-direction: column;
+  }
+}
+
+/* Accordion layout (below 1100px): the form spans the footer's content width
+   instead of the stock 36rem cap — 36rem computes to 288px at this body scale. */
+@media screen and (max-width: 1099px) {
+  .footer-block--newsletter .newsletter-form__field-wrapper {
+    max-width: none;
+  }
+
+  .footer-block--newsletter .newsletter-form {
+    max-width: none;
+    align-items: stretch;
+  }
+
+  .footer-block--newsletter .newsletter-form .button {
+    width: 100%;
   }
 }
 
@@ -519,7 +536,7 @@ localization-form {
 
 .footer__content-bottom-wrapper .grid__item,
 .copyright__content {
-  font-size: 1.3rem !important;
+  font-size: 1.3rem;
   color: rgb(var(--color-foreground));
 }
 
@@ -535,10 +552,37 @@ localization-form {
   justify-content: space-around;
 }
 
+/* Accordion-title size pin removed — it follows the global h4 override (Headings theme
+   settings). Desktop block headings keep their flat 14px: without it they'd fall to the
+   stock responsive calc rule above (~14.4px), since .footer-block__heading out-specifies
+   the global h2 element override. */
+/* The !important can't be beaten by specificity — the footer section reaches this
+   declaration through the custom property; unset var = the original pinned value. */
 .footer-accordion .accordion__title,
 .footer-block__heading {
-  font-size: 14px !important;
-  margin-bottom: 10px !important;
+  margin-bottom: var(--mp-footer-heading-mb, 10px) !important;
+}
+
+/* Caret mirrors the left content edge: no inboard offset, full-width summary row. */
+.footer-accordion details,
+.footer-accordion summary {
+  width: 100%;
+}
+
+.footer-accordion summary .svg-wrapper {
+  margin-right: 0;
+}
+
+/* The abspos svg otherwise takes width: 100% (.svg-wrapper > svg) against the
+   summary, stretching edge-to-edge so the glyph paints at row center. 1rem
+   matches the 10x6 viewBox at the stock 0.6rem height. */
+.footer-accordion summary .icon-caret {
+  right: 0;
+  width: 1rem;
+}
+
+.footer-block__heading {
+  font-size: 14px;
 }
 
 .footer-block .footer-block__details-content .list-menu__item {
@@ -548,4 +592,44 @@ localization-form {
 
 .footer-block.grid__item .list-menu__item {
   padding: 0;
+}
+
+@media screen and (min-width: 1100px) {
+  .footer__blocks-wrapper.grid--4-col-desktop {
+    --footer-subscribe-width: 380px; /* px: 1rem = 8px on this store (body_scale 80) */
+  }
+
+  /* Link columns hug their content. Two section-emitted layout modes:
+     space-between spreads the free space equally across all gaps (block_gap as
+     the floor); flex-start + an auto left margin on the subscribe cell packs
+     the link columns at exactly block_gap with subscribe alone flush right. */
+  .footer__blocks-wrapper.grid--4-col-desktop .footer-block--menu.grid__item {
+    width: max-content;
+    max-width: max-content;
+    flex-grow: 0;
+  }
+
+  /* Subscribe cell: form-width; pinned flush right at the page-width padding
+     by either mode (space-between directly, flex-start via the section's auto
+     left margin). Shrinks instead of wrapping on narrow desktops.
+     :has() guard: on the newsletter-signup template the cell renders empty
+     (footer.liquid suppresses its contents) and must not reserve this width. */
+  .footer__blocks-wrapper.grid--4-col-desktop
+    .footer-block.grid__item:not(.footer-block--menu):has(.footer-block--newsletter) {
+    width: var(--footer-subscribe-width);
+    max-width: var(--footer-subscribe-width);
+    flex-grow: 0;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  /* Left-aligned stack: kill the form's self-centering + 36rem (288px) cap. */
+  .footer-block__newsletter .footer__newsletter {
+    margin: 0;
+    max-width: var(--footer-subscribe-width);
+  }
+
+  .footer-block__newsletter .newsletter-form__field-wrapper {
+    max-width: var(--footer-subscribe-width);
+  }
 }

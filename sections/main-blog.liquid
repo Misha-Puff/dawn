@@ -18,15 +18,182 @@
   .article-card .card__heading {
     font-size: 13px;
   }
+
+  {%- comment -%}
+    The unscoped 13px heading rule above predates this work — other article-card
+    consumers rendered on the blog template rely on it, so it stays unscoped.
+    Everything below is #shopify-section-{id}-scoped (outranks component-card.css,
+    the shop's .h5 heading override, and page-width) and emits zero CSS at schema
+    defaults. Mobile padding overrides win the 0.75x base by document order.
+  {%- endcomment -%}
+  {%- if section.settings.padding_top_mobile > 0 or section.settings.padding_bottom_mobile > 0 -%}
+    @media screen and (max-width: 749px) {
+      .section-{{ section.id }}-padding {
+        {%- if section.settings.padding_top_mobile > 0 %} padding-top: {{ section.settings.padding_top_mobile }}px;{% endif -%}
+        {%- if section.settings.padding_bottom_mobile > 0 %} padding-bottom: {{ section.settings.padding_bottom_mobile }}px;{% endif -%}
+      }
+    }
+  {%- endif -%}
+
+  {%- if section.settings.padding_left > 0 or section.settings.padding_right > 0 -%}
+    @media screen and (min-width: 750px) {
+      #shopify-section-{{ section.id }} .main-blog {
+        {%- if section.settings.padding_left > 0 %} padding-left: {{ section.settings.padding_left }}px;{% endif -%}
+        {%- if section.settings.padding_right > 0 %} padding-right: {{ section.settings.padding_right }}px;{% endif -%}
+      }
+    }
+  {%- endif -%}
+
+  {%- if section.settings.layout == 'grid' and section.settings.columns_desktop != 2 -%}
+    @media screen and (min-width: 750px) {
+      #shopify-section-{{ section.id }} .blog-articles {
+        grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
+      }
+    }
+  {%- endif -%}
+
+  {%- if section.settings.columns_mobile == '2' -%}
+    @media screen and (max-width: 749px) {
+      #shopify-section-{{ section.id }} .blog-articles {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  {%- endif -%}
+
+  {%- if section.settings.enable_custom_spacing -%}
+    #shopify-section-{{ section.id }} .blog-articles {
+      column-gap: {{ section.settings.horizontal_spacing_mobile }}px;
+      row-gap: {{ section.settings.vertical_spacing_mobile }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      #shopify-section-{{ section.id }} .blog-articles {
+        column-gap: {{ section.settings.horizontal_spacing_desktop }}px;
+        row-gap: {{ section.settings.vertical_spacing_desktop }}px;
+      }
+    }
+  {%- endif -%}
+
+  {%- if section.settings.card_info_flush -%}
+    #shopify-section-{{ section.id }} .article-card .card__information {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  {%- endif -%}
+
+  {%- if section.settings.title_enable_type -%}
+    {%- liquid
+      assign title_font = section.settings.title_font
+      assign title_weight = section.settings.title_font_weight | default: 'default'
+      assign title_fs = section.settings.title_font_size | default: 0
+      assign title_lh = section.settings.title_line_height | default: 0
+      assign title_case = section.settings.title_text_case | default: 'default'
+      assign title_ls = section.settings.title_letter_spacing | default: 0
+    -%}
+    {%- capture title_brand_stack -%}{% render 'brand-font', font: section.settings.title_custom_font %}{%- endcapture -%}
+    {%- assign title_brand_stack = title_brand_stack | strip -%}
+    {%- if title_font != blank and title_brand_stack == blank -%}{{ title_font | font_face: font_display: 'swap' }}{%- endif -%}
+    {%- if title_font != blank and title_brand_stack == blank and title_weight != 'default' -%}
+      {%- assign title_wfont = title_font | font_modify: 'weight', title_weight -%}
+      {%- if title_wfont -%}{{ title_wfont | font_face: font_display: 'swap' }}{%- endif -%}
+    {%- endif -%}
+    #shopify-section-{{ section.id }} .article-card .card__heading {
+      {%- if title_brand_stack != blank %} font-family: {{ title_brand_stack }};{% elsif title_font != blank %} font-family: {{ title_font.family }}, {{ title_font.fallback_families }};{% endif -%}
+      {%- if title_weight != 'default' and title_weight != blank %} font-weight: {{ title_weight }};{% endif -%}
+      {%- if title_fs > 0 %} font-size: {{ title_fs }}px;{% endif -%}
+      {%- if title_lh > 0 %} line-height: {{ title_lh }}%;{% endif -%}
+      {%- if title_case != 'default' and title_case != blank %} text-transform: {{ title_case }};{% endif -%}
+      {%- if title_ls > 0 %} letter-spacing: {{ title_ls }}px;{% endif -%}
+      {%- if section.settings.title_color != blank %} color: {{ section.settings.title_color }};{% endif -%}
+    }
+    {%- assign title_fs_m = section.settings.title_font_size_mobile | default: 0 -%}
+    {%- if title_fs_m > 0 -%}
+      @media screen and (max-width: 749px) {
+        #shopify-section-{{ section.id }} .article-card .card__heading {
+          font-size: {{ title_fs_m }}px;
+        }
+      }
+    {%- endif -%}
+  {%- endif -%}
+
+  {%- if section.settings.meta_enable_type -%}
+    {%- liquid
+      assign meta_font = section.settings.meta_font
+      assign meta_weight = section.settings.meta_font_weight | default: 'default'
+      assign meta_fs = section.settings.meta_font_size | default: 0
+      assign meta_lh = section.settings.meta_line_height | default: 0
+      assign meta_case = section.settings.meta_text_case | default: 'default'
+      assign meta_ls = section.settings.meta_letter_spacing | default: 0
+    -%}
+    {%- capture meta_brand_stack -%}{% render 'brand-font', font: section.settings.meta_custom_font %}{%- endcapture -%}
+    {%- assign meta_brand_stack = meta_brand_stack | strip -%}
+    {%- if meta_font != blank and meta_brand_stack == blank -%}{{ meta_font | font_face: font_display: 'swap' }}{%- endif -%}
+    {%- if meta_font != blank and meta_brand_stack == blank and meta_weight != 'default' -%}
+      {%- assign meta_wfont = meta_font | font_modify: 'weight', meta_weight -%}
+      {%- if meta_wfont -%}{{ meta_wfont | font_face: font_display: 'swap' }}{%- endif -%}
+    {%- endif -%}
+    #shopify-section-{{ section.id }} .article-card__info {
+      {%- if meta_brand_stack != blank %} font-family: {{ meta_brand_stack }};{% elsif meta_font != blank %} font-family: {{ meta_font.family }}, {{ meta_font.fallback_families }};{% endif -%}
+      {%- if meta_weight != 'default' and meta_weight != blank %} font-weight: {{ meta_weight }};{% endif -%}
+      {%- if meta_fs > 0 %} font-size: {{ meta_fs }}px;{% endif -%}
+      {%- if meta_lh > 0 %} line-height: {{ meta_lh }}%;{% endif -%}
+      {%- if meta_case != 'default' and meta_case != blank %} text-transform: {{ meta_case }};{% endif -%}
+      {%- if meta_ls > 0 %} letter-spacing: {{ meta_ls }}px;{% endif -%}
+      {%- if section.settings.meta_color != blank %} color: {{ section.settings.meta_color }};{% endif -%}
+    }
+    {%- assign meta_fs_m = section.settings.meta_font_size_mobile | default: 0 -%}
+    {%- if meta_fs_m > 0 -%}
+      @media screen and (max-width: 749px) {
+        #shopify-section-{{ section.id }} .article-card__info {
+          font-size: {{ meta_fs_m }}px;
+        }
+      }
+    {%- endif -%}
+  {%- endif -%}
+
+  {%- if section.settings.excerpt_enable_type -%}
+    {%- liquid
+      assign excerpt_font = section.settings.excerpt_font
+      assign excerpt_weight = section.settings.excerpt_font_weight | default: 'default'
+      assign excerpt_fs = section.settings.excerpt_font_size | default: 0
+      assign excerpt_lh = section.settings.excerpt_line_height | default: 0
+      assign excerpt_case = section.settings.excerpt_text_case | default: 'default'
+      assign excerpt_ls = section.settings.excerpt_letter_spacing | default: 0
+    -%}
+    {%- capture excerpt_brand_stack -%}{% render 'brand-font', font: section.settings.excerpt_custom_font %}{%- endcapture -%}
+    {%- assign excerpt_brand_stack = excerpt_brand_stack | strip -%}
+    {%- if excerpt_font != blank and excerpt_brand_stack == blank -%}{{ excerpt_font | font_face: font_display: 'swap' }}{%- endif -%}
+    {%- if excerpt_font != blank and excerpt_brand_stack == blank and excerpt_weight != 'default' -%}
+      {%- assign excerpt_wfont = excerpt_font | font_modify: 'weight', excerpt_weight -%}
+      {%- if excerpt_wfont -%}{{ excerpt_wfont | font_face: font_display: 'swap' }}{%- endif -%}
+    {%- endif -%}
+    #shopify-section-{{ section.id }} .article-card__excerpt {
+      {%- if excerpt_brand_stack != blank %} font-family: {{ excerpt_brand_stack }};{% elsif excerpt_font != blank %} font-family: {{ excerpt_font.family }}, {{ excerpt_font.fallback_families }};{% endif -%}
+      {%- if excerpt_weight != 'default' and excerpt_weight != blank %} font-weight: {{ excerpt_weight }};{% endif -%}
+      {%- if excerpt_fs > 0 %} font-size: {{ excerpt_fs }}px;{% endif -%}
+      {%- if excerpt_lh > 0 %} line-height: {{ excerpt_lh }}%;{% endif -%}
+      {%- if excerpt_case != 'default' and excerpt_case != blank %} text-transform: {{ excerpt_case }};{% endif -%}
+      {%- if excerpt_ls > 0 %} letter-spacing: {{ excerpt_ls }}px;{% endif -%}
+      {%- if section.settings.excerpt_color != blank %} color: {{ section.settings.excerpt_color }};{% endif -%}
+    }
+    {%- assign excerpt_fs_m = section.settings.excerpt_font_size_mobile | default: 0 -%}
+    {%- if excerpt_fs_m > 0 -%}
+      @media screen and (max-width: 749px) {
+        #shopify-section-{{ section.id }} .article-card__excerpt {
+          font-size: {{ excerpt_fs_m }}px;
+        }
+      }
+    {%- endif -%}
+  {%- endif -%}
 {%- endstyle -%}
 
-{%- paginate blog.articles by 6 -%}
+{%- paginate blog.articles by section.settings.posts_per_page -%}
   <div class="main-blog page-width section-{{ section.id }}-padding">
-    {% comment %}
+    {%- if section.settings.show_title -%}
       <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
         {{ blog.title | escape }}
       </h1>
-    {% endcomment %}
+    {%- endif -%}
 
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
       {%- for article in blog.articles -%}
@@ -49,7 +216,7 @@
             show_image: section.settings.show_image,
             show_date: section.settings.show_date,
             show_author: section.settings.show_author,
-            show_excerpt: false
+            show_excerpt: section.settings.show_excerpt
           -%}
         </div>
       {%- endfor -%}
@@ -125,6 +292,56 @@
       "default": false,
       "label": "t:sections.main-blog.settings.show_author.label"
     },
+    { "type": "header", "content": "Content" },
+    { "type": "checkbox", "id": "show_title", "default": false, "label": "Show blog title" },
+    { "type": "checkbox", "id": "show_excerpt", "default": false, "label": "Show excerpt" },
+    { "type": "range", "id": "posts_per_page", "min": 3, "max": 24, "step": 1, "label": "Posts per page", "default": 6 },
+    { "type": "header", "content": "Layout & spacing" },
+    { "type": "range", "id": "columns_desktop", "min": 2, "max": 4, "step": 1, "label": "Desktop columns", "default": 2, "visible_if": "{{ section.settings.layout == 'grid' }}" },
+    { "type": "select", "id": "columns_mobile", "options": [{ "value": "1", "label": "1 column" }, { "value": "2", "label": "2 columns" }], "default": "1", "label": "Mobile columns" },
+    { "type": "checkbox", "id": "enable_custom_spacing", "default": false, "label": "Enable custom spacing" },
+    { "type": "range", "id": "horizontal_spacing_desktop", "min": 0, "max": 40, "step": 2, "unit": "px", "label": "Desktop horizontal spacing", "default": 20, "visible_if": "{{ section.settings.enable_custom_spacing }}" },
+    { "type": "range", "id": "vertical_spacing_desktop", "min": 0, "max": 40, "step": 2, "unit": "px", "label": "Desktop vertical spacing", "default": 20, "visible_if": "{{ section.settings.enable_custom_spacing }}" },
+    { "type": "range", "id": "horizontal_spacing_mobile", "min": 0, "max": 40, "step": 2, "unit": "px", "label": "Mobile horizontal spacing", "default": 10, "visible_if": "{{ section.settings.enable_custom_spacing }}" },
+    { "type": "range", "id": "vertical_spacing_mobile", "min": 0, "max": 40, "step": 2, "unit": "px", "label": "Mobile vertical spacing", "default": 10, "visible_if": "{{ section.settings.enable_custom_spacing }}" },
+    { "type": "range", "id": "padding_left", "min": 0, "max": 200, "step": 4, "unit": "px", "label": "Left padding", "info": "Desktop only", "default": 0 },
+    { "type": "range", "id": "padding_right", "min": 0, "max": 200, "step": 4, "unit": "px", "label": "Right padding", "info": "Desktop only", "default": 0 },
+    { "type": "range", "id": "padding_top_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding top", "info": "0 = 75% of desktop", "default": 0 },
+    { "type": "range", "id": "padding_bottom_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Mobile padding bottom", "info": "0 = 75% of desktop", "default": 0 },
+    { "type": "checkbox", "id": "card_info_flush", "default": false, "label": "Flush card text", "info": "Removes side padding on cards for articles without images" },
+    { "type": "header", "content": "Card title typography" },
+    { "type": "checkbox", "id": "title_enable_type", "default": false, "label": "Enable typography" },
+    { "type": "font_picker", "id": "title_font", "default": "assistant_n4", "label": "Font", "visible_if": "{{ section.settings.title_enable_type }}" },
+    { "type": "select", "id": "title_custom_font", "options": [{ "value": "default", "label": "None (use font picker)" }, { "value": "ibm_plex_sans", "label": "IBM Plex Sans" }, { "value": "ibm_plex_mono", "label": "IBM Plex Mono" }, { "value": "inter", "label": "Inter" }, { "value": "geist", "label": "Geist" }, { "value": "geist_mono", "label": "Geist Mono" }, { "value": "overpass", "label": "Overpass" }, { "value": "overpass_mono", "label": "Overpass Mono" }, { "value": "dm_sans", "label": "DM Sans" }, { "value": "dm_mono", "label": "DM Mono" }, { "value": "manrope", "label": "Manrope" }, { "value": "open_sans", "label": "Open Sans" }], "default": "default", "label": "Brand font", "info": "Overrides the font picker above when set", "visible_if": "{{ section.settings.title_enable_type }}" },
+    { "type": "select", "id": "title_font_weight", "options": [{ "value": "default", "label": "Theme default" }, { "value": "300", "label": "Light" }, { "value": "400", "label": "Regular" }, { "value": "500", "label": "Medium" }, { "value": "600", "label": "Semibold" }, { "value": "700", "label": "Bold" }], "default": "default", "label": "Font weight", "visible_if": "{{ section.settings.title_enable_type }}" },
+    { "type": "range", "id": "title_font_size", "min": 0, "max": 72, "step": 1, "unit": "px", "label": "Font size", "info": "0 = theme default (13px)", "default": 0, "visible_if": "{{ section.settings.title_enable_type }}" },
+    { "type": "range", "id": "title_font_size_mobile", "min": 0, "max": 72, "step": 1, "unit": "px", "label": "Mobile font size", "info": "0 = same as desktop", "default": 0, "visible_if": "{{ section.settings.title_enable_type }}" },
+    { "type": "range", "id": "title_line_height", "min": 0, "max": 250, "step": 5, "unit": "%", "label": "Line height", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.title_enable_type }}" },
+    { "type": "select", "id": "title_text_case", "options": [{ "value": "default", "label": "Theme default" }, { "value": "uppercase", "label": "Uppercase" }, { "value": "capitalize", "label": "Capitalize" }, { "value": "lowercase", "label": "Lowercase" }, { "value": "none", "label": "Normal (remove uppercase)" }], "default": "default", "label": "Text case", "visible_if": "{{ section.settings.title_enable_type }}" },
+    { "type": "range", "id": "title_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Letter spacing", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.title_enable_type }}" },
+    { "type": "color", "id": "title_color", "label": "Text color", "info": "Leave blank to inherit", "visible_if": "{{ section.settings.title_enable_type }}" },
+    { "type": "header", "content": "Card meta typography" },
+    { "type": "checkbox", "id": "meta_enable_type", "default": false, "label": "Enable typography", "info": "Date and author line" },
+    { "type": "font_picker", "id": "meta_font", "default": "assistant_n4", "label": "Font", "visible_if": "{{ section.settings.meta_enable_type }}" },
+    { "type": "select", "id": "meta_custom_font", "options": [{ "value": "default", "label": "None (use font picker)" }, { "value": "ibm_plex_sans", "label": "IBM Plex Sans" }, { "value": "ibm_plex_mono", "label": "IBM Plex Mono" }, { "value": "inter", "label": "Inter" }, { "value": "geist", "label": "Geist" }, { "value": "geist_mono", "label": "Geist Mono" }, { "value": "overpass", "label": "Overpass" }, { "value": "overpass_mono", "label": "Overpass Mono" }, { "value": "dm_sans", "label": "DM Sans" }, { "value": "dm_mono", "label": "DM Mono" }, { "value": "manrope", "label": "Manrope" }, { "value": "open_sans", "label": "Open Sans" }], "default": "default", "label": "Brand font", "info": "Overrides the font picker above when set", "visible_if": "{{ section.settings.meta_enable_type }}" },
+    { "type": "select", "id": "meta_font_weight", "options": [{ "value": "default", "label": "Theme default" }, { "value": "300", "label": "Light" }, { "value": "400", "label": "Regular" }, { "value": "500", "label": "Medium" }, { "value": "600", "label": "Semibold" }, { "value": "700", "label": "Bold" }], "default": "default", "label": "Font weight", "visible_if": "{{ section.settings.meta_enable_type }}" },
+    { "type": "range", "id": "meta_font_size", "min": 0, "max": 72, "step": 1, "unit": "px", "label": "Font size", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.meta_enable_type }}" },
+    { "type": "range", "id": "meta_font_size_mobile", "min": 0, "max": 72, "step": 1, "unit": "px", "label": "Mobile font size", "info": "0 = same as desktop", "default": 0, "visible_if": "{{ section.settings.meta_enable_type }}" },
+    { "type": "range", "id": "meta_line_height", "min": 0, "max": 250, "step": 5, "unit": "%", "label": "Line height", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.meta_enable_type }}" },
+    { "type": "select", "id": "meta_text_case", "options": [{ "value": "default", "label": "Theme default" }, { "value": "uppercase", "label": "Uppercase" }, { "value": "capitalize", "label": "Capitalize" }, { "value": "lowercase", "label": "Lowercase" }, { "value": "none", "label": "Normal (remove uppercase)" }], "default": "default", "label": "Text case", "visible_if": "{{ section.settings.meta_enable_type }}" },
+    { "type": "range", "id": "meta_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Letter spacing", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.meta_enable_type }}" },
+    { "type": "color", "id": "meta_color", "label": "Text color", "info": "Leave blank to inherit", "visible_if": "{{ section.settings.meta_enable_type }}" },
+    { "type": "header", "content": "Card excerpt typography" },
+    { "type": "checkbox", "id": "excerpt_enable_type", "default": false, "label": "Enable typography", "info": "Shown only when \"Show excerpt\" is on" },
+    { "type": "font_picker", "id": "excerpt_font", "default": "assistant_n4", "label": "Font", "visible_if": "{{ section.settings.excerpt_enable_type }}" },
+    { "type": "select", "id": "excerpt_custom_font", "options": [{ "value": "default", "label": "None (use font picker)" }, { "value": "ibm_plex_sans", "label": "IBM Plex Sans" }, { "value": "ibm_plex_mono", "label": "IBM Plex Mono" }, { "value": "inter", "label": "Inter" }, { "value": "geist", "label": "Geist" }, { "value": "geist_mono", "label": "Geist Mono" }, { "value": "overpass", "label": "Overpass" }, { "value": "overpass_mono", "label": "Overpass Mono" }, { "value": "dm_sans", "label": "DM Sans" }, { "value": "dm_mono", "label": "DM Mono" }, { "value": "manrope", "label": "Manrope" }, { "value": "open_sans", "label": "Open Sans" }], "default": "default", "label": "Brand font", "info": "Overrides the font picker above when set", "visible_if": "{{ section.settings.excerpt_enable_type }}" },
+    { "type": "select", "id": "excerpt_font_weight", "options": [{ "value": "default", "label": "Theme default" }, { "value": "300", "label": "Light" }, { "value": "400", "label": "Regular" }, { "value": "500", "label": "Medium" }, { "value": "600", "label": "Semibold" }, { "value": "700", "label": "Bold" }], "default": "default", "label": "Font weight", "visible_if": "{{ section.settings.excerpt_enable_type }}" },
+    { "type": "range", "id": "excerpt_font_size", "min": 0, "max": 72, "step": 1, "unit": "px", "label": "Font size", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.excerpt_enable_type }}" },
+    { "type": "range", "id": "excerpt_font_size_mobile", "min": 0, "max": 72, "step": 1, "unit": "px", "label": "Mobile font size", "info": "0 = same as desktop", "default": 0, "visible_if": "{{ section.settings.excerpt_enable_type }}" },
+    { "type": "range", "id": "excerpt_line_height", "min": 0, "max": 250, "step": 5, "unit": "%", "label": "Line height", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.excerpt_enable_type }}" },
+    { "type": "select", "id": "excerpt_text_case", "options": [{ "value": "default", "label": "Theme default" }, { "value": "uppercase", "label": "Uppercase" }, { "value": "capitalize", "label": "Capitalize" }, { "value": "lowercase", "label": "Lowercase" }, { "value": "none", "label": "Normal (remove uppercase)" }], "default": "default", "label": "Text case", "visible_if": "{{ section.settings.excerpt_enable_type }}" },
+    { "type": "range", "id": "excerpt_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Letter spacing", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.excerpt_enable_type }}" },
+    { "type": "color", "id": "excerpt_color", "label": "Text color", "info": "Leave blank to inherit", "visible_if": "{{ section.settings.excerpt_enable_type }}" },
     {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"

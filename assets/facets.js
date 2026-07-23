@@ -93,14 +93,26 @@ class FacetFiltersForm extends HTMLElement {
   }
 
   static renderProductCount(html) {
-    const count = new DOMParser().parseFromString(html, 'text/html').getElementById('ProductCount').innerHTML;
+    // This fork comments out the mobile #ProductCount and the facets-desktop count,
+    // so the only live count element is the vertical section's #ProductCountDesktop
+    // (and only when filter_type == 'vertical'). Read the count from whichever source
+    // the fetched section actually contains, and write only to containers that exist —
+    // otherwise stock's unconditional #ProductCount lookups throw "Cannot read
+    // properties of null" on every drawer/horizontal filter apply.
+    const parsed = new DOMParser().parseFromString(html, 'text/html');
+    const countSource = parsed.getElementById('ProductCount') || parsed.getElementById('ProductCountDesktop');
     const container = document.getElementById('ProductCount');
     const containerDesktop = document.getElementById('ProductCountDesktop');
-    container.innerHTML = count;
-    container.classList.remove('loading');
-    if (containerDesktop) {
-      containerDesktop.innerHTML = count;
-      containerDesktop.classList.remove('loading');
+    if (countSource) {
+      const count = countSource.innerHTML;
+      if (container) {
+        container.innerHTML = count;
+        container.classList.remove('loading');
+      }
+      if (containerDesktop) {
+        containerDesktop.innerHTML = count;
+        containerDesktop.classList.remove('loading');
+      }
     }
     const loadingSpinners = document.querySelectorAll(
       '.facets-container .loading__spinner, facet-filters-form .loading__spinner'
@@ -239,7 +251,13 @@ class FacetFiltersForm extends HTMLElement {
   }
 
   static updateURLHash(searchParams) {
-    history.pushState({ searchParams }, '', `${window.location.pathname}${searchParams && '?'.concat(searchParams)}`);
+    // Carry the campaign/collection view param (?display=) through filter/sort
+    // rewrites; the { searchParams } state payload stays form-derived.
+    const url = new URLSearchParams(searchParams);
+    const display = new URLSearchParams(window.location.search).get('display');
+    if (display) url.set('display', display);
+    const qs = url.toString();
+    history.pushState({ searchParams }, '', `${window.location.pathname}${qs && '?'.concat(qs)}`);
   }
 
   static getSections() {

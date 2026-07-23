@@ -242,11 +242,17 @@ details[open].menu-opening > .menu-drawer__submenu {
   }
 }
 
+/* Per-level submenu indent; the --mp-drawer-indent-* vars are set by header.liquid
+   only when the drawer typography gate is on — fallbacks keep the historical 20px. */
 .menu-drawer__inner-submenu,
 .menu-drawer__submenu {
-  margin-left: 20px;
+  margin-left: var(--mp-drawer-indent-l2, 20px);
+}
+
+.menu-drawer__submenu .menu-drawer__submenu {
+  margin-left: var(--mp-drawer-indent-l3, 20px);
 }
 
 .menu-drawer__inner-submenu .icon-caret {
-  right: calc(1.5rem + 20px);
+  right: calc(1.5rem + var(--mp-drawer-indent-l2, 20px));
 }

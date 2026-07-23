@@ -87,6 +87,9 @@ cart-items .title-wrapper-with-link {
 .cart-item__name {
   text-decoration: none;
   display: block;
+  /* Product names opt out of the global .h4/.h5 mono-uppercase heading overrides (theme.liquid). */
+  font-family: var(--font-heading-family);
+  text-transform: none;
 }
 
 .cart-item__name:hover {

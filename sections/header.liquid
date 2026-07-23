@@ -79,6 +79,121 @@
   }
 </style>
 
+{%- comment -%}
+  Batch 2: optional nav typography overrides, split across three targets:
+  main nav (top-level items), sub-nav headers (level 2), sub-nav items (level 3).
+  Each group shares the same 5 controls, keyed by a prefix; the loop keeps it DRY.
+  #shopify-section-<id> gives every rule an ID, so it beats the 13px base rules.
+{%- endcomment -%}
+{%- if section.settings.nav_enable_type -%}
+  {%- capture nav_type_css -%}
+    {%- assign nav_groups = 'mainnav|.header__menu-item,subhead|.mega-menu__link--level-2,subitem|.mega-menu__link:not(.mega-menu__link--level-2)' | split: ',' -%}
+    {%- for grp in nav_groups -%}
+      {%- assign grp_parts = grp | split: '|' -%}
+      {%- assign gp = grp_parts[0] -%}
+      {%- assign sel = grp_parts[1] -%}
+      {%- assign k_font = gp | append: '_custom_font' -%}
+      {%- assign k_weight = gp | append: '_font_weight' -%}
+      {%- assign k_size = gp | append: '_font_size' -%}
+      {%- assign k_case = gp | append: '_text_case' -%}
+      {%- assign k_ls = gp | append: '_letter_spacing' -%}
+      {%- capture grp_brand -%}{% render 'brand-font', font: section.settings[k_font] %}{%- endcapture -%}
+      {%- assign grp_brand = grp_brand | strip -%}
+      {%- capture grp_decl -%}
+        {%- if grp_brand != blank %}font-family: {{ grp_brand }};{% endif -%}
+        {%- if section.settings[k_weight] != 'default' and section.settings[k_weight] != blank %} font-weight: {{ section.settings[k_weight] }};{% endif -%}
+        {%- if section.settings[k_size] > 0 %} font-size: {{ section.settings[k_size] }}px;{% endif -%}
+        {%- if section.settings[k_case] != 'default' and section.settings[k_case] != blank %} text-transform: {{ section.settings[k_case] }};{% endif -%}
+        {%- if section.settings[k_ls] > 0 %} letter-spacing: {{ section.settings[k_ls] }}px;{% endif -%}
+      {%- endcapture -%}
+      {%- assign grp_decl = grp_decl | strip -%}
+      {%- if grp_decl != blank -%}
+        #shopify-section-{{ section.id }} {{ sel }} { {{ grp_decl }} }
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {%- assign nav_type_css = nav_type_css | strip -%}
+  {%- if nav_type_css != blank -%}
+    <style>
+      {{ nav_type_css }}
+    </style>
+  {%- endif -%}
+{%- endif -%}
+
+{%- comment -%}
+  Notes batch: header padding overrides + mega-menu list gaps. All 0-sentinel —
+  nothing is emitted at defaults. #shopify-section-<id> scoping outranks the
+  base.css .header.page-width breakpoint rules (ID beats any class chain).
+{%- endcomment -%}
+{%- capture header_space_css -%}
+  {%- if section.settings.padding_top > 0 or section.settings.padding_bottom > 0 -%}
+    #shopify-section-{{ section.id }} .header { {% if section.settings.padding_top > 0 %}padding-top: {{ section.settings.padding_top }}px;{% endif %}{% if section.settings.padding_bottom > 0 %} padding-bottom: {{ section.settings.padding_bottom }}px;{% endif %} }
+  {%- endif -%}
+  {%- if section.settings.padding_left_mobile > 0 or section.settings.padding_right_mobile > 0 -%}
+    @media screen and (max-width: 1099px) { #shopify-section-{{ section.id }} .header { {% if section.settings.padding_left_mobile > 0 %}padding-left: {{ section.settings.padding_left_mobile }}px;{% endif %}{% if section.settings.padding_right_mobile > 0 %} padding-right: {{ section.settings.padding_right_mobile }}px;{% endif %} } }
+  {%- endif -%}
+  {%- if section.settings.padding_left > 0 or section.settings.padding_right > 0 -%}
+    @media screen and (min-width: 1100px) { #shopify-section-{{ section.id }} .header { {% if section.settings.padding_left > 0 %}padding-left: {{ section.settings.padding_left }}px;{% endif %}{% if section.settings.padding_right > 0 %} padding-right: {{ section.settings.padding_right }}px;{% endif %} } }
+  {%- endif -%}
+  {%- if section.settings.megamenu_row_gap > 0 or section.settings.megamenu_col_gap > 0 -%}
+    #shopify-section-{{ section.id }} { {% if section.settings.megamenu_row_gap > 0 %}--mm-list-row-gap: {{ section.settings.megamenu_row_gap }}px;{% endif %}{% if section.settings.megamenu_col_gap > 0 %} --mm-list-col-gap: {{ section.settings.megamenu_col_gap }}px;{% endif %} }
+  {%- endif -%}
+{%- endcapture -%}
+{%- assign header_space_css = header_space_css | strip -%}
+{%- if header_space_css != blank -%}
+  <style>
+    {{ header_space_css }}
+  </style>
+{%- endif -%}
+
+{%- comment -%}
+  Notes batch: mobile drawer per-tier typography/spacing under one gate, same
+  shape as the nav loop above. Tier classes (--l1/--l2/--l3) are set in
+  header-drawer.liquid; the CHILD/BABY/ADULT always-expanded branches share the
+  same submenu markup, so the tier rules cover them too. Indent vars are read by
+  component-menu-drawer.css (fallback 20px each = the historical margins).
+{%- endcomment -%}
+{%- if section.settings.drawer_enable_type -%}
+  {%- capture drawer_type_css -%}
+    {%- assign drawer_groups = 'drawer_l1|.menu-drawer__menu-item--l1,drawer_l2|.menu-drawer__menu-item--l2,drawer_l3|.menu-drawer__menu-item--l3' | split: ',' -%}
+    {%- for grp in drawer_groups -%}
+      {%- assign grp_parts = grp | split: '|' -%}
+      {%- assign gp = grp_parts[0] -%}
+      {%- assign sel = grp_parts[1] -%}
+      {%- assign k_font = gp | append: '_custom_font' -%}
+      {%- assign k_weight = gp | append: '_font_weight' -%}
+      {%- assign k_size = gp | append: '_font_size' -%}
+      {%- assign k_case = gp | append: '_text_case' -%}
+      {%- assign k_ls = gp | append: '_letter_spacing' -%}
+      {%- assign k_vs = gp | append: '_v_space' -%}
+      {%- capture grp_brand -%}{% render 'brand-font', font: section.settings[k_font] %}{%- endcapture -%}
+      {%- assign grp_brand = grp_brand | strip -%}
+      {%- capture grp_decl -%}
+        {%- if grp_brand != blank %}font-family: {{ grp_brand }};{% endif -%}
+        {%- if section.settings[k_weight] != 'default' and section.settings[k_weight] != blank %} font-weight: {{ section.settings[k_weight] }};{% endif -%}
+        {%- if section.settings[k_size] > 0 %} font-size: {{ section.settings[k_size] }}px;{% endif -%}
+        {%- if section.settings[k_case] != 'default' and section.settings[k_case] != blank %} text-transform: {{ section.settings[k_case] }};{% endif -%}
+        {%- if section.settings[k_ls] > 0 %} letter-spacing: {{ section.settings[k_ls] }}px;{% endif -%}
+        {%- if section.settings[k_vs] > 0 %} padding-top: {{ section.settings[k_vs] }}px; padding-bottom: {{ section.settings[k_vs] }}px;{% endif -%}
+      {%- endcapture -%}
+      {%- assign grp_decl = grp_decl | strip -%}
+      {%- if grp_decl != blank -%}
+        #shopify-section-{{ section.id }} {{ sel }} { {{ grp_decl }} }
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if section.settings.drawer_l1_indent > 0 -%}
+      #shopify-section-{{ section.id }} .menu-drawer__menu-item { padding-left: {{ section.settings.drawer_l1_indent }}px; }
+    {%- endif -%}
+    #shopify-section-{{ section.id }} { --mp-drawer-indent-l2: {{ section.settings.drawer_l2_indent }}px; --mp-drawer-indent-l3: {{ section.settings.drawer_l3_indent }}px; }
+  {%- endcapture -%}
+  {%- assign drawer_type_css = drawer_type_css | strip -%}
+  {%- if drawer_type_css != blank -%}
+    <style>
+      {{ drawer_type_css }}
+    </style>
+  {%- endif -%}
+{%- endif -%}
+
 {% liquid
   assign paths = section.settings.transparency_enabled_paths | split: ','
 
@@ -90,7 +205,7 @@
 %}
 {%- style -%}
   .header {
-    padding: 10px 1.4rem;
+    padding: 10px var(--mobile-page-width-padding);
   }
 
   .section-header {
@@ -111,13 +226,6 @@
       {% endif %}
     }
   }
-
-  /* @media screen and (min-width: 1100px) {
-    .header {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  } */
 
   @media screen and (max-width: 1099px) {
     .header__heading-logo-wrapper {
@@ -661,6 +769,280 @@
       "label": "t:sections.header.settings.menu_type_desktop.label"
     },
     {
+      "type": "header",
+      "content": "Navigation typography"
+    },
+    {
+      "type": "checkbox",
+      "id": "nav_enable_type",
+      "default": false,
+      "label": "Enable custom nav typography",
+      "info": "Applies to desktop navigation. Style each level below; leave a control at its default to inherit."
+    },
+    {
+      "type": "header",
+      "content": "Main nav (top level)"
+    },
+    {
+      "type": "select",
+      "id": "mainnav_custom_font",
+      "options": [
+        { "value": "default", "label": "None (inherit theme)" },
+        { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+        { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+        { "value": "inter", "label": "Inter" },
+        { "value": "geist", "label": "Geist" },
+        { "value": "geist_mono", "label": "Geist Mono" },
+        { "value": "overpass", "label": "Overpass" },
+        { "value": "overpass_mono", "label": "Overpass Mono" },
+        { "value": "dm_sans", "label": "DM Sans" },
+        { "value": "dm_mono", "label": "DM Mono" },
+        { "value": "manrope", "label": "Manrope" },
+        { "value": "open_sans", "label": "Open Sans" }
+      ],
+      "default": "default",
+      "label": "Brand font",
+      "visible_if": "{{ section.settings.nav_enable_type }}"
+    },
+    {
+      "type": "range",
+      "id": "mainnav_font_size",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "info": "0 = theme default (13px)",
+      "default": 0,
+      "visible_if": "{{ section.settings.nav_enable_type }}"
+    },
+    {
+      "type": "select",
+      "id": "mainnav_font_weight",
+      "options": [
+        { "value": "default", "label": "Theme default" },
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semibold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "default",
+      "label": "Font weight",
+      "visible_if": "{{ section.settings.nav_enable_type }}"
+    },
+    {
+      "type": "range",
+      "id": "mainnav_letter_spacing",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Letter spacing",
+      "info": "0 = theme default",
+      "default": 0,
+      "visible_if": "{{ section.settings.nav_enable_type }}"
+    },
+    {
+      "type": "select",
+      "id": "mainnav_text_case",
+      "options": [
+        { "value": "default", "label": "Theme default" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "capitalize", "label": "Capitalize" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "none", "label": "Normal (remove uppercase)" }
+      ],
+      "default": "default",
+      "label": "Text case",
+      "visible_if": "{{ section.settings.nav_enable_type }}"
+    },
+    {
+      "type": "header",
+      "content": "Sub-nav headers (2nd level)"
+    },
+    {
+      "type": "select",
+      "id": "subhead_custom_font",
+      "options": [
+        { "value": "default", "label": "None (inherit theme)" },
+        { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+        { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+        { "value": "inter", "label": "Inter" },
+        { "value": "geist", "label": "Geist" },
+        { "value": "geist_mono", "label": "Geist Mono" },
+        { "value": "overpass", "label": "Overpass" },
+        { "value": "overpass_mono", "label": "Overpass Mono" },
+        { "value": "dm_sans", "label": "DM Sans" },
+        { "value": "dm_mono", "label": "DM Mono" },
+        { "value": "manrope", "label": "Manrope" },
+        { "value": "open_sans", "label": "Open Sans" }
+      ],
+      "default": "default",
+      "label": "Brand font",
+      "visible_if": "{{ section.settings.nav_enable_type }}"
+    },
+    {
+      "type": "range",
+      "id": "subhead_font_size",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "info": "0 = theme default",
+      "default": 0,
+      "visible_if": "{{ section.settings.nav_enable_type }}"
+    },
+    {
+      "type": "select",
+      "id": "subhead_font_weight",
+      "options": [
+        { "value": "default", "label": "Theme default" },
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semibold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "default",
+      "label": "Font weight",
+      "visible_if": "{{ section.settings.nav_enable_type }}"
+    },
+    {
+      "type": "range",
+      "id": "subhead_letter_spacing",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Letter spacing",
+      "info": "0 = theme default",
+      "default": 0,
+      "visible_if": "{{ section.settings.nav_enable_type }}"
+    },
+    {
+      "type": "select",
+      "id": "subhead_text_case",
+      "options": [
+        { "value": "default", "label": "Theme default" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "capitalize", "label": "Capitalize" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "none", "label": "Normal (remove uppercase)" }
+      ],
+      "default": "default",
+      "label": "Text case",
+      "visible_if": "{{ section.settings.nav_enable_type }}"
+    },
+    {
+      "type": "header",
+      "content": "Sub-nav items (3rd level)"
+    },
+    {
+      "type": "select",
+      "id": "subitem_custom_font",
+      "options": [
+        { "value": "default", "label": "None (inherit theme)" },
+        { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+        { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+        { "value": "inter", "label": "Inter" },
+        { "value": "geist", "label": "Geist" },
+        { "value": "geist_mono", "label": "Geist Mono" },
+        { "value": "overpass", "label": "Overpass" },
+        { "value": "overpass_mono", "label": "Overpass Mono" },
+        { "value": "dm_sans", "label": "DM Sans" },
+        { "value": "dm_mono", "label": "DM Mono" },
+        { "value": "manrope", "label": "Manrope" },
+        { "value": "open_sans", "label": "Open Sans" }
+      ],
+      "default": "default",
+      "label": "Brand font",
+      "visible_if": "{{ section.settings.nav_enable_type }}"
+    },
+    {
+      "type": "range",
+      "id": "subitem_font_size",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "info": "0 = theme default (13px)",
+      "default": 0,
+      "visible_if": "{{ section.settings.nav_enable_type }}"
+    },
+    {
+      "type": "select",
+      "id": "subitem_font_weight",
+      "options": [
+        { "value": "default", "label": "Theme default" },
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semibold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "default",
+      "label": "Font weight",
+      "visible_if": "{{ section.settings.nav_enable_type }}"
+    },
+    {
+      "type": "range",
+      "id": "subitem_letter_spacing",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Letter spacing",
+      "info": "0 = theme default",
+      "default": 0,
+      "visible_if": "{{ section.settings.nav_enable_type }}"
+    },
+    {
+      "type": "select",
+      "id": "subitem_text_case",
+      "options": [
+        { "value": "default", "label": "Theme default" },
+        { "value": "uppercase", "label": "Uppercase" },
+        { "value": "capitalize", "label": "Capitalize" },
+        { "value": "lowercase", "label": "Lowercase" },
+        { "value": "none", "label": "Normal (remove uppercase)" }
+      ],
+      "default": "default",
+      "label": "Text case",
+      "visible_if": "{{ section.settings.nav_enable_type }}"
+    },
+    { "type": "header", "content": "Mega menu spacing" },
+    { "type": "range", "id": "megamenu_row_gap", "min": 0, "max": 60, "step": 2, "unit": "px", "label": "Row gap", "info": "0 = theme default (1.8rem)", "default": 0 },
+    { "type": "range", "id": "megamenu_col_gap", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Column gap", "info": "0 = theme default (4rem)", "default": 0 },
+    { "type": "header", "content": "Mobile drawer typography" },
+    { "type": "checkbox", "id": "drawer_enable_type", "default": false, "label": "Enable custom drawer typography", "info": "Applies to the mobile/drawer menu. Style each level below; leave a control at its default to inherit." },
+    { "type": "header", "content": "Drawer level 1" },
+    { "type": "select", "id": "drawer_l1_custom_font", "options": [ { "value": "default", "label": "None (inherit theme)" }, { "value": "ibm_plex_sans", "label": "IBM Plex Sans" }, { "value": "ibm_plex_mono", "label": "IBM Plex Mono" }, { "value": "inter", "label": "Inter" }, { "value": "geist", "label": "Geist" }, { "value": "geist_mono", "label": "Geist Mono" }, { "value": "overpass", "label": "Overpass" }, { "value": "overpass_mono", "label": "Overpass Mono" }, { "value": "dm_sans", "label": "DM Sans" }, { "value": "dm_mono", "label": "DM Mono" }, { "value": "manrope", "label": "Manrope" }, { "value": "open_sans", "label": "Open Sans" } ], "default": "overpass", "label": "Brand font", "visible_if": "{{ section.settings.drawer_enable_type }}" },
+    { "type": "range", "id": "drawer_l1_font_size", "min": 0, "max": 24, "step": 1, "unit": "px", "label": "Font size", "info": "0 = theme default (1.8rem)", "default": 0, "visible_if": "{{ section.settings.drawer_enable_type }}" },
+    { "type": "select", "id": "drawer_l1_font_weight", "options": [ { "value": "default", "label": "Theme default" }, { "value": "300", "label": "Light" }, { "value": "400", "label": "Regular" }, { "value": "500", "label": "Medium" }, { "value": "600", "label": "Semibold" }, { "value": "700", "label": "Bold" } ], "default": "700", "label": "Font weight", "visible_if": "{{ section.settings.drawer_enable_type }}" },
+    { "type": "range", "id": "drawer_l1_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Letter spacing", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.drawer_enable_type }}" },
+    { "type": "select", "id": "drawer_l1_text_case", "options": [ { "value": "default", "label": "Theme default" }, { "value": "uppercase", "label": "Uppercase" }, { "value": "capitalize", "label": "Capitalize" }, { "value": "lowercase", "label": "Lowercase" }, { "value": "none", "label": "Normal (remove uppercase)" } ], "default": "default", "label": "Text case", "visible_if": "{{ section.settings.drawer_enable_type }}" },
+    { "type": "range", "id": "drawer_l1_indent", "min": 0, "max": 60, "step": 2, "unit": "px", "label": "Indent", "info": "Base left inset for every drawer item; levels 2-3 add their own indent. 0 = theme default (3rem)", "default": 0, "visible_if": "{{ section.settings.drawer_enable_type }}" },
+    { "type": "range", "id": "drawer_l1_v_space", "min": 0, "max": 24, "step": 1, "unit": "px", "label": "Item vertical spacing", "info": "0 = theme default (1.1rem)", "default": 0, "visible_if": "{{ section.settings.drawer_enable_type }}" },
+    { "type": "header", "content": "Drawer level 2" },
+    { "type": "select", "id": "drawer_l2_custom_font", "options": [ { "value": "default", "label": "None (inherit theme)" }, { "value": "ibm_plex_sans", "label": "IBM Plex Sans" }, { "value": "ibm_plex_mono", "label": "IBM Plex Mono" }, { "value": "inter", "label": "Inter" }, { "value": "geist", "label": "Geist" }, { "value": "geist_mono", "label": "Geist Mono" }, { "value": "overpass", "label": "Overpass" }, { "value": "overpass_mono", "label": "Overpass Mono" }, { "value": "dm_sans", "label": "DM Sans" }, { "value": "dm_mono", "label": "DM Mono" }, { "value": "manrope", "label": "Manrope" }, { "value": "open_sans", "label": "Open Sans" } ], "default": "overpass", "label": "Brand font", "visible_if": "{{ section.settings.drawer_enable_type }}" },
+    { "type": "range", "id": "drawer_l2_font_size", "min": 0, "max": 24, "step": 1, "unit": "px", "label": "Font size", "info": "0 = theme default (1.8rem)", "default": 0, "visible_if": "{{ section.settings.drawer_enable_type }}" },
+    { "type": "select", "id": "drawer_l2_font_weight", "options": [ { "value": "default", "label": "Theme default" }, { "value": "300", "label": "Light" }, { "value": "400", "label": "Regular" }, { "value": "500", "label": "Medium" }, { "value": "600", "label": "Semibold" }, { "value": "700", "label": "Bold" } ], "default": "default", "label": "Font weight", "visible_if": "{{ section.settings.drawer_enable_type }}" },
+    { "type": "range", "id": "drawer_l2_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Letter spacing", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.drawer_enable_type }}" },
+    { "type": "select", "id": "drawer_l2_text_case", "options": [ { "value": "default", "label": "Theme default" }, { "value": "uppercase", "label": "Uppercase" }, { "value": "capitalize", "label": "Capitalize" }, { "value": "lowercase", "label": "Lowercase" }, { "value": "none", "label": "Normal (remove uppercase)" } ], "default": "default", "label": "Text case", "visible_if": "{{ section.settings.drawer_enable_type }}" },
+    { "type": "range", "id": "drawer_l2_indent", "min": 0, "max": 60, "step": 2, "unit": "px", "label": "Indent", "info": "Offset of 2nd-level submenus, applied to each of the two nested wrappers. 0 = flush", "default": 20, "visible_if": "{{ section.settings.drawer_enable_type }}" },
+    { "type": "range", "id": "drawer_l2_v_space", "min": 0, "max": 24, "step": 1, "unit": "px", "label": "Item vertical spacing", "info": "0 = theme default (1.1rem)", "default": 0, "visible_if": "{{ section.settings.drawer_enable_type }}" },
+    { "type": "header", "content": "Drawer level 3" },
+    { "type": "select", "id": "drawer_l3_custom_font", "options": [ { "value": "default", "label": "None (inherit theme)" }, { "value": "ibm_plex_sans", "label": "IBM Plex Sans" }, { "value": "ibm_plex_mono", "label": "IBM Plex Mono" }, { "value": "inter", "label": "Inter" }, { "value": "geist", "label": "Geist" }, { "value": "geist_mono", "label": "Geist Mono" }, { "value": "overpass", "label": "Overpass" }, { "value": "overpass_mono", "label": "Overpass Mono" }, { "value": "dm_sans", "label": "DM Sans" }, { "value": "dm_mono", "label": "DM Mono" }, { "value": "manrope", "label": "Manrope" }, { "value": "open_sans", "label": "Open Sans" } ], "default": "inter", "label": "Brand font", "visible_if": "{{ section.settings.drawer_enable_type }}" },
+    { "type": "range", "id": "drawer_l3_font_size", "min": 0, "max": 24, "step": 1, "unit": "px", "label": "Font size", "info": "0 = theme default (1.8rem)", "default": 0, "visible_if": "{{ section.settings.drawer_enable_type }}" },
+    { "type": "select", "id": "drawer_l3_font_weight", "options": [ { "value": "default", "label": "Theme default" }, { "value": "300", "label": "Light" }, { "value": "400", "label": "Regular" }, { "value": "500", "label": "Medium" }, { "value": "600", "label": "Semibold" }, { "value": "700", "label": "Bold" } ], "default": "default", "label": "Font weight", "visible_if": "{{ section.settings.drawer_enable_type }}" },
+    { "type": "range", "id": "drawer_l3_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Letter spacing", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.drawer_enable_type }}" },
+    { "type": "select", "id": "drawer_l3_text_case", "options": [ { "value": "default", "label": "Theme default" }, { "value": "uppercase", "label": "Uppercase" }, { "value": "capitalize", "label": "Capitalize" }, { "value": "lowercase", "label": "Lowercase" }, { "value": "none", "label": "Normal (remove uppercase)" } ], "default": "default", "label": "Text case", "visible_if": "{{ section.settings.drawer_enable_type }}" },
+    { "type": "range", "id": "drawer_l3_indent", "min": 0, "max": 60, "step": 2, "unit": "px", "label": "Indent", "info": "Extra offset of 3rd-level submenus. 0 = flush", "default": 20, "visible_if": "{{ section.settings.drawer_enable_type }}" },
+    { "type": "range", "id": "drawer_l3_v_space", "min": 0, "max": 24, "step": 1, "unit": "px", "label": "Item vertical spacing", "info": "0 = theme default (1.1rem)", "default": 0, "visible_if": "{{ section.settings.drawer_enable_type }}" },
+    {
       "type": "select",
       "id": "sticky_header_type",
       "options": [
@@ -768,7 +1150,8 @@
       "step": 4,
       "unit": "px",
       "label": "t:sections.all.padding.padding_top",
-      "default": 20
+      "info": "0 = theme default (10px)",
+      "default": 0
     },
     {
       "type": "range",
@@ -778,10 +1161,194 @@
       "step": 4,
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
-      "default": 20
-    }
+      "info": "0 = theme default (10px)",
+      "default": 0
+    },
+    { "type": "range", "id": "padding_left", "min": 0, "max": 120, "step": 2, "unit": "px", "label": "Padding left (desktop)", "info": "Applies from 1100px up. 0 = theme default (50px)", "default": 0 },
+    { "type": "range", "id": "padding_right", "min": 0, "max": 120, "step": 2, "unit": "px", "label": "Padding right (desktop)", "info": "Applies from 1100px up. 0 = theme default (50px)", "default": 0 },
+    { "type": "range", "id": "padding_left_mobile", "min": 0, "max": 60, "step": 2, "unit": "px", "label": "Padding left (mobile)", "info": "Applies below 1100px. 0 = theme default (10px)", "default": 0 },
+    { "type": "range", "id": "padding_right_mobile", "min": 0, "max": 60, "step": 2, "unit": "px", "label": "Padding right (mobile)", "info": "Applies below 1100px. 0 = theme default (10px)", "default": 0 },
+    { "type": "header", "content": "Design review" },
+    {
+      "type": "text",
+      "id": "pin_mega_menu_handle",
+      "label": "Pin mega menu open (editor only)",
+      "info": "Handle of a top-level menu item (e.g. 'shop') to hold its mega menu open while editing. Blank = normal hover. No effect outside the theme editor."
+    },
+    { "type": "header", "content": "Search tabs" },
+    { "type": "checkbox", "id": "enable_search_tabs", "default": true, "label": "Enable search category tabs", "info": "Requires the 'Line' filter in Search & Discovery" },
+    { "type": "checkbox", "id": "search_tabs_show_counts", "default": true, "label": "Show result counts on tabs" },
+    { "type": "text", "id": "search_tabs_all_label", "default": "All", "label": "'All' tab label" },
+    { "type": "text", "id": "search_tabs_values", "default": "Child,Baby,Adult,Studio,Home", "label": "Tabs", "info": "Comma-separated Line values (must match Search & Discovery values exactly). A tab only shows when it has results." }
   ],
   "blocks": [
+    {
+      "type": "menu_images",
+      "name": "Mega-menu images",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_item_handle",
+          "label": "Top-level menu item handle",
+          "info": "The handle of the top-level menu item to attach images to (e.g. 'shop', 'outerwear'). Find it under Content > Navigation."
+        },
+        {
+          "type": "header",
+          "content": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "caption_1",
+          "label": "Caption"
+        },
+        {
+          "type": "url",
+          "id": "link_1",
+          "label": "Link"
+        },
+        {
+          "type": "header",
+          "content": "Image 2 (optional)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "caption_2",
+          "label": "Caption"
+        },
+        {
+          "type": "url",
+          "id": "link_2",
+          "label": "Link"
+        },
+        {
+          "type": "header",
+          "content": "Caption typography"
+        },
+        {
+          "type": "select",
+          "id": "caption_custom_font",
+          "options": [
+            { "value": "default", "label": "None (inherit theme)" },
+            { "value": "ibm_plex_sans", "label": "IBM Plex Sans" },
+            { "value": "ibm_plex_mono", "label": "IBM Plex Mono" },
+            { "value": "inter", "label": "Inter" },
+            { "value": "geist", "label": "Geist" },
+            { "value": "geist_mono", "label": "Geist Mono" },
+            { "value": "overpass", "label": "Overpass" },
+            { "value": "overpass_mono", "label": "Overpass Mono" },
+            { "value": "dm_sans", "label": "DM Sans" },
+            { "value": "dm_mono", "label": "DM Mono" },
+            { "value": "manrope", "label": "Manrope" },
+            { "value": "open_sans", "label": "Open Sans" }
+          ],
+          "default": "default",
+          "label": "Brand font"
+        },
+        {
+          "type": "range",
+          "id": "caption_font_size",
+          "min": 0,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "info": "0 = default (13px)",
+          "default": 0
+        },
+        {
+          "type": "select",
+          "id": "caption_font_weight",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "300", "label": "Light" },
+            { "value": "400", "label": "Regular" },
+            { "value": "500", "label": "Medium" },
+            { "value": "600", "label": "Semibold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "default",
+          "label": "Font weight"
+        },
+        {
+          "type": "range",
+          "id": "caption_letter_spacing",
+          "min": 0,
+          "max": 4,
+          "step": 0.1,
+          "unit": "px",
+          "label": "Letter spacing",
+          "info": "0 = default",
+          "default": 0
+        },
+        {
+          "type": "select",
+          "id": "caption_text_case",
+          "options": [
+            { "value": "default", "label": "Theme default" },
+            { "value": "uppercase", "label": "Uppercase" },
+            { "value": "capitalize", "label": "Capitalize" },
+            { "value": "lowercase", "label": "Lowercase" },
+            { "value": "none", "label": "Normal (remove uppercase)" }
+          ],
+          "default": "default",
+          "label": "Text case"
+        },
+        {
+          "type": "header",
+          "content": "Image layout & spacing"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "min": 120,
+          "max": 400,
+          "step": 10,
+          "unit": "px",
+          "label": "Image width",
+          "default": 220
+        },
+        {
+          "type": "range",
+          "id": "images_gap",
+          "min": 0,
+          "max": 60,
+          "step": 2,
+          "unit": "px",
+          "label": "Gap between the two images",
+          "default": 20
+        },
+        {
+          "type": "range",
+          "id": "caption_gap",
+          "min": 0,
+          "max": 40,
+          "step": 2,
+          "unit": "px",
+          "label": "Space above caption",
+          "default": 8
+        },
+        {
+          "type": "range",
+          "id": "panel_gap",
+          "min": 0,
+          "max": 120,
+          "step": 4,
+          "unit": "px",
+          "label": "Gap between links and images",
+          "default": 40
+        }
+      ]
+    },
     {
       "type": "@app"
     }

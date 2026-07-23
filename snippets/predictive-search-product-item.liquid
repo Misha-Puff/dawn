@@ -1,0 +1,49 @@
+{% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+{% comment %}
+  Renders one product option <li> for the predictive-search dropdown.
+  Factored out of sections/predictive-search.liquid so sections/search-modal-results.liquid
+  can emit identical markup — keeps component-predictive-search.css styles and the
+  predictive-search.js arrow-key nav selectors (li, button.predictive-search__item)
+  working on tier-swapped lists.
+
+  Accepts:
+  - product: {Object} product (predictive_search.resources.products item or search result)
+  - index: {Number} 1-based option index, unique within the list
+
+  Usage:
+  {% render 'predictive-search-product-item', product: product, index: forloop.index %}
+{% endcomment %}
+<li
+  id="predictive-search-option-product-{{ index }}"
+  class="predictive-search__list-item"
+  role="option"
+  aria-selected="false"
+>
+  <a
+    href="{{ product.url }}"
+    class="predictive-search__item predictive-search__item--link-with-thumbnail link link--text"
+    tabindex="-1"
+  >
+    {%- if product.featured_media != blank -%}
+      <img
+        class="predictive-search__image"
+        src="{{ product.featured_media | image_url: width: 150 }}"
+        alt="{{ product.featured_media.alt | escape }}"
+        width="50"
+        height="{{ 50 | divided_by: product.featured_media.preview_image.aspect_ratio }}"
+      >
+    {%- endif -%}
+    <div class="predictive-search__item-content{% unless settings.predictive_search_show_vendor or settings.predictive_search_show_price %} predictive-search__item-content--centered{% endunless %}">
+      {%- if settings.predictive_search_show_vendor -%}
+        <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
+        <div class="predictive-search__item-vendor caption-with-letter-spacing">
+          {{ product.vendor }}
+        </div>
+      {%- endif -%}
+      <p class="predictive-search__item-heading h5">{{ product.title | escape }}</p>
+      {%- if settings.predictive_search_show_price -%}
+        {% render 'price', product: product, use_variant: true, show_badges: false %}
+      {%- endif -%}
+    </div>
+  </a>
+</li>

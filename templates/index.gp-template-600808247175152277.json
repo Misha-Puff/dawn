@@ -11,17 +11,22 @@
   "sections": {
     "gp_section_600808247225549461": {
       "settings": {
-        "checksum": "f3c2e345614cbe46dda2bfc3b138bab2e9374b0ca6295f7e2547eb1d7cb16d9e_1_1_1_0__1",
+        "checksum": "f3c2e345614cbe46dda2bfc3b138bab2e9374b0ca6295f7e2547eb1d7cb16d9e_1_1_0_0__1",
         "gg-Y6akhjPy_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-WINTER\"><span style=\"font-size:11px;\">BABY WINTER COLLECTION</span></a></p>",
         "gg2KR6gNgx3_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-fall\"><span style=\"font-size:11px;\">ADULT COLLECTION</span></a></p>",
+        "ggkByHG1lk2_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_4x5_1.6_Baby_1.jpg",
         "gglv94RH8qJ_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-hand-knit\"><span style=\"font-size:11px;\">KNITWEAR</span></a></p>",
-        "section_preload": "true"
+        "ggoyemExC6N_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_11.28_Adult_1.jpg",
+        "ggskSaomHYe_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_4x5_1.5.26_Child_Knits_c00e5abc-5069-4893-b325-01ff14aaa1ee.jpg",
+        "ggskSaomHYe_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_4x5_1.5.26_Child_Knits_c00e5abc-5069-4893-b325-01ff14aaa1ee.jpg"
       },
       "type": "gp-section-600808247225549461"
     },
     "gp_section_600808247225614997": {
       "settings": {
-        "checksum": "41d678bc939260d6ec22044567e37c77bee884cba329533a3dd877ff530c3e6d_1_1_1_0__1",
+        "checksum": "41d678bc939260d6ec22044567e37c77bee884cba329533a3dd877ff530c3e6d_1_1_0_0__1",
+        "gg_Inch1Dpn_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_Site_1.5.26_Child_1.jpg",
+        "gg_Inch1Dpn_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_1.5.26_Child_1.jpg",
         "gggbwV7YbXZ_label": "<p><span style=\"font-size:10px;\">THE WINTER COLLECTION</span></p>",
         "section_preload": "true"
       },
@@ -29,10 +34,12 @@
     },
     "gp_section_600808247225680533": {
       "settings": {
-        "checksum": "bb5c17944e5150cdfb1cc27d56cec9dc590e0740ed1d4c569063e53ba9af4115_1_1_1_0__1",
+        "checksum": "bb5c17944e5150cdfb1cc27d56cec9dc590e0740ed1d4c569063e53ba9af4115_1_1_0_0__1",
         "gg2NAAt5DbD_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\"><span style=\"font-size:11px;\">JOURNAL</span></a></p>",
-        "ggRzArRZUz6_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-sale\">SALE — New Markdowns</a></p>",
-        "section_preload": "true"
+        "gg9WuMBDLCX_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_Markdowns_1.6.26_Sale_3.jpg",
+        "gg9WuMBDLCX_srcSet_mobile_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_Markdowns_1.6.26_Sale_3.jpg",
+        "gg9bhgJS-gs_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_WI25_SiteMobile_4x5_1.5.26_Journal.jpg",
+        "ggRzArRZUz6_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-sale\">SALE — New Markdowns</a></p>"
       },
       "type": "gp-section-600808247225680533"
     }

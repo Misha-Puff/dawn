@@ -1,6 +1,6 @@
 /* swatch-input lives in its own file for reusability of the swatch in other areas than the product form context */
 .swatch-input__input + .swatch-input__label {
-  --swatch-input--border-radius: 50%;
+  --swatch-input--border-radius: var(--swatch-picker-radius, 50%);
   display: inline-block;
   max-width: 100%;
   border-radius: var(--swatch-input--border-radius);
@@ -15,7 +15,7 @@
 }
 
 .swatch-input__input + .swatch-input__label.swatch-input__label--square {
-  --swatch-input--border-radius: 0;
+  --swatch-input--border-radius: var(--swatch-picker-radius, 0);
 }
 
 /* Active state */
@@ -72,16 +72,16 @@
 /* Display crossed out line over swatch when input is disabled */
 .swatch-input__input:disabled + .swatch-input__label > .swatch::after,
 .swatch-input__input.visually-disabled + .swatch-input__label > .swatch::after {
-  /* Diagonal of a square = length of the side * sqrt(2)  */
-  --diagonal--size: calc(var(--swatch-input--size) * 1.414);
+  /* Corner-to-corner gradient stays centered at any aspect ratio (rectangular swatch sizes). */
   --crossed-line--size: 0.1rem;
   content: '';
   position: absolute;
-  bottom: calc(var(--crossed-line--size) * -0.5);
-  left: 0;
-  width: var(--diagonal--size);
-  height: var(--crossed-line--size);
-  background-color: rgb(var(--color-foreground));
-  transform: rotate(-45deg);
-  transform-origin: left;
+  inset: 0;
+  background-image: linear-gradient(
+    to top right,
+    transparent calc(50% - var(--crossed-line--size) / 2),
+    rgb(var(--color-foreground)) calc(50% - var(--crossed-line--size) / 2),
+    rgb(var(--color-foreground)) calc(50% + var(--crossed-line--size) / 2),
+    transparent calc(50% + var(--crossed-line--size) / 2)
+  );
 }
