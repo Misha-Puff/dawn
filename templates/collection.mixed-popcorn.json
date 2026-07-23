@@ -13,7 +13,6 @@
     "shogun-above",
     "banner",
     "rich_text_YJeCaw",
-    "buttons_Mn3bJP",
     "product-grid",
     "shogun-below",
     "shogun-optimizer",
@@ -132,68 +131,6 @@
         "padding_bottom_mobile": 28,
         "padding_left_mobile": 14,
         "padding_right_mobile": 14
-      }
-    },
-    "buttons_Mn3bJP": {
-      "type": "buttons",
-      "blocks": {
-        "button_C99g3E": {
-          "type": "button",
-          "settings": {
-            "label": "BABY STYLES",
-            "open_new_tab": false,
-            "link": "https://shop.misha-and-puff.com/collections/mixed-popcorn-styles?filter.p.m.taxonomy.division=Baby&sort_by=manual",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_XaxzBy": {
-          "type": "button",
-          "settings": {
-            "label": "CHILD STYLES",
-            "open_new_tab": false,
-            "link": "https://shop.misha-and-puff.com/collections/mixed-popcorn-styles?filter.p.m.taxonomy.division=Child&sort_by=manual",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_NGpAit": {
-          "type": "button",
-          "settings": {
-            "label": "ADULT STYLES",
-            "open_new_tab": false,
-            "link": "https://shop.misha-and-puff.com/collections/mixed-popcorn-styles?filter.p.m.taxonomy.division=Adult&sort_by=manual",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_acdnW8": {
-          "type": "button",
-          "settings": {
-            "label": "KNITTING PATTERNS",
-            "open_new_tab": true,
-            "link": "https://shop.misha-and-puff.com/search?q=POPCORN+KNITTING+PATTERN&options%5Bprefix%5D=last",
-            "type": "secondary",
-            "on_click": ""
-          }
-        }
-      },
-      "block_order": [
-        "button_C99g3E",
-        "button_XaxzBy",
-        "button_NGpAit",
-        "button_acdnW8"
-      ],
-      "name": "Buttons",
-      "settings": {
-        "title": "",
-        "button_gap": 12,
-        "heading_size": "h2",
-        "color_scheme": "",
-        "desktop_padding_top": 0,
-        "desktop_padding_bottom": 28,
-        "mobile_padding_top": 0,
-        "mobile_padding_bottom": 24
       }
     },
     "product-grid": {
