@@ -31,10 +31,19 @@
     "careers_XwFagi": {
       "type": "careers",
       "settings": {
-        "custom_liquid": "",
         "color_scheme": "",
         "padding_top": 48,
-        "padding_bottom": 100
+        "padding_bottom": 100,
+        "page_enable_type": true,
+        "ph_custom_font": "inter",
+        "ph_font_weight": "400",
+        "ph_text_case": "uppercase",
+        "ph_letter_spacing": 0.1,
+        "pb_custom_font": "inter",
+        "pb_font_size": 12,
+        "pb_font_size_mobile": 0,
+        "pb_line_height": 150,
+        "pb_color": "#1A1A1A"
       }
     }
   },

@@ -8,13 +8,78 @@
   endfor
 %}
 
-{% style %}
-  .career-block {
-    margin-bottom: 65px;
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
-{% endstyle %}
 
-<div class="page-width page-width--narrow section-{{ section.id }}-padding">
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .career-block {
+    margin-bottom: {{ section.settings.listing_spacing }}px;
+  }
+{%- endstyle -%}
+
+{%- comment -%}
+  Optional page typography, donor: main-page.liquid page_enable_type loop. Two groups
+  keyed by prefix (ph_ = headings, pb_ = body copy); one entry per selector so every
+  rule stays scoped under #shopify-section-<id> (an unscoped comma partner would leak
+  to every .rte on the page). The page title h1 sits outside .rte here, so it gets
+  its own selector; job titles are h3 and copy p inside .rte. ph_ carries no
+  font-size on purpose — the global Headings theme settings own the per-level scale.
+  Body line-height emits in % to ride the font-size.
+{%- endcomment -%}
+{%- if section.settings.page_enable_type -%}
+  {%- capture page_type_css -%}
+    {%- assign page_type_groups = 'ph|.main-page-title;ph|.rte h3;pb|.rte p' | split: ';' -%}
+    {%- for grp in page_type_groups -%}
+      {%- assign grp_parts = grp | split: '|' -%}
+      {%- assign gp = grp_parts[0] -%}
+      {%- assign sel = grp_parts[1] -%}
+      {%- assign k_font = gp | append: '_custom_font' -%}
+      {%- assign k_weight = gp | append: '_font_weight' -%}
+      {%- assign k_size = gp | append: '_font_size' -%}
+      {%- assign k_case = gp | append: '_text_case' -%}
+      {%- assign k_ls = gp | append: '_letter_spacing' -%}
+      {%- assign k_color = gp | append: '_color' -%}
+      {%- assign k_lh = gp | append: '_line_height' -%}
+      {%- capture grp_brand -%}{% render 'brand-font', font: section.settings[k_font] %}{%- endcapture -%}
+      {%- assign grp_brand = grp_brand | strip -%}
+      {%- capture grp_decl -%}
+        {%- if grp_brand != blank %}font-family: {{ grp_brand }};{% endif -%}
+        {%- if section.settings[k_weight] != 'default' and section.settings[k_weight] != blank %} font-weight: {{ section.settings[k_weight] }};{% endif -%}
+        {%- if section.settings[k_size] > 0 %} font-size: {{ section.settings[k_size] }}px;{% endif -%}
+        {%- if section.settings[k_case] != 'default' and section.settings[k_case] != blank %} text-transform: {{ section.settings[k_case] }};{% endif -%}
+        {%- if section.settings[k_ls] > 0 %} letter-spacing: {{ section.settings[k_ls] }}px;{% endif -%}
+        {%- if section.settings[k_color] != blank %} color: {{ section.settings[k_color] }};{% endif -%}
+        {%- if section.settings[k_lh] > 0 %} line-height: {{ section.settings[k_lh] }}%;{% endif -%}
+      {%- endcapture -%}
+      {%- assign grp_decl = grp_decl | strip -%}
+      {%- if grp_decl != blank -%}
+        #shopify-section-{{ section.id }} {{ sel }} { {{ grp_decl }} }
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if section.settings.pb_font_size_mobile > 0 -%}
+      @media screen and (max-width: 749px) {
+        #shopify-section-{{ section.id }} .rte p { font-size: {{ section.settings.pb_font_size_mobile }}px; }
+      }
+    {%- endif -%}
+  {%- endcapture -%}
+  {%- assign page_type_css = page_type_css | strip -%}
+  {%- if page_type_css != blank -%}
+    <style>
+      {{ page_type_css }}
+    </style>
+  {%- endif -%}
+{%- endif -%}
+
+<div class="page-width{% if section.settings.page_width == 'narrow' %} page-width--narrow{% endif %} section-{{ section.id }}-padding">
   <h1 class="main-page-title page-title h2{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
     {{ page.title | escape }}
   </h1>
@@ -41,16 +106,36 @@
   "class": "section",
   "settings": [
     {
-      "type": "liquid",
-      "id": "custom_liquid",
-      "label": "t:sections.custom-liquid.settings.custom_liquid.label",
-      "info": "t:sections.custom-liquid.settings.custom_liquid.info"
-    },
-    {
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "page_width",
+      "label": "Page Width",
+      "default": "narrow",
+      "options": [
+        {
+          "label": "full",
+          "value": "full"
+        },
+        {
+          "label": "narrow",
+          "value": "narrow"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "listing_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Space between listings",
+      "default": 65
     },
     {
       "type": "header",
@@ -75,7 +160,20 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 52
-    }
+    },
+    { "type": "header", "content": "Page typography" },
+    { "type": "checkbox", "id": "page_enable_type", "default": false, "label": "Enable custom page typography", "info": "Styles the page title and job listings. Leave a control at its default to inherit." },
+    { "type": "header", "content": "Headings", "info": "Page title and job titles. Per-level font sizes stay on the global Headings theme settings." },
+    { "type": "select", "id": "ph_custom_font", "options": [ { "value": "default", "label": "None (inherit theme)" }, { "value": "ibm_plex_sans", "label": "IBM Plex Sans" }, { "value": "ibm_plex_mono", "label": "IBM Plex Mono" }, { "value": "inter", "label": "Inter" }, { "value": "geist", "label": "Geist" }, { "value": "geist_mono", "label": "Geist Mono" }, { "value": "overpass", "label": "Overpass" }, { "value": "overpass_mono", "label": "Overpass Mono" }, { "value": "dm_sans", "label": "DM Sans" }, { "value": "dm_mono", "label": "DM Mono" }, { "value": "manrope", "label": "Manrope" }, { "value": "open_sans", "label": "Open Sans" } ], "default": "default", "label": "Brand font", "visible_if": "{{ section.settings.page_enable_type }}" },
+    { "type": "select", "id": "ph_font_weight", "options": [ { "value": "default", "label": "Theme default" }, { "value": "300", "label": "Light" }, { "value": "400", "label": "Regular" }, { "value": "500", "label": "Medium" }, { "value": "600", "label": "Semibold" }, { "value": "700", "label": "Bold" } ], "default": "default", "label": "Font weight", "visible_if": "{{ section.settings.page_enable_type }}" },
+    { "type": "select", "id": "ph_text_case", "options": [ { "value": "default", "label": "Theme default" }, { "value": "uppercase", "label": "Uppercase" }, { "value": "capitalize", "label": "Capitalize" }, { "value": "lowercase", "label": "Lowercase" }, { "value": "none", "label": "Normal (remove uppercase)" } ], "default": "default", "label": "Text case", "visible_if": "{{ section.settings.page_enable_type }}" },
+    { "type": "range", "id": "ph_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Letter spacing", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.page_enable_type }}" },
+    { "type": "header", "content": "Body text" },
+    { "type": "select", "id": "pb_custom_font", "options": [ { "value": "default", "label": "None (inherit theme)" }, { "value": "ibm_plex_sans", "label": "IBM Plex Sans" }, { "value": "ibm_plex_mono", "label": "IBM Plex Mono" }, { "value": "inter", "label": "Inter" }, { "value": "geist", "label": "Geist" }, { "value": "geist_mono", "label": "Geist Mono" }, { "value": "overpass", "label": "Overpass" }, { "value": "overpass_mono", "label": "Overpass Mono" }, { "value": "dm_sans", "label": "DM Sans" }, { "value": "dm_mono", "label": "DM Mono" }, { "value": "manrope", "label": "Manrope" }, { "value": "open_sans", "label": "Open Sans" } ], "default": "default", "label": "Brand font", "visible_if": "{{ section.settings.page_enable_type }}" },
+    { "type": "range", "id": "pb_font_size", "min": 0, "max": 24, "step": 1, "unit": "px", "label": "Font size", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.page_enable_type }}" },
+    { "type": "range", "id": "pb_font_size_mobile", "min": 0, "max": 24, "step": 1, "unit": "px", "label": "Font size (mobile)", "info": "Below 750px. 0 = same as larger screens", "default": 0, "visible_if": "{{ section.settings.page_enable_type }}" },
+    { "type": "range", "id": "pb_line_height", "min": 0, "max": 250, "step": 5, "unit": "%", "label": "Line height", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.page_enable_type }}" },
+    { "type": "color", "id": "pb_color", "label": "Text color", "info": "Leave blank to inherit", "visible_if": "{{ section.settings.page_enable_type }}" }
   ],
   "presets": [
     {
