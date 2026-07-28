@@ -46,6 +46,7 @@
       assign ratio = 1
     endif
   -%}
+  <product-component view-event-payload="{{ card_product | standard_event_data: 'view', context: product_view_context | escape }}">
   <div class="card-wrapper product-card-wrapper underline-links-hover">
     <div
       class="
@@ -433,7 +434,7 @@
                   href="{{ card_product.url | within: collection }}"
                   id="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }}"
                   class="full-unstyled-link"
-                  aria-labelledby="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }} NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+                  aria-labelledby="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }}{% if card_product.available == false or card_product.compare_at_price > card_product.price %} NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}{% endif %}"
                 >
                   {{ card_product.title | escape }}
                 </a>
@@ -478,7 +479,7 @@
                   href="{{ card_product.url | within: collection }}"
                   id="CardLink-{{ section_id }}-{{ card_product.id }}"
                   class="full-unstyled-link"
-                  aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
+                  aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }}{% if card_product.available == false or card_product.compare_at_price > card_product.price %} Badge-{{ section_id }}-{{ card_product.id }}{% endif %}"
                 >
                   {{ card_product.title | escape }}
                 </a>
@@ -631,6 +632,7 @@
       {% endunless %}
     </div>
   </div>
+  </product-component>
 {%- else -%}
   {%- liquid
     assign ratio = 1

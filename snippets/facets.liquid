@@ -30,7 +30,12 @@
   endif
 -%}
 
-<div class="facets-container{% if filter_type == 'drawer' %} facets-container-drawer{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+<div
+  class="facets-container{% if filter_type == 'drawer' %} facets-container-drawer{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+  data-collection-id="{{ results.id }}"
+  data-collection-handle="{{ results.handle }}"
+  data-template="{{ template.name }}"
+>
   {%- if filter_type == 'vertical' or filter_type == 'horizontal' -%}
     <facet-filters-form class="facets small-hide">
       <form

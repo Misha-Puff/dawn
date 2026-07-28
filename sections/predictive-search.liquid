@@ -1,15 +1,15 @@
 {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
-{%- if predictive_search.performed -%}
-  {%- comment -%}
-    Query/collection "Suggestions" are deliberately NOT rendered (Nathan's
-    2026-07-16 review ask: products-only popup). first_column_results_size now
-    counts only pages/articles — the rare remaining first-column content — so
-    the --no-suggestions single-column layout engages whenever they are absent.
-  {%- endcomment -%}
-  {% assign first_column_results_size = predictive_search.resources.pages.size
-    | plus: predictive_search.resources.articles.size
-  %}
-  <div id="predictive-search-results" role="listbox">
+<div id="predictive-search-results" role="listbox">
+  {%- if predictive_search.performed -%}
+    {%- comment -%}
+      Query/collection "Suggestions" are deliberately NOT rendered (Nathan's
+      2026-07-16 review ask: products-only popup). first_column_results_size now
+      counts only pages/articles — the rare remaining first-column content — so
+      the --no-suggestions single-column layout engages whenever they are absent.
+    {%- endcomment -%}
+    {% assign first_column_results_size = predictive_search.resources.pages.size
+      | plus: predictive_search.resources.articles.size
+    %}
     {%- if first_column_results_size > 0 or predictive_search.resources.products.size > 0 -%}
       <div
         id="predictive-search-results-groups-wrapper"
@@ -186,9 +186,12 @@
         </span>
       </button>
     </div>
-  </div>
 
-  <span class="hidden" data-predictive-search-live-region-count-value>
+    <span
+      class="hidden"
+      data-predictive-search-live-region-count-value
+      data-total-results="{{ predictive_search.resources.products.size | plus: first_column_results_size }}"
+    >
     {% liquid
       assign total_results = predictive_search.resources.products.size | plus: first_column_results_size
       if total_results == 0
@@ -204,5 +207,6 @@
         endif
       endif
     %}
-  </span>
-{%- endif -%}
+    </span>
+  {%- endif -%}
+</div>

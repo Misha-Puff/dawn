@@ -456,6 +456,10 @@
   {% endif %}
 {% endfor %}
 
+<collection-component
+  view-event-payload="{{ collection | standard_event_data: 'view' | escape }}"
+  data-collection-id="{{ collection.id }}"
+>
 <div class="section-{{ section.id }}-padding card-redesign gradient color-{{ section.settings.color_scheme }}">
   {%- paginate collection.products by section.settings.products_per_page -%}
     {%- comment -%}
@@ -639,7 +643,11 @@
 
           <div class="product-count-vertical light" role="status">
             <h2 class="product-count__text text-body">
-              <span id="ProductCountDesktop">
+              <span
+                id="ProductCountDesktop"
+                data-product-count="{{ collection.products_count }}"
+                data-total-count="{{ collection.all_products_count | default: collection.products_count }}"
+              >
                 {%- if collection.results_count -%}
                   {{
                     'templates.search.results_with_count'
@@ -812,7 +820,8 @@
                     quick_add_mobile_only: section.settings.quick_add_mobile_only,
                     section_id: section.id,
                     show_swatches_availability: true,
-                    size_overlay: section.settings.show_size_overlay
+                    size_overlay: section.settings.show_size_overlay,
+                    product_view_context: 'collection'
                   %}
                 </li>
                 {%- assign skip_card_product_styles = true -%}
@@ -1115,7 +1124,8 @@
                               quick_add: 'none',
                               section_id: section.id,
                               show_swatches_availability: true,
-                              size_overlay: section.settings.show_size_overlay
+                              size_overlay: section.settings.show_size_overlay,
+                              product_view_context: 'collection'
                             %}
                           </li>
                           {%- assign campaign_styles_loaded = true -%}
@@ -1199,6 +1209,7 @@
     {{ 'mask-arch.svg' | inline_asset_content }}
   {%- endif -%}
 </div>
+</collection-component>
 
 {% schema %}
 {

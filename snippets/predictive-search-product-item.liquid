@@ -19,6 +19,7 @@
   role="option"
   aria-selected="false"
 >
+  <product-component view-event-payload="{{ product | standard_event_data: 'view', context: 'search' | escape }}">
   <a
     href="{{ product.url }}"
     class="predictive-search__item predictive-search__item--link-with-thumbnail link link--text"
@@ -46,4 +47,5 @@
       {%- endif -%}
     </div>
   </a>
+  </product-component>
 </li>
