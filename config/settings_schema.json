@@ -1085,6 +1085,17 @@
       },
       {
         "type": "range",
+        "id": "tablet_page_width_padding",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "default": 0,
+        "unit": "px",
+        "label": "Tablet Page width padding",
+        "info": "750–1099px. 0 = mobile value"
+      },
+      {
+        "type": "range",
         "id": "spacing_sections",
         "min": 0,
         "max": 100,

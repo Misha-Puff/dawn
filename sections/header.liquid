@@ -135,8 +135,8 @@
   {%- if section.settings.padding_left > 0 or section.settings.padding_right > 0 -%}
     @media screen and (min-width: 1100px) { #shopify-section-{{ section.id }} .header { {% if section.settings.padding_left > 0 %}padding-left: {{ section.settings.padding_left }}px;{% endif %}{% if section.settings.padding_right > 0 %} padding-right: {{ section.settings.padding_right }}px;{% endif %} } }
   {%- endif -%}
-  {%- if section.settings.megamenu_row_gap > 0 or section.settings.megamenu_col_gap > 0 -%}
-    #shopify-section-{{ section.id }} { {% if section.settings.megamenu_row_gap > 0 %}--mm-list-row-gap: {{ section.settings.megamenu_row_gap }}px;{% endif %}{% if section.settings.megamenu_col_gap > 0 %} --mm-list-col-gap: {{ section.settings.megamenu_col_gap }}px;{% endif %} }
+  {%- if section.settings.megamenu_row_gap > 0 or section.settings.megamenu_col_gap > 0 or section.settings.megamenu_col_width > 0 -%}
+    #shopify-section-{{ section.id }} { {% if section.settings.megamenu_row_gap > 0 %}--mm-list-row-gap: {{ section.settings.megamenu_row_gap }}px;{% endif %}{% if section.settings.megamenu_col_gap > 0 %} --mm-list-col-gap: {{ section.settings.megamenu_col_gap }}px;{% endif %}{% if section.settings.megamenu_col_width > 0 %} --mm-col-track: minmax(0, {{ section.settings.megamenu_col_width }}px);{% endif %} }
   {%- endif -%}
 {%- endcapture -%}
 {%- assign header_space_css = header_space_css | strip -%}
@@ -1016,6 +1016,7 @@
     { "type": "header", "content": "Mega menu spacing" },
     { "type": "range", "id": "megamenu_row_gap", "min": 0, "max": 60, "step": 2, "unit": "px", "label": "Row gap", "info": "0 = theme default (1.8rem)", "default": 0 },
     { "type": "range", "id": "megamenu_col_gap", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Column gap", "info": "0 = theme default (4rem)", "default": 0 },
+    { "type": "range", "id": "megamenu_col_width", "min": 0, "max": 400, "step": 10, "unit": "px", "label": "Column width", "info": "0 = theme default (equal stretch)", "default": 0 },
     { "type": "header", "content": "Mobile drawer typography" },
     { "type": "checkbox", "id": "drawer_enable_type", "default": false, "label": "Enable custom drawer typography", "info": "Applies to the mobile/drawer menu. Style each level below; leave a control at its default to inherit." },
     { "type": "header", "content": "Drawer level 1" },

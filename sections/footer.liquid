@@ -87,6 +87,20 @@
   {%- endif -%}
 
   {%- comment -%}
+    Tablet override covers the bottom rows too (unlike the desktop setting above):
+    the 750–1099px band is where the global 10px .page-width gutter shows on every row.
+  {%- endcomment -%}
+  {%- if section.settings.padding_left_tablet > 0 or section.settings.padding_right_tablet > 0 -%}
+    @media screen and (min-width: 750px) and (max-width: 1099px) {
+      #shopify-section-{{ section.id }} .footer__content-top,
+      #shopify-section-{{ section.id }} .footer__content-bottom-wrapper {
+        {%- if section.settings.padding_left_tablet > 0 %} padding-left: {{ section.settings.padding_left_tablet }}px;{% endif -%}
+        {%- if section.settings.padding_right_tablet > 0 %} padding-right: {{ section.settings.padding_right_tablet }}px;{% endif %}
+      }
+    }
+  {%- endif -%}
+
+  {%- comment -%}
     The wrapper-scoped var override feeds .grid column-gap, the stock 20% block-width
     calc and the span calcs below in one move — they all read the inherited var.
   {%- endcomment -%}
@@ -794,6 +808,8 @@
     },
     { "type": "range", "id": "padding_left", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Padding left (desktop)", "info": "Blocks area, 750px and up. 0 = theme default.", "default": 0 },
     { "type": "range", "id": "padding_right", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Padding right (desktop)", "info": "Blocks area, 750px and up. 0 = theme default.", "default": 0 },
+    { "type": "range", "id": "padding_left_tablet", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Padding left (tablet)", "info": "750–1099px. 0 = theme default.", "default": 0 },
+    { "type": "range", "id": "padding_right_tablet", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Padding right (tablet)", "info": "750–1099px. 0 = theme default.", "default": 0 },
     { "type": "header", "content": "Mobile padding", "info": "Applies below 750px. Defaults reproduce the current mobile render." },
     { "type": "checkbox", "id": "enable_padding_mobile", "default": false, "label": "Enable custom mobile padding" },
     { "type": "range", "id": "padding_top_mobile", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding top", "default": 27, "visible_if": "{{ section.settings.enable_padding_mobile }}" },

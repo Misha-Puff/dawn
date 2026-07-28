@@ -3654,9 +3654,15 @@ body {
   text-transform: uppercase !important;
 }
 
-@media screen and (max-width: 1099px) {
+@media screen and (max-width: 749px) {
   .page-width {
     padding: 0 var(--mobile-page-width-padding);
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 1099px) {
+  .page-width {
+    padding: 0 var(--tablet-page-width-padding, var(--mobile-page-width-padding));
   }
 }
 
