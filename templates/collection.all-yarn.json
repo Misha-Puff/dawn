@@ -188,6 +188,7 @@
         },
         "button_EjbnbT": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "label": "RWS YARN",
             "open_new_tab": true,
