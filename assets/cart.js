@@ -65,8 +65,10 @@ class CartItems extends window.StandardEvents.createViewEventElement(HTMLElement
   }
 
   resetQuantityInput(id) {
-    const input = this.querySelector(`#Quantity-${id}`);
-    input.value = input.getAttribute('value');
+    // Upstream only matches the cart page's #Quantity-<id>; drawer inputs are
+    // #Drawer-quantity-<id> (same dual lookup as updateQuantity below).
+    const input = this.querySelector(`#Quantity-${id}`) || this.querySelector(`#Drawer-quantity-${id}`);
+    if (input) input.value = input.getAttribute('value');
     this.isEnterPressed = false;
   }
 
