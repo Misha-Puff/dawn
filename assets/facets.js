@@ -67,7 +67,14 @@ class FacetFiltersForm extends HTMLElement {
     const facetsContainer = document.querySelector('.facets-container');
     const collectionId = facetsContainer?.dataset.collectionId || null;
     const collectionHandle = facetsContainer?.dataset.collectionHandle || '';
-    const currentCount = parseInt(document.getElementById('ProductCount')?.dataset.productCount) || 0;
+    // Same fallback chain as renderProductCount: this fork comments out #ProductCount, so
+    // the count data-attrs live on the vertical section's #ProductCountDesktop or, on every
+    // filter layout, the mobile facets count line.
+    const countElement =
+      document.getElementById('ProductCount') ||
+      document.getElementById('ProductCountDesktop') ||
+      document.querySelector('.mobile-facets__count');
+    const currentCount = parseInt(countElement?.dataset.productCount) || 0;
     const urlSearchParams = new URLSearchParams(searchParams);
     const isSearchPage = facetsContainer?.dataset.template === 'search';
     const isCollectionPage = facetsContainer?.dataset.template === 'collection';
@@ -157,7 +164,10 @@ class FacetFiltersForm extends HTMLElement {
     // otherwise stock's unconditional #ProductCount lookups throw "Cannot read
     // properties of null" on every drawer/horizontal filter apply.
     const parsed = new DOMParser().parseFromString(html, 'text/html');
-    const countSource = parsed.getElementById('ProductCount') || parsed.getElementById('ProductCountDesktop');
+    const countSource =
+      parsed.getElementById('ProductCount') ||
+      parsed.getElementById('ProductCountDesktop') ||
+      parsed.querySelector('.mobile-facets__count');
     const container = document.getElementById('ProductCount');
     const containerDesktop = document.getElementById('ProductCountDesktop');
     if (countSource) {
@@ -171,6 +181,13 @@ class FacetFiltersForm extends HTMLElement {
       if (containerDesktop) {
         containerDesktop.innerHTML = count;
         containerDesktop.classList.remove('loading');
+      }
+      // renderAdditionalElements only swaps this element's innerHTML, so refresh its
+      // count data-attrs here — startUpdateEvent reads them for the next filter event.
+      const mobileCount = document.querySelector('.mobile-facets__count');
+      if (mobileCount && countSource.dataset.productCount) {
+        mobileCount.dataset.productCount = countSource.dataset.productCount;
+        mobileCount.dataset.totalCount = countSource.dataset.totalCount || '';
       }
     }
     const loadingSpinners = document.querySelectorAll(
