@@ -13,19 +13,47 @@
       "type": "main-page",
       "disabled": true,
       "settings": {
+        "page_width": "narrow",
         "padding_top": 28,
-        "padding_bottom": 28
+        "padding_bottom": 28,
+        "page_enable_type": false,
+        "ph_custom_font": "default",
+        "ph_font_weight": "default",
+        "ph_text_case": "default",
+        "ph_letter_spacing": 0,
+        "pb_custom_font": "default",
+        "pb_font_size": 0,
+        "pb_font_size_mobile": 0,
+        "pb_line_height": 0,
+        "pb_color": ""
       }
     },
     "hero": {
       "type": "image-banner",
       "settings": {
         "image": "shopify://shop_images/mp-newburyport-storefront.jpg",
-        "mobile_image": "shopify://shop_images/mp-newburyport-storefront.jpg",
-        "image_height": "adapt",
-        "show_text_box": false,
+        "banner_link": "",
         "image_overlay_opacity": 0,
-        "stack_images_on_mobile": true
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "content_position": "middle-center",
+        "tb_overlay_padding": 26,
+        "lr_overlay_padding": 50,
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "",
+        "mobile_image": "shopify://shop_images/Nbpt_Mob.jpg",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true,
+        "desktop_padding_top": 48,
+        "desktop_padding_bottom": 0,
+        "desktop_padding_left": 52,
+        "desktop_padding_right": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "mobile_padding_left": 0,
+        "mobile_padding_right": 0
       }
     },
     "info": {
@@ -36,29 +64,34 @@
           "settings": {
             "heading": "NEWBURYPORT STORE",
             "heading_tag": "h1",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 0,
+            "tg_text_case": "uppercase",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1A1A1A",
+            "tg_font_size_mobile": 0
           }
         },
         "intro": {
           "type": "text",
           "settings": {
-            "text": "<p>Our first store is located in our scenic seaside hometown of Newburyport, MA at 52 Pleasant Street. The shop features a curated selection of past season favorites from our Baby, Child, and Adult Collections at very special prices.</p><p>Personalized shopping experiences, help with sizing, and recommendations are available.</p>"
-          }
-        },
-        "hours_special": {
-          "type": "hours",
-          "settings": {
-            "label": "SPECIAL STORE HOURS",
-            "hours": "<p>Our Newburyport store will hold special hours from July 3-August 2 while we host our <a href=\"/pages/nbpt-sample-sale-26\">annual sample sale</a>.</p><p>Fridays 11-6 pm<br/>Saturdays 11-6 pm (open on July 4!)<br/>Sundays 11-6 pm</p>",
-            "note": "<p><em>*Please note: during the sample sale, the Newburyport store will not operate its regular hours and will only be open during the times listed above.</em></p><p>***The store will be closed Wednesday, July 1 and Thursday, July 2 in preparation for the sample sale.</p>"
-          }
-        },
-        "hours_regular": {
-          "type": "hours",
-          "settings": {
-            "label": "REGULAR STORE HOURS",
-            "hours": "<p>Wednesday through Saturday 11am-6pm<br/>Sunday 11am-5pm</p>",
-            "note": "<p><em>Closed Monday and Tuesday</em></p>"
+            "text": "<p>Our first store is located in our scenic seaside hometown of Newburyport, MA at 52 Pleasant Street. The shop features a curated selection of past season favorites from our Baby, Child, and Adult Collections at very special prices.</p><p>Personalized shopping experiences, help with sizing, and recommendations are available.</p>",
+            "line_height": 24,
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1A1A1A",
+            "tg_font_size_mobile": 0
           }
         },
         "contact": {
@@ -67,27 +100,103 @@
             "address": "<p>52 Pleasant Street<br/>Newburyport, MA 01950</p>",
             "phone": "(978) 414-7997",
             "email": "newburyport@misha-and-puff.com",
-            "email_prefix": "For inquiries, please email"
+            "email_prefix": "For inquiries, please email",
+            "directions_label": "",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1A1A1A",
+            "tg_font_size_mobile": 0
+          }
+        },
+        "hours_special": {
+          "type": "hours",
+          "settings": {
+            "label": "SPECIAL STORE HOURS",
+            "hours": "<p>Our Newburyport store will hold special hours from July 3-August 2 while we host our <a href=\"/pages/nbpt-sample-sale-26\">annual sample sale</a>.</p><p>Fridays 11-6 pm<br/>Saturdays 11-6 pm (open on July 4!)<br/>Sundays 11-6 pm</p>",
+            "note": "<p><em>*Please note: during the sample sale, the Newburyport store will not operate its regular hours and will only be open during the times listed above.</em></p>",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 170,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1A1A1A",
+            "tg_font_size_mobile": 0
+          }
+        },
+        "hours_regular": {
+          "type": "hours",
+          "settings": {
+            "label": "REGULAR STORE HOURS",
+            "hours": "<p>Wednesday through Saturday 11am-6pm<br/>Sunday 11am-5pm</p>",
+            "note": "<p><em>Closed Monday and Tuesday</em></p>",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 170,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1A1A1A",
+            "tg_font_size_mobile": 0
           }
         },
         "returns": {
           "type": "text",
           "settings": {
-            "text": "<p>We are unable to accept any online order returns at our store locations. Read our full return policy <a href=\"https://help.misha-and-puff.com/en-US#article-62371\" target=\"_blank\" rel=\"noopener\">here</a>.</p>"
+            "text": "<p>We are unable to accept any online order returns at our store locations. Read our full return policy <a href=\"https://help.misha-and-puff.com/en-US#article-62371\" target=\"_blank\">here</a>.</p>",
+            "line_height": 24,
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1A1A1A",
+            "tg_font_size_mobile": 0
           }
         }
       },
-      "block_order": ["heading", "intro", "hours_special", "hours_regular", "contact", "returns"],
+      "block_order": [
+        "heading",
+        "intro",
+        "contact",
+        "hours_special",
+        "hours_regular",
+        "returns"
+      ],
       "settings": {
         "desktop_content_position": "left",
         "content_alignment": "left",
         "content_max_width": 720,
         "color_scheme": "",
         "full_width": false,
-        "padding_top": 36,
-        "padding_bottom": 52
+        "padding_top": 24,
+        "padding_bottom": 100,
+        "padding_left": 0,
+        "padding_right": 0,
+        "enable_mobile_padding": true,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 60,
+        "padding_left_mobile": 16,
+        "padding_right_mobile": 16
       }
     }
   },
-  "order": ["main", "hero", "info"]
+  "order": [
+    "main",
+    "hero",
+    "info"
+  ]
 }

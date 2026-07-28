@@ -71,7 +71,7 @@
         "padding_left_mobile": 20,
         "padding_right_mobile": 21,
         "stack_spacing_mobile": 20,
-        "newsletter_spacing_top": 40,
+        "newsletter_spacing_top": 60,
         "bottom_spacing_top": 48,
         "bottom_gap": 6,
         "block_gap": 60,
@@ -90,7 +90,7 @@
         "fl_font_weight": "default",
         "fl_letter_spacing": 0.1,
         "fl_text_case": "default",
-        "fl_color": "#1A1A1A",
+        "fl_color": "#1a1a1a",
         "fl_line_height": 0
       }
     }
