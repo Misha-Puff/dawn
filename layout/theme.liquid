@@ -471,10 +471,11 @@
           rejected at push, templates/policy.liquid uploads but is never
           consulted) — Shopify injects hardcoded .shopify-policy__* markup into
           content_for_layout. Rendering the section here instead is the only way
-          to own the markup; the policy object stays in scope and the /policies/*
-          URLs are unchanged.
+          to own the markup; the /policies/* URLs are unchanged. main-policies
+          renders the full tab system with the current policy's tab active
+          (same UI as the consolidated page.policies template).
         {% endcomment %}
-        {% section 'main-policy' %}
+        {% section 'main-policies' %}
       {% elsif request.design_mode or lock_content == 'false' %}
         {{ content_for_layout }}
       {% else %}

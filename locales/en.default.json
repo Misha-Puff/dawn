@@ -502,8 +502,7 @@
       "label": "Collections"
     },
     "main_policy": {
-      "policies_label": "Policies",
-      "view_all": "View all policies"
+      "policies_label": "Policies"
     },
     "video": {
       "load_video": "Load video: {{ description }}"

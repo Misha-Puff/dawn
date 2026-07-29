@@ -1922,9 +1922,6 @@
     "main-policies": {
       "name": "Policies"
     },
-    "main-policy": {
-      "name": "Policy"
-    },
     "main-password-footer": {
       "name": "Password footer"
     },

@@ -133,25 +133,48 @@
 
 <div class="page-width{% if section.settings.page_width == 'narrow' %} page-width--narrow{% endif %} section-{{ section.id }}-padding">
   {%- if section.settings.show_title -%}
-    <h1 class="main-page-title page-title h1 policy-title">{{ page.title | escape }}</h1>
+    {%- assign policies_heading = 'sections.main_policy.policies_label' | t -%}
+    <h1 class="main-page-title page-title h1 policy-title">{{ page.title | default: policies_heading | escape }}</h1>
   {%- endif -%}
 
   {%- comment -%}
-    True tabs: exactly one policy panel is visible at a time. Panels are all
-    server-rendered (first visible, rest [hidden]) and <policy-tabs> switches
-    them, keeping the URL hash in sync so /pages/policies#<slug> deep links —
-    including the /policies/* redirects — open the right tab. The tab row is
-    presence-activated like collection-tabs (needs at least two policies); the
-    noscript override below restores the stacked all-policies view without JS.
-    Slugs come from each policy URL's last segment (/policies/privacy-policy
-    -> privacy-policy).
+    True tabs: exactly one policy panel is visible at a time, switched by
+    <policy-tabs>. The section serves two contexts:
+    - the consolidated page (page.policies template): tab hrefs are #<slug>
+      anchors and clicks keep the URL hash in sync, so
+      /pages/policies#<slug> deep links open the right tab;
+    - the /policies/* pages themselves (rendered via the theme.liquid
+      intercept): tab hrefs are the real sibling policy URLs, the current
+      policy's panel is server-rendered active, and clicks rewrite the path
+      via replaceState so each policy keeps its canonical URL.
+    The tab row is presence-activated like collection-tabs (needs at least
+    two policies); the noscript override below restores the stacked
+    all-policies view without JS (on /policies/* the tabs then degrade to
+    plain links between the real policy pages). Slugs come from each policy
+    URL's last segment (/policies/privacy-policy -> privacy-policy).
   {%- endcomment -%}
-  {%- assign policy_count = 0 -%}
-  {%- for shop_policy in shop.policies -%}
-    {%- if shop_policy.title != blank -%}
-      {%- assign policy_count = policy_count | plus: 1 -%}
-    {%- endif -%}
-  {%- endfor -%}
+  {%- liquid
+    assign policy_count = 0
+    for shop_policy in shop.policies
+      if shop_policy.title != blank
+        assign policy_count = policy_count | plus: 1
+      endif
+    endfor
+
+    assign active_slug = ''
+    if request.page_type == 'policy'
+      assign request_slug = request.path | split: '/' | last
+      for shop_policy in shop.policies
+        if shop_policy.title == blank
+          continue
+        endif
+        assign policy_slug = shop_policy.url | split: '/' | last
+        if policy_slug == request_slug
+          assign active_slug = request_slug
+        endif
+      endfor
+    endif
+  -%}
 
   {%- if policy_count > 1 -%}
     <policy-tabs>
@@ -159,7 +182,12 @@
         {%- for shop_policy in shop.policies -%}
           {%- if shop_policy.title == blank -%}{%- continue -%}{%- endif -%}
           {%- assign policy_slug = shop_policy.url | split: '/' | last -%}
-          <a class="policy-tabs__tab" href="#{{ policy_slug }}">{{ shop_policy.title | escape }}</a>
+          {%- if request.page_type == 'policy' -%}
+            {%- assign tab_href = shop_policy.url -%}
+          {%- else -%}
+            {%- assign tab_href = '#' | append: policy_slug -%}
+          {%- endif -%}
+          <a class="policy-tabs__tab" href="{{ tab_href }}" data-slug="{{ policy_slug }}"{% if policy_slug == active_slug and active_slug != blank %} aria-current="page"{% endif %}>{{ shop_policy.title | escape }}</a>
         {%- endfor -%}
       </nav>
     </policy-tabs>
@@ -180,7 +208,19 @@
     {%- if shop_policy.title == blank -%}{%- continue -%}{%- endif -%}
     {%- assign rendered_panels = rendered_panels | plus: 1 -%}
     {%- assign policy_slug = shop_policy.url | split: '/' | last -%}
-    <section id="{{ policy_slug }}" class="policy-block"{% if rendered_panels > 1 and policy_count > 1 %} hidden{% endif %}>
+    {%- liquid
+      assign panel_hidden = false
+      if policy_count > 1
+        if active_slug != blank
+          unless policy_slug == active_slug
+            assign panel_hidden = true
+          endunless
+        elsif rendered_panels > 1
+          assign panel_hidden = true
+        endif
+      endif
+    -%}
+    <section id="{{ policy_slug }}" class="policy-block"{% if panel_hidden %} hidden{% endif %}>
       <h2 class="policy-block__title policy-title h2">{{ shop_policy.title | escape }}</h2>
       <div class="rte">
         {{ shop_policy.body }}
