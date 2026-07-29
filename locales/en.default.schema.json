@@ -1919,6 +1919,9 @@
     "main-page": {
       "name": "Page"
     },
+    "main-policies": {
+      "name": "Policies"
+    },
     "main-policy": {
       "name": "Policy"
     },

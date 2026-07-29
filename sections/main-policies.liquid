@@ -1,4 +1,5 @@
 {{ 'section-main-page.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'policy-tabs.js' | asset_url }}" defer="defer"></script>
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -11,6 +12,65 @@
     text-align: left;
   }
 
+  {%- comment -%}
+    Tab row cloned from .collection-tabs / .collection-tabs__tab
+    (assets/template-collection.css) so the policy jump-nav matches the
+    collection tab bar exactly; renamed to .policy-tabs to keep the
+    collection stylesheet off this page.
+  {%- endcomment -%}
+  .policy-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2.4rem;
+    margin-bottom: 2.4rem;
+    border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.15);
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .policy-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .policy-tabs__tab:first-child {
+    margin-left: auto;
+  }
+
+  .policy-tabs__tab:last-child {
+    margin-right: auto;
+  }
+
+  .policy-tabs__tab {
+    padding: 0 0 1.2rem;
+    margin-bottom: -0.1rem;
+    font-size: 1.3rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    color: rgba(var(--color-foreground), 0.6);
+    border-bottom: 0.2rem solid transparent;
+  }
+
+  .policy-tabs__tab[aria-current='page'] {
+    color: rgb(var(--color-foreground));
+    border-bottom-color: rgb(var(--color-foreground));
+  }
+
+  .policy-block {
+    /* keep anchor jumps clear of the sticky header */
+    scroll-margin-top: 12rem;
+  }
+
+  .policy-block + .policy-block {
+    margin-top: 3.2rem;
+    padding-top: 3.2rem;
+    border-top: 0.1rem solid rgba(var(--color-foreground), 0.15);
+  }
+
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
@@ -20,16 +80,15 @@
 {%- endstyle -%}
 
 {%- comment -%}
-  Optional page typography, donor: main-page.liquid page_enable_type loop. Two groups
-  keyed by prefix (ph_ = title + headings h1-h3, pb_ = body copy); one entry per
-  selector so every rule stays scoped under #shopify-section-<id> (an unscoped comma
-  partner would leak to every .rte on the page). ph_ carries no font-size on purpose —
-  the global Headings theme settings own the per-level scale. Body line-height emits
-  in % to ride the font-size like the tg_ groups do.
+  Optional page typography, donor: main-policy.liquid (itself from main-page).
+  Two groups keyed by prefix (ph_ = page title + policy headings, pb_ = body
+  copy); one entry per selector so every rule stays scoped under
+  #shopify-section-<id>. ph_ carries no font-size on purpose — the global
+  Headings theme settings own the per-level scale.
 {%- endcomment -%}
 {%- if section.settings.page_enable_type -%}
   {%- capture page_type_css -%}
-    {%- assign page_type_groups = 'ph|.main-page-title;ph|.rte h1;ph|.rte h2;ph|.rte h3;pb|.rte p;pb|.rte li' | split: ';' -%}
+    {%- assign page_type_groups = 'ph|.main-page-title;ph|.policy-block__title;ph|.rte h1;ph|.rte h2;ph|.rte h3;pb|.rte p;pb|.rte li' | split: ';' -%}
     {%- for grp in page_type_groups -%}
       {%- assign grp_parts = grp | split: '|' -%}
       {%- assign gp = grp_parts[0] -%}
@@ -71,50 +130,50 @@
   {%- endif -%}
 {%- endif -%}
 
-{%- comment -%}
-  The `policy` object is nil outside Shopify's built-in policy renderer, so the
-  current policy is matched from the global shop.policies array by URL instead.
-{%- endcomment -%}
-{%- assign current_policy = nil -%}
-{%- for shop_policy in shop.policies -%}
-  {%- if shop_policy.url == request.path -%}
-    {%- assign current_policy = shop_policy -%}
-  {%- endif -%}
-{%- endfor -%}
-
-{%- comment -%}
-  When a consolidated policies page is selected, this URL hops to that page's
-  matching anchor. JS-only redirect (Liquid can't emit a server redirect and
-  /policies/* can't be captured by admin URL redirects since they never 404);
-  the policy content below stays rendered as the no-JS/crawler fallback.
-  Skipped in the editor so the section stays inspectable there.
-{%- endcomment -%}
-{%- assign consolidated_page = pages[section.settings.consolidated_page] -%}
-{%- if consolidated_page != blank and current_policy != blank -%}
-  {%- assign policy_slug = current_policy.url | split: '/' | last -%}
-  {%- assign redirect_target = consolidated_page.url | append: '#' | append: policy_slug -%}
-  {%- unless request.design_mode -%}
-    <script>
-      window.location.replace({{ redirect_target | json }});
-    </script>
-  {%- endunless -%}
-{%- endif -%}
-
 <div class="page-width{% if section.settings.page_width == 'narrow' %} page-width--narrow{% endif %} section-{{ section.id }}-padding">
-  {%- if redirect_target -%}
-    <p><a href="{{ redirect_target }}">{{ 'sections.main_policy.view_all' | t }}</a></p>
-  {%- endif -%}
   {%- if section.settings.show_title -%}
-    <h1 class="main-page-title page-title h1 policy-title">{{ current_policy.title | escape }}</h1>
+    <h1 class="main-page-title page-title h1 policy-title">{{ page.title | escape }}</h1>
   {%- endif -%}
-  <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-    {{ current_policy.body }}
-  </div>
+
+  {%- comment -%}
+    Presence-activated like collection-tabs: the jump-nav only renders when at
+    least two policies resolve. Anchor slugs come from each policy URL's last
+    segment (e.g. /policies/privacy-policy -> privacy-policy).
+  {%- endcomment -%}
+  {%- assign policy_count = 0 -%}
+  {%- for shop_policy in shop.policies -%}
+    {%- if shop_policy.title != blank -%}
+      {%- assign policy_count = policy_count | plus: 1 -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- if policy_count > 1 -%}
+    <policy-tabs>
+      <nav class="policy-tabs" aria-label="{{ 'sections.main_policy.policies_label' | t }}">
+        {%- for shop_policy in shop.policies -%}
+          {%- if shop_policy.title == blank -%}{%- continue -%}{%- endif -%}
+          {%- assign policy_slug = shop_policy.url | split: '/' | last -%}
+          <a class="policy-tabs__tab" href="#{{ policy_slug }}">{{ shop_policy.title | escape }}</a>
+        {%- endfor -%}
+      </nav>
+    </policy-tabs>
+  {%- endif -%}
+
+  {%- for shop_policy in shop.policies -%}
+    {%- if shop_policy.title == blank -%}{%- continue -%}{%- endif -%}
+    {%- assign policy_slug = shop_policy.url | split: '/' | last -%}
+    <section id="{{ policy_slug }}" class="policy-block">
+      <h2 class="policy-block__title policy-title h2">{{ shop_policy.title | escape }}</h2>
+      <div class="rte">
+        {{ shop_policy.body }}
+      </div>
+    </section>
+  {%- endfor -%}
 </div>
 
 {% schema %}
 {
-  "name": "t:sections.main-policy.name",
+  "name": "t:sections.main-policies.name",
   "tag": "section",
   "class": "section",
   "settings": [
@@ -158,10 +217,9 @@
       "label": "t:sections.all.padding.padding_bottom",
       "default": 28
     },
-    { "type": "checkbox", "id": "show_title", "default": true, "label": "Show policy title" },
-    { "type": "page", "id": "consolidated_page", "label": "Consolidated policies page", "info": "When set, this policy URL redirects to the matching heading on that page (e.g. the Policies page using the page.policies template). Leave blank to render this policy here." },
+    { "type": "checkbox", "id": "show_title", "default": true, "label": "Show page title" },
     { "type": "header", "content": "Page typography" },
-    { "type": "checkbox", "id": "page_enable_type", "default": false, "label": "Enable custom page typography", "info": "Styles the title, headings, and body copy in the policy content. Leave a control at its default to inherit." },
+    { "type": "checkbox", "id": "page_enable_type", "default": false, "label": "Enable custom page typography", "info": "Styles the title, policy headings, and body copy. Leave a control at its default to inherit." },
     { "type": "header", "content": "Headings (h1–h3)", "info": "Per-level font sizes stay on the global Headings theme settings." },
     { "type": "select", "id": "ph_custom_font", "options": [ { "value": "default", "label": "None (inherit theme)" }, { "value": "ibm_plex_sans", "label": "IBM Plex Sans" }, { "value": "ibm_plex_mono", "label": "IBM Plex Mono" }, { "value": "inter", "label": "Inter" }, { "value": "geist", "label": "Geist" }, { "value": "geist_mono", "label": "Geist Mono" }, { "value": "overpass", "label": "Overpass" }, { "value": "overpass_mono", "label": "Overpass Mono" }, { "value": "dm_sans", "label": "DM Sans" }, { "value": "dm_mono", "label": "DM Mono" }, { "value": "manrope", "label": "Manrope" }, { "value": "open_sans", "label": "Open Sans" } ], "default": "default", "label": "Brand font", "visible_if": "{{ section.settings.page_enable_type }}" },
     { "type": "select", "id": "ph_font_weight", "options": [ { "value": "default", "label": "Theme default" }, { "value": "300", "label": "Light" }, { "value": "400", "label": "Regular" }, { "value": "500", "label": "Medium" }, { "value": "600", "label": "Semibold" }, { "value": "700", "label": "Bold" } ], "default": "default", "label": "Font weight", "visible_if": "{{ section.settings.page_enable_type }}" },
