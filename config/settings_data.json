@@ -170,6 +170,12 @@
     "show_cart_note": false,
     "cart_drawer_collection": "",
     "sections": {
+      "main-policy": {
+        "type": "main-policy",
+        "settings": {
+          "consolidated_page": "policies"
+        }
+      },
       "main-password-header": {
         "type": "main-password-header",
         "settings": {
