@@ -71,12 +71,23 @@
   {%- endif -%}
 {%- endif -%}
 
+{%- comment -%}
+  The `policy` object is nil outside Shopify's built-in policy renderer, so the
+  current policy is matched from the global shop.policies array by URL instead.
+{%- endcomment -%}
+{%- assign current_policy = nil -%}
+{%- for shop_policy in shop.policies -%}
+  {%- if shop_policy.url == request.path -%}
+    {%- assign current_policy = shop_policy -%}
+  {%- endif -%}
+{%- endfor -%}
+
 <div class="page-width{% if section.settings.page_width == 'narrow' %} page-width--narrow{% endif %} section-{{ section.id }}-padding">
   {%- if section.settings.show_title -%}
-    <h1 class="main-page-title page-title h1 policy-title">{{ policy.title | escape }}</h1>
+    <h1 class="main-page-title page-title h1 policy-title">{{ current_policy.title | escape }}</h1>
   {%- endif -%}
   <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-    {{ policy.body }}
+    {{ current_policy.body }}
   </div>
 </div>
 
@@ -114,7 +125,7 @@
       "step": 4,
       "unit": "px",
       "label": "t:sections.all.padding.padding_top",
-      "default": 36
+      "default": 28
     },
     {
       "type": "range",
@@ -124,7 +135,7 @@
       "step": 4,
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
+      "default": 28
     },
     { "type": "checkbox", "id": "show_title", "default": true, "label": "Show policy title" },
     { "type": "header", "content": "Page typography" },
