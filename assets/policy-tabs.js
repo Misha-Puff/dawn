@@ -1,48 +1,55 @@
 /**
- * <policy-tabs> — scrollspy for the consolidated-policies jump-nav.
+ * <policy-tabs> — tab switcher for the consolidated-policies page.
  *
- * The tabs are plain in-page anchors (fully functional without JS); this
- * element only maintains the active underline: the tab whose policy block is
- * nearest the top of the viewport gets aria-current="page", mirroring
- * <collection-tabs>' active-state contract so the shared tab styling applies.
+ * Each tab is an in-page anchor to a .policy-block panel; exactly one panel is
+ * shown at a time (the rest carry [hidden], server-rendered with the first
+ * visible). Clicking a tab swaps panels and rewrites the URL hash so
+ * /pages/policies#<slug> deep links — including the /policies/* redirects —
+ * open the matching tab; hashchange (back/forward, in-page links) re-syncs.
+ * Without JS a noscript style unhides every panel and the tabs fall back to
+ * plain anchor jumps. The active tab carries aria-current="page", mirroring
+ * <collection-tabs>' contract so the shared tab styling applies.
  */
 class PolicyTabs extends HTMLElement {
   connectedCallback() {
     this.tabs = Array.from(this.querySelectorAll('a[href^="#"]'));
-    this.blocks = this.tabs
+    this.panels = this.tabs
       .map((tab) => document.getElementById(decodeURIComponent(tab.getAttribute('href').slice(1))))
       .filter(Boolean);
-    if (this.blocks.length < 2) return;
+    if (this.panels.length < 2) return;
 
-    this.onScroll = this.update.bind(this);
-    window.addEventListener('scroll', this.onScroll, { passive: true });
-    this.tabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        // Reflect the choice immediately; the scroll handler re-syncs after the jump.
-        this.setActive(tab);
+    this.tabs.forEach((tab, i) => {
+      tab.addEventListener('click', (event) => {
+        event.preventDefault();
+        this.select(i);
+        history.replaceState(null, '', tab.getAttribute('href'));
+        // A tall previous panel can leave the viewport stranded below the
+        // swapped-in content; pull the tab row back into view if it's above.
+        if (this.getBoundingClientRect().top < 0) this.scrollIntoView();
       });
     });
-    this.update();
+
+    this.onHashChange = () => this.selectFromHash();
+    window.addEventListener('hashchange', this.onHashChange);
+    this.selectFromHash();
   }
 
   disconnectedCallback() {
-    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('hashchange', this.onHashChange);
   }
 
-  update() {
-    // Active block = the last one whose top has passed the spy line (30% down
-    // the viewport); before the first block, the first tab is active.
-    const spyLine = window.innerHeight * 0.3;
-    let activeIndex = 0;
-    this.blocks.forEach((block, i) => {
-      if (block.getBoundingClientRect().top <= spyLine) activeIndex = i;
+  selectFromHash() {
+    const slug = decodeURIComponent(window.location.hash.slice(1));
+    const index = this.panels.findIndex((panel) => panel.id === slug);
+    this.select(index === -1 ? 0 : index);
+  }
+
+  select(activeIndex) {
+    this.panels.forEach((panel, i) => {
+      panel.toggleAttribute('hidden', i !== activeIndex);
     });
-    this.setActive(this.tabs[activeIndex]);
-  }
-
-  setActive(activeTab) {
-    this.tabs.forEach((tab) => {
-      if (tab === activeTab) {
+    this.tabs.forEach((tab, i) => {
+      if (i === activeIndex) {
         tab.setAttribute('aria-current', 'page');
       } else {
         tab.removeAttribute('aria-current');

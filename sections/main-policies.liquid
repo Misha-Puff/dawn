@@ -65,14 +65,11 @@
   }
 
   .policy-block {
-    /* keep anchor jumps clear of the sticky header */
-    scroll-margin-top: 12rem;
+    margin-top: 2.4rem;
   }
 
-  .policy-block + .policy-block {
-    margin-top: 3.2rem;
-    padding-top: 3.2rem;
-    border-top: 0.1rem solid rgba(var(--color-foreground), 0.15);
+  .policy-block[hidden] {
+    display: none;
   }
 
   @media screen and (min-width: 750px) {
@@ -140,9 +137,14 @@
   {%- endif -%}
 
   {%- comment -%}
-    Presence-activated like collection-tabs: the jump-nav only renders when at
-    least two policies resolve. Anchor slugs come from each policy URL's last
-    segment (e.g. /policies/privacy-policy -> privacy-policy).
+    True tabs: exactly one policy panel is visible at a time. Panels are all
+    server-rendered (first visible, rest [hidden]) and <policy-tabs> switches
+    them, keeping the URL hash in sync so /pages/policies#<slug> deep links —
+    including the /policies/* redirects — open the right tab. The tab row is
+    presence-activated like collection-tabs (needs at least two policies); the
+    noscript override below restores the stacked all-policies view without JS.
+    Slugs come from each policy URL's last segment (/policies/privacy-policy
+    -> privacy-policy).
   {%- endcomment -%}
   {%- assign policy_count = 0 -%}
   {%- for shop_policy in shop.policies -%}
@@ -163,10 +165,22 @@
     </policy-tabs>
   {%- endif -%}
 
+  {%- if policy_count > 1 -%}
+    <noscript>
+      <style>
+        .policy-block[hidden] {
+          display: block;
+        }
+      </style>
+    </noscript>
+  {%- endif -%}
+
+  {%- assign rendered_panels = 0 -%}
   {%- for shop_policy in shop.policies -%}
     {%- if shop_policy.title == blank -%}{%- continue -%}{%- endif -%}
+    {%- assign rendered_panels = rendered_panels | plus: 1 -%}
     {%- assign policy_slug = shop_policy.url | split: '/' | last -%}
-    <section id="{{ policy_slug }}" class="policy-block">
+    <section id="{{ policy_slug }}" class="policy-block"{% if rendered_panels > 1 and policy_count > 1 %} hidden{% endif %}>
       <h2 class="policy-block__title policy-title h2">{{ shop_policy.title | escape }}</h2>
       <div class="rte">
         {{ shop_policy.body }}
