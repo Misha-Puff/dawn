@@ -83,7 +83,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>Past season favorites, including the most coveted styles from the\u00a0<a href=\"/collections/adult-spring-summer\" target=\"_blank\" title=\"Adult Spring/Summer Collection\">Spring</a>,\u00a0<a href=\"/collections/adult-the-winter-collection\" target=\"_blank\" title=\"Adult - The Winter Collection\">Winter</a>, and\u00a0<a href=\"/collections/adult-fall-winter\" target=\"_blank\" title=\"Adult - Fall/Winter Collection\">Fall</a>\u00a0Collections.</p>",
+            "text": "<p>Past season favorites, including the most coveted styles from the <a href=\"/collections/adult-spring-summer\" target=\"_blank\" title=\"Adult Spring/Summer Collection\">Spring</a>, <a href=\"/collections/adult-the-winter-collection\" target=\"_blank\" title=\"Adult - The Winter Collection\">Winter</a>, and <a href=\"/collections/adult-fall-winter\" target=\"_blank\" title=\"Adult - Fall/Winter Collection\">Fall</a> Collections.</p>",
             "line_height": 22,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -137,46 +137,56 @@
     "buttons_M37kaV": {
       "type": "buttons",
       "blocks": {
-        "button_pbL67b": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP CHILD SALE",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-sale-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_bxQdMr": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP BABY SALE",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-sale-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_8bwQdG": {
-          "type": "button",
-          "settings": {
-            "label": "SALE TOPS",
-            "open_new_tab": true,
-            "link": "https://shop.misha-and-puff.com/collections/adult-sale?filter.p.m.taxonomy.sub_classification=Cardigans&filter.p.m.taxonomy.sub_classification=Long+Sleeve+Tops&filter.p.m.taxonomy.sub_classification=Sweaters&sort_by=manual",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_pbL67b": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP CHILD SALE",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-sale-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_bxQdMr": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP BABY SALE",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-sale-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_8bwQdG": {
+              "type": "button",
+              "settings": {
+                "label": "SALE TOPS",
+                "open_new_tab": true,
+                "link": "https://shop.misha-and-puff.com/collections/adult-sale?filter.p.m.taxonomy.sub_classification=Cardigans&filter.p.m.taxonomy.sub_classification=Long+Sleeve+Tops&filter.p.m.taxonomy.sub_classification=Sweaters&sort_by=manual",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_pbL67b",
+            "button_bxQdMr",
+            "button_8bwQdG"
+          ]
         }
       },
       "block_order": [
-        "button_pbL67b",
-        "button_bxQdMr",
-        "button_8bwQdG"
+        "group"
       ],
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

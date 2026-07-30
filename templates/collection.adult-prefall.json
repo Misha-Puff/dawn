@@ -83,7 +83,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>A time to slow down. Pre-Fall is about ease \u2014 airy silhouettes and foundational Pima and knits in classic colors, ready for any occasion.</p>",
+            "text": "<p>A time to slow down. Pre-Fall is about ease — airy silhouettes and foundational Pima and knits in classic colors, ready for any occasion.</p>",
             "line_height": 22,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -137,46 +137,56 @@
     "buttons_dfihiX": {
       "type": "buttons",
       "blocks": {
-        "button_7PwqAz": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SWEATERS",
-            "open_new_tab": true,
-            "link": "shopify://collections/adult-sweaters-cardigans",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_kDigir": {
-          "type": "button",
-          "settings": {
-            "label": "TOPS",
-            "open_new_tab": true,
-            "link": "shopify://collections/adult-tops",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_E9T9zp": {
-          "type": "button",
-          "settings": {
-            "label": "ALL LACE STYLES",
-            "open_new_tab": true,
-            "link": "shopify://collections/adult-lace-net",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_7PwqAz": {
+              "type": "button",
+              "settings": {
+                "label": "SWEATERS",
+                "open_new_tab": true,
+                "link": "shopify://collections/adult-sweaters-cardigans",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_kDigir": {
+              "type": "button",
+              "settings": {
+                "label": "TOPS",
+                "open_new_tab": true,
+                "link": "shopify://collections/adult-tops",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_E9T9zp": {
+              "type": "button",
+              "settings": {
+                "label": "ALL LACE STYLES",
+                "open_new_tab": true,
+                "link": "shopify://collections/adult-lace-net",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_7PwqAz",
+            "button_kDigir",
+            "button_E9T9zp"
+          ]
         }
       },
       "block_order": [
-        "button_7PwqAz",
-        "button_kDigir",
-        "button_E9T9zp"
+        "group"
       ],
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

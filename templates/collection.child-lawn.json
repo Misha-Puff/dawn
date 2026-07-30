@@ -82,7 +82,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>A color spotlight on Summer's favorite green \u2014 Lawn. </p>",
+            "text": "<p>A color spotlight on Summer's favorite green — Lawn. </p>",
             "line_height": 20,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -136,46 +136,56 @@
     "buttons_DT9xgx": {
       "type": "buttons",
       "blocks": {
-        "button_yMHTR7": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP ALL SUMMER",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-summer-collection-legacy-v2",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_N6YAK3": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP BABY SUMMER",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-summer-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_ekAake": {
-          "type": "button",
-          "settings": {
-            "label": "ACCESSORIES",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-accessories-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_yMHTR7": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL SUMMER",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-summer-collection-legacy-v2",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_N6YAK3": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP BABY SUMMER",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-summer-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_ekAake": {
+              "type": "button",
+              "settings": {
+                "label": "ACCESSORIES",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-accessories-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_yMHTR7",
+            "button_N6YAK3",
+            "button_ekAake"
+          ]
         }
       },
       "block_order": [
-        "button_yMHTR7",
-        "button_N6YAK3",
-        "button_ekAake"
+        "group"
       ],
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

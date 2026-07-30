@@ -82,7 +82,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>Entirely hand-crocheted in our hand-dyed yarns \u2014 a testament to the skill and dedication of the makers we work with. Made with care in Peru. Read more about our <a href=\"https://shop.misha-and-puff.com/pages/people\" target=\"_blank\" title=\"People\">artisan partners</a>.</p>",
+            "text": "<p>Entirely hand-crocheted in our hand-dyed yarns — a testament to the skill and dedication of the makers we work with. Made with care in Peru. Read more about our <a href=\"https://shop.misha-and-puff.com/pages/people\" target=\"_blank\" title=\"People\">artisan partners</a>.</p>",
             "line_height": 22,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -136,46 +136,56 @@
     "buttons_AjhJGQ": {
       "type": "buttons",
       "blocks": {
-        "button_QmaqwQ": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP ALL SUMMER",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-summer-collection-legacy-v2",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_ayzGf7": {
-          "type": "button",
-          "settings": {
-            "label": "BABY SUMMER",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-summer-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_HMntFH": {
-          "type": "button",
-          "settings": {
-            "label": "ALL HAND-MADE STYLES",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-hand-knit",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_QmaqwQ": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL SUMMER",
+                "open_new_tab": false,
+                "link": "shopify://collections/child-summer-collection-legacy-v2",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_ayzGf7": {
+              "type": "button",
+              "settings": {
+                "label": "BABY SUMMER",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-summer-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_HMntFH": {
+              "type": "button",
+              "settings": {
+                "label": "ALL HAND-MADE STYLES",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-hand-knit",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_QmaqwQ",
+            "button_ayzGf7",
+            "button_HMntFH"
+          ]
         }
       },
       "block_order": [
-        "button_QmaqwQ",
-        "button_ayzGf7",
-        "button_HMntFH"
+        "group"
       ],
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

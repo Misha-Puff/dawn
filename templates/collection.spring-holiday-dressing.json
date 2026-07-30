@@ -71,7 +71,7 @@
         "text_633F6R": {
           "type": "text",
           "settings": {
-            "text": "<p>Spring holidays are near. Shop our curated looks for spring holiday dressing \u2014 festive looks for every type of gathering.</p>",
+            "text": "<p>Spring holidays are near. Shop our curated looks for spring holiday dressing — festive looks for every type of gathering.</p>",
             "line_height": 22,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -125,67 +125,77 @@
     "buttons_EbyzYT": {
       "type": "buttons",
       "blocks": {
-        "button_tXjcG4": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "ALL CHILD SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-spring-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_bwt7GV": {
-          "type": "button",
-          "settings": {
-            "label": "ALL BABY SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-spring-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_fytxKT": {
-          "type": "button",
-          "settings": {
-            "label": "DRESSES",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-dresses-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_NYUGFe": {
-          "type": "button",
-          "settings": {
-            "label": "SWEATERS",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-sweaters-cardigans-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_EBjLzk": {
-          "type": "button",
-          "settings": {
-            "label": "ACCESSORIES",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-accessories-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_tXjcG4": {
+              "type": "button",
+              "settings": {
+                "label": "ALL CHILD SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-spring-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_bwt7GV": {
+              "type": "button",
+              "settings": {
+                "label": "ALL BABY SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-spring-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_fytxKT": {
+              "type": "button",
+              "settings": {
+                "label": "DRESSES",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-dresses-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_NYUGFe": {
+              "type": "button",
+              "settings": {
+                "label": "SWEATERS",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-sweaters-cardigans-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_EBjLzk": {
+              "type": "button",
+              "settings": {
+                "label": "ACCESSORIES",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-accessories-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_tXjcG4",
+            "button_bwt7GV",
+            "button_fytxKT",
+            "button_NYUGFe",
+            "button_EBjLzk"
+          ]
         }
       },
       "block_order": [
-        "button_tXjcG4",
-        "button_bwt7GV",
-        "button_fytxKT",
-        "button_NYUGFe",
-        "button_EBjLzk"
+        "group"
       ],
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

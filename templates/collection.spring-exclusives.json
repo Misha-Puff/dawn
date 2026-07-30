@@ -71,7 +71,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>Styles only available at Misha & Puff, online and at our <a href=\"/pages/brooklyn-store\" target=\"_blank\" title=\"Misha & Puff\u2019s Brooklyn Store\">Brooklyn</a> store.</p>",
+            "text": "<p>Styles only available at Misha & Puff, online and at our <a href=\"/pages/brooklyn-store\" target=\"_blank\" title=\"Misha & Puff’s Brooklyn Store\">Brooklyn</a> store.</p>",
             "line_height": 20,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -125,34 +125,44 @@
     "buttons_WbQEm6": {
       "type": "buttons",
       "blocks": {
-        "button_U3FPeF": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP ALL CHILD SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-spring-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_NGtPg9": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP ALL BABY SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-spring-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_U3FPeF": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL CHILD SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-spring-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_NGtPg9": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL BABY SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-spring-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_U3FPeF",
+            "button_NGtPg9"
+          ]
         }
       },
       "block_order": [
-        "button_U3FPeF",
-        "button_NGtPg9"
+        "group"
       ],
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

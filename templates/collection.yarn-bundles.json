@@ -137,141 +137,151 @@
     "buttons_Mn3bJP": {
       "type": "buttons",
       "blocks": {
-        "button_UKfUr8": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP ALL YARN",
-            "open_new_tab": true,
-            "link": "shopify://collections/all-yarn",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_XaxzBy": {
-          "type": "button",
-          "settings": {
-            "label": "LIMITED YARN",
-            "open_new_tab": true,
-            "link": "shopify://collections/limited-yarn",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_C99g3E": {
-          "type": "button",
-          "settings": {
-            "label": "COTTON YARN",
-            "open_new_tab": true,
-            "link": "shopify://collections/studio-cotton-yarn",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_NGpAit": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "label": "RWS YARN",
-            "open_new_tab": true,
-            "link": "shopify://collections/rws-yarn-skeins",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_FYYCRp": {
-          "type": "button",
-          "settings": {
-            "label": "PATTERNS",
-            "open_new_tab": true,
-            "link": "shopify://collections/knitting-patterns",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_T7Bm37": {
-          "type": "button",
-          "settings": {
-            "label": "MENDING SERVICES",
-            "open_new_tab": true,
-            "link": "shopify://collections/mending-services",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
+            "gap": 12,
+            "justify": "flex-start"
+          },
+          "blocks": {
+            "button_UKfUr8": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL YARN",
+                "open_new_tab": true,
+                "link": "shopify://collections/all-yarn",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            },
+            "button_XaxzBy": {
+              "type": "button",
+              "settings": {
+                "label": "LIMITED YARN",
+                "open_new_tab": true,
+                "link": "shopify://collections/limited-yarn",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            },
+            "button_C99g3E": {
+              "type": "button",
+              "settings": {
+                "label": "COTTON YARN",
+                "open_new_tab": true,
+                "link": "shopify://collections/studio-cotton-yarn",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            },
+            "button_NGpAit": {
+              "type": "button",
+              "disabled": true,
+              "settings": {
+                "label": "RWS YARN",
+                "open_new_tab": true,
+                "link": "shopify://collections/rws-yarn-skeins",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            },
+            "button_FYYCRp": {
+              "type": "button",
+              "settings": {
+                "label": "PATTERNS",
+                "open_new_tab": true,
+                "link": "shopify://collections/knitting-patterns",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            },
+            "button_T7Bm37": {
+              "type": "button",
+              "settings": {
+                "label": "MENDING SERVICES",
+                "open_new_tab": true,
+                "link": "shopify://collections/mending-services",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_UKfUr8",
+            "button_XaxzBy",
+            "button_C99g3E",
+            "button_NGpAit",
+            "button_FYYCRp",
+            "button_T7Bm37"
+          ]
         }
       },
       "block_order": [
-        "button_UKfUr8",
-        "button_XaxzBy",
-        "button_C99g3E",
-        "button_NGpAit",
-        "button_FYYCRp",
-        "button_T7Bm37"
+        "group"
       ],
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
-        "button_alignment": "left",
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

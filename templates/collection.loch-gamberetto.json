@@ -125,34 +125,44 @@
     "buttons_erch4E": {
       "type": "buttons",
       "blocks": {
-        "button_w9hAAk": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP ALL SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-spring-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_MA6pwL": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP BABY SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-spring-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_w9hAAk": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-spring-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_MA6pwL": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP BABY SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-spring-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_w9hAAk",
+            "button_MA6pwL"
+          ]
         }
       },
       "block_order": [
-        "button_w9hAAk",
-        "button_MA6pwL"
+        "group"
       ],
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

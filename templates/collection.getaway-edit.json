@@ -71,7 +71,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>From long weekends to school vaca \u2014 everything you need for a spring getaway, </p>",
+            "text": "<p>From long weekends to school vaca — everything you need for a spring getaway, </p>",
             "line_height": 20,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -125,34 +125,44 @@
     "buttons_CqxRRY": {
       "type": "buttons",
       "blocks": {
-        "button_kgFtDL": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP ALL SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-spring-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_CDRGaL": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP BABY SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-spring-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_kgFtDL": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-spring-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_CDRGaL": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP BABY SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-spring-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_kgFtDL",
+            "button_CDRGaL"
+          ]
         }
       },
       "block_order": [
-        "button_kgFtDL",
-        "button_CDRGaL"
+        "group"
       ],
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

@@ -72,7 +72,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>A true star of the Fall Collection \u2014 Cerulean. A vibrant blue, dyed to a rich, saturated finish. A playful hue that brightens every style.</p>",
+            "text": "<p>A true star of the Fall Collection — Cerulean. A vibrant blue, dyed to a rich, saturated finish. A playful hue that brightens every style.</p>",
             "line_height": 24
           }
         },
@@ -117,47 +117,57 @@
     "buttons_Mn3bJP": {
       "type": "buttons",
       "blocks": {
-        "button_XaxzBy": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
-        },
-        "button_C99g3E": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
-        },
-        "button_NGpAit": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_XaxzBy": {
+              "type": "button",
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            },
+            "button_C99g3E": {
+              "type": "button",
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            },
+            "button_NGpAit": {
+              "type": "button",
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_XaxzBy",
+            "button_C99g3E",
+            "button_NGpAit"
+          ]
         }
       },
       "block_order": [
-        "button_XaxzBy",
-        "button_C99g3E",
-        "button_NGpAit"
+        "group"
       ],
       "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

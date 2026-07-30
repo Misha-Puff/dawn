@@ -1,0 +1,101 @@
+{%- comment -%}
+  Generic flex container block ("group") — slice 1 of the blocks vertical-slice
+  program. Only the flex arm exists so far: direction, wrap, gap, justify,
+  align. Grid / slider / banner arms land with the sections that need them.
+
+  Flex properties are emitted via block-scoped {% style %} keyed to
+  .Block-{{ block.id }} (never {% stylesheet %} — that tag ships theme-wide
+  regardless of render). Row + wrap defaults reproduce the buttons section's
+  .button-wrapper.is-flex.is-flex-wrap computed styles.
+{%- endcomment -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} .Block-{{ block.id }} {
+    {%- if block.settings.direction == 'column' %} flex-direction: column;{% endif -%}
+    {%- unless block.settings.wrap %} flex-wrap: nowrap;{% endunless %}
+    gap: {{ block.settings.gap }}px;
+    justify-content: {{ block.settings.justify }};
+    {%- if block.settings.align != 'stretch' %} align-items: {{ block.settings.align }};{% endif %}
+  }
+{%- endstyle -%}
+
+<div
+  class="group-flex is-flex{% if block.settings.wrap %} is-flex-wrap{% endif %} Block-{{ block.id }}"
+  {{ block.shopify_attributes }}
+>
+  {% content_for 'blocks' %}
+</div>
+
+{% schema %}
+{
+  "name": "Group",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "button"
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "direction",
+      "options": [
+        { "value": "row", "label": "Horizontal" },
+        { "value": "column", "label": "Vertical" }
+      ],
+      "default": "row",
+      "label": "Direction"
+    },
+    {
+      "type": "checkbox",
+      "id": "wrap",
+      "default": true,
+      "label": "Wrap",
+      "visible_if": "{{ block.settings.direction == 'row' }}"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "select",
+      "id": "justify",
+      "options": [
+        { "value": "flex-start", "label": "Start" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "End" },
+        { "value": "space-between", "label": "Space between" }
+      ],
+      "default": "center",
+      "label": "Justify"
+    },
+    {
+      "type": "select",
+      "id": "align",
+      "options": [
+        { "value": "stretch", "label": "Stretch" },
+        { "value": "flex-start", "label": "Start" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "End" }
+      ],
+      "default": "stretch",
+      "label": "Align"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Group",
+      "blocks": [
+        { "type": "button" },
+        { "type": "button" },
+        { "type": "button" }
+      ]
+    }
+  ]
+}
+{% endschema %}

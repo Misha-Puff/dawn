@@ -110,98 +110,108 @@
     "buttons_MNAPfT": {
       "type": "buttons",
       "blocks": {
-        "button_wzaiq4": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "BABY SALE",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-sale",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_Dyk9tj": {
-          "type": "button",
-          "settings": {
-            "label": "ADULT SALE",
-            "open_new_tab": true,
-            "link": "shopify://collections/adult-sale",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_6ndqMx": {
-          "type": "button",
-          "settings": {
-            "label": "FALL ON SALE",
-            "open_new_tab": true,
-            "link": "https://shop.misha-and-puff.com/collections/child-fall",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_PmqNBf": {
-          "type": "button",
-          "settings": {
-            "label": "MP + Apolina ON SALE",
-            "open_new_tab": true,
-            "link": "shopify://collections/mp-apolina",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
+            "gap": 12,
+            "justify": "center"
+          },
+          "blocks": {
+            "button_wzaiq4": {
+              "type": "button",
+              "settings": {
+                "label": "BABY SALE",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-sale",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            },
+            "button_Dyk9tj": {
+              "type": "button",
+              "settings": {
+                "label": "ADULT SALE",
+                "open_new_tab": true,
+                "link": "shopify://collections/adult-sale",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            },
+            "button_6ndqMx": {
+              "type": "button",
+              "settings": {
+                "label": "FALL ON SALE",
+                "open_new_tab": true,
+                "link": "https://shop.misha-and-puff.com/collections/child-fall",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            },
+            "button_PmqNBf": {
+              "type": "button",
+              "settings": {
+                "label": "MP + Apolina ON SALE",
+                "open_new_tab": true,
+                "link": "shopify://collections/mp-apolina",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_wzaiq4",
+            "button_Dyk9tj",
+            "button_6ndqMx",
+            "button_PmqNBf"
+          ]
         }
       },
       "block_order": [
-        "button_wzaiq4",
-        "button_Dyk9tj",
-        "button_6ndqMx",
-        "button_PmqNBf"
+        "group"
       ],
       "disabled": true,
       "settings": {
         "title": "",
-        "button_gap": 12,
-        "button_alignment": "center",
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

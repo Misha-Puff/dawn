@@ -83,7 +83,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>The Summer Collection was designed with the New England coast in mind \u2014 the place we call home.</p><p>Across coastlines everywhere there is a shared character: salt air, weathered patina, and the long tradition of the summer holiday by the sea. This season\u2019s prints draw from that world: lighthearted, nostalgic, and made for warm days near the water.</p>",
+            "text": "<p>The Summer Collection was designed with the New England coast in mind — the place we call home.</p><p>Across coastlines everywhere there is a shared character: salt air, weathered patina, and the long tradition of the summer holiday by the sea. This season’s prints draw from that world: lighthearted, nostalgic, and made for warm days near the water.</p>",
             "line_height": 22,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -137,57 +137,67 @@
     "buttons_Mn3bJP": {
       "type": "buttons",
       "blocks": {
-        "button_XaxzBy": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP ALL SUMMER",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-summer",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_C99g3E": {
-          "type": "button",
-          "settings": {
-            "label": "WOVENS",
-            "open_new_tab": true,
-            "link": "shopify://collections/mixed-wovens",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_NGpAit": {
-          "type": "button",
-          "settings": {
-            "label": "SUMMER KNITS",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-baby-knits",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_ahPDNK": {
-          "type": "button",
-          "settings": {
-            "label": "BABY SUMMER",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-summer",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_XaxzBy": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL SUMMER",
+                "open_new_tab": false,
+                "link": "shopify://collections/child-summer",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_C99g3E": {
+              "type": "button",
+              "settings": {
+                "label": "WOVENS",
+                "open_new_tab": true,
+                "link": "shopify://collections/mixed-wovens",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_NGpAit": {
+              "type": "button",
+              "settings": {
+                "label": "SUMMER KNITS",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-baby-knits",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_ahPDNK": {
+              "type": "button",
+              "settings": {
+                "label": "BABY SUMMER",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-summer",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_XaxzBy",
+            "button_C99g3E",
+            "button_NGpAit",
+            "button_ahPDNK"
+          ]
         }
       },
       "block_order": [
-        "button_XaxzBy",
-        "button_C99g3E",
-        "button_NGpAit",
-        "button_ahPDNK"
+        "group"
       ],
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

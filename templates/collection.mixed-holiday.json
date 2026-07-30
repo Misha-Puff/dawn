@@ -84,7 +84,7 @@
           "type": "text",
           "disabled": true,
           "settings": {
-            "text": "<p>A true star of the Fall Collection \u2014 Cerulean. A vibrant blue, dyed to a rich, saturated finish. A playful hue that brightens every style.</p>",
+            "text": "<p>A true star of the Fall Collection — Cerulean. A vibrant blue, dyed to a rich, saturated finish. A playful hue that brightens every style.</p>",
             "line_height": 24,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -138,46 +138,56 @@
     "buttons_Mn3bJP": {
       "type": "buttons",
       "blocks": {
-        "button_C99g3E": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "VIEW CHILD",
-            "open_new_tab": false,
-            "link": "https://shop.misha-and-puff.com/collections/mixed-holiday-dressing?filter.p.m.taxonomy.division=Child&sort_by=manual",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_NGpAit": {
-          "type": "button",
-          "settings": {
-            "label": "VIEW BABY",
-            "open_new_tab": false,
-            "link": "https://shop.misha-and-puff.com/collections/mixed-holiday-dressing?filter.p.m.taxonomy.division=Baby&sort_by=manual",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_XaxzBy": {
-          "type": "button",
-          "settings": {
-            "label": "VIEW ADULT",
-            "open_new_tab": false,
-            "link": "https://shop.misha-and-puff.com/collections/mixed-holiday-dressing?filter.p.m.taxonomy.division=Adult&sort_by=manual",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_C99g3E": {
+              "type": "button",
+              "settings": {
+                "label": "VIEW CHILD",
+                "open_new_tab": false,
+                "link": "https://shop.misha-and-puff.com/collections/mixed-holiday-dressing?filter.p.m.taxonomy.division=Child&sort_by=manual",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_NGpAit": {
+              "type": "button",
+              "settings": {
+                "label": "VIEW BABY",
+                "open_new_tab": false,
+                "link": "https://shop.misha-and-puff.com/collections/mixed-holiday-dressing?filter.p.m.taxonomy.division=Baby&sort_by=manual",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_XaxzBy": {
+              "type": "button",
+              "settings": {
+                "label": "VIEW ADULT",
+                "open_new_tab": false,
+                "link": "https://shop.misha-and-puff.com/collections/mixed-holiday-dressing?filter.p.m.taxonomy.division=Adult&sort_by=manual",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_C99g3E",
+            "button_NGpAit",
+            "button_XaxzBy"
+          ]
         }
       },
       "block_order": [
-        "button_C99g3E",
-        "button_NGpAit",
-        "button_XaxzBy"
+        "group"
       ],
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

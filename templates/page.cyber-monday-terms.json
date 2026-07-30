@@ -67,46 +67,56 @@
     "buttons_rt8Y7V": {
       "type": "buttons",
       "blocks": {
-        "button_gLqRVi": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
-        },
-        "button_AJfN6h": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
-        },
-        "button_HqhB7t": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
+            "gap": 10
+          },
+          "blocks": {
+            "button_gLqRVi": {
+              "type": "button",
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            },
+            "button_AJfN6h": {
+              "type": "button",
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            },
+            "button_HqhB7t": {
+              "type": "button",
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_gLqRVi",
+            "button_AJfN6h",
+            "button_HqhB7t"
+          ]
         }
       },
       "block_order": [
-        "button_gLqRVi",
-        "button_AJfN6h",
-        "button_HqhB7t"
+        "group"
       ],
       "disabled": true,
       "settings": {
         "title": "Shop Cyber Monday",
-        "button_gap": 10,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 22,

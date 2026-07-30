@@ -71,7 +71,7 @@
         "text_ACr8CQ": {
           "type": "text",
           "settings": {
-            "text": "<p>Explore our handpicked selection of baby gifts \u2014 for festive magic, stylish looks, cozy comfort, and essential heirlooms.</p>",
+            "text": "<p>Explore our handpicked selection of baby gifts — for festive magic, stylish looks, cozy comfort, and essential heirlooms.</p>",
             "line_height": 22,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -337,67 +337,77 @@
     "buttons_UdwtAc": {
       "type": "buttons",
       "blocks": {
-        "button_eeTFLn": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "CHILD GIFTS",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-gift-edit",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_E8tYXH": {
-          "type": "button",
-          "settings": {
-            "label": "BEST SELLERS",
-            "open_new_tab": false,
-            "link": "shopify://collections/baby-best-sellers-legeacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_yApMDE": {
-          "type": "button",
-          "settings": {
-            "label": "SWEATERS",
-            "open_new_tab": false,
-            "link": "shopify://collections/baby-sweaters-cardigans-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_Ryr3Bb": {
-          "type": "button",
-          "settings": {
-            "label": "LAYETTE",
-            "open_new_tab": false,
-            "link": "shopify://collections/layette-24-old",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_fnfD6i": {
-          "type": "button",
-          "settings": {
-            "label": "NEW ARRIVALS",
-            "open_new_tab": false,
-            "link": "shopify://collections/baby-new-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 10
+          },
+          "blocks": {
+            "button_eeTFLn": {
+              "type": "button",
+              "settings": {
+                "label": "CHILD GIFTS",
+                "open_new_tab": false,
+                "link": "shopify://collections/child-gift-edit",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_E8tYXH": {
+              "type": "button",
+              "settings": {
+                "label": "BEST SELLERS",
+                "open_new_tab": false,
+                "link": "shopify://collections/baby-best-sellers-legeacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_yApMDE": {
+              "type": "button",
+              "settings": {
+                "label": "SWEATERS",
+                "open_new_tab": false,
+                "link": "shopify://collections/baby-sweaters-cardigans-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_Ryr3Bb": {
+              "type": "button",
+              "settings": {
+                "label": "LAYETTE",
+                "open_new_tab": false,
+                "link": "shopify://collections/layette-24-old",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_fnfD6i": {
+              "type": "button",
+              "settings": {
+                "label": "NEW ARRIVALS",
+                "open_new_tab": false,
+                "link": "shopify://collections/baby-new-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_eeTFLn",
+            "button_E8tYXH",
+            "button_yApMDE",
+            "button_Ryr3Bb",
+            "button_fnfD6i"
+          ]
         }
       },
       "block_order": [
-        "button_eeTFLn",
-        "button_E8tYXH",
-        "button_yApMDE",
-        "button_Ryr3Bb",
-        "button_fnfD6i"
+        "group"
       ],
       "settings": {
         "title": "More to Explore",
-        "button_gap": 10,
         "heading_size": "h1",
         "color_scheme": "",
         "desktop_padding_top": 32,

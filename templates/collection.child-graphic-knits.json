@@ -137,46 +137,56 @@
     "buttons_Mn3bJP": {
       "type": "buttons",
       "blocks": {
-        "button_NGpAit": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP ALL WINTER COLLECTION",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-winter",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_XaxzBy": {
-          "type": "button",
-          "settings": {
-            "label": "ALL SWEATERS",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-sweaters-cardigans",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_C99g3E": {
-          "type": "button",
-          "settings": {
-            "label": "BABY SWEATERS",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-sweaters-and-cardigan",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_NGpAit": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL WINTER COLLECTION",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-winter",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_XaxzBy": {
+              "type": "button",
+              "settings": {
+                "label": "ALL SWEATERS",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-sweaters-cardigans",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_C99g3E": {
+              "type": "button",
+              "settings": {
+                "label": "BABY SWEATERS",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-sweaters-and-cardigan",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_NGpAit",
+            "button_XaxzBy",
+            "button_C99g3E"
+          ]
         }
       },
       "block_order": [
-        "button_NGpAit",
-        "button_XaxzBy",
-        "button_C99g3E"
+        "group"
       ],
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

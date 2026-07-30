@@ -71,7 +71,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>Shop our latest Signature Popcorn styles \u2014 in Pima cotton for spring.</p>",
+            "text": "<p>Shop our latest Signature Popcorn styles — in Pima cotton for spring.</p>",
             "line_height": 22,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -125,45 +125,55 @@
     "buttons_YVAGDG": {
       "type": "buttons",
       "blocks": {
-        "button_PRkzxD": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP ALL SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-spring-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_jAdkFk": {
-          "type": "button",
-          "settings": {
-            "label": "BABY SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-spring-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_8fD9cr": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP PIMA LAYERS",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-cotton-staples",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_PRkzxD": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-spring-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_jAdkFk": {
+              "type": "button",
+              "settings": {
+                "label": "BABY SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-spring-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_8fD9cr": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP PIMA LAYERS",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-cotton-staples",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_PRkzxD",
+            "button_jAdkFk",
+            "button_8fD9cr"
+          ]
         }
       },
       "block_order": [
-        "button_PRkzxD",
-        "button_jAdkFk",
-        "button_8fD9cr"
+        "group"
       ],
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

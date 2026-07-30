@@ -71,7 +71,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>Easy styles \u2014 some to layer with a favorite tee, some to wear solo \u2014 all ready for spring days ahead.</p>",
+            "text": "<p>Easy styles — some to layer with a favorite tee, some to wear solo — all ready for spring days ahead.</p>",
             "line_height": 22,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -125,45 +125,55 @@
     "buttons_6kfpCg": {
       "type": "buttons",
       "blocks": {
-        "button_t84jBT": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "ALL CHILD SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-spring-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_CB44bh": {
-          "type": "button",
-          "settings": {
-            "label": "TEES",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-spring-tees",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_cRebBP": {
-          "type": "button",
-          "settings": {
-            "label": "ACCESSORIES",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-accessories-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_t84jBT": {
+              "type": "button",
+              "settings": {
+                "label": "ALL CHILD SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-spring-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_CB44bh": {
+              "type": "button",
+              "settings": {
+                "label": "TEES",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-spring-tees",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_cRebBP": {
+              "type": "button",
+              "settings": {
+                "label": "ACCESSORIES",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-accessories-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_t84jBT",
+            "button_CB44bh",
+            "button_cRebBP"
+          ]
         }
       },
       "block_order": [
-        "button_t84jBT",
-        "button_CB44bh",
-        "button_cRebBP"
+        "group"
       ],
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

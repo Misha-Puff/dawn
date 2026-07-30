@@ -71,7 +71,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>Discover our soft, durable Pima cotton tees for kids \u2014 timeless staples designed for ultimate comfort and effortless style, perfect for layering and everyday wear.</p>",
+            "text": "<p>Discover our soft, durable Pima cotton tees for kids — timeless staples designed for ultimate comfort and effortless style, perfect for layering and everyday wear.</p>",
             "line_height": 22,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -125,67 +125,77 @@
     "buttons_BLUPm3": {
       "type": "buttons",
       "blocks": {
-        "button_FhLcEq": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "ALL CHILD SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-spring-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_wUraTJ": {
-          "type": "button",
-          "settings": {
-            "label": "ALL PIMA STAPLES",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-cotton-staples",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_F68tE7": {
-          "type": "button",
-          "settings": {
-            "label": "DENIM",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-denim-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_Br4CTq": {
-          "type": "button",
-          "settings": {
-            "label": "SWEATERS",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-sweaters-cardigans-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_JcgyEF": {
-          "type": "button",
-          "settings": {
-            "label": "ACCESSORIES",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-accessories-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_FhLcEq": {
+              "type": "button",
+              "settings": {
+                "label": "ALL CHILD SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-spring-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_wUraTJ": {
+              "type": "button",
+              "settings": {
+                "label": "ALL PIMA STAPLES",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-cotton-staples",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_F68tE7": {
+              "type": "button",
+              "settings": {
+                "label": "DENIM",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-denim-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_Br4CTq": {
+              "type": "button",
+              "settings": {
+                "label": "SWEATERS",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-sweaters-cardigans-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_JcgyEF": {
+              "type": "button",
+              "settings": {
+                "label": "ACCESSORIES",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-accessories-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_FhLcEq",
+            "button_wUraTJ",
+            "button_F68tE7",
+            "button_Br4CTq",
+            "button_JcgyEF"
+          ]
         }
       },
       "block_order": [
-        "button_FhLcEq",
-        "button_wUraTJ",
-        "button_F68tE7",
-        "button_Br4CTq",
-        "button_JcgyEF"
+        "group"
       ],
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

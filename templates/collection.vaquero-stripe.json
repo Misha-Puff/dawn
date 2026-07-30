@@ -137,46 +137,56 @@
     "buttons_jRqiXG": {
       "type": "buttons",
       "blocks": {
-        "button_aLtgkH": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP ALL FALL",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-fall",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_iFiKxb": {
-          "type": "button",
-          "settings": {
-            "label": "DENIM",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-denim",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_gXDfwa": {
-          "type": "button",
-          "settings": {
-            "label": "ACCESSORIES",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-accessories",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_aLtgkH": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL FALL",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-fall",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_iFiKxb": {
+              "type": "button",
+              "settings": {
+                "label": "DENIM",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-denim",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_gXDfwa": {
+              "type": "button",
+              "settings": {
+                "label": "ACCESSORIES",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-accessories",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_aLtgkH",
+            "button_iFiKxb",
+            "button_gXDfwa"
+          ]
         }
       },
       "block_order": [
-        "button_aLtgkH",
-        "button_iFiKxb",
-        "button_gXDfwa"
+        "group"
       ],
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

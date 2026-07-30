@@ -82,7 +82,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>The kind of tee they\u2019ll reach for every day \u2014 in soft, comfy, and durable Pima cotton. Easy layers, vintage-inspired, and in colors and prints that go with everything.\u00a0</p>",
+            "text": "<p>The kind of tee they’ll reach for every day — in soft, comfy, and durable Pima cotton. Easy layers, vintage-inspired, and in colors and prints that go with everything. </p>",
             "line_height": 24,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -136,46 +136,56 @@
     "buttons_xCXfwD": {
       "type": "buttons",
       "blocks": {
-        "button_4yxrnq": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP ALL PIMA",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-cotton-staples",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_PeEgR4": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP SUMMER",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-summer-collection-group",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_W9xAeM": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP SWEATERS",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-sweaters-cardigans-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_4yxrnq": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL PIMA",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-cotton-staples",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_PeEgR4": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP SUMMER",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-summer-collection-group",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_W9xAeM": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP SWEATERS",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-sweaters-cardigans-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_4yxrnq",
+            "button_PeEgR4",
+            "button_W9xAeM"
+          ]
         }
       },
       "block_order": [
-        "button_4yxrnq",
-        "button_PeEgR4",
-        "button_W9xAeM"
+        "group"
       ],
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

@@ -54,7 +54,7 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Spring \u2014 Boy Looks",
+            "heading": "Spring — Boy Looks",
             "heading_size": "h2",
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -71,7 +71,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>This season's top picks for\u00a0boys' styling inspiration \u2014 a curated edit of boy looks, featuring our top picks for effortless, everyday style.</p>",
+            "text": "<p>This season's top picks for boys' styling inspiration — a curated edit of boy looks, featuring our top picks for effortless, everyday style.</p>",
             "line_height": 20,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -125,45 +125,55 @@
     "buttons_hA73bH": {
       "type": "buttons",
       "blocks": {
-        "button_rQXNQX": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "shop all spring",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-spring-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_BUTBXC": {
-          "type": "button",
-          "settings": {
-            "label": "shop sweaters",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-sweaters-cardigans-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_WT8PXc": {
-          "type": "button",
-          "settings": {
-            "label": "shop accessories",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-accessories-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_rQXNQX": {
+              "type": "button",
+              "settings": {
+                "label": "shop all spring",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-spring-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_BUTBXC": {
+              "type": "button",
+              "settings": {
+                "label": "shop sweaters",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-sweaters-cardigans-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_WT8PXc": {
+              "type": "button",
+              "settings": {
+                "label": "shop accessories",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-accessories-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_rQXNQX",
+            "button_BUTBXC",
+            "button_WT8PXc"
+          ]
         }
       },
       "block_order": [
-        "button_rQXNQX",
-        "button_BUTBXC",
-        "button_WT8PXc"
+        "group"
       ],
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

@@ -83,7 +83,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>Holiday nostalgia drifts through a landscape of Western light...<br/><br/>Discover Western-inspired styles from the Winter Collection, meticulously handcrafted by artisans across India \u2014 supporting rural communities, preserving traditional crafts, and empowering people with fair work and pay. Designed in New England and brought to life through close collaboration with small studios and cooperatives around the world, each piece reflects generations of skill and care.</p>",
+            "text": "<p>Holiday nostalgia drifts through a landscape of Western light...<br/><br/>Discover Western-inspired styles from the Winter Collection, meticulously handcrafted by artisans across India — supporting rural communities, preserving traditional crafts, and empowering people with fair work and pay. Designed in New England and brought to life through close collaboration with small studios and cooperatives around the world, each piece reflects generations of skill and care.</p>",
             "line_height": 24,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -137,57 +137,67 @@
     "buttons_Mn3bJP": {
       "type": "buttons",
       "blocks": {
-        "button_XaxzBy": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP ALL WINTER",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-winter",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_C99g3E": {
-          "type": "button",
-          "settings": {
-            "label": "ACCESSORIES",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-accessories",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_Xb33j8": {
-          "type": "button",
-          "settings": {
-            "label": "MADE BY HAND STYLES",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-hand-knit",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_NGpAit": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_XaxzBy": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL WINTER",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-winter",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_C99g3E": {
+              "type": "button",
+              "settings": {
+                "label": "ACCESSORIES",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-accessories",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_Xb33j8": {
+              "type": "button",
+              "settings": {
+                "label": "MADE BY HAND STYLES",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-hand-knit",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_NGpAit": {
+              "type": "button",
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_XaxzBy",
+            "button_C99g3E",
+            "button_Xb33j8",
+            "button_NGpAit"
+          ]
         }
       },
       "block_order": [
-        "button_XaxzBy",
-        "button_C99g3E",
-        "button_Xb33j8",
-        "button_NGpAit"
+        "group"
       ],
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

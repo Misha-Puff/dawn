@@ -1,0 +1,313 @@
+{%- comment -%}
+  Reusable button leaf block — slice 1 of the blocks vertical-slice program.
+  Markup and tg_* typography CSS are lifted verbatim from the pre-conversion
+  sections/buttons.liquid inline block (anchor + per-block style loop), so a
+  migrated instance renders byte-identical anchors with the same
+  Block-<key> class hook. Nested theme blocks render a composite block.id
+  (<parent-prefix>__<key>) while the pre-conversion section rendered the bare
+  template-JSON key — take the last segment so the class stays byte-identical.
+{%- endcomment -%}
+{%- assign block_ref = block.id | split: '__' | last -%}
+{%- style -%}
+  {%- if block.settings.tg_enable_type -%}
+    {%- liquid
+      assign tg_font = block.settings.tg_font
+      assign tg_weight = block.settings.tg_font_weight | default: 'default'
+      assign tg_fs = block.settings.tg_font_size | default: 0
+      assign tg_case = block.settings.tg_text_case | default: 'default'
+      assign tg_ls = block.settings.tg_letter_spacing | default: 0
+    -%}
+    {%- capture tg_brand_stack -%}{% render 'brand-font', font: block.settings.tg_custom_font %}{%- endcapture -%}
+    {%- assign tg_brand_stack = tg_brand_stack | strip -%}
+    {%- if tg_font != blank and tg_brand_stack == blank -%}{{ tg_font | font_face: font_display: 'swap' }}{%- endif -%}
+    {%- if tg_font != blank and tg_brand_stack == blank and tg_weight != 'default' -%}
+      {%- assign tg_wfont = tg_font | font_modify: 'weight', tg_weight -%}
+      {%- if tg_wfont -%}{{ tg_wfont | font_face: font_display: 'swap' }}{%- endif -%}
+    {%- endif -%}
+    #shopify-section-{{ section.id }} .Block-{{ block_ref }} {
+      {%- if tg_brand_stack != blank %} font-family: {{ tg_brand_stack }};{% elsif tg_font != blank %} font-family: {{ tg_font.family }}, {{ tg_font.fallback_families }};{% endif -%}
+      {%- if tg_weight != 'default' and tg_weight != blank %} font-weight: {{ tg_weight }};{% endif -%}
+      {%- if tg_fs > 0 %} font-size: {{ tg_fs }}px;{% endif -%}
+      {%- if tg_case != 'default' and tg_case != blank %} text-transform: {{ tg_case }};{% endif -%}
+      {%- if tg_ls > 0 %} letter-spacing: {{ tg_ls }}px;{% endif -%}
+      {%- if block.settings.tg_color != blank %} color: {{ block.settings.tg_color }};{% endif -%}
+    }
+    {%- assign tg_fs_m = block.settings.tg_font_size_mobile | default: 0 -%}
+    {%- if tg_fs_m > 0 -%}
+      @media screen and (max-width: 749px) {
+        #shopify-section-{{ section.id }} .Block-{{ block_ref }} {
+          font-size: {{ tg_fs_m }}px;
+        }
+      }
+    {%- endif -%}
+  {%- endif -%}
+{%- endstyle -%}
+
+{%- if block.settings.label != blank -%}
+  <a
+    class="Block-{{ block_ref }} {% if block.settings.display_style == 'link' %}link{% else %}button button--{{ block.settings.type }}{% endif %}"
+    {% if block.settings.link == blank %}
+      role="link" aria-disabled="true"
+    {% else %}
+      href="{{ block.settings.link }}"
+    {% endif %}
+    {% if block.settings.on_click %}
+      onclick="{{ block.settings.on_click }}"
+    {% endif %}
+    {% if block.settings.open_new_tab %}
+      target="_blank"
+      rel="noopener noreferrer"
+    {% endif %}
+    {{ block.shopify_attributes }}
+  >
+    {{ block.settings.label | escape }}
+  </a>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Button",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "t:sections.multicolumn.blocks.column.settings.link_label.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_new_tab",
+      "label": "Open Link in New Tab"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "t:sections.multicolumn.blocks.column.settings.link.label"
+    },
+    {
+      "type": "select",
+      "id": "display_style",
+      "options": [
+        {
+          "value": "button",
+          "label": "Button"
+        },
+        {
+          "value": "link",
+          "label": "Text link"
+        }
+      ],
+      "default": "button",
+      "label": "Style"
+    },
+    {
+      "type": "select",
+      "id": "type",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        }
+      ],
+      "default": "primary",
+      "label": "Button Type",
+      "visible_if": "{{ block.settings.display_style == 'button' }}"
+    },
+    {
+      "type": "text",
+      "id": "on_click",
+      "label": "On Click JS",
+      "info": "Don't use this unless you know what you're doing!"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "checkbox",
+      "id": "tg_enable_type",
+      "default": false,
+      "label": "Enable typography"
+    },
+    {
+      "type": "font_picker",
+      "id": "tg_font",
+      "default": "assistant_n4",
+      "label": "Font",
+      "visible_if": "{{ block.settings.tg_enable_type }}"
+    },
+    {
+      "type": "select",
+      "id": "tg_custom_font",
+      "options": [
+        {
+          "value": "default",
+          "label": "None (use font picker)"
+        },
+        {
+          "value": "ibm_plex_sans",
+          "label": "IBM Plex Sans"
+        },
+        {
+          "value": "ibm_plex_mono",
+          "label": "IBM Plex Mono"
+        },
+        {
+          "value": "inter",
+          "label": "Inter"
+        },
+        {
+          "value": "geist",
+          "label": "Geist"
+        },
+        {
+          "value": "geist_mono",
+          "label": "Geist Mono"
+        },
+        {
+          "value": "overpass",
+          "label": "Overpass"
+        },
+        {
+          "value": "overpass_mono",
+          "label": "Overpass Mono"
+        },
+        {
+          "value": "dm_sans",
+          "label": "DM Sans"
+        },
+        {
+          "value": "dm_mono",
+          "label": "DM Mono"
+        },
+        {
+          "value": "manrope",
+          "label": "Manrope"
+        },
+        {
+          "value": "open_sans",
+          "label": "Open Sans"
+        }
+      ],
+      "default": "default",
+      "label": "Brand font",
+      "info": "Overrides the font picker above when set",
+      "visible_if": "{{ block.settings.tg_enable_type }}"
+    },
+    {
+      "type": "select",
+      "id": "tg_font_weight",
+      "options": [
+        {
+          "value": "default",
+          "label": "Theme default"
+        },
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semibold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "default",
+      "label": "Font weight",
+      "visible_if": "{{ block.settings.tg_enable_type }}"
+    },
+    {
+      "type": "range",
+      "id": "tg_font_size",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "info": "0 = theme default",
+      "default": 0,
+      "visible_if": "{{ block.settings.tg_enable_type }}"
+    },
+    {
+      "type": "range",
+      "id": "tg_font_size_mobile",
+      "min": 0,
+      "max": 72,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile font size",
+      "info": "0 = same as desktop",
+      "default": 0,
+      "visible_if": "{{ block.settings.tg_enable_type }}"
+    },
+    {
+      "type": "select",
+      "id": "tg_text_case",
+      "options": [
+        {
+          "value": "default",
+          "label": "Theme default"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        },
+        {
+          "value": "none",
+          "label": "Normal (remove uppercase)"
+        }
+      ],
+      "default": "default",
+      "label": "Text case",
+      "visible_if": "{{ block.settings.tg_enable_type }}"
+    },
+    {
+      "type": "range",
+      "id": "tg_letter_spacing",
+      "min": 0,
+      "max": 4,
+      "step": 0.1,
+      "unit": "px",
+      "label": "Letter spacing",
+      "info": "0 = theme default",
+      "default": 0,
+      "visible_if": "{{ block.settings.tg_enable_type }}"
+    },
+    {
+      "type": "color",
+      "id": "tg_color",
+      "label": "Text color",
+      "info": "Leave blank for the button/link default",
+      "visible_if": "{{ block.settings.tg_enable_type }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Button"
+    }
+  ]
+}
+{% endschema %}

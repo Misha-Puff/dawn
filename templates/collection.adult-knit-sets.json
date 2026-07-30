@@ -71,7 +71,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>The perfect cotton knit sets for changing seasons\u2014offering warmth with natural breathability. Luxe styles that effortlessly transition from day to night.</p>",
+            "text": "<p>The perfect cotton knit sets for changing seasons—offering warmth with natural breathability. Luxe styles that effortlessly transition from day to night.</p>",
             "line_height": 22,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -125,46 +125,56 @@
     "buttons_hynhHR": {
       "type": "buttons",
       "blocks": {
-        "button_RhxiBN": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP ALL SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/adult-spring-summer-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_GKRmb6": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP LAYERING PIMA",
-            "open_new_tab": true,
-            "link": "shopify://collections/adult-pima-cotton",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_7CVkAW": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_RhxiBN": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/adult-spring-summer-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_GKRmb6": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP LAYERING PIMA",
+                "open_new_tab": true,
+                "link": "shopify://collections/adult-pima-cotton",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_7CVkAW": {
+              "type": "button",
+              "disabled": true,
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_RhxiBN",
+            "button_GKRmb6",
+            "button_7CVkAW"
+          ]
         }
       },
       "block_order": [
-        "button_RhxiBN",
-        "button_GKRmb6",
-        "button_7CVkAW"
+        "group"
       ],
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

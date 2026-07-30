@@ -126,45 +126,55 @@
     "buttons_Jgajf6": {
       "type": "buttons",
       "blocks": {
-        "button_PFKjbw": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP ALL SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-spring-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_JbKDjc": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP BABY SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-spring-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_rp3eKL": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP DENIM",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-fall-denim-collection",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_PFKjbw": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-spring-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_JbKDjc": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP BABY SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-spring-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_rp3eKL": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP DENIM",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-fall-denim-collection",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_PFKjbw",
+            "button_JbKDjc",
+            "button_rp3eKL"
+          ]
         }
       },
       "block_order": [
-        "button_PFKjbw",
-        "button_JbKDjc",
-        "button_rp3eKL"
+        "group"
       ],
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

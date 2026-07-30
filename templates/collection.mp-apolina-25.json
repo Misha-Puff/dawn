@@ -156,7 +156,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>This collaboration began with a shared love of craft \u2014 at the heart of both Apolina and Misha & Puff. Inspired by vintage sources and folk handicraft, the collection celebrates handwork, artistry, and tradition.<br/><br/>Drawing on Apolina\u2019s bohemian spirit and Misha & Puff\u2019s textured, color-forward approach, the pieces share a cohesive palette and thoughtful designs that layer, mix, and complement one another effortlessly.</p>",
+            "text": "<p>This collaboration began with a shared love of craft — at the heart of both Apolina and Misha & Puff. Inspired by vintage sources and folk handicraft, the collection celebrates handwork, artistry, and tradition.<br/><br/>Drawing on Apolina’s bohemian spirit and Misha & Puff’s textured, color-forward approach, the pieces share a cohesive palette and thoughtful designs that layer, mix, and complement one another effortlessly.</p>",
             "line_height": 22,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -210,47 +210,57 @@
     "buttons_Mn3bJP": {
       "type": "buttons",
       "blocks": {
-        "button_XaxzBy": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
-        },
-        "button_C99g3E": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
-        },
-        "button_NGpAit": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_XaxzBy": {
+              "type": "button",
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            },
+            "button_C99g3E": {
+              "type": "button",
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            },
+            "button_NGpAit": {
+              "type": "button",
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_XaxzBy",
+            "button_C99g3E",
+            "button_NGpAit"
+          ]
         }
       },
       "block_order": [
-        "button_XaxzBy",
-        "button_C99g3E",
-        "button_NGpAit"
+        "group"
       ],
       "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

@@ -82,7 +82,7 @@
         "text_WCkKMA": {
           "type": "text",
           "settings": {
-            "text": "<p>Our Made-to-Order process is rooted in care \u2014 for the hands who make, the pace we keep, and those who ask for pieces long after they\u2019re gone. It ensures steady work for our artisan partners and access to special, often-requested archival styles. </p><p>This MTO collection closes Friday, December 19 at noon ET unless capacity is reached sooner.</p>",
+            "text": "<p>Our Made-to-Order process is rooted in care — for the hands who make, the pace we keep, and those who ask for pieces long after they’re gone. It ensures steady work for our artisan partners and access to special, often-requested archival styles. </p><p>This MTO collection closes Friday, December 19 at noon ET unless capacity is reached sooner.</p>",
             "line_height": 22,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -137,69 +137,79 @@
     "buttons_HHBh8y": {
       "type": "buttons",
       "blocks": {
-        "button_GhV3DG": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "CHILD STYLES",
-            "open_new_tab": true,
-            "link": "https://shop.misha-and-puff.com/collections/made-to-order?filter.p.m.taxonomy.division=Child&sort_by=manual",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_G9Uf6f": {
-          "type": "button",
-          "settings": {
-            "label": "BABY STYLES",
-            "open_new_tab": true,
-            "link": "https://shop.misha-and-puff.com/collections/made-to-order?filter.p.m.taxonomy.division=Baby&sort_by=manual",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_eAVnFG": {
-          "type": "button",
-          "settings": {
-            "label": "ADULT STYLES",
-            "open_new_tab": true,
-            "link": "/collections/made-to-order?filter.p.m.taxonomy.division=Adult&sort_by=manual",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_cXi8W4": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
-        },
-        "button_hBT4RJ": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "label": "MTO STATUS UPDATES",
-            "open_new_tab": true,
-            "link": "shopify://pages/mto-status",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_GhV3DG": {
+              "type": "button",
+              "settings": {
+                "label": "CHILD STYLES",
+                "open_new_tab": true,
+                "link": "https://shop.misha-and-puff.com/collections/made-to-order?filter.p.m.taxonomy.division=Child&sort_by=manual",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_G9Uf6f": {
+              "type": "button",
+              "settings": {
+                "label": "BABY STYLES",
+                "open_new_tab": true,
+                "link": "https://shop.misha-and-puff.com/collections/made-to-order?filter.p.m.taxonomy.division=Baby&sort_by=manual",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_eAVnFG": {
+              "type": "button",
+              "settings": {
+                "label": "ADULT STYLES",
+                "open_new_tab": true,
+                "link": "/collections/made-to-order?filter.p.m.taxonomy.division=Adult&sort_by=manual",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_cXi8W4": {
+              "type": "button",
+              "disabled": true,
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            },
+            "button_hBT4RJ": {
+              "type": "button",
+              "disabled": true,
+              "settings": {
+                "label": "MTO STATUS UPDATES",
+                "open_new_tab": true,
+                "link": "shopify://pages/mto-status",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_GhV3DG",
+            "button_G9Uf6f",
+            "button_eAVnFG",
+            "button_cXi8W4",
+            "button_hBT4RJ"
+          ]
         }
       },
       "block_order": [
-        "button_GhV3DG",
-        "button_G9Uf6f",
-        "button_eAVnFG",
-        "button_cXi8W4",
-        "button_hBT4RJ"
+        "group"
       ],
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,
@@ -367,7 +377,7 @@
         "text_jhkXDN": {
           "type": "text",
           "settings": {
-            "text": "<h3>WHAT TO EXPECT</h3><p>Our Made-to-Order program is an initiative that we are very proud of \u2014 and at the heart of why we do what we do. This program introduces the ability to shop some of your favorite Misha & Puff styles in a limited small-batch capsule outside of our seasonal collections, while supporting our artisan partners year-round.<br/><br/>Every piece we create blends craftsmanship, heritage, and quality and each of our treasured partners provides unique contributions that amplify our appreciation of time-honored processes. Supporting handmade means supporting the local communities behind these crafts. Learn more about our <a href=\"/pages/values\" target=\"_blank\" title=\"Values\">sustainability efforts</a> and our incredible <a href=\"/pages/people\" target=\"_blank\" title=\"People\">artisanal partners</a>.</p>",
+            "text": "<h3>WHAT TO EXPECT</h3><p>Our Made-to-Order program is an initiative that we are very proud of — and at the heart of why we do what we do. This program introduces the ability to shop some of your favorite Misha & Puff styles in a limited small-batch capsule outside of our seasonal collections, while supporting our artisan partners year-round.<br/><br/>Every piece we create blends craftsmanship, heritage, and quality and each of our treasured partners provides unique contributions that amplify our appreciation of time-honored processes. Supporting handmade means supporting the local communities behind these crafts. Learn more about our <a href=\"/pages/values\" target=\"_blank\" title=\"Values\">sustainability efforts</a> and our incredible <a href=\"/pages/people\" target=\"_blank\" title=\"People\">artisanal partners</a>.</p>",
             "line_height": 24
           }
         }
@@ -450,7 +460,7 @@
           "type": "column",
           "settings": {
             "title": "",
-            "text": "<p>LEAD TIMES<br/>Knits may use in-stock or custom-dyed Yarns and cut-and-sewn Pima pieces share an approximate 3\u20136 month lead time.</p>",
+            "text": "<p>LEAD TIMES<br/>Knits may use in-stock or custom-dyed Yarns and cut-and-sewn Pima pieces share an approximate 3–6 month lead time.</p>",
             "link_label": "",
             "link": "",
             "new_tab": false,

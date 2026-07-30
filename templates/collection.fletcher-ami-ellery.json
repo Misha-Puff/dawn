@@ -65,7 +65,7 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Shop the Look \u2014 Fletcher, Ami + Ellery",
+            "heading": "Shop the Look — Fletcher, Ami + Ellery",
             "heading_size": "h2",
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -136,46 +136,56 @@
     "buttons_JPjWA6": {
       "type": "buttons",
       "blocks": {
-        "button_F6bVTV": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP ALL SUMMER",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-summer-collection-legacy-v2",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_HEzKYk": {
-          "type": "button",
-          "settings": {
-            "label": "BABY SUMMER",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-summer-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_JQBgm7": {
-          "type": "button",
-          "settings": {
-            "label": "DENIM",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-denim-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_F6bVTV": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL SUMMER",
+                "open_new_tab": false,
+                "link": "shopify://collections/child-summer-collection-legacy-v2",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_HEzKYk": {
+              "type": "button",
+              "settings": {
+                "label": "BABY SUMMER",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-summer-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_JQBgm7": {
+              "type": "button",
+              "settings": {
+                "label": "DENIM",
+                "open_new_tab": false,
+                "link": "shopify://collections/child-denim-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_F6bVTV",
+            "button_HEzKYk",
+            "button_JQBgm7"
+          ]
         }
       },
       "block_order": [
-        "button_F6bVTV",
-        "button_HEzKYk",
-        "button_JQBgm7"
+        "group"
       ],
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

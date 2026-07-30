@@ -137,168 +137,178 @@
     "buttons_EpgTT4": {
       "type": "buttons",
       "blocks": {
-        "button_h4KETd": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "VIEW LOOKBOOK",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-tops",
-            "display_style": "link",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": true,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "overpass_mono",
-            "tg_font_weight": "600",
-            "tg_font_size": 12,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": "#1a1a1a"
-          }
-        },
-        "button_NWDzJe": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "label": "SWEATERS",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-sweaters-and-cardigan",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_NiXnrU": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "display_style": "button",
-            "type": "primary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_CU9w8R": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "label": "BOTTOMS",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-bottoms",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_dPMyRD": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "display_style": "button",
-            "type": "primary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_MxqCCb": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "label": "ONE-PIECES",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-one-piece",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_8aey7V": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "label": "SHOP CHILD FALL",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-fall",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
+            "gap": 12,
+            "justify": "flex-start"
+          },
+          "blocks": {
+            "button_h4KETd": {
+              "type": "button",
+              "settings": {
+                "label": "VIEW LOOKBOOK",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-tops",
+                "display_style": "link",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": true,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "overpass_mono",
+                "tg_font_weight": "600",
+                "tg_font_size": 12,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": "#1a1a1a"
+              }
+            },
+            "button_NWDzJe": {
+              "type": "button",
+              "disabled": true,
+              "settings": {
+                "label": "SWEATERS",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-sweaters-and-cardigan",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            },
+            "button_NiXnrU": {
+              "type": "button",
+              "disabled": true,
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "display_style": "button",
+                "type": "primary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            },
+            "button_CU9w8R": {
+              "type": "button",
+              "disabled": true,
+              "settings": {
+                "label": "BOTTOMS",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-bottoms",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            },
+            "button_dPMyRD": {
+              "type": "button",
+              "disabled": true,
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "display_style": "button",
+                "type": "primary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            },
+            "button_MxqCCb": {
+              "type": "button",
+              "disabled": true,
+              "settings": {
+                "label": "ONE-PIECES",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-one-piece",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            },
+            "button_8aey7V": {
+              "type": "button",
+              "disabled": true,
+              "settings": {
+                "label": "SHOP CHILD FALL",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-fall",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_h4KETd",
+            "button_NWDzJe",
+            "button_NiXnrU",
+            "button_CU9w8R",
+            "button_dPMyRD",
+            "button_MxqCCb",
+            "button_8aey7V"
+          ]
         }
       },
       "block_order": [
-        "button_h4KETd",
-        "button_NWDzJe",
-        "button_NiXnrU",
-        "button_CU9w8R",
-        "button_dPMyRD",
-        "button_MxqCCb",
-        "button_8aey7V"
+        "group"
       ],
       "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
-        "button_alignment": "left",
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

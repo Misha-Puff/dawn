@@ -71,7 +71,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>The colors and textures of spring \u2014 the Esplanade print is crafted from finely hand-painted custom illustrations, depicting scenes from life in a seaside town. Sweet spring imagery comes to life across stunning styles, complemented by the season\u2019s deep, vibrant blue \u2014 Celestial.</p>",
+            "text": "<p>The colors and textures of spring — the Esplanade print is crafted from finely hand-painted custom illustrations, depicting scenes from life in a seaside town. Sweet spring imagery comes to life across stunning styles, complemented by the season’s deep, vibrant blue — Celestial.</p>",
             "line_height": 22,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -125,45 +125,55 @@
     "buttons_4YzAEN": {
       "type": "buttons",
       "blocks": {
-        "button_wK3fiQ": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "ALL SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-spring-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_WMttGU": {
-          "type": "button",
-          "settings": {
-            "label": "DRESSES",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-dresses-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_fhhiHm": {
-          "type": "button",
-          "settings": {
-            "label": "TEES",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-spring-tees",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_wK3fiQ": {
+              "type": "button",
+              "settings": {
+                "label": "ALL SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-spring-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_WMttGU": {
+              "type": "button",
+              "settings": {
+                "label": "DRESSES",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-dresses-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_fhhiHm": {
+              "type": "button",
+              "settings": {
+                "label": "TEES",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-spring-tees",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_wK3fiQ",
+            "button_WMttGU",
+            "button_fhhiHm"
+          ]
         }
       },
       "block_order": [
-        "button_wK3fiQ",
-        "button_WMttGU",
-        "button_fhhiHm"
+        "group"
       ],
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

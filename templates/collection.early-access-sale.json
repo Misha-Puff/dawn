@@ -84,7 +84,7 @@
           "type": "text",
           "disabled": true,
           "settings": {
-            "text": "<p>A true star of the Fall Collection \u2014 Cerulean. A vibrant blue, dyed to a rich, saturated finish. A playful hue that brightens every style.</p>",
+            "text": "<p>A true star of the Fall Collection — Cerulean. A vibrant blue, dyed to a rich, saturated finish. A playful hue that brightens every style.</p>",
             "line_height": 24,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -138,46 +138,56 @@
     "buttons_Mn3bJP": {
       "type": "buttons",
       "blocks": {
-        "button_NqTP7D": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP CHILD STYLES",
-            "open_new_tab": false,
-            "link": "https://shop.misha-and-puff.com/collections/private-sale-early-access?filter.v.availability=1&filter.p.m.taxonomy.division=Child&sort_by=best-selling",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_XaxzBy": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP BABY STYLES",
-            "open_new_tab": false,
-            "link": "https://shop.misha-and-puff.com/collections/private-sale-early-access?filter.v.availability=1&filter.p.m.taxonomy.division=Baby&sort_by=best-selling",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_CUBDVC": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP ADULT STYLES",
-            "open_new_tab": false,
-            "link": "https://shop.misha-and-puff.com/collections/private-sale-early-access?filter.v.availability=1&filter.p.m.taxonomy.division=Adult&sort_by=best-selling",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_NqTP7D": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP CHILD STYLES",
+                "open_new_tab": false,
+                "link": "https://shop.misha-and-puff.com/collections/private-sale-early-access?filter.v.availability=1&filter.p.m.taxonomy.division=Child&sort_by=best-selling",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_XaxzBy": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP BABY STYLES",
+                "open_new_tab": false,
+                "link": "https://shop.misha-and-puff.com/collections/private-sale-early-access?filter.v.availability=1&filter.p.m.taxonomy.division=Baby&sort_by=best-selling",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_CUBDVC": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ADULT STYLES",
+                "open_new_tab": false,
+                "link": "https://shop.misha-and-puff.com/collections/private-sale-early-access?filter.v.availability=1&filter.p.m.taxonomy.division=Adult&sort_by=best-selling",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_NqTP7D",
+            "button_XaxzBy",
+            "button_CUBDVC"
+          ]
         }
       },
       "block_order": [
-        "button_NqTP7D",
-        "button_XaxzBy",
-        "button_CUBDVC"
+        "group"
       ],
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

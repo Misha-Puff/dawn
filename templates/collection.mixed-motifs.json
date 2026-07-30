@@ -83,7 +83,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>Playful, craft-led styles inspired by vintage storybook lore and Cumbrian rag rugs.\u00a0These rugs embody a rich intersection of handcraft, reuse, mid-century design, and deep-rooted nostalgia...the quintessential inspiration for Misha & Puff. That spirit runs through the collection, with animal motifs woven in, from intarsia graphics to hand-crocheted appliqu\u00e9. More to come...stay tuned.</p>",
+            "text": "<p>Playful, craft-led styles inspired by vintage storybook lore and Cumbrian rag rugs. These rugs embody a rich intersection of handcraft, reuse, mid-century design, and deep-rooted nostalgia...the quintessential inspiration for Misha & Puff. That spirit runs through the collection, with animal motifs woven in, from intarsia graphics to hand-crocheted appliqué. More to come...stay tuned.</p>",
             "line_height": 24,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -137,46 +137,56 @@
     "buttons_Mn3bJP": {
       "type": "buttons",
       "blocks": {
-        "button_XaxzBy": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP ALL SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-spring",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_C99g3E": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP BABY SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-spring",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_NGpAit": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_XaxzBy": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-spring",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_C99g3E": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP BABY SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-spring",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_NGpAit": {
+              "type": "button",
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_XaxzBy",
+            "button_C99g3E",
+            "button_NGpAit"
+          ]
         }
       },
       "block_order": [
-        "button_XaxzBy",
-        "button_C99g3E",
-        "button_NGpAit"
+        "group"
       ],
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

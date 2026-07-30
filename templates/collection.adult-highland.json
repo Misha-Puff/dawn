@@ -83,7 +83,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>Since we introduced our Andean Highland wool last winter, it\u2019s become an instant favorite \u2014 unassuming yet full of character. Lofty, a little rustic, and very hard-working.</p><p>Thoughtfully crafted in both hand-knit and machine-knit styles, depending on intention. Hand-knit brings a touch of craft and irresistible squish; machine-knit offers structure and a smooth, low-pill finish. Both deliver lasting warmth and comfort.</p>",
+            "text": "<p>Since we introduced our Andean Highland wool last winter, it’s become an instant favorite — unassuming yet full of character. Lofty, a little rustic, and very hard-working.</p><p>Thoughtfully crafted in both hand-knit and machine-knit styles, depending on intention. Hand-knit brings a touch of craft and irresistible squish; machine-knit offers structure and a smooth, low-pill finish. Both deliver lasting warmth and comfort.</p>",
             "line_height": 24,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -137,46 +137,56 @@
     "buttons_Mn3bJP": {
       "type": "buttons",
       "blocks": {
-        "button_XaxzBy": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP FALL/WINTER COLLECTION",
-            "open_new_tab": true,
-            "link": "shopify://collections/adult-fall",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_C99g3E": {
-          "type": "button",
-          "settings": {
-            "label": "ALL SWEATERS",
-            "open_new_tab": true,
-            "link": "shopify://collections/adult-sweaters-cardigans",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_NGpAit": {
-          "type": "button",
-          "settings": {
-            "label": "PIMA LAYERS",
-            "open_new_tab": true,
-            "link": "shopify://collections/adult-pima-cotton",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_XaxzBy": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP FALL/WINTER COLLECTION",
+                "open_new_tab": true,
+                "link": "shopify://collections/adult-fall",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_C99g3E": {
+              "type": "button",
+              "settings": {
+                "label": "ALL SWEATERS",
+                "open_new_tab": true,
+                "link": "shopify://collections/adult-sweaters-cardigans",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_NGpAit": {
+              "type": "button",
+              "settings": {
+                "label": "PIMA LAYERS",
+                "open_new_tab": true,
+                "link": "shopify://collections/adult-pima-cotton",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_XaxzBy",
+            "button_C99g3E",
+            "button_NGpAit"
+          ]
         }
       },
       "block_order": [
-        "button_XaxzBy",
-        "button_C99g3E",
-        "button_NGpAit"
+        "group"
       ],
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

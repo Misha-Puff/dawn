@@ -137,78 +137,88 @@
     "buttons_DEm8GF": {
       "type": "buttons",
       "blocks": {
-        "button_7mEYxx": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP KNITS",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-baby-knits",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_DBfQAC": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP COTTON STAPLES",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-cotton-staples",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_gLDzza": {
-          "type": "button",
-          "settings": {
-            "label": "BABY COTTON STAPLES",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-cotton-staples",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
+            "gap": 12,
+            "justify": "center"
+          },
+          "blocks": {
+            "button_7mEYxx": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP KNITS",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-baby-knits",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            },
+            "button_DBfQAC": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP COTTON STAPLES",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-cotton-staples",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            },
+            "button_gLDzza": {
+              "type": "button",
+              "settings": {
+                "label": "BABY COTTON STAPLES",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-cotton-staples",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_7mEYxx",
+            "button_DBfQAC",
+            "button_gLDzza"
+          ]
         }
       },
       "block_order": [
-        "button_7mEYxx",
-        "button_DBfQAC",
-        "button_gLDzza"
+        "group"
       ],
       "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
-        "button_alignment": "center",
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

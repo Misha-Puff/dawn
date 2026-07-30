@@ -83,7 +83,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>A shared thread across our baby, child, and adult collections \u2014 styles that reflect the spirit of children\u2019s design, carefully adapted with elegance and ease for every size. From silhouette to palette to texture, these are pieces that echo from one generation to the next. Stay tuned for more.</p>",
+            "text": "<p>A shared thread across our baby, child, and adult collections — styles that reflect the spirit of children’s design, carefully adapted with elegance and ease for every size. From silhouette to palette to texture, these are pieces that echo from one generation to the next. Stay tuned for more.</p>",
             "line_height": 22,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -137,47 +137,57 @@
     "buttons_Mn3bJP": {
       "type": "buttons",
       "blocks": {
-        "button_XaxzBy": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP CHILD FALL",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-fall",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_C99g3E": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP ADULT FALL",
-            "open_new_tab": true,
-            "link": "shopify://collections/adult-fall",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_NGpAit": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_XaxzBy": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP CHILD FALL",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-fall",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_C99g3E": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ADULT FALL",
+                "open_new_tab": true,
+                "link": "shopify://collections/adult-fall",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_NGpAit": {
+              "type": "button",
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_XaxzBy",
+            "button_C99g3E",
+            "button_NGpAit"
+          ]
         }
       },
       "block_order": [
-        "button_XaxzBy",
-        "button_C99g3E",
-        "button_NGpAit"
+        "group"
       ],
       "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

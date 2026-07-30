@@ -137,99 +137,109 @@
     "buttons_Mn3bJP": {
       "type": "buttons",
       "blocks": {
-        "button_C99g3E": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "BABY STYLES",
-            "open_new_tab": false,
-            "link": "https://shop.misha-and-puff.com/collections/mixed-popcorn-styles?filter.p.m.taxonomy.division=Baby&sort_by=manual",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_XaxzBy": {
-          "type": "button",
-          "settings": {
-            "label": "CHILD STYLES",
-            "open_new_tab": false,
-            "link": "https://shop.misha-and-puff.com/collections/mixed-popcorn-styles?filter.p.m.taxonomy.division=Child&sort_by=manual",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_NGpAit": {
-          "type": "button",
-          "settings": {
-            "label": "ADULT STYLES",
-            "open_new_tab": false,
-            "link": "https://shop.misha-and-puff.com/collections/mixed-popcorn-styles?filter.p.m.taxonomy.division=Adult&sort_by=manual",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_acdnW8": {
-          "type": "button",
-          "settings": {
-            "label": "KNITTING PATTERNS",
-            "open_new_tab": true,
-            "link": "https://shop.misha-and-puff.com/search?q=POPCORN+KNITTING+PATTERN&options%5Bprefix%5D=last",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
+            "gap": 12,
+            "justify": "flex-start"
+          },
+          "blocks": {
+            "button_C99g3E": {
+              "type": "button",
+              "settings": {
+                "label": "BABY STYLES",
+                "open_new_tab": false,
+                "link": "https://shop.misha-and-puff.com/collections/mixed-popcorn-styles?filter.p.m.taxonomy.division=Baby&sort_by=manual",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            },
+            "button_XaxzBy": {
+              "type": "button",
+              "settings": {
+                "label": "CHILD STYLES",
+                "open_new_tab": false,
+                "link": "https://shop.misha-and-puff.com/collections/mixed-popcorn-styles?filter.p.m.taxonomy.division=Child&sort_by=manual",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            },
+            "button_NGpAit": {
+              "type": "button",
+              "settings": {
+                "label": "ADULT STYLES",
+                "open_new_tab": false,
+                "link": "https://shop.misha-and-puff.com/collections/mixed-popcorn-styles?filter.p.m.taxonomy.division=Adult&sort_by=manual",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            },
+            "button_acdnW8": {
+              "type": "button",
+              "settings": {
+                "label": "KNITTING PATTERNS",
+                "open_new_tab": true,
+                "link": "https://shop.misha-and-puff.com/search?q=POPCORN+KNITTING+PATTERN&options%5Bprefix%5D=last",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_C99g3E",
+            "button_XaxzBy",
+            "button_NGpAit",
+            "button_acdnW8"
+          ]
         }
       },
       "block_order": [
-        "button_C99g3E",
-        "button_XaxzBy",
-        "button_NGpAit",
-        "button_acdnW8"
+        "group"
       ],
       "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
-        "button_alignment": "left",
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

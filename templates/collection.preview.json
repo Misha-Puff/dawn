@@ -145,35 +145,45 @@
     "buttons_eEATqX": {
       "type": "buttons",
       "blocks": {
-        "button_dy8XDD": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "VIEW LOOKBOOK",
-            "open_new_tab": true,
-            "link": "https://shop.misha-and-puff.com/blogs/journal/child-fall-26",
-            "display_style": "link",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": true,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "overpass_mono",
-            "tg_font_weight": "600",
-            "tg_font_size": 12,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "uppercase",
-            "tg_letter_spacing": 0.1,
-            "tg_color": "#1a1a1a"
-          }
+            "gap": 12,
+            "justify": "flex-start"
+          },
+          "blocks": {
+            "button_dy8XDD": {
+              "type": "button",
+              "settings": {
+                "label": "VIEW LOOKBOOK",
+                "open_new_tab": true,
+                "link": "https://shop.misha-and-puff.com/blogs/journal/child-fall-26",
+                "display_style": "link",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": true,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "overpass_mono",
+                "tg_font_weight": "600",
+                "tg_font_size": 12,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "uppercase",
+                "tg_letter_spacing": 0.1,
+                "tg_color": "#1a1a1a"
+              }
+            }
+          },
+          "block_order": [
+            "button_dy8XDD"
+          ]
         }
       },
       "block_order": [
-        "button_dy8XDD"
+        "group"
       ],
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
-        "button_alignment": "left",
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,
@@ -1074,119 +1084,129 @@
     "buttons_eLLatb": {
       "type": "buttons",
       "blocks": {
-        "button_8mmyyM": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP SALE",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-sale",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_QmyM6w": {
-          "type": "button",
-          "settings": {
-            "label": "BABY SALE",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-sale",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_t9xDNr": {
-          "type": "button",
-          "settings": {
-            "label": "DENIM",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-denim",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_G9yhBD": {
-          "type": "button",
-          "settings": {
-            "label": "PIMA COTTON STAPLES",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-cotton-staples",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
-        },
-        "button_XJpKP6": {
-          "type": "button",
-          "settings": {
-            "label": "SWEATERS",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-sweaters-cardigans-legacy",
-            "display_style": "button",
-            "type": "secondary",
-            "on_click": "",
-            "tg_enable_type": false,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "default",
-            "tg_font_size": 0,
-            "tg_font_size_mobile": 0,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0,
-            "tg_color": ""
-          }
+            "gap": 10,
+            "justify": "center"
+          },
+          "blocks": {
+            "button_8mmyyM": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP SALE",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-sale",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            },
+            "button_QmyM6w": {
+              "type": "button",
+              "settings": {
+                "label": "BABY SALE",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-sale",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            },
+            "button_t9xDNr": {
+              "type": "button",
+              "settings": {
+                "label": "DENIM",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-denim",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            },
+            "button_G9yhBD": {
+              "type": "button",
+              "settings": {
+                "label": "PIMA COTTON STAPLES",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-cotton-staples",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            },
+            "button_XJpKP6": {
+              "type": "button",
+              "settings": {
+                "label": "SWEATERS",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-sweaters-cardigans-legacy",
+                "display_style": "button",
+                "type": "secondary",
+                "on_click": "",
+                "tg_enable_type": false,
+                "tg_font": "assistant_n4",
+                "tg_custom_font": "default",
+                "tg_font_weight": "default",
+                "tg_font_size": 0,
+                "tg_font_size_mobile": 0,
+                "tg_text_case": "default",
+                "tg_letter_spacing": 0,
+                "tg_color": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_8mmyyM",
+            "button_QmyM6w",
+            "button_t9xDNr",
+            "button_G9yhBD",
+            "button_XJpKP6"
+          ]
         }
       },
       "block_order": [
-        "button_8mmyyM",
-        "button_QmyM6w",
-        "button_t9xDNr",
-        "button_G9yhBD",
-        "button_XJpKP6"
+        "group"
       ],
       "disabled": true,
       "settings": {
         "title": "More to Explore",
-        "button_gap": 10,
-        "button_alignment": "center",
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 20,

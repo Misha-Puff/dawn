@@ -126,56 +126,66 @@
     "buttons_a4retC": {
       "type": "buttons",
       "blocks": {
-        "button_GW8pFN": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP ALL SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-spring-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_AYbEqV": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP BABY",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-spring-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_aBBGwX": {
-          "type": "button",
-          "settings": {
-            "label": "ACCESSORIES",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-accessories-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_HCEWxn": {
-          "type": "button",
-          "settings": {
-            "label": "DENIM",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-denim-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_GW8pFN": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-spring-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_AYbEqV": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP BABY",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-spring-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_aBBGwX": {
+              "type": "button",
+              "settings": {
+                "label": "ACCESSORIES",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-accessories-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_HCEWxn": {
+              "type": "button",
+              "settings": {
+                "label": "DENIM",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-denim-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_GW8pFN",
+            "button_AYbEqV",
+            "button_aBBGwX",
+            "button_HCEWxn"
+          ]
         }
       },
       "block_order": [
-        "button_GW8pFN",
-        "button_AYbEqV",
-        "button_aBBGwX",
-        "button_HCEWxn"
+        "group"
       ],
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

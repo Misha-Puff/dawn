@@ -66,7 +66,7 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Adult Winter Collection \u2014 Preview",
+            "heading": "Adult Winter Collection — Preview",
             "heading_size": "h2",
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -84,7 +84,7 @@
           "type": "text",
           "disabled": true,
           "settings": {
-            "text": "<p>This season, the Adult Fall Collection expands with new silhouettes \u2014 our first to echo the spirit of children\u2019s styles, thoughtfully adapted with elegance and ease. Vivid, saturated colors and hand-dyes with spectacular nuance are set in conversation with the deep, earthy hues of fall. Highland wool, Merino wool, and Pima cotton bring warmth, structure, and texture \u2014 with a wealth of accessories for layering through the shifting season.</p><p>Part 1 of Adult Collection launches Friday, September 26, with more to follow.</p>",
+            "text": "<p>This season, the Adult Fall Collection expands with new silhouettes — our first to echo the spirit of children’s styles, thoughtfully adapted with elegance and ease. Vivid, saturated colors and hand-dyes with spectacular nuance are set in conversation with the deep, earthy hues of fall. Highland wool, Merino wool, and Pima cotton bring warmth, structure, and texture — with a wealth of accessories for layering through the shifting season.</p><p>Part 1 of Adult Collection launches Friday, September 26, with more to follow.</p>",
             "line_height": 24,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -138,47 +138,57 @@
     "buttons_Mn3bJP": {
       "type": "buttons",
       "blocks": {
-        "button_XaxzBy": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "VIEW LOOKBOOK",
-            "open_new_tab": false,
-            "link": "https://shop.misha-and-puff.com/blogs/journal/adult-fall-25",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_C99g3E": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
-        },
-        "button_NGpAit": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_XaxzBy": {
+              "type": "button",
+              "settings": {
+                "label": "VIEW LOOKBOOK",
+                "open_new_tab": false,
+                "link": "https://shop.misha-and-puff.com/blogs/journal/adult-fall-25",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_C99g3E": {
+              "type": "button",
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            },
+            "button_NGpAit": {
+              "type": "button",
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_XaxzBy",
+            "button_C99g3E",
+            "button_NGpAit"
+          ]
         }
       },
       "block_order": [
-        "button_XaxzBy",
-        "button_C99g3E",
-        "button_NGpAit"
+        "group"
       ],
       "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

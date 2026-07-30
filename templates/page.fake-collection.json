@@ -72,46 +72,56 @@
     "buttons_z7Tt9K": {
       "type": "buttons",
       "blocks": {
-        "button_HhT3NV": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "VIEW LOOKBOOK",
-            "open_new_tab": true,
-            "link": "https://shop.misha-and-puff.com/blogs/journal/child-summer-26",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_nViVGP": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
-        },
-        "button_XCTARg": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
+            "gap": 10
+          },
+          "blocks": {
+            "button_HhT3NV": {
+              "type": "button",
+              "settings": {
+                "label": "VIEW LOOKBOOK",
+                "open_new_tab": true,
+                "link": "https://shop.misha-and-puff.com/blogs/journal/child-summer-26",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_nViVGP": {
+              "type": "button",
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            },
+            "button_XCTARg": {
+              "type": "button",
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_HhT3NV",
+            "button_nViVGP",
+            "button_XCTARg"
+          ]
         }
       },
       "block_order": [
-        "button_HhT3NV",
-        "button_nViVGP",
-        "button_XCTARg"
+        "group"
       ],
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 10,
         "heading_size": "h1",
         "color_scheme": "",
         "desktop_padding_top": 0,

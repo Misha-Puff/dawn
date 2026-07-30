@@ -83,7 +83,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>A summery soft orange and a vibrant, joyful print \u2014 Frangipani, available in soft Pima cotton and cotton poplin styles.</p>",
+            "text": "<p>A summery soft orange and a vibrant, joyful print — Frangipani, available in soft Pima cotton and cotton poplin styles.</p>",
             "line_height": 22,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -137,57 +137,67 @@
     "buttons_tt4yAk": {
       "type": "buttons",
       "blocks": {
-        "button_tnE83N": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP ALL SUMMER",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-summer-collection-legacy-v2",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_RnEnVV": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP ALL BABY SUMMER",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-summer-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_TJ9gGA": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
-        },
-        "button_7tEtp6": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_tnE83N": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL SUMMER",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-summer-collection-legacy-v2",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_RnEnVV": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL BABY SUMMER",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-summer-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_TJ9gGA": {
+              "type": "button",
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            },
+            "button_7tEtp6": {
+              "type": "button",
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_tnE83N",
+            "button_RnEnVV",
+            "button_TJ9gGA",
+            "button_7tEtp6"
+          ]
         }
       },
       "block_order": [
-        "button_tnE83N",
-        "button_RnEnVV",
-        "button_TJ9gGA",
-        "button_7tEtp6"
+        "group"
       ],
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

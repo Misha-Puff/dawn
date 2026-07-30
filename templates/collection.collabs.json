@@ -72,7 +72,7 @@
         "text_8b3dbY": {
           "type": "text",
           "settings": {
-            "text": "<p>Introducing our exclusive collaboration with MamaOwl \u2014 featuring Merino knits and Pima cotton styles in earthy, timeless hues. Baby, Child, and Adult styles available now.</p>",
+            "text": "<p>Introducing our exclusive collaboration with MamaOwl — featuring Merino knits and Pima cotton styles in earthy, timeless hues. Baby, Child, and Adult styles available now.</p>",
             "line_height": 22,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -110,45 +110,55 @@
     "buttons_UaE6qJ": {
       "type": "buttons",
       "blocks": {
-        "button_3qXjBQ": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP CHILD",
-            "open_new_tab": false,
-            "link": "#shopify-section-template--16607044763699__featured_collection_UCmpWg",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_EWnc3p": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP BABY",
-            "open_new_tab": false,
-            "link": "#shopify-section-template--16607044763699__featured_collection_xQ84JX",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_ddtWrH": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP ADULT",
-            "open_new_tab": false,
-            "link": "#shopify-section-template--16607044763699__featured_collection_GGmw48",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_3qXjBQ": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP CHILD",
+                "open_new_tab": false,
+                "link": "#shopify-section-template--16607044763699__featured_collection_UCmpWg",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_EWnc3p": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP BABY",
+                "open_new_tab": false,
+                "link": "#shopify-section-template--16607044763699__featured_collection_xQ84JX",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_ddtWrH": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ADULT",
+                "open_new_tab": false,
+                "link": "#shopify-section-template--16607044763699__featured_collection_GGmw48",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_3qXjBQ",
+            "button_EWnc3p",
+            "button_ddtWrH"
+          ]
         }
       },
       "block_order": [
-        "button_3qXjBQ",
-        "button_EWnc3p",
-        "button_ddtWrH"
+        "group"
       ],
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,
@@ -623,67 +633,77 @@
     "buttons_e8VfMm": {
       "type": "buttons",
       "blocks": {
-        "button_axDVpa": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "CHILD NEW",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-new-legacy-v2",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_4gwwL4": {
-          "type": "button",
-          "settings": {
-            "label": "BABY NEW",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-new-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_nydytD": {
-          "type": "button",
-          "settings": {
-            "label": "ADULT NEW",
-            "open_new_tab": true,
-            "link": "shopify://collections/adult-new-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_JwExnU": {
-          "type": "button",
-          "settings": {
-            "label": "CHILD GIFT GUIDE",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-gift-edit",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_eeg9gH": {
-          "type": "button",
-          "settings": {
-            "label": "BABY GIFT GUIDE",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-gift-edit",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 10
+          },
+          "blocks": {
+            "button_axDVpa": {
+              "type": "button",
+              "settings": {
+                "label": "CHILD NEW",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-new-legacy-v2",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_4gwwL4": {
+              "type": "button",
+              "settings": {
+                "label": "BABY NEW",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-new-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_nydytD": {
+              "type": "button",
+              "settings": {
+                "label": "ADULT NEW",
+                "open_new_tab": true,
+                "link": "shopify://collections/adult-new-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_JwExnU": {
+              "type": "button",
+              "settings": {
+                "label": "CHILD GIFT GUIDE",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-gift-edit",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_eeg9gH": {
+              "type": "button",
+              "settings": {
+                "label": "BABY GIFT GUIDE",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-gift-edit",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_axDVpa",
+            "button_4gwwL4",
+            "button_nydytD",
+            "button_JwExnU",
+            "button_eeg9gH"
+          ]
         }
       },
       "block_order": [
-        "button_axDVpa",
-        "button_4gwwL4",
-        "button_nydytD",
-        "button_JwExnU",
-        "button_eeg9gH"
+        "group"
       ],
       "settings": {
         "title": "More to Explore",
-        "button_gap": 10,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 22,

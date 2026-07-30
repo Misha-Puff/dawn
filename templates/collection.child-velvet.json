@@ -54,7 +54,7 @@
         "heading_W79jc4": {
           "type": "heading",
           "settings": {
-            "heading": "New Arrival \u2014 Velvet",
+            "heading": "New Arrival — Velvet",
             "heading_size": "h2",
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -71,7 +71,7 @@
         "text_EzLzzh": {
           "type": "text",
           "settings": {
-            "text": "<p>Just in time for the holidays \u2014 new opulent 100% cotton velvet with thoughtful embroidered details. Available in rich shades that shine for every special occasion.</p>",
+            "text": "<p>Just in time for the holidays — new opulent 100% cotton velvet with thoughtful embroidered details. Available in rich shades that shine for every special occasion.</p>",
             "line_height": 22,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -125,56 +125,66 @@
     "buttons_6BNDeY": {
       "type": "buttons",
       "blocks": {
-        "button_zYfzWP": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "ALL NEW ARRIVALS",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-the-winter-collection",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_bj9fHT": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP CORDUROY",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-corduroy-looks",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_LLdmpB": {
-          "type": "button",
-          "settings": {
-            "label": "CHILD GIFT GUIDE",
-            "open_new_tab": true,
-            "link": "shopify://collections/adult-gift-guide-2023",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_3cfhtQ": {
-          "type": "button",
-          "settings": {
-            "label": "BABY GIFT GUIDE",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-gift-edit",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_zYfzWP": {
+              "type": "button",
+              "settings": {
+                "label": "ALL NEW ARRIVALS",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-the-winter-collection",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_bj9fHT": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP CORDUROY",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-corduroy-looks",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_LLdmpB": {
+              "type": "button",
+              "settings": {
+                "label": "CHILD GIFT GUIDE",
+                "open_new_tab": true,
+                "link": "shopify://collections/adult-gift-guide-2023",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_3cfhtQ": {
+              "type": "button",
+              "settings": {
+                "label": "BABY GIFT GUIDE",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-gift-edit",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_zYfzWP",
+            "button_bj9fHT",
+            "button_LLdmpB",
+            "button_3cfhtQ"
+          ]
         }
       },
       "block_order": [
-        "button_zYfzWP",
-        "button_bj9fHT",
-        "button_LLdmpB",
-        "button_3cfhtQ"
+        "group"
       ],
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

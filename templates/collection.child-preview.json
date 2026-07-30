@@ -51,43 +51,53 @@
     "buttons_w3CmM7": {
       "type": "buttons",
       "blocks": {
-        "button_hrwKiT": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "BACK TO ALL",
-            "link": "shopify://collections/preview",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_inhkWm": {
-          "type": "button",
-          "settings": {
-            "label": "BABY PREVIEW",
-            "link": "shopify://collections/baby-preview",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_7rKmVq": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_hrwKiT": {
+              "type": "button",
+              "settings": {
+                "label": "BACK TO ALL",
+                "link": "shopify://collections/preview",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_inhkWm": {
+              "type": "button",
+              "settings": {
+                "label": "BABY PREVIEW",
+                "link": "shopify://collections/baby-preview",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_7rKmVq": {
+              "type": "button",
+              "settings": {
+                "label": "",
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_hrwKiT",
+            "button_inhkWm",
+            "button_7rKmVq"
+          ]
         }
       },
       "block_order": [
-        "button_hrwKiT",
-        "button_inhkWm",
-        "button_7rKmVq"
+        "group"
       ],
       "disabled": true,
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

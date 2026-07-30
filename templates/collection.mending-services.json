@@ -72,7 +72,7 @@
         "text_pgUK9t": {
           "type": "text",
           "settings": {
-            "text": "<p>Our garments are made to last, but we know life happens. That\u2019s why we created a repair program to help your item live on. Extending its life instead of buying new reduces its carbon footprint by 82% \u2014 something to wear and feel great about.</p><p></p>",
+            "text": "<p>Our garments are made to last, but we know life happens. That’s why we created a repair program to help your item live on. Extending its life instead of buying new reduces its carbon footprint by 82% — something to wear and feel great about.</p><p></p>",
             "line_height": 24,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -125,46 +125,56 @@
     "buttons_irahck": {
       "type": "buttons",
       "blocks": {
-        "button_mdyzBU": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP YARN",
-            "open_new_tab": true,
-            "link": "shopify://collections/limited-yarn",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_EiLBCL": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP KNITTING PATTERNS",
-            "open_new_tab": true,
-            "link": "shopify://collections/knitting-patterns",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_NQDVXi": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_mdyzBU": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP YARN",
+                "open_new_tab": true,
+                "link": "shopify://collections/limited-yarn",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_EiLBCL": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP KNITTING PATTERNS",
+                "open_new_tab": true,
+                "link": "shopify://collections/knitting-patterns",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_NQDVXi": {
+              "type": "button",
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_mdyzBU",
+            "button_EiLBCL",
+            "button_NQDVXi"
+          ]
         }
       },
       "block_order": [
-        "button_mdyzBU",
-        "button_EiLBCL",
-        "button_NQDVXi"
+        "group"
       ],
       "disabled": true,
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

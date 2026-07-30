@@ -71,7 +71,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>Colorful, cozy, and made with love \u2014 find the perfect pieces for your little valentines.</p><p></p>",
+            "text": "<p>Colorful, cozy, and made with love — find the perfect pieces for your little valentines.</p><p></p>",
             "line_height": 20,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -125,45 +125,55 @@
     "buttons_XKHAma": {
       "type": "buttons",
       "blocks": {
-        "button_7hPCeK": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP ALL CHILD SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-spring-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_49GncF": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP ALL BABY SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-spring-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_7hmE6U": {
-          "type": "button",
-          "settings": {
-            "label": "",
-            "open_new_tab": false,
-            "link": "",
-            "type": "primary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_7hPCeK": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL CHILD SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-spring-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_49GncF": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL BABY SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-spring-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_7hmE6U": {
+              "type": "button",
+              "settings": {
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
+                "type": "primary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_7hPCeK",
+            "button_49GncF",
+            "button_7hmE6U"
+          ]
         }
       },
       "block_order": [
-        "button_7hPCeK",
-        "button_49GncF",
-        "button_7hmE6U"
+        "group"
       ],
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

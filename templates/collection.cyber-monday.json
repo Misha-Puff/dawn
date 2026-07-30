@@ -435,67 +435,77 @@
     "buttons_tdnNta": {
       "type": "buttons",
       "blocks": {
-        "button_NF9qEJ": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "CHILD SALE",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-sale-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_tLxcEW": {
-          "type": "button",
-          "settings": {
-            "label": "BABY SALE",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-sale-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_axfKWm": {
-          "type": "button",
-          "settings": {
-            "label": "NEW ARRIVALS",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-the-winter-collection",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_pN8PFP": {
-          "type": "button",
-          "settings": {
-            "label": "BEST SELLERS",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-best-sellers-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_Pr3VVg": {
-          "type": "button",
-          "settings": {
-            "label": "ADULT",
-            "open_new_tab": true,
-            "link": "shopify://collections/adult-fall-winter",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 10
+          },
+          "blocks": {
+            "button_NF9qEJ": {
+              "type": "button",
+              "settings": {
+                "label": "CHILD SALE",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-sale-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_tLxcEW": {
+              "type": "button",
+              "settings": {
+                "label": "BABY SALE",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-sale-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_axfKWm": {
+              "type": "button",
+              "settings": {
+                "label": "NEW ARRIVALS",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-the-winter-collection",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_pN8PFP": {
+              "type": "button",
+              "settings": {
+                "label": "BEST SELLERS",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-best-sellers-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_Pr3VVg": {
+              "type": "button",
+              "settings": {
+                "label": "ADULT",
+                "open_new_tab": true,
+                "link": "shopify://collections/adult-fall-winter",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_NF9qEJ",
+            "button_tLxcEW",
+            "button_axfKWm",
+            "button_pN8PFP",
+            "button_Pr3VVg"
+          ]
         }
       },
       "block_order": [
-        "button_NF9qEJ",
-        "button_tLxcEW",
-        "button_axfKWm",
-        "button_pN8PFP",
-        "button_Pr3VVg"
+        "group"
       ],
       "settings": {
         "title": "More to Explore",
-        "button_gap": 10,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 20,

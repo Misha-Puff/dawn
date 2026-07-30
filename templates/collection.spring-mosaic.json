@@ -71,7 +71,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>A curated spectrum of colors \u2014 spotlighting the Joya group, Spring Mosaic, and other accents from the <a href=\"/collections/child-spring-collection\" target=\"_blank\" title=\"Child - Spring Collection\">Spring Collection</a> that complement the looks.</p>",
+            "text": "<p>A curated spectrum of colors — spotlighting the Joya group, Spring Mosaic, and other accents from the <a href=\"/collections/child-spring-collection\" target=\"_blank\" title=\"Child - Spring Collection\">Spring Collection</a> that complement the looks.</p>",
             "line_height": 22,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -125,45 +125,55 @@
     "buttons_QYziBB": {
       "type": "buttons",
       "blocks": {
-        "button_qPweeY": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP ALL SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-spring-botanica",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_y8wBnq": {
-          "type": "button",
-          "settings": {
-            "label": "ACCESSORIES",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-accessories-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_gQAcKJ": {
-          "type": "button",
-          "settings": {
-            "label": "DENIM",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-denim-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_qPweeY": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-spring-botanica",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_y8wBnq": {
+              "type": "button",
+              "settings": {
+                "label": "ACCESSORIES",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-accessories-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_gQAcKJ": {
+              "type": "button",
+              "settings": {
+                "label": "DENIM",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-denim-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_qPweeY",
+            "button_y8wBnq",
+            "button_gQAcKJ"
+          ]
         }
       },
       "block_order": [
-        "button_qPweeY",
-        "button_y8wBnq",
-        "button_gQAcKJ"
+        "group"
       ],
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

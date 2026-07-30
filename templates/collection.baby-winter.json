@@ -83,7 +83,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>Where holiday nostalgia drifts through a landscape of Western light. Cozy Merino knits, lush velvet and corduroy, and inspired jacquards and intarsia designs in a dreamy holiday palette. New silhouettes and accessories to layer, to gather, to celebrate \u2014 finished with refined hand-worked details. Festive heirlooms for winters to come.</p>",
+            "text": "<p>Where holiday nostalgia drifts through a landscape of Western light. Cozy Merino knits, lush velvet and corduroy, and inspired jacquards and intarsia designs in a dreamy holiday palette. New silhouettes and accessories to layer, to gather, to celebrate — finished with refined hand-worked details. Festive heirlooms for winters to come.</p>",
             "line_height": 24,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -137,68 +137,78 @@
     "buttons_Mn3bJP": {
       "type": "buttons",
       "blocks": {
-        "button_XaxzBy": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP CHILD WINTER",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-winter",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_C99g3E": {
-          "type": "button",
-          "settings": {
-            "label": "SWEATERS",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-sweaters-and-cardigan",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_NGpAit": {
-          "type": "button",
-          "settings": {
-            "label": "ONE-PIECES",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-one-piece",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_kaALGy": {
-          "type": "button",
-          "settings": {
-            "label": "DRESSES",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-dresses",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_qr4KXn": {
-          "type": "button",
-          "settings": {
-            "label": "ACCESSORIES",
-            "open_new_tab": true,
-            "link": "shopify://collections/baby-accessories",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_XaxzBy": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP CHILD WINTER",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-winter",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_C99g3E": {
+              "type": "button",
+              "settings": {
+                "label": "SWEATERS",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-sweaters-and-cardigan",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_NGpAit": {
+              "type": "button",
+              "settings": {
+                "label": "ONE-PIECES",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-one-piece",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_kaALGy": {
+              "type": "button",
+              "settings": {
+                "label": "DRESSES",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-dresses",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_qr4KXn": {
+              "type": "button",
+              "settings": {
+                "label": "ACCESSORIES",
+                "open_new_tab": true,
+                "link": "shopify://collections/baby-accessories",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_XaxzBy",
+            "button_C99g3E",
+            "button_NGpAit",
+            "button_kaALGy",
+            "button_qr4KXn"
+          ]
         }
       },
       "block_order": [
-        "button_XaxzBy",
-        "button_C99g3E",
-        "button_NGpAit",
-        "button_kaALGy",
-        "button_qr4KXn"
+        "group"
       ],
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

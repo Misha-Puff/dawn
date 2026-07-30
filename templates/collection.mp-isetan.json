@@ -71,7 +71,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>Our exclusive collaboration with our friends at Japanese retailer Isetan is here. Discover classic Pima cotton silhouettes in a brand new colorway of our Playground print. <br/><br/>See how Misha & Puff Founder/Creative Director, Anna, mixes the Isetan collaboration with our Spring Collection \u2014 color, texture, and plenty of inspo.</p>",
+            "text": "<p>Our exclusive collaboration with our friends at Japanese retailer Isetan is here. Discover classic Pima cotton silhouettes in a brand new colorway of our Playground print. <br/><br/>See how Misha & Puff Founder/Creative Director, Anna, mixes the Isetan collaboration with our Spring Collection — color, texture, and plenty of inspo.</p>",
             "line_height": 22,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -125,46 +125,56 @@
     "buttons_ACd7tE": {
       "type": "buttons",
       "blocks": {
-        "button_YT8BGL": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "MP x ISETAN STYLES",
-            "open_new_tab": true,
-            "link": "shopify://collections/mp-isetan-2025",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_qd46z7": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP ALL SPRING",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-spring-collection-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_hRRrci": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP DENIM",
-            "open_new_tab": true,
-            "link": "shopify://collections/child-denim-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 12
+          },
+          "blocks": {
+            "button_YT8BGL": {
+              "type": "button",
+              "settings": {
+                "label": "MP x ISETAN STYLES",
+                "open_new_tab": true,
+                "link": "shopify://collections/mp-isetan-2025",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_qd46z7": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ALL SPRING",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-spring-collection-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_hRRrci": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP DENIM",
+                "open_new_tab": true,
+                "link": "shopify://collections/child-denim-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_YT8BGL",
+            "button_qd46z7",
+            "button_hRRrci"
+          ]
         }
       },
       "block_order": [
-        "button_YT8BGL",
-        "button_qd46z7",
-        "button_hRRrci"
+        "group"
       ],
       "name": "Buttons",
       "settings": {
         "title": "",
-        "button_gap": 12,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,

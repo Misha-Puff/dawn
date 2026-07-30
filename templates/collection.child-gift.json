@@ -71,7 +71,7 @@
         "text_LPzcpF": {
           "type": "text",
           "settings": {
-            "text": "<p>Explore our handpicked selection of child gifts \u2014 for festive magic, stylish looks, cozy comfort, and essential heirlooms.</p>",
+            "text": "<p>Explore our handpicked selection of child gifts — for festive magic, stylish looks, cozy comfort, and essential heirlooms.</p>",
             "line_height": 22,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -455,67 +455,77 @@
     "buttons_WrnKTA": {
       "type": "buttons",
       "blocks": {
-        "button_zhJPgt": {
-          "type": "button",
+        "group": {
+          "type": "group",
           "settings": {
-            "label": "SHOP BABY GIFTS",
-            "open_new_tab": false,
-            "link": "shopify://collections/baby-gift-edit",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_9L9q9w": {
-          "type": "button",
-          "settings": {
-            "label": "BEST SELLERS",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-best-sellers-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_MM8K3Q": {
-          "type": "button",
-          "settings": {
-            "label": "SWEATERS",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-sweaters-cardigans-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_PxyFwV": {
-          "type": "button",
-          "settings": {
-            "label": "ACCESSORIES",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-accessories-legacy",
-            "type": "secondary",
-            "on_click": ""
-          }
-        },
-        "button_BAjg3L": {
-          "type": "button",
-          "settings": {
-            "label": "NEW ARRIVALS",
-            "open_new_tab": false,
-            "link": "shopify://collections/child-new-legacy-v2",
-            "type": "secondary",
-            "on_click": ""
-          }
+            "gap": 10
+          },
+          "blocks": {
+            "button_zhJPgt": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP BABY GIFTS",
+                "open_new_tab": false,
+                "link": "shopify://collections/baby-gift-edit",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_9L9q9w": {
+              "type": "button",
+              "settings": {
+                "label": "BEST SELLERS",
+                "open_new_tab": false,
+                "link": "shopify://collections/child-best-sellers-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_MM8K3Q": {
+              "type": "button",
+              "settings": {
+                "label": "SWEATERS",
+                "open_new_tab": false,
+                "link": "shopify://collections/child-sweaters-cardigans-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_PxyFwV": {
+              "type": "button",
+              "settings": {
+                "label": "ACCESSORIES",
+                "open_new_tab": false,
+                "link": "shopify://collections/child-accessories-legacy",
+                "type": "secondary",
+                "on_click": ""
+              }
+            },
+            "button_BAjg3L": {
+              "type": "button",
+              "settings": {
+                "label": "NEW ARRIVALS",
+                "open_new_tab": false,
+                "link": "shopify://collections/child-new-legacy-v2",
+                "type": "secondary",
+                "on_click": ""
+              }
+            }
+          },
+          "block_order": [
+            "button_zhJPgt",
+            "button_9L9q9w",
+            "button_MM8K3Q",
+            "button_PxyFwV",
+            "button_BAjg3L"
+          ]
         }
       },
       "block_order": [
-        "button_zhJPgt",
-        "button_9L9q9w",
-        "button_MM8K3Q",
-        "button_PxyFwV",
-        "button_BAjg3L"
+        "group"
       ],
       "settings": {
         "title": "More to Explore",
-        "button_gap": 10,
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 22,
