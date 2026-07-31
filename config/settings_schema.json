@@ -2469,6 +2469,19 @@
         "default": 60,
         "unit": "px",
         "label": "Margin bottom"
+      },
+      {
+        "type": "select",
+        "id": "locksmith_v2_preview_state",
+        "label": "Editor preview state",
+        "info": "Theme editor only. Replaces page content with the chosen locked state so the messages and margins above can be adjusted visually. Has no effect on the live storefront. Set back to 'Off' when finished.",
+        "options": [
+          { "value": "off", "label": "Off" },
+          { "value": "password", "label": "Password form" },
+          { "value": "login", "label": "Login prompt" },
+          { "value": "locked", "label": "Logged in, no access" }
+        ],
+        "default": "off"
       }
     ]
   },

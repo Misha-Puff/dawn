@@ -1,0 +1,32 @@
+{% comment %}
+  The Locksmith v2 locked-content UI. Markup must stay identical to what the
+  storefront previously rendered inline in layout/theme.liquid.
+
+  Accepts:
+  - state: {String} 'password' | 'login' | anything else renders the
+    logged-in-but-not-entitled message (matches the original else-fallback).
+{% endcomment %}
+<style>
+  .locksmith-v2-content-wrapper {
+    margin-top: {{ settings.locksmith_v2_margin_top }}px;
+    margin-bottom: {{ settings.locksmith_v2_margin_bottom }}px;
+  }
+</style>
+<div class="locksmith-v2-content-wrapper center">
+  {% if state == 'password' %}
+    <p>
+      {{ settings.locksmith_v2_password_text }}
+    </p>
+    <form method="get">
+      <input type="text" name="password">
+      <button class="button link" type="submit">Submit</button>
+    </form>
+  {% elsif state == 'login' %}
+    <p>
+      {{ settings.locksmith_v2_login_text }}
+    </p>
+    <a class="button link" href="{{ routes.storefront_login_url }}">Login</a>
+  {% else %}
+    {{ settings.locksmith_v2_locked_content_text }}
+  {% endif %}
+</div>

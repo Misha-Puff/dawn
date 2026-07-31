@@ -484,33 +484,31 @@
           definition.
         {% endcomment %}
         {% section 'main-policies' %}
-      {% elsif request.design_mode or lock_content == 'false' %}
+      {% elsif request.design_mode %}
+        {% if settings.locksmith_v2_preview_state == 'off' or settings.locksmith_v2_preview_state == blank %}
+          {{ content_for_layout }}
+        {% else %}
+          {% comment %} Editor-only Locksmith preview — never reachable on the storefront. {% endcomment %}
+          <div
+            class="locksmith-v2-preview-note"
+            style="padding: 8px 12px; margin: 0 0 8px; background: #fff8e1; border: 1px dashed #b28704; color: #6b5104; font-size: 12px; font-family: 'Courier New', monospace; letter-spacing: 0.05em;"
+          >
+            LOCKSMITH PREVIEW &mdash; showing the &quot;{{ settings.locksmith_v2_preview_state }}&quot; locked state instead of this page's content. The storefront is not affected. Turn off under Theme settings &rarr; Locksmith v2 &rarr; Editor preview state.
+          </div>
+          {% render 'locksmith-v2-locked-ui', state: settings.locksmith_v2_preview_state %}
+        {% endif %}
+      {% elsif lock_content == 'false' %}
         {{ content_for_layout }}
       {% else %}
-        <style>
-          .locksmith-v2-content-wrapper {
-            margin-top: {{ settings.locksmith_v2_margin_top }}px;
-            margin-bottom: {{ settings.locksmith_v2_margin_bottom }}px;
-          }
-        </style>
-        <div class="locksmith-v2-content-wrapper center">
-          {% if template.name == 'page' and page.metafields.lock.password != '' and page.metafields.lock.vip != true %}
-            <p>
-              {{ settings.locksmith_v2_password_text }}
-            </p>
-            <form method="get">
-              <input type="text" name="password">
-              <button class="button link" type="submit">Submit</button>
-            </form>
-          {% elsif customer == null %}
-            <p>
-              {{ settings.locksmith_v2_login_text }}
-            </p>
-            <a class="button link" href="{{routes.storefront_login_url}}">Login</a>
-          {% else %}
-            {{ settings.locksmith_v2_locked_content_text }}
-          {% endif %}
-        </div>
+        {%- liquid
+          assign locksmith_state = 'locked'
+          if template.name == 'page' and page.metafields.lock.password != '' and page.metafields.lock.vip != true
+            assign locksmith_state = 'password'
+          elsif customer == null
+            assign locksmith_state = 'login'
+          endif
+        -%}
+        {% render 'locksmith-v2-locked-ui', state: locksmith_state %}
       {% endif %}
     </main>
 
