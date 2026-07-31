@@ -15,7 +15,17 @@
       "settings": {
         "page_width": "narrow",
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "page_enable_type": false,
+        "ph_custom_font": "default",
+        "ph_font_weight": "default",
+        "ph_text_case": "default",
+        "ph_letter_spacing": 0,
+        "pb_custom_font": "default",
+        "pb_font_size": 0,
+        "pb_font_size_mobile": 0,
+        "pb_line_height": 0,
+        "pb_color": ""
       }
     },
     "rich_text_cmih9V": {
@@ -25,14 +35,34 @@
           "type": "heading",
           "settings": {
             "heading": "Right of Withdrawal",
-            "heading_size": "h2"
+            "heading_size": "h2",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": "",
+            "tg_font_size_mobile": 0
           }
         },
         "text_w9pkBL": {
           "type": "text",
           "settings": {
             "text": "<p>As an EU customer you can cancel your order within 14 days of receiving it, without giving a reason. Fill in the form below and confirm — we'll send a confirmation to your email and process any eligible refund or return within 14 days.</p>",
-            "line_height": 24
+            "line_height": 20,
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 160,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1A1A1A",
+            "tg_font_size_mobile": 0
           }
         }
       },
@@ -49,7 +79,12 @@
         "padding_top": 60,
         "padding_bottom": 28,
         "padding_left": 0,
-        "padding_right": 0
+        "padding_right": 0,
+        "enable_mobile_padding": false,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0
       }
     },
     "forms": {
@@ -67,7 +102,7 @@
             "text_alignment": "center",
             "form_alignment": "center",
             "padding_top": 0,
-            "padding_bottom": 38,
+            "padding_bottom": 28,
             "padding_right": 0,
             "padding_left": 0
           }
@@ -86,8 +121,18 @@
         "text_xMyVHa": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>FINDING YOUR ORDER NUMBER:</strong> it's in your order confirmation email (e.g. #1234).<br/><br/><strong>PARTIAL WITHDRAWAL:</strong> to withdraw from only some items, list them in the form; leave it blank to withdraw from the whole order.<br/><br/><strong>EXEMPTIONS:</strong> some products — for example made-to-order or personalized items — may not be eligible for withdrawal under EU law. We'll let you know if that applies to your order.<br/><br/><strong>WHAT HAPPENS NEXT:</strong> the confirmation email acknowledges that we've <em>received</em> your request. Eligibility and scope are reviewed separately by our team.</p>",
-            "line_height": 22
+            "text": "<p>FINDING YOUR ORDER NUMBER:<br/>It's located in your order confirmation email (e.g. #1234).<br/><br/>PARTIAL WITHDRAWAL:<br/>To withdraw from only some items, list them in the form; leave it blank to withdraw from the whole order.<br/><br/>EXEMPTIONS: <br/>Some products (for example Made-to-Order or personalized items) may not be eligible for withdrawal under EU law. We'll let you know if that applies to your order.<br/><br/>WHAT HAPPENS NEXT: <br/>The confirmation email acknowledges that we've <em>received</em> your request. Eligibility and scope are reviewed separately by our team.</p>",
+            "line_height": 22,
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 160,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.2,
+            "tg_color": "#1A1A1A",
+            "tg_font_size_mobile": 0
           }
         }
       },
@@ -100,10 +145,15 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 20,
-        "padding_bottom": 52,
+        "padding_top": 24,
+        "padding_bottom": 80,
         "padding_left": 0,
-        "padding_right": 0
+        "padding_right": 0,
+        "enable_mobile_padding": false,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0
       }
     }
   },
