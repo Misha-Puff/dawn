@@ -195,7 +195,7 @@
           "page_width": "full",
           "padding_top": 80,
           "padding_bottom": 100,
-          "padding_side": 80,
+          "padding_side": 100,
           "padding_side_mobile": 20,
           "show_title": false,
           "page_enable_type": true,
