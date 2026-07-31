@@ -11,6 +11,19 @@
     margin-top: {{ settings.locksmith_v2_margin_top }}px;
     margin-bottom: {{ settings.locksmith_v2_margin_bottom }}px;
   }
+
+  .locksmith-v2-password-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .locksmith-v2-password-form .field {
+    width: 100%;
+  }
 </style>
 {%- comment -%}
   Optional typography, donor: careers.liquid page_enable_type loop. Two groups
@@ -67,9 +80,19 @@
     <p>
       {{ settings.locksmith_v2_password_text }}
     </p>
-    <form method="get">
-      <input type="text" name="password">
-      <button class="button link" type="submit">Submit</button>
+    <form method="get" class="locksmith-v2-password-form">
+      <div class="field">
+        <input
+          type="text"
+          name="password"
+          id="LocksmithPassword"
+          class="field__input"
+          autocomplete="off"
+          placeholder="Password"
+        >
+        <label class="field__label" for="LocksmithPassword">Password</label>
+      </div>
+      <button class="button" type="submit">Submit</button>
     </form>
   {% elsif state == 'login' %}
     <p>
