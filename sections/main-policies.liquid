@@ -78,6 +78,28 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  {%- comment -%}
+    Side padding overrides the .page-width side padding (theme --page-width-padding
+    vars); the two-class selector outweighs base.css's single .page-width class.
+    0 = keep theme default, each breakpoint independent.
+  {%- endcomment -%}
+  {%- if section.settings.padding_side_mobile > 0 %}
+    @media screen and (max-width: 749px) {
+      .page-width.section-{{ section.id }}-padding {
+        padding-left: {{ section.settings.padding_side_mobile }}px;
+        padding-right: {{ section.settings.padding_side_mobile }}px;
+      }
+    }
+  {% endif -%}
+  {%- if section.settings.padding_side > 0 %}
+    @media screen and (min-width: 750px) {
+      .page-width.section-{{ section.id }}-padding {
+        padding-left: {{ section.settings.padding_side }}px;
+        padding-right: {{ section.settings.padding_side }}px;
+      }
+    }
+  {% endif -%}
 {%- endstyle -%}
 
 {%- comment -%}
@@ -86,10 +108,16 @@
   copy); one entry per selector so every rule stays scoped under
   #shopify-section-<id>. ph_ carries no font-size on purpose — the global
   Headings theme settings own the per-level scale.
+
+  Every declaration is emitted !important, and the pb_ group also targets
+  span/div: policy bodies authored in the admin policy editor arrive with
+  inline styles on those elements (e.g. <div style="text-align: left">,
+  pasted-editor spans) which would otherwise beat any stylesheet rule.
+  Section settings must always win over that baked-in styling.
 {%- endcomment -%}
 {%- if section.settings.page_enable_type -%}
   {%- capture page_type_css -%}
-    {%- assign page_type_groups = 'ph|.main-page-title;ph|.policy-block__title;ph|.rte h1;ph|.rte h2;ph|.rte h3;pb|.rte p;pb|.rte li' | split: ';' -%}
+    {%- assign page_type_groups = 'ph|.main-page-title;ph|.policy-block__title;ph|.rte h1;ph|.rte h2;ph|.rte h3;pb|.rte;pb|.rte p;pb|.rte li;pb|.rte span;pb|.rte div' | split: ';' -%}
     {%- for grp in page_type_groups -%}
       {%- assign grp_parts = grp | split: '|' -%}
       {%- assign gp = grp_parts[0] -%}
@@ -101,16 +129,18 @@
       {%- assign k_ls = gp | append: '_letter_spacing' -%}
       {%- assign k_color = gp | append: '_color' -%}
       {%- assign k_lh = gp | append: '_line_height' -%}
+      {%- assign k_align = gp | append: '_text_align' -%}
       {%- capture grp_brand -%}{% render 'brand-font', font: section.settings[k_font] %}{%- endcapture -%}
       {%- assign grp_brand = grp_brand | strip -%}
       {%- capture grp_decl -%}
-        {%- if grp_brand != blank %}font-family: {{ grp_brand }};{% endif -%}
-        {%- if section.settings[k_weight] != 'default' and section.settings[k_weight] != blank %} font-weight: {{ section.settings[k_weight] }};{% endif -%}
-        {%- if section.settings[k_size] > 0 %} font-size: {{ section.settings[k_size] }}px;{% endif -%}
-        {%- if section.settings[k_case] != 'default' and section.settings[k_case] != blank %} text-transform: {{ section.settings[k_case] }};{% endif -%}
-        {%- if section.settings[k_ls] > 0 %} letter-spacing: {{ section.settings[k_ls] }}px;{% endif -%}
-        {%- if section.settings[k_color] != blank %} color: {{ section.settings[k_color] }};{% endif -%}
-        {%- if section.settings[k_lh] > 0 %} line-height: {{ section.settings[k_lh] }}%;{% endif -%}
+        {%- if grp_brand != blank %}font-family: {{ grp_brand }} !important;{% endif -%}
+        {%- if section.settings[k_weight] != 'default' and section.settings[k_weight] != blank %} font-weight: {{ section.settings[k_weight] }} !important;{% endif -%}
+        {%- if section.settings[k_size] > 0 %} font-size: {{ section.settings[k_size] }}px !important;{% endif -%}
+        {%- if section.settings[k_case] != 'default' and section.settings[k_case] != blank %} text-transform: {{ section.settings[k_case] }} !important;{% endif -%}
+        {%- if section.settings[k_ls] > 0 %} letter-spacing: {{ section.settings[k_ls] }}px !important;{% endif -%}
+        {%- if section.settings[k_color] != blank %} color: {{ section.settings[k_color] }} !important;{% endif -%}
+        {%- if section.settings[k_lh] > 0 %} line-height: {{ section.settings[k_lh] }}% !important;{% endif -%}
+        {%- if section.settings[k_align] != 'default' and section.settings[k_align] != blank %} text-align: {{ section.settings[k_align] }} !important;{% endif -%}
       {%- endcapture -%}
       {%- assign grp_decl = grp_decl | strip -%}
       {%- if grp_decl != blank -%}
@@ -119,7 +149,7 @@
     {%- endfor -%}
     {%- if section.settings.pb_font_size_mobile > 0 -%}
       @media screen and (max-width: 749px) {
-        #shopify-section-{{ section.id }} .rte p, #shopify-section-{{ section.id }} .rte li { font-size: {{ section.settings.pb_font_size_mobile }}px; }
+        #shopify-section-{{ section.id }} .rte p, #shopify-section-{{ section.id }} .rte li, #shopify-section-{{ section.id }} .rte span { font-size: {{ section.settings.pb_font_size_mobile }}px !important; }
       }
     {%- endif -%}
   {%- endcapture -%}
@@ -275,6 +305,28 @@
       "label": "t:sections.all.padding.padding_bottom",
       "default": 28
     },
+    {
+      "type": "range",
+      "id": "padding_side",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Side padding (desktop)",
+      "info": "0 = theme default",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_side_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Side padding (mobile)",
+      "info": "Below 750px. 0 = theme default",
+      "default": 0
+    },
     { "type": "checkbox", "id": "show_title", "default": true, "label": "Show page title" },
     { "type": "header", "content": "Page typography" },
     { "type": "checkbox", "id": "page_enable_type", "default": false, "label": "Enable custom page typography", "info": "Styles the title, policy headings, and body copy. Leave a control at its default to inherit." },
@@ -288,6 +340,8 @@
     { "type": "range", "id": "pb_font_size", "min": 0, "max": 24, "step": 1, "unit": "px", "label": "Font size", "info": "0 = theme default (12px)", "default": 0, "visible_if": "{{ section.settings.page_enable_type }}" },
     { "type": "range", "id": "pb_font_size_mobile", "min": 0, "max": 24, "step": 1, "unit": "px", "label": "Font size (mobile)", "info": "Below 750px. 0 = same as larger screens", "default": 0, "visible_if": "{{ section.settings.page_enable_type }}" },
     { "type": "range", "id": "pb_line_height", "min": 0, "max": 250, "step": 5, "unit": "%", "label": "Line height", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.page_enable_type }}" },
+    { "type": "range", "id": "pb_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Letter spacing", "info": "0 = theme default", "default": 0, "visible_if": "{{ section.settings.page_enable_type }}" },
+    { "type": "select", "id": "pb_text_align", "options": [ { "value": "default", "label": "Theme default" }, { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" } ], "default": "default", "label": "Text alignment", "info": "Overrides alignment saved inside the policy content", "visible_if": "{{ section.settings.page_enable_type }}" },
     { "type": "color", "id": "pb_color", "label": "Text color", "info": "Leave blank to inherit", "visible_if": "{{ section.settings.page_enable_type }}" }
   ]
 }
