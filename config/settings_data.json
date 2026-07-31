@@ -169,6 +169,8 @@
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
+    "locksmith_v2_margin_bottom": 100,
+    "locksmith_v2_enable_type": true,
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
