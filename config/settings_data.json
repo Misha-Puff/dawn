@@ -193,9 +193,11 @@
         "type": "main-policies",
         "settings": {
           "page_width": "full",
-          "padding_top": 48,
+          "padding_top": 80,
           "padding_bottom": 100,
-          "show_title": true,
+          "padding_side": 80,
+          "padding_side_mobile": 20,
+          "show_title": false,
           "page_enable_type": true,
           "ph_custom_font": "inter",
           "ph_font_weight": "400",
@@ -205,6 +207,8 @@
           "pb_font_size": 12,
           "pb_font_size_mobile": 0,
           "pb_line_height": 150,
+          "pb_letter_spacing": 0,
+          "pb_text_align": "default",
           "pb_color": "#1a1a1a"
         }
       }
