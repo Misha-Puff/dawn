@@ -1,0 +1,28 @@
+/* Theme skin for Shopify Forms embeds (open shadow root). Selectors cannot
+   reach inside the shadow tree — only inherited custom props can; document
+   rules on the host element win over the shadow :host defaults. */
+shopify-forms-embed {
+  --forms-body-font: var(--font-body-style, normal) var(--font-body-weight, 400)
+    13px var(--font-body-family, Arial, sans-serif);
+  --forms-heading-font: var(--font-heading-style, normal)
+    var(--font-heading-weight, 400) 22px
+    var(--font-heading-family, Arial, sans-serif);
+  --forms-base-font-size: 13px; /* mirrors .field__input 1.3rem */
+
+  --form-field-border: 0 0 0 var(--inputs-border-width, 1px)
+    rgba(
+      var(--color-foreground, 18, 18, 18),
+      var(--inputs-border-opacity, 0.55)
+    );
+  --form-field-border-radius: var(--inputs-radius, 0px);
+  --form-field-padding: 1.5rem;
+
+  --button-background-color: rgb(var(--color-button, 18, 18, 18));
+  --button-text-color: rgb(var(--color-button-text, 255, 255, 255));
+  --button-border-radius: var(--buttons-radius, 0px);
+  --button-padding: var(--button-vertical-padding, 4px)
+    var(--button-horizontal-padding, 14px);
+
+  --link-text-color: rgb(var(--color-link, 18, 18, 18));
+  --form-error-color: #e02229;
+}
