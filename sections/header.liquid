@@ -202,6 +202,15 @@
       assign transparency_enabled = true
     endif
   endfor
+
+  comment
+    Transparency expects a tall hero sliding under the header. While the
+    editor-only Locksmith preview replaces page content with the short locked
+    UI, render the header opaque so it doesn't overlap the preview.
+  endcomment
+  if request.design_mode and settings.locksmith_v2_preview_state != 'off' and settings.locksmith_v2_preview_state != blank
+    assign transparency_enabled = false
+  endif
 %}
 {%- style -%}
   .header {
