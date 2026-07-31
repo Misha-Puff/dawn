@@ -191,6 +191,17 @@
       endif
     endfor
 
+    comment
+      Third context: the CCPA opt-out page (/pages/data-sharing-opt-out)
+      rides the same theme.liquid intercept so it shares this tab row.
+      Policy tabs get real /policies/* hrefs there; no policy panels render,
+      so policy-tabs.js sees < 2 panels and leaves every tab a plain link.
+    endcomment
+    assign is_privacy_choices = false
+    if request.page_type == 'page' and page.handle == 'data-sharing-opt-out'
+      assign is_privacy_choices = true
+    endif
+
     assign active_slug = ''
     if request.page_type == 'policy'
       assign request_slug = request.path | split: '/' | last
@@ -212,13 +223,21 @@
         {%- for shop_policy in shop.policies -%}
           {%- if shop_policy.title == blank -%}{%- continue -%}{%- endif -%}
           {%- assign policy_slug = shop_policy.url | split: '/' | last -%}
-          {%- if request.page_type == 'policy' -%}
+          {%- if request.page_type == 'policy' or is_privacy_choices -%}
             {%- assign tab_href = shop_policy.url -%}
           {%- else -%}
             {%- assign tab_href = '#' | append: policy_slug -%}
           {%- endif -%}
           <a class="policy-tabs__tab" href="{{ tab_href }}" data-slug="{{ policy_slug }}"{% if policy_slug == active_slug and active_slug != blank %} aria-current="page"{% endif %}>{{ shop_policy.title | escape }}</a>
         {%- endfor -%}
+        {%- comment -%}
+          Nav-only tab for the CCPA opt-out page. No data-slug on purpose:
+          policy-tabs.js only collects a[data-slug], so this stays a plain
+          link and the tabs/panels count check is unaffected. Never rendered
+          as a panel here — the page body carries the data-sale-opt-out embed
+          scripts, which must not load on policy pages.
+        {%- endcomment -%}
+        <a class="policy-tabs__tab" href="/pages/data-sharing-opt-out"{% if page.handle == 'data-sharing-opt-out' %} aria-current="page"{% endif %}>Your Privacy Choices</a>
       </nav>
     </policy-tabs>
   {%- endif -%}
@@ -233,30 +252,42 @@
     </noscript>
   {%- endif -%}
 
-  {%- assign rendered_panels = 0 -%}
-  {%- for shop_policy in shop.policies -%}
-    {%- if shop_policy.title == blank -%}{%- continue -%}{%- endif -%}
-    {%- assign rendered_panels = rendered_panels | plus: 1 -%}
-    {%- assign policy_slug = shop_policy.url | split: '/' | last -%}
-    {%- liquid
-      assign panel_hidden = false
-      if policy_count > 1
-        if active_slug != blank
-          unless policy_slug == active_slug
-            assign panel_hidden = true
-          endunless
-        elsif rendered_panels > 1
-          assign panel_hidden = true
-        endif
-      endif
-    -%}
-    <section id="{{ policy_slug }}" class="policy-block"{% if panel_hidden %} hidden{% endif %}>
-      <h2 class="policy-block__title policy-title h2">{{ shop_policy.title | escape }}</h2>
-      <div class="rte">
-        {{ shop_policy.body }}
-      </div>
+  {%- if is_privacy_choices -%}
+    {%- comment -%}
+      The page body carries Shopify's data-sale-opt-out embed (CDN css/js +
+      hCaptcha) — light DOM, same execution as under the main-page render.
+      No h2: the H1 above already renders page.title. No id/hidden: the tab
+      script never manages this panel.
+    {%- endcomment -%}
+    <section class="policy-block">
+      <div class="rte">{{ page.content }}</div>
     </section>
-  {%- endfor -%}
+  {%- else -%}
+    {%- assign rendered_panels = 0 -%}
+    {%- for shop_policy in shop.policies -%}
+      {%- if shop_policy.title == blank -%}{%- continue -%}{%- endif -%}
+      {%- assign rendered_panels = rendered_panels | plus: 1 -%}
+      {%- assign policy_slug = shop_policy.url | split: '/' | last -%}
+      {%- liquid
+        assign panel_hidden = false
+        if policy_count > 1
+          if active_slug != blank
+            unless policy_slug == active_slug
+              assign panel_hidden = true
+            endunless
+          elsif rendered_panels > 1
+            assign panel_hidden = true
+          endif
+        endif
+      -%}
+      <section id="{{ policy_slug }}" class="policy-block"{% if panel_hidden %} hidden{% endif %}>
+        <h2 class="policy-block__title policy-title h2">{{ shop_policy.title | escape }}</h2>
+        <div class="rte">
+          {{ shop_policy.body }}
+        </div>
+      </section>
+    {%- endfor -%}
+  {%- endif -%}
 </div>
 
 {% schema %}

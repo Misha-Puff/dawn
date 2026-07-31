@@ -465,7 +465,7 @@
       tabindex="-1"
       data-template="{{ template.name }}"
     >
-      {% if request.page_type == 'policy' or template == 'page.policies' %}
+      {% if request.page_type == 'policy' or template == 'page.policies' or page.handle == 'data-sharing-opt-out' %}
         {% comment %}
           Policy pages can't be themed via templates (templates/policy.json is
           rejected at push, templates/policy.liquid uploads but is never
@@ -482,6 +482,10 @@
           silently diverge on the first editor save. This branch bypasses the
           Locksmith chain below, which is fine: policies are public by
           definition.
+
+          The CCPA opt-out page (/pages/data-sharing-opt-out) rides the same
+          intercept so it shares the policy tab row; page is nil on non-page
+          templates, so the handle check is inert everywhere else.
         {% endcomment %}
         {% section 'main-policies' %}
       {% elsif request.design_mode %}
