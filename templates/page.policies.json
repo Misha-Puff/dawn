@@ -11,22 +11,7 @@
   "sections": {
     "main": {
       "type": "main-policies",
-      "settings": {
-        "page_width": "full",
-        "padding_top": 28,
-        "padding_bottom": 28,
-        "show_title": true,
-        "page_enable_type": false,
-        "ph_custom_font": "default",
-        "ph_font_weight": "default",
-        "ph_text_case": "default",
-        "ph_letter_spacing": 0,
-        "pb_custom_font": "default",
-        "pb_font_size": 0,
-        "pb_font_size_mobile": 0,
-        "pb_line_height": 0,
-        "pb_color": ""
-      }
+      "settings": {}
     }
   },
   "order": [

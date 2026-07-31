@@ -465,15 +465,23 @@
       tabindex="-1"
       data-template="{{ template.name }}"
     >
-      {% if request.page_type == 'policy' %}
+      {% if request.page_type == 'policy' or template == 'page.policies' %}
         {% comment %}
           Policy pages can't be themed via templates (templates/policy.json is
           rejected at push, templates/policy.liquid uploads but is never
           consulted) — Shopify injects hardcoded .shopify-policy__* markup into
           content_for_layout. Rendering the section here instead is the only way
           to own the markup; the /policies/* URLs are unchanged. main-policies
-          renders the full tab system with the current policy's tab active
-          (same UI as the consolidated page.policies template).
+          renders the full tab system with the current policy's tab active.
+
+          The consolidated page (template page.policies) routes through this
+          same static render rather than its own template instance so both URL
+          families share ONE settings store — the static instance in
+          config/settings_data.json, editable in the theme editor from either
+          URL. A template-instance copy would keep separate settings that
+          silently diverge on the first editor save. This branch bypasses the
+          Locksmith chain below, which is fine: policies are public by
+          definition.
         {% endcomment %}
         {% section 'main-policies' %}
       {% elsif request.design_mode or lock_content == 'false' %}
