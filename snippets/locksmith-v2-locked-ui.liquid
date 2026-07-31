@@ -12,6 +12,56 @@
     margin-bottom: {{ settings.locksmith_v2_margin_bottom }}px;
   }
 </style>
+{%- comment -%}
+  Optional typography, donor: careers.liquid page_enable_type loop. Two groups
+  keyed by id prefix: msg = the message copy — declarations sit on the wrapper
+  itself because the logged-in-no-access state renders a bare text node (no <p>),
+  and the <p> states inherit from it; btn = the Submit button / Login link.
+  Keys a group doesn't define (e.g. btn line height) resolve nil and emit nothing.
+{%- endcomment -%}
+{%- if settings.locksmith_v2_enable_type -%}
+  {%- capture lock_type_css -%}
+    {%- assign lock_type_groups = 'locksmith_v2_msg|;locksmith_v2_btn| .button' | split: ';' -%}
+    {%- for grp in lock_type_groups -%}
+      {%- assign grp_parts = grp | split: '|' -%}
+      {%- assign gp = grp_parts[0] -%}
+      {%- assign sel = grp_parts[1] -%}
+      {%- assign k_font = gp | append: '_custom_font' -%}
+      {%- assign k_weight = gp | append: '_font_weight' -%}
+      {%- assign k_size = gp | append: '_font_size' -%}
+      {%- assign k_case = gp | append: '_text_case' -%}
+      {%- assign k_ls = gp | append: '_letter_spacing' -%}
+      {%- assign k_color = gp | append: '_color' -%}
+      {%- assign k_lh = gp | append: '_line_height' -%}
+      {%- capture grp_brand -%}{% render 'brand-font', font: settings[k_font] %}{%- endcapture -%}
+      {%- assign grp_brand = grp_brand | strip -%}
+      {%- capture grp_decl -%}
+        {%- if grp_brand != blank %}font-family: {{ grp_brand }};{% endif -%}
+        {%- if settings[k_weight] != 'default' and settings[k_weight] != blank %} font-weight: {{ settings[k_weight] }};{% endif -%}
+        {%- if settings[k_size] > 0 %} font-size: {{ settings[k_size] }}px;{% endif -%}
+        {%- if settings[k_case] != 'default' and settings[k_case] != blank %} text-transform: {{ settings[k_case] }};{% endif -%}
+        {%- if settings[k_ls] > 0 %} letter-spacing: {{ settings[k_ls] }}px;{% endif -%}
+        {%- if settings[k_color] != blank %} color: {{ settings[k_color] }};{% endif -%}
+        {%- if settings[k_lh] > 0 %} line-height: {{ settings[k_lh] }}%;{% endif -%}
+      {%- endcapture -%}
+      {%- assign grp_decl = grp_decl | strip -%}
+      {%- if grp_decl != blank -%}
+        .locksmith-v2-content-wrapper{{ sel }} { {{ grp_decl }} }
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if settings.locksmith_v2_msg_font_size_mobile > 0 -%}
+      @media screen and (max-width: 749px) {
+        .locksmith-v2-content-wrapper { font-size: {{ settings.locksmith_v2_msg_font_size_mobile }}px; }
+      }
+    {%- endif -%}
+  {%- endcapture -%}
+  {%- assign lock_type_css = lock_type_css | strip -%}
+  {%- if lock_type_css != blank -%}
+    <style>
+      {{ lock_type_css }}
+    </style>
+  {%- endif -%}
+{%- endif -%}
 <div class="locksmith-v2-content-wrapper center">
   {% if state == 'password' %}
     <p>
