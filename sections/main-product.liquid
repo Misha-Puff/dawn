@@ -2069,6 +2069,8 @@
         {"type": "range", "id": "line_height", "min": 0, "max": 3, "step": 0.1, "label": "Line height", "info": "Set to 0 to inherit theme default", "default": 0, "visible_if": "{{ block.settings.enable_typography }}"},
         {"type": "range", "id": "letter_spacing", "min": 0, "max": 0.5, "step": 0.1, "unit": "em", "label": "Letter spacing", "default": 0, "visible_if": "{{ block.settings.enable_typography }}"},
         {"type": "select", "id": "text_align", "label": "Text alignment", "options": [{"value": "left", "label": "Left"}, {"value": "center", "label": "Center"}, {"value": "right", "label": "Right"}], "default": "left"},
+        {"type": "header", "content": "Spacing"},
+        {"type": "range", "id": "message_spacing", "min": 0, "max": 40, "step": 1, "unit": "px", "label": "Space between messages", "info": "0 = no extra space", "default": 0},
         {"type": "header", "content": "Padding"},
         {"type": "checkbox", "id": "enable_padding", "default": false, "label": "Enable padding"},
         {"type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Padding top", "default": 0, "visible_if": "{{ block.settings.enable_padding }}"},

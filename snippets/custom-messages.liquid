@@ -102,6 +102,11 @@
       text-align: {{ block.settings.text_align }};
     }
     .custom-messages-block-{{ block.id }} .custom-message p { margin: 0; }
+    {%- assign cm_msg_gap = block.settings.message_spacing | default: 0 -%}
+    {%- if cm_msg_gap > 0 -%}
+      {%- comment -%} ID-scoped to outrank the template custom_css's `#shopify-section-… .custom-message { margin: 0 }`. {%- endcomment -%}
+      #shopify-section-{{ section.id }} .custom-messages-block-{{ block.id }} .custom-message:not(:first-child) { margin-top: {{ cm_msg_gap }}px; }
+    {%- endif -%}
     {%- if block.settings.enable_typography -%}
       {%- comment -%} Font declarations target the <p> directly: the global .custom-message 12px rule would beat inheritance from the wrapper. {%- endcomment -%}
       .custom-messages-block-{{ block.id }} .custom-message {
