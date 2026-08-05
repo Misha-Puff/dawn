@@ -122,7 +122,7 @@
             "text_align": "left",
             "enable_padding": true,
             "padding_top": 0,
-            "padding_bottom": 20,
+            "padding_bottom": 0,
             "padding_top_mobile": 0,
             "padding_bottom_mobile": 0,
             "padding_left_mobile": 0,
