@@ -88,7 +88,7 @@
       <div class="cm-gate-note" style="{{ cm_gate_note_style }}">Storefront gate: product metafield product_page.swatch_message has a value{% if product.metafields.product_page.swatch_message == blank %} — empty on this product, so nothing shows{% endif %}</div>
     {%- endif -%}
     {%- if product.metafields.product_page.swatch_message != blank -%}
-      <div class="custom-message custom_message"{% if block.settings.swatch_message_color != blank %} style="color: {{ block.settings.swatch_message_color }};"{% endif %}>{{ product.metafields.product_page.swatch_message | metafield_tag }}</div>
+      <div class="custom-message custom_message"{% if block.settings.swatch_message_color != blank or block.settings.swatch_message_case == 'uppercase' %} style="{% if block.settings.swatch_message_color != blank %}color: {{ block.settings.swatch_message_color }};{% endif %}{% if block.settings.swatch_message_case == 'uppercase' %} text-transform: uppercase;{% endif %}"{% endif %}>{{ product.metafields.product_page.swatch_message | metafield_tag }}</div>
     {%- endif -%}
   {%- endif -%}
 {%- endcapture -%}

@@ -2059,6 +2059,7 @@
         {"type": "header", "content": "Swatch message", "info": "Prints the product_page.swatch_message metafield when set."},
         {"type": "checkbox", "id": "show_swatch_message", "default": true, "label": "Show swatch message"},
         {"type": "color", "id": "swatch_message_color", "label": "Color", "info": "Leave blank to inherit", "visible_if": "{{ block.settings.show_swatch_message }}"},
+        {"type": "select", "id": "swatch_message_case", "label": "Text case", "options": [{"value": "default", "label": "Default"}, {"value": "uppercase", "label": "Uppercase"}], "default": "uppercase", "visible_if": "{{ block.settings.show_swatch_message }}"},
         {"type": "header", "content": "Typography"},
         {"type": "checkbox", "id": "enable_typography", "default": false, "label": "Enable typography"},
         {"type": "font_picker", "id": "font_family", "default": "assistant_n4", "label": "Font", "visible_if": "{{ block.settings.enable_typography }}"},
