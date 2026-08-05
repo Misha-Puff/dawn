@@ -2052,6 +2052,7 @@
         {"type": "text", "id": "exclusive_collab_text", "default": "Misha & Puff x Isetan Collaboration", "label": "Collab text", "visible_if": "{{ block.settings.show_exclusive }}"},
         {"type": "text", "id": "exclusive_text", "default": "This style is exclusive to Misha & Puff", "label": "Exclusive text", "visible_if": "{{ block.settings.show_exclusive }}"},
         {"type": "color", "id": "exclusive_color", "default": "#0000FF", "label": "Color", "visible_if": "{{ block.settings.show_exclusive }}"},
+        {"type": "checkbox", "id": "exclusive_hides_swatch", "default": false, "label": "Hide swatch message on exclusive styles", "info": "When the exclusive note applies to a product, hide the swatch message.", "visible_if": "{{ block.settings.show_exclusive }}"},
         {"type": "header", "content": "Final sale", "info": "Shown on no-returns-tagged products."},
         {"type": "checkbox", "id": "show_final_sale", "default": true, "label": "Show final sale note"},
         {"type": "text", "id": "final_sale_text", "default": "Final Sale: This item cannot be exchanged or returned", "label": "Text", "visible_if": "{{ block.settings.show_final_sale }}"},
