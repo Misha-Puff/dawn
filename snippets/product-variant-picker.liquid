@@ -138,12 +138,6 @@
         </div>
       </div>
     {%- endif -%}
-
-    {% if option.name == 'Color' and block.settings.swatch_message != '' %}
-      <div class="Block-{{ block.id }} custom_message">
-        {{ block.settings.swatch_message }}
-      </div>
-    {% endif %}
   {%- endfor -%}
 
   <script type="application/json" data-selected-variant>

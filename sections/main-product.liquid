@@ -440,8 +440,8 @@
         {%- endif -%}
       {%- endif -%}
       {%- if block.type == 'variant_picker' -%}
-        {%- comment -%} Per-element typography overrides (option name / values / chosen value / swatch message). Settings follow tg_<element>_<suffix> naming so one data-driven loop reads them via bracket access. Rules are emitted after the shared tg_ base rules above, so they win specificity ties deterministically — 'selected' (chosen value) comes after 'value' in the element list, so it also wins the tie on the dropdown's .select__select. {%- endcomment -%}
-        {%- assign tgv_elements = 'label,value,selected,message' | split: ',' -%}
+        {%- comment -%} Per-element typography overrides (option name / values / chosen value). Settings follow tg_<element>_<suffix> naming so one data-driven loop reads them via bracket access. Rules are emitted after the shared tg_ base rules above, so they win specificity ties deterministically — 'selected' (chosen value) comes after 'value' in the element list, so it also wins the tie on the dropdown's .select__select. {%- endcomment -%}
+        {%- assign tgv_elements = 'label,value,selected' | split: ',' -%}
         {%- for tgv_el in tgv_elements -%}
           {%- assign tgv_key = 'tg_' | append: tgv_el -%}
           {%- assign tgv_enable_key = tgv_key | append: '_enable' -%}
@@ -502,11 +502,6 @@
             {%- when 'selected' -%}
               {%- if tgv_fulldecl != blank -%}
                 #{{ tg_scope }} .Block-{{ block.id }} .form__label [data-selected-value], #{{ tg_scope }} .Block-{{ block.id }} .select__select { {{ tgv_fulldecl }} }
-              {%- endif -%}
-            {%- when 'message' -%}
-              {%- comment -%} The message div carries the Block-id class itself, so this works without the picker wrapper div. {%- endcomment -%}
-              {%- if tgv_fulldecl != blank -%}
-                #{{ tg_scope }} .Block-{{ block.id }}.custom_message, #{{ tg_scope }} .Block-{{ block.id }}.custom_message p { {{ tgv_fulldecl }} }
               {%- endif -%}
           {%- endcase -%}
         {%- endfor -%}
@@ -1296,22 +1291,9 @@
                   surface: 'product_page'
                 -%}
               {%- when 'variant_picker' -%}
-                {% if block.settings.swatch_message != '' %}
-                  {% style %}
-                    .Block-{{ block.id }}.custom_message {
-                      padding-top: {{ block.settings.swatch_message_padding_top }}px;
-                      padding-bottom: {{ block.settings.swatch_message_padding_bottom}}px;
-                      margin: 0;
-                    }
-
-                    .Block-{{ block.id }}.custom_message p{
-                      margin: 0;
-                    }
-                  {% endstyle %}
-                {% endif %}
                 {%- liquid
                   comment
-                    The Block-id wrapper must render whenever any style-loop rule targets it: base padding/typography, the per-element typography groups (message excluded — its div carries the Block-id class itself) or any picker gap.
+                    The Block-id wrapper must render whenever any style-loop rule targets it: base padding/typography, the per-element typography groups or any picker gap.
                   endcomment
                   assign vp_wrap = false
                   if block.settings.tg_enable_padding or block.settings.tg_enable_type
@@ -1909,9 +1891,6 @@
         {"type": "range", "id": "swatch_width", "min": 0, "max": 80, "step": 2, "unit": "px", "label": "Width", "info": "0 = theme default (36px mobile, 28px desktop)", "default": 0},
         {"type": "range", "id": "swatch_height", "min": 0, "max": 80, "step": 2, "unit": "px", "label": "Height", "info": "0 = theme default (square)", "default": 0},
         {"type": "range", "id": "swatch_radius", "min": 0, "max": 40, "step": 1, "unit": "px", "label": "Corner radius", "info": "0 = theme default (follows swatch shape)", "default": 0},
-        {"id": "swatch_message", "type": "richtext", "label": "Swatch Message"},
-        {"type": "range", "id": "swatch_message_padding_top", "min": 0, "max": 100, "step": 5, "unit": "px", "label": "Message Top Padding", "default": 10},
-        {"type": "range", "id": "swatch_message_padding_bottom", "min": 0, "max": 100, "step": 5, "unit": "px", "label": "Message Bottom Padding", "default": 10},
         {"type": "header", "content": "Typography"},
         {"type": "checkbox", "id": "tg_enable_type", "default": false, "label": "Enable typography"},
         {"type": "font_picker", "id": "tg_font", "default": "assistant_n4", "label": "Font", "visible_if": "{{ block.settings.tg_enable_type }}"},
@@ -1952,16 +1931,6 @@
         {"type": "select", "id": "tg_selected_case", "options": [{"value": "default", "label": "Theme default"}, {"value": "uppercase", "label": "Uppercase"}, {"value": "capitalize", "label": "Capitalize"}, {"value": "lowercase", "label": "Lowercase"}, {"value": "none", "label": "Normal (remove uppercase)"}], "default": "default", "label": "Text case", "visible_if": "{{ block.settings.tg_selected_enable }}"},
         {"type": "range", "id": "tg_selected_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Letter spacing", "info": "0 = theme default", "default": 0, "visible_if": "{{ block.settings.tg_selected_enable }}"},
         {"type": "color", "id": "tg_selected_color", "label": "Text color", "info": "Leave blank for theme default", "visible_if": "{{ block.settings.tg_selected_enable }}"},
-        {"type": "header", "content": "Swatch message typography"},
-        {"type": "checkbox", "id": "tg_message_enable", "default": false, "label": "Enable typography"},
-        {"type": "font_picker", "id": "tg_message_font", "default": "assistant_n4", "label": "Font", "visible_if": "{{ block.settings.tg_message_enable }}"},
-        {"type": "select", "id": "tg_message_custom_font", "options": [{"value": "default", "label": "None (use font picker)"}, {"value": "ibm_plex_sans", "label": "IBM Plex Sans"}, {"value": "ibm_plex_mono", "label": "IBM Plex Mono"}, {"value": "inter", "label": "Inter"}, {"value": "geist", "label": "Geist"}, {"value": "geist_mono", "label": "Geist Mono"}, {"value": "overpass", "label": "Overpass"}, {"value": "overpass_mono", "label": "Overpass Mono"}, {"value": "dm_sans", "label": "DM Sans"}, {"value": "dm_mono", "label": "DM Mono"}, {"value": "manrope", "label": "Manrope"}, {"value": "open_sans", "label": "Open Sans"}], "default": "default", "label": "Brand font", "info": "Overrides the font picker above when set", "visible_if": "{{ block.settings.tg_message_enable }}"},
-        {"type": "select", "id": "tg_message_weight", "options": [{"value": "default", "label": "Theme default"}, {"value": "300", "label": "Light"}, {"value": "400", "label": "Regular"}, {"value": "500", "label": "Medium"}, {"value": "600", "label": "Semibold"}, {"value": "700", "label": "Bold"}], "default": "default", "label": "Font weight", "visible_if": "{{ block.settings.tg_message_enable }}"},
-        {"type": "range", "id": "tg_message_size", "min": 0, "max": 72, "step": 1, "unit": "px", "label": "Font size", "info": "0 = theme default", "default": 0, "visible_if": "{{ block.settings.tg_message_enable }}"},
-        {"type": "range", "id": "tg_message_line_height", "min": 0, "max": 250, "step": 5, "unit": "%", "label": "Line height", "info": "0 = theme default", "default": 0, "visible_if": "{{ block.settings.tg_message_enable }}"},
-        {"type": "select", "id": "tg_message_case", "options": [{"value": "default", "label": "Theme default"}, {"value": "uppercase", "label": "Uppercase"}, {"value": "capitalize", "label": "Capitalize"}, {"value": "lowercase", "label": "Lowercase"}, {"value": "none", "label": "Normal (remove uppercase)"}], "default": "default", "label": "Text case", "visible_if": "{{ block.settings.tg_message_enable }}"},
-        {"type": "range", "id": "tg_message_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Letter spacing", "info": "0 = theme default", "default": 0, "visible_if": "{{ block.settings.tg_message_enable }}"},
-        {"type": "color", "id": "tg_message_color", "label": "Text color", "info": "Leave blank for theme default", "visible_if": "{{ block.settings.tg_message_enable }}"},
         {"type": "header", "content": "Picker spacing"},
         {"type": "range", "id": "tg_gap_option_groups", "min": 0, "max": 60, "step": 2, "unit": "px", "label": "Gap between option groups", "info": "0 = theme default", "default": 0},
         {"type": "range", "id": "tg_gap_pills", "min": 0, "max": 40, "step": 1, "unit": "px", "label": "Gap between pills", "info": "0 = theme default", "default": 0},
@@ -2087,6 +2056,9 @@
         {"type": "checkbox", "id": "show_final_sale", "default": true, "label": "Show final sale note"},
         {"type": "text", "id": "final_sale_text", "default": "Final Sale: This item cannot be exchanged or returned", "label": "Text", "visible_if": "{{ block.settings.show_final_sale }}"},
         {"type": "color", "id": "final_sale_color", "label": "Color", "info": "Leave blank to inherit", "visible_if": "{{ block.settings.show_final_sale }}"},
+        {"type": "header", "content": "Swatch message", "info": "Prints the product_page.swatch_message metafield when set."},
+        {"type": "checkbox", "id": "show_swatch_message", "default": true, "label": "Show swatch message"},
+        {"type": "color", "id": "swatch_message_color", "label": "Color", "info": "Leave blank to inherit", "visible_if": "{{ block.settings.show_swatch_message }}"},
         {"type": "header", "content": "Typography"},
         {"type": "checkbox", "id": "enable_typography", "default": false, "label": "Enable typography"},
         {"type": "font_picker", "id": "font_family", "default": "assistant_n4", "label": "Font", "visible_if": "{{ block.settings.enable_typography }}"},

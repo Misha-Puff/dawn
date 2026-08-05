@@ -2,7 +2,8 @@
   Renders the consolidated PDP "Custom Messages" block (main-product `custom_messages`).
 
   Replaces the five legacy custom_liquid message blocks (D&T Info, Custom Message Metafield,
-  Free Adult Returns, Exclusive, Final Sale). Message conditions are built-in; copy and
+  Free Adult Returns, Exclusive, Final Sale) plus the swatch message that formerly rendered
+  inside the variant picker. Message conditions are built-in; copy and
   per-message colors come from block settings. Shared typography/padding mirrors the
   custom_liquid block's model (see sections/main-product.liquid `custom_liquid` case).
 
@@ -82,6 +83,14 @@
       {%- if product.tags contains 'no-returns' -%}{{ cm_msg }}{%- endif -%}
     {%- endif -%}
   {%- endif -%}
+  {%- if block.settings.show_swatch_message -%}
+    {%- if request.design_mode -%}
+      <div class="cm-gate-note" style="{{ cm_gate_note_style }}">Storefront gate: product metafield product_page.swatch_message has a value{% if product.metafields.product_page.swatch_message == blank %} — empty on this product, so nothing shows{% endif %}</div>
+    {%- endif -%}
+    {%- if product.metafields.product_page.swatch_message != blank -%}
+      <div class="custom-message custom_message"{% if block.settings.swatch_message_color != blank %} style="color: {{ block.settings.swatch_message_color }};"{% endif %}>{{ product.metafields.product_page.swatch_message | metafield_tag }}</div>
+    {%- endif -%}
+  {%- endif -%}
 {%- endcapture -%}
 {%- if cm_messages != blank -%}
   {%- capture cm_brand_stack -%}{% render 'brand-font', font: block.settings.custom_font_family %}{%- endcapture -%}
@@ -92,6 +101,7 @@
       font-weight: {{ block.settings.font_weight }};
       text-align: {{ block.settings.text_align }};
     }
+    .custom-messages-block-{{ block.id }} .custom-message p { margin: 0; }
     {%- if block.settings.enable_typography -%}
       {%- comment -%} Font declarations target the <p> directly: the global .custom-message 12px rule would beat inheritance from the wrapper. {%- endcomment -%}
       .custom-messages-block-{{ block.id }} .custom-message {
