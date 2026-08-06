@@ -22,25 +22,6 @@
   same capture under the original gate, so storefront rendering is byte-identical.
 {%- endcomment -%}
 {%- capture cm_gate_note_style -%}padding: 8px 12px; margin: 0 0 8px; background: #fff8e1; border: 1px dashed #b28704; color: #6b5104; font-size: 12px; font-family: 'Courier New', monospace; letter-spacing: 0.05em; text-align: left;{%- endcapture -%}
-{%- liquid
-  comment
-    Exclusive override: when the block setting is on and the exclusive message applies to
-    this product, the swatch message is suppressed on the storefront. Design mode never
-    suppresses, so all copy stays findable and editable.
-  endcomment
-  assign cm_exclusive_active = false
-  if block.settings.show_exclusive
-    if product.tags contains 'Badge-Exclusive Collab' and block.settings.exclusive_collab_text != blank
-      assign cm_exclusive_active = true
-    elsif product.tags contains 'Badge-Exclusive' and block.settings.exclusive_text != blank
-      assign cm_exclusive_active = true
-    endif
-  endif
-  assign cm_suppress_swatch = false
-  if block.settings.exclusive_hides_swatch and cm_exclusive_active and request.design_mode != true
-    assign cm_suppress_swatch = true
-  endif
--%}
 {%- capture cm_messages -%}
   {%- comment -%}
     One flat message for every non-US buyer (Nathan's 2026-07-13 ruling). The hk market's
@@ -102,9 +83,9 @@
       {%- if product.tags contains 'no-returns' -%}{{ cm_msg }}{%- endif -%}
     {%- endif -%}
   {%- endif -%}
-  {%- if block.settings.show_swatch_message and cm_suppress_swatch == false -%}
+  {%- if block.settings.show_swatch_message -%}
     {%- if request.design_mode -%}
-      <div class="cm-gate-note" style="{{ cm_gate_note_style }}">Storefront gate: product metafield product_page.swatch_message has a value{% if product.metafields.product_page.swatch_message == blank %} — empty on this product, so nothing shows{% endif %}{% if block.settings.exclusive_hides_swatch %} + exclusive override is ON: hidden whenever the exclusive message shows{% endif %}</div>
+      <div class="cm-gate-note" style="{{ cm_gate_note_style }}">Storefront gate: product metafield product_page.swatch_message has a value{% if product.metafields.product_page.swatch_message == blank %} — empty on this product, so nothing shows{% endif %}</div>
     {%- endif -%}
     {%- if product.metafields.product_page.swatch_message != blank -%}
       <div class="custom-message custom_message"{% if block.settings.swatch_message_color != blank or block.settings.swatch_message_case == 'uppercase' %} style="{% if block.settings.swatch_message_color != blank %}color: {{ block.settings.swatch_message_color }};{% endif %}{% if block.settings.swatch_message_case == 'uppercase' %} text-transform: uppercase;{% endif %}"{% endif %}>{{ product.metafields.product_page.swatch_message | metafield_tag }}</div>
