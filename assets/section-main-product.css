@@ -1732,6 +1732,9 @@ a.product__text {
   .product--stacked_scroll .thumbnail-slider--rail .thumbnail-list {
     display: flex;
     flex-direction: column;
+    /* the base .thumbnail-list rule sets flex-wrap: wrap, which would wrap
+       overflow thumbs into a hidden second column instead of scrolling */
+    flex-wrap: nowrap;
     gap: 1rem;
     /* Peek clamp: when the list overflows, end it half-way through the next thumb
        (a 2:3 thumb is 1.5 × size tall; half = 0.75 × size) so the cut reads as
