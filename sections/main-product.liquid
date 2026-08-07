@@ -268,6 +268,17 @@
     }
 
     {%- comment -%}
+      "Fade clipped thumbnails" off: drop the edge-fade mask. The peek clamp and
+      rail scrolling stay; only the soft fade goes. ID scope beats the class rule.
+    {%- endcomment -%}
+    {%- unless section.settings.rail_fade -%}
+      #MainProduct-{{ section.id }} .thumbnail-slider--rail .thumbnail-list {
+        -webkit-mask-image: none;
+        mask-image: none;
+      }
+    {%- endunless -%}
+
+    {%- comment -%}
       Name + thumbnails top offset. The info container and the stacked-scroll rail
       are both sticky and rest at the first image's top; margin-top nudges their
       REST position down together (the sticky top stays = --header-height, so they
@@ -2335,6 +2346,7 @@
     {"type": "range", "id": "thumbnail_size", "min": 40, "max": 160, "step": 2, "unit": "px", "default": 64, "label": "Thumbnail rail size", "info": "Width of the sticky thumbnail rail. \"Stacked scroll\" layout, desktop only."},
     {"type": "range", "id": "thumbnail_gap", "min": 0, "max": 96, "step": 2, "unit": "px", "default": 16, "label": "Thumbnail rail gap", "info": "Space between the thumbnail rail and the main photo. \"Stacked scroll\" layout, desktop only."},
     {"type": "range", "id": "rail_max_height", "min": 0, "max": 1000, "step": 10, "unit": "px", "default": 0, "label": "Thumbnail rail max height", "info": "Cap the rail height so thumbnails end higher up. 0 = full height; rail scrolls if more. \"Stacked scroll\" desktop only."},
+    {"type": "checkbox", "id": "rail_fade", "default": true, "label": "Fade clipped thumbnails", "info": "Soft fade at the rail's edge when more thumbnails are hidden. The rail still scrolls and shows a half-visible next thumbnail either way. \"Stacked scroll\" desktop only."},
     {"type": "range", "id": "info_thumb_top_offset", "min": 0, "max": 40, "step": 2, "unit": "px", "default": 0, "label": "Name + thumbnails top offset", "info": "Nudge the product name + thumbnail rail down from the image top. 0 = aligned. Desktop only."},
     {"type": "select", "id": "mobile_thumbnails", "options": [{"value": "columns", "label": "t:sections.main-product.settings.mobile_thumbnails.options__1.label"}, {"value": "show", "label": "t:sections.main-product.settings.mobile_thumbnails.options__2.label"}, {"value": "hide", "label": "t:sections.main-product.settings.mobile_thumbnails.options__3.label"}], "default": "hide", "label": "t:sections.main-product.settings.mobile_thumbnails.label"},
     {"type": "header", "content": "Mobile slider controls", "info": "Prev/next arrows + \"1 / 5\" counter under the gallery. Mobile only."},
