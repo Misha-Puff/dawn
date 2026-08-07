@@ -2418,6 +2418,10 @@
         },
         "enable_video_looping": {
           "label": "Loop video"
+        },
+        "enable_video_autoplay": {
+          "label": "Autoplay videos",
+          "info": "Shopify-hosted videos play muted without controls. YouTube and Vimeo videos are not affected."
         }
       }
     },

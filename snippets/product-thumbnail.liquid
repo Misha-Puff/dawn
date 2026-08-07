@@ -9,6 +9,7 @@
   - desktop_layout: {String} Layout of the media for desktop.
   - mobile_layout: {String} Layout of the media for mobile.
   - loop: {Boolean} Enable video looping (optional)
+  - autoplay: {Boolean} Ambient autoplay for hosted videos (optional)
   - modal_id: {String} The product modal that will be shown by clicking the thumbnail
   - xr_button: {Boolean} Renders the "View in your space" button (shopify-xr-button) if the media is a 3D Model
   - constrain_to_viewport: {Boolean} Force media height to fit within viewport
@@ -44,6 +45,11 @@
   if media.media_type == 'image'
     assign image_class = 'image-magnify-' | append: section.settings.image_zoom
   endif
+
+  assign ambient_video = false
+  if autoplay and media.media_type == 'video'
+    assign ambient_video = true
+  endif
 -%}
 
 {%- capture sizes -%}
@@ -63,6 +69,11 @@
   class="product-media-container media-type-{{ media.media_type }} media-fit-{{ media_fit }} global-media-settings gradient{% if constrain_to_viewport %} constrain-height{% endif %}"
   style="--ratio: {{ ratio | default: 1.0 }}; --preview-ratio: {{ preview_ratio | default: 1.0 }};"
 >
+  {%- if ambient_video -%}
+    <div class="product__media media media--transparent" data-ambient-video>
+      {{ media | media_tag: image_size: '2048x', autoplay: true, loop: loop, muted: true }}
+    </div>
+  {%- else -%}
   <modal-opener
     class="product__modal-opener product__modal-opener--{{ media.media_type }}"
     data-modal="#ProductModal-{{ modal_id }}"
@@ -178,5 +189,6 @@
     {%- else -%}
       </deferred-media>
     {%- endif -%}
+  {%- endif -%}
   {%- endif -%}
 </div>
