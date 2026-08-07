@@ -256,12 +256,15 @@
 
     {%- comment -%}
       Stacked-scroll thumbnail rail controls (desktop only). Consumed by the
-      .thumbnail-slider--rail rules in section-main-product.css. px→rem ÷10 keeps
-      Dawn's 62.5% rem basis, so the defaults (64/16) reproduce 6.4rem/1.6rem exactly.
+      .thumbnail-slider--rail rules in section-main-product.css. Emitted as true px —
+      the store's body_scale makes 1rem ≠ 10px, so a rem conversion would silently
+      shrink the labeled values. Pitch = one 2:3 thumb (1.5 × size) + the list's
+      1rem gap; the rail's peek clamp steps by it.
     {%- endcomment -%}
     #MainProduct-{{ section.id }} {
-      --mp-thumb-size: {{ section.settings.thumbnail_size | divided_by: 10.0 }}rem;
-      --mp-thumb-gap: {{ section.settings.thumbnail_gap | divided_by: 10.0 }}rem;
+      --mp-thumb-size: {{ section.settings.thumbnail_size }}px;
+      --mp-thumb-gap: {{ section.settings.thumbnail_gap }}px;
+      --mp-thumb-pitch: calc(var(--mp-thumb-size) * 1.5 + 1rem);
     }
 
     {%- comment -%}
@@ -284,13 +287,20 @@
     {%- comment -%}
       Thumbnail rail max height — lets the thumbnails "end higher up". Overrides the
       default calc(100vh - 153px) cap; the rail keeps overflow-y:auto so extra
-      thumbnails scroll. 0 = full height (default). Desktop stacked layout.
+      thumbnails scroll. The second declaration mirrors the peek clamp in
+      section-main-product.css so the cap also lands half-way through a thumb
+      (plain px line = fallback for browsers without round()). 0 = full height
+      (default). Desktop stacked layout.
     {%- endcomment -%}
     {%- assign rail_mh = section.settings.rail_max_height | default: 0 -%}
     {%- if rail_mh > 0 -%}
       @media screen and (min-width: 1100px) {
         #MainProduct-{{ section.id }} .thumbnail-slider--rail .thumbnail-list {
           max-height: {{ rail_mh }}px;
+          max-height: calc(
+            round(down, {{ rail_mh }}px - var(--mp-thumb-size, 64px) * 0.75, var(--mp-thumb-pitch, 104px))
+            + var(--mp-thumb-size, 64px) * 0.75
+          );
         }
       }
     {%- endif -%}

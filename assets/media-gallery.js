@@ -29,7 +29,34 @@ if (!customElements.get('media-gallery')) {
             .addEventListener('click', this.setActiveMedia.bind(this, mediaToSwitch.dataset.target, false));
         });
         if (this.dataset.desktopLayout.includes('thumbnail') && this.mql.matches) this.removeListSemantic();
-        if (this.isStackedScroll) this.initScrollSpy();
+        if (this.isStackedScroll) {
+          this.initScrollSpy();
+          this.initRailFade();
+        }
+      }
+
+      initRailFade() {
+        const list = this.elements.thumbnails.slider;
+        if (!list) return;
+        this.updateRailFade();
+        list.addEventListener('scroll', () => this.updateRailFade(), { passive: true });
+        const refresh = debounce(() => this.updateRailFade(), 100);
+        window.addEventListener('resize', refresh);
+        this.railMql.addEventListener('change', () => this.updateRailFade());
+      }
+
+      // Toggles the rail's edge-fade classes (styled in section-main-product.css)
+      // so a fade only shows where thumbnails are actually clipped.
+      updateRailFade() {
+        const rail = this.elements.thumbnails;
+        const list = rail.slider;
+        if (!list) return;
+        if (!this.railMql.matches) {
+          rail.classList.remove('rail--more-above', 'rail--more-below');
+          return;
+        }
+        rail.classList.toggle('rail--more-above', list.scrollTop > 1);
+        rail.classList.toggle('rail--more-below', list.scrollTop + list.clientHeight < list.scrollHeight - 1);
       }
 
       initScrollSpy() {

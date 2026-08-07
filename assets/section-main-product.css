@@ -1699,7 +1699,7 @@ a.product__text {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    column-gap: var(--mp-thumb-gap, 1.6rem);
+    column-gap: var(--mp-thumb-gap, 16px);
   }
 
   /* gallery must scroll normally so the rail can stick; info column stickiness untouched */
@@ -1720,7 +1720,7 @@ a.product__text {
   .product--stacked_scroll .thumbnail-slider--rail {
     order: -1;
     flex: 0 0 auto;
-    width: var(--mp-thumb-size, 6.4rem);
+    width: var(--mp-thumb-size, 64px);
     position: sticky;
     top: var(--header-height, 55px); /* mirrors .product__column-sticky offset; media-gallery.js reads --header-height */
   }
@@ -1733,9 +1733,43 @@ a.product__text {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    /* Peek clamp: when the list overflows, end it half-way through the next thumb
+       (a 2:3 thumb is 1.5 × size tall; half = 0.75 × size) so the cut reads as
+       "more below" instead of a complete list. Plain calc = fallback for browsers
+       without round(). Inert when all thumbs fit. */
     max-height: calc(100vh - 153px);
+    max-height: calc(
+      round(down, 100vh - 153px - var(--mp-thumb-size, 64px) * 0.75, var(--mp-thumb-pitch, 104px))
+      + var(--mp-thumb-size, 64px) * 0.75
+    );
     overflow-y: auto;
     scrollbar-width: none;
+    /* Soft fade at the clipped edge(s). The mask sits on the scroll box, so it is
+       viewport-fixed and fades whatever scrolls under the edge; the vars are
+       toggled via rail--more-above/below (media-gallery.js). Both 0 → fully
+       opaque → no change for short lists. */
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0,
+      black var(--rail-fade-top, 0px),
+      black calc(100% - var(--rail-fade-bottom, 0px)),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0,
+      black var(--rail-fade-top, 0px),
+      black calc(100% - var(--rail-fade-bottom, 0px)),
+      transparent 100%
+    );
+  }
+
+  .product--stacked_scroll .thumbnail-slider--rail.rail--more-below .thumbnail-list {
+    --rail-fade-bottom: calc(var(--mp-thumb-size, 64px) * 0.75);
+  }
+
+  .product--stacked_scroll .thumbnail-slider--rail.rail--more-above .thumbnail-list {
+    --rail-fade-top: calc(var(--mp-thumb-size, 64px) * 0.75);
   }
 
   .product--stacked_scroll .thumbnail-slider--rail .thumbnail-list::-webkit-scrollbar {
