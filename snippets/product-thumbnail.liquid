@@ -71,7 +71,7 @@
 >
   {%- if ambient_video -%}
     <div class="product__media media media--transparent" data-ambient-video>
-      {{ media | media_tag: image_size: '2048x', autoplay: true, loop: loop, muted: true }}
+      {{ media | media_tag: image_size: '2048x', autoplay: true, loop: loop, muted: true, controls: false }}
     </div>
   {%- else -%}
   <modal-opener
