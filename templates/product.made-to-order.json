@@ -394,6 +394,7 @@
         "thumbnail_size": 64,
         "thumbnail_gap": 76,
         "rail_max_height": 0,
+        "rail_fade": false,
         "media_enable_padding": true,
         "media_padding_left": 30,
         "media_padding_right": 0,

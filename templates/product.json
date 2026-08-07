@@ -445,6 +445,7 @@
         "thumbnail_size": 64,
         "thumbnail_gap": 76,
         "rail_max_height": 0,
+        "rail_fade": false,
         "info_thumb_top_offset": 0,
         "mobile_thumbnails": "hide",
         "mcc_enable": true,
