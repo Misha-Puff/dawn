@@ -107,6 +107,43 @@
             "tg_padding_right_mobile": 0
           }
         },
+        "text_GCGqn4": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "This yarn is made from production overages.",
+            "text_style": "body",
+            "tg_enable_type": true,
+            "tg_font": "inter_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "400",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_enable_padding": true,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
+          }
+        },
+        "text_3RRpf3": {
+          "type": "text",
+          "settings": {
+            "text": "Check out our <a href=\"/collections/knitting-patterns\" title=\"Knitting Patterns\">knitting patterns</a>.",
+            "text_style": "body",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "overpass_mono",
+            "tg_font_weight": "500",
+            "tg_font_size": 10,
+            "tg_line_height": 150,
+            "tg_text_case": "uppercase",
+            "tg_letter_spacing": 0.2,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
+          }
+        },
         "variant_picker_bFRmag": {
           "type": "variant_picker",
           "settings": {
@@ -252,42 +289,6 @@
             "tg_padding_top": 0,
             "tg_padding_bottom": 0
           }
-        },
-        "text_GCGqn4": {
-          "type": "text",
-          "settings": {
-            "text": "This yarn is made from production overages.",
-            "text_style": "body",
-            "tg_enable_type": true,
-            "tg_font": "inter_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "400",
-            "tg_font_size": 12,
-            "tg_line_height": 150,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0.1,
-            "tg_enable_padding": true,
-            "tg_padding_top": 0,
-            "tg_padding_bottom": 0
-          }
-        },
-        "text_3RRpf3": {
-          "type": "text",
-          "settings": {
-            "text": "Check out our <a href=\"/collections/knitting-patterns\" title=\"Knitting Patterns\">knitting patterns</a>.",
-            "text_style": "body",
-            "tg_enable_type": true,
-            "tg_font": "assistant_n4",
-            "tg_custom_font": "overpass_mono",
-            "tg_font_weight": "500",
-            "tg_font_size": 10,
-            "tg_line_height": 150,
-            "tg_text_case": "uppercase",
-            "tg_letter_spacing": 0.2,
-            "tg_enable_padding": false,
-            "tg_padding_top": 0,
-            "tg_padding_bottom": 0
-          }
         }
       },
       "block_order": [
@@ -296,13 +297,13 @@
         "rating_fBYWfr",
         "price",
         "description",
+        "text_GCGqn4",
+        "text_3RRpf3",
         "variant_picker_bFRmag",
         "quantity_selector_qaKBkM",
         "inventory_PfG9Nk",
         "bis_form_BBMrzi",
-        "buy_buttons",
-        "text_GCGqn4",
-        "text_3RRpf3"
+        "buy_buttons"
       ],
       "settings": {
         "enable_sticky_info": true,
