@@ -17,15 +17,15 @@
           "settings": {
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
+            "tg_custom_font": "overpass_mono",
+            "tg_font_weight": "default",
             "tg_font_size": 10,
             "tg_line_height": 0,
             "tg_text_case": "uppercase",
+            "tg_letter_spacing": 0,
             "tg_enable_padding": false,
             "tg_padding_top": 0,
-            "tg_padding_bottom": 0,
-            "tg_custom_font": "overpass_mono",
-            "tg_font_weight": "default",
-            "tg_letter_spacing": 0
+            "tg_padding_bottom": 0
           }
         },
         "title": {
@@ -50,11 +50,25 @@
         },
         "rating_fBYWfr": {
           "type": "rating",
-          "settings": {}
+          "settings": {
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
+          }
         },
         "price": {
           "type": "price",
           "settings": {
+            "price_beside_title": true,
+            "price_wrap_gap": 0,
             "tg_enable_type": true,
             "tg_font": "geist_mono_n3",
             "tg_custom_font": "overpass_mono",
@@ -79,6 +93,9 @@
             "color_picker_type": "button",
             "size_picker_type": "dropdown",
             "swatch_shape": "square",
+            "swatch_width": 28,
+            "swatch_height": 18,
+            "swatch_radius": 0,
             "tg_enable_type": true,
             "tg_font": "inter_n4",
             "tg_custom_font": "default",
@@ -129,7 +146,11 @@
         },
         "quantity_selector_qaKBkM": {
           "type": "quantity_selector",
-          "settings": {}
+          "settings": {
+            "tg_enable_padding": true,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
+          }
         },
         "inventory_PfG9Nk": {
           "type": "inventory",
@@ -153,6 +174,9 @@
         "bis_form_BBMrzi": {
           "type": "bis_form",
           "settings": {
+            "bis_trigger_label": "NOTIFY",
+            "bis_title": "Be the first to know.",
+            "bis_subtitle": "Sign up for in-stock alerts and we'll notify you if it becomes available or if we make more.",
             "tg_title_enable": true,
             "tg_title_font": "inter_n4",
             "tg_title_custom_font": "overpass_mono",
@@ -180,6 +204,10 @@
             "tg_button_case": "default",
             "tg_button_letter_spacing": 0,
             "tg_button_color": "",
+            "bis_padding_top": 30,
+            "bis_padding_right": 30,
+            "bis_padding_bottom": 30,
+            "bis_padding_left": 30,
             "tg_enable_padding": false,
             "tg_padding_top": 0,
             "tg_padding_bottom": 0
@@ -207,6 +235,7 @@
         "description": {
           "type": "description",
           "settings": {
+            "body_text_color": "#1a1a1a",
             "tg_enable_type": true,
             "tg_font": "inter_n4",
             "tg_custom_font": "default",
@@ -228,14 +257,36 @@
           "type": "text",
           "settings": {
             "text": "This yarn is made from production overages.",
-            "text_style": "body"
+            "text_style": "body",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
           }
         },
         "text_3RRpf3": {
           "type": "text",
           "settings": {
             "text": "Check out our knitting patterns <a href=\"/collections/knitting-patterns\" title=\"Knitting Patterns\">here</a>.",
-            "text_style": "body"
+            "text_style": "body",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0
           }
         }
       },
@@ -255,38 +306,50 @@
       ],
       "settings": {
         "enable_sticky_info": true,
+        "show_breadcrumb": false,
         "color_scheme": "",
         "media_size": "large",
         "constrain_to_viewport": false,
         "media_fit": "contain",
         "image_ratio": "adapt",
         "gallery_layout": "stacked_scroll",
-        "mobile_thumbnails": "hide",
-        "media_position": "left",
-        "image_zoom": "none",
-        "hide_variants": true,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12,
         "show_thumbnail_rail": true,
         "thumbnail_size": 64,
         "thumbnail_gap": 76,
         "rail_max_height": 0,
         "rail_fade": false,
-        "media_enable_padding": true,
-        "media_padding_left": 30,
-        "media_padding_right": 0,
         "info_thumb_top_offset": 0,
+        "mobile_thumbnails": "hide",
         "mcc_enable": true,
         "mcc_font": "assistant_n4",
         "mcc_custom_font": "overpass_mono",
         "mcc_weight": "400",
-        "mcc_size": 0,
+        "mcc_size": 11,
         "mcc_letter_spacing": 1,
         "mcc_height": 26,
         "mcc_gap": 0,
         "mcc_margin_top": 0,
-        "mcc_margin_bottom": 16
+        "mcc_margin_bottom": 16,
+        "media_position": "left",
+        "image_zoom": "none",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "enable_video_autoplay": false,
+        "padding_top": 36,
+        "padding_bottom": 12,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "info_enable_padding": false,
+        "info_padding_left": 0,
+        "info_padding_right": 0,
+        "info_block_spacing": 0,
+        "info_padding_top_mobile": 0,
+        "info_padding_bottom_mobile": 0,
+        "info_padding_left_mobile": 0,
+        "info_padding_right_mobile": 0,
+        "media_enable_padding": true,
+        "media_padding_left": 30,
+        "media_padding_right": 0
       }
     },
     "image_with_text_T9CkTT": {
@@ -297,14 +360,44 @@
           "disabled": true,
           "settings": {
             "heading": "Image with text",
-            "heading_size": "h1"
+            "heading_size": "h1",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": "",
+            "tg_font_size_mobile": 0,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0,
+            "tg_padding_top_mobile": 0,
+            "tg_padding_bottom_mobile": 0
           }
         },
         "text_XCxQCP": {
           "type": "text",
           "settings": {
             "text": "<p>INFINITE VARIATIONS — THE MAGIC OF HAND-DYE<strong><br/><br/></strong>Our hand-dyed Superwash Merino wool and Pima cotton yarn is ethically crafted by skilled artisans in Peru using premium fibers and low-impact dyes. Each strand is unique, with subtle nuances from the hand-dye process that make every garment one of a kind. These natural variations mean no two pieces are the same — a celebration of craft and the presence of the hand, and exactly why we love it. Because of this, we can’t guarantee your finished garment will match the swatch exactly, but it will be a true one-of-a-kind heirloom. Read more about our materials <a href=\"https://shop.misha-and-puff.com/pages/materials\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/pages/materials\">here</a>.</p>",
-            "text_style": "body"
+            "text_style": "body",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": "",
+            "tg_font_size_mobile": 0,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0,
+            "tg_padding_top_mobile": 0,
+            "tg_padding_bottom_mobile": 0
           }
         },
         "button_9zqJpg": {
@@ -313,7 +406,24 @@
           "settings": {
             "button_label": "Button label",
             "button_link": "",
-            "button_style_secondary": false
+            "button_style_secondary": false,
+            "button_full_width": false,
+            "button_radius": 0,
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": "",
+            "tg_font_size_mobile": 0,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0,
+            "tg_padding_top_mobile": 0,
+            "tg_padding_bottom_mobile": 0
           }
         }
       },
@@ -325,17 +435,30 @@
       "settings": {
         "image": "shopify://shop_images/MP_Hand-Dye_25.gif",
         "height": "adapt",
+        "custom_height": 0,
+        "image_radius": 0,
         "desktop_image_width": "small",
+        "image_width_custom": 45,
+        "column_gap": 0,
+        "full_width": true,
         "layout": "text_first",
         "image_behavior": "none",
         "content_layout": "no-overlap",
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
+        "content_max_width": 0,
+        "content_padding_x": 100,
+        "content_padding_y": 0,
+        "content_padding_x_mobile": 12,
+        "content_padding_y_mobile": 30,
         "section_color_scheme": "",
         "color_scheme": "",
         "padding_top": 100,
         "padding_bottom": 60,
+        "enable_mobile_padding": true,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 60,
         "show_section_tag": ""
       }
     },
@@ -353,8 +476,58 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": true,
+        "show_size_overlay": true,
+        "size_overlay_bg_color": "#ffffff",
+        "size_overlay_opacity": 60,
+        "size_overlay_position": "bottom",
+        "size_overlay_padding_top": 6,
+        "size_overlay_padding_bottom": 6,
+        "enable_swatches": true,
+        "swatch_card_width": 20,
+        "swatch_card_height": 12,
+        "swatch_card_radius": 0,
+        "card_spacing_enable": true,
+        "card_info_padding_top": 8,
+        "card_title_price_gap": 2,
+        "card_color_space_top": 0,
+        "card_color_space_bottom": 0,
+        "card_swatch_space": 6,
+        "card_swatch_gap": 6,
+        "card_badge_space": 8,
+        "card_badge_gap": 10,
+        "card_spacing_enable_mobile": true,
+        "card_info_padding_top_mobile": 8,
+        "card_title_price_gap_mobile": 2,
+        "card_color_space_top_mobile": 0,
+        "card_color_space_bottom_mobile": 0,
+        "card_swatch_space_mobile": 6,
+        "card_swatch_gap_mobile": 6,
+        "card_badge_space_mobile": 8,
+        "card_badge_gap_mobile": 8,
+        "card_title_size": 11,
+        "card_title_weight": "default",
+        "card_title_case": "uppercase",
+        "card_title_letter_spacing": 0.2,
+        "card_color_size": 11,
+        "card_color_case": "default",
+        "card_price_size": 11,
+        "card_price_weight": "default",
+        "card_price_letter_spacing": 0.2,
+        "card_price_color": "#1a1a1a",
+        "card_sale_price_gap": 0,
+        "card_badge_size": 0,
+        "card_badge_weight": "default",
+        "card_badge_letter_spacing": 0.2,
+        "card_availability_size": 11,
+        "card_availability_weight": "default",
+        "quick_add": "none",
+        "quick_add_mobile_only": true,
         "padding_top": 36,
-        "padding_bottom": 28
+        "padding_bottom": 28,
+        "heart_custom": false,
+        "heart_size": 13,
+        "heart_top": 8,
+        "heart_right": 8
       }
     },
     "17220167188c825a94": {
