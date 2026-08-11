@@ -86,6 +86,27 @@
             "tg_padding_right_mobile": 0
           }
         },
+        "description": {
+          "type": "description",
+          "settings": {
+            "body_text_color": "#1a1a1a",
+            "tg_enable_type": true,
+            "tg_font": "inter_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "400",
+            "tg_font_size": 12,
+            "tg_line_height": 155,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_enable_padding": true,
+            "tg_padding_top": 20,
+            "tg_padding_bottom": 0,
+            "tg_padding_top_mobile": 0,
+            "tg_padding_bottom_mobile": 0,
+            "tg_padding_left_mobile": 0,
+            "tg_padding_right_mobile": 0
+          }
+        },
         "variant_picker_bFRmag": {
           "type": "variant_picker",
           "settings": {
@@ -93,15 +114,15 @@
             "color_picker_type": "button",
             "size_picker_type": "dropdown",
             "swatch_shape": "square",
-            "swatch_width": 28,
+            "swatch_width": 30,
             "swatch_height": 18,
             "swatch_radius": 0,
             "tg_enable_type": true,
             "tg_font": "inter_n4",
             "tg_custom_font": "default",
             "tg_font_weight": "400",
-            "tg_font_size": 12,
-            "tg_line_height": 0,
+            "tg_font_size": 10,
+            "tg_line_height": 150,
             "tg_text_case": "default",
             "tg_letter_spacing": 0.1,
             "tg_color": "#1a1a1a",
@@ -232,27 +253,6 @@
             "tg_padding_bottom": 0
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {
-            "body_text_color": "#1a1a1a",
-            "tg_enable_type": true,
-            "tg_font": "inter_n4",
-            "tg_custom_font": "default",
-            "tg_font_weight": "400",
-            "tg_font_size": 12,
-            "tg_line_height": 155,
-            "tg_text_case": "default",
-            "tg_letter_spacing": 0.1,
-            "tg_enable_padding": true,
-            "tg_padding_top": 20,
-            "tg_padding_bottom": 0,
-            "tg_padding_top_mobile": 0,
-            "tg_padding_bottom_mobile": 0,
-            "tg_padding_left_mobile": 0,
-            "tg_padding_right_mobile": 0
-          }
-        },
         "text_GCGqn4": {
           "type": "text",
           "settings": {
@@ -295,12 +295,12 @@
         "title",
         "rating_fBYWfr",
         "price",
+        "description",
         "variant_picker_bFRmag",
         "quantity_selector_qaKBkM",
         "inventory_PfG9Nk",
         "bis_form_BBMrzi",
         "buy_buttons",
-        "description",
         "text_GCGqn4",
         "text_3RRpf3"
       ],
