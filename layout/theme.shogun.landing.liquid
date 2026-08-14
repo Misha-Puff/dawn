@@ -34,13 +34,37 @@ This file can be re-written at any time.
 
     {% render 'meta-tags' %}
 
+    <script type="module">
+      import * as StandardEvents from 'https://cdn.shopify.com/storefront/standard-events.js';
+
+      window.StandardEvents = StandardEvents;
+
+      customElements.define('collection-component', StandardEvents.createViewEventElement());
+      customElements.define(
+        'product-component',
+        StandardEvents.createViewEventElement(HTMLElement, { defaultTrigger: 'intersect' }),
+      );
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const template = document.querySelector('main[data-template]')?.dataset.template || '';
+        document.dispatchEvent(
+          new StandardEvents.PageViewEvent({
+            page: { template, title: document.title, url: window.location.href },
+          })
+        );
+      }, { once: true });
+    </script>
+
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'card-sibling-preview.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'cart-disclosure-modal.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'cart-disclosure-tooltip.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'standard-actions-override.js' | asset_url }}" defer="defer"></script>
 
     {%- if settings.animations_reveal_on_scroll -%}
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
@@ -174,6 +198,7 @@ This file can be re-written at any time.
         --page-width-margin: {% if settings.page_width == '1600' %}2{% else %}0{% endif %}rem;
         --page-width-padding: {{ settings.page_width_padding }}px;
         --mobile-page-width-padding: {{ settings.mobile_page_width_padding }}px;
+        {% if settings.tablet_page_width_padding > 0 %}--tablet-page-width-padding: {{ settings.tablet_page_width_padding }}px;{% endif %}
 
         --product-card-image-padding: {{ settings.card_image_padding | divided_by: 10.0 }}rem;
         --product-card-corner-radius: {{ settings.card_corner_radius | divided_by: 10.0 }}rem;
@@ -287,9 +312,8 @@ This file can be re-written at any time.
       }
 
       body {
-        /* display: grid;
-        grid-template-rows: auto auto 1fr auto;
-        grid-template-columns: 100%; */
+        display: flex;
+        flex-direction: column;
         min-height: 100%;
         margin: 0;
         font-size: 12px;
