@@ -170,7 +170,7 @@
           {%- endif -%}
         {%- endunless -%}
         {%- if search.results_count == 0 and search.filters == empty -%}
-          <p role="status">{{ 'templates.search.no_results' | t: terms: search.terms }}</p>
+          <p class="center" role="status">{{ 'templates.search.no_results' | t: terms: search.terms }}</p>
         {%- endif -%}
       {%- endif -%}
     </div>

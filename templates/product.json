@@ -296,7 +296,7 @@
           "settings": {
             "heading": "KEY FEATURES",
             "icon": "none",
-            "content": "{% if product.metafields.product_page.key_features %}<p>{{ product.metafields.product_page.key_features | metafield_tag }}</p>\n{% endif %}",
+            "content": "{%- assign kf = product.metafields.product_page.key_features.value -%}\n{%- if kf != blank -%}\n<ul class=\"key-features-list\">\n{%- assign kf_lines = kf | newline_to_br | split: '<br />' -%}\n{%- for kf_line in kf_lines -%}\n{%- assign kf_item = kf_line | replace: '•', '' | strip -%}\n{%- if kf_item != blank -%}<li>{{ kf_item | escape }}</li>{%- endif -%}\n{%- endfor -%}\n</ul>\n{%- endif -%}",
             "page": "",
             "tg_enable_type": true,
             "tg_font": "assistant_n4",

@@ -1843,3 +1843,21 @@ a.product__text {
     bottom: auto;
   }
 }
+
+/* Key-features accordion list: hanging indent so wrapped lines align under the
+   text — overrides the .rte inside-position bullets that wrap to the far left. */
+.accordion__content .key-features-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.accordion__content .key-features-list li {
+  position: relative;
+  padding-left: 1.2em;
+}
+
+.accordion__content .key-features-list li::before {
+  content: '\2022';
+  position: absolute;
+  left: 0.1em;
+}
