@@ -6,7 +6,11 @@ class DetailsModal extends HTMLElement {
 
     this.detailsContainer.addEventListener('keyup', (event) => event.code.toUpperCase() === 'ESCAPE' && this.close());
     this.summaryToggle.addEventListener('click', this.onSummaryClick.bind(this));
-    this.querySelector('button[type="button"]').addEventListener('click', this.close.bind(this));
+    // The search-tabs buttons precede the close button, so target it by class rather than first-match
+    (this.querySelector('button.modal__close-button') || this.querySelector('button[type="button"]')).addEventListener(
+      'click',
+      this.close.bind(this)
+    );
 
     this.summaryToggle.setAttribute('role', 'button');
   }
