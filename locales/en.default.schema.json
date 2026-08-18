@@ -1814,6 +1814,10 @@
         "show_secondary_image": {
           "label": "Show second image on hover"
         },
+        "enable_card_video_autoplay": {
+          "label": "Autoplay card videos",
+          "info": "When a product's first media is a Shopify-hosted video, it plays muted without controls in place of the image. YouTube and Vimeo videos are not affected."
+        },
         "show_vendor": {
           "label": "Vendor"
         },

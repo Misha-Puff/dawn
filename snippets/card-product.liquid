@@ -6,6 +6,7 @@
   - media_aspect_ratio: {String} Size of the product image card. Values are "square" and "portrait". Default is "square" (optional)
   - image_shape: {String} Image mask to apply to the product image card. Values are "arch", "blob", "chevronleft", "chevronright", "diamond", "parallelogram", and "round". (optional)
   - show_secondary_image: {Boolean} Show the secondary image on hover. Default: false (optional)
+  - video_autoplay: {Boolean} When the product's lead media is a Shopify-hosted video, render it as ambient video (autoplay, muted, looping, no controls) in place of the featured image. Default: false (optional)
   - show_vendor: {Boolean} Show the product vendor. Default: false
   - show_rating: {Boolean} Show the product rating. Default: false
   - extend_height: {Boolean} Card height extends to available container space. Default: true (optional)
@@ -44,6 +45,10 @@
     endif
     if ratio == 0 or ratio == null
       assign ratio = 1
+    endif
+    assign ambient_card_video = false
+    if video_autoplay and card_product.featured_media.media_type == 'video'
+      assign ambient_card_video = true
     endif
   -%}
   <product-component view-event-payload="{{ card_product | standard_event_data: 'view', context: product_view_context | escape }}">
@@ -98,6 +103,12 @@
         {%- elsif card_product.featured_media -%}
           <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
             <div class="media media--transparent media--hover-effect">
+              {%- if ambient_card_video -%}
+                {{
+                  card_product.featured_media
+                  | media_tag: image_size: '533x', autoplay: true, loop: true, muted: true, controls: false, preload: 'metadata'
+                }}
+              {%- else -%}
               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
               <img
                 srcset="
@@ -140,6 +151,7 @@
                   width="{{ card_product.media[1].width }}"
                   height="{{ card_product.media[1].height }}"
                 >
+              {%- endif -%}
               {%- endif -%}
             </div>
           </div>
