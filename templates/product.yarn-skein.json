@@ -508,6 +508,116 @@
         "media_padding_right": 0
       }
     },
+    "image_with_text_T9CkTT": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_RyFwxi": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Image with text",
+            "heading_size": "h1",
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": "",
+            "tg_font_size_mobile": 0,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0,
+            "tg_padding_top_mobile": 0,
+            "tg_padding_bottom_mobile": 0
+          }
+        },
+        "text_XCxQCP": {
+          "type": "text",
+          "settings": {
+            "text": "<p>INFINITE VARIATIONS — THE MAGIC OF HAND-DYE<br/><br/>Our hand-dyed Superwash Merino wool and Pima cotton yarn is ethically crafted by skilled artisans in Peru using premium fibers and low-impact dyes. Each strand is unique, with subtle nuances from the hand-dye process that make every garment one of a kind. These natural variations mean no two pieces are the same — a celebration of craft and the presence of the hand, and exactly why we love it. Because of this, we can’t guarantee your finished garment will match the swatch exactly, but it will be a true one-of-a-kind heirloom. Read more about our materials here.</p>",
+            "text_style": "body",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "inter",
+            "tg_font_weight": "default",
+            "tg_font_size": 12,
+            "tg_line_height": 150,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0.1,
+            "tg_color": "#1a1a1a",
+            "tg_font_size_mobile": 0,
+            "tg_enable_padding": true,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0,
+            "tg_padding_top_mobile": 0,
+            "tg_padding_bottom_mobile": 0
+          }
+        },
+        "button_9zqJpg": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_full_width": false,
+            "button_radius": 0,
+            "tg_enable_type": false,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "default",
+            "tg_font_weight": "default",
+            "tg_font_size": 0,
+            "tg_line_height": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": "",
+            "tg_font_size_mobile": 0,
+            "tg_enable_padding": false,
+            "tg_padding_top": 0,
+            "tg_padding_bottom": 0,
+            "tg_padding_top_mobile": 0,
+            "tg_padding_bottom_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "heading_RyFwxi",
+        "text_XCxQCP",
+        "button_9zqJpg"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/yarn_treated_hand-dye.jpg",
+        "height": "adapt",
+        "custom_height": 0,
+        "image_radius": 0,
+        "desktop_image_width": "small",
+        "image_width_custom": 45,
+        "column_gap": 0,
+        "full_width": true,
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "content_max_width": 0,
+        "content_padding_x": 100,
+        "content_padding_y": 0,
+        "content_padding_x_mobile": 20,
+        "content_padding_y_mobile": 30,
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 60,
+        "enable_mobile_padding": true,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 60,
+        "show_section_tag": ""
+      }
+    },
     "image_with_text_7tNUwQ": {
       "type": "image-with-text",
       "blocks": {
@@ -1338,6 +1448,7 @@
   },
   "order": [
     "main",
+    "image_with_text_T9CkTT",
     "image_with_text_7tNUwQ",
     "image_with_text_Yfnzea",
     "image_with_text_PbwkAd",
