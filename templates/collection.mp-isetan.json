@@ -230,6 +230,7 @@
         "image_gkgQFt"
       ],
       "settings": {
+        "enable_card_video_autoplay": true,
         "products_per_page": 48,
         "columns_desktop": 4,
         "columns_mobile": "2",
