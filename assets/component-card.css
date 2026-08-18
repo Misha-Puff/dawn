@@ -297,6 +297,10 @@
   width: 100%;
 }
 
+.media.media--hover-effect > video + img {
+  opacity: 0;
+}
+
 .card__inner:not(.ratio) > .card__content {
   height: 100%;
 }
@@ -549,6 +553,10 @@
     opacity: 1;
     /* transition: transform var(--duration-long) ease;
     transform: scale(1.03); */
+  }
+
+  .card-wrapper:hover .media.media--hover-effect > video + img {
+    opacity: 1;
   }
 
   .underline-links-hover:hover a {
