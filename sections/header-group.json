@@ -24,7 +24,7 @@
         "announcement_dDUTp6": {
           "type": "announcement",
           "settings": {
-            "text": "<p>New Additions to Sale: Up to 60% Off. <a href=\"https://shop.misha-and-puff.com/collections/child-sale\" title=\"https://shop.misha-and-puff.com/collections/child-sale\">SHOP NOW</a>.</p>"
+            "text": "<p>Save the Date: The Fall Collection, Part 2 launches Thursday, August 27 at 10 AM ET.</p>"
           }
         }
       },
@@ -32,14 +32,13 @@
         "announcement_9YaAtT",
         "announcement_dDUTp6"
       ],
-      "disabled": true,
       "settings": {
-        "desktop_height": 30,
-        "mobile_height": 32,
+        "desktop_height": 32,
+        "mobile_height": 34,
         "auto_rotate": false,
         "change_slides_speed": 5,
         "color_scheme": "scheme-2",
-        "show_line_separator": false,
+        "show_line_separator": true,
         "show_social": false,
         "enable_country_selector": false,
         "enable_language_selector": false
@@ -177,7 +176,7 @@
         "enable_language_selector": false,
         "enable_customer_avatar": true,
         "margin_bottom": 0,
-        "padding_top": 0,
+        "padding_top": 16,
         "padding_bottom": 0,
         "padding_left": 50,
         "padding_right": 50,
