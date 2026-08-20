@@ -148,8 +148,11 @@
         "group": {
           "type": "group",
           "settings": {
+            "direction": "row",
+            "wrap": true,
             "gap": 12,
-            "justify": "flex-start"
+            "justify": "flex-start",
+            "align": "stretch"
           },
           "blocks": {
             "button_dy8XDD": {
@@ -170,7 +173,8 @@
                 "tg_text_case": "uppercase",
                 "tg_letter_spacing": 0.1,
                 "tg_color": "#1a1a1a"
-              }
+              },
+              "blocks": {}
             }
           },
           "block_order": [
@@ -955,7 +959,7 @@
         "view_tabs_alignment": "left",
         "view_tabs_order": "campaign_first",
         "link_tab_label": "Lookbook",
-        "link_tab_url": "https://shop.misha-and-puff.com/blogs/journal/child-fall-26",
+        "link_tab_url": "https://shop.misha-and-puff.com/blogs/journal/child-fall-26-2",
         "jump_link_enable": true,
         "jump_link_label": "View collection",
         "jump_pill_enable": true,
@@ -973,7 +977,6 @@
       "type": "main-collection-product-grid",
       "disabled": true,
       "settings": {
-        "enable_card_video_autoplay": true,
         "products_per_page": 48,
         "columns_desktop": 4,
         "columns_mobile": "2",
@@ -981,6 +984,7 @@
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
+        "enable_card_video_autoplay": true,
         "show_vendor": false,
         "show_rating": false,
         "show_size_overlay": true,
@@ -1088,8 +1092,11 @@
         "group": {
           "type": "group",
           "settings": {
+            "direction": "row",
+            "wrap": true,
             "gap": 10,
-            "justify": "center"
+            "justify": "center",
+            "align": "stretch"
           },
           "blocks": {
             "button_8mmyyM": {
@@ -1110,7 +1117,8 @@
                 "tg_text_case": "default",
                 "tg_letter_spacing": 0,
                 "tg_color": ""
-              }
+              },
+              "blocks": {}
             },
             "button_QmyM6w": {
               "type": "button",
@@ -1130,7 +1138,8 @@
                 "tg_text_case": "default",
                 "tg_letter_spacing": 0,
                 "tg_color": ""
-              }
+              },
+              "blocks": {}
             },
             "button_t9xDNr": {
               "type": "button",
@@ -1150,7 +1159,8 @@
                 "tg_text_case": "default",
                 "tg_letter_spacing": 0,
                 "tg_color": ""
-              }
+              },
+              "blocks": {}
             },
             "button_G9yhBD": {
               "type": "button",
@@ -1170,7 +1180,8 @@
                 "tg_text_case": "default",
                 "tg_letter_spacing": 0,
                 "tg_color": ""
-              }
+              },
+              "blocks": {}
             },
             "button_XJpKP6": {
               "type": "button",
@@ -1190,7 +1201,8 @@
                 "tg_text_case": "default",
                 "tg_letter_spacing": 0,
                 "tg_color": ""
-              }
+              },
+              "blocks": {}
             }
           },
           "block_order": [
