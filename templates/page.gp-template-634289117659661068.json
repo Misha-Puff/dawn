@@ -147,7 +147,7 @@
     },
     "gp_section_634301793601323607": {
       "settings": {
-        "checksum": "e9636921121518dc0fd4609bdc0d97edea54f07cf2228bb29dd9507f8b573ee7_1_1_1_0__1",
+        "checksum": "5af1455ac8bc130eb103e1f9754bcd4804445c1160ab6079921adde932f18d22_1_1_1_0__1",
         "ggBOldHBal1_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_019_0007.jpg",
         "ggFIP97tcaX_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_072_0012_1.jpg",
         "ggOjRhnPZ32_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_011_0070.jpg",
@@ -156,6 +156,13 @@
         "ggs08-TKxbC_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_057_0037_e.jpg"
       },
       "type": "gp-section-634301793601323607"
+    },
+    "gp_section_634308505829901068": {
+      "settings": {
+        "checksum": "930e9d4b2496e86e3f0d8148ee0f73fe0cdb6b63dc1e137cd00f127f6c1ecf82_1_1_1_0__1",
+        "ggobDR8-axS_label": "<p>SHOP THE COLLECTION</p>"
+      },
+      "type": "gp-section-634308505829901068"
     }
   },
   "order": [
@@ -174,6 +181,7 @@
     "gp_section_634300568008917997",
     "gp_section_634300764369453618",
     "gp_section_634300921924289111",
-    "gp_section_634301793601323607"
+    "gp_section_634301793601323607",
+    "gp_section_634308505829901068"
   ]
 }
