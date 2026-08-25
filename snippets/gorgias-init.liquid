@@ -14,60 +14,110 @@
       reasonForgotToUseDiscount: 'I forgot to apply my store credit',
     };
 
-    const timer = setInterval(() => {
-      const chatButtonDocument = document.querySelector('#gorgias-chat-container')?.querySelector('#chat-button')
-        ?.contentWindow.document;
+    // Brand-styles the Gorgias chat button: no circle/halo, just the black speech-bubble icon.
+    // Gorgias renders the button inside a same-origin iframe (#chat-button) with hashed emotion classes,
+    // so we target structure only. Current markup (Gorgias "glass" button, 2026-08):
+    //   <button> <div gradient/> <div gradient/> <div blur/> <div><svg/></div> </button>
+    // Gorgias destroys and recreates the iframe (e.g. every time the chat window is closed), so the
+    // injection must be idempotent and re-run whenever a fresh iframe document shows up.
+    const STYLE_ID = 'mp-gorgias-button-style';
 
-      const chatButtonHead = chatButtonDocument.querySelector('head');
+    const buttonCss = `
+      button {
+        background: none !important;
+        box-shadow: none !important;
+        transition: none !important;
+      }
 
-      if (!chatButtonHead || ![...chatButtonHead?.children].some((x) => x.getAttribute('data-emotion'))) {
+      button:hover,
+      button:active {
+        transform: none !important;
+      }
+
+      /* Gorgias refocuses the button when the chat closes; suppress its white focus ring. */
+      button:focus,
+      button:focus-visible {
+        outline: none !important;
+      }
+
+      /* Hide the decorative gradient/blur layers; keep only the icon wrapper. */
+      button > div:not(:has(svg)) {
+        display: none !important;
+      }
+
+      button span {
+        display: none !important;
+      }
+
+      button path {
+        fill: black !important;
+      }
+    `;
+
+    // Returns true once the current #chat-button document is styled (or was already).
+    const styleChatButton = () => {
+      const chatButtonDocument = document
+        .querySelector('#gorgias-chat-container')
+        ?.querySelector('#chat-button')?.contentWindow?.document;
+
+      const chatButtonHead = chatButtonDocument?.querySelector('head');
+
+      if (!chatButtonHead) {
+        return false;
+      }
+
+      if (chatButtonDocument.getElementById(STYLE_ID)) {
+        return true;
+      }
+
+      // Wait until Gorgias has mounted its own (emotion) styles and the button.
+      if (![...chatButtonHead.children].some((x) => x.getAttribute('data-emotion'))) {
+        return false;
+      }
+
+      if (!chatButtonDocument.querySelector('button')) {
+        return false;
+      }
+
+      const buttonStyle = document.createElement('style');
+      buttonStyle.id = STYLE_ID;
+      buttonStyle.textContent = buttonCss;
+
+      chatButtonHead.appendChild(buttonStyle);
+
+      return true;
+    };
+
+    // Poll until styled (bounded), then stop; re-armed whenever the widget's DOM changes.
+    let pollTimer = null;
+
+    const armPoll = () => {
+      if (pollTimer) {
         return;
       }
 
-      clearInterval(timer);
+      let attempts = 0;
 
-      const chatButton = chatButtonDocument.querySelector('button');
+      pollTimer = setInterval(() => {
+        attempts += 1;
 
-      const backgroundDiv = document.createElement('div');
-
-      backgroundDiv.classList.add('button-background');
-
-      const buttonStyle = document.createElement('style');
-
-      buttonStyle.textContent = `
-        button {
-          background: none !important;
-          box-shadow: none !important;
-          height: 20px !important;
-          max-width: 25px !important;
-          transition: none !important;
-          padding: 10px 16px !important;
+        if (styleChatButton() || attempts > 200) {
+          clearInterval(pollTimer);
+          pollTimer = null;
         }
+      }, 50);
+    };
 
-        button div {
-          width: 28px !important;
-          height: 28px !important;
-          left: 13px !important;
-        }
+    armPoll();
 
-        button span {
-          display: none !important;
-        }
+    // Gorgias swaps the #chat-button iframe in and out of #gorgias-chat-container; watch for that.
+    const container = document.querySelector('#gorgias-chat-container') || document.body;
 
-        .button-background {
-          background-color: white !important;
-          min-width: 20px !important;
-          height: 5px !important;
-        }
-
-        button path {
-          fill: black !important;  
-        }
-      `;
-
-      chatButtonHead.appendChild(buttonStyle);
-      chatButton.appendChild(backgroundDiv);
-    }, 50);
+    new MutationObserver(() => {
+      if (!styleChatButton()) {
+        armPoll();
+      }
+    }).observe(container, { childList: true, subtree: true });
 
     GorgiasChat.updateSSPTexts(sspDict);
   });
