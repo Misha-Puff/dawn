@@ -558,8 +558,14 @@
       </div>
       {%- comment -%} /.collection-view--grid {%- endcomment -%}
 
+      {%- comment -%}
+        collection-view--cq makes this view a size container: every campaign
+        width/column setting is emitted in cqw (1% of the page-width content
+        box), so Gempages proportions survive the viewport scrollbar exactly.
+        Deviation from the main grid, which emits vw.
+      {%- endcomment -%}
       <div
-        class="collection-view collection-view--campaign page-width"
+        class="collection-view collection-view--campaign collection-view--cq page-width"
         {% if section.settings.campaign_gap != blank %}
           style="--campaign-gap: {{ section.settings.campaign_gap }}px"
         {% endif %}
@@ -577,7 +583,7 @@
               <div
                 class="campaign-block campaign-hero{% if block.settings.video_url != blank %} campaign-hero--ambient campaign-block--sized{% endif %}"
                 {% if block.settings.video_url != blank %}
-                  style="--cb-w:100vw;--cb-wm:100vw;{{ cb_style }}"
+                  style="--cb-w:calc(100% + 2 * var(--page-width-padding, 50px));--cb-wm:calc(100% + 2 * var(--mobile-page-width-padding, 10px));{{ cb_style }}"
                 {% elsif cb_style != blank %}
                   style="{{ cb_style }}"
                 {% endif %}
@@ -727,8 +733,8 @@
               </div>
             {%- when 'campaign_lifestyle' -%}
               {%- capture cb_style -%}
-                {%- if block.settings.width_pct != blank -%}--cb-w:{{ block.settings.width_pct }}vw;{%- endif -%}
-                {%- if block.settings.width_pct_mobile != blank -%}--cb-wm:{{ block.settings.width_pct_mobile }}vw;{%- endif -%}
+                {%- if block.settings.width_pct != blank -%}--cb-w:{{ block.settings.width_pct }}cqw;{%- endif -%}
+                {%- if block.settings.width_pct_mobile != blank -%}--cb-wm:{{ block.settings.width_pct_mobile }}cqw;{%- endif -%}
                 {%- if block.settings.pad_top != blank -%}--cb-pt:{{ block.settings.pad_top }}px;{%- endif -%}
                 {%- if block.settings.pad_bottom != blank -%}--cb-pb:{{ block.settings.pad_bottom }}px;{%- endif -%}
                 {%- if block.settings.pad_top_mobile != blank -%}--cb-ptm:{{ block.settings.pad_top_mobile }}px;{%- endif -%}
@@ -788,10 +794,10 @@
               </div>
             {%- when 'campaign_collage' -%}
               {%- capture cb_style -%}
-                {%- if block.settings.col1_pct != blank -%}--c1-w:{{ block.settings.col1_pct }}vw;{%- endif -%}
-                {%- if block.settings.col2_pct != blank -%}--c2-w:{{ block.settings.col2_pct }}vw;{%- endif -%}
-                {%- if block.settings.col1_pct_mobile != blank -%}--c1-wm:{{ block.settings.col1_pct_mobile }}vw;{%- endif -%}
-                {%- if block.settings.col2_pct_mobile != blank -%}--c2-wm:{{ block.settings.col2_pct_mobile }}vw;{%- endif -%}
+                {%- if block.settings.col1_pct != blank -%}--c1-w:{{ block.settings.col1_pct }}cqw;{%- endif -%}
+                {%- if block.settings.col2_pct != blank -%}--c2-w:{{ block.settings.col2_pct }}cqw;{%- endif -%}
+                {%- if block.settings.col1_pct_mobile != blank -%}--c1-wm:{{ block.settings.col1_pct_mobile }}cqw;{%- endif -%}
+                {%- if block.settings.col2_pct_mobile != blank -%}--c2-wm:{{ block.settings.col2_pct_mobile }}cqw;{%- endif -%}
                 {%- if block.settings.col1_offset != blank -%}--c1-off:{{ block.settings.col1_offset }}px;{%- endif -%}
                 {%- if block.settings.col2_offset != blank -%}--c2-off:{{ block.settings.col2_offset }}px;{%- endif -%}
                 {%- if block.settings.col1_offset_mobile != blank -%}--c1-offm:{{ block.settings.col1_offset_mobile }}px;{%- endif -%}
@@ -808,7 +814,7 @@
               {%- endcapture -%}
               <div
                 class="campaign-block campaign-block--sized campaign-collage campaign-collage--{{ block.settings.layout }}{% if block.settings.valign == 'bottom' %} campaign-collage--bottom{% endif %}{% if block.settings.first_flush %} campaign-collage--flush-first{% endif %}{% if block.settings.second_flush %} campaign-collage--flush-second{% endif %}"
-                style="--cb-w:100vw;--cb-wm:100vw;{{ cb_style }}"
+                style="--cb-w:calc(100% + 2 * var(--page-width-padding, 50px));--cb-wm:calc(100% + 2 * var(--mobile-page-width-padding, 10px));{{ cb_style }}"
                 {{ block.shopify_attributes }}
               >
                 {%- if block.settings.layout != 'images' -%}
@@ -852,8 +858,8 @@
               </div>
             {%- when 'campaign_strip' -%}
               {%- capture cb_style -%}
-                {%- if block.settings.width_pct != blank -%}--cb-w:{{ block.settings.width_pct }}vw;{%- endif -%}
-                {%- if block.settings.width_pct_mobile != blank -%}--cb-wm:{{ block.settings.width_pct_mobile }}vw;{%- endif -%}
+                {%- if block.settings.width_pct != blank -%}--cb-w:{{ block.settings.width_pct }}cqw;{%- endif -%}
+                {%- if block.settings.width_pct_mobile != blank -%}--cb-wm:{{ block.settings.width_pct_mobile }}cqw;{%- endif -%}
                 {%- if block.settings.gap != blank -%}--cs-gap:{{ block.settings.gap }}px;{%- endif -%}
                 {%- if block.settings.gap_mobile != blank -%}--cs-gapm:{{ block.settings.gap_mobile }}px;{%- endif -%}
                 {%- if block.settings.ratio != blank -%}--cs-ar:{{ block.settings.ratio }};{%- endif -%}
@@ -905,8 +911,8 @@
                 endif
               -%}
               {%- capture cb_style -%}
-                {%- if block.settings.width_pct != blank -%}--cb-w:{{ block.settings.width_pct }}vw;{%- endif -%}
-                {%- if block.settings.width_pct_mobile != blank -%}--cb-wm:{{ block.settings.width_pct_mobile }}vw;{%- endif -%}
+                {%- if block.settings.width_pct != blank -%}--cb-w:{{ block.settings.width_pct }}cqw;{%- endif -%}
+                {%- if block.settings.width_pct_mobile != blank -%}--cb-wm:{{ block.settings.width_pct_mobile }}cqw;{%- endif -%}
                 {%- if block.settings.tile_gap != blank -%}--cp-gap:{{ block.settings.tile_gap }}px;{%- endif -%}
                 {%- if block.settings.pad_top != blank -%}--cb-pt:{{ block.settings.pad_top }}px;{%- endif -%}
                 {%- if block.settings.pad_bottom != blank -%}--cb-pb:{{ block.settings.pad_bottom }}px;{%- endif -%}
@@ -2038,8 +2044,8 @@
         },
         {"type": "text", "id": "video_url", "label": "Ambient video URL", "info": "Store-hosted .mp4/.mov. Autoplays muted and looped. Replaces the image."},
         {"type": "header", "content": "Layout"},
-        {"type": "text", "id": "width_pct", "label": "Width (% of viewport)", "info": "Blank = container width. 100 = full-bleed."},
-        {"type": "text", "id": "width_pct_mobile", "label": "Width mobile (% of viewport)"},
+        {"type": "text", "id": "width_pct", "label": "Width (% of page width)", "info": "Blank = page width. 100 = page width; 107.5 desktop / 105.4 mobile = full-bleed."},
+        {"type": "text", "id": "width_pct_mobile", "label": "Width mobile (% of page width)"},
         {"type": "text", "id": "pad_top", "label": "Padding top (px)"},
         {"type": "text", "id": "pad_bottom", "label": "Padding bottom (px)"},
         {"type": "text", "id": "pad_top_mobile", "label": "Padding top mobile (px)"},
@@ -2056,8 +2062,8 @@
         {"type": "text", "id": "eyebrow", "label": "Eyebrow"},
         {"type": "textarea", "id": "heading", "label": "Heading", "info": "Line breaks are kept."},
         {"type": "header", "content": "Geometry"},
-        {"type": "text", "id": "col1_pct", "label": "First column width (% of viewport)"},
-        {"type": "text", "id": "col2_pct", "label": "Second column width (% of viewport)"},
+        {"type": "text", "id": "col1_pct", "label": "First column width (% of page width)"},
+        {"type": "text", "id": "col2_pct", "label": "Second column width (% of page width)"},
         {"type": "text", "id": "col1_pct_mobile", "label": "First column width mobile (%)"},
         {"type": "text", "id": "col2_pct_mobile", "label": "Second column width mobile (%)"},
         {"type": "text", "id": "col1_offset", "label": "First column offset (px)"},
@@ -2102,8 +2108,8 @@
         {"type": "text", "id": "gap", "label": "Gap (px)", "info": "Blank = 10"},
         {"type": "text", "id": "gap_mobile", "label": "Gap mobile (px)"},
         {"type": "text", "id": "ratio", "label": "Image ratio", "info": "CSS aspect-ratio, e.g. 2 / 3. Blank = 2 / 3."},
-        {"type": "text", "id": "width_pct", "label": "Width (% of viewport)", "info": "Blank = page width. 100 = full-bleed."},
-        {"type": "text", "id": "width_pct_mobile", "label": "Width mobile (% of viewport)"},
+        {"type": "text", "id": "width_pct", "label": "Width (% of page width)", "info": "Blank = page width. 100 = page width; 107.5 desktop / 105.4 mobile = full-bleed."},
+        {"type": "text", "id": "width_pct_mobile", "label": "Width mobile (% of page width)"},
         {"type": "header", "content": "Spacing"},
         {"type": "text", "id": "pad_top", "label": "Padding top (px)"},
         {"type": "text", "id": "pad_bottom", "label": "Padding bottom (px)"},
@@ -2139,8 +2145,8 @@
         {"type": "range", "id": "products_to_show", "min": 1, "max": 12, "step": 1, "default": 4, "label": "Products to show (collection source)"},
         {"type": "select", "id": "display", "options": [{"value": "theme", "label": "Theme cards"}, {"value": "cards", "label": "Minimal cards"}, {"value": "tiles", "label": "Image tiles"}], "default": "theme", "label": "Display"},
         {"type": "header", "content": "Layout"},
-        {"type": "text", "id": "width_pct", "label": "Width (% of viewport)", "info": "Blank = container width. 100 = full-bleed."},
-        {"type": "text", "id": "width_pct_mobile", "label": "Width mobile (% of viewport)"},
+        {"type": "text", "id": "width_pct", "label": "Width (% of page width)", "info": "Blank = page width. 100 = page width; 107.5 desktop / 105.4 mobile = full-bleed."},
+        {"type": "text", "id": "width_pct_mobile", "label": "Width mobile (% of page width)"},
         {"type": "text", "id": "tile_gap", "label": "Tile gap (px)"},
         {"type": "text", "id": "cta_label", "label": "CTA label"},
         {"type": "url", "id": "cta_link", "label": "CTA link"},
