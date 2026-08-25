@@ -25,19 +25,27 @@
   # Campaign view is VIP-only on this section: full Locksmith ladder (same
   # conditional as locksmith-v2-lock-product); the editor always shows it.
   # Read-only collections (force_readonly) never expose the campaign — its
-  # shoppable product blocks would leak past the lock.
+  # shoppable product blocks would leak past the lock — EXCEPT to staff-tagged
+  # accounts, so the team can preview a campaign on the real collection before
+  # lock.shoppable flips (cards stay read-only; only the campaign view opens).
   assign show_campaign_views = false
+  assign is_staff = false
   if request.design_mode
     assign show_campaign_views = true
   elsif customer
-    if customer.tags contains 'staff' or customer.metafields.clienteling.very_important_customer or customer.metafields.clienteling.super_vip or customer.metafields.clienteling.vip
+    if customer.tags contains 'staff'
+      assign is_staff = true
+    endif
+    if is_staff or customer.metafields.clienteling.very_important_customer or customer.metafields.clienteling.super_vip or customer.metafields.clienteling.vip
       assign show_campaign_views = true
     endif
   endif
 
   assign has_campaign = false
-  if show_campaign_views and section.settings.enable_campaign and force_readonly == false and section.blocks.size > 0
-    assign has_campaign = true
+  if show_campaign_views and section.settings.enable_campaign and section.blocks.size > 0
+    if force_readonly == false or is_staff
+      assign has_campaign = true
+    endif
   endif
 %}
 
@@ -1869,7 +1877,7 @@
       "visible_if": "{{ section.settings.heart_custom }}"
     },
     { "type": "header", "content": "Campaign toggle" },
-    { "type": "paragraph", "content": "On this preview grid the campaign view renders only for staff and VIP-tier customers (always visible in the editor), and never on collections locked read-only via lock.shoppable." },
+    { "type": "paragraph", "content": "On this preview grid the campaign view renders only for staff and VIP-tier customers (always visible in the editor). On collections locked read-only via lock.shoppable it renders for staff-tagged accounts only (team preview); the read-only cards are unaffected." },
     { "type": "checkbox", "id": "enable_campaign", "default": true, "label": "Enable campaign view", "info": "Uncheck to hide the campaign entirely — shoppers (and the editor) see the standard collection grid. Campaign blocks are kept but render nothing." },
     { "type": "select", "id": "view_tabs_alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" } ], "default": "center", "label": "Toggle alignment", "info": "Alignment of the Collection / Campaign view toggle row." },
     { "type": "select", "id": "view_tabs_order", "options": [ { "value": "campaign_first", "label": "Campaign, Collection" }, { "value": "collection_first", "label": "Collection, Campaign" } ], "default": "campaign_first", "label": "Toggle tab order", "info": "Order of the two view tabs — the page loads showing the first tab's view. The Link tab always sits last." },
