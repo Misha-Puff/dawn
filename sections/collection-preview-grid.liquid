@@ -803,8 +803,14 @@
                 {%- if block.settings.col1_offset_mobile != blank -%}--c1-offm:{{ block.settings.col1_offset_mobile }}px;{%- endif -%}
                 {%- if block.settings.col2_offset_mobile != blank -%}--c2-offm:{{ block.settings.col2_offset_mobile }}px;{%- endif -%}
                 {%- if block.settings.col1_gap != blank -%}--c1-gap:{{ block.settings.col1_gap }}px;{%- endif -%}
-                {%- if block.settings.col1_ratio != blank -%}--c1-ar:{{ block.settings.col1_ratio }};{%- endif -%}
-                {%- if block.settings.col2_ratio != blank -%}--c2-ar:{{ block.settings.col2_ratio }};{%- endif -%}
+                {%- comment -%}
+                  Blank ratio = the image's own ratio, emitted explicitly so the
+                  column reserves its height before the lazy image loads (the
+                  CSS aspect-ratio rule otherwise discards the width/height
+                  attribute mapping and the column collapses to 0px until load).
+                {%- endcomment -%}
+                {%- if block.settings.col1_ratio != blank -%}--c1-ar:{{ block.settings.col1_ratio }};{%- elsif block.settings.image_1 != blank -%}--c1-ar:{{ block.settings.image_1.aspect_ratio }};{%- endif -%}
+                {%- if block.settings.col2_ratio != blank -%}--c2-ar:{{ block.settings.col2_ratio }};{%- elsif block.settings.image_2 != blank -%}--c2-ar:{{ block.settings.image_2.aspect_ratio }};{%- endif -%}
                 {%- if block.settings.inset_x != blank -%}--cg-inx:{{ block.settings.inset_x }}px;{%- endif -%}
                 {%- if block.settings.inset_x_mobile != blank -%}--cg-inxm:{{ block.settings.inset_x_mobile }}px;{%- endif -%}
                 {%- if block.settings.pad_top != blank -%}--cb-pt:{{ block.settings.pad_top }}px;{%- endif -%}
