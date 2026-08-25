@@ -55,7 +55,7 @@
         "heading_4bAnVw": {
           "type": "heading",
           "settings": {
-            "heading": "THE FALL COLLECTION — PART 1",
+            "heading": "PREVIEW: THE FALL COLLECTION — PART 2",
             "heading_size": "h2",
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -72,7 +72,7 @@
         "text_bdVDk3": {
           "type": "text",
           "settings": {
-            "text": "<p>This season is a reflection on care, routine, and time as lived experience — a love letter to Japan and the enduring beauty of its craft traditions. Inspired by travel, Ivy of the 1960s, vintage Americana, workwear, and schoolyard dressing, every piece is designed to live together, celebrating dressing with intention and finding beauty in the everyday.</p>",
+            "text": "<p>This season is a reflection on care, routine, and time as lived experience — a love letter to Japan and the enduring beauty of its craft traditions. Inspired by travel, Ivy of the 1960s, vintage Americana, workwear, and schoolyard dressing, every piece is designed to live together, celebrating dressing with intention and finding beauty in the everyday.<br/><br/>Part 2 launches Thursday, August 27 at 10 AM ET.</p>",
             "line_height": 24,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -160,7 +160,7 @@
               "settings": {
                 "label": "VIEW LOOKBOOK",
                 "open_new_tab": true,
-                "link": "https://shop.misha-and-puff.com/blogs/journal/child-fall-26",
+                "link": "https://shop.misha-and-puff.com/blogs/journal/child-fall-26-2",
                 "display_style": "link",
                 "type": "secondary",
                 "on_click": "",
