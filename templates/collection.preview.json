@@ -1151,7 +1151,7 @@
         "heart_right": 10,
         "enable_campaign": true,
         "view_tabs_alignment": "left",
-        "view_tabs_order": "campaign_first",
+        "view_tabs_order": "collection_first",
         "link_tab_label": "Lookbook",
         "link_tab_url": "shopify://blogs/journal/child-fall-26-2",
         "jump_link_enable": true,
