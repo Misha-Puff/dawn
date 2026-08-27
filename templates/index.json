@@ -9,100 +9,100 @@
  */
 {
   "sections": {
-    "gp_section_634579140846027526": {
-      "settings": {
-        "checksum": "538e6019508d820e81a8a480ff9600dd91c4f4371c8511e0a257d75acf97f1c9_1_1_1_0__1",
-        "ggBZamQWs42_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\"><span style=\"background-color:rgba(255,255,255,0);color:#FFFFFF;\"><u>JOURNAL</u></span></a></p>",
-        "ggVQWB2q8vr_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_2.jpg",
-        "ggVQWB2q8vr_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MomDay_26_1.gif",
-        "ggYcpP_NfN__text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\"><span style=\"background-color:rgba(255,255,255,0);color:#FFFFFF;\"><u>JOURNAL</u></span></a></p>"
-      },
-      "type": "gp-section-634579140846027526"
-    },
-    "gp_section_634579140846093062": {
-      "settings": {
-        "checksum": "c4a308888683c695f9d52e0ca0ddf75307642e9dd37ef773596f75b43a240775_1_1_1_0__1",
-        "gg-siupfW-C_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/some_400_c_41_34762_138278_308294_003082940026.jpg",
-        "ggQYwHHK6nw_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(26,26,26);\">A reflection on care, routine, and time as lived experience. Inspired by travel, Ivy of the 1960s, vintage Americana, workwear, and schoolyard dressing — celebrating dressing with intention and finding beauty in the everyday.</span></p>",
-        "ggeTvxkOYfb_background_desktop_video": "https://www.youtube.com/watch?v=NfASaHFN1zg",
-        "ggeTvxkOYfb_background_desktop_videoHtml5": "https://cdn.shopify.com/videos/c/o/v/7035d1e33e87403f850fab7231d8e388.mp4",
-        "gglfTqghdhl_text": "THE FALL COLLECTION",
-        "ggucd748R3Z_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-fall\"><span style=\"background-color:rgb(255,255,255);color:rgb(26,26,26);\"><u>SHOP THE COLLECTION</u></span></a></p>",
-        "section_preload": "true"
-      },
-      "type": "gp-section-634579140846093062"
-    },
     "gp_section_634579140846158598": {
+      "type": "gp-section-634579140846158598",
       "settings": {
-        "checksum": "43253cb92e8c6ca931e80a8d3a21a38d59bc1dc58288abe43916a20bc8e54def_1_1_1_0__1",
-        "ggCauHxatgW_text": "<p>The Fall Collection</p>",
-        "ggOU6p1wngh_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-fall\"><span style=\"background-color:rgba(255,255,255,0);color:#FFFFFF;\"><u>SHOP NEW ARRIVALS</u></span></a></p>",
         "ggbNOXMSHbe_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Site_Hero_8.27_3.jpg",
         "ggbNOXMSHbe_background_desktop_video": "https://www.youtube.com/watch?v=NfASaHFN1zg",
         "ggbNOXMSHbe_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Site_Hero_8.27_3_Mob.jpg",
         "ggbNOXMSHbe_background_mobile_video": "https://cdn.shopify.com/videos/c/o/v/7035d1e33e87403f850fab7231d8e388.mp4",
+        "ggCauHxatgW_text": "<p>The Fall Collection</p>",
+        "ggOU6p1wngh_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-fall\"><span style=\"background-color:rgba(255,255,255,0);color:#FFFFFF;\"><u>SHOP NEW ARRIVALS</u></span></a></p>",
+        "checksum": "43253cb92e8c6ca931e80a8d3a21a38d59bc1dc58288abe43916a20bc8e54def_1_1_1_0__1",
         "section_preload": "true"
-      },
-      "type": "gp-section-634579140846158598"
+      }
     },
     "gp_section_634579140846289670": {
+      "type": "gp-section-634579140846289670",
       "settings": {
-        "checksum": "8c717a1d6ffece8e4e8a0853f9f20c6306902bfa14f2e960f06e1d176228ad03_1_1_1_0__1",
-        "gg28yApD9sP_background_desktop_video": "https://www.youtube.com/watch?v=NfASaHFN1zg",
-        "gg28yApD9sP_background_desktop_videoHtml5": "https://cdn.shopify.com/videos/c/o/v/7035d1e33e87403f850fab7231d8e388.mp4",
+        "ggwslfMdmVm_text": "THIS SEASON",
+        "gghtvUhhKmC_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(26,26,26);\">A reflection on care, routine, and time as lived experience. Inspired by travel, Ivy of the 1960s, vintage Americana, workwear, and schoolyard dressing — celebrating dressing with intention and finding beauty in the everyday.</span></p>",
         "ggaaCj4Me1e_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-fall\"><span style=\"background-color:rgb(255,255,255);color:rgb(26,26,26);\"><u>SHOP THE COLLECTION</u></span></a></p>",
         "ggbBzW9BpE5_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/some_400_c_41_34762_138278_308294_003082940026.jpg",
-        "gghtvUhhKmC_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(26,26,26);\">A reflection on care, routine, and time as lived experience. Inspired by travel, Ivy of the 1960s, vintage Americana, workwear, and schoolyard dressing — celebrating dressing with intention and finding beauty in the everyday.</span></p>",
-        "ggwslfMdmVm_text": "THIS SEASON",
+        "gg28yApD9sP_background_desktop_video": "https://www.youtube.com/watch?v=NfASaHFN1zg",
+        "gg28yApD9sP_background_desktop_videoHtml5": "https://cdn.shopify.com/videos/c/o/v/7035d1e33e87403f850fab7231d8e388.mp4",
+        "checksum": "8c717a1d6ffece8e4e8a0853f9f20c6306902bfa14f2e960f06e1d176228ad03_1_1_1_0__1",
         "section_preload": "true"
-      },
-      "type": "gp-section-634579140846289670"
+      }
+    },
+    "gp_section_634579140846093062": {
+      "type": "gp-section-634579140846093062",
+      "settings": {
+        "ggeTvxkOYfb_background_desktop_video": "https://www.youtube.com/watch?v=NfASaHFN1zg",
+        "ggeTvxkOYfb_background_desktop_videoHtml5": "https://cdn.shopify.com/videos/c/o/v/7035d1e33e87403f850fab7231d8e388.mp4",
+        "gglfTqghdhl_text": "THE FALL COLLECTION",
+        "ggQYwHHK6nw_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(26,26,26);\">A reflection on care, routine, and time as lived experience. Inspired by travel, Ivy of the 1960s, vintage Americana, workwear, and schoolyard dressing — celebrating dressing with intention and finding beauty in the everyday.</span></p>",
+        "ggucd748R3Z_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/child-fall\"><span style=\"background-color:rgb(255,255,255);color:rgb(26,26,26);\"><u>SHOP THE COLLECTION</u></span></a></p>",
+        "gg-siupfW-C_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/some_400_c_41_34762_138278_308294_003082940026.jpg",
+        "checksum": "c4a308888683c695f9d52e0ca0ddf75307642e9dd37ef773596f75b43a240775_1_1_1_0__1",
+        "section_preload": "true"
+      }
     },
     "gp_section_634579140846355206": {
+      "type": "gp-section-634579140846355206",
       "settings": {
-        "checksum": "cee98d36b5ca9e2889e4406766b32caaefd7a2f2184feece9edb3615f6b1c999_1_1_1_0__1",
-        "ggCB4Q0zXoE_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-fall\"><span style=\"background-color:rgba(255,255,255,0);color:#FFFFFF;\"><u>BABY FALL COLLECTION</u></span></a></p>",
-        "ggQlYCPiLew_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal/child-fall-26-2\" target=\"_blank\"><span style=\"background-color:rgb(255,255,255);color:rgb(26,26,26);\"><u>LATEST LOOKBOOK</u></span></a></p>",
-        "gg_m2jEmv4G_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Site_Custom_8.27_LB_2.jpg",
-        "ggc-HtE8Y3O_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-fall\"><span style=\"background-color:rgb(255,255,255);color:rgb(26,26,26);\"><u>BABY FALL COLLECTION</u></span></a></p>",
         "ggpzvtPAcKH_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Site_Custom_8.27_Baby.jpg",
         "ggpzvtPAcKH_background_tablet_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Site_Custom_8.27_Baby.jpg",
-        "ggxArqZrGGV_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal/child-fall-26-2\" target=\"_blank\"><span style=\"background-color:rgba(255, 255, 255, 0);color:#FFFFFF;\"><u>LATEST LOOKBOOK</u></span></a></p>"
-      },
-      "type": "gp-section-634579140846355206"
+        "ggCB4Q0zXoE_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-fall\"><span style=\"background-color:rgba(255,255,255,0);color:#FFFFFF;\"><u>BABY FALL COLLECTION</u></span></a></p>",
+        "ggc-HtE8Y3O_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/baby-fall\"><span style=\"background-color:rgb(255,255,255);color:rgb(26,26,26);\"><u>BABY FALL COLLECTION</u></span></a></p>",
+        "gg_m2jEmv4G_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Site_Custom_8.27_LB_2.jpg",
+        "ggxArqZrGGV_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal/child-fall-26-2\" target=\"_blank\"><span style=\"background-color:rgba(255, 255, 255, 0);color:#FFFFFF;\"><u>LATEST LOOKBOOK</u></span></a></p>",
+        "ggQlYCPiLew_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal/child-fall-26-2\" target=\"_blank\"><span style=\"background-color:rgb(255,255,255);color:rgb(26,26,26);\"><u>LATEST LOOKBOOK</u></span></a></p>",
+        "checksum": "cee98d36b5ca9e2889e4406766b32caaefd7a2f2184feece9edb3615f6b1c999_1_1_1_0__1"
+      }
     },
     "gp_section_634579140846420742": {
+      "type": "gp-section-634579140846420742",
       "settings": {
-        "checksum": "84140fe49ff31caef7b205bddbb678610f57ed39b2efaaa9dbe7beac983bfb5d_1_1_1_0__1",
-        "gg4H4GnL6jO_text": "<p><span style=\"background-color:#2A0001;color:#FAE3B1;\">Designed in New England and handcrafted by a network of highly skilled knitters and artisans around the world, Misha &amp; Puff is built on a shared love of craft and material integrity.</span></p>",
         "ggOQAqHPhx4_text": "<span style=\"color:#FAE3B1;\">DESIGNED BY ARTISTS, MADE BY ARTISANS</span>",
-        "gghRy5VCDP7_text": "<a href=\"https://shop.misha-and-puff.com/pages/people\" target=\"_blank\"><span style=\"color:#FAE3B1;\"><u>READ MORE</u></span></a>"
-      },
-      "type": "gp-section-634579140846420742"
+        "gg4H4GnL6jO_text": "<p><span style=\"background-color:#2A0001;color:#FAE3B1;\">Designed in New England and handcrafted by a network of highly skilled knitters and artisans around the world, Misha &amp; Puff is built on a shared love of craft and material integrity.</span></p>",
+        "gghRy5VCDP7_text": "<a href=\"https://shop.misha-and-puff.com/pages/people\" target=\"_blank\"><span style=\"color:#FAE3B1;\"><u>READ MORE</u></span></a>",
+        "checksum": "84140fe49ff31caef7b205bddbb678610f57ed39b2efaaa9dbe7beac983bfb5d_1_1_1_0__1"
+      }
     },
     "gp_section_634579140846486278": {
+      "type": "gp-section-634579140846486278",
       "settings": {
-        "checksum": "7b8bc8782c482805a5da8f29650291c0c5f70d4d7e2f998c7f51ee973a21c4f8_1_1_1_0__1",
-        "gg1NH0QgKPZ_text": "<p><a href=\"https://shop.misha-and-puff.com/pages/stores\"><span style=\"background-color:rgb(255,255,255);color:rgb(26,26,26);\"><u>VISIT OUR STORES</u></span></a></p>",
         "ggMKW-qXm17_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Site_Custom_8.27_Store.jpg",
         "ggMKW-qXm17_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Brooklyn_fujifilm_400_c_41_34762_109806_248255_002482550020.jpg",
-        "ggbZ-Ijvv-n_text": "<p><a href=\"https://shop.misha-and-puff.com/pages/stores\"><span style=\"background-color:rgba(255, 255, 255, 0);color:#FFFFFF;\"><u>VISIT OUR STORES</u></span></a></p>"
-      },
-      "type": "gp-section-634579140846486278"
+        "ggbZ-Ijvv-n_text": "<p><a href=\"https://shop.misha-and-puff.com/pages/stores\"><span style=\"background-color:rgba(255, 255, 255, 0);color:#FFFFFF;\"><u>VISIT OUR STORES</u></span></a></p>",
+        "gg1NH0QgKPZ_text": "<p><a href=\"https://shop.misha-and-puff.com/pages/stores\"><span style=\"background-color:rgb(255,255,255);color:rgb(26,26,26);\"><u>VISIT OUR STORES</u></span></a></p>",
+        "checksum": "7b8bc8782c482805a5da8f29650291c0c5f70d4d7e2f998c7f51ee973a21c4f8_1_1_1_0__1"
+      }
     },
     "gp_section_634588043172381380": {
+      "type": "gp-section-634588043172381380",
       "settings": {
-        "checksum": "27a64afef31cab1def9677bde7029570a8d830b72b48dc45c0e94db28e6200c1_1_1_1_0__1",
-        "gg49pB53U8x_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-spring-summer\"><span style=\"background-color:rgb(255,255,255);color:rgb(26,26,26);\"><u>SHOP THE ADULT COLLECTION</u></span></a></p>",
         "gg8b2b2PSTR_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Site_Custom_8.27_Adult2.jpg",
         "gg8b2b2PSTR_background_desktop_video": "https://www.youtube.com/watch?v=NfASaHFN1zg",
+        "ggmnuRW-_YS_text": "ELEVATED EASE",
         "ggDPTfYYtMZ_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(26,26,26);\">Transitional pieces and timeless silhouettes. Designed for effortless layering and everyday comfort.</span></p>",
         "ggLSvk2LY2h_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-spring-summer\"><span style=\"background-color:rgb(255,255,255);color:rgb(26,26,26);\"><u>SHOP THE ADULT COLLECTION</u></span></a></p>",
         "ggXQ1MSJDQR_text": "ELEVATED EASE",
-        "ggmnuRW-_YS_text": "ELEVATED EASE",
-        "ggsJG6jMdeY_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(26,26,26);\">Transitional pieces and timeless silhouettes. Designed for effortless layering and everyday comfort.</span></p>"
-      },
-      "type": "gp-section-634588043172381380"
+        "ggsJG6jMdeY_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(26,26,26);\">Transitional pieces and timeless silhouettes. Designed for effortless layering and everyday comfort.</span></p>",
+        "gg49pB53U8x_text": "<p><a href=\"https://shop.misha-and-puff.com/collections/adult-spring-summer\"><span style=\"background-color:rgb(255,255,255);color:rgb(26,26,26);\"><u>SHOP THE ADULT COLLECTION</u></span></a></p>",
+        "checksum": "27a64afef31cab1def9677bde7029570a8d830b72b48dc45c0e94db28e6200c1_1_1_1_0__1"
+      }
+    },
+    "gp_section_634579140846027526": {
+      "type": "gp-section-634579140846027526",
+      "settings": {
+        "ggVQWB2q8vr_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_SU26_Site_2.jpg",
+        "ggVQWB2q8vr_background_mobile_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MomDay_26_1.gif",
+        "ggYcpP_NfN__text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\"><span style=\"background-color:rgba(255,255,255,0);color:#FFFFFF;\"><u>JOURNAL</u></span></a></p>",
+        "ggBZamQWs42_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal\"><span style=\"background-color:rgba(255,255,255,0);color:#FFFFFF;\"><u>JOURNAL</u></span></a></p>",
+        "checksum": "538e6019508d820e81a8a480ff9600dd91c4f4371c8511e0a257d75acf97f1c9_1_1_1_0__1"
+      }
     }
   },
   "order": [
