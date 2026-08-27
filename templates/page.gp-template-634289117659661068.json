@@ -11,7 +11,7 @@
   "sections": {
     "gp_section_634289117794009868": {
       "settings": {
-        "checksum": "441afbbae855e30503a70cdf18d494b264bacc3e94a84df9b1cf7e3dfe9811a2_1_1_1_0__1",
+        "checksum": "441afbbae855e30503a70cdf18d494b264bacc3e94a84df9b1cf7e3dfe9811a2_1_1_0_0__1",
         "ggI6ybvyWl3_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/some_400_c_41_34762_144763_322728_000068080010.jpg",
         "ggQ9k9nmFDH_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_014_0008.jpg"
       },
@@ -19,7 +19,7 @@
     },
     "gp_section_634289117794206476": {
       "settings": {
-        "checksum": "2676a3028400ea769ae9ae05b58a028748cf325b2748d6d640d25300cb89a6b9_1_1_1_0__1",
+        "checksum": "2676a3028400ea769ae9ae05b58a028748cf325b2748d6d640d25300cb89a6b9_1_1_0_0__1",
         "gggbmGywxJj_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_071_0034.jpg",
         "section_preload": "true"
       },
@@ -27,7 +27,7 @@
     },
     "gp_section_634289117794337548": {
       "settings": {
-        "checksum": "f42a0be620459bad9e2e05035fee9d357f4c2f2ff500fb98581c2dbcfc622d08_1_1_1_0__1",
+        "checksum": "f42a0be620459bad9e2e05035fee9d357f4c2f2ff500fb98581c2dbcfc622d08_1_1_0_0__1",
         "gg-j41asbOO_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Owl_Bag_-_Cabernet_01-1_63e243aa-8396-49c9-92f8-a392d74df0b8.png",
         "gg16jN2ICc6_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Anita_Dress_-_Cilantro_01-1.png",
         "gg6VFVva9KY_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/K1473F26-1A5_Home_Circle_Bag_Onsen_01-1.png",
@@ -49,40 +49,37 @@
     },
     "gp_section_634289997423313458": {
       "settings": {
-        "checksum": "eeb895d709812da888e9c67b13141f69712f940ad53bade77df41963b6fb31fc_1_1_1_0__1",
+        "checksum": "eeb895d709812da888e9c67b13141f69712f940ad53bade77df41963b6fb31fc_1_1_0_0__1",
         "gg5OG-AHEAN_text": "<p>FALL COLLECTION</p>",
-        "ggtfjhns-fz_text": "<p>PART 2</p>",
-        "section_preload": "true"
+        "ggtfjhns-fz_text": "<p>PART 2</p>"
       },
       "type": "gp-section-634289997423313458"
     },
     "gp_section_634290541374211053": {
       "settings": {
-        "checksum": "9ae48650f8ed5908862ac7a9e0b35b203ddb9d484dd1ed373c7d9f0484d62fe8_1_1_1_0__1",
+        "checksum": "9ae48650f8ed5908862ac7a9e0b35b203ddb9d484dd1ed373c7d9f0484d62fe8_1_1_0_0__1",
         "ggAkZwK86IH_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_001_0094.jpg",
-        "ggl7ftzvGdQ_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_001_0004.jpg",
-        "section_preload": "true"
+        "ggl7ftzvGdQ_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_001_0004.jpg"
       },
       "type": "gp-section-634290541374211053"
     },
     "gp_section_634291681000161842": {
       "settings": {
-        "checksum": "8ede16f162722b822a63186b700ff60184fec3e6a9392811e257604af9eb6c38_1_1_1_0__1",
-        "gg01cgcQwcg_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_013_0021_bw.jpg",
-        "section_preload": "true"
+        "checksum": "8ede16f162722b822a63186b700ff60184fec3e6a9392811e257604af9eb6c38_1_1_0_0__1",
+        "gg01cgcQwcg_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_013_0021_bw.jpg"
       },
       "type": "gp-section-634291681000161842"
     },
     "gp_section_634293096141554226": {
       "settings": {
-        "checksum": "d41feabd44b237aa926e9f1f8fca7d5eaa19dfb8c8e8fca508466236035118b7_1_1_1_0__1",
+        "checksum": "d41feabd44b237aa926e9f1f8fca7d5eaa19dfb8c8e8fca508466236035118b7_1_1_0_0__1",
         "ggFZvjyB8NE_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/some_400_c_41_34762_144763_322726_000002980006.jpg"
       },
       "type": "gp-section-634293096141554226"
     },
     "gp_section_634293275003454039": {
       "settings": {
-        "checksum": "9ef5076efea66b8f291404af7ef5f2100cd1f55df3cc60b986aec5bfb054e30c_1_1_1_0__1",
+        "checksum": "9ef5076efea66b8f291404af7ef5f2100cd1f55df3cc60b986aec5bfb054e30c_1_1_0_0__1",
         "gg-0i4L1JVS_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_067_0042.jpg",
         "ggtJ7PeD74H_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_002_0036.jpg"
       },
@@ -90,14 +87,14 @@
     },
     "gp_section_634297791228675053": {
       "settings": {
-        "checksum": "d5935c9e197e94a9db90492fc4d2bbd1491aeab77f582f10ec434a696c3710ab_1_1_1_0__1",
+        "checksum": "d5935c9e197e94a9db90492fc4d2bbd1491aeab77f582f10ec434a696c3710ab_1_1_0_0__1",
         "ggf-IljHwJG_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/some_400_c_41_34762_144763_322725_000068070005.jpg"
       },
       "type": "gp-section-634297791228675053"
     },
     "gp_section_634297894525993740": {
       "settings": {
-        "checksum": "66a409c3e51ae5bacd9891f54c748ced31cd98d72405705b603cc394a5f93b39_1_1_1_0__1",
+        "checksum": "66a409c3e51ae5bacd9891f54c748ced31cd98d72405705b603cc394a5f93b39_1_1_0_0__1",
         "ggO6qLg2FGA_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_002_0003.jpg",
         "ggRNJhKS0wE_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_033_0037.jpg"
       },
@@ -105,14 +102,14 @@
     },
     "gp_section_634299662005699340": {
       "settings": {
-        "checksum": "19ff7faf4f2bb553dfca4729f59ed763929499c3eb67af06d789f757e5f6b3d6_1_1_1_0__1",
+        "checksum": "19ff7faf4f2bb553dfca4729f59ed763929499c3eb67af06d789f757e5f6b3d6_1_1_0_0__1",
         "ggyf-eHJgWt_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_053_0036.jpg"
       },
       "type": "gp-section-634299662005699340"
     },
     "gp_section_634299876804395788": {
       "settings": {
-        "checksum": "8b131aa829a450dbe7f49c76b6323940cfbd82baf0316472601651d8fea7e4c6_1_1_1_0__1",
+        "checksum": "8b131aa829a450dbe7f49c76b6323940cfbd82baf0316472601651d8fea7e4c6_1_1_0_0__1",
         "ggHKTmXfT8D_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_010_0021.jpg",
         "ggy_BXfRFNX_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_011_0065.jpg"
       },
@@ -120,14 +117,14 @@
     },
     "gp_section_634300568008917997": {
       "settings": {
-        "checksum": "917512ba9ef4cab7849e247c0edf693304cdb6e871af358a1b906b8208ef46e2_1_1_1_0__1",
+        "checksum": "917512ba9ef4cab7849e247c0edf693304cdb6e871af358a1b906b8208ef46e2_1_1_0_0__1",
         "gg3j0PQ6ezU_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_003_0050.jpg"
       },
       "type": "gp-section-634300568008917997"
     },
     "gp_section_634300764369453618": {
       "settings": {
-        "checksum": "12fdb10b53ca8a6243be4558e55c946b38417015e9a406dfc41c0a9ab20d8552_1_1_1_0__1",
+        "checksum": "12fdb10b53ca8a6243be4558e55c946b38417015e9a406dfc41c0a9ab20d8552_1_1_0_0__1",
         "ggGpBwhZf4K_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_012_0037.jpg",
         "ggVDX5ovJG4_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_066_0007_e.jpg"
       },
@@ -135,7 +132,7 @@
     },
     "gp_section_634300921924289111": {
       "settings": {
-        "checksum": "703fb62b1089bc31ba2e019632e545af3d0125f848c70bc16a0e425ea6ccd4ef_1_1_1_0__1",
+        "checksum": "703fb62b1089bc31ba2e019632e545af3d0125f848c70bc16a0e425ea6ccd4ef_1_1_0_0__1",
         "gg3bHcgXhlh_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_065_0064_3e73e4cb-9d12-40cd-97e2-9375b3bf72de.jpg",
         "ggAP8-pPz--_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/some_400_c_41_34762_144763_322728_000068080020.jpg",
         "ggB0w9HRzIR_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_073_0045.jpg",
@@ -147,7 +144,7 @@
     },
     "gp_section_634301793601323607": {
       "settings": {
-        "checksum": "5af1455ac8bc130eb103e1f9754bcd4804445c1160ab6079921adde932f18d22_1_1_1_0__1",
+        "checksum": "5af1455ac8bc130eb103e1f9754bcd4804445c1160ab6079921adde932f18d22_1_1_0_0__1",
         "ggBOldHBal1_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_019_0007.jpg",
         "ggFIP97tcaX_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_072_0012_1.jpg",
         "ggOjRhnPZ32_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/Shot_011_0070.jpg",
@@ -159,7 +156,7 @@
     },
     "gp_section_634308505829901068": {
       "settings": {
-        "checksum": "a7708b34ea524c151db3725a64bed1ef26018f29c2dc5f5088ce8d587ad2e9bd_1_1_1_0__1",
+        "checksum": "a7708b34ea524c151db3725a64bed1ef26018f29c2dc5f5088ce8d587ad2e9bd_1_1_0_0__1",
         "ggobDR8-axS_label": "<p>SHOP THE COLLECTION</p>"
       },
       "type": "gp-section-634308505829901068"
