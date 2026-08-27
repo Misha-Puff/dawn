@@ -23,6 +23,7 @@
         },
         "announcement_dDUTp6": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "<p>The Fall Collection, Part 2 launches August 27 at 10 AM. <a href=\"https://shop.misha-and-puff.com/collections/preview\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/collections/preview\">Preview now</a>.</p>"
           }
@@ -32,6 +33,7 @@
         "announcement_9YaAtT",
         "announcement_dDUTp6"
       ],
+      "disabled": true,
       "settings": {
         "desktop_height": 32,
         "mobile_height": 34,
