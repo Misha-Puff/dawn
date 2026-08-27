@@ -1,0 +1,8 @@
+{%- comment -%}
+  Intentionally empty. The theme's hardcoded AccessibilitySpark / accessiBe
+  embed was removed: the AccessibilitySpark app injects its own widget via
+  its app-embed block, so this copy was a duplicate load of acsbapp app.js.
+  The stub file stays because app-managed Gempages layouts
+  (layout/theme.gempages.*.liquid, which the theme must not edit) still
+  render it; a missing snippet would throw a Liquid error on those pages.
+{%- endcomment -%}
