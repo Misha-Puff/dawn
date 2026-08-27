@@ -840,8 +840,14 @@
         </div>
         {%- comment -%} /.collection-view--grid {%- endcomment -%}
 
+        {%- comment -%}
+          collection-view--cq makes this view a size container: every campaign
+          width/column setting is emitted in cqw (1% of the page-width content
+          box), so Gempages proportions survive the viewport scrollbar exactly.
+          Ported from the preview grid (which emits cqw; the main grid used vw).
+        {%- endcomment -%}
         <div
-          class="collection-view collection-view--campaign page-width"
+          class="collection-view collection-view--campaign collection-view--cq page-width"
           {% if section.settings.campaign_gap != blank %}
             style="--campaign-gap: {{ section.settings.campaign_gap }}px"
           {% endif %}
@@ -859,7 +865,7 @@
                 <div
                   class="campaign-block campaign-hero{% if block.settings.video_url != blank %} campaign-hero--ambient campaign-block--sized{% endif %}"
                   {% if block.settings.video_url != blank %}
-                    style="--cb-w:100vw;--cb-wm:100vw;{{ cb_style }}"
+                    style="--cb-w:calc(100% + 2 * var(--page-width-padding, 50px));--cb-wm:calc(100% + 2 * var(--mobile-page-width-padding, 10px));{{ cb_style }}"
                   {% elsif cb_style != blank %}
                     style="{{ cb_style }}"
                   {% endif %}
@@ -947,20 +953,70 @@
                   {%- endif -%}
                 </div>
               {%- when 'campaign_text' -%}
-                <div class="campaign-block campaign-text" {{ block.shopify_attributes }}>
+                {%- capture cb_style -%}
+                  {%- if block.settings.pad_top != blank -%}--cb-pt:{{ block.settings.pad_top }}px;{%- endif -%}
+                  {%- if block.settings.pad_bottom != blank -%}--cb-pb:{{ block.settings.pad_bottom }}px;{%- endif -%}
+                  {%- if block.settings.pad_top_mobile != blank -%}--cb-ptm:{{ block.settings.pad_top_mobile }}px;{%- endif -%}
+                  {%- if block.settings.pad_bottom_mobile != blank -%}--cb-pbm:{{ block.settings.pad_bottom_mobile }}px;{%- endif -%}
+                  {%- if block.settings.inset_right != blank -%}--ct-inr:{{ block.settings.inset_right }}px;{%- endif -%}
+                  {%- if block.settings.inset_right_mobile != blank -%}--ct-inrm:{{ block.settings.inset_right_mobile }}px;{%- endif -%}
+                  {%- if block.settings.heading_px != blank -%}--ct-hfs:{{ block.settings.heading_px }}px;{%- endif -%}
+                  {%- if block.settings.heading_px_mobile != blank -%}--ct-hfsm:{{ block.settings.heading_px_mobile }}px;{%- endif -%}
+                  {%- if block.settings.heading_lh != blank -%}--ct-hlh:{{ block.settings.heading_lh }}px;{%- endif -%}
+                  {%- if block.settings.heading_lh_mobile != blank -%}--ct-hlhm:{{ block.settings.heading_lh_mobile }}px;{%- endif -%}
+                  {%- if block.settings.heading_weight != blank -%}--ct-hw:{{ block.settings.heading_weight }};{%- endif -%}
+                  {%- if block.settings.heading_ls != blank -%}--ct-hls:{{ block.settings.heading_ls }}px;{%- endif -%}
+                  {%- if block.settings.sub_px != blank -%}--ct-sfs:{{ block.settings.sub_px }}px;{%- endif -%}
+                  {%- if block.settings.sub_px_mobile != blank -%}--ct-sfsm:{{ block.settings.sub_px_mobile }}px;{%- endif -%}
+                  {%- if block.settings.sub_lh != blank -%}--ct-slh:{{ block.settings.sub_lh }}px;{%- endif -%}
+                  {%- if block.settings.sub_lh_mobile != blank -%}--ct-slhm:{{ block.settings.sub_lh_mobile }}px;{%- endif -%}
+                  {%- if block.settings.sub_ls != blank -%}--ct-sls:{{ block.settings.sub_ls }}px;{%- endif -%}
+                  {%- if block.settings.sub_gap != blank -%}--ct-sgap:{{ block.settings.sub_gap }}px;{%- endif -%}
+                  {%- if block.settings.sub_gap_mobile != blank -%}--ct-sgapm:{{ block.settings.sub_gap_mobile }}px;{%- endif -%}
+                  {%- if block.settings.cta_gap != blank -%}--ct-cgap:{{ block.settings.cta_gap }}px;{%- endif -%}
+                  {%- if block.settings.cta_gap_mobile != blank -%}--ct-cgapm:{{ block.settings.cta_gap_mobile }}px;{%- endif -%}
+                {%- endcapture -%}
+                <div
+                  class="campaign-block campaign-text campaign-text--{{ block.settings.align | default: 'center' }}"
+                  {% if cb_style != blank %}
+                    style="{{ cb_style }}"
+                  {% endif %}
+                  {{ block.shopify_attributes }}
+                >
                   {%- if block.settings.heading != blank -%}
-                    <h2 class="campaign-text__heading inline-richtext {{ block.settings.heading_size }}">
-                      {{ block.settings.heading }}
-                    </h2>
+                    {%- if block.settings.heading_px != blank or block.settings.heading_px_mobile != blank -%}
+                      <h2 class="campaign-text__heading campaign-text__heading--custom">
+                        {{ block.settings.heading }}
+                      </h2>
+                    {%- else -%}
+                      <h2 class="campaign-text__heading inline-richtext {{ block.settings.heading_size }}">
+                        {{ block.settings.heading }}
+                      </h2>
+                    {%- endif -%}
+                  {%- endif -%}
+                  {%- if block.settings.subheading != blank -%}
+                    <p class="campaign-text__sub">{{ block.settings.subheading | escape }}</p>
                   {%- endif -%}
                   {%- if block.settings.text != blank -%}
                     <div class="campaign-text__body rte">{{ block.settings.text }}</div>
                   {%- endif -%}
+                  {%- if block.settings.cta_label != blank -%}
+                    <div class="campaign-text__cta-wrap">
+                      <a
+                        class="campaign-cta"
+                        {% if block.settings.cta_link != blank %}
+                          href="{{ block.settings.cta_link }}"
+                        {% endif %}
+                      >
+                        {{- block.settings.cta_label | escape -}}
+                      </a>
+                    </div>
+                  {%- endif -%}
                 </div>
               {%- when 'campaign_lifestyle' -%}
                 {%- capture cb_style -%}
-                  {%- if block.settings.width_pct != blank -%}--cb-w:{{ block.settings.width_pct }}vw;{%- endif -%}
-                  {%- if block.settings.width_pct_mobile != blank -%}--cb-wm:{{ block.settings.width_pct_mobile }}vw;{%- endif -%}
+                  {%- if block.settings.width_pct != blank -%}--cb-w:{{ block.settings.width_pct }}cqw;{%- endif -%}
+                  {%- if block.settings.width_pct_mobile != blank -%}--cb-wm:{{ block.settings.width_pct_mobile }}cqw;{%- endif -%}
                   {%- if block.settings.pad_top != blank -%}--cb-pt:{{ block.settings.pad_top }}px;{%- endif -%}
                   {%- if block.settings.pad_bottom != blank -%}--cb-pb:{{ block.settings.pad_bottom }}px;{%- endif -%}
                   {%- if block.settings.pad_top_mobile != blank -%}--cb-ptm:{{ block.settings.pad_top_mobile }}px;{%- endif -%}
@@ -1010,17 +1066,25 @@
                 </div>
               {%- when 'campaign_collage' -%}
                 {%- capture cb_style -%}
-                  {%- if block.settings.col1_pct != blank -%}--c1-w:{{ block.settings.col1_pct }}vw;{%- endif -%}
-                  {%- if block.settings.col2_pct != blank -%}--c2-w:{{ block.settings.col2_pct }}vw;{%- endif -%}
-                  {%- if block.settings.col1_pct_mobile != blank -%}--c1-wm:{{ block.settings.col1_pct_mobile }}vw;{%- endif -%}
-                  {%- if block.settings.col2_pct_mobile != blank -%}--c2-wm:{{ block.settings.col2_pct_mobile }}vw;{%- endif -%}
+                  {%- if block.settings.col1_pct != blank -%}--c1-w:{{ block.settings.col1_pct }}cqw;{%- endif -%}
+                  {%- if block.settings.col2_pct != blank -%}--c2-w:{{ block.settings.col2_pct }}cqw;{%- endif -%}
+                  {%- if block.settings.col1_pct_mobile != blank -%}--c1-wm:{{ block.settings.col1_pct_mobile }}cqw;{%- endif -%}
+                  {%- if block.settings.col2_pct_mobile != blank -%}--c2-wm:{{ block.settings.col2_pct_mobile }}cqw;{%- endif -%}
                   {%- if block.settings.col1_offset != blank -%}--c1-off:{{ block.settings.col1_offset }}px;{%- endif -%}
                   {%- if block.settings.col2_offset != blank -%}--c2-off:{{ block.settings.col2_offset }}px;{%- endif -%}
                   {%- if block.settings.col1_offset_mobile != blank -%}--c1-offm:{{ block.settings.col1_offset_mobile }}px;{%- endif -%}
                   {%- if block.settings.col2_offset_mobile != blank -%}--c2-offm:{{ block.settings.col2_offset_mobile }}px;{%- endif -%}
                   {%- if block.settings.col1_gap != blank -%}--c1-gap:{{ block.settings.col1_gap }}px;{%- endif -%}
-                  {%- if block.settings.col1_ratio != blank -%}--c1-ar:{{ block.settings.col1_ratio }};{%- endif -%}
-                  {%- if block.settings.col2_ratio != blank -%}--c2-ar:{{ block.settings.col2_ratio }};{%- endif -%}
+                  {%- comment -%}
+                    Blank ratio = the image's own ratio, emitted explicitly so the
+                    column reserves its height before the lazy image loads (the
+                    CSS aspect-ratio rule otherwise discards the width/height
+                    attribute mapping and the column collapses to 0px until load).
+                  {%- endcomment -%}
+                  {%- if block.settings.col1_ratio != blank -%}--c1-ar:{{ block.settings.col1_ratio }};{%- elsif block.settings.image_1 != blank -%}--c1-ar:{{ block.settings.image_1.aspect_ratio }};{%- endif -%}
+                  {%- if block.settings.col2_ratio != blank -%}--c2-ar:{{ block.settings.col2_ratio }};{%- elsif block.settings.image_2 != blank -%}--c2-ar:{{ block.settings.image_2.aspect_ratio }};{%- endif -%}
+                  {%- if block.settings.inset_x != blank -%}--cg-inx:{{ block.settings.inset_x }}px;{%- endif -%}
+                  {%- if block.settings.inset_x_mobile != blank -%}--cg-inxm:{{ block.settings.inset_x_mobile }}px;{%- endif -%}
                   {%- if block.settings.pad_top != blank -%}--cb-pt:{{ block.settings.pad_top }}px;{%- endif -%}
                   {%- if block.settings.pad_bottom != blank -%}--cb-pb:{{ block.settings.pad_bottom }}px;{%- endif -%}
                   {%- if block.settings.pad_top_mobile != blank -%}--cb-ptm:{{ block.settings.pad_top_mobile }}px;{%- endif -%}
@@ -1028,7 +1092,7 @@
                 {%- endcapture -%}
                 <div
                   class="campaign-block campaign-block--sized campaign-collage campaign-collage--{{ block.settings.layout }}{% if block.settings.valign == 'bottom' %} campaign-collage--bottom{% endif %}{% if block.settings.first_flush %} campaign-collage--flush-first{% endif %}{% if block.settings.second_flush %} campaign-collage--flush-second{% endif %}"
-                  style="--cb-w:100vw;--cb-wm:100vw;{{ cb_style }}"
+                  style="--cb-w:calc(100% + 2 * var(--page-width-padding, 50px));--cb-wm:calc(100% + 2 * var(--mobile-page-width-padding, 10px));{{ cb_style }}"
                   {{ block.shopify_attributes }}
                 >
                   {%- if block.settings.layout != 'images' -%}
@@ -1070,6 +1134,51 @@
                     </div>
                   {%- endif -%}
                 </div>
+              {%- when 'campaign_strip' -%}
+                {%- capture cb_style -%}
+                  {%- if block.settings.width_pct != blank -%}--cb-w:{{ block.settings.width_pct }}cqw;{%- endif -%}
+                  {%- if block.settings.width_pct_mobile != blank -%}--cb-wm:{{ block.settings.width_pct_mobile }}cqw;{%- endif -%}
+                  {%- if block.settings.gap != blank -%}--cs-gap:{{ block.settings.gap }}px;{%- endif -%}
+                  {%- if block.settings.gap_mobile != blank -%}--cs-gapm:{{ block.settings.gap_mobile }}px;{%- endif -%}
+                  {%- if block.settings.ratio != blank -%}--cs-ar:{{ block.settings.ratio }};{%- endif -%}
+                  {%- if block.settings.pad_top != blank -%}--cb-pt:{{ block.settings.pad_top }}px;{%- endif -%}
+                  {%- if block.settings.pad_bottom != blank -%}--cb-pb:{{ block.settings.pad_bottom }}px;{%- endif -%}
+                  {%- if block.settings.pad_top_mobile != blank -%}--cb-ptm:{{ block.settings.pad_top_mobile }}px;{%- endif -%}
+                  {%- if block.settings.pad_bottom_mobile != blank -%}--cb-pbm:{{ block.settings.pad_bottom_mobile }}px;{%- endif -%}
+                  --cs-cols:{{ block.settings.columns }};--cs-colsm:{{ block.settings.columns_mobile }};
+                {%- endcapture -%}
+                <div
+                  class="campaign-block campaign-strip{% if block.settings.width_pct != blank or block.settings.width_pct_mobile != blank %} campaign-block--sized{% endif %}"
+                  style="{{ cb_style }}"
+                  {{ block.shopify_attributes }}
+                >
+                  <ul class="campaign-strip__row list-unstyled" role="list">
+                    {%- for slot in (1..6) -%}
+                      {%- assign img_key = 'image_' | append: slot -%}
+                      {%- assign link_key = 'link_' | append: slot -%}
+                      {%- assign strip_image = block.settings[img_key] -%}
+                      {%- assign strip_link = block.settings[link_key] -%}
+                      {%- if strip_image == blank -%}{%- continue -%}{%- endif -%}
+                      <li class="campaign-strip__cell">
+                        {%- if strip_link != blank -%}
+                          <a class="campaign-strip__link" href="{{ strip_link }}">
+                        {%- endif -%}
+                        {{
+                          strip_image
+                          | image_url: width: 1200
+                          | image_tag:
+                            loading: 'lazy',
+                            sizes: '(min-width: 750px) 17vw, 34vw',
+                            widths: '250, 375, 550, 750, 1100',
+                            class: 'campaign-strip__image'
+                        }}
+                        {%- if strip_link != blank -%}
+                          </a>
+                        {%- endif -%}
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
               {%- when 'campaign_products' -%}
                 {%- liquid
                   assign cp_products = block.settings.product_list
@@ -1080,8 +1189,8 @@
                   endif
                 -%}
                 {%- capture cb_style -%}
-                  {%- if block.settings.width_pct != blank -%}--cb-w:{{ block.settings.width_pct }}vw;{%- endif -%}
-                  {%- if block.settings.width_pct_mobile != blank -%}--cb-wm:{{ block.settings.width_pct_mobile }}vw;{%- endif -%}
+                  {%- if block.settings.width_pct != blank -%}--cb-w:{{ block.settings.width_pct }}cqw;{%- endif -%}
+                  {%- if block.settings.width_pct_mobile != blank -%}--cb-wm:{{ block.settings.width_pct_mobile }}cqw;{%- endif -%}
                   {%- if block.settings.tile_gap != blank -%}--cp-gap:{{ block.settings.tile_gap }}px;{%- endif -%}
                   {%- if block.settings.pad_top != blank -%}--cb-pt:{{ block.settings.pad_top }}px;{%- endif -%}
                   {%- if block.settings.pad_bottom != blank -%}--cb-pb:{{ block.settings.pad_bottom }}px;{%- endif -%}
@@ -2556,7 +2665,35 @@
           "type": "richtext",
           "id": "text",
           "label": "Text"
-        }
+        },
+        {"type": "text", "id": "subheading", "label": "Subheading", "info": "Mono line under the heading."},
+        {"type": "select", "id": "align", "options": [{"value": "left", "label": "Left"}, {"value": "center", "label": "Center"}, {"value": "right", "label": "Right"}], "default": "center", "label": "Alignment"},
+        {"type": "header", "content": "Display heading", "info": "Blank = theme heading sizes above. Any value switches the heading to these exact values (body font)."},
+        {"type": "text", "id": "heading_px", "label": "Heading size (px)"},
+        {"type": "text", "id": "heading_px_mobile", "label": "Heading size mobile (px)"},
+        {"type": "text", "id": "heading_lh", "label": "Heading line height (px)"},
+        {"type": "text", "id": "heading_lh_mobile", "label": "Heading line height mobile (px)"},
+        {"type": "text", "id": "heading_weight", "label": "Heading weight", "info": "100–900"},
+        {"type": "text", "id": "heading_ls", "label": "Heading letter spacing (px)"},
+        {"type": "text", "id": "sub_px", "label": "Subheading size (px)", "info": "Blank = 12"},
+        {"type": "text", "id": "sub_px_mobile", "label": "Subheading size mobile (px)"},
+        {"type": "text", "id": "sub_lh", "label": "Subheading line height (px)"},
+        {"type": "text", "id": "sub_lh_mobile", "label": "Subheading line height mobile (px)"},
+        {"type": "text", "id": "sub_ls", "label": "Subheading letter spacing (px)", "info": "Blank = 1"},
+        {"type": "text", "id": "sub_gap", "label": "Space above subheading (px)"},
+        {"type": "text", "id": "sub_gap_mobile", "label": "Space above subheading mobile (px)"},
+        {"type": "header", "content": "Button"},
+        {"type": "text", "id": "cta_label", "label": "Button label", "info": "Outlined button, matching the campaign page CTA."},
+        {"type": "url", "id": "cta_link", "label": "Button link"},
+        {"type": "text", "id": "cta_gap", "label": "Space above button (px)", "info": "Only applies when a heading or text sits above the button."},
+        {"type": "text", "id": "cta_gap_mobile", "label": "Space above button mobile (px)"},
+        {"type": "header", "content": "Spacing"},
+        {"type": "text", "id": "inset_right", "label": "Inset from right edge (px)", "info": "Right-aligned text only."},
+        {"type": "text", "id": "inset_right_mobile", "label": "Inset from right edge mobile (px)"},
+        {"type": "text", "id": "pad_top", "label": "Padding top (px)"},
+        {"type": "text", "id": "pad_bottom", "label": "Padding bottom (px)"},
+        {"type": "text", "id": "pad_top_mobile", "label": "Padding top mobile (px)"},
+        {"type": "text", "id": "pad_bottom_mobile", "label": "Padding bottom mobile (px)"}
       ]
     },
     {
@@ -2581,8 +2718,8 @@
         },
         {"type": "text", "id": "video_url", "label": "Ambient video URL", "info": "Store-hosted .mp4/.mov. Autoplays muted and looped. Replaces the image."},
         {"type": "header", "content": "Layout"},
-        {"type": "text", "id": "width_pct", "label": "Width (% of viewport)", "info": "Blank = container width. 100 = full-bleed."},
-        {"type": "text", "id": "width_pct_mobile", "label": "Width mobile (% of viewport)"},
+        {"type": "text", "id": "width_pct", "label": "Width (% of page width)", "info": "Blank = page width. 100 = page width; 107.5 desktop / 105.4 mobile = full-bleed."},
+        {"type": "text", "id": "width_pct_mobile", "label": "Width mobile (% of page width)"},
         {"type": "text", "id": "pad_top", "label": "Padding top (px)"},
         {"type": "text", "id": "pad_bottom", "label": "Padding bottom (px)"},
         {"type": "text", "id": "pad_top_mobile", "label": "Padding top mobile (px)"},
@@ -2599,8 +2736,8 @@
         {"type": "text", "id": "eyebrow", "label": "Eyebrow"},
         {"type": "textarea", "id": "heading", "label": "Heading", "info": "Line breaks are kept."},
         {"type": "header", "content": "Geometry"},
-        {"type": "text", "id": "col1_pct", "label": "First column width (% of viewport)"},
-        {"type": "text", "id": "col2_pct", "label": "Second column width (% of viewport)"},
+        {"type": "text", "id": "col1_pct", "label": "First column width (% of page width)"},
+        {"type": "text", "id": "col2_pct", "label": "Second column width (% of page width)"},
         {"type": "text", "id": "col1_pct_mobile", "label": "First column width mobile (%)"},
         {"type": "text", "id": "col2_pct_mobile", "label": "Second column width mobile (%)"},
         {"type": "text", "id": "col1_offset", "label": "First column offset (px)"},
@@ -2613,6 +2750,40 @@
         {"type": "select", "id": "valign", "options": [{"value": "top", "label": "Top"}, {"value": "bottom", "label": "Bottom"}], "default": "top", "label": "Vertical alignment"},
         {"type": "checkbox", "id": "first_flush", "label": "First column flush to left edge", "default": false},
         {"type": "checkbox", "id": "second_flush", "label": "Second column flush to right edge", "default": false},
+        {"type": "header", "content": "Spacing"},
+        {"type": "text", "id": "inset_x", "label": "Extra side inset (px)", "info": "Added to the page margin on each non-flush side."},
+        {"type": "text", "id": "inset_x_mobile", "label": "Extra side inset mobile (px)"},
+        {"type": "text", "id": "pad_top", "label": "Padding top (px)"},
+        {"type": "text", "id": "pad_bottom", "label": "Padding bottom (px)"},
+        {"type": "text", "id": "pad_top_mobile", "label": "Padding top mobile (px)"},
+        {"type": "text", "id": "pad_bottom_mobile", "label": "Padding bottom mobile (px)"}
+      ]
+    },
+    {
+      "type": "campaign_strip",
+      "name": "Campaign: Image Grid",
+      "settings": [
+        {"type": "paragraph", "content": "Up to 6 images in one row (desktop). Each image can link to a product or page."},
+        {"type": "image_picker", "id": "image_1", "label": "Image 1"},
+        {"type": "url", "id": "link_1", "label": "Link 1"},
+        {"type": "image_picker", "id": "image_2", "label": "Image 2"},
+        {"type": "url", "id": "link_2", "label": "Link 2"},
+        {"type": "image_picker", "id": "image_3", "label": "Image 3"},
+        {"type": "url", "id": "link_3", "label": "Link 3"},
+        {"type": "image_picker", "id": "image_4", "label": "Image 4"},
+        {"type": "url", "id": "link_4", "label": "Link 4"},
+        {"type": "image_picker", "id": "image_5", "label": "Image 5"},
+        {"type": "url", "id": "link_5", "label": "Link 5"},
+        {"type": "image_picker", "id": "image_6", "label": "Image 6"},
+        {"type": "url", "id": "link_6", "label": "Link 6"},
+        {"type": "header", "content": "Layout"},
+        {"type": "range", "id": "columns", "min": 2, "max": 6, "step": 1, "default": 6, "label": "Columns"},
+        {"type": "range", "id": "columns_mobile", "min": 1, "max": 6, "step": 1, "default": 3, "label": "Columns mobile"},
+        {"type": "text", "id": "gap", "label": "Gap (px)", "info": "Blank = 10"},
+        {"type": "text", "id": "gap_mobile", "label": "Gap mobile (px)"},
+        {"type": "text", "id": "ratio", "label": "Image ratio", "info": "CSS aspect-ratio, e.g. 2 / 3. Blank = 2 / 3."},
+        {"type": "text", "id": "width_pct", "label": "Width (% of page width)", "info": "Blank = page width. 100 = page width; 107.5 desktop / 105.4 mobile = full-bleed."},
+        {"type": "text", "id": "width_pct_mobile", "label": "Width mobile (% of page width)"},
         {"type": "header", "content": "Spacing"},
         {"type": "text", "id": "pad_top", "label": "Padding top (px)"},
         {"type": "text", "id": "pad_bottom", "label": "Padding bottom (px)"},
@@ -2648,8 +2819,8 @@
         {"type": "range", "id": "products_to_show", "min": 1, "max": 12, "step": 1, "default": 4, "label": "Products to show (collection source)"},
         {"type": "select", "id": "display", "options": [{"value": "theme", "label": "Theme cards"}, {"value": "cards", "label": "Minimal cards"}, {"value": "tiles", "label": "Image tiles"}], "default": "theme", "label": "Display"},
         {"type": "header", "content": "Layout"},
-        {"type": "text", "id": "width_pct", "label": "Width (% of viewport)", "info": "Blank = container width. 100 = full-bleed."},
-        {"type": "text", "id": "width_pct_mobile", "label": "Width mobile (% of viewport)"},
+        {"type": "text", "id": "width_pct", "label": "Width (% of page width)", "info": "Blank = page width. 100 = page width; 107.5 desktop / 105.4 mobile = full-bleed."},
+        {"type": "text", "id": "width_pct_mobile", "label": "Width mobile (% of page width)"},
         {"type": "text", "id": "tile_gap", "label": "Tile gap (px)"},
         {"type": "text", "id": "cta_label", "label": "CTA label"},
         {"type": "url", "id": "cta_link", "label": "CTA link"},
