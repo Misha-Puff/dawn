@@ -143,7 +143,7 @@
         "subitem_custom_font": "inter",
         "subitem_font_size": 12,
         "subitem_font_weight": "default",
-        "subitem_letter_spacing": 0.1,
+        "subitem_letter_spacing": 0,
         "subitem_text_case": "default",
         "megamenu_row_gap": 0,
         "megamenu_col_gap": 36,
