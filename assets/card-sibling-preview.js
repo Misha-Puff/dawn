@@ -6,12 +6,12 @@
  * overlay availability, quick-add target) to the sibling product using the
  * swatch's server-rendered payloads; clicking the card's own swatch restores
  * it. While a sibling is previewed the card root carries
- * `card--sibling-preview`, which hides badges (they still describe the
- * original product); the size overlay stays up with the sibling's own
- * availability when its payload exists (`card--sibling-availability`) and
- * quick add stays up retargeted at the sibling's product URL
- * (`card--sibling-quick-add`) — each hides instead when its swap couldn't
- * happen. Swatches without a payload (no featured image) keep their default
+ * `card--sibling-preview`; badges follow the previewed colorway via the
+ * swatch's server-rendered badge payload (`card--sibling-badges`), the size
+ * overlay stays up with the sibling's own availability when its payload
+ * exists (`card--sibling-availability`) and quick add stays up retargeted
+ * at the sibling's product URL (`card--sibling-quick-add`) — each hides
+ * instead when its swap couldn't happen. Swatches without a payload (no featured image) keep their default
  * link navigation, as does everything when JS is unavailable.
  */
 if (!customElements.get('sibling-swatches')) {
@@ -72,6 +72,22 @@ if (!customElements.get('sibling-swatches')) {
           if (next) price.replaceWith(next.cloneNode(true));
         }
 
+        // Badges follow the previewed colorway: swap in the sibling's
+        // server-rendered badge row (sale, RWS, made-to-order, custom tags).
+        // Without a payload the row hides via the card--sibling-badges class
+        // gate in component-card.css — a stale badge never describes the
+        // wrong product.
+        const badgesPayload = swatch.querySelector('template.card__swatch-badges');
+        const badgeRow = card.querySelector('.card__badges');
+        let badgesSwapped = false;
+        if (badgesPayload && badgeRow) {
+          const next = badgesPayload.content.firstElementChild;
+          if (next) {
+            badgeRow.replaceWith(next.cloneNode(true));
+            badgesSwapped = true;
+          }
+        }
+
         // Size overlay follows the previewed colorway: swap in the sibling's
         // server-rendered availability. Without a payload (excluded type,
         // default-variant-only sibling) the overlay stays hidden via the
@@ -114,6 +130,7 @@ if (!customElements.get('sibling-swatches')) {
         }
 
         card.classList.toggle('card--sibling-preview', swatch.dataset.swapSelf !== 'true');
+        card.classList.toggle('card--sibling-badges', badgesSwapped);
         card.classList.toggle('card--sibling-availability', availabilitySwapped);
         card.classList.toggle('card--sibling-quick-add', quickAddSwapped);
         this.querySelectorAll('.card__swatch--current').forEach((current) => {

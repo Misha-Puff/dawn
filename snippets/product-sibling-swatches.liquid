@@ -3,18 +3,22 @@
 
   Swatches are linked (no-JS fallback navigates to the sibling PDP). With JS,
   clicking a swatch previews the sibling IN the card (image, title, price,
-  link and size-overlay availability all swap — assets/card-sibling-preview.js)
-  Rachel-Comey style; badges and quick-add hide while a sibling is previewed
-  so a stale control can never act on the wrong product, and the overlay
-  hides only when the sibling has no availability payload. Each swatch
-  carries its swap payloads server-rendered (price via {% render 'price' %}
-  and variant availability, so market / currency context is always correct).
-  The current product's color is underlined and always renders first, so it
-  can never truncate into the "+X" overflow text.
+  badges, link and size-overlay availability all swap —
+  assets/card-sibling-preview.js) Rachel-Comey style; quick-add hides while
+  a sibling is previewed so a stale control can never act on the wrong
+  product, and the overlay/badges hide only when the sibling has no matching
+  payload. Each swatch carries its swap payloads server-rendered (price via
+  {% render 'price' %}, badge row, and variant availability, so market /
+  currency context is always correct). The current product's color is
+  underlined and always renders first, so it can never truncate into the
+  "+X" overflow text.
 
   Accepts:
   - card_product: {Object} the product the card represents (required)
   - section_id: {String} id of the host section (optional, for unique scoping)
+  - preview_badge: {String} the card slot's preview label, passed through to
+    each sibling's badge payload (optional)
+  - hide_sold_out_badge: {Boolean} passed through to badge payloads (optional)
 
   Usage:
   {% render 'product-sibling-swatches', card_product: card_product, section_id: section_id %}
@@ -54,7 +58,7 @@
       assign self_cp = card_product.metafields.shopify["color-pattern"].value | first
       assign self_color = card_product.options_by_name.color.values[0] | default: card_product.title
     -%}
-    {%- capture payload -%}{% render 'sibling-swatch-payload', payload_product: card_product %}{%- endcapture -%}
+    {%- capture payload -%}{% render 'sibling-swatch-payload', payload_product: card_product, section_id: section_id, preview_badge: preview_badge, hide_sold_out_badge: hide_sold_out_badge %}{%- endcapture -%}
     <a
       class="card__swatch card__swatch--current"
       href="{{ card_product.url }}"
@@ -87,7 +91,7 @@
         assign sib_color = sibling.options_by_name.color.values[0] | default: sibling.title
         assign shown = shown | plus: 1
       -%}
-      {%- capture payload -%}{% render 'sibling-swatch-payload', payload_product: sibling %}{%- endcapture -%}
+      {%- capture payload -%}{% render 'sibling-swatch-payload', payload_product: sibling, section_id: section_id, preview_badge: preview_badge, hide_sold_out_badge: hide_sold_out_badge %}{%- endcapture -%}
       <a
         class="card__swatch"
         href="{{ sibling.url }}"

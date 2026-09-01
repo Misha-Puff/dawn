@@ -566,7 +566,12 @@
               {%- endif -%}
 
               {% if render_swatches %}
-                {% render 'product-sibling-swatches', card_product: card_product, section_id: section_id %}
+                {% render 'product-sibling-swatches',
+                  card_product: card_product,
+                  section_id: section_id,
+                  preview_badge: preview_badge,
+                  hide_sold_out_badge: hide_sold_out_badge
+                %}
               {% endif %}
 
               {% render 'card-product-badges',

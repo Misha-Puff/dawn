@@ -1,16 +1,21 @@
 {% comment %}
   Emits the <template> swap payloads for one card swatch link: the sibling's
   server-rendered price block (market/currency-correct because it renders in
-  the page's own context) and, when the sibling qualifies for the size
-  overlay, its variant-availability block so the hover overlay can show the
-  previewed colorway's sizes. Consumed by assets/card-sibling-preview.js,
-  which clones them over the card's price/overlay content on preview.
-  Rendered inside the <a> (template is metadata content — valid anywhere,
-  never displayed). The availability gate mirrors card-product's
-  show_size_overlay exclusions.
+  the page's own context), its badge row (sale/RWS/made-to-order/custom
+  Badge-* tags follow the previewed colorway), and, when the sibling
+  qualifies for the size overlay, its variant-availability block so the
+  hover overlay can show the previewed colorway's sizes. Consumed by
+  assets/card-sibling-preview.js, which clones them over the card's
+  price/badges/overlay content on preview. Rendered inside the <a>
+  (template is metadata content — valid anywhere, never displayed). The
+  availability gate mirrors card-product's show_size_overlay exclusions.
 
   Accepts:
   - payload_product: {Object} the product this swatch previews (required)
+  - section_id: {String} host section id, for badge id scoping (optional)
+  - preview_badge: {String} the card slot's preview label, carried onto the
+    sibling's badge row so the grid-context label survives the swap (optional)
+  - hide_sold_out_badge: {Boolean} suppress the sold-out badge (optional)
 
   Usage:
   {% render 'sibling-swatch-payload', payload_product: sibling %}
@@ -18,6 +23,15 @@
 {%- if payload_product.featured_media -%}
   <template class="card__swatch-payload">
     {%- render 'price', product: payload_product, price_class: '', show_compare_at_price: true -%}
+  </template>
+  <template class="card__swatch-badges">
+    {%- render 'card-product-badges',
+      card_product: payload_product,
+      preview_badge: preview_badge,
+      hide_sold_out_badge: hide_sold_out_badge,
+      section_id: section_id,
+      card: true
+    -%}
   </template>
   {%- unless payload_product.type == 'Yarn Skein'
     or payload_product.type == 'Pattern'
