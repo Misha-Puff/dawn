@@ -14,24 +14,23 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
+        "announcement_dDUTp6": {
+          "type": "announcement",
+          "settings": {
+            "text": "<p>The Fall Collection, Part 3 launches September 10 @ 10 am et: <a href=\"https://shop.misha-and-puff.com/blogs/journal/fa26-artist-daleyden\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/blogs/journal/fa26-artist-daleyden\">Sneak peek</a>.</p>"
+          }
+        },
         "announcement_9YaAtT": {
           "type": "announcement",
           "disabled": true,
           "settings": {
             "text": "<p>Misha & Puff x Sabah Collab  — <a href=\"https://shop.misha-and-puff.com/collections/sabah-x-misha-puff\" title=\"https://shop.misha-and-puff.com/collections/sabah-x-misha-puff\">SHOP NOW</a></p>"
           }
-        },
-        "announcement_dDUTp6": {
-          "type": "announcement",
-          "disabled": true,
-          "settings": {
-            "text": "<p>The Fall Collection, Part 2 launches August 27 at 10 AM. <a href=\"https://shop.misha-and-puff.com/collections/preview\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/collections/preview\">Preview now</a>.</p>"
-          }
         }
       },
       "block_order": [
-        "announcement_9YaAtT",
-        "announcement_dDUTp6"
+        "announcement_dDUTp6",
+        "announcement_9YaAtT"
       ],
       "disabled": true,
       "settings": {
