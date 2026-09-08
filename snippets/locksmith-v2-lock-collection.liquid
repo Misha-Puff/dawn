@@ -1,31 +1,17 @@
 {% liquid
+  # Locks collections with `lock.internal_preview` (staff only), `lock.super_vip`
+  # or `lock.vip` set. Which tiers may see gated collections right now is decided
+  # by the vip-tier resolver (global access dial, else the legacy boolean ladder).
+  # Contract unchanged: echoes 'true' (locked) / 'false' (unlocked).
   assign lock_content = 'false'
 
-  # Locks collections with the `lock.internal_preview` metafield set
-  if collection.metafields.lock.internal_preview
+  capture eligible
+    render 'vip-tier', collection: collection, field: 'eligible'
+  endcapture
+  assign eligible = eligible | strip
+
+  if eligible == 'false'
     assign lock_content = 'true'
-
-    if customer.tags contains 'staff'
-      assign lock_content = 'false'
-    endif
-  endif
-
-  # Locks collections with the `lock.super_vip` metafield set
-  if collection.metafields.lock.super_vip
-    assign lock_content = 'true'
-
-    if customer.tags contains 'staff' or customer.metafields.clienteling.very_important_customer or customer.metafields.clienteling.super_vip
-      assign lock_content = 'false'
-    endif
-  endif
-
-  # Locks collections with the `lock.vip` metafield set
-  if collection.metafields.lock.vip
-    assign lock_content = 'true'
-
-    if customer.tags contains 'staff' or customer.metafields.clienteling.very_important_customer or customer.metafields.clienteling.super_vip or customer.metafields.clienteling.vip
-      assign lock_content = 'false'
-    endif
   endif
 
   if request.design_mode

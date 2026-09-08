@@ -1,31 +1,21 @@
 {% liquid
+  # Locks products tagged `preview-product` (staff only), `supervip-product`,
+  # `vip-product` — or any tag a vip_tier catalog entry names as its product_tag.
+  # Which tiers may see gated products right now is decided by the vip-tier
+  # resolver (global access dial, else the legacy tag ladder). This snippet
+  # keeps its 'true' (locked) / 'false' (unlocked) contract for every consumer.
+  #
+  # Optional `customer_rank`: a rank already resolved by the caller (grids
+  # resolve the customer once and pass it per card).
   assign lock_content = 'false'
 
-  # Locks products tagged `preview-product`
-  if product.tags contains 'preview-product'
+  capture eligible
+    render 'vip-tier', product: product, customer_rank: customer_rank, field: 'eligible'
+  endcapture
+  assign eligible = eligible | strip
+
+  if eligible == 'false'
     assign lock_content = 'true'
-
-    if customer.tags contains 'staff'
-      assign lock_content = 'false'
-    endif
-  endif
-
-  # Locks products tagged `supervip-product`
-  if product.tags contains 'supervip-product'
-    assign lock_content = 'true'
-
-    if customer.tags contains 'staff' or customer.metafields.clienteling.very_important_customer or customer.metafields.clienteling.super_vip
-      assign lock_content = 'false'
-    endif
-  endif
-
-  # Locks products tagged `vip-product`
-  if product.tags contains 'vip-product'
-    assign lock_content = 'true'
-
-    if customer.tags contains 'staff' or customer.metafields.clienteling.very_important_customer or customer.metafields.clienteling.super_vip or customer.metafields.clienteling.vip
-      assign lock_content = 'false'
-    endif
   endif
 
   if request.design_mode

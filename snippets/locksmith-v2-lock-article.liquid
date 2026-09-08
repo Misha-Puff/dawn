@@ -10,11 +10,17 @@
     endif
   endif
 
-  # Locks articles tagged with `vip`
+  # Locks articles tagged with `vip` — VIP tier and up, via the vip-tier
+  # resolver (staff bypass + global access dial live there).
   if article.tags contains 'vip'
     assign lock_content = 'true'
 
-    if customer.tags contains 'staff' or customer.metafields.clienteling.vip
+    capture eligible
+      render 'vip-tier', required_tier: 'vip', field: 'eligible'
+    endcapture
+    assign eligible = eligible | strip
+
+    if eligible == 'true'
       assign lock_content = 'false'
     endif
   endif
