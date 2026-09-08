@@ -18,11 +18,17 @@
     endif
   endif
 
-  # Locks pages with the `lock.vip` metafield set
+  # Locks pages with the `lock.vip` metafield set — VIP tier and up, via the
+  # vip-tier resolver (staff bypass + global access dial live there).
   if page.metafields.lock.vip
     assign lock_content = 'true'
 
-    if customer.tags contains 'staff' or customer.metafields.clienteling.very_important_customer or customer.metafields.clienteling.super_vip or customer.metafields.clienteling.vip
+    capture eligible
+      render 'vip-tier', required_tier: 'vip', field: 'eligible'
+    endcapture
+    assign eligible = eligible | strip
+
+    if eligible == 'true'
       assign lock_content = 'false'
     endif
   endif

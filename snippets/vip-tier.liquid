@@ -1,0 +1,214 @@
+{%- comment -%}
+  vip-tier — the ONE place in the theme that knows how tier state is stored.
+
+  Resolves the logged-in customer's VIP tier and, optionally, whether they are
+  eligible RIGHT NOW for a gated product / collection / explicit tier.
+
+  Data (all read-only here; the dashboard is the only writer):
+    metaobjects.vip_tier.values          — ranked tier catalog (handle, title,
+                                           rank, active, legacy_key, product_tag)
+    metaobjects.vip_access['global']     — the global access dial: open_to
+                                           (min tier) / public (boolean)
+    customer.metafields.clienteling.tier — metaobject_reference → vip_tier
+    customer.metafields.clienteling.{vip,super_vip,very_important_customer}
+                                         — legacy booleans (fallback until the
+                                           dashboard's phase-3 cutover)
+    customer.tags 'staff'                — bypass, not a tier (rank 1000)
+
+  Gating inputs (what marks content as gated — unchanged from Locksmith v2):
+    product tags   preview-product (staff only) + each tier's product_tag
+    collection     lock.internal_preview (staff only) + lock.<legacy_key>
+    required_tier  a tier handle forced by the caller (page lock.vip, article 'vip')
+
+  Eligibility:
+    not gated                     → true
+    staff                         → true
+    staff-only content            → false
+    dial.public == true           → true
+    dial.open_to set              → customer rank ≥ open_to rank
+    dial blank / missing          → LEGACY: customer rank ≥ rank required by the
+                                    tag / lock boolean (today's behaviour)
+
+  Params (all optional):
+    product, collection, required_tier — what to evaluate eligibility for
+    customer_rank — precomputed rank (skips customer resolution; grids pass it
+                    per card after resolving once with field: 'rank')
+    field         — 'handle' | 'rank' | 'eligible' | 'source' | 'title' to echo
+                    one value; omitted = full record "handle|rank|eligible|source|title"
+
+  source: 'staff' | 'reference' | 'legacy' | 'given' | 'none'
+
+  Phase-3 cutover: delete the LEGACY FALLBACK block below. Nothing else changes.
+{%- endcomment -%}
+{%- liquid
+  assign tier_handle = ''
+  assign tier_rank = 0
+  assign tier_title = ''
+  assign tier_source = 'none'
+
+  # ---------- 1. Resolve the customer's tier ----------
+  if customer_rank != blank
+    assign tier_rank = customer_rank | plus: 0
+    assign tier_source = 'given'
+    if tier_rank >= 1000
+      assign tier_handle = 'staff'
+    endif
+  elsif customer
+    if customer.tags contains 'staff'
+      assign tier_handle = 'staff'
+      assign tier_rank = 1000
+      assign tier_title = 'Staff'
+      assign tier_source = 'staff'
+    else
+      assign tier_ref = customer.metafields.clienteling.tier.value
+      if tier_ref != blank and tier_ref.active.value == true
+        assign tier_handle = tier_ref.system.handle
+        assign tier_rank = tier_ref.rank.value | plus: 0
+        assign tier_title = tier_ref.title.value
+        assign tier_source = 'reference'
+      else
+        # ---------- LEGACY FALLBACK (delete at phase-3 cutover) ----------
+        # Highest-ranked active catalog entry whose legacy boolean is true.
+        assign catalog_size = 0
+        for t in metaobjects.vip_tier.values
+          assign catalog_size = catalog_size | plus: 1
+          if t.active.value != true
+            continue
+          endif
+          assign legacy_key = t.legacy_key.value
+          if legacy_key == blank
+            continue
+          endif
+          if customer.metafields.clienteling[legacy_key].value == true
+            assign t_rank = t.rank.value | plus: 0
+            if t_rank > tier_rank
+              assign tier_rank = t_rank
+              assign tier_handle = t.system.handle
+              assign tier_title = t.title.value
+              assign tier_source = 'legacy'
+            endif
+          endif
+        endfor
+        # Last resort when the catalog itself is missing: the pre-catalog ladder.
+        if catalog_size == 0
+          if customer.metafields.clienteling.very_important_customer.value == true
+            assign tier_handle = 'vic'
+            assign tier_rank = 30
+            assign tier_title = 'VIC'
+            assign tier_source = 'legacy'
+          elsif customer.metafields.clienteling.super_vip.value == true
+            assign tier_handle = 'super_vip'
+            assign tier_rank = 20
+            assign tier_title = 'Super VIP'
+            assign tier_source = 'legacy'
+          elsif customer.metafields.clienteling.vip.value == true
+            assign tier_handle = 'vip'
+            assign tier_rank = 10
+            assign tier_title = 'VIP'
+            assign tier_source = 'legacy'
+          endif
+        endif
+        # ---------- END LEGACY FALLBACK ----------
+      endif
+    endif
+  endif
+
+  # ---------- 2. Is the requested content gated, and at what rank? ----------
+  assign gated = false
+  assign staff_only = false
+  assign required_rank = 0
+
+  if product != blank
+    if product.tags contains 'preview-product'
+      assign gated = true
+      assign staff_only = true
+    endif
+    for t in metaobjects.vip_tier.values
+      assign product_tag = t.product_tag.value
+      if product_tag != blank and product.tags contains product_tag
+        assign gated = true
+        assign t_rank = t.rank.value | plus: 0
+        if t_rank > required_rank
+          assign required_rank = t_rank
+        endif
+      endif
+    endfor
+  endif
+
+  if collection != blank
+    if collection.metafields.lock.internal_preview.value == true
+      assign gated = true
+      assign staff_only = true
+    endif
+    for t in metaobjects.vip_tier.values
+      assign legacy_key = t.legacy_key.value
+      if legacy_key != blank and collection.metafields.lock[legacy_key].value == true
+        assign gated = true
+        assign t_rank = t.rank.value | plus: 0
+        if t_rank > required_rank
+          assign required_rank = t_rank
+        endif
+      endif
+    endfor
+  endif
+
+  if required_tier != blank
+    assign gated = true
+    assign forced = metaobjects.vip_tier[required_tier]
+    if forced != blank
+      assign t_rank = forced.rank.value | plus: 0
+    else
+      assign t_rank = 10
+    endif
+    if t_rank > required_rank
+      assign required_rank = t_rank
+    endif
+  endif
+
+  # ---------- 3. Eligibility ----------
+  assign eligible = true
+  if gated
+    if tier_handle == 'staff'
+      assign eligible = true
+    elsif staff_only
+      assign eligible = false
+    else
+      assign dial = metaobjects.vip_access['global']
+      if dial.public.value == true
+        assign eligible = true
+      elsif dial.open_to.value != blank
+        assign open_rank = dial.open_to.value.rank.value | plus: 0
+        if tier_rank >= open_rank
+          assign eligible = true
+        else
+          assign eligible = false
+        endif
+      else
+        if tier_rank >= required_rank and required_rank > 0
+          assign eligible = true
+        else
+          assign eligible = false
+        endif
+      endif
+    endif
+  endif
+  if request.design_mode
+    assign eligible = true
+  endif
+
+  # ---------- 4. Output ----------
+  case field
+    when 'handle'
+      echo tier_handle
+    when 'rank'
+      echo tier_rank
+    when 'eligible'
+      echo eligible
+    when 'source'
+      echo tier_source
+    when 'title'
+      echo tier_title
+    else
+      echo tier_handle | append: '|' | append: tier_rank | append: '|' | append: eligible | append: '|' | append: tier_source | append: '|' | append: tier_title
+  endcase
+-%}
