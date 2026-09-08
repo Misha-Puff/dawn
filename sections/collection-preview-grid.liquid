@@ -424,12 +424,25 @@
             {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: product -%}{%- endcapture -%}
             {%- assign lock_content = lock_content | strip -%}
             {%- if force_readonly -%}{%- assign lock_content = 'true' -%}{%- endif -%}
+            {%- comment -%}
+              Preview badge is derived from the product's lock tags, not from
+              the viewer alone. Locked → "Coming Soon". Unlocked AND still
+              carrying a lock tag → the viewer's tier is what opened it, so
+              "Early Access". Unlocked with NO lock tag → the product has
+              launched for everyone; no preview badge, the card renders as a
+              normal shoppable card. That keeps a preview collection truthful
+              after launch without any manual switch.
+            {%- endcomment -%}
             {%- assign preview_badge = '' -%}
+            {%- assign has_lock_tag = false -%}
+            {%- if product.tags contains 'vip-product' or product.tags contains 'supervip-product' or product.tags contains 'preview-product' -%}
+              {%- assign has_lock_tag = true -%}
+            {%- endif -%}
             {%- if lock_content == 'true' -%}
               {%- unless product.tags contains 'Badge-Coming Soon' -%}
                 {%- assign preview_badge = 'Coming Soon' -%}
               {%- endunless -%}
-            {%- else -%}
+            {%- elsif has_lock_tag -%}
               {%- unless product.tags contains 'Badge-Early Access' -%}
                 {%- assign preview_badge = 'Early Access' -%}
               {%- endunless -%}
