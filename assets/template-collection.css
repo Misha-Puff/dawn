@@ -742,3 +742,164 @@
     gap: var(--cs-gapm, var(--cs-gap, 10px));
   }
 }
+
+/* --- FA26 D3 additions ---
+   Hero: --hv-ar reserved ratio, mobile video source, positioned overlay logo
+   (--ho-*). Lifestyle: mobile left-flush. Collage: image width inside its
+   column (--c1-iw), text inset (--cg-tin), mono body + underlined link,
+   mobile flush/arrangement overrides. Image grid: natural-size cells
+   (--cw/--cwm) with placement + vertical centering. */
+.campaign-hero__ambient {
+  aspect-ratio: var(--hv-ar, auto);
+}
+
+.campaign-hero--overlay-pos .campaign-hero__overlay-image {
+  left: var(--ho-l, var(--page-width-padding, 50px));
+  right: auto;
+  top: var(--ho-t, 37.9%);
+  width: var(--ho-w, calc(100% - 2 * var(--page-width-padding, 50px)));
+}
+
+.campaign-collage__col--first .campaign-collage__image {
+  width: var(--c1-iw, 100%);
+  margin-inline: auto;
+}
+
+.campaign-collage__text {
+  padding-left: var(--cg-tin, 0);
+}
+
+.campaign-collage__body {
+  margin: 0;
+  font-family: var(--font-mono-family);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0.1px;
+  text-transform: none;
+  color: rgba(18, 18, 18, 0.75);
+}
+
+.campaign-collage__link-wrap {
+  margin: 0;
+  padding-top: var(--cg-lgap, 16px);
+  font-family: var(--font-mono-family);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.7px;
+}
+
+.campaign-collage__link {
+  color: rgb(26, 26, 26);
+  text-decoration: underline;
+}
+
+.campaign-strip--vcenter .campaign-strip__row {
+  align-items: center;
+}
+
+.campaign-strip--center .campaign-strip__cell,
+.campaign-strip--inward .campaign-strip__cell {
+  display: flex;
+  justify-content: center;
+}
+
+.campaign-strip--inward .campaign-strip__cell:first-child {
+  justify-content: flex-end;
+}
+
+.campaign-strip--inward .campaign-strip__cell:last-child {
+  justify-content: flex-start;
+}
+
+.campaign-strip__cell--w .campaign-strip__link,
+.campaign-strip__cell--w > .campaign-strip__image {
+  width: var(--cw, 100%);
+}
+
+@media screen and (max-width: 749px) {
+  .campaign-hero__media--full-m .campaign-hero__ambient {
+    height: 100svh;
+    aspect-ratio: auto;
+  }
+
+  .campaign-hero--overlay-pos .campaign-hero__overlay-image {
+    left: var(--ho-lm, 50%);
+    right: auto;
+    top: var(--ho-tm, var(--ho-t, 49.9%));
+    width: var(--ho-wm, var(--ho-w, 79.5vw));
+    transform: translateX(var(--ho-txm, -50%));
+  }
+
+  .campaign-lifestyle--m-left.campaign-block--sized {
+    margin-inline: calc(-1 * var(--mobile-page-width-padding, 10px)) auto;
+  }
+
+  .campaign-collage__col--first .campaign-collage__image {
+    width: var(--c1-iwm, var(--c1-iw, 100%));
+  }
+
+  .campaign-collage__text {
+    padding-left: var(--cg-tinm, var(--cg-tin, 0));
+  }
+
+  .campaign-collage__body {
+    font-size: 11px;
+    line-height: 16.5px;
+    letter-spacing: 0.7px;
+  }
+
+  .campaign-collage__link-wrap {
+    padding-top: var(--cg-lgapm, var(--cg-lgap, 12px));
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  .campaign-collage--m-flush-none,
+  .campaign-collage--m-flush-second {
+    padding-left: calc(var(--mobile-page-width-padding, 10px) + var(--cg-inxm, var(--cg-inx, 0px)));
+  }
+
+  .campaign-collage--m-flush-none,
+  .campaign-collage--m-flush-first {
+    padding-right: calc(var(--mobile-page-width-padding, 10px) + var(--cg-inxm, var(--cg-inx, 0px)));
+  }
+
+  .campaign-collage--m-flush-first,
+  .campaign-collage--m-flush-both {
+    padding-left: 0;
+  }
+
+  .campaign-collage--m-flush-second,
+  .campaign-collage--m-flush-both {
+    padding-right: 0;
+  }
+
+  /* Mobile "same as desktop": text stays above the first image in column 1. */
+  .campaign-collage--text_first.campaign-collage--m-columns {
+    grid-template-rows: auto 1fr;
+  }
+
+  .campaign-collage--text_first.campaign-collage--m-columns .campaign-collage__text {
+    grid-row: 1;
+    grid-column: 1;
+    text-align: right;
+    margin-top: var(--c1-offm, var(--c1-off, 0));
+    margin-left: 0;
+  }
+
+  .campaign-collage--text_first.campaign-collage--m-columns .campaign-collage__col--first {
+    grid-row: 2;
+    margin-top: var(--c1-gapm, var(--c1-gap, 0));
+  }
+
+  .campaign-collage--text_first.campaign-collage--m-columns .campaign-collage__col--second {
+    grid-row: 1 / span 2;
+  }
+
+  .campaign-strip__cell--w .campaign-strip__link,
+  .campaign-strip__cell--w > .campaign-strip__image {
+    width: var(--cwm, var(--cw, 100%));
+  }
+}
