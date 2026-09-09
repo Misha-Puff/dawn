@@ -1,0 +1,195 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_635872079849194150": {
+      "settings": {
+        "checksum": "757b0e7e38e703341f79f922a57ce79d7833f7c85c01533183bbc2c9f7dc3777_1_1_1_0__1",
+        "gggbmGywxJj_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Shot_29_1464.jpg"
+      },
+      "type": "gp-section-635872079849194150"
+    },
+    "gp_section_635872079849259686": {
+      "settings": {
+        "checksum": "448169f29156c33fe8190185004559ca7ebcbe938f6524880d57ca88d5a28c5e_1_1_1_0__1",
+        "gg-WtrCyhuy_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgba(18,18,18,0.75);\">For the Fall Collection, we worked with our friend, France-based artist Julie Daleyden, to bring her beautiful artwork to fabric.</span></p>",
+        "ggAkZwK86IH_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/JD_Tilt.jpg",
+        "ggLaCavlpW8_text": "<p><a href=\"https://shop.misha-and-puff.com/blogs/journal/fa26-artist-daleyden\"><span style=\"background-color:rgb(255,255,255);color:rgb(26,26,26);\"><u>READ MORE IN THE JOURNAL</u></span></a></p>",
+        "ggl7ftzvGdQ_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/8DEE3D53-5B85-41DA-AF67-5B6DEAF87060_e.jpg"
+      },
+      "type": "gp-section-635872079849259686"
+    },
+    "gp_section_635872079849456294": {
+      "settings": {
+        "checksum": "c18343ae775a575426a04fa36308f989a442b92957b9badaec4beb10a7e2366e_1_1_1_0__1",
+        "gg1y5wMVJyE_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/mp_daleyden_white.png",
+        "ggqsZH32nT__background_desktop_video": "https://www.youtube.com/watch?v=NfASaHFN1zg",
+        "ggqsZH32nT__background_desktop_videoHtml5": "https://cdn.shopify.com/videos/c/o/v/77c5d5da51e142a4b27e24a5aa53fd14.mov",
+        "ggqsZH32nT__background_mobile_video": "https://www.youtube.com/watch?v=NfASaHFN1zg",
+        "ggqsZH32nT__background_mobile_videoHtml5": "https://cdn.shopify.com/videos/c/o/v/054b2e625c2446ed9ef53b53d3441fac.mov",
+        "section_preload": "true"
+      },
+      "type": "gp-section-635872079849456294"
+    },
+    "gp_section_635872079849718438": {
+      "settings": {
+        "checksum": "2f53f87f8ff3041146414f7c77445a3c584a5fd836f59d4ead347908ccd89dda_1_1_1_0__1",
+        "ggO6qLg2FGA_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Shot_07_616.jpg",
+        "ggRNJhKS0wE_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Shot_07_648.jpg"
+      },
+      "type": "gp-section-635872079849718438"
+    },
+    "gp_section_635872079849783974": {
+      "settings": {
+        "checksum": "4d06f605c7e86df08c3e3b07b3167545f6fa2f2271ec7e37b11ad419d30cc3b9_1_1_1_0__1",
+        "ggHKTmXfT8D_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Shot_02_194.jpg",
+        "ggdvjYPD28a_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Shot_14_851_copy.jpg"
+      },
+      "type": "gp-section-635872079849783974"
+    },
+    "gp_section_635872079849980582": {
+      "settings": {
+        "checksum": "29683cfb9160c5408a43f2f3654ee7aac5463c417b9ae8ca976b3f97d50db800_1_1_1_0__1",
+        "ggyf-eHJgWt_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Stills_1545.jpg"
+      },
+      "type": "gp-section-635872079849980582"
+    },
+    "gp_section_635872079850242726": {
+      "settings": {
+        "checksum": "40f2874b71a4e8aa708b666d8778e4369ad95320b86a01aec848cd941311ea39_1_1_1_0__1",
+        "ggzgBBOZnHR_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Shot_22_1176.jpg"
+      },
+      "type": "gp-section-635872079850242726"
+    },
+    "gp_section_636513250300658304": {
+      "settings": {
+        "checksum": "3f2a140c75bfd36f947bcc8424185f5b19b31a7cf6940dd6624f385f8050592f_1_1_1_0__1",
+        "gg5tJZexE3C_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Shot_06_586.jpg"
+      },
+      "type": "gp-section-636513250300658304"
+    },
+    "gp_section_636514360113496849": {
+      "settings": {
+        "checksum": "c17c1ea085c9d2ed405c212e05448515e65902f659d2fb1266961a09a89615c7_1_1_1_0__1",
+        "gg46yeKHj2q_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Shot_19_1060.jpg"
+      },
+      "type": "gp-section-636514360113496849"
+    },
+    "gp_section_636514655979700864": {
+      "settings": {
+        "checksum": "0121e10ab5be9a9e6a459ae3c5d87b4a146efd5fbee3853772738dce5e0360a9_1_1_1_0__1",
+        "ggjOq1KWtoq_background_desktop_image_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/IMG_1071_e.jpg"
+      },
+      "type": "gp-section-636514655979700864"
+    },
+    "gp_section_636518140070593339": {
+      "settings": {
+        "checksum": "c512a219dd2a99e2d9423066d2db2e59f07ca3d224b208f1d3774ee11fce55e3_1_1_1_0__1",
+        "ggRa-dk76AM_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Shot_25_1275.jpg"
+      },
+      "type": "gp-section-636518140070593339"
+    },
+    "gp_section_636518392433476411": {
+      "settings": {
+        "checksum": "8176ee604ba348acd75b867415f58110c4f89d9d2673bab08dc6325839334ff1_1_1_1_0__1",
+        "gg-pws1f0zf_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Shot_11_765.jpg"
+      },
+      "type": "gp-section-636518392433476411"
+    },
+    "gp_section_636518627247391446": {
+      "settings": {
+        "checksum": "69da6a5ea8c55c17e9bc8572cb98dd7325a1ef0dd872073d565e62badb7ae1d2_1_1_1_0__1",
+        "ggHYfAldsfX_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Shot_25_1287.jpg",
+        "ggKFFYhpd6t_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Stills_051.jpg"
+      },
+      "type": "gp-section-636518627247391446"
+    },
+    "gp_section_636519793331012310": {
+      "settings": {
+        "checksum": "7b9e57ec9251769393050907cadd3cb287471593ba20abb3d53fd5c88986309f_1_1_1_0__1",
+        "ggZjHANEfLX_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Shot_17_994.jpg"
+      },
+      "type": "gp-section-636519793331012310"
+    },
+    "gp_section_636519968367706897": {
+      "settings": {
+        "checksum": "037272de54cdd8a35913a8615b08a28aab9b0458774bdd1677b6d7c534822ded_1_1_1_0__1",
+        "gg18PlPFl0Q_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/guy3_b1e56535-b666-4052-abcb-1bd8dbb2c15b.jpg",
+        "gg4H7QnlU5E_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/GUY2.jpg",
+        "ggyJFFy1cKW_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/GUY1.jpg"
+      },
+      "type": "gp-section-636519968367706897"
+    },
+    "gp_section_636520001133609600": {
+      "settings": {
+        "checksum": "fa49d61a7277f2eb4ee11a06b8a46fcfb360ec5912298aba7ef599ad5e9e4eb8_1_1_1_0__1",
+        "ggpGvm5QT1P_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Shot_17_989.jpg",
+        "gguDgYyBj2x_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Shot_17_939.jpg"
+      },
+      "type": "gp-section-636520001133609600"
+    },
+    "gp_section_636520130016182912": {
+      "settings": {
+        "checksum": "4852c109e9a24db3ac5a61b2b8b1eef19dcfdf138b70c8b7fd8eae4ae4ba7f36_1_1_1_0__1",
+        "ggCJyhHoiyz_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Stills_029.jpg"
+      },
+      "type": "gp-section-636520130016182912"
+    },
+    "gp_section_636521113832129238": {
+      "settings": {
+        "checksum": "fa08faa00a2808bd9e700e33c6e8541472a1b181e9525998c02011b3228bba21_1_1_1_0__1",
+        "gg20cLph8Nh_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Shot_05_441.jpg",
+        "ggTLTK-q65B_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Shot_09_735.jpg",
+        "ggbAvmqNjZ5_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Stills_481.jpg",
+        "ggrWY7jPyn4_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Look_31_1574.jpg"
+      },
+      "type": "gp-section-636521113832129238"
+    },
+    "gp_section_636521133293699798": {
+      "settings": {
+        "checksum": "d4d930d07e21424fc387f1b22ce4e4df247a7f2be067e77c4effb0edb73b016e_1_1_1_0__1",
+        "ggobDR8-axS_label": "<p>SHOP THE COLLECTION</p>"
+      },
+      "type": "gp-section-636521133293699798"
+    },
+    "gp_section_636521347538748219": {
+      "settings": {
+        "checksum": "73d5e84bd610cb75cb4cb97f8e30ab5367059c577a7819ffce94e97a55bf35ec_1_1_1_0__1",
+        "ggML8d0OuZ8_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Shot_27_1370.jpg",
+        "ggOAfZCDgSv_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Shot_21_1171.jpg",
+        "ggae_ENH_lp_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Stills_449.jpg",
+        "ggvxN4OezCr_srcSet_desktop_src": "https://cdn.shopify.com/s/files/1/0220/8736/files/MP_FA26_Kids_Shot_04_409.jpg"
+      },
+      "type": "gp-section-636521347538748219"
+    }
+  },
+  "order": [
+    "gp_section_635872079849456294",
+    "gp_section_635872079849194150",
+    "gp_section_635872079849259686",
+    "gp_section_636513250300658304",
+    "gp_section_635872079849980582",
+    "gp_section_635872079849718438",
+    "gp_section_636514360113496849",
+    "gp_section_636514655979700864",
+    "gp_section_635872079849783974",
+    "gp_section_636518140070593339",
+    "gp_section_636518392433476411",
+    "gp_section_636518627247391446",
+    "gp_section_636519793331012310",
+    "gp_section_636520130016182912",
+    "gp_section_636520001133609600",
+    "gp_section_636519968367706897",
+    "gp_section_635872079850242726",
+    "gp_section_636521113832129238",
+    "gp_section_636521347538748219",
+    "gp_section_636521133293699798"
+  ]
+}
