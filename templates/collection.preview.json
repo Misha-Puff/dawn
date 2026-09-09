@@ -55,7 +55,7 @@
         "heading_4bAnVw": {
           "type": "heading",
           "settings": {
-            "heading": "PREVIEW: THE FALL COLLECTION — PART 2",
+            "heading": "THE FALL COLLECTION — PART 3",
             "heading_size": "h2",
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -72,7 +72,7 @@
         "text_bdVDk3": {
           "type": "text",
           "settings": {
-            "text": "<p>This season is a reflection on care, routine, and time as lived experience — a love letter to Japan and the enduring beauty of its craft traditions. Inspired by travel, Ivy of the 1960s, vintage Americana, workwear, and schoolyard dressing, every piece is designed to live together, celebrating dressing with intention and finding beauty in the everyday.<br/><br/>Part 2 launches Thursday, August 27 at 10 AM ET.</p>",
+            "text": "<p>This season is a reflection on care, routine, and time as lived experience — a love letter to Japan and the enduring beauty of its craft traditions. Inspired by travel, Ivy of the 1960s, vintage Americana, workwear, and schoolyard dressing, every piece is designed to live together, celebrating dressing with intention and finding beauty in the everyday.<br/><br/>The final arrivals of the Fall Collection are here, and for Part 3 we worked with our friend, artist <a href=\"https://shop.misha-and-puff.com/blogs/journal/fa26-artist-daleyden\" target=\"_blank\">Julie Daleyden</a>, to bring her beautiful artwork to fabric in a special capsule collection. Launching to everyone September 10 at 10 am et.</p>",
             "line_height": 24,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -157,6 +157,7 @@
           "blocks": {
             "button_dy8XDD": {
               "type": "button",
+              "disabled": true,
               "settings": {
                 "label": "VIEW LOOKBOOK",
                 "open_new_tab": true,
@@ -185,6 +186,7 @@
       "block_order": [
         "group"
       ],
+      "disabled": true,
       "name": "Buttons",
       "settings": {
         "title": "",
@@ -1152,8 +1154,8 @@
         "enable_campaign": true,
         "view_tabs_alignment": "left",
         "view_tabs_order": "collection_first",
-        "link_tab_label": "Lookbook",
-        "link_tab_url": "shopify://blogs/journal/child-fall-26-2",
+        "link_tab_label": "ARTIST FEATURE",
+        "link_tab_url": "shopify://blogs/journal/fa26-artist-daleyden",
         "jump_link_enable": true,
         "jump_link_label": "View the collection",
         "jump_pill_enable": true,
