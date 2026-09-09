@@ -390,6 +390,13 @@
             {%- assign strip_link = block.settings[link_key] -%}
             {%- if strip_image == blank -%}{%- continue -%}{%- endif -%}
             {%- capture cell_style -%}
+              {%- comment -%}
+                Natural ratio: emit the image's own ratio per cell so the lazy
+                image reserves its height (aspect-ratio: auto would discard the
+                width/height attribute mapping and the cell collapses to 0px,
+                which also stops the lazy load from ever firing).
+              {%- endcomment -%}
+              {%- if block.settings.ratio == 'auto' -%}--cs-ar:{{ strip_image.aspect_ratio }};{%- endif -%}
               {%- if cs_has_widths -%}
                 {%- assign cs_w = cs_widths[cs_i] | strip -%}
                 {%- assign cs_wm = cs_widths_m[cs_i] | strip -%}
