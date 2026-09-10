@@ -16,6 +16,7 @@
       "blocks": {
         "announcement_dDUTp6": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "<p>The Fall Collection, Part 3 launches September 10 @ 10 am et: <a href=\"https://shop.misha-and-puff.com/blogs/journal/fa26-artist-daleyden\" target=\"_blank\" title=\"https://shop.misha-and-puff.com/blogs/journal/fa26-artist-daleyden\">Sneak peek</a>.</p>"
           }
@@ -32,6 +33,7 @@
         "announcement_dDUTp6",
         "announcement_9YaAtT"
       ],
+      "disabled": true,
       "settings": {
         "desktop_height": 32,
         "mobile_height": 34,
