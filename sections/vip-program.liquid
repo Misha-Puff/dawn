@@ -1,0 +1,186 @@
+{{ 'component-vip-tier.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  VIP program page: every ACTIVE vip_tier catalog entry, lowest rank first,
+  one card each (title + perks). The logged-in customer's tier is highlighted
+  via the vip-tier resolver. Logged-out visibility of the page itself is
+  Locksmith v2's job, not this section's.
+
+  Ordering: metaobjects.<type>.values has no documented order, so we pick the
+  next-lowest rank each pass (n ≤ a handful of tiers, so O(n²) is nothing).
+{%- endcomment -%}
+
+{%- liquid
+  capture tier_handle
+    render 'vip-tier', field: 'handle'
+  endcapture
+  assign tier_handle = tier_handle | strip
+
+  assign tier_count = 0
+  for t in metaobjects.vip_tier.values
+    if t.active.value == true
+      assign tier_count = tier_count | plus: 1
+    endif
+  endfor
+-%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="vip-program page-width{% if section.settings.page_width == 'narrow' %} page-width--narrow{% endif %} section-{{ section.id }}-padding">
+    {%- if section.settings.heading != blank -%}
+      <h1 class="vip-program__heading {{ section.settings.heading_size }}">{{ section.settings.heading | escape }}</h1>
+    {%- endif -%}
+    {%- if section.settings.intro != blank -%}
+      <div class="vip-program__intro rte">{{ section.settings.intro }}</div>
+    {%- endif -%}
+
+    {%- if tier_count > 0 -%}
+      <ul class="vip-program__list grid grid--1-col grid--{{ section.settings.columns_desktop }}-col-desktop" role="list">
+        {%- assign printed_rank = 0 -%}
+        {%- for i in (1..20) -%}
+          {%- assign best = nil -%}
+          {%- assign best_rank = 101 -%}
+          {%- for t in metaobjects.vip_tier.values -%}
+            {%- if t.active.value != true -%}{%- continue -%}{%- endif -%}
+            {%- assign t_rank = t.rank.value | plus: 0 -%}
+            {%- if t_rank > printed_rank and t_rank < best_rank -%}
+              {%- assign best_rank = t_rank -%}
+              {%- assign best = t -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if best == nil -%}{%- break -%}{%- endif -%}
+          {%- assign printed_rank = best_rank -%}
+          {%- assign is_current = false -%}
+          {%- if best.system.handle == tier_handle -%}{%- assign is_current = true -%}{%- endif -%}
+          <li class="vip-program__item grid__item">
+            <div class="vip-program__card{% if is_current %} vip-program__card--current{% endif %}" data-tier="{{ best.system.handle }}">
+              <h2 class="vip-program__tier h3">
+                {{ best.title.value }}
+                {%- if is_current -%}
+                  <span class="vip-program__current-badge">{{ 'customer.tier.current' | t }}</span>
+                {%- endif -%}
+              </h2>
+              {%- if best.perks.value != blank -%}
+                <div class="vip-program__perks rte">{{ best.perks | metafield_tag }}</div>
+              {%- endif -%}
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- elsif request.design_mode -%}
+      <p class="vip-program__empty">No active tiers. Add entries under Content → Metaobjects → VIP Tier.</p>
+    {%- endif -%}
+
+    {%- if section.settings.footer_copy != blank -%}
+      <div class="vip-program__footer rte">{{ section.settings.footer_copy }}</div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "VIP program",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Lists every active VIP tier from Content → Metaobjects → VIP Tier, lowest tier first, and highlights the logged-in customer's tier."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "VIP program"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "t:sections.all.heading_size.label",
+      "options": [
+        { "value": "h2", "label": "t:sections.all.heading_size.options__1.label" },
+        { "value": "h1", "label": "t:sections.all.heading_size.options__2.label" },
+        { "value": "h0", "label": "t:sections.all.heading_size.options__3.label" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro"
+    },
+    {
+      "type": "richtext",
+      "id": "footer_copy",
+      "label": "Footer copy"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "label": "Columns on desktop",
+      "default": 3
+    },
+    {
+      "type": "select",
+      "id": "page_width",
+      "label": "Page width",
+      "options": [
+        { "value": "full", "label": "Full" },
+        { "value": "narrow", "label": "Narrow" }
+      ],
+      "default": "full"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "VIP program"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,114 @@
+/* VIP tier — account block + program page. Rides the theme's color-scheme
+   variables so it inherits each scheme's foreground/background. */
+
+.vip-tier__card {
+  border: 0.1rem solid rgba(var(--color-foreground), 0.2);
+  padding: 2.4rem;
+  max-width: 60rem;
+}
+
+.vip-tier__heading {
+  margin: 0 0 1rem;
+}
+
+.vip-tier__title {
+  font-size: calc(var(--font-heading-scale) * 2rem);
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: var(--font-heading-weight);
+  letter-spacing: 0.06rem;
+  line-height: 1.2;
+  margin: 0 0 1.2rem;
+}
+
+.vip-tier__perks {
+  margin: 0 0 1.6rem;
+}
+
+.vip-tier__perks p:last-child {
+  margin-bottom: 0;
+}
+
+.vip-tier__next {
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.12);
+  color: rgba(var(--color-foreground), 0.75);
+  margin: 0;
+  padding-top: 1.4rem;
+}
+
+.vip-tier__next-label {
+  display: block;
+  font-size: 1.1rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.vip-tier__link {
+  display: inline-block;
+  margin-top: 1.6rem;
+}
+
+/* Program page */
+
+.vip-program__heading {
+  margin: 0 0 1.6rem;
+}
+
+.vip-program__intro,
+.vip-program__footer {
+  max-width: 72rem;
+}
+
+.vip-program__intro {
+  margin-bottom: 3rem;
+}
+
+.vip-program__footer {
+  margin-top: 3rem;
+}
+
+.vip-program__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vip-program__card {
+  border: 0.1rem solid rgba(var(--color-foreground), 0.2);
+  height: 100%;
+  padding: 2.4rem;
+}
+
+.vip-program__card--current {
+  border-color: rgb(var(--color-foreground));
+  box-shadow: inset 0 0 0 0.1rem rgb(var(--color-foreground));
+}
+
+.vip-program__tier {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0 0 1.2rem;
+}
+
+.vip-program__current-badge {
+  background: rgb(var(--color-foreground));
+  color: rgb(var(--color-background));
+  font-family: var(--font-body-family);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  line-height: 1;
+  padding: 0.5rem 0.7rem;
+  text-transform: uppercase;
+}
+
+.vip-program__perks p:last-child {
+  margin-bottom: 0;
+}
+
+.vip-program__empty {
+  color: rgba(var(--color-foreground), 0.75);
+}
