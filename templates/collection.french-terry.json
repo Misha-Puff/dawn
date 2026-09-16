@@ -209,7 +209,7 @@
             "direction": "row",
             "wrap": true,
             "gap": 12,
-            "justify": "center",
+            "justify": "flex-start",
             "align": "stretch"
           },
           "blocks": {
