@@ -150,11 +150,11 @@
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
             "tg_custom_font": "overpass_mono",
-            "tg_font_weight": "600",
-            "tg_font_size": 10,
+            "tg_font_weight": "700",
+            "tg_font_size": 11,
             "tg_font_size_mobile": 0,
             "tg_text_case": "default",
-            "tg_letter_spacing": 1,
+            "tg_letter_spacing": 0,
             "tg_color": ""
           },
           "blocks": {}
