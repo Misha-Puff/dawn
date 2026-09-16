@@ -137,6 +137,50 @@
     "buttons_Mn3bJP": {
       "type": "buttons",
       "blocks": {
+        "button_GDBbTD": {
+          "type": "button",
+          "name": "Button",
+          "settings": {
+            "label": "BABY STYLES",
+            "open_new_tab": false,
+            "link": "https://shop.misha-and-puff.com/collections/french-terry?filter.p.m.taxonomy.division=Baby&sort_by=manual",
+            "display_style": "link",
+            "type": "primary",
+            "on_click": "",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "overpass_mono",
+            "tg_font_weight": "600",
+            "tg_font_size": 11,
+            "tg_font_size_mobile": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": ""
+          },
+          "blocks": {}
+        },
+        "button_bWxE8C": {
+          "type": "button",
+          "name": "Button",
+          "settings": {
+            "label": "CHILD STYLES",
+            "open_new_tab": false,
+            "link": "https://shop.misha-and-puff.com/collections/french-terry?filter.p.m.taxonomy.division=Child&sort_by=manual",
+            "display_style": "link",
+            "type": "primary",
+            "on_click": "",
+            "tg_enable_type": true,
+            "tg_font": "assistant_n4",
+            "tg_custom_font": "overpass_mono",
+            "tg_font_weight": "600",
+            "tg_font_size": 11,
+            "tg_font_size_mobile": 0,
+            "tg_text_case": "default",
+            "tg_letter_spacing": 0,
+            "tg_color": ""
+          },
+          "blocks": {}
+        },
         "button_A4KEgL": {
           "type": "button",
           "name": "Button",
@@ -241,6 +285,8 @@
         }
       },
       "block_order": [
+        "button_GDBbTD",
+        "button_bWxE8C",
         "button_A4KEgL",
         "group"
       ],
@@ -250,7 +296,7 @@
         "heading_size": "h2",
         "color_scheme": "",
         "desktop_padding_top": 0,
-        "desktop_padding_bottom": 14,
+        "desktop_padding_bottom": 8,
         "mobile_padding_top": 0,
         "mobile_padding_bottom": 24
       }
