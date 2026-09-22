@@ -3,9 +3,10 @@
 {%- comment -%}
   Account page tier block. Reads the logged-in customer's tier through the
   vip-tier resolver (the only place that knows the field names) and the
-  vip_tier catalog for display copy. Renders nothing for customers without a
-  tier and for staff (unless the editor toggles say otherwise), so the account
-  page is unchanged for everyone else.
+  vip_tier catalog for the tier's title. Renders nothing for customers without
+  a tier and for staff (unless the editor toggles say otherwise), so the
+  account page is unchanged for everyone else. The catalog carries no
+  customer-facing copy (perks / next-tier fields were dropped 2026-09-22).
 {%- endcomment -%}
 
 {%- liquid
@@ -14,7 +15,6 @@
   endcapture
   assign tier = tier_record | strip | split: '|'
   assign tier_handle = tier[0]
-  assign tier_rank = tier[1] | plus: 0
   assign tier_source = tier[3]
   assign tier_title = tier[4]
 
@@ -34,20 +34,6 @@
   endif
 
   assign tier_entry = metaobjects.vip_tier[tier_handle]
-
-  # Next tier = the active catalog entry with the smallest rank above mine.
-  assign next_entry = nil
-  assign next_rank = 101
-  for t in metaobjects.vip_tier.values
-    if t.active.value != true
-      continue
-    endif
-    assign t_rank = t.rank.value | plus: 0
-    if t_rank > tier_rank and t_rank < next_rank
-      assign next_rank = t_rank
-      assign next_entry = t
-    endif
-  endfor
 -%}
 
 {%- style -%}
@@ -75,23 +61,12 @@
         {%- if tier_handle == blank -%}
           <p class="vip-tier__title">{{ 'customer.tier.none' | t }}</p>
           {%- if section.settings.none_copy != blank -%}
-            <div class="vip-tier__perks rte">{{ section.settings.none_copy }}</div>
+            <div class="vip-tier__copy rte">{{ section.settings.none_copy }}</div>
           {%- endif -%}
         {%- else -%}
           <p class="vip-tier__title">
             {%- if tier_entry != blank -%}{{ tier_entry.title.value }}{%- else -%}{{ tier_title }}{%- endif -%}
           </p>
-
-          {%- if section.settings.show_perks and tier_entry.perks.value != blank -%}
-            <div class="vip-tier__perks rte">{{ tier_entry.perks | metafield_tag }}</div>
-          {%- endif -%}
-
-          {%- if section.settings.show_next_tier and next_entry != blank and next_entry.next_tier_copy.value != blank and tier_handle != 'staff' -%}
-            <p class="vip-tier__next">
-              <span class="vip-tier__next-label">{{ 'customer.tier.next_tier' | t: tier: next_entry.title.value }}</span>
-              {{ next_entry.next_tier_copy.value | escape }}
-            </p>
-          {%- endif -%}
         {%- endif -%}
 
         {%- if section.settings.program_page != blank -%}
@@ -113,7 +88,7 @@
   "settings": [
     {
       "type": "paragraph",
-      "content": "Shows the logged-in customer's VIP tier, perks, and the next tier's threshold copy. Tier names, ranks, perks and copy are edited under Content → Metaobjects → VIP Tier. The tier itself is written by the dashboard."
+      "content": "Shows the logged-in customer's VIP tier by name. Tier names are edited under Content → Metaobjects → VIP Tier; the tier itself is written by the dashboard."
     },
     {
       "type": "text",
@@ -131,18 +106,6 @@
         { "value": "h0", "label": "t:sections.all.heading_size.options__3.label" }
       ],
       "default": "h2"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_perks",
-      "label": "Show perks",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_next_tier",
-      "label": "Show next tier copy",
-      "default": true
     },
     {
       "type": "checkbox",

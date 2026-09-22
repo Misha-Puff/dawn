@@ -2,7 +2,8 @@
 
 {%- comment -%}
   VIP program page: every ACTIVE vip_tier catalog entry, lowest rank first,
-  one card each (title + perks). The logged-in customer's tier is highlighted
+  one card each (title only — the catalog carries no customer-facing copy).
+  The logged-in customer's tier is highlighted
   via the vip-tier resolver. Logged-out visibility of the page itself is
   Locksmith v2's job, not this section's.
 
@@ -73,9 +74,6 @@
                   <span class="vip-program__current-badge">{{ 'customer.tier.current' | t }}</span>
                 {%- endif -%}
               </h2>
-              {%- if best.perks.value != blank -%}
-                <div class="vip-program__perks rte">{{ best.perks | metafield_tag }}</div>
-              {%- endif -%}
             </div>
           </li>
         {%- endfor -%}

@@ -21,27 +21,12 @@
   margin: 0 0 1.2rem;
 }
 
-.vip-tier__perks {
+.vip-tier__copy {
   margin: 0 0 1.6rem;
 }
 
-.vip-tier__perks p:last-child {
+.vip-tier__copy p:last-child {
   margin-bottom: 0;
-}
-
-.vip-tier__next {
-  border-top: 0.1rem solid rgba(var(--color-foreground), 0.12);
-  color: rgba(var(--color-foreground), 0.75);
-  margin: 0;
-  padding-top: 1.4rem;
-}
-
-.vip-tier__next-label {
-  display: block;
-  font-size: 1.1rem;
-  letter-spacing: 0.1rem;
-  text-transform: uppercase;
-  margin-bottom: 0.4rem;
 }
 
 .vip-tier__link {
@@ -90,7 +75,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin: 0 0 1.2rem;
+  margin: 0;
 }
 
 .vip-program__current-badge {
@@ -103,10 +88,6 @@
   line-height: 1;
   padding: 0.5rem 0.7rem;
   text-transform: uppercase;
-}
-
-.vip-program__perks p:last-child {
-  margin-bottom: 0;
 }
 
 .vip-program__empty {

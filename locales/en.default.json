@@ -55,7 +55,6 @@
     },
     "tier": {
       "none": "No tier yet",
-      "next_tier": "Next: {{ tier }}",
       "program_link": "About the VIP program",
       "current": "Your tier"
     },
