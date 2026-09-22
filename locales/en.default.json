@@ -53,6 +53,11 @@
       "view_addresses": "View addresses",
       "return": "Return to Account details"
     },
+    "tier": {
+      "none": "No tier yet",
+      "program_link": "About the VIP program",
+      "current": "Your tier"
+    },
     "account_fallback": "Account",
     "activate_account": {
       "title": "Activate account",

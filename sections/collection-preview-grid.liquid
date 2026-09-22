@@ -28,15 +28,22 @@
   # shoppable product blocks would leak past the lock — EXCEPT to staff-tagged
   # accounts, so the team can preview a campaign on the real collection before
   # lock.shoppable flips (cards stay read-only; only the campaign view opens).
+  # Tier resolved ONCE here via the vip-tier snippet; the rank is passed to
+  # every card's lock check below so 48 cards don't each re-resolve it.
   assign show_campaign_views = false
   assign is_staff = false
+  assign viewer_rank = 0
   if request.design_mode
     assign show_campaign_views = true
   elsif customer
-    if customer.tags contains 'staff'
+    capture viewer_rank
+      render 'vip-tier', field: 'rank'
+    endcapture
+    assign viewer_rank = viewer_rank | strip | plus: 0
+    if viewer_rank >= 1000
       assign is_staff = true
     endif
-    if is_staff or customer.metafields.clienteling.very_important_customer or customer.metafields.clienteling.super_vip or customer.metafields.clienteling.vip
+    if viewer_rank > 0
       assign show_campaign_views = true
     endif
   endif
@@ -421,7 +428,7 @@
 
           {%- for product in current_group.products.value -%}
             {%- assign rendered = rendered | plus: 1 -%}
-            {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: product -%}{%- endcapture -%}
+            {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product', product: product, customer_rank: viewer_rank -%}{%- endcapture -%}
             {%- assign lock_content = lock_content | strip -%}
             {%- if force_readonly -%}{%- assign lock_content = 'true' -%}{%- endif -%}
             {%- comment -%}

@@ -1,0 +1,170 @@
+{{ 'component-vip-tier.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  Account page tier block. Reads the logged-in customer's tier through the
+  vip-tier resolver (the only place that knows the field names) and the
+  vip_tier catalog for the tier's title. Renders nothing for customers without
+  a tier and for staff (unless the editor toggles say otherwise), so the
+  account page is unchanged for everyone else. The catalog carries no
+  customer-facing copy (perks / next-tier fields were dropped 2026-09-22).
+{%- endcomment -%}
+
+{%- liquid
+  capture tier_record
+    render 'vip-tier'
+  endcapture
+  assign tier = tier_record | strip | split: '|'
+  assign tier_handle = tier[0]
+  assign tier_source = tier[3]
+  assign tier_title = tier[4]
+
+  assign show_block = false
+  if tier_handle == 'staff'
+    if section.settings.show_for_staff
+      assign show_block = true
+    endif
+  elsif tier_handle != blank
+    assign show_block = true
+  elsif section.settings.show_for_none
+    assign show_block = true
+  endif
+
+  if request.design_mode and show_block == false
+    assign show_block = true
+  endif
+
+  assign tier_entry = metaobjects.vip_tier[tier_handle]
+-%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- if show_block -%}
+  <div class="color-{{ section.settings.color_scheme }} gradient">
+    <div class="customer account vip-tier section-{{ section.id }}-padding">
+      <div class="vip-tier__card" data-tier="{{ tier_handle }}" data-tier-source="{{ tier_source }}">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="vip-tier__heading {{ section.settings.heading_size }}">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+
+        {%- if tier_handle == blank -%}
+          <p class="vip-tier__title">{{ 'customer.tier.none' | t }}</p>
+          {%- if section.settings.none_copy != blank -%}
+            <div class="vip-tier__copy rte">{{ section.settings.none_copy }}</div>
+          {%- endif -%}
+        {%- else -%}
+          <p class="vip-tier__title">
+            {%- if tier_entry != blank -%}{{ tier_entry.title.value }}{%- else -%}{{ tier_title }}{%- endif -%}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.program_page != blank -%}
+          <a class="vip-tier__link link underlined-link" href="{{ section.settings.program_page }}">{{ 'customer.tier.program_link' | t }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "VIP tier",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": {
+    "templates": ["customers/account"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Shows the logged-in customer's VIP tier by name. Tier names are edited under Content → Metaobjects → VIP Tier; the tier itself is written by the dashboard."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Your tier"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "t:sections.all.heading_size.label",
+      "options": [
+        { "value": "h2", "label": "t:sections.all.heading_size.options__1.label" },
+        { "value": "h1", "label": "t:sections.all.heading_size.options__2.label" },
+        { "value": "h0", "label": "t:sections.all.heading_size.options__3.label" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_for_none",
+      "label": "Show for customers without a tier",
+      "info": "Renders the 'no tier' copy below instead of hiding the block.",
+      "default": false
+    },
+    {
+      "type": "richtext",
+      "id": "none_copy",
+      "label": "Copy for customers without a tier"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_for_staff",
+      "label": "Show for staff accounts",
+      "default": false
+    },
+    {
+      "type": "url",
+      "id": "program_page",
+      "label": "VIP program page link"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "VIP tier"
+    }
+  ]
+}
+{% endschema %}
