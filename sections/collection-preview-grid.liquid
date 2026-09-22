@@ -47,6 +47,20 @@
       assign has_campaign = true
     endif
   endif
+
+  # Link-tab-only row: with no campaign view (disabled, no blocks, or the
+  # viewer isn't VIP/staff) a Link tab URL alone still renders the tab row —
+  # a static "Collection" tab plus the outbound link — so the section can
+  # point at a lookbook/feature page without carrying a campaign. Not
+  # VIP-gated: anyone who can load the collection sees it.
+  assign has_link_tab = false
+  if section.settings.link_tab_url != blank
+    assign has_link_tab = true
+  endif
+  assign show_view_tabs = has_campaign
+  if has_link_tab
+    assign show_view_tabs = true
+  endif
 %}
 
 {%- style -%}
@@ -64,23 +78,7 @@
 
   {% render 'card-settings-styles' %}
 
-  {%- if has_campaign -%}
-    .collection-views {
-      position: relative;
-    }
-
-    #view-collection-{{ section.id }},
-    #view-campaign-{{ section.id }} {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      padding: 0;
-      border: 0;
-      overflow: hidden;
-      clip: rect(0 0 0 0);
-      white-space: nowrap;
-    }
+  {%- if show_view_tabs -%}
 
     .collection-view-tabs {
       display: flex;
@@ -99,6 +97,46 @@
       color: rgba(var(--color-foreground), 0.6);
       border-bottom: 0.2rem solid transparent;
       cursor: pointer;
+    }
+
+    /* Static "Collection" tab of the link-tab-only row (no campaign view):
+       same active look as a :checked label, but it isn't a control. */
+    .collection-view-tabs__tab--current {
+      color: rgb(var(--color-foreground));
+      border-bottom-color: rgb(var(--color-foreground));
+      cursor: default;
+    }
+
+    /* The Link tab is a real outbound anchor, not a radio state — strip the
+       default underline so it matches the label tabs, and give it a hover/focus
+       affordance since it never gets the :checked active color. */
+    .collection-view-tabs__tab--link {
+      text-decoration: none;
+    }
+
+    .collection-view-tabs__tab--link:hover,
+    .collection-view-tabs__tab--link:focus-visible {
+      color: rgb(var(--color-foreground));
+    }
+  {%- endif -%}
+
+  {%- if has_campaign -%}
+
+    .collection-views {
+      position: relative;
+    }
+
+    #view-collection-{{ section.id }},
+    #view-campaign-{{ section.id }} {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
     }
 
     /* Base state hides the campaign view; the campaign radio ships :checked
@@ -135,18 +173,6 @@
       outline-offset: 0.3rem;
     }
 
-    /* The Link tab is a real outbound anchor, not a radio state — strip the
-       default underline so it matches the label tabs, and give it a hover/focus
-       affordance since it never gets the :checked active color. */
-    .collection-view-tabs__tab--link {
-      text-decoration: none;
-    }
-
-    .collection-view-tabs__tab--link:hover,
-    .collection-view-tabs__tab--link:focus-visible {
-      color: rgb(var(--color-foreground));
-    }
-
     /* Floating escape hatch back to the product grid, revealed only while the
        campaign radio is checked. Must sit as a later sibling of the radios in
        the DOM for the :checked ~ selector to reach it, even though it renders
@@ -160,6 +186,7 @@
     -%}
     {%- capture jump_brand_stack -%}{% render 'brand-font', font: section.settings.jump_custom_font %}{%- endcapture -%}
     {%- assign jump_brand_stack = jump_brand_stack | strip -%}
+
     .collection-views__jump {
       display: none;
       position: fixed;
@@ -254,11 +281,24 @@
 
   {%- comment -%}
     Collection / Campaign toggle (VIP-gated on this section — see has_campaign
-    above). The radios, tabs, grid view and campaign view are all direct
+    above; with no campaign a Link tab alone renders a static row, see the
+    elsif branch). The radios, tabs, grid view and campaign view are all direct
     siblings, so the toggle is CSS-first (#view-*:checked ~ ...); a small
     progressive script layers on ?display= deep links and keeps the URL in
     sync with the selected view.
   {%- endcomment -%}
+  {%- capture link_tab_html -%}
+    {%- if has_link_tab -%}
+      <a
+        class="collection-view-tabs__tab collection-view-tabs__tab--link"
+        href="{{ section.settings.link_tab_url }}"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {{ section.settings.link_tab_label | default: 'Link' }}
+      </a>
+    {%- endif -%}
+  {%- endcapture -%}
   {%- if has_campaign -%}
     <div class="collection-views">
       <input
@@ -291,16 +331,7 @@
         {%- else -%}
           {{ campaign_tab_html }}{{ collection_tab_html }}
         {%- endif -%}
-        {%- if section.settings.link_tab_url != blank -%}
-          <a
-            class="collection-view-tabs__tab collection-view-tabs__tab--link"
-            href="{{ section.settings.link_tab_url }}"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {{ section.settings.link_tab_label | default: 'Link' }}
-          </a>
-        {%- endif -%}
+        {{ link_tab_html }}
       </div>
       <script>
         // Ambient campaign videos carry the autoplay attribute, but autoplay
@@ -389,8 +420,20 @@
         })();
       </script>
       <div class="collection-view collection-view--grid">
+  {%- elsif has_link_tab -%}
+    {%- comment -%}
+      No campaign view for this viewer, but a Link tab is set: render the tab
+      row alone. "Collection" is a static current tab (no radios, no view
+      wrapper, no jump pill) and the grid below renders exactly as it does
+      with no tabs at all.
+    {%- endcomment -%}
+    <div class="collection-view-tabs page-width">
+      <span class="collection-view-tabs__tab collection-view-tabs__tab--current" aria-current="page">
+        {{ 'sections.collection_template.view_collection' | t }}
+      </span>
+      {{ link_tab_html }}
+    </div>
   {%- endif -%}
-
   {%- unless has_products -%}
     <div class="collection collection--empty page-width" data-id="{{ section.id }}">
       <div class="title-wrapper center">
@@ -1429,7 +1472,7 @@
     { "type": "select", "id": "view_tabs_alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" } ], "default": "center", "label": "Toggle alignment", "info": "Alignment of the Collection / Campaign view toggle row." },
     { "type": "select", "id": "view_tabs_order", "options": [ { "value": "campaign_first", "label": "Campaign, Collection" }, { "value": "collection_first", "label": "Collection, Campaign" } ], "default": "campaign_first", "label": "Toggle tab order", "info": "Order of the two view tabs — the page loads showing the first tab's view. The Link tab always sits last." },
     { "type": "text", "id": "link_tab_label", "label": "Link tab label", "default": "Link" },
-    { "type": "url", "id": "link_tab_url", "label": "Link tab URL", "info": "Opens in a new tab. Leave blank to hide the Link tab." },
+    { "type": "url", "id": "link_tab_url", "label": "Link tab URL", "info": "Opens in a new tab. Leave blank to hide the Link tab. Works without a campaign too: with the campaign view off (or hidden from this viewer), a URL here still renders the tab row as a static Collection tab plus this link — e.g. a lookbook page." },
     { "type": "checkbox", "id": "jump_link_enable", "default": false, "label": "Show floating collection link", "info": "Fixed to the bottom of the screen while the campaign view is active; jumps to the collection view." },
     { "type": "text", "id": "jump_link_label", "label": "Floating link text", "default": "View collection", "visible_if": "{{ section.settings.jump_link_enable }}" },
     { "type": "checkbox", "id": "jump_pill_enable", "default": true, "label": "Pill background", "info": "Off = plain underlined text, matching the campaign CTA style.", "visible_if": "{{ section.settings.jump_link_enable }}" },
