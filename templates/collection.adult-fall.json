@@ -82,7 +82,7 @@
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>This season celebrates warmth and effortless elegance through new and classic silhouettes. Crafted in Highland wool, Merino wool, and Pima cotton, hand-dyed knits and soft cotton staples bring rich color, texture, and timeless ease to the season. Designed for layering and everyday wear, each piece balances comfort, craftsmanship, and enduring style. View the latest and upcoming styles in the <a href=\"https://shop.misha-and-puff.com/blogs/journal/adult-fa-wi-26\" target=\"_blank\">Fall/Winter lookbook</a>.</p>",
+            "text": "<p>This season celebrates warmth and effortless elegance through new and classic silhouettes. Crafted in Highland wool, Merino wool, and Pima cotton, hand-dyed knits and soft cotton staples bring rich color, texture, and timeless ease to the season.&nbsp;</p>",
             "line_height": 24,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -138,9 +138,9 @@
       "blocks": {
         "image_f8UJrh": {
           "type": "image",
-          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
+            "image": "shopify://shop_images/MP_EditorialBlock_Adult_2_18e1d9fc-4612-4187-a6bf-68ac13781f22.jpg",
+            "mobile_image": "shopify://shop_images/MP_EditorialBlock_Adult_Mobile.jpg",
             "link": "",
             "content": "",
             "text_size": 13,
@@ -149,8 +149,8 @@
             "text_horizontal_padding": 16,
             "text_vertical_padding": 16,
             "row_start_desktop": 1,
-            "row_span_desktop": 1,
-            "col_start_desktop": 1,
+            "row_span_desktop": 2,
+            "col_start_desktop": 3,
             "col_span_desktop": 2,
             "row_start_mobile": 1,
             "row_span_mobile": 1,
