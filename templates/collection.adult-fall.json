@@ -256,7 +256,7 @@
         "tabs_color": "#1a1a1a",
         "tabs_gap": 40,
         "tabs_gap_mobile": 0,
-        "tabs_margin_bottom": 10,
+        "tabs_margin_bottom": 28,
         "tabs_padding_bottom": 1,
         "tabs_alignment": "left",
         "tabs_divider_enable": false,
