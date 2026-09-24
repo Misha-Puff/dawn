@@ -16,6 +16,7 @@
       "blocks": {
         "announcement_dDUTp6": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "<p>Save the Date: Adult Fall Collection launches September 24 at 10 am et.</p>"
           }
@@ -32,6 +33,7 @@
         "announcement_dDUTp6",
         "announcement_9YaAtT"
       ],
+      "disabled": true,
       "settings": {
         "desktop_height": 32,
         "mobile_height": 34,
