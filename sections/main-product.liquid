@@ -677,7 +677,8 @@
       {%- endif -%}
       {%- if block.type == 'buy_buttons' and block.settings.show_gift_card_recipient and product.gift_card? -%}
         {%- comment -%} Gift card sending options (snippets/gift-card-recipient-form.liquid): three typography groups sharing one emitter, keyed by setting-id prefix — tg_gcb_ = "I want to send this as a gift" checkbox label, tg_gfl_ = field labels + the "200 characters max" hint, tg_gfi_ = typed input text and placeholders. Same declaration shape as the pickup group above. {%- endcomment -%}
-        {%- for tgg in 'tg_gcb,tg_gfl,tg_gfi' | split: ',' -%}
+        {%- assign tgg_groups = 'tg_gcb,tg_gfl,tg_gfi' | split: ',' -%}
+        {%- for tgg in tgg_groups -%}
           {%- liquid
             assign k = tgg | append: '_enable'
             unless block.settings[k]
