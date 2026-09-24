@@ -675,6 +675,59 @@
           #{{ tg_scope }} .product__pickup-availabilities .pickup-availability-preview .color-foreground { color: {{ tgp_col }}; }
         {%- endif -%}
       {%- endif -%}
+      {%- if block.type == 'buy_buttons' and block.settings.show_gift_card_recipient and product.gift_card? -%}
+        {%- comment -%} Gift card sending options (snippets/gift-card-recipient-form.liquid): three typography groups sharing one emitter, keyed by setting-id prefix — tg_gcb_ = "I want to send this as a gift" checkbox label, tg_gfl_ = field labels + the "200 characters max" hint, tg_gfi_ = typed input text and placeholders. Same declaration shape as the pickup group above. {%- endcomment -%}
+        {%- for tgg in 'tg_gcb,tg_gfl,tg_gfi' | split: ',' -%}
+          {%- liquid
+            assign k = tgg | append: '_enable'
+            unless block.settings[k]
+              continue
+            endunless
+            assign k = tgg | append: '_font'
+            assign tgg_font = block.settings[k]
+            assign k = tgg | append: '_weight'
+            assign tgg_weight = block.settings[k] | default: 'default'
+            assign k = tgg | append: '_size'
+            assign tgg_fs = block.settings[k] | default: 0
+            assign k = tgg | append: '_line_height'
+            assign tgg_lh = block.settings[k] | default: 0
+            assign k = tgg | append: '_case'
+            assign tgg_case = block.settings[k] | default: 'default'
+            assign k = tgg | append: '_letter_spacing'
+            assign tgg_ls = block.settings[k] | default: 0
+            assign k = tgg | append: '_color'
+            assign tgg_col = block.settings[k]
+            assign k = tgg | append: '_custom_font'
+          -%}
+          {%- capture tgg_brand_stack -%}{% render 'brand-font', font: block.settings[k] %}{%- endcapture -%}
+          {%- assign tgg_brand_stack = tgg_brand_stack | strip -%}
+          {%- if tgg_font != blank and tgg_brand_stack == blank -%}{{ tgg_font | font_face: font_display: 'swap' }}{%- endif -%}
+          {%- if tgg_font != blank and tgg_brand_stack == blank and tgg_weight != 'default' -%}
+            {%- assign tgg_wfont = tgg_font | font_modify: 'weight', tgg_weight -%}
+            {%- if tgg_wfont -%}{{ tgg_wfont | font_face: font_display: 'swap' }}{%- endif -%}
+          {%- endif -%}
+          {%- capture tgg_fulldecl -%}
+            {%- if tgg_brand_stack != blank %}font-family: {{ tgg_brand_stack }}; font-style: normal;{% if tgg_weight == 'default' %} font-weight: 400;{% endif %}{% elsif tgg_font != blank %}font-family: {{ tgg_font.family }}, {{ tgg_font.fallback_families }}; font-style: {{ tgg_font.style }};{% if tgg_weight == 'default' %} font-weight: {{ tgg_font.weight }};{% endif %}{% endif -%}
+            {%- if tgg_weight != 'default' and tgg_weight != blank %} font-weight: {{ tgg_weight }};{% endif -%}
+            {%- if tgg_fs > 0 %} font-size: {{ tgg_fs }}px;{% endif -%}
+            {%- if tgg_lh > 0 %} line-height: {{ tgg_lh }}%;{% endif -%}
+            {%- if tgg_case != 'default' and tgg_case != blank %} text-transform: {{ tgg_case }};{% endif -%}
+            {%- if tgg_ls > 0 %} letter-spacing: {{ tgg_ls }}px;{% endif -%}
+            {%- if tgg_col != blank %} color: {{ tgg_col }};{% endif -%}
+          {%- endcapture -%}
+          {%- assign tgg_fulldecl = tgg_fulldecl | strip -%}
+          {%- if tgg_fulldecl != blank -%}
+            {%- case tgg -%}
+              {%- when 'tg_gcb' -%}
+                #{{ tg_scope }} .recipient-checkbox > span { {{ tgg_fulldecl }} }
+              {%- when 'tg_gfl' -%}
+                #{{ tg_scope }} .recipient-fields .field__label, #{{ tg_scope }} .recipient-fields .recipient-form-field-label { {{ tgg_fulldecl }} }
+              {%- when 'tg_gfi' -%}
+                #{{ tg_scope }} .recipient-fields .field__input, #{{ tg_scope }} .recipient-fields .field__input::placeholder { {{ tgg_fulldecl }} }
+            {%- endcase -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
       {%- if block.type == 'collapsible_tab' and block.settings.tg_body_enable -%}
         {%- comment -%} Accordion body (open-state content). The base tg_ group above styles the heading only; this group lands on the .accordion__content container and inherits into its rte children (nothing inside sets its own font rules). {%- endcomment -%}
         {%- liquid
@@ -1983,6 +2036,36 @@
         {"type": "select", "id": "tg_pickup_case", "options": [{"value": "default", "label": "Theme default"}, {"value": "uppercase", "label": "Uppercase"}, {"value": "capitalize", "label": "Capitalize"}, {"value": "lowercase", "label": "Lowercase"}, {"value": "none", "label": "Normal (remove uppercase)"}], "default": "default", "label": "Text case", "visible_if": "{{ block.settings.tg_pickup_enable }}"},
         {"type": "range", "id": "tg_pickup_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Letter spacing", "info": "0 = theme default", "default": 0, "visible_if": "{{ block.settings.tg_pickup_enable }}"},
         {"type": "color", "id": "tg_pickup_color", "label": "Text color", "info": "Leave blank for theme default", "visible_if": "{{ block.settings.tg_pickup_enable }}"},
+        {"type": "header", "content": "Gift card: checkbox label", "info": "Styles the \"I want to send this as a gift\" label. Gift card products only."},
+        {"type": "checkbox", "id": "tg_gcb_enable", "default": false, "label": "Enable typography", "visible_if": "{{ block.settings.show_gift_card_recipient }}"},
+        {"type": "font_picker", "id": "tg_gcb_font", "default": "assistant_n4", "label": "Font", "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gcb_enable }}"},
+        {"type": "select", "id": "tg_gcb_custom_font", "options": [{"value": "default", "label": "None (use font picker)"}, {"value": "ibm_plex_sans", "label": "IBM Plex Sans"}, {"value": "ibm_plex_mono", "label": "IBM Plex Mono"}, {"value": "inter", "label": "Inter"}, {"value": "geist", "label": "Geist"}, {"value": "geist_mono", "label": "Geist Mono"}, {"value": "overpass", "label": "Overpass"}, {"value": "overpass_mono", "label": "Overpass Mono"}, {"value": "dm_sans", "label": "DM Sans"}, {"value": "dm_mono", "label": "DM Mono"}, {"value": "manrope", "label": "Manrope"}, {"value": "open_sans", "label": "Open Sans"}], "default": "default", "label": "Brand font", "info": "Overrides the font picker above when set", "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gcb_enable }}"},
+        {"type": "select", "id": "tg_gcb_weight", "options": [{"value": "default", "label": "Theme default"}, {"value": "300", "label": "Light"}, {"value": "400", "label": "Regular"}, {"value": "500", "label": "Medium"}, {"value": "600", "label": "Semibold"}, {"value": "700", "label": "Bold"}], "default": "default", "label": "Font weight", "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gcb_enable }}"},
+        {"type": "range", "id": "tg_gcb_size", "min": 0, "max": 72, "step": 1, "unit": "px", "label": "Font size", "info": "0 = theme default", "default": 0, "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gcb_enable }}"},
+        {"type": "range", "id": "tg_gcb_line_height", "min": 0, "max": 250, "step": 5, "unit": "%", "label": "Line height", "info": "0 = theme default", "default": 0, "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gcb_enable }}"},
+        {"type": "select", "id": "tg_gcb_case", "options": [{"value": "default", "label": "Theme default"}, {"value": "uppercase", "label": "Uppercase"}, {"value": "capitalize", "label": "Capitalize"}, {"value": "lowercase", "label": "Lowercase"}, {"value": "none", "label": "Normal (remove uppercase)"}], "default": "default", "label": "Text case", "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gcb_enable }}"},
+        {"type": "range", "id": "tg_gcb_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Letter spacing", "info": "0 = theme default", "default": 0, "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gcb_enable }}"},
+        {"type": "color", "id": "tg_gcb_color", "label": "Text color", "info": "Leave blank for theme default", "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gcb_enable }}"},
+        {"type": "header", "content": "Gift card: field labels", "info": "Styles the recipient field labels (RECIPIENT EMAIL, MESSAGE…) and the character-limit hint."},
+        {"type": "checkbox", "id": "tg_gfl_enable", "default": false, "label": "Enable typography", "visible_if": "{{ block.settings.show_gift_card_recipient }}"},
+        {"type": "font_picker", "id": "tg_gfl_font", "default": "assistant_n4", "label": "Font", "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gfl_enable }}"},
+        {"type": "select", "id": "tg_gfl_custom_font", "options": [{"value": "default", "label": "None (use font picker)"}, {"value": "ibm_plex_sans", "label": "IBM Plex Sans"}, {"value": "ibm_plex_mono", "label": "IBM Plex Mono"}, {"value": "inter", "label": "Inter"}, {"value": "geist", "label": "Geist"}, {"value": "geist_mono", "label": "Geist Mono"}, {"value": "overpass", "label": "Overpass"}, {"value": "overpass_mono", "label": "Overpass Mono"}, {"value": "dm_sans", "label": "DM Sans"}, {"value": "dm_mono", "label": "DM Mono"}, {"value": "manrope", "label": "Manrope"}, {"value": "open_sans", "label": "Open Sans"}], "default": "default", "label": "Brand font", "info": "Overrides the font picker above when set", "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gfl_enable }}"},
+        {"type": "select", "id": "tg_gfl_weight", "options": [{"value": "default", "label": "Theme default"}, {"value": "300", "label": "Light"}, {"value": "400", "label": "Regular"}, {"value": "500", "label": "Medium"}, {"value": "600", "label": "Semibold"}, {"value": "700", "label": "Bold"}], "default": "default", "label": "Font weight", "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gfl_enable }}"},
+        {"type": "range", "id": "tg_gfl_size", "min": 0, "max": 72, "step": 1, "unit": "px", "label": "Font size", "info": "0 = theme default", "default": 0, "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gfl_enable }}"},
+        {"type": "range", "id": "tg_gfl_line_height", "min": 0, "max": 250, "step": 5, "unit": "%", "label": "Line height", "info": "0 = theme default", "default": 0, "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gfl_enable }}"},
+        {"type": "select", "id": "tg_gfl_case", "options": [{"value": "default", "label": "Theme default"}, {"value": "uppercase", "label": "Uppercase"}, {"value": "capitalize", "label": "Capitalize"}, {"value": "lowercase", "label": "Lowercase"}, {"value": "none", "label": "Normal (remove uppercase)"}], "default": "default", "label": "Text case", "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gfl_enable }}"},
+        {"type": "range", "id": "tg_gfl_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Letter spacing", "info": "0 = theme default", "default": 0, "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gfl_enable }}"},
+        {"type": "color", "id": "tg_gfl_color", "label": "Text color", "info": "Leave blank for theme default", "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gfl_enable }}"},
+        {"type": "header", "content": "Gift card: field text", "info": "Styles the text typed into the recipient fields and their placeholders."},
+        {"type": "checkbox", "id": "tg_gfi_enable", "default": false, "label": "Enable typography", "visible_if": "{{ block.settings.show_gift_card_recipient }}"},
+        {"type": "font_picker", "id": "tg_gfi_font", "default": "assistant_n4", "label": "Font", "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gfi_enable }}"},
+        {"type": "select", "id": "tg_gfi_custom_font", "options": [{"value": "default", "label": "None (use font picker)"}, {"value": "ibm_plex_sans", "label": "IBM Plex Sans"}, {"value": "ibm_plex_mono", "label": "IBM Plex Mono"}, {"value": "inter", "label": "Inter"}, {"value": "geist", "label": "Geist"}, {"value": "geist_mono", "label": "Geist Mono"}, {"value": "overpass", "label": "Overpass"}, {"value": "overpass_mono", "label": "Overpass Mono"}, {"value": "dm_sans", "label": "DM Sans"}, {"value": "dm_mono", "label": "DM Mono"}, {"value": "manrope", "label": "Manrope"}, {"value": "open_sans", "label": "Open Sans"}], "default": "default", "label": "Brand font", "info": "Overrides the font picker above when set", "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gfi_enable }}"},
+        {"type": "select", "id": "tg_gfi_weight", "options": [{"value": "default", "label": "Theme default"}, {"value": "300", "label": "Light"}, {"value": "400", "label": "Regular"}, {"value": "500", "label": "Medium"}, {"value": "600", "label": "Semibold"}, {"value": "700", "label": "Bold"}], "default": "default", "label": "Font weight", "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gfi_enable }}"},
+        {"type": "range", "id": "tg_gfi_size", "min": 0, "max": 72, "step": 1, "unit": "px", "label": "Font size", "info": "0 = theme default", "default": 0, "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gfi_enable }}"},
+        {"type": "range", "id": "tg_gfi_line_height", "min": 0, "max": 250, "step": 5, "unit": "%", "label": "Line height", "info": "0 = theme default", "default": 0, "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gfi_enable }}"},
+        {"type": "select", "id": "tg_gfi_case", "options": [{"value": "default", "label": "Theme default"}, {"value": "uppercase", "label": "Uppercase"}, {"value": "capitalize", "label": "Capitalize"}, {"value": "lowercase", "label": "Lowercase"}, {"value": "none", "label": "Normal (remove uppercase)"}], "default": "default", "label": "Text case", "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gfi_enable }}"},
+        {"type": "range", "id": "tg_gfi_letter_spacing", "min": 0, "max": 4, "step": 0.1, "unit": "px", "label": "Letter spacing", "info": "0 = theme default", "default": 0, "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gfi_enable }}"},
+        {"type": "color", "id": "tg_gfi_color", "label": "Text color", "info": "Leave blank for theme default", "visible_if": "{{ block.settings.show_gift_card_recipient and block.settings.tg_gfi_enable }}"},
         {"type": "header", "content": "Padding"},
         {"type": "checkbox", "id": "tg_enable_padding", "default": false, "label": "Enable padding"},
         {"type": "range", "id": "tg_padding_top", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Padding top", "default": 0, "visible_if": "{{ block.settings.tg_enable_padding }}"},
