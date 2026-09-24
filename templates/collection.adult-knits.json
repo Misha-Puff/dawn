@@ -240,6 +240,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/MP_EditorialBlock_Adult_Knits.jpg",
+            "mobile_image": "shopify://shop_images/MP_EditorialBlock_Adult_Mobile_Knits.jpg",
             "link": "",
             "content": "",
             "text_size": 13,
