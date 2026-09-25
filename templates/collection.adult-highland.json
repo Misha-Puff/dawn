@@ -237,6 +237,7 @@
       "blocks": {
         "image_f8UJrh": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/MP_EdBlock_Highland.jpg",
             "mobile_image": "shopify://shop_images/MP_EdBlock_2_Highland.jpg",
