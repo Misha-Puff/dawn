@@ -142,7 +142,7 @@
           "settings": {
             "direction": "row",
             "wrap": true,
-            "gap": 20,
+            "gap": 40,
             "justify": "flex-start",
             "align": "stretch"
           },
