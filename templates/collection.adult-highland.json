@@ -150,7 +150,7 @@
             "button_XaxzBy": {
               "type": "button",
               "settings": {
-                "label": "SHOP ALL FALL COLLECTION",
+                "label": "SHOP ALL FALL",
                 "open_new_tab": true,
                 "link": "shopify://collections/adult-fall",
                 "display_style": "link",
@@ -171,7 +171,7 @@
             "button_C99g3E": {
               "type": "button",
               "settings": {
-                "label": "SHOP ALL SWEATERS",
+                "label": "ALL SWEATERS",
                 "open_new_tab": true,
                 "link": "shopify://collections/adult-sweaters-cardigans",
                 "display_style": "link",
