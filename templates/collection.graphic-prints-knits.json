@@ -30,20 +30,19 @@
     },
     "banner": {
       "type": "main-collection-banner",
-      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
         "color_scheme": "scheme-1",
-        "tt_enable_type": false,
+        "tt_enable_type": true,
         "tt_font": "assistant_n4",
-        "tt_custom_font": "default",
+        "tt_custom_font": "inter",
         "tt_font_weight": "default",
-        "tt_font_size": 0,
+        "tt_font_size": 9,
         "tt_font_size_mobile": 0,
         "tt_text_case": "default",
-        "tt_letter_spacing": 0,
-        "tt_color": "",
+        "tt_letter_spacing": 0.3,
+        "tt_color": "#AAAAAA",
         "td_enable_type": false,
         "td_font": "assistant_n4",
         "td_custom_font": "default",
@@ -53,7 +52,7 @@
         "td_text_case": "default",
         "td_letter_spacing": 0,
         "td_color": "",
-        "pad_enable": false,
+        "pad_enable": true,
         "padding_top": 0,
         "padding_bottom": 0,
         "padding_top_mobile": 0,
@@ -66,34 +65,34 @@
         "heading_LbXhKd": {
           "type": "heading",
           "settings": {
-            "heading": "Kindred Silhouettes",
+            "heading": "Cerulean",
             "heading_size": "h2",
-            "tg_enable_type": true,
+            "tg_enable_type": false,
             "tg_font": "assistant_n4",
-            "tg_custom_font": "inter",
+            "tg_custom_font": "default",
             "tg_font_weight": "default",
-            "tg_font_size": 12,
+            "tg_font_size": 0,
             "tg_line_height": 0,
-            "tg_text_case": "uppercase",
+            "tg_text_case": "default",
             "tg_letter_spacing": 0,
-            "tg_color": "#1a1a1a",
+            "tg_color": "",
             "tg_font_size_mobile": 0
           }
         },
         "text_PGqAmF": {
           "type": "text",
           "settings": {
-            "text": "<p>A shared thread across our baby, child, and adult collections — styles that reflect the spirit of children’s design, carefully adapted with elegance and ease for every size. From silhouette to palette to texture, these are pieces that echo from one generation to the next. Stay tuned for more.</p>",
-            "line_height": 22,
-            "tg_enable_type": true,
+            "text": "<p>A true star of the Fall Collection — Cerulean. A vibrant blue, dyed to a rich, saturated finish. A playful hue that brightens every style.</p>",
+            "line_height": 24,
+            "tg_enable_type": false,
             "tg_font": "assistant_n4",
-            "tg_custom_font": "inter",
+            "tg_custom_font": "default",
             "tg_font_weight": "default",
-            "tg_font_size": 12,
-            "tg_line_height": 150,
+            "tg_font_size": 0,
+            "tg_line_height": 0,
             "tg_text_case": "default",
-            "tg_letter_spacing": 0.1,
-            "tg_color": "#1a1a1a",
+            "tg_letter_spacing": 0,
+            "tg_color": "",
             "tg_font_size_mobile": 0
           }
         },
@@ -118,6 +117,7 @@
         "text_PGqAmF",
         "button_Yh3Xhh"
       ],
+      "disabled": true,
       "settings": {
         "desktop_content_position": "left",
         "content_alignment": "left",
@@ -140,21 +140,17 @@
         "group": {
           "type": "group",
           "settings": {
-            "direction": "row",
-            "wrap": true,
-            "gap": 12,
-            "justify": "center",
-            "align": "stretch"
+            "gap": 12
           },
           "blocks": {
             "button_XaxzBy": {
               "type": "button",
               "settings": {
-                "label": "SHOP CHILD FALL",
-                "open_new_tab": true,
-                "link": "shopify://collections/child-fall",
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
                 "display_style": "button",
-                "type": "secondary",
+                "type": "primary",
                 "on_click": "",
                 "tg_enable_type": false,
                 "tg_font": "assistant_n4",
@@ -165,17 +161,16 @@
                 "tg_text_case": "default",
                 "tg_letter_spacing": 0,
                 "tg_color": ""
-              },
-              "blocks": {}
+              }
             },
             "button_C99g3E": {
               "type": "button",
               "settings": {
-                "label": "SHOP ADULT FALL",
-                "open_new_tab": true,
-                "link": "shopify://collections/adult-fall",
+                "label": "",
+                "open_new_tab": false,
+                "link": "",
                 "display_style": "button",
-                "type": "secondary",
+                "type": "primary",
                 "on_click": "",
                 "tg_enable_type": false,
                 "tg_font": "assistant_n4",
@@ -186,8 +181,7 @@
                 "tg_text_case": "default",
                 "tg_letter_spacing": 0,
                 "tg_color": ""
-              },
-              "blocks": {}
+              }
             },
             "button_NGpAit": {
               "type": "button",
@@ -207,8 +201,7 @@
                 "tg_text_case": "default",
                 "tg_letter_spacing": 0,
                 "tg_color": ""
-              },
-              "blocks": {}
+              }
             }
           },
           "block_order": [
@@ -240,8 +233,7 @@
           "type": "image",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/MP_EditorialBloc2x_v2_Kindred.jpg",
-            "mobile_image": "shopify://shop_images/MP_EditorialBloc2x_v2_Kindred.jpg",
+            "image": "shopify://shop_images/MP_FA24_TransitionalLayers_1a_f989fc30-6ba4-49bd-b0de-c3836d046034.jpg",
             "link": "",
             "content": "",
             "text_size": 13,
@@ -250,10 +242,10 @@
             "text_horizontal_padding": 16,
             "text_vertical_padding": 16,
             "row_start_desktop": 1,
-            "row_span_desktop": 2,
-            "col_start_desktop": 3,
+            "row_span_desktop": 1,
+            "col_start_desktop": 1,
             "col_span_desktop": 2,
-            "row_start_mobile": 5,
+            "row_start_mobile": 1,
             "row_span_mobile": 1,
             "col_start_mobile": "1",
             "col_span_mobile": "2"
@@ -271,10 +263,10 @@
             "content_position": "middle-center",
             "text_horizontal_padding": 16,
             "text_vertical_padding": 16,
-            "row_start_desktop": 13,
+            "row_start_desktop": 6,
             "row_span_desktop": 1,
             "col_start_desktop": 1,
-            "col_span_desktop": 2,
+            "col_span_desktop": 3,
             "row_start_mobile": 1,
             "row_span_mobile": 1,
             "col_start_mobile": "1",
@@ -287,6 +279,7 @@
         "image_gkgQFt"
       ],
       "settings": {
+        "enable_card_video_autoplay": true,
         "products_per_page": 48,
         "columns_desktop": 4,
         "columns_mobile": "2",
@@ -294,7 +287,6 @@
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
-        "enable_card_video_autoplay": true,
         "show_vendor": false,
         "show_rating": false,
         "show_size_overlay": true,
@@ -310,8 +302,6 @@
         "card_spacing_enable": true,
         "card_info_padding_top": 10,
         "card_title_price_gap": 2,
-        "card_color_space_top": 0,
-        "card_color_space_bottom": 0,
         "card_swatch_space": 6,
         "card_swatch_gap": 6,
         "card_badge_space": 8,
@@ -319,8 +309,6 @@
         "card_spacing_enable_mobile": true,
         "card_info_padding_top_mobile": 8,
         "card_title_price_gap_mobile": 2,
-        "card_color_space_top_mobile": 0,
-        "card_color_space_bottom_mobile": 0,
         "card_swatch_space_mobile": 6,
         "card_swatch_gap_mobile": 6,
         "card_badge_space_mobile": 8,
@@ -329,8 +317,6 @@
         "card_title_weight": "default",
         "card_title_case": "uppercase",
         "card_title_letter_spacing": 0.2,
-        "card_color_size": 11,
-        "card_color_case": "default",
         "card_price_size": 11,
         "card_price_weight": "default",
         "card_price_letter_spacing": 0.2,
@@ -356,7 +342,6 @@
         "tabs_letter_spacing": 0.2,
         "tabs_color": "#1a1a1a",
         "tabs_gap": 40,
-        "tabs_gap_mobile": 0,
         "tabs_margin_bottom": 10,
         "tabs_padding_bottom": 1,
         "tabs_alignment": "left",
@@ -364,21 +349,7 @@
         "tabs_divider_thickness": 0,
         "tabs_divider_color": "#1a1a1a",
         "tabs_underline_thickness": 1,
-        "enable_campaign": true,
         "view_tabs_alignment": "center",
-        "view_tabs_order": "campaign_first",
-        "link_tab_label": "Link",
-        "link_tab_url": "",
-        "jump_link_enable": false,
-        "jump_link_label": "View collection",
-        "jump_pill_enable": true,
-        "jump_custom_font": "default",
-        "jump_font_weight": "default",
-        "jump_font_size": 0,
-        "jump_text_case": "default",
-        "jump_letter_spacing": 0,
-        "jump_color": "",
-        "jump_alignment": "center",
         "padding_top": 0,
         "padding_bottom": 60,
         "heart_custom": true,

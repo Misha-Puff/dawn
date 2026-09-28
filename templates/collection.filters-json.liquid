@@ -1,0 +1,54 @@
+{%- layout none -%}
+{%- comment -%}
+  Machine-readable storefront filters for the dashboard's Collection Tab Groups
+  app (mishapuff-dashboard, ADR "Tab filters come from a theme template").
+  Requested as /collections/<handle>?<filter params>&view=filters-json on the
+  unprefixed (primary-locale) URL. Outputs JSON only, no layout.
+
+  param_name + value are emitted exactly as Liquid produces them, because
+  snippets/collection-tabs.liquid builds its active-filter pairs from the same
+  properties and compares them to each tab's stored filter string. Keep the
+  two in sync: if the snippet's matching changes, this contract changes too.
+
+  products_count reflects the filter params in the request; all_products_count
+  ignores them. Price values are raw (as the URL carries them); range_max is
+  the highest price in the collection, in the shop currency's subunits.
+{%- endcomment -%}
+{
+  "handle": {{ collection.handle | json }},
+  "products_count": {{ collection.products_count | json }},
+  "all_products_count": {{ collection.all_products_count | json }},
+  "filters": [
+    {%- for filter in collection.filters -%}
+      {
+        "type": {{ filter.type | json }},
+        "label": {{ filter.label | json }},
+        "param_name": {{ filter.param_name | json }},
+        {%- if filter.type == 'price_range' -%}
+          "range_max": {{ filter.range_max | json }},
+          "min_value": {
+            "param_name": {{ filter.min_value.param_name | json }},
+            "value": {{ filter.min_value.value | json }}
+          },
+          "max_value": {
+            "param_name": {{ filter.max_value.param_name | json }},
+            "value": {{ filter.max_value.value | json }}
+          },
+        {%- endif -%}
+        "values": [
+          {%- for value in filter.values -%}
+            {
+              "param_name": {{ value.param_name | json }},
+              "value": {{ value.value | json }},
+              "label": {{ value.label | json }},
+              "count": {{ value.count | json }},
+              "active": {{ value.active | json }}
+            }
+            {%- unless forloop.last -%},{%- endunless -%}
+          {%- endfor -%}
+        ]
+      }
+      {%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+}

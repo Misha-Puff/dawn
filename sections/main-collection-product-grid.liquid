@@ -38,6 +38,16 @@
   {% endfor %}
 {% endif %}
 
+{% comment %} Link-tab-only row: with no campaign view, a Link tab URL alone still renders the tab row (a static "Collection" tab plus the outbound link), so the section can point at a lookbook/feature page without carrying a campaign. Mirrors collection-preview-grid. {% endcomment %}
+{% assign has_link_tab = false %}
+{% if section.settings.link_tab_url != blank %}
+  {% assign has_link_tab = true %}
+{% endif %}
+{% assign show_view_tabs = has_campaign %}
+{% if has_link_tab %}
+  {% assign show_view_tabs = true %}
+{% endif %}
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -210,24 +220,7 @@
     }
   {% endif %}
 
-  {%- if has_campaign -%}
-    .collection-views {
-      position: relative;
-    }
-
-    #view-collection-{{ section.id }},
-    #view-campaign-{{ section.id }} {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      padding: 0;
-      border: 0;
-      overflow: hidden;
-      clip: rect(0 0 0 0);
-      white-space: nowrap;
-    }
-
+  {%- if show_view_tabs -%}
     .collection-view-tabs {
       display: flex;
       justify-content: {% case section.settings.view_tabs_alignment %}{% when 'left' %}flex-start{% when 'right' %}flex-end{% else %}center{% endcase %};
@@ -245,6 +238,45 @@
       color: rgba(var(--color-foreground), 0.6);
       border-bottom: 0.2rem solid transparent;
       cursor: pointer;
+    }
+
+    /* Static "Collection" tab of the link-tab-only row (no campaign view):
+       same active look as a :checked label, but it isn't a control. */
+    .collection-view-tabs__tab--current {
+      color: rgb(var(--color-foreground));
+      border-bottom-color: rgb(var(--color-foreground));
+      cursor: default;
+    }
+
+    /* The Link tab is a real outbound anchor, not a radio state — strip the
+       default underline so it matches the label tabs, and give it a hover/focus
+       affordance since it never gets the :checked active color. */
+    .collection-view-tabs__tab--link {
+      text-decoration: none;
+    }
+
+    .collection-view-tabs__tab--link:hover,
+    .collection-view-tabs__tab--link:focus-visible {
+      color: rgb(var(--color-foreground));
+    }
+  {%- endif -%}
+
+  {%- if has_campaign -%}
+    .collection-views {
+      position: relative;
+    }
+
+    #view-collection-{{ section.id }},
+    #view-campaign-{{ section.id }} {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
     }
 
     /* Base state hides the campaign view; the campaign radio ships :checked
@@ -279,18 +311,6 @@
     #view-campaign-{{ section.id }}:focus-visible ~ .collection-view-tabs label[for="view-campaign-{{ section.id }}"] {
       outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
       outline-offset: 0.3rem;
-    }
-
-    /* The Link tab is a real outbound anchor, not a radio state — strip the
-       default underline so it matches the label tabs, and give it a hover/focus
-       affordance since it never gets the :checked active color. */
-    .collection-view-tabs__tab--link {
-      text-decoration: none;
-    }
-
-    .collection-view-tabs__tab--link:hover,
-    .collection-view-tabs__tab--link:focus-visible {
-      color: rgb(var(--color-foreground));
     }
 
     /* Floating escape hatch back to the product grid, revealed only while the
@@ -476,6 +496,18 @@
       CSS-first (#view-*:checked ~ ...); a small progressive script layers on
       ?display= deep links and keeps the URL in sync with the selected view.
     {%- endcomment -%}
+    {%- capture link_tab_html -%}
+      {%- if has_link_tab -%}
+        <a
+          class="collection-view-tabs__tab collection-view-tabs__tab--link"
+          href="{{ section.settings.link_tab_url }}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ section.settings.link_tab_label | default: 'Link' }}
+        </a>
+      {%- endif -%}
+    {%- endcapture -%}
     {%- if has_campaign -%}
       <div class="collection-views">
         <input
@@ -516,16 +548,7 @@
           {%- else -%}
             {{ campaign_tab_html }}{{ collection_tab_html }}
           {%- endif -%}
-          {%- if section.settings.link_tab_url != blank -%}
-            <a
-              class="collection-view-tabs__tab collection-view-tabs__tab--link"
-              href="{{ section.settings.link_tab_url }}"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {{ section.settings.link_tab_label | default: 'Link' }}
-            </a>
-          {%- endif -%}
+          {{ link_tab_html }}
         </div>
         <script>
           // Ambient campaign videos carry the autoplay attribute, but autoplay
@@ -605,6 +628,18 @@
           })();
         </script>
         <div class="collection-view collection-view--grid">
+    {%- elsif has_link_tab -%}
+      {%- comment -%}
+        No campaign view, but a Link tab is set: render the tab row alone.
+        "Collection" is a static current tab (no radios, no view wrapper, no
+        jump pill) and the grid below renders exactly as it does with no tabs.
+      {%- endcomment -%}
+      <div class="collection-view-tabs page-width">
+        <span class="collection-view-tabs__tab collection-view-tabs__tab--current" aria-current="page">
+          {{- 'sections.collection_template.view_collection' | t -}}
+        </span>
+        {{ link_tab_html }}
+      </div>
     {%- endif -%}
     {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
     {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
@@ -1701,7 +1736,7 @@
     { "type": "select", "id": "view_tabs_alignment", "options": [ { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" } ], "default": "center", "label": "Toggle alignment", "info": "Alignment of the Collection / Campaign view toggle row." },
     { "type": "select", "id": "view_tabs_order", "options": [ { "value": "campaign_first", "label": "Campaign, Collection" }, { "value": "collection_first", "label": "Collection, Campaign" } ], "default": "campaign_first", "label": "Toggle tab order", "info": "Order of the two view tabs — the page loads showing the first tab's view. The Link tab always sits last." },
     { "type": "text", "id": "link_tab_label", "label": "Link tab label", "default": "Link" },
-    { "type": "url", "id": "link_tab_url", "label": "Link tab URL", "info": "Opens in a new tab. Leave blank to hide the Link tab." },
+    { "type": "url", "id": "link_tab_url", "label": "Link tab URL", "info": "Opens in a new tab. Leave blank to hide the Link tab. Also shows with the campaign view off, as a static Collection tab plus this link." },
     { "type": "checkbox", "id": "jump_link_enable", "default": false, "label": "Show floating collection link", "info": "Fixed to the bottom of the screen while the campaign view is active; jumps to the collection view." },
     { "type": "text", "id": "jump_link_label", "label": "Floating link text", "default": "View collection", "visible_if": "{{ section.settings.jump_link_enable }}" },
     { "type": "checkbox", "id": "jump_pill_enable", "default": true, "label": "Pill background", "info": "Off = plain underlined text, matching the campaign CTA style.", "visible_if": "{{ section.settings.jump_link_enable }}" },
@@ -2179,6 +2214,16 @@
         {"type": "checkbox", "id": "full_screen", "label": "Full viewport height", "default": false},
         {"type": "text", "id": "overlay_eyebrow", "label": "Overlay eyebrow"},
         {"type": "image_picker", "id": "overlay_image", "label": "Overlay logo image"},
+        {"type": "text", "id": "video_url_mobile", "label": "Ambient video URL mobile", "info": "Optional. Replaces the ambient video below 750px."},
+        {"type": "text", "id": "video_ratio", "label": "Ambient video ratio", "info": "CSS aspect-ratio, e.g. 16 / 9. Reserves the hero height before the video loads. Blank = the video's own ratio."},
+        {"type": "checkbox", "id": "full_screen_mobile", "label": "Full viewport height mobile", "default": false},
+        {"type": "header", "content": "Overlay logo position", "info": "Blank = the centered logo band (FA26 Part 1). Values are % of the hero box."},
+        {"type": "text", "id": "overlay_left", "label": "Logo left (%)"},
+        {"type": "text", "id": "overlay_top", "label": "Logo top (%)"},
+        {"type": "text", "id": "overlay_width", "label": "Logo width (%)"},
+        {"type": "text", "id": "overlay_left_mobile", "label": "Logo left mobile (%)", "info": "Blank = centered."},
+        {"type": "text", "id": "overlay_top_mobile", "label": "Logo top mobile (%)"},
+        {"type": "text", "id": "overlay_width_mobile", "label": "Logo width mobile (%)"},
         {"type": "header", "content": "Spacing"},
         {"type": "text", "id": "pad_top", "label": "Padding top (px)"},
         {"type": "text", "id": "pad_bottom", "label": "Padding bottom (px)"},
@@ -2278,6 +2323,7 @@
         {"type": "header", "content": "Layout"},
         {"type": "text", "id": "width_pct", "label": "Width (% of page width)", "info": "Blank = page width. 100 = page width; 107.5 desktop / 105.4 mobile = full-bleed."},
         {"type": "text", "id": "width_pct_mobile", "label": "Width mobile (% of page width)"},
+        {"type": "select", "id": "align_mobile", "options": [{"value": "center", "label": "Center"}, {"value": "left", "label": "Left, flush to the viewport edge"}], "default": "center", "label": "Alignment mobile"},
         {"type": "text", "id": "pad_top", "label": "Padding top (px)"},
         {"type": "text", "id": "pad_bottom", "label": "Padding bottom (px)"},
         {"type": "text", "id": "pad_top_mobile", "label": "Padding top mobile (px)"},
@@ -2308,6 +2354,19 @@
         {"type": "select", "id": "valign", "options": [{"value": "top", "label": "Top"}, {"value": "bottom", "label": "Bottom"}], "default": "top", "label": "Vertical alignment"},
         {"type": "checkbox", "id": "first_flush", "label": "First column flush to left edge", "default": false},
         {"type": "checkbox", "id": "second_flush", "label": "Second column flush to right edge", "default": false},
+        {"type": "select", "id": "flush_mobile", "options": [{"value": "inherit", "label": "Same as desktop"}, {"value": "none", "label": "Neither"}, {"value": "first", "label": "First column"}, {"value": "second", "label": "Second column"}, {"value": "both", "label": "Both"}], "default": "inherit", "label": "Flush to edges on mobile"},
+        {"type": "text", "id": "col1_img_pct", "label": "First image width (% of its column)", "info": "Blank = 100. Narrower images center in the column."},
+        {"type": "text", "id": "col1_img_pct_mobile", "label": "First image width mobile (% of its column)"},
+        {"type": "text", "id": "col1_gap_mobile", "label": "Text to image gap mobile (px)"},
+        {"type": "select", "id": "mobile_layout", "options": [{"value": "stack", "label": "Images side by side, text below"}, {"value": "columns", "label": "Same as desktop"}], "default": "stack", "label": "Mobile arrangement", "info": "Text + image left layout only."},
+        {"type": "header", "content": "Text column extras", "info": "Text + image left layout only. Mono paragraph and underlined link under the heading."},
+        {"type": "textarea", "id": "body", "label": "Body text", "info": "Line breaks are kept."},
+        {"type": "text", "id": "link_label", "label": "Link label"},
+        {"type": "url", "id": "link_url", "label": "Link"},
+        {"type": "text", "id": "link_gap", "label": "Space above link (px)", "info": "Blank = 16"},
+        {"type": "text", "id": "link_gap_mobile", "label": "Space above link mobile (px)"},
+        {"type": "text", "id": "text_inset", "label": "Text inset from column edge (px)", "info": "Left inset of the text column (right-aligned text)."},
+        {"type": "text", "id": "text_inset_mobile", "label": "Text inset mobile (px)"},
         {"type": "header", "content": "Spacing"},
         {"type": "text", "id": "inset_x", "label": "Extra side inset (px)", "info": "Added to the page margin on each non-flush side."},
         {"type": "text", "id": "inset_x_mobile", "label": "Extra side inset mobile (px)"},
@@ -2340,6 +2399,11 @@
         {"type": "text", "id": "gap", "label": "Gap (px)", "info": "Blank = 10"},
         {"type": "text", "id": "gap_mobile", "label": "Gap mobile (px)"},
         {"type": "text", "id": "ratio", "label": "Image ratio", "info": "CSS aspect-ratio, e.g. 2 / 3. Blank = 2 / 3."},
+        {"type": "header", "content": "Natural-size images", "info": "For small illustrations: set Image ratio to auto and give each image a width."},
+        {"type": "text", "id": "cell_widths", "label": "Image widths (px, comma-separated)", "info": "One per image, e.g. 83,41,62. Blank = fill the cell."},
+        {"type": "text", "id": "cell_widths_mobile", "label": "Image widths mobile (px, comma-separated)"},
+        {"type": "select", "id": "cell_justify", "options": [{"value": "fill", "label": "Fill cells"}, {"value": "center", "label": "Center in cell"}, {"value": "inward", "label": "Pull toward the middle"}], "default": "fill", "label": "Image placement", "info": "Applies when image widths are set."},
+        {"type": "select", "id": "valign", "options": [{"value": "top", "label": "Top"}, {"value": "center", "label": "Center"}], "default": "top", "label": "Vertical alignment"},
         {"type": "text", "id": "width_pct", "label": "Width (% of page width)", "info": "Blank = page width. 100 = page width; 107.5 desktop / 105.4 mobile = full-bleed."},
         {"type": "text", "id": "width_pct_mobile", "label": "Width mobile (% of page width)"},
         {"type": "header", "content": "Spacing"},
