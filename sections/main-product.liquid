@@ -831,7 +831,9 @@
   {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: product -%}{%- endcapture -%}
   {%- assign lock_content = lock_content | strip -%}
   {%- assign preview_badge = '' -%}
-  {%- if product.tags contains 'preview-product' or product.tags contains 'supervip-product' or product.tags contains 'vip-product' -%}
+  {%- capture has_level -%}{%- render 'vip-tier', product: product, field: 'gated' -%}{%- endcapture -%}
+  {%- assign has_level = has_level | strip -%}
+  {%- if has_level == 'true' -%}
     {%- if lock_content == 'true' -%}
       {%- unless tags_str contains 'Badge-Coming Soon' -%}
         {%- assign preview_badge = 'Coming Soon' -%}

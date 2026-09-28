@@ -1,7 +1,7 @@
 {% liquid
-  # Locks collections with `lock.internal_preview` (staff only), `lock.super_vip`
-  # or `lock.vip` set. Which tiers may see gated collections right now is decided
-  # by the vip-tier resolver (global access dial, else the legacy boolean ladder).
+  # Locks collections with `lock.internal_preview` (staff only) or an Access
+  # Level (`lock.required_priority`; legacy `lock.super_vip` / `lock.vip` until
+  # cutover). Who may see them is decided by the vip-tier resolver.
   # Contract unchanged: echoes 'true' (locked) / 'false' (unlocked).
   assign lock_content = 'false'
 

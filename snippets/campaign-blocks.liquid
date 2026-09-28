@@ -470,14 +470,17 @@
                 {%- if show_preview_badge -%}
                   {%- comment -%}
                     Preview grid only: preview products keep their Early Access badge
-                    in campaign rows. Tag-gated (like the PDP, unlike the grid loop
-                    above) so hand-picked published products get no badge; locked
+                    in campaign rows. Level-gated (vip-tier 'gated', like the PDP,
+                    unlike the grid loop above) so hand-picked published products
+                    get no badge; locked
                     products never reach this point, so no Coming Soon branch is
                     needed. Sold-out stays visible — campaign rows only ever show
                     viewer-shoppable products.
                   {%- endcomment -%}
                   {%- assign preview_badge = '' -%}
-                  {%- if product.tags contains 'preview-product' or product.tags contains 'supervip-product' or product.tags contains 'vip-product' -%}
+                  {%- capture has_level -%}{%- render 'vip-tier', product: product, field: 'gated' -%}{%- endcapture -%}
+                  {%- assign has_level = has_level | strip -%}
+                  {%- if has_level == 'true' -%}
                     {%- unless product.tags contains 'Badge-Early Access' -%}
                       {%- assign preview_badge = 'Early Access' -%}
                     {%- endunless -%}

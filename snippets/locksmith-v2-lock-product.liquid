@@ -1,16 +1,16 @@
 {% liquid
-  # Locks products tagged `preview-product` (staff only), `supervip-product`,
-  # `vip-product` — or any tag a vip_tier catalog entry names as its product_tag.
-  # Which tiers may see gated products right now is decided by the vip-tier
-  # resolver (global access dial, else the legacy tag ladder). This snippet
+  # Locks products tagged `preview-product` (staff only) or carrying an Access
+  # Level (`lock.required_priority`; legacy tier tags until cutover). Who may
+  # see them is decided by the vip-tier resolver. The collection's level is
+  # NOT consulted: product and collection gating are independent. This snippet
   # keeps its 'true' (locked) / 'false' (unlocked) contract for every consumer.
   #
-  # Optional `customer_rank`: a rank already resolved by the caller (grids
-  # resolve the customer once and pass it per card).
+  # Optional `customer_priority`: resolved once by the caller (grids pass it
+  # per card) — 'staff' | 'none' | <number>, see vip-tier.
   assign lock_content = 'false'
 
   capture eligible
-    render 'vip-tier', product: product, customer_rank: customer_rank, field: 'eligible'
+    render 'vip-tier', product: product, customer_priority: customer_priority, field: 'eligible'
   endcapture
   assign eligible = eligible | strip
 

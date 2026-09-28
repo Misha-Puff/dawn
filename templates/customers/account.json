@@ -9,17 +9,12 @@
  */
 {
   "sections": {
-    "tier": {
-      "type": "account-tier",
-      "settings": {}
-    },
     "main": {
       "type": "main-account",
       "settings": {}
     }
   },
   "order": [
-    "tier",
     "main"
   ]
 }

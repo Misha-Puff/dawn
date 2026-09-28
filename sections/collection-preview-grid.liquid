@@ -28,22 +28,23 @@
   # shoppable product blocks would leak past the lock — EXCEPT to staff-tagged
   # accounts, so the team can preview a campaign on the real collection before
   # lock.shoppable flips (cards stay read-only; only the campaign view opens).
-  # Tier resolved ONCE here via the vip-tier snippet; the rank is passed to
-  # every card's lock check below so 48 cards don't each re-resolve it.
+  # Priority resolved ONCE here via the vip-tier snippet ('staff' | 'none' |
+  # <number>) and passed to every card's lock check below so 48 cards don't
+  # each re-resolve it.
   assign show_campaign_views = false
   assign is_staff = false
-  assign viewer_rank = 0
+  assign viewer_priority = 'none'
   if request.design_mode
     assign show_campaign_views = true
   elsif customer
-    capture viewer_rank
-      render 'vip-tier', field: 'rank'
+    capture viewer_priority
+      render 'vip-tier', field: 'priority'
     endcapture
-    assign viewer_rank = viewer_rank | strip | plus: 0
-    if viewer_rank >= 1000
+    assign viewer_priority = viewer_priority | strip
+    if viewer_priority == 'staff'
       assign is_staff = true
     endif
-    if viewer_rank > 0
+    if viewer_priority != 'none'
       assign show_campaign_views = true
     endif
   endif
@@ -471,28 +472,27 @@
 
           {%- for product in current_group.products.value -%}
             {%- assign rendered = rendered | plus: 1 -%}
-            {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product', product: product, customer_rank: viewer_rank -%}{%- endcapture -%}
+            {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product', product: product, customer_priority: viewer_priority -%}{%- endcapture -%}
             {%- assign lock_content = lock_content | strip -%}
             {%- if force_readonly -%}{%- assign lock_content = 'true' -%}{%- endif -%}
             {%- comment -%}
-              Preview badge is derived from the product's lock tags, not from
-              the viewer alone. Locked → "Coming Soon". Unlocked AND still
-              carrying a lock tag → the viewer's tier is what opened it, so
-              "Early Access". Unlocked with NO lock tag → the product has
+              Preview badge is derived from whether the product has a level
+              (vip-tier 'gated': lock.required_priority, legacy lock tags as
+              fallback), not from the viewer alone. Locked → "Coming Soon".
+              Unlocked AND still gated → the viewer's tier is what opened it,
+              so "Early Access". Unlocked and NOT gated → the product has
               launched for everyone; no preview badge, the card renders as a
               normal shoppable card. That keeps a preview collection truthful
               after launch without any manual switch.
             {%- endcomment -%}
             {%- assign preview_badge = '' -%}
-            {%- assign has_lock_tag = false -%}
-            {%- if product.tags contains 'vip-product' or product.tags contains 'supervip-product' or product.tags contains 'preview-product' -%}
-              {%- assign has_lock_tag = true -%}
-            {%- endif -%}
+            {%- capture has_level -%}{%- render 'vip-tier', product: product, field: 'gated' -%}{%- endcapture -%}
+            {%- assign has_level = has_level | strip -%}
             {%- if lock_content == 'true' -%}
               {%- unless product.tags contains 'Badge-Coming Soon' -%}
                 {%- assign preview_badge = 'Coming Soon' -%}
               {%- endunless -%}
-            {%- elsif has_lock_tag -%}
+            {%- elsif has_level == 'true' -%}
               {%- unless product.tags contains 'Badge-Early Access' -%}
                 {%- assign preview_badge = 'Early Access' -%}
               {%- endunless -%}
