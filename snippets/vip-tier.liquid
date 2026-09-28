@@ -16,7 +16,7 @@
                                            resolves to its Priority even when
                                            the tier is deactivated
     customer.tags 'staff'                — bypass, not a tier
-    product / collection
+    for_product / for_collection
       metafields.lock.required_priority  — the content's Access Level
                                            (number_integer, written by Launches)
 
@@ -33,7 +33,10 @@
   Priority <= every required Priority).
 
   Params (all optional):
-    product, collection, required_tier — what to evaluate eligibility for
+    for_product, for_collection, required_tier — what to evaluate eligibility
+                        for. Not named product / collection: a render still
+                        sees the page's global product / collection, which
+                        would gate every card by the page's collection.
     customer_priority — precomputed 'staff' | 'none' | <number> (skips customer
                         resolution; grids resolve once with field: 'priority'
                         and pass it per card)
@@ -140,12 +143,12 @@
   assign has_required = false
   assign required_priority = 0
 
-  if product != blank
-    if product.tags contains 'preview-product'
+  if for_product != blank
+    if for_product.tags contains 'preview-product'
       assign gated = true
       assign staff_only = true
     endif
-    assign level = product.metafields.lock.required_priority.value
+    assign level = for_product.metafields.lock.required_priority.value
     if level != blank
       assign gated = true
       assign level = level | plus: 0
@@ -159,7 +162,7 @@
       for t in metaobjects.vip_tier.values
         assign catalog_size = catalog_size | plus: 1
         assign product_tag = t.product_tag.value
-        if product_tag != blank and t.priority.value != blank and product.tags contains product_tag
+        if product_tag != blank and t.priority.value != blank and for_product.tags contains product_tag
           assign gated = true
           assign t_priority = t.priority.value | plus: 0
           if has_required == false or t_priority < required_priority
@@ -169,11 +172,11 @@
         endif
       endfor
       if catalog_size == 0
-        if product.tags contains 'supervip-product'
+        if for_product.tags contains 'supervip-product'
           assign gated = true
           assign has_required = true
           assign required_priority = 2
-        elsif product.tags contains 'vip-product'
+        elsif for_product.tags contains 'vip-product'
           assign gated = true
           assign has_required = true
           assign required_priority = 3
@@ -183,12 +186,12 @@
     endif
   endif
 
-  if collection != blank
-    if collection.metafields.lock.internal_preview.value == true
+  if for_collection != blank
+    if for_collection.metafields.lock.internal_preview.value == true
       assign gated = true
       assign staff_only = true
     endif
-    assign level = collection.metafields.lock.required_priority.value
+    assign level = for_collection.metafields.lock.required_priority.value
     if level != blank
       assign gated = true
       assign level = level | plus: 0
@@ -202,7 +205,7 @@
       for t in metaobjects.vip_tier.values
         assign catalog_size = catalog_size | plus: 1
         assign legacy_key = t.legacy_key.value
-        if legacy_key != blank and t.priority.value != blank and collection.metafields.lock[legacy_key].value == true
+        if legacy_key != blank and t.priority.value != blank and for_collection.metafields.lock[legacy_key].value == true
           assign gated = true
           assign t_priority = t.priority.value | plus: 0
           if has_required == false or t_priority < required_priority
@@ -212,11 +215,11 @@
         endif
       endfor
       if catalog_size == 0
-        if collection.metafields.lock.super_vip.value == true
+        if for_collection.metafields.lock.super_vip.value == true
           assign gated = true
           assign has_required = true
           assign required_priority = 2
-        elsif collection.metafields.lock.vip.value == true
+        elsif for_collection.metafields.lock.vip.value == true
           assign gated = true
           assign has_required = true
           assign required_priority = 3

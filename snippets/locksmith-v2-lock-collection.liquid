@@ -6,7 +6,7 @@
   assign lock_content = 'false'
 
   capture eligible
-    render 'vip-tier', collection: collection, field: 'eligible'
+    render 'vip-tier', for_collection: collection, field: 'eligible'
   endcapture
   assign eligible = eligible | strip
 
