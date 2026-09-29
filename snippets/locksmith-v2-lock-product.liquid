@@ -1,31 +1,21 @@
 {% liquid
+  # Locks products tagged `preview-product` (staff only) or carrying an Access
+  # Level (`lock.required_priority`; legacy tier tags until cutover). Who may
+  # see them is decided by the vip-tier resolver. The collection's level is
+  # NOT consulted: product and collection gating are independent. This snippet
+  # keeps its 'true' (locked) / 'false' (unlocked) contract for every consumer.
+  #
+  # Optional `customer_priority`: resolved once by the caller (grids pass it
+  # per card) — 'staff' | 'none' | <number>, see vip-tier.
   assign lock_content = 'false'
 
-  # Locks products tagged `preview-product`
-  if product.tags contains 'preview-product'
+  capture eligible
+    render 'vip-tier', for_product: product, customer_priority: customer_priority, field: 'eligible'
+  endcapture
+  assign eligible = eligible | strip
+
+  if eligible == 'false'
     assign lock_content = 'true'
-
-    if customer.tags contains 'staff'
-      assign lock_content = 'false'
-    endif
-  endif
-
-  # Locks products tagged `supervip-product`
-  if product.tags contains 'supervip-product'
-    assign lock_content = 'true'
-
-    if customer.tags contains 'staff' or customer.metafields.clienteling.very_important_customer or customer.metafields.clienteling.super_vip
-      assign lock_content = 'false'
-    endif
-  endif
-
-  # Locks products tagged `vip-product`
-  if product.tags contains 'vip-product'
-    assign lock_content = 'true'
-
-    if customer.tags contains 'staff' or customer.metafields.clienteling.very_important_customer or customer.metafields.clienteling.super_vip or customer.metafields.clienteling.vip
-      assign lock_content = 'false'
-    endif
   endif
 
   if request.design_mode

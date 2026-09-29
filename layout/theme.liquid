@@ -506,7 +506,7 @@
       {% else %}
         {%- liquid
           assign locksmith_state = 'locked'
-          if template.name == 'page' and page.metafields.lock.password != '' and page.metafields.lock.vip != true
+          if template.name == 'page' and page.metafields.lock.password != '' and page.metafields.lock.vip != true and page.metafields.lock.required_priority == blank
             assign locksmith_state = 'password'
           elsif customer == null
             assign locksmith_state = 'login'
@@ -594,7 +594,7 @@
     {% render 'gorgias-init' %}
 
     <!-- - Skimlinks Embed - -->
-    <script type="text/javascript" src="https://s.skimresources.com/js/288797X1775567.skimlinks.js"></script>
+    <script type="text/javascript" src="https://s.skimresources.com/js/288797X1775567.skimlinks.js" defer></script>
 
     <!-- - ShopMy Embed - -->
     <script

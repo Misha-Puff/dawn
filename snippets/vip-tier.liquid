@@ -1,0 +1,321 @@
+{%- comment -%}
+  vip-tier — the ONE place in the theme that knows how tier state is stored.
+
+  Resolves the logged-in customer's tier Priority and, optionally, whether they
+  are eligible for a gated product / collection / explicit tier.
+
+  Priority: whole number, 1 is the highest; tiers may share one (ADR 0008 in
+  mishapuff-dashboard). A customer with no tier has NO Priority — never coerce
+  it to a number (0 would beat every tier).
+
+  Data (all read-only here; the dashboard is the only writer):
+    metaobjects.vip_tier.values          — tier catalog (handle, title,
+                                           priority, active, legacy_key,
+                                           product_tag)
+    customer.metafields.clienteling.tier — metaobject_reference → vip_tier;
+                                           resolves to its Priority even when
+                                           the tier is deactivated
+    customer.tags 'staff'                — bypass, not a tier
+    for_product / for_collection / for_page / for_article
+      metafields.lock.required_priority  — the content's Access Level
+                                           (number_integer; Launches write
+                                           products + collections, pages and
+                                           articles are set in admin)
+
+  Gating (product and collection are independent; a product with no level
+  inside a gated collection is reachable):
+    product tag preview-product          — staff only
+    collection lock.internal_preview     — staff only
+    lock.required_priority               — Priority required
+
+  Eligible = not gated, or staff, or (not staff-only and the customer has a
+  Priority <= every required Priority).
+
+  Params (all optional):
+    for_product, for_collection, for_page, for_article — what to evaluate
+                        eligibility for. Not named product / collection / …:
+                        a render still sees the template's globals, which
+                        would gate every card by the page's collection.
+    customer_priority — precomputed 'staff' | 'none' | <number> (skips customer
+                        resolution; grids resolve once with field: 'priority'
+                        and pass it per card)
+    field — 'handle' | 'priority' | 'eligible' | 'gated' | 'source' | 'title'
+            to echo one value; omitted = "handle|priority|eligible|source|title".
+            'priority' echoes 'staff' | 'none' | <number>. 'gated' = the content
+            has an Access Level (or is staff-only); the customer is not resolved.
+
+  source: 'staff' | 'reference' | 'legacy' | 'given' | 'none'
+
+  Cutover: delete every LEGACY block below. Nothing else changes.
+{%- endcomment -%}
+{%- liquid
+  assign tier_handle = ''
+  assign tier_title = ''
+  assign tier_source = 'none'
+  assign is_staff = false
+  assign has_tier = false
+  assign tier_priority = 0
+
+  # ---------- 1. Resolve the customer's Priority ----------
+  if field == 'gated'
+    # Content-only question; the customer is irrelevant.
+  elsif customer_priority != blank
+    assign tier_source = 'given'
+    if customer_priority == 'staff'
+      assign is_staff = true
+      assign tier_handle = 'staff'
+    elsif customer_priority != 'none'
+      assign has_tier = true
+      assign tier_priority = customer_priority | plus: 0
+    endif
+  elsif customer
+    if customer.tags contains 'staff'
+      assign is_staff = true
+      assign tier_handle = 'staff'
+      assign tier_title = 'Staff'
+      assign tier_source = 'staff'
+    else
+      assign tier_ref = customer.metafields.clienteling.tier.value
+      if tier_ref != blank and tier_ref.priority.value != blank
+        assign has_tier = true
+        assign tier_priority = tier_ref.priority.value | plus: 0
+        assign tier_handle = tier_ref.system.handle
+        assign tier_title = tier_ref.title.value
+        assign tier_source = 'reference'
+      else
+        # ---------- LEGACY: customer booleans (delete at cutover) ----------
+        # Best (lowest) Priority among active catalog entries whose legacy
+        # boolean is true.
+        assign catalog_size = 0
+        for t in metaobjects.vip_tier.values
+          assign catalog_size = catalog_size | plus: 1
+          if t.active.value != true
+            continue
+          endif
+          assign legacy_key = t.legacy_key.value
+          if legacy_key == blank or t.priority.value == blank
+            continue
+          endif
+          if customer.metafields.clienteling[legacy_key].value == true
+            assign t_priority = t.priority.value | plus: 0
+            if has_tier == false or t_priority < tier_priority
+              assign has_tier = true
+              assign tier_priority = t_priority
+              assign tier_handle = t.system.handle
+              assign tier_title = t.title.value
+              assign tier_source = 'legacy'
+            endif
+          endif
+        endfor
+        # Last resort when the catalog itself is missing: the seeded ladder.
+        if catalog_size == 0
+          if customer.metafields.clienteling.very_important_customer.value == true
+            assign has_tier = true
+            assign tier_priority = 1
+            assign tier_handle = 'vic'
+            assign tier_title = 'VIC'
+            assign tier_source = 'legacy'
+          elsif customer.metafields.clienteling.super_vip.value == true
+            assign has_tier = true
+            assign tier_priority = 2
+            assign tier_handle = 'super_vip'
+            assign tier_title = 'Super VIP'
+            assign tier_source = 'legacy'
+          elsif customer.metafields.clienteling.vip.value == true
+            assign has_tier = true
+            assign tier_priority = 3
+            assign tier_handle = 'vip'
+            assign tier_title = 'VIP'
+            assign tier_source = 'legacy'
+          endif
+        endif
+        # ---------- END LEGACY ----------
+      endif
+    endif
+  endif
+
+  # ---------- 2. Is the content gated, and at what Priority? ----------
+  # Several constraints (e.g. product + collection) → the strictest (lowest)
+  # Priority wins.
+  assign gated = false
+  assign staff_only = false
+  assign has_required = false
+  assign required_priority = 0
+
+  if for_product != blank
+    if for_product.tags contains 'preview-product'
+      assign gated = true
+      assign staff_only = true
+    endif
+    assign level = for_product.metafields.lock.required_priority.value
+    if level != blank
+      assign gated = true
+      assign level = level | plus: 0
+      if has_required == false or level < required_priority
+        assign has_required = true
+        assign required_priority = level
+      endif
+    else
+      # ---------- LEGACY: product tags (delete at cutover) ----------
+      assign catalog_size = 0
+      for t in metaobjects.vip_tier.values
+        assign catalog_size = catalog_size | plus: 1
+        assign product_tag = t.product_tag.value
+        if product_tag != blank and t.priority.value != blank and for_product.tags contains product_tag
+          assign gated = true
+          assign t_priority = t.priority.value | plus: 0
+          if has_required == false or t_priority < required_priority
+            assign has_required = true
+            assign required_priority = t_priority
+          endif
+        endif
+      endfor
+      if catalog_size == 0
+        if for_product.tags contains 'supervip-product'
+          assign gated = true
+          assign has_required = true
+          assign required_priority = 2
+        elsif for_product.tags contains 'vip-product'
+          assign gated = true
+          assign has_required = true
+          assign required_priority = 3
+        endif
+      endif
+      # ---------- END LEGACY ----------
+    endif
+  endif
+
+  if for_collection != blank
+    if for_collection.metafields.lock.internal_preview.value == true
+      assign gated = true
+      assign staff_only = true
+    endif
+    assign level = for_collection.metafields.lock.required_priority.value
+    if level != blank
+      assign gated = true
+      assign level = level | plus: 0
+      if has_required == false or level < required_priority
+        assign has_required = true
+        assign required_priority = level
+      endif
+    else
+      # ---------- LEGACY: collection lock booleans (delete at cutover) ----------
+      assign catalog_size = 0
+      for t in metaobjects.vip_tier.values
+        assign catalog_size = catalog_size | plus: 1
+        assign legacy_key = t.legacy_key.value
+        if legacy_key != blank and t.priority.value != blank and for_collection.metafields.lock[legacy_key].value == true
+          assign gated = true
+          assign t_priority = t.priority.value | plus: 0
+          if has_required == false or t_priority < required_priority
+            assign has_required = true
+            assign required_priority = t_priority
+          endif
+        endif
+      endfor
+      if catalog_size == 0
+        if for_collection.metafields.lock.super_vip.value == true
+          assign gated = true
+          assign has_required = true
+          assign required_priority = 2
+        elsif for_collection.metafields.lock.vip.value == true
+          assign gated = true
+          assign has_required = true
+          assign required_priority = 3
+        endif
+      endif
+      # ---------- END LEGACY ----------
+    endif
+  endif
+
+  # Pages and articles: a level, else (LEGACY) page lock.vip / article tag
+  # 'vip' gate at the VIP tier's Priority.
+  assign legacy_tier = ''
+  if for_page != blank
+    assign level = for_page.metafields.lock.required_priority.value
+    if level != blank
+      assign gated = true
+      assign level = level | plus: 0
+      if has_required == false or level < required_priority
+        assign has_required = true
+        assign required_priority = level
+      endif
+    elsif for_page.metafields.lock.vip.value == true
+      assign legacy_tier = 'vip'
+    endif
+  endif
+
+  if for_article != blank
+    assign level = for_article.metafields.lock.required_priority.value
+    if level != blank
+      assign gated = true
+      assign level = level | plus: 0
+      if has_required == false or level < required_priority
+        assign has_required = true
+        assign required_priority = level
+      endif
+    elsif for_article.tags contains 'vip'
+      assign legacy_tier = 'vip'
+    endif
+  endif
+
+  # ---------- LEGACY: page / article VIP gate (delete at cutover) ----------
+  if legacy_tier != blank
+    assign gated = true
+    assign forced = metaobjects.vip_tier[legacy_tier]
+    if forced != blank and forced.priority.value != blank
+      assign t_priority = forced.priority.value | plus: 0
+    else
+      # Missing catalog entry: the seeded VIP Priority.
+      assign t_priority = 3
+    endif
+    if has_required == false or t_priority < required_priority
+      assign has_required = true
+      assign required_priority = t_priority
+    endif
+  endif
+  # ---------- END LEGACY ----------
+
+  # ---------- 3. Eligibility ----------
+  assign eligible = true
+  if gated
+    if is_staff
+      assign eligible = true
+    elsif staff_only
+      assign eligible = false
+    elsif has_tier and has_required and tier_priority <= required_priority
+      assign eligible = true
+    else
+      assign eligible = false
+    endif
+  endif
+  if request.design_mode
+    assign eligible = true
+  endif
+
+  # ---------- 4. Output ----------
+  if is_staff
+    assign priority_out = 'staff'
+  elsif has_tier
+    assign priority_out = tier_priority
+  else
+    assign priority_out = 'none'
+  endif
+
+  case field
+    when 'handle'
+      echo tier_handle
+    when 'priority'
+      echo priority_out
+    when 'eligible'
+      echo eligible
+    when 'gated'
+      echo gated
+    when 'source'
+      echo tier_source
+    when 'title'
+      echo tier_title
+    else
+      echo tier_handle | append: '|' | append: priority_out | append: '|' | append: eligible | append: '|' | append: tier_source | append: '|' | append: tier_title
+  endcase
+-%}

@@ -1,12 +1,15 @@
 {%- liquid
+  # Segment = 'guest' | 'member' | the customer's tier handle (vip, super_vip,
+  # vic, …) | 'staff'. Tier resolution lives in the vip-tier snippet.
   assign customer_segment = 'guest'
   if customer
     assign customer_segment = 'member'
-    if customer.metafields.clienteling.very_important_customer or customer.metafields.clienteling.super_vip or customer.metafields.clienteling.vip
-      assign customer_segment = 'vip'
-    endif
-    if customer.tags contains 'staff'
-      assign customer_segment = 'staff'
+    capture tier_handle
+      render 'vip-tier', field: 'handle'
+    endcapture
+    assign tier_handle = tier_handle | strip
+    if tier_handle != blank
+      assign customer_segment = tier_handle
     endif
   endif
 -%}

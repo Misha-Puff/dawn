@@ -18,11 +18,23 @@
     endif
   endif
 
-  # Locks pages with the `lock.vip` metafield set
-  if page.metafields.lock.vip
+  # Locks pages with an Access Level (`lock.required_priority`; legacy
+  # `lock.vip` until cutover). Who may see them is decided by the vip-tier
+  # resolver; an eligible viewer also skips the password.
+  capture gated
+    render 'vip-tier', for_page: page, field: 'gated'
+  endcapture
+  assign gated = gated | strip
+
+  if gated == 'true'
     assign lock_content = 'true'
 
-    if customer.tags contains 'staff' or customer.metafields.clienteling.very_important_customer or customer.metafields.clienteling.super_vip or customer.metafields.clienteling.vip
+    capture eligible
+      render 'vip-tier', for_page: page, field: 'eligible'
+    endcapture
+    assign eligible = eligible | strip
+
+    if eligible == 'true'
       assign lock_content = 'false'
     endif
   endif
