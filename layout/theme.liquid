@@ -506,7 +506,7 @@
       {% else %}
         {%- liquid
           assign locksmith_state = 'locked'
-          if template.name == 'page' and page.metafields.lock.password != '' and page.metafields.lock.vip != true
+          if template.name == 'page' and page.metafields.lock.password != '' and page.metafields.lock.vip != true and page.metafields.lock.required_priority == blank
             assign locksmith_state = 'password'
           elsif customer == null
             assign locksmith_state = 'login'

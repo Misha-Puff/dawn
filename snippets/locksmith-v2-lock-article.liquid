@@ -10,13 +10,18 @@
     endif
   endif
 
-  # Locks articles tagged with `vip` — VIP tier and up, via the vip-tier
-  # resolver (staff bypass + Priority comparison live there).
-  if article.tags contains 'vip'
+  # Locks articles with an Access Level (`lock.required_priority`; legacy tag
+  # `vip` until cutover). Who may see them is decided by the vip-tier resolver.
+  capture gated
+    render 'vip-tier', for_article: article, field: 'gated'
+  endcapture
+  assign gated = gated | strip
+
+  if gated == 'true'
     assign lock_content = 'true'
 
     capture eligible
-      render 'vip-tier', required_tier: 'vip', field: 'eligible'
+      render 'vip-tier', for_article: article, field: 'eligible'
     endcapture
     assign eligible = eligible | strip
 
