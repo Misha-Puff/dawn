@@ -4,6 +4,8 @@
 {% render 'signature' %}
 <html class="js" lang="{{ request.locale.iso_code }}">
   <head>
+  {% comment %}Loads Shogun Analytics. Removing this will disrupt analytics data collection.{% endcomment %}
+  <script type="text/javascript" async src="https://na.shgcdn3.com/pixel-collector.js"></script>
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
