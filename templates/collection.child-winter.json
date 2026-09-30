@@ -124,7 +124,7 @@
           "settings": {
             "label": "JACKETS",
             "open_new_tab": true,
-            "link": "shopify://collections/child-jackets",
+            "link": "shopify://collections/child-jackets-outerwear",
             "type": "secondary",
             "on_click": ""
           }
