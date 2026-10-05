@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "shogun-helper": {
@@ -46,7 +55,7 @@
         "heading_4bAnVw": {
           "type": "heading",
           "settings": {
-            "heading": "CLIENTELING PREVIEW",
+            "heading": "THE WINTER COLLECTION, PART 1",
             "heading_size": "h2",
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
@@ -63,7 +72,7 @@
         "text_bdVDk3": {
           "type": "text",
           "settings": {
-            "text": "<p>A private preview of the upcoming collections. Explore, favorite, and plan your looks.</p>",
+            "text": "<p>Where holiday dressing meets the quiet glow of an imagined idyll. Cozy Merino knits, plush velvet, and richly textured layers bring warmth to the season, with soft neutrals set against bright, unexpected pops and painterly prints throughout. Inspired by craft, museum wanderings, and the places and spaces that shape us.</p><p>Part 1 of the Winter Collection launches October 22 at 10 am et.</p>",
             "line_height": 24,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
