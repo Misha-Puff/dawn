@@ -16,6 +16,9 @@
                                            resolves to its Priority even when
                                            the tier is deactivated
     customer.tags 'staff'                — bypass, not a tier
+    customer.metafields.clienteling.preview_guest
+                                         — boolean; a Preview Guest (not a
+                                           tier, ADR 0015 in mishapuff-dashboard)
     for_product / for_collection / for_page / for_article
       metafields.lock.required_priority  — the content's Access Level
                                            (number_integer; Launches write
@@ -27,6 +30,10 @@
     product tag preview-product          — staff only
     collection lock.internal_preview     — staff only
     lock.required_priority               — Priority required
+    collection lock.preview_guests       — Preview Guests pass the collection's
+                                           own gating (staff-only and Priority);
+                                           products keep theirs. Needs a resolved
+                                           customer (not customer_priority).
 
   Eligible = not gated, or staff, or (not staff-only and the customer has a
   Priority <= every required Priority).
@@ -53,6 +60,7 @@
   assign tier_title = ''
   assign tier_source = 'none'
   assign is_staff = false
+  assign is_preview_guest = false
   assign has_tier = false
   assign tier_priority = 0
 
@@ -75,6 +83,9 @@
       assign tier_title = 'Staff'
       assign tier_source = 'staff'
     else
+      if customer.metafields.clienteling.preview_guest.value == true
+        assign is_preview_guest = true
+      endif
       assign tier_ref = customer.metafields.clienteling.tier.value
       if tier_ref != blank and tier_ref.priority.value != blank
         assign has_tier = true
@@ -185,7 +196,16 @@
     endif
   endif
 
-  if for_collection != blank
+  # A Preview Guest on a collection that admits guests skips the collection's
+  # constraints entirely; any product constraint still applies.
+  assign guest_admitted = false
+  if is_preview_guest and for_collection != blank
+    if for_collection.metafields.lock.preview_guests.value == true
+      assign guest_admitted = true
+    endif
+  endif
+
+  if for_collection != blank and guest_admitted == false
     if for_collection.metafields.lock.internal_preview.value == true
       assign gated = true
       assign staff_only = true

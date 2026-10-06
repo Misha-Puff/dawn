@@ -1,7 +1,8 @@
 {% liquid
   # Locks collections with `lock.internal_preview` (staff only) or an Access
   # Level (`lock.required_priority`; legacy `lock.super_vip` / `lock.vip` until
-  # cutover). Who may see them is decided by the vip-tier resolver.
+  # cutover). Who may see them is decided by the vip-tier resolver, which also
+  # admits Preview Guests when the collection sets `lock.preview_guests`.
   # Contract unchanged: echoes 'true' (locked) / 'false' (unlocked).
   assign lock_content = 'false'
 
