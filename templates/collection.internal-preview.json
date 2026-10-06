@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "shogun-helper": {
@@ -63,7 +72,7 @@
         "text_bdVDk3": {
           "type": "text",
           "settings": {
-            "text": "<p>Team-only preview of the upcoming launch. Order and membership come from the Merchandising Collections base (Internal - Team Preview view) via the Preview Sync extension. Not visible to customers.</p>",
+            "text": "<p>Team-only preview of upcoming launches, one tab per launch. Contents are pushed from the Launch app. Not visible to customers.</p>",
             "line_height": 24,
             "tg_enable_type": true,
             "tg_font": "assistant_n4",
