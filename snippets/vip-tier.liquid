@@ -36,7 +36,10 @@
                                            customer (not customer_priority).
 
   Eligible = not gated, or staff, or (not staff-only and the customer has a
-  Priority <= every required Priority).
+  Priority <= every required Priority). A Preview Guest on a lock.preview_guests
+  collection is judged as if that collection were ungated. Grids pass
+  customer_priority, so cards never see guest admission (guests get the
+  collection, not its gated products).
 
   Params (all optional):
     for_product, for_collection, for_page, for_article — what to evaluate
