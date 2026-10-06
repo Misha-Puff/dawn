@@ -69,6 +69,22 @@
   if has_link_tab
     assign show_view_tabs = true
   endif
+
+  # Launch tabs row (Internal Preview holding several launches) — see the
+  # range clamp below the style block.
+  assign preview_tabs = collection.metafields.lock.preview_tabs.value
+  # Only well-formed runs count, so a malformed value behaves as no metafield.
+  assign has_preview_tabs = false
+  if preview_tabs != blank
+    for tab in preview_tabs
+      assign tab_first = tab.first_page | plus: 0
+      assign tab_count = tab.page_count | plus: 0
+      if tab_first > 0 and tab_count > 0
+        assign has_preview_tabs = true
+        break
+      endif
+    endfor
+  endif
 %}
 
 {%- style -%}
@@ -86,7 +102,7 @@
 
   {% render 'card-settings-styles' %}
 
-  {%- if show_view_tabs -%}
+  {%- if show_view_tabs or has_preview_tabs -%}
 
     .collection-view-tabs {
       display: flex;
@@ -258,9 +274,38 @@
   assign prev_prev_page_num = current_page_num | minus: 2
   assign next_next_page_num = current_page_num | plus: 2
 
+  # Launch tabs (lock.preview_tabs, JSON [{label, first_page, page_count}]):
+  # the grid is sliced into contiguous page runs, one per launch. The active
+  # tab is the run containing current_page; pagination is clamped to
+  # [range_first, range_last] so it never links into another launch's pages,
+  # and numbered relative to the run. No metafield (or empty) leaves the range
+  # unbounded — exactly the untabbed behaviour. A page outside every run gets
+  # a one-page range (no pagination).
+  assign range_first = 1
+  assign range_last = 999999
+  if has_preview_tabs
+    assign range_first = current_page_num
+    assign range_last = current_page_num
+    for tab in preview_tabs
+      assign tab_first = tab.first_page | plus: 0
+      assign tab_count = tab.page_count | plus: 0
+      if tab_first > 0 and tab_count > 0
+        assign tab_last = tab_first | plus: tab_count | minus: 1
+        if current_page_num >= tab_first and current_page_num <= tab_last
+          assign range_first = tab_first
+          assign range_last = tab_last
+        endif
+      endif
+    endfor
+  endif
+  assign page_offset = range_first | minus: 1
+
   for group in preview.groups.value
     if forloop.index == current_page_num
       assign current_group = group
+    endif
+    if forloop.index < range_first or forloop.index > range_last
+      continue
     endif
     if forloop.index == prev_page_num
       assign has_prev = true
@@ -442,6 +487,37 @@
       {{ link_tab_html }}
     </div>
   {%- endif -%}
+  {%- if has_preview_tabs -%}
+    {%- comment -%}
+      Launch tabs: plain server-rendered links to each run's first page,
+      styled as the view-tabs row. Rendered inside the grid view (when a
+      campaign exists) so it hides with the grid.
+    {%- endcomment -%}
+    <nav
+      class="collection-view-tabs collection-preview-tabs page-width"
+      aria-label="{{ 'sections.collection_template.preview_tabs_label' | t }}"
+    >
+      {%- for tab in preview_tabs -%}
+        {%- assign tab_first = tab.first_page | plus: 0 -%}
+        {%- assign tab_count = tab.page_count | plus: 0 -%}
+        {%- if tab_first < 1 or tab_count < 1 -%}{%- continue -%}{%- endif -%}
+        {%- assign tab_last = tab_first | plus: tab_count | minus: 1 -%}
+        {%- assign tab_active = false -%}
+        {%- if current_page_num >= tab_first and current_page_num <= tab_last -%}
+          {%- assign tab_active = true -%}
+        {%- endif -%}
+        <a
+          class="collection-view-tabs__tab collection-view-tabs__tab--link{% if tab_active %} collection-view-tabs__tab--current{% endif %}"
+          href="{{ collection.url }}{% if tab_first > 1 %}?page={{ tab_first }}{% endif %}"
+          {% if tab_active %}
+            aria-current="page"
+          {% endif %}
+        >
+          {{- tab.label | escape -}}
+        </a>
+      {%- endfor -%}
+    </nav>
+  {%- endif -%}
   {%- unless has_products -%}
     <div class="collection collection--empty page-width" data-id="{{ section.id }}">
       <div class="title-wrapper center">
@@ -546,6 +622,10 @@
           {{ 'component-pagination.css' | asset_url | stylesheet_tag }}
           {%- assign prev_page = prev_page_num -%}
           {%- assign next_page = next_page_num -%}
+          {%- comment -%} Displayed numbers are relative to the active launch tab (page_offset 0 untabbed). {%- endcomment -%}
+          {%- assign prev_page_label = prev_page | minus: page_offset -%}
+          {%- assign current_page_label = current_page_num | minus: page_offset -%}
+          {%- assign next_page_label = next_page | minus: page_offset -%}
 
           <div class="pagination-wrapper">
             <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
@@ -571,9 +651,9 @@
                     <a
                       href="{{ collection.url }}{% if prev_page > 1 %}?page={{ prev_page }}{% endif %}"
                       class="pagination__item link"
-                      aria-label="{{ 'general.pagination.page' | t: number: prev_page }}"
+                      aria-label="{{ 'general.pagination.page' | t: number: prev_page_label }}"
                     >
-                      {{- prev_page -}}
+                      {{- prev_page_label -}}
                     </a>
                   </li>
                 {%- endif -%}
@@ -584,9 +664,9 @@
                     aria-disabled="true"
                     class="pagination__item pagination__item--current light"
                     aria-current="page"
-                    aria-label="{{ 'general.pagination.page' | t: number: current_page_num }}"
+                    aria-label="{{ 'general.pagination.page' | t: number: current_page_label }}"
                   >
-                    {{- current_page_num -}}
+                    {{- current_page_label -}}
                   </a>
                 </li>
 
@@ -595,9 +675,9 @@
                     <a
                       href="{{ collection.url }}?page={{ next_page }}"
                       class="pagination__item link"
-                      aria-label="{{ 'general.pagination.page' | t: number: next_page }}"
+                      aria-label="{{ 'general.pagination.page' | t: number: next_page_label }}"
                     >
-                      {{- next_page -}}
+                      {{- next_page_label -}}
                     </a>
                   </li>
                 {%- endif -%}

@@ -496,7 +496,8 @@
       "title": "Collection",
       "use_fewer_filters_html": "Use fewer filters or <a class=\"{{ class }}\" href=\"{{ link }}\">remove all</a>",
       "view_collection": "Collection",
-      "view_campaign": "Campaign"
+      "view_campaign": "Campaign",
+      "preview_tabs_label": "Launches"
     },
     "collection_tabs": {
       "label": "Collections"
