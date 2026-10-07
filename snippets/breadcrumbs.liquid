@@ -33,7 +33,7 @@
   <nav class="breadcrumbs" role="navigation" aria-label="breadcrumbs">
     <ol class="breadcrumbs__list">
       <li class="breadcrumbs__item">
-        <a class="breadcrumbs__link" href="/">Home</a>
+        <a class="breadcrumbs__link" href="{{ routes.root_url }}">Home</a>
       </li>
       <span>/&nbsp;</span>
       {%- case t -%}
@@ -54,8 +54,17 @@
           <li class="breadcrumbs__item">
             <a class="breadcrumbs__link" href="{{ product.url }}" aria-current="page">{{ product.title }}</a>
           </li>
-        {%- when 'collection' and collection.handle -%}
-          {%- if current_tags -%}
+        {%- when 'collection' -%}
+          {%- comment -%}
+            `when` only takes a value list; the handle guard that used to sit on the
+            `when` line (a Liquid syntax error) lives inside the branch instead, with
+            the generic fallback for a collection template that has no collection.
+          {%- endcomment -%}
+          {%- if collection.handle == blank -%}
+            <li class="breadcrumbs__item">
+              <a class="breadcrumbs__link" href="{{ request.path }}" aria-current="page">{{ page_title }}</a>
+            </li>
+          {%- elsif current_tags -%}
             <li class="breadcrumbs__item">
               {{ collection.title | link_to: collection.url }}
             </li>
