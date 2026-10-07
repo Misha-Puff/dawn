@@ -144,7 +144,7 @@
         const email = bisForm.querySelector('#bis-email').value;
         const submitBtn = bisForm.querySelector('#submit-btn');
         const successMessage = bisForm.querySelector('#bis-form .success');
-        const errorMessage = bisForm.querySelector('#bis-form .success');
+        const errorMessage = bisForm.querySelector('#bis-form .error');
         const spinner = submitBtn.querySelector('#bis-form .loading__spinner');
 
         spinner.classList.remove('hidden');
@@ -187,17 +187,19 @@
         submitBtn.classList.add('loading');
 
         fetch('https://a.klaviyo.com/client/back-in-stock-subscriptions?company_id=H9eAyC', requestOptions)
-          .then((data) => {
-            spinner.classList.add('hidden');
-            submitBtn.classList.remove('loading');
-
+          .then((response) => {
+            // fetch only rejects on network failure; Klaviyo signals rejected
+            // subscriptions (bad email, rate limit, 5xx) with a non-2xx status.
+            if (!response.ok) throw new Error(`Klaviyo responded ${response.status}`);
             successMessage.style.display = 'block';
           })
           .catch((error) => {
+            console.error('[bis] subscription failed', error);
+            errorMessage.style.display = 'block';
+          })
+          .finally(() => {
             spinner.classList.add('hidden');
             submitBtn.classList.remove('loading');
-
-            errorMessage.style.display = 'block';
           });
       });
     }
