@@ -58,18 +58,22 @@
     {%- endif -%}
   {%- endif -%}
   {%- if block.settings.show_exclusive -%}
+    {%- assign cm_exclusive = false -%}
+    {%- if product.tags contains 'Badge-Exclusive' or product.metafields.taxonomy.ecomm_exclusive.value == true -%}
+      {%- assign cm_exclusive = true -%}
+    {%- endif -%}
     {%- if request.design_mode -%}
       {%- if block.settings.exclusive_collab_text != blank -%}
         <div class="cm-gate-note" style="{{ cm_gate_note_style }}">Storefront gate: product tagged Badge-Exclusive Collab</div>
         <p class="custom-message"{% if block.settings.exclusive_color != blank %} style="color: {{ block.settings.exclusive_color }};"{% endif %}>{{ block.settings.exclusive_collab_text | escape }}</p>
       {%- endif -%}
       {%- if block.settings.exclusive_text != blank -%}
-        <div class="cm-gate-note" style="{{ cm_gate_note_style }}">Storefront gate: product tagged Badge-Exclusive (the Collab tag and its message take precedence)</div>
+        <div class="cm-gate-note" style="{{ cm_gate_note_style }}">Storefront gate: product tagged Badge-Exclusive or metafield taxonomy.ecomm_exclusive is true (the Collab tag and its message take precedence)</div>
         <p class="custom-message"{% if block.settings.exclusive_color != blank %} style="color: {{ block.settings.exclusive_color }};"{% endif %}>{{ block.settings.exclusive_text | escape }}</p>
       {%- endif -%}
     {%- elsif product.tags contains 'Badge-Exclusive Collab' and block.settings.exclusive_collab_text != blank -%}
       <p class="custom-message"{% if block.settings.exclusive_color != blank %} style="color: {{ block.settings.exclusive_color }};"{% endif %}>{{ block.settings.exclusive_collab_text | escape }}</p>
-    {%- elsif product.tags contains 'Badge-Exclusive' and block.settings.exclusive_text != blank -%}
+    {%- elsif cm_exclusive and block.settings.exclusive_text != blank -%}
       <p class="custom-message"{% if block.settings.exclusive_color != blank %} style="color: {{ block.settings.exclusive_color }};"{% endif %}>{{ block.settings.exclusive_text | escape }}</p>
     {%- endif -%}
   {%- endif -%}

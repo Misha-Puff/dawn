@@ -33,26 +33,38 @@
     </span>
   {%- endif -%}
 
-  {% if tags_str contains 'Badge-' %}
-    {% assign custom_tags = '' | split: '😉' %}
+  {% assign custom_tags = '' | split: '😉' %}
 
+  {% if tags_str contains 'Badge-' %}
     {% for tag in card_product.tags %}
       {% if tag contains 'Badge-' %}
         {% assign custom_tag = tag | split: 'Badge-' | last | split: '😉' %}
         {% assign custom_tags = custom_tags | concat: custom_tag %}
       {% endif %}
     {% endfor %}
+  {% endif %}
 
-    {%- if custom_tags.size > 0 -%}
-      {% for custom_tag in custom_tags %}
-        <span
-          id="Badge-{{ section_id }}-{{ card_product.id }}"
-          class="badge {% if card %}badge--card{% else %}badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}{% endif %}"
-        >
-          {{ custom_tag }}
-        </span>
-      {% endfor %}
-    {% endif %}
+  {%- comment -%}
+    taxonomy.ecomm_exclusive (Airtable's Ecomm Exclusive checkbox) earns the
+    Exclusive badge without a hand-added tag. A Badge-Exclusive or
+    Badge-Exclusive Collab tag already renders its own badge, so skip then.
+  {%- endcomment -%}
+  {%- if card_product.metafields.taxonomy.ecomm_exclusive.value == true -%}
+    {%- unless tags_str contains 'Badge-Exclusive' -%}
+      {% assign custom_tag = 'Exclusive' | split: '😉' %}
+      {% assign custom_tags = custom_tags | concat: custom_tag %}
+    {%- endunless -%}
+  {%- endif -%}
+
+  {%- if custom_tags.size > 0 -%}
+    {% for custom_tag in custom_tags %}
+      <span
+        id="Badge-{{ section_id }}-{{ card_product.id }}"
+        class="badge {% if card %}badge--card{% else %}badge--bottom-left color-{{ settings.coming_soon_badge_color_scheme }}{% endif %}"
+      >
+        {{ custom_tag }}
+      </span>
+    {% endfor %}
   {% endif %}
 
   {% if card_product.available == false and coming_soon == false %}

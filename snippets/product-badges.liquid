@@ -23,23 +23,34 @@
     {{ preview_badge }}
   </span>
 {% endif %}
-{% if tags_str contains 'Badge-' %}
-  {% assign custom_tags = '' | split: '😉' %}
+{% assign custom_tags = '' | split: '😉' %}
 
+{% if tags_str contains 'Badge-' %}
   {% for tag in product.tags %}
     {% if tag contains 'Badge-' %}
       {% assign custom_tag = tag | split: 'Badge-' | last | split: '😉' %}
       {% assign custom_tags = custom_tags | concat: custom_tag %}
     {% endif %}
   {% endfor %}
+{% endif %}
 
-  {%- if custom_tags.size > 0 -%}
-    {% for custom_tag in custom_tags %}
-      <span class="badge price__badge-coming-soon color-{{ settings.coming_soon_badge_color_scheme }}">
-        {{ custom_tag }}
-      </span>
-    {% endfor %}
-  {% endif %}
+{%- comment -%}
+  taxonomy.ecomm_exclusive earns the Exclusive badge without a hand-added tag;
+  a Badge-Exclusive / Badge-Exclusive Collab tag already renders its own.
+{%- endcomment -%}
+{%- if product.metafields.taxonomy.ecomm_exclusive.value == true -%}
+  {%- unless tags_str contains 'Badge-Exclusive' -%}
+    {% assign custom_tag = 'Exclusive' | split: '😉' %}
+    {% assign custom_tags = custom_tags | concat: custom_tag %}
+  {%- endunless -%}
+{%- endif -%}
+
+{%- if custom_tags.size > 0 -%}
+  {% for custom_tag in custom_tags %}
+    <span class="badge price__badge-coming-soon color-{{ settings.coming_soon_badge_color_scheme }}">
+      {{ custom_tag }}
+    </span>
+  {% endfor %}
 {% endif %}
 
 {% if product.available == false and coming_soon == false %}
