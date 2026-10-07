@@ -1,10 +1,15 @@
-<script>
-  if ('{{ customer.email }}' !== '') {
+{%- comment -%}
+  Klaviyo identify for logged-in customers. Rendered only when an email exists, and the
+  value is JSON-encoded so quotes, backslashes or "</script>" in an address cannot break
+  out of the string literal (it was interpolated raw before).
+{%- endcomment -%}
+{%- if customer.email != blank -%}
+  <script>
     klaviyo.push([
       'identify',
       {
-        $email: '{{ customer.email }}',
+        $email: {{ customer.email | json }},
       },
     ]);
-  }
-</script>
+  </script>
+{%- endif -%}

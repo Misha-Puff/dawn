@@ -68,12 +68,15 @@
         {{- 'icon-success.svg' | inline_asset_content -}}
         Thanks! We will notify you when this product becomes available!
       </h2>
-      <div class="form__message">
-        <h2 class="form-status error caption-large text-body" role="alert" tabindex="-1" autofocus>
-          {{- 'icon-error.svg' | inline_asset_content -}}
-          Uh oh! It looks like something went wrong. Please try again later.
-        </h2>
-      </div>
+      {%- comment -%}
+        Same classes as the success heading above so both states share one margin
+        rhythm (.form-status-list: 2rem above, 4rem below). The error used to sit in
+        a bare .form__message wrapper that gave it 1rem above and nothing below.
+      {%- endcomment -%}
+      <h2 class="form-status error form-status-list form__message" role="alert" tabindex="-1">
+        {{- 'icon-error.svg' | inline_asset_content -}}
+        Uh oh! It looks like something went wrong. Please try again later.
+      </h2>
       <div class="form__fields">
         <div class="field">
           <input
@@ -144,7 +147,7 @@
         const email = bisForm.querySelector('#bis-email').value;
         const submitBtn = bisForm.querySelector('#submit-btn');
         const successMessage = bisForm.querySelector('#bis-form .success');
-        const errorMessage = bisForm.querySelector('#bis-form .success');
+        const errorMessage = bisForm.querySelector('#bis-form .error');
         const spinner = submitBtn.querySelector('#bis-form .loading__spinner');
 
         spinner.classList.remove('hidden');
@@ -187,17 +190,19 @@
         submitBtn.classList.add('loading');
 
         fetch('https://a.klaviyo.com/client/back-in-stock-subscriptions?company_id=H9eAyC', requestOptions)
-          .then((data) => {
-            spinner.classList.add('hidden');
-            submitBtn.classList.remove('loading');
-
+          .then((response) => {
+            // fetch only rejects on network failure; Klaviyo signals rejected
+            // subscriptions (bad email, rate limit, 5xx) with a non-2xx status.
+            if (!response.ok) throw new Error(`Klaviyo responded ${response.status}`);
             successMessage.style.display = 'block';
           })
           .catch((error) => {
+            console.error('[bis] subscription failed', error);
+            errorMessage.style.display = 'block';
+          })
+          .finally(() => {
             spinner.classList.add('hidden');
             submitBtn.classList.remove('loading');
-
-            errorMessage.style.display = 'block';
           });
       });
     }
