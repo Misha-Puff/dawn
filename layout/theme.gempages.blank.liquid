@@ -319,7 +319,6 @@
 
     {{ 'swym-popup.css' | asset_url | stylesheet_tag }}
     {% render 'shogun-head' %}
-    {% render 'schemas' %}
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}"><main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
