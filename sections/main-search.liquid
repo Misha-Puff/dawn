@@ -301,6 +301,10 @@
               >
                 {%- assign skip_card_product_styles = false -%}
                 {%- for item in search.results -%}
+                  {%- comment -%} Tag kept off-site but SEO-indexable: hidden from search only. {%- endcomment -%}
+                  {%- if item.object_type == 'product' and item.tags contains 'hidden-on-site' -%}
+                    {%- continue -%}
+                  {%- endif -%}
                   {% assign lazy_load = false %}
                   {%- if forloop.index > 2 -%}
                     {%- assign lazy_load = true -%}

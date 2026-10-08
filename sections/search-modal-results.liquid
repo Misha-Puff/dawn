@@ -18,7 +18,7 @@
     <ul hidden>
       {%- assign option_index = 0 -%}
       {%- for result in search.results -%}
-        {%- if result.object_type != 'product' -%}
+        {%- if result.object_type != 'product' or result.tags contains 'hidden-on-site' -%}
           {%- continue -%}
         {%- endif -%}
         {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: result -%}{%- endcapture -%}
