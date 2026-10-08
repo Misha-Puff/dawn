@@ -301,8 +301,23 @@
               >
                 {%- assign skip_card_product_styles = false -%}
                 {%- for item in search.results -%}
-                  {%- comment -%} Tag kept off-site but SEO-indexable: hidden from search only. {%- endcomment -%}
+                  {%- comment -%}
+                    Skips run before the <li> opens — a continue inside it leaves an
+                    unclosed, empty grid cell. hidden-on-site: kept off search only
+                    (products stay published + SEO-indexable).
+                  {%- endcomment -%}
                   {%- if item.object_type == 'product' and item.tags contains 'hidden-on-site' -%}
+                    {%- continue -%}
+                  {%- endif -%}
+                  {%- capture lock_content -%}
+                    {%- case item.object_type -%}
+                      {%- when 'product' -%}{%- render 'locksmith-v2-lock-product' product: item -%}
+                      {%- when 'article' -%}{%- render 'locksmith-v2-lock-article' article: item -%}
+                      {%- when 'page' -%}{%- render 'locksmith-v2-lock-page' page: item -%}
+                    {%- endcase -%}
+                  {%- endcapture -%}
+                  {%- assign lock_content = lock_content | strip -%}
+                  {%- if lock_content == 'true' -%}
                     {%- continue -%}
                   {%- endif -%}
                   {% assign lazy_load = false %}
@@ -318,11 +333,6 @@
                   >
                     {%- case item.object_type -%}
                       {%- when 'product' -%}
-                        {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: item -%}{%- endcapture -%}
-                        {% assign lock_content = lock_content | strip %}
-                        {% if lock_content == 'true' %}
-                          {% continue %}
-                        {% endif %}
                         {% comment %} {%- capture product_settings -%}{%- if section.settings.product_show_vendor -%}vendor,{%- endif -%}title,price{%- endcapture -%} {% endcomment %}
                         {% render 'card-product',
                           card_product: item,
@@ -342,11 +352,6 @@
                         %}
                         {%- assign skip_card_product_styles = true -%}
                       {%- when 'article' -%}
-                        {%- capture lock_content -%}{%- render 'locksmith-v2-lock-article' article: item -%}{%- endcapture -%}
-                        {% assign lock_content = lock_content | strip %}
-                        {% if lock_content == 'true' %}
-                          {% continue %}
-                        {% endif %}
                         {% render 'article-card',
                           article: item,
                           show_image: true,
@@ -357,11 +362,6 @@
                           lazy_load: lazy_load
                         %}
                       {%- when 'page' -%}
-                        {%- capture lock_content -%}{%- render 'locksmith-v2-lock-page' page: item -%}{%- endcapture -%}
-                        {% assign lock_content = lock_content | strip %}
-                        {% if lock_content == 'true' %}
-                          {% continue %}
-                        {% endif %}
                         <div class="article-card-wrapper card-wrapper underline-links-hover">
                           <div
                             class="card card--card card--text ratio color-{{ settings.blog_card_color_scheme }}"
