@@ -56,13 +56,8 @@
       'CompareAtPrice': product.CompareAtPrice
     }
   }]);
-
-  const atcBtn = document.querySelector('button.product-form__submit');
-
-  if(atcBtn){
-    atcBtn.addEventListener('click', () => {
-      klaviyo.push(['track', 'Added to Cart', product]);
-    });
-  }
+  // "Added to Cart" comes from Klaviyo's Shopify web pixel (metric Wcb7Hj) and
+  // TrackBee; the click-based theme track here (legacy API metric M23rEt) was a
+  // third duplicate of the same event.
   })();
 </script>
