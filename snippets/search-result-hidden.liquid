@@ -1,0 +1,42 @@
+{% comment %}
+  Outputs 'true' when a search result must not render: products tagged
+  hidden-on-site (kept off search only — they stay published + SEO-indexable)
+  and anything Locksmith locks for the current visitor. One rule for every
+  search surface so grids, tab counts and the modal can't drift.
+
+  Accepts:
+  - item: {Object} a search result (product, article or page)
+  - type: {String} optional object type when item isn't from search.results
+    (e.g. predictive_search.resources.products) — defaults to item.object_type
+
+  Usage:
+  {%- capture skip -%}{%- render 'search-result-hidden', item: result -%}{%- endcapture -%}
+{% endcomment %}
+
+{%- liquid
+  assign hidden = false
+  assign type = type | default: item.object_type
+  case type
+    when 'product'
+      if item.tags contains 'hidden-on-site'
+        assign hidden = true
+      else
+        capture lock_content
+          render 'locksmith-v2-lock-product', product: item
+        endcapture
+      endif
+    when 'article'
+      capture lock_content
+        render 'locksmith-v2-lock-article', article: item
+      endcapture
+    when 'page'
+      capture lock_content
+        render 'locksmith-v2-lock-page', page: item
+      endcapture
+  endcase
+  assign lock_content = lock_content | strip
+  if lock_content == 'true'
+    assign hidden = true
+  endif
+  echo hidden
+-%}

@@ -10,25 +10,36 @@
   list. [data-tab-count] doubles as the fetched tier's count probe. Items
   render through the same snippet as sections/predictive-search.liquid so the
   markup (styles + arrow-key nav selectors) can't drift.
+
+  Paginates by 24 (not 10) so [data-tab-count] follows the same one-page rule
+  as sections/search-tab-counts — the JS caches this count under the probe's
+  URL — and so skipped results backfill instead of shortening the 10-item list.
 {%- endcomment -%}
 
 {%- if search.performed -%}
-  <span data-tab-count hidden>{{ search.results_count }}</span>
-  {%- paginate search.results by 10 -%}
-    <ul hidden>
+  {%- paginate search.results by 24 -%}
+    {%- assign visible_count = search.results_count -%}
+    {%- capture options_html -%}
       {%- assign option_index = 0 -%}
       {%- for result in search.results -%}
-        {%- if result.object_type != 'product' or result.tags contains 'hidden-on-site' -%}
+        {%- capture skip -%}{%- render 'search-result-hidden', item: result -%}{%- endcapture -%}
+        {%- assign skip = skip | strip -%}
+        {%- if skip == 'true' -%}
+          {%- if paginate.pages <= 1 -%}
+            {%- assign visible_count = visible_count | minus: 1 -%}
+          {%- endif -%}
           {%- continue -%}
         {%- endif -%}
-        {%- capture lock_content -%}{%- render 'locksmith-v2-lock-product' product: result -%}{%- endcapture -%}
-        {%- assign lock_content = lock_content | strip -%}
-        {%- if lock_content == 'true' -%}
+        {%- if result.object_type != 'product' or option_index >= 10 -%}
           {%- continue -%}
         {%- endif -%}
         {%- assign option_index = option_index | plus: 1 -%}
         {% render 'predictive-search-product-item', product: result, index: option_index %}
       {%- endfor -%}
+    {%- endcapture -%}
+    <span data-tab-count hidden>{{ visible_count }}</span>
+    <ul hidden>
+      {{- options_html -}}
     </ul>
   {%- endpaginate -%}
 {%- endif -%}

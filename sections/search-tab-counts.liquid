@@ -6,10 +6,30 @@
   assets/search-tabs.js requests it on the search route:
     {{ routes.search_url }}?q=<term>&options[prefix]=last
       [&filter.p.m.taxonomy.division=<value>]&section_id=search-tab-counts
-  and reads [data-tab-count] (~1KB per probe).
+  and reads [data-tab-count] (~1KB per probe). The count drops results the
+  grid skips (snippets/search-result-hidden) when they all fit on one 24-item
+  page — the same rule as main-search's visible_count, so tab and header agree.
 {%- endcomment -%}
 
-{%- if search.performed -%}<span data-tab-count hidden>{{ search.results_count }}</span>{%- endif -%}
+{%- if search.performed -%}
+  {%- paginate search.results by 24 -%}
+    {%- liquid
+      assign visible_count = search.results_count
+      if paginate.pages <= 1
+        for result in search.results
+          capture skip
+            render 'search-result-hidden', item: result
+          endcapture
+          assign skip = skip | strip
+          if skip == 'true'
+            assign visible_count = visible_count | minus: 1
+          endif
+        endfor
+      endif
+    -%}
+    <span data-tab-count hidden>{{ visible_count }}</span>
+  {%- endpaginate -%}
+{%- endif -%}
 
 {% schema %}
 {

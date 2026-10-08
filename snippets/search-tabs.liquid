@@ -12,6 +12,7 @@
   - all_label: {String} label for the All tab
   - values: {String} comma-separated Line values; EVERY tab hides at 0 results (Nathan's 2026-07-16 ruling — no always-shown tier)
   - show_counts: {Boolean} paint result counts on tabs
+  - visible_count: {Number} results context — active view's count net of skipped results (falls back to results.results_count)
 
   Usage:
   {% render 'search-tabs', context: 'results', results: search, all_label: section.settings.search_tabs_all_label, values: section.settings.search_tabs_values, show_counts: section.settings.search_tabs_show_counts %}
@@ -138,7 +139,7 @@
         <a class="search-tabs__tab" data-tab-value="" href="{{ all_href }}"{% if active_value == '' %} aria-current="page"{% endif %}>
           {{- all_label -}}
           {%- if show_counts -%}
-            {%- if active_value == '' %} <span class="search-tabs__count">({{ results.results_count }})</span>
+            {%- if active_value == '' %} <span class="search-tabs__count">({{ visible_count | default: results.results_count }})</span>
             {%- else %} <span class="search-tabs__count" data-all-count-pending></span>
             {%- endif -%}
           {%- endif -%}
@@ -174,7 +175,7 @@
           <a class="search-tabs__tab" data-tab-value="{{ tab_value | escape }}" href="{{ tier_href_base }}{{ tab_value | url_encode }}"{% if is_active %} aria-current="page"{% endif %}{% unless tab_count > 0 or is_active %} hidden{% endunless %}>
             {{- tab_label -}}
             {%- if show_counts -%}
-              {%- if is_active %} <span class="search-tabs__count">({{ results.results_count }})</span>
+              {%- if is_active %} <span class="search-tabs__count">({{ visible_count | default: results.results_count }})</span>
               {%- else %} <span class="search-tabs__count" data-count></span>
               {%- endif -%}
             {%- endif -%}

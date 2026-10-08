@@ -92,7 +92,31 @@
 {%- endstyle -%}
 
 {% paginate search.results by 24 %}
-  <div class="template-search{% unless search.performed and search.results_count > 0 %} template-search--empty{% endunless %} section-{{ section.id }}-padding">
+  {%- liquid
+    # One skip decision per result (snippets/search-result-hidden), reused by
+    # the grid loop below. Shopify's totals still count skipped results, so
+    # visible_count subtracts them — but only when every result is on this
+    # page; a multi-page total can't be corrected from one page.
+    assign skip_flags = ''
+    assign skipped_count = 0
+    for item in search.results
+      capture skip
+        render 'search-result-hidden', item: item
+      endcapture
+      assign skip = skip | strip
+      if skip == 'true'
+        assign skip_flags = skip_flags | append: '1'
+        assign skipped_count = skipped_count | plus: 1
+      else
+        assign skip_flags = skip_flags | append: '0'
+      endif
+    endfor
+    assign visible_count = search.results_count
+    if paginate.pages <= 1
+      assign visible_count = visible_count | minus: skipped_count
+    endif
+  -%}
+  <div class="template-search{% unless search.performed and visible_count > 0 %} template-search--empty{% endunless %} section-{{ section.id }}-padding">
     <div class="template-search__header page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       <h1 class="h2 center">
         {%- if search.performed -%}
@@ -163,13 +187,13 @@
       </div>
       {%- if search.performed -%}
         {%- unless section.settings.enable_filtering or section.settings.enable_sorting -%}
-          {%- if search.results_count > 0 -%}
+          {%- if visible_count > 0 -%}
             <p role="status">
-              {{ 'templates.search.results_with_count_and_term' | t: terms: search.terms, count: search.results_count }}
+              {{ 'templates.search.results_with_count_and_term' | t: terms: search.terms, count: visible_count }}
             </p>
           {%- endif -%}
         {%- endunless -%}
-        {%- if search.results_count == 0 and search.filters == empty -%}
+        {%- if visible_count == 0 and search.filters == empty -%}
           <p class="center" role="status">{{ 'templates.search.no_results' | t: terms: search.terms }}</p>
         {%- endif -%}
       {%- endif -%}
@@ -216,11 +240,11 @@
               <h2 class="product-count__text text-body">
                 <span
                   id="ProductCountDesktop"
-                  data-product-count="{{ search.products_count | default: search.results_count }}"
-                  data-total-count="{{ search.all_products_count | default: search.products_count | default: search.results_count }}"
+                  data-product-count="{{ search.products_count | default: visible_count }}"
+                  data-total-count="{{ search.all_products_count | default: search.products_count | default: visible_count }}"
                 >
                   {%- if search.results_count -%}
-                    {{ 'templates.search.results_with_count' | t: terms: search.terms, count: search.results_count }}
+                    {{ 'templates.search.results_with_count' | t: terms: search.terms, count: visible_count }}
                   {%- elsif search.products_count == search.all_products_count -%}
                     {{ 'products.facets.product_count_simple' | t: count: search.products_count }}
                   {%- else -%}
@@ -255,7 +279,8 @@
                 enable_sorting: section.settings.enable_sorting,
                 filter_type: section.settings.filter_type,
                 paginate: paginate,
-                hide_division_facet: section.settings.enable_search_tabs
+                hide_division_facet: section.settings.enable_search_tabs,
+                visible_count: visible_count
               %}
             </aside>
           {%- endif -%}
@@ -267,7 +292,8 @@
               results: search,
               all_label: section.settings.search_tabs_all_label,
               values: section.settings.search_tabs_values,
-              show_counts: section.settings.search_tabs_show_counts
+              show_counts: section.settings.search_tabs_show_counts,
+              visible_count: visible_count
             -%}
           {%- endif -%}
           {%- if search.results.size == 0 and search.filters != empty -%}
@@ -301,23 +327,9 @@
               >
                 {%- assign skip_card_product_styles = false -%}
                 {%- for item in search.results -%}
-                  {%- comment -%}
-                    Skips run before the <li> opens — a continue inside it leaves an
-                    unclosed, empty grid cell. hidden-on-site: kept off search only
-                    (products stay published + SEO-indexable).
-                  {%- endcomment -%}
-                  {%- if item.object_type == 'product' and item.tags contains 'hidden-on-site' -%}
-                    {%- continue -%}
-                  {%- endif -%}
-                  {%- capture lock_content -%}
-                    {%- case item.object_type -%}
-                      {%- when 'product' -%}{%- render 'locksmith-v2-lock-product' product: item -%}
-                      {%- when 'article' -%}{%- render 'locksmith-v2-lock-article' article: item -%}
-                      {%- when 'page' -%}{%- render 'locksmith-v2-lock-page' page: item -%}
-                    {%- endcase -%}
-                  {%- endcapture -%}
-                  {%- assign lock_content = lock_content | strip -%}
-                  {%- if lock_content == 'true' -%}
+                  {%- comment -%} Skip before the <li> opens — a continue inside it leaves an unclosed, empty grid cell. {%- endcomment -%}
+                  {%- assign skip_flag = skip_flags | slice: forloop.index0 -%}
+                  {%- if skip_flag == '1' -%}
                     {%- continue -%}
                   {%- endif -%}
                   {% assign lazy_load = false %}

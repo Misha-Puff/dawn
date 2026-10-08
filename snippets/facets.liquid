@@ -7,6 +7,7 @@
   - enable_sorting: {Boolean} Show sorting when true
   - filter_type: {String} Type of filter
   - paginate: {Object}
+  - visible_count: {Number} Search only — result count net of results the grid skips (falls back to results.results_count)
   - hide_division_facet: {Boolean} Hide the "Line" (taxonomy.division) group + pills — the search-tabs bar is the control. Its active values are kept as hidden js-filter carriers so form serialization preserves them.
 
   Usage:
@@ -22,6 +23,7 @@
   assign total_active_values = 0
   assign default_presentation = 'text'
   assign division_param = 'filter.p.m.taxonomy.division'
+  assign results_count = visible_count | default: results.results_count
   if results.url
     assign results_url = results.url
   else
@@ -444,7 +446,7 @@
               <h2 class="product-count__text text-body">
                 <span id="ProductCountDesktop">
                   {%- if results.results_count -%}
-                    {{ 'templates.search.results_with_count' | t: terms: results.terms, count: results.results_count }}
+                    {{ 'templates.search.results_with_count' | t: terms: results.terms, count: results_count }}
                   {%- elsif results.products_count == results.all_products_count -%}
                     {{ 'products.facets.product_count_simple' | t: count: results.products_count }}
                   {%- else -%}
@@ -609,11 +611,11 @@
                 </h2>
                 <p
                   class="mobile-facets__count"
-                  data-product-count="{{ results.products_count | default: results.results_count }}"
-                  data-total-count="{{ results.all_products_count | default: results.products_count | default: results.results_count }}"
+                  data-product-count="{{ results.products_count | default: results_count }}"
+                  data-total-count="{{ results.all_products_count | default: results.products_count | default: results_count }}"
                 >
                   {%- if results.results_count -%}
-                    {{ 'templates.search.results_with_count' | t: terms: results.terms, count: results.results_count }}
+                    {{ 'templates.search.results_with_count' | t: terms: results.terms, count: results_count }}
                   {%- elsif results.products_count == results.all_products_count -%}
                     {{ 'products.facets.product_count_simple' | t: count: results.products_count }}
                   {%- else -%}
@@ -920,7 +922,7 @@
       <h2 class="product-count__text text-body">
         <span id="ProductCount">
           {%- if results.results_count -%}
-            {{ 'templates.search.results_with_count' | t: terms: results.terms, count: results.results_count }}
+            {{ 'templates.search.results_with_count' | t: terms: results.terms, count: results_count }}
           {%- elsif results.products_count == results.all_products_count -%}
             {{ 'products.facets.product_count_simple' | t: count: results.products_count }}
           {%- else -%}
