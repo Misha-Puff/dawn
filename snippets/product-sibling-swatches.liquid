@@ -47,19 +47,7 @@
         {%- endcapture -%}
 
         <a href="{{ sibling.url }}">
-          {%
-            render 'swatch-input',
-            id: input_id,
-            name: input_name,
-            value: value | escape,
-            swatch: value.swatch,
-            product_form_id: product_form_id,
-            checked: false,
-            visually_disabled: false,
-            shape: 'square',
-            help_text: help_text,
-            additional_props: input_dataset
-          %}
+          {% render 'swatch-input', id: input_id, name: input_name, value: value, swatch: value.swatch, product_form_id: product_form_id, checked: false, visually_disabled: false, shape: 'square', help_text: help_text, additional_props: input_dataset %}
         </a>
       {%- endfor -%}
 
@@ -69,3 +57,29 @@
     </fieldset>
   </variant-selects>
 {% endunless %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%
+                render 'swatch-input',
+                id: input_id,
+                name: input_name,
+                value: value | escape,
+                swatch: value.swatch,
+                product_form_id: product_form_id,
+                checked: false,
+                visually_disabled: false,
+                shape: 'square',
+                help_text: help_text,
+                additional_props: input_dataset
+              %}
+  to: "{% render 'swatch-input', id: input_id, name: input_name, value: value, swatch:
+    value.swatch, product_form_id: product_form_id, checked: false, visually_disabled:
+    false, shape: 'square', help_text: help_text, additional_props: input_dataset
+    %}"
+  position: 1406..1649
+{% endcomment %}
