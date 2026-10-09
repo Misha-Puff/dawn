@@ -389,8 +389,8 @@ This file can be re-written at any time.
         {% endif %}
       };
     </script>
-<script src="{{%20'predictive-search.js'%20|%20asset_url%20}}" defer></script>
-<script src="{{%20'cart-drawer.js'%20|%20asset_url%20}}" defer></script>
+<script src="{{ renamed_variable_20.predictive-search.js['20'] }}" defer></script>
+<script src="{{ renamed_variable_20.cart-drawer.js['20'] }}" defer></script>
 <script defer id="gorgias-chat-widget-install-v3" src="https://config.gorgias.chat/bundle-loader/01GYCC2HKEFNC8EAS95H0C1H6V"></script>
     <style type="text/css">
       body, html {
@@ -401,3 +401,16 @@ This file can be re-written at any time.
     
   </body>
 </html>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{{%20'predictive-search.js'%20|%20asset_url%20}}"
+  to: "{{ renamed_variable_20.predictive-search.js['20'] }}"
+  position: 22415..22467
+- from: "{{%20'cart-drawer.js'%20|%20asset_url%20}}"
+  to: "{{ renamed_variable_20.cart-drawer.js['20'] }}"
+  position: 22498..22544
+{% endcomment %}
